@@ -40,19 +40,19 @@
 				</div>
 				<div id="index_focus">
 					<div class="tourisme index_rubrique">
-						<img class="focus_img" src="img/tourisme.jpg" alt="tourisme">
+						<img class="index_rubrique_img" src="img/tourisme.jpg" alt="tourisme">
 						<p>Tourisme</p>
 					</div>
 					<div class="travail index_rubrique">
-						<img class="focus_img" src="img/tourisme.jpg" alt="travail">
+						<img class="index_rubrique_img" src="img/tourisme.jpg" alt="travail">
 						<p>Travail</p>
 					</div>
 					<div class="ecologie index_rubrique">
-						<img class="focus_img" src="img/tourisme.jpg" alt="ecologie">
+						<img class="index_rubrique_img" src="img/tourisme.jpg" alt="ecologie">
 						<p>Ecologie</p>
 					</div>
 					<div class="accessibilite index_rubrique">
-						<img class="focus_img" src="img/tourisme.jpg" alt="tourisme">
+						<img class="index_rubrique_img" src="img/tourisme.jpg" alt="tourisme">
 						<p>Accessibilité</p>
 					</div>
 				</div>
