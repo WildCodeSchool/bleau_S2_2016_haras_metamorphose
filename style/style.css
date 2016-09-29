@@ -1,119 +1,109 @@
-body,html{
-  margin:0;
-  font-family:sans-serif;
-  overflow:hidden;
+/*** Compilez ce fichier via la commande sass main_style.scss style.css  ***/
+/* Variables */
+/*** Ajoutez ici vos fichiers ("@import ma_page" importe _ma_page.scss) ***/
+body, html {
+  margin: 0;
+  font-family: sans-serif;
+  overflow: hidden;
 }
 
- video{
-	position:fixed;
-	min-width: 100%;
-	min-height: 100%;
-	z-index: -100;
+video {
+  position: fixed;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -100; }
+
+#logo {
+  margin: 10px; }
+
+.accroche {
+  position: absolute;
+  top: 35%;
+  width: 100%;
+  text-align: center;
+  color: white;
+  text-shadow: 3px 3px rgba(0, 0, 0, 0.7); }
+
+#focus {
+  position: absolute;
+  width: 100%;
+  top: 60%;
+  text-align: center; }
+
+.focus_img {
+  width: 150px;
+  margin-top: 10px; }
+
+.show {
+  position: relative;
+  display: inline-block;
+  border-radius: 10px;
+  width: 200px;
+  height: 190px;
+  margin: 5px;
+  overflow: hidden;
+  transition: all 1s ease;
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  -ms-transition: all 1s ease; }
+
+.show p {
+  margin: 0;
+  font-size: 18px; }
+
+.tourisme {
+  background-color: rgba(7, 64, 10, 0.6); }
+
+.travail {
+  background-color: rgba(140, 104, 34, 0.6); }
+
+.ecologie {
+  background-color: rgba(39, 34, 140, 0.6); }
+
+.accessibilite {
+  background-color: rgba(183, 21, 134, 0.6); }
+
+.show:hover {
+  height: 300px;
+  width: 300px;
+  margin-top: -250px;
+  box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.7); }
+
+.tourisme:hover {
+  background-color: #07400a; }
+
+.travail:hover {
+  background-color: #8c6822; }
+
+.ecologie:hover {
+  background-color: #27228c; }
+
+.accessibilite:hover {
+  background-color: #b71586; }
+
+footer {
+  position: absolute;
+  left: 0;
+  bottom: -120px;
+  height: 150px;
+  width: 100%;
+  background-color: rgba(0, 120, 122, 0.6);
+  transition: all 1s; }
+
+footer:hover {
+  bottom: 0;
+  background-color: #00787a;
+  transition: all 1s;
+  -webkit-transition: all 1s;
+  -moz-transition: all 1s;
+  -o-transition: all 1s;
+  -ms-transition: all 1s;
 }
 
-#logo{
-	margin:10px;
-}
+#skeleton .article {
+  border: 20px solid black;
+  background-color: fuchsia;
+  border-radius: 15px; }
 
-#menu{
-}
-
-.accroche{
-	position:absolute;
-	top:35%;
-	width:100%;
-	text-align:center;
-	color:white;
-	text-shadow: 3px 3px rgba(0, 0, 0, 0.7);
-}
-
-#focus{
-	position:absolute;
-	width:100%;
-	top:60%;
-	text-align:center;
-}
-
-.focus_img{
-	width:150px;
-	margin-top:10px;
-}
-
-.show{
-	position:relative;
-	display:inline-block;
-	border-radius:10px;
-	width:200px;
-	height:190px;
-	margin:5px;
-	overflow:hidden;
-	transition: all 1s ease;
-	-webkit-transition: all 1s ease;
-    -moz-transition: all 1s ease;
-    -o-transition: all 1s ease;
-    -ms-transition: all 1s ease;
-}
-
-.show p{
-	margin:0;
-	font-size:18px;
-}
-
-.tourisme{
-	background-color: rgba(7,64,10,0.6);
-}
-
-.travail{
-	background-color: rgba(140, 104, 34, 0.6);
-}
-
-.ecologie{
-	background-color: rgba(39, 34, 140, 0.6);
-}
-
-.accessibilite{
-	background-color: rgba(183, 21, 134, 0.6);
-}
-
-.show:hover{
-	height:300px;
-    width:300px;
-    margin-top:-250px;
-    box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.7);
- }
-
-.tourisme:hover{
- 	background-color: rgba(7,64,10,1);
- }
-
-.travail:hover{
-	background-color: rgba(140, 104, 34, 1);
-}
-
-.ecologie:hover{
-	background-color: rgba(39, 34, 140, 1);
-}
-
-.accessibilite:hover{
-	background-color: rgba(183, 21, 134, 1);
-}
-
-footer{
-	position:absolute;
-	left:0;
-	bottom:-120px;
-	height:150px;
-	width:100%;
-	background-color:rgba(0, 120, 122, 0.6);
-	transition:all 1s;
-}
-
- footer:hover{
- 	bottom:0;
- 	background-color:rgba(0, 120, 122, 1);
- 	transition: all 1s;
-	 -webkit-transition: all 1s;
-    -moz-transition: all 1s;
-    -o-transition: all 1s;
-    -ms-transition: all 1s;
- }
+/*# sourceMappingURL=style.css.map */
