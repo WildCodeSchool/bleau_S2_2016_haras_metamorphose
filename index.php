@@ -6,7 +6,7 @@
 
 	<?php
 		$browser = get_browser(null, true);
-		if($browser['majorver'] > 49)
+		if($browser['majorver'] < 46)
 			echo '<link rel="stylesheet" type="text/css" href="style/style.css">';
 		else
 			echo '<link rel="stylesheet" type="text/css" href="style/style_mobile_and_old_version.css">';
@@ -40,19 +40,19 @@
 				</div>
 				<div id="index_focus">
 					<div class="tourisme index_rubrique">
-						<img class="index_rubrique_img" src="img/tourisme.jpg" alt="tourisme">
+						<img class="index_rubrique_img" src="img/logo.png" alt="tourisme">
 						<p>Tourisme</p>
 					</div>
 					<div class="travail index_rubrique">
-						<img class="index_rubrique_img" src="img/tourisme.jpg" alt="travail">
+						<img class="index_rubrique_img" src="img/logo.png" alt="travail">
 						<p>Travail</p>
 					</div>
 					<div class="ecologie index_rubrique">
-						<img class="index_rubrique_img" src="img/tourisme.jpg" alt="ecologie">
+						<img class="index_rubrique_img" src="img/logo.png" alt="ecologie">
 						<p>Ecologie</p>
 					</div>
 					<div class="accessibilite index_rubrique">
-						<img class="index_rubrique_img" src="img/tourisme.jpg" alt="tourisme">
+						<img class="index_rubrique_img" src="img/logo.png" alt="tourisme">
 						<p>Accessibilité</p>
 					</div>
 				</div>
