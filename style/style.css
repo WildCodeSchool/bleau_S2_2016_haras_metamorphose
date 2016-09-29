@@ -57,6 +57,8 @@ body,html{
 .show p{
 	margin:0;
 	font-size:18px;
+	color: white;
+
 }
 
 .tourisme{
@@ -98,17 +100,23 @@ body,html{
 	background-color: rgba(183, 21, 134, 1);
 }
 
+/*-------- FOOTER ------------------------------------- */
+
+/* Div principale 
 footer{
 	position:absolute;
 	left:0;
-	bottom:-120px;
-	height:150px;
+	bottom:-150px;
+	height:200px;
 	width:100%;
 	background-color:rgba(0, 120, 122, 0.6);
 	transition:all 1s;
+	display: inline;
+	float: top;
+	text-align: center;
 }
 
- footer:hover{
+footer:hover{
  	bottom:0;
  	background-color:rgba(0, 120, 122, 1);
  	transition: all 1s;
@@ -116,4 +124,175 @@ footer{
     -moz-transition: all 1s;
     -o-transition: all 1s;
     -ms-transition: all 1s;
+ } */
+
+ footer{
+    position:relative;
+    margin-top:-80px;
+    height:80px;
+    background-color:rgba(0, 120, 122, 0.6);
+    -webkit-transition: all 1s;
+    -moz-transition: all 1s;
+    -o-transition: all 1s;
+    -ms-transition: all 1s;
+    transition:all 1s;
+    text-align: center;
+}
+
+footer, p{
+	font-size: 16px;
+}
+ 
+ footer:hover{
+     height:200px;
+     margin-top:-200px;
+     background-color:rgba(0, 120, 122, 1);
+
  }
+
+footer:hover, p{
+	font-size: 12px;
+}
+
+/* Colonnes footer */
+
+.footer .footer-left,
+.footer .footer-center,
+.footer .footer-rigth {
+	display: inline-block;
+	color: white;
+	vertical-align: top;
+	text-align: left;
+	
+}
+
+#telephone {
+	font-weight: bold;
+	margin-top: 20px;
+}
+.footer .footer-left{
+	width: 30%;
+	/*font-size: 12px;*/
+}
+
+.footer .footer-center {
+	width: 30%;
+ }
+
+ .footer .footer-right {
+	width: 30%;
+	text-align: left;
+ }
+
+ .footer a{
+ 	color: white;
+ }
+
+/* Footer partie basse -> Copyright */
+
+#footer-bottom {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	padding: 0.5rem;
+	background-color: rgb(0, 63, 64);
+	text-align: left;
+
+ }
+
+ #copyright {
+ 	padding-left: 5%;
+ }
+
+#footer-bottom a:link, a:visited {
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+}
+
+#footer-bottom a:hover, a:active {
+    color: white;
+    text-decoration: underline;
+}
+
+#mentions {
+	padding-left: 2%;
+}
+
+/*  Footer button*/
+
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.button1 {
+    background-color: #4CAF50; 
+    color: white; 
+    border: 2px solid #4CAF50;
+    padding-bottom: 10px;
+}
+
+.button1:hover {
+    background-color: white;
+    color: #4CAF50;
+}
+
+/* form input*/
+
+.footer-rigth form input,
+.footer-rigth form textarea{
+	display: block;
+	border-radius: 3px;
+	box-sizing: border-box;
+	background-color:  white;
+	box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.1);
+	border: none;
+	resize: none;
+
+	font: inherit;
+	font-size: 14px;
+	font-weight: normal;
+	color:  #d1d2d2;
+
+	width: 400px;
+	padding: 18px;
+}
+
+.footer-rigth ::-webkit-input-placeholder {
+	color:  #5c666b;
+}
+
+.footer-rigth ::-moz-placeholder {
+	color:  #5c666b;
+	opacity: 1;
+}
+
+.footer-rigth :-ms-input-placeholder{
+	color:  #5c666b;
+}
+
+
+.footer-rigth form input{
+	height: 55px;
+	margin-bottom: 15px;
+	width: 181px;
+}
+
+.footer-rigth form textarea{
+	height: 100px;
+	margin-bottom: 20px;
+}
