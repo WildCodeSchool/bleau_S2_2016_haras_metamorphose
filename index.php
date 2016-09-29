@@ -10,15 +10,18 @@
 			  crossorigin="anonymous"></script>
 </head>
 <body>
-	
+	<header>
+		<?php
+			include('navbar.html');
+		?>
+	</header>
+
 	<video autoplay loop muted>
 	    <source src="video/video.mp4" type='video/mp4'>
 	    Video not supported.
 	</video>
 	
-	<div id="menu">
-		<img id="logo" src="img/logo.png" alt="logo">
-	</div>
+
 	<div class="accroche">
 		<h1>Prenez le temps de vivre...<h1>
 	</div>
@@ -43,7 +46,9 @@
 
 	<footer></footer>
 
-	<script src="script.js"></script>
 
+<!-- Initialisation jQuery -->
+<script type="text/javascript" src="script/jquery-3.1.1.js"></script>
+<script type="text/javascript" src="script/script.js"></script>
 </body>
 </html>

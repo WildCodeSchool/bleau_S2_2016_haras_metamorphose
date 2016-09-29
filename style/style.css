@@ -4,7 +4,7 @@ body,html{
   overflow:hidden;
 }
 
- video{
+video{
 	position:fixed;
 	min-width: 100%;
 	min-height: 100%;
@@ -13,11 +13,14 @@ body,html{
 
 #logo{
 	margin:10px;
+	width:100px;
+	height:100px;
 }
 
 #menu{
 }
 
+/*Texte d'accroche */
 .accroche{
 	position:absolute;
 	top:35%;
@@ -27,6 +30,7 @@ body,html{
 	text-shadow: 3px 3px rgba(0, 0, 0, 0.7);
 }
 
+/*Ensemble des icônes */
 #focus{
 	position:absolute;
 	width:100%;
@@ -39,6 +43,7 @@ body,html{
 	margin-top:10px;
 }
 
+/*Pour chacun des icônes */
 .show{
 	position:relative;
 	display:inline-block;
@@ -59,44 +64,48 @@ body,html{
 	font-size:18px;
 }
 
-.tourisme{
+.show.tourisme{
 	background-color: rgba(7,64,10,0.6);
 }
 
-.travail{
+.show.travail{
 	background-color: rgba(140, 104, 34, 0.6);
 }
 
-.ecologie{
+.show.ecologie{
 	background-color: rgba(39, 34, 140, 0.6);
 }
 
-.accessibilite{
+.show.accessibilite{
 	background-color: rgba(183, 21, 134, 0.6);
 }
 
-.show:hover{
+.show.hover{
 	height:300px;
     width:300px;
     margin-top:-250px;
     box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.7);
  }
 
-.tourisme:hover{
+.tourisme.hover{
  	background-color: rgba(7,64,10,1);
  }
 
-.travail:hover{
+.travail.hover{
 	background-color: rgba(140, 104, 34, 1);
 }
 
-.ecologie:hover{
+.ecologie.hover{
 	background-color: rgba(39, 34, 140, 1);
 }
 
-.accessibilite:hover{
+.accessibilite.hover{
 	background-color: rgba(183, 21, 134, 1);
 }
+
+.nav.hover{
+ 	color: white !important;
+ }
 
 footer{
 	position:absolute;
@@ -117,3 +126,43 @@ footer{
     -o-transition: all 1s;
     -ms-transition: all 1s;
  }
+
+/*HEADER*/
+
+header {
+	position:absolute;
+	width:100%;
+	background-color:rgba(0, 120, 122, 0.6);
+}
+
+#menu ul {
+	float:right;
+	padding-top:30px;
+	padding-right:10px;
+}
+
+#menu li {
+    display: inline;
+}
+
+#menu a {
+    padding: 15px;
+    color:white;
+    text-decoration: none;
+}
+
+#langues ul {
+	float:right;
+	margin-top:-40px;
+	padding-right:10px;
+}
+
+#langues li {
+    display: inline;
+}
+
+#langues a {
+    padding: 15px;
+    color:white;
+    text-decoration: none;
+}
