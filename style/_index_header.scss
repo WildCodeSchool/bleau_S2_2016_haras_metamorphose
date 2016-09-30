@@ -1,0 +1,76 @@
+/*//////////////////////////////////////////////
+/////////////// _index_header.scss /////////////
+//////////////////////////////////////////////*/
+
+#_index_header {
+	header {
+		position: absolute;
+		width: 100%;
+		background-color: rgba(0, 120, 122, 0.6);
+	}
+	li {
+		display: inline;
+		float: left;
+	}
+
+	a {
+		display: block;
+		padding: 8px;
+		background-color: #dddddd;
+	}
+
+	ul {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		overflow: hidden;
+		background-color: #333;
+		position: fixed;
+		top: 0;
+		width: 100%;
+	}
+
+	li a {
+		display: block;
+		color: white;
+		text-align: center;
+		padding: 14px 16px;
+		text-decoration: none;
+	}
+
+	li a:hover {
+		background-color: #111;
+	}
+
+	#menu ul {
+		float: right;
+		padding-top: 30px;
+		padding-right: 10px;
+	}
+
+	#menu li {
+		display: inline;
+	}
+
+	#menu a {
+		padding: 15px;
+		color: white;
+		text-decoration: none;
+	}
+
+	#langues ul {
+		float: right;
+		margin-top: -40px;
+		padding-right: 10px;
+	}
+
+	#langues li {
+		display: inline;
+	}
+
+	#langues a {
+		padding: 15px;
+		color: white;
+		text-decoration: none;
+	}
+}

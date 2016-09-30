@@ -3,8 +3,7 @@
 /* Variables */
 $color-forest: #00FF00; // Ceci est un exemple ^^
 
-
-
 /*** Ajoutez ici vos fichiers ("@import ma_page" importe _ma_page.scss) ***/
-@import 'homepage';
+@import 'index';
+@import 'index_footer';
 @import 'skeleton';
