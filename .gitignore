@@ -1,0 +1,5 @@
+*.sass-cache
+*.scss.map
+style/style.css
+.idea
+.nbproject
