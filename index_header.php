@@ -14,12 +14,12 @@
             </li>
             <li>
                 <a class="nav travail" href="#">
-                    Le cheval
+                    Co-working
                 </a>
             </li>
             <li>
                 <a class="nav ecologie" href="#">
-                    Coworking
+                    Un public recyclable
                 </a>
             </li>
             <li>

@@ -1,6 +1,6 @@
 <?php $GLOBALS['lang'] = 'fr';      // On affecte temporairement la variable globale 'lang' à fr (futurement importée de la bdd)
 
-/*  Liste des variables php à définir avant d'inclure skeleton.php :
+/*  Liste des variables php à définir avant d'inclure template.php :
   $page_title : le nom de la page invoquée
   $category :   la catégorie de votre page ('.
 */
@@ -61,7 +61,7 @@ echo '<html lang='.$GLOBALS["lang"].'>'     // On écrit <html lang=[valeur de l
         ];
         /*$raw_articles = [];  // Récupère les données articles associées à la table dans la base de donnée
         while($article = $raw_articles->fetch())*/
-        echo '<div id="skeleton">';
+        echo '<div id="template">';
         foreach($articles as $article)
         {
             // $article
@@ -74,7 +74,7 @@ echo '<html lang='.$GLOBALS["lang"].'>'     // On écrit <html lang=[valeur de l
                 .'</section>';  // Ferme la section 'article-$article['id']'
         }
 
-    echo '</div>';     // Ferme la div '#skeleton'
+    echo '</div>';     // Ferme la div '#template'
     ?>
 
     <!--  Éléments entre les articles et le footer (HTML zone!)  -->

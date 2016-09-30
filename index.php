@@ -24,10 +24,9 @@
 		</video>
 
 		<?php include "index_header.php";?>
-
-		<div id="menu">
-			<img id="logo" src="img/logo.png" alt="logo">
-		</div>
+<!--		<div id="menu">-->
+<!--			<img id="logo" src="img/logo.png" alt="logo">-->
+<!--		</div>-->
 		<div id="index_corps">
 			<aside id="index_social">
 				<img class="icone-social" src="img/facebook.svg" alt="facebook">

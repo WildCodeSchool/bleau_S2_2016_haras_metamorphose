@@ -2,6 +2,14 @@
 ////////////////// _index.scss /////////////////
 //////////////////////////////////////////////*/
 
+@mixin transition($params) {
+	-webkit-transition: $params;
+	-moz-transition: $params;
+	-o-transition: $params;
+	-ms-transition: $params;
+	transition: $params;
+}
+
 #_index {
 	// Les attributs de body et html ont été redirigés vers '#_homepage"
 	height: 100%;
@@ -24,12 +32,12 @@
 	///////////////////////
 	// Mise en page menu //
 	///////////////////////
-
+/*
 	#menu {
 		display: table-row;
 		height: 100px;
 	}
-
+*/
 	#logo {
 		margin: 5px 0px 0px 5px;
 		width: 80px;
@@ -56,11 +64,7 @@
 
 	.icone-social {
 		width: 50px;
-		-webkit-transition: all 0.6s;
-		-moz-transition: all 0.6s;
-		-o-transition: all 0.6s;
-		-ms-transition: all 0.6s;
-		transition: all 0.6s;
+		@include transition(all 0.6s);
 	}
 
 	.icone-social:hover {
@@ -94,11 +98,8 @@
 		height: 190px;
 		margin: 5px;
 		overflow: hidden;
-		-webkit-transition: all 1s ease;
-		-moz-transition: all 1s ease;
-		-o-transition: all 1s ease;
-		-ms-transition: all 1s ease;
-		transition: all 1s ease;
+
+		@include transition(all 1s ease);
 	}
 
 	.index_rubrique_img {
