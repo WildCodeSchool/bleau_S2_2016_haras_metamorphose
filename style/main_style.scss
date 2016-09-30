@@ -1,9 +1,14 @@
-/*** Compilez ce fichier via la commande sass main_style.scss style.css  ***/
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////// Compilez ce fichier via la commande sass main_style.scss style.css  /////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-/* Variables */
-$color-forest: #00FF00; // Ceci est un exemple ^^
+//// Variables ////
+$tourisme-color: rgba(7, 64, 10, 0.6);
+$travail-color: rgba(140, 104, 34, 0.6);
+$ecologie-color: rgba(39, 34, 140, 0.6);
+$accessibilite-color: rgba(183, 21, 134, 0.6);
 
-/*** Ajoutez ici vos fichiers ("@import ma_page" importe _ma_page.scss) ***/
+//// Ajoutez ici vos fichiers ("@import ma_page" importe _ma_page.scss) ////
 @import 'skeleton';
 @import 'index';
 @import 'index_footer';

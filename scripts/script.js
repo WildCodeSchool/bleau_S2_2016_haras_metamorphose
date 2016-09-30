@@ -3,7 +3,7 @@
 // }); */
 
 $(document).ready(function() {
-
+	$('html').addClass('jQuery-fonctionne');
 //Cas .Tourisme survolée
 	function toggleTourisme() {
 		$('.tourisme').toggleClass("hover");
