@@ -3,16 +3,15 @@
 //////////////////////////////////////////////*/
 
 #_index_footer:hover {
-	height: 300px;
-	margin-top: -300px;
 	background-color: rgba(0, 120, 122, 1);
+	height:255px;
+	margin-top:-255px;
 }
 
 #_index_footer {
 	overflow: hidden;
-	position: relative;
-	margin-top: -80px;
-	height: 80px;
+	margin-top: -50px;
+	height: 50px;
 	background-color: rgba(0, 120, 122, 0.6);
 	-webkit-transition: all 1s;
 	-moz-transition: all 1s;
@@ -21,16 +20,15 @@
 	transition: all 1s;
 	text-align: center;
 	font-size: 16px;
+	position:relative;
 
 	p {
 		font-size: 16px;
 	}
-
-	/* Colonnes footer */
-
-	.footer {
-		overflow: hidden;
+	
+	.footer_wrapper{
 	}
+	/* Colonnes footer */
 
 	.footer .footer-left,
 	.footer .footer-center,
@@ -39,7 +37,6 @@
 		color: white;
 		vertical-align: top;
 		text-align: left;
-
 	}
 
 	#telephone {
@@ -67,13 +64,9 @@
 	/* Footer partie basse -> Copyright */
 
 	#footer-bottom {
-		position: absolute;
-		right: 0;
-		bottom: 0;
-		left: 0;
-		padding: 0.5rem;
 		background-color: rgb(0, 63, 64);
 		text-align: left;
+		height:20px;
 
 	}
 

@@ -8,8 +8,15 @@ $travail-color: rgba(140, 104, 34, 0.6);
 $ecologie-color: rgba(39, 34, 140, 0.6);
 $accessibilite-color: rgba(183, 21, 134, 0.6);
 
+@mixin transition($params) {
+	-webkit-transition: $params;
+	-moz-transition: $params;
+	-o-transition: $params;
+	-ms-transition: $params;
+	transition: $params;
+}
+
 //// Ajoutez ici vos fichiers ("@import ma_page" importe _ma_page.scss) ////
-@import 'skeleton';
-@import 'index';
 @import 'index_footer';
 @import 'index_header';
+@import 'index';

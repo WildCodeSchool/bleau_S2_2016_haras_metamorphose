@@ -6,7 +6,7 @@
 
 		<?php
 		$browser = get_browser(null, true);
-		if($browser['majorver'] < 46)
+		if($browser['majorver'] > 46)
 			echo '<link rel="stylesheet" type="text/css" href="style/style.css">';
 		else
 			echo '<link rel="stylesheet" type="text/css" href="style/style_mobile_and_old_version.css">';
@@ -24,9 +24,7 @@
 		</video>
 
 		<?php include "index_header.php";?>
-<!--		<div id="menu">-->
-<!--			<img id="logo" src="img/logo.png" alt="logo">-->
-<!--		</div>-->
+
 		<div id="index_corps">
 			<aside id="index_social">
 				<img class="icone-social" src="img/facebook.svg" alt="facebook">
