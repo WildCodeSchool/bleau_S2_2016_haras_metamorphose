@@ -6,10 +6,10 @@
 
 		<?php
 		$browser = get_browser(null, true);
-		if($browser['majorver'] > 46)
-			echo '<link rel="stylesheet" type="text/css" href="style/style.css">';
-		else
+		if($browser['majorver']!=0 && $browser['majorver']< 46)
 			echo '<link rel="stylesheet" type="text/css" href="style/style_mobile_and_old_version.css">';
+		else
+			echo '<link rel="stylesheet" type="text/css" href="style/style.css">';
 		?>
 
 		<script

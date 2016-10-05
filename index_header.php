@@ -36,6 +36,7 @@
                     Fr
                 </a>
             </li>
+                <p>|<p>
             <li>
                 <a class="en" href="#">
                     En
