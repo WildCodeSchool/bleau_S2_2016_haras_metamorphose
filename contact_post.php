@@ -1,1 +1,0 @@
-<p>Merci de nous avoir contacté, nous vous répondrons dès que possible</p>

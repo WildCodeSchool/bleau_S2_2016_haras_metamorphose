@@ -16,20 +16,6 @@
 	//Execution de la requête einnsérant un tableau
 	$req->execute(array($nom,$prenom,$message)); 
 ?>
-<!-- 	<script>alert('Merci de nous avoir contacté, nous vous répondre prochainement')
-	</script>
- -->
-    <div id="r">Merci de nous avoir contacté</div>
-    <button id="action">Retourner à la page d'accueil</button><br />
 
-    <script src="jquery.js"></script>
-    <script>
-      $(function() {
-        $('#action').click(function() {
-          $(this).load('index.php');
-        });  
-      });
-    </script>
-<?php
-	//retour vers une page
-//header('Location: index.php');
+    <div id="r">Merci de nous avoir contacté</div>
+    <a href="index.php"><button id="action">Retourner à la page d'accueil</button></a>
