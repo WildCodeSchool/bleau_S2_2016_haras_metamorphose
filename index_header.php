@@ -1,9 +1,9 @@
 <header id="_index_header">
+    <a class="nav" href="#"><img id="logo" src="img/chaval.png" alt="logo"></a>
     <div id="menu">
-        <a class="nav" href="#"><img id="logo" src="img/chaval.png" alt="logo"></a>
         <ul>
             <li>
-                <a class="nav" href="#">
+                <a class="nav accueil" href="#">
                     Accueil
                 </a>
             </li>
@@ -42,8 +42,8 @@
                 </a>
             </li>
             <li>
-                <a class="eng" href="#">
-                    Eng
+                <a class="en" href="#">
+                    En
                 </a>
             </li>
         </ul>
