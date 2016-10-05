@@ -27,6 +27,11 @@
                     Un lieu pour tous
                 </a>
             </li>
+            <li>
+                <a class="nav contact" href="contact.php">
+                    Contact
+                </a>
+            </li>
         </ul>
     </div>
     <div id="langues">
