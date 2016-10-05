@@ -3,13 +3,14 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Document</title>
-
+	<link rel="stylesheet" type="text/css" href="style/style.css">
 		<?php
 		// $browser = get_browser(null, true);
 		// if($browser['majorver']!=0 && $browser['majorver']< 46)
 		// 	echo '<link rel="stylesheet" type="text/css" href="style/style_mobile_and_old_version.css">';
 		// else
 		// 	echo '<link rel="stylesheet" type="text/css" href="style/style.css">';
+
 		?>
 
 		<link rel="stylesheet" type="text/css" href="style/style.css">
