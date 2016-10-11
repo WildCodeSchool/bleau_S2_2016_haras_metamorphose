@@ -1,9 +1,9 @@
-<header id="_index_header">
-    <a class="nav" href="#"><img id="logo" src="img/chaval.png" alt="logo"></a>
+
+    <a class="nav" href="index.php"><img id="logo" src="img/chaval.png" alt="logo"></a>
     <div id="menu">
         <ul>
             <li>
-                <a class="nav accueil" href="#">
+                <a class="nav accueil" href="index.php">
                     Accueil
                 </a>
             </li>
@@ -49,4 +49,3 @@
             </li>
         </ul>
     </div>
-</header>

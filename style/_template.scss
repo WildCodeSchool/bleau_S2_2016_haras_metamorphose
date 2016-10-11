@@ -3,9 +3,32 @@
 //////////////////////////////////////////////*/
 
 #template {
+	
 	.article {
-		border: 20px solid black;
-		background-color: fuchsia;
-		border-radius: 15px;
+	//	border: 20px solid ;
+	//	border-color:rgb(170,121,0);
+	//	border-radius: 15px;
+		padding-left:20px;
+	//	color: rgb(216,38,121);
+	}
+
+	label{
+    	display: block;
+    	width: 120px;
+    	float: left;
+    	padding-top:5px;
+	}
+	
+	.message label{
+		margin-top:60px;
+	}
+	input, textarea{
+		width:200px;
+		padding:5px;
+		border-radius:$border-radius;
+	}
+
+	button{
+		margin-left:150px;
 	}
 }

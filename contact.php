@@ -1,51 +1,53 @@
-<link rel="stylesheet" type="text/css" href="style/style.css">
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8">
+		<title>Contact</title>
 
+		<link rel="stylesheet" type="text/css" href="style/style.css">
 
-<?php 
+		<script
+			src="https://code.jquery.com/jquery-3.1.1.min.js"
+			integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+			crossorigin="anonymous"></script>
+	</head>
+<body id="template">
+	<header id="_template_header">
+		<?php 
+			include('index_header.php'); 
+		?>
+	</header>
 
-	include('index_header.php'); 
-
-?>
-
-<div class="container">
-	<div class="row">
-		<h1 class="title">Contact</h1>
-	</div>
-<!-- 	<div class="row">
-<! 		<?php
-
-			$bdd // = new PDO('mysql:host=localhost;dbname=haras_contact;charset=utf8', 'root', 'root');
-			// $result = $bdd->query('SELECT * FROM contact ORDER BY id DESC');
-			
-			// while($donnee = $result->fetch()){
-			// 	echo '<div class=\"contact\'><p>' . $donnee['nom'] . '</p><p>' . $donnee['prenom'] .'</p><p>' . $donnee['message'] . '</p>';
-
-				//Permet de libérer la mémoire en mettant fin à la requête
-			// 	$result->closeCursor(); 
-			//}
-		?> -->
-	</div>
-	<div class="container">
+	<div class="container article">
 		<div class="row">
 			<h1 class="title">Nous contacter</h1>
 		</div>
 		<div class="row">
 			<form method="POST" action="add_contact_post.php">
 				<div class="form-group">
-					<label>Nom</label>
-					<input name="nom" type="varchar(150)" rows="1">
+					<label for="nom">Nom</label>
+					<input name="nom" type="varchar(150)" rows="1" required>
 				</div>
+				<br />
 				<div class="form-group">
-					<label>Prénom</label>
-					<input name="prenom" class="varchar(150)" rows="1"></input>
+					<label for="prenom">Prénom</label>
+					<input name="prenom" class="varchar(150)" rows="1" required=""></input>
 				</div>
+				<br />
 				<div class="form-group">
-					<label>Message</label>
-					<textarea name="message" class="text" rows="10"></textarea>
+					<label for="mail">Mail</label>
+					<input name="mail" type="email" rows="1" required></input>
 				</div>
+				<br />
+				<div class="form-group message">
+					<label for"message">Message</label>
+					<textarea name="message" class="text" rows="10" required></textarea>
+				</div>
+				<br />
 				<button type="submit" class="btn btn-default">Nous contacter</button>
 			</form>
 		</div>
 	</div>
 
-<!-- <?php // include('footer.php');?> -->
+
+	<!-- <?php // include('footer.php');?> -->

@@ -3,7 +3,6 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Document</title>
-	<link rel="stylesheet" type="text/css" href="style/style.css">
 		<?php
 		// $browser = get_browser(null, true);
 		// if($browser['majorver']!=0 && $browser['majorver']< 46)
@@ -25,9 +24,10 @@
 		<video id="index_video" autoplay loop muted>
 			<source src="video/video.mp4" type='video/mp4'>
 		</video>
-
-		<?php include "index_header.php";?>
-
+		<header id="_index_header">
+			<?php include "index_header.php";?>
+		</header>
+		
 		<div id="index_corps">
 			<aside id="index_social">
 				<img class="icone-social" src="img/facebook.svg" alt="facebook">
@@ -60,9 +60,9 @@
 			</div>
 		</div>
 	</div>
-
-	<?php include "index_footer.php";?>
-
+	<footer id="_index_footer">
+		<?php include "index_footer.php";?>
+	</footer>
 	<script src="scripts/script.js"></script>
 
 	</body>

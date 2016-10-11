@@ -114,17 +114,17 @@ body, html {
 }
 
 .tourisme.hover {
-	background-color: rgba(7, 64, 10, 1);
+	background-color: $tourisme-color;
 }
 
 .travail.hover {
-	background-color: rgba(140, 104, 34, 1);
+	background-color: $travail-color;
 }
 
 .ecologie.hover {
-	background-color: rgba(39, 34, 140, 1);
+	background-color: $ecologie-color;
 }
 
 .accessibilite.hover {
-	background-color: rgba(183, 21, 134, 1);
+	background-color: $accessibilite-color;
 }

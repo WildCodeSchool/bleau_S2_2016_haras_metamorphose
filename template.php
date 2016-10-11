@@ -31,8 +31,10 @@ echo '<html lang='.$GLOBALS["lang"].'>'     // On écrit <html lang=[valeur de l
     .'</head>'
     .'<body>'
         .'<div id="'.$category.'">';
-        include 'header.php';?>
-
+        ?>
+    <header id="_template_header">
+        <?php include 'header.php';?>
+    </header>
         <!--  Éléments entre le header et les articles (HTML zone!)  -->
 
         <?php
