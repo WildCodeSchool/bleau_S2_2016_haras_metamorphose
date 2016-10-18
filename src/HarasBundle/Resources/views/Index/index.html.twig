@@ -1,0 +1,49 @@
+{% extends '@Haras/base.html.twig' %}
+
+{% block body %}
+<body id="_index">
+
+<div id="index_wrapper">
+    <video id="index_video" autoplay loop muted>
+        <source src="{{ asset('bundles/haras/videos/video.mp4') }}" type='video/mp4'>
+    </video>
+
+    <header id='_index_header'>
+         {% include "HarasBundle:Index:index_header.html.twig" %}
+    </header>
+
+    <div id="index_corps">
+        <aside id="index_social">
+            <img class="icone-social" src="{{ asset('bundles/haras/images/facebook.svg') }}" alt="Facebook">
+            <img class="icone-social" src="{{ asset('bundles/haras/images/twitter.svg') }}" alt="Twitter">
+            <img class="icone-social" src="{{ asset('bundles/haras/images/instagram.svg') }}" alt="Instagram">
+            <img class="icone-social" src="{{ asset('bundles/haras/images/pinterest.svg') }}" alt="Pinterest">
+        </aside>
+        <div id="index_contenu">
+            <div id="index_accroche">
+                <h1>Prenez le temps de vivre...</h1>
+            </div>
+            <div id="index_focus">
+                <div class="tourisme index_rubrique">
+                    <img class="index_rubrique_img" src="{{ asset('bundles/haras/images/logo.png') }}" alt="tourisme">
+                    <p>Découvrir</p>
+                </div>
+                <div class="travail index_rubrique">
+                    <img class="index_rubrique_img" src="{{ asset('bundles/haras/images/logo.png') }}" alt="travail">
+                    <p>Votre Haras</p>
+                </div>
+                <div class="ecologie index_rubrique">
+                    <img class="index_rubrique_img" src="{{ asset('bundles/haras/images/logo.png') }}" alt="ecologie">
+                    <p>Vous détendre</p>
+                </div>
+                <div class="accessibilite index_rubrique">
+                    <img class="index_rubrique_img" src="{{ asset('bundles/haras/images/logo.png') }}" alt="tourisme">
+                    <p>Co-working</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        {% include "HarasBundle:Index:index_footer.html.twig" %}
+    </footer>
+{% endblock body %}

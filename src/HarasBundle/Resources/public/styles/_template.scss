@@ -1,0 +1,58 @@
+/*//////////////////////////////////////////////
+//////////////// _template.scss ////////////////
+//////////////////////////////////////////////*/
+
+#template {
+	
+
+	.article {
+	//	border: 20px solid ;
+	//	border-color:rgb(170,121,0);
+		border-radius: 15px;
+	//	color: rgb(216,38,121);
+	}
+
+	h1{
+		text-align:center;
+	}
+
+	label{
+    	display: block;
+    	width: 120px;
+    	float: left;
+    	padding-top:5px;
+	}
+	
+	.message label{
+		margin-top:60px;
+	}
+	input, textarea{
+		width:200px;
+		padding:5px;
+		border-radius:$border-radius;
+	}
+
+	button{
+		margin-left:150px;
+	}
+
+	.bloc1{
+		background-color:white;
+		text-align:left;
+	}
+
+	.bloc2{
+		background-color: rgb(216,38,121);
+		text-align: right;
+	}
+
+
+	table{
+		display:inline-block;
+		width:80%;
+	}
+
+	.parallax-container {
+      height: 150px;
+    }
+}

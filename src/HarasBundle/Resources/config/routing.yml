@@ -1,0 +1,11 @@
+haras_homepage:
+    path:     /
+    defaults: { _controller: HarasBundle:Index:index }
+
+haras_template:
+    path:     /template
+    defaults: { _controller: HarasBundle:Template:template }
+
+haras_contact:
+    path:     /contact
+    defaults: { _controller: HarasBundle:Contact:contact }

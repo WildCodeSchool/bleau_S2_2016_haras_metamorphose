@@ -1,0 +1,40 @@
+HarasBundle\Entity\Article:
+    type: entity
+    table: null
+    repositoryClass: HarasBundle\Repository\ArticleRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+            unique: true
+    manyToOne:
+        title:
+            targetEntity: Text
+            inversedBy: articles_title
+            joinColumn:
+                name: title_id
+                referencedColumnName: id
+        content:
+            targetEntity: Text
+            inversedBy: articles_content
+            joinColumn:
+                name: content_id
+                referencedColumnName: id
+    manyToMany:
+        medias:
+            targetEntity: Media
+            joinTable:
+                name: articles_medias
+                joinColumns:
+                    article_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    media_id:
+                        referencedColumnName: id
+    lifecycleCallbacks: {  }

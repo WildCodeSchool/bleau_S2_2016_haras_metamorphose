@@ -1,0 +1,50 @@
+HarasBundle\Entity\Page:
+    type: entity
+    table: null
+    repositoryClass: HarasBundle\Repository\PageRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    manyToMany:
+        texts:
+            targetEntity: Text
+            inversedBy: pages
+            joinTable:
+                name: pages_texts
+                joinColumns:
+                    page_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    text_id:
+                        referencedColumnName: id
+        medias:
+            targetEntity: Media
+            inversedBy: pages
+            joinTable:
+                name: pages_medias
+                joinColumns:
+                    page_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    media_id:
+                        referencedColumnName: id
+        articles:
+            targetEntity: Article
+            joinTable:
+                name: pages_articles
+                joinColumns:
+                    page_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    article_id:
+                        referencedColumnName: id
+    manyToOne:
+        category:
+            targetEntity: Category
+            joinColumn:
+                name: category_id
+                referencedColumnName: id
+    lifecycleCallbacks: {  }

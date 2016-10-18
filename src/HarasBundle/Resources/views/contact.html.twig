@@ -1,0 +1,47 @@
+{% extends '@Haras/base.html.twig' %}
+
+{% block materialize %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+{% endblock materialize %}
+
+{% block body %}
+<body id="template">
+    <header id="_template_header">
+        {% include "HarasBundle:Index:index_header.html.twig" %}
+    </header>
+
+    <div class="container article">
+        <div class="row">
+            <h1 class="title">Nous contacter</h1>
+        </div>
+        <div class="row">
+            <form method="POST" action="add_contact_post.php">
+                <div class="form-group">
+                    <label for="nom">Nom</label>
+                    <input name="nom" type="varchar(150)" rows="1" required>
+                </div>
+                <br />
+                <div class="form-group">
+                    <label for="prenom">Prénom</label>
+                    <input name="prenom" class="varchar(150)" rows="1" required=""></input>
+                </div>
+                <br />
+                <div class="form-group">
+                    <label for="mail">Mail</label>
+                    <input name="mail" type="email" rows="1" required></input>
+                </div>
+                <br />
+                <div class="form-group message">
+                    <label for"message">Message</label>
+                    <textarea name="message" class="text" rows="10" required></textarea>
+                </div>
+                <br />
+                <button type="submit" class="btn btn-default">Nous contacter</button>
+            </form>
+        </div>
+    </div>
+
+    {%  include 'HarasBundle::template_footer.html.twig' %}
+
+
+{% endblock body %}
