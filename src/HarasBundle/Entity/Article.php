@@ -27,7 +27,7 @@ class Article
     /**
      * @var \HarasBundle\Entity\Text
      */
-    private $desc;
+    private $content;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
@@ -99,26 +99,26 @@ class Article
     }
 
     /**
-     * Set desc
+     * Set content
      *
-     * @param \HarasBundle\Entity\Text $desc
+     * @param \HarasBundle\Entity\Text $content
      * @return Article
      */
-    public function setDesc(\HarasBundle\Entity\Text $desc = null)
+    public function setContent(\HarasBundle\Entity\Text $content = null)
     {
-        $this->desc = $desc;
+        $this->content = $content;
 
         return $this;
     }
 
     /**
-     * Get desc
+     * Get content
      *
      * @return \HarasBundle\Entity\Text 
      */
-    public function getDesc()
+    public function getContent()
     {
-        return $this->desc;
+        return $this->content;
     }
 
     /**
@@ -152,33 +152,5 @@ class Article
     public function getMedias()
     {
         return $this->medias;
-    }
-    /**
-     * @var \HarasBundle\Entity\Text
-     */
-    private $content;
-
-
-    /**
-     * Set content
-     *
-     * @param \HarasBundle\Entity\Text $content
-     * @return Article
-     */
-    public function setContent(\HarasBundle\Entity\Text $content = null)
-    {
-        $this->content = $content;
-
-        return $this;
-    }
-
-    /**
-     * Get content
-     *
-     * @return \HarasBundle\Entity\Text 
-     */
-    public function getContent()
-    {
-        return $this->content;
     }
 }

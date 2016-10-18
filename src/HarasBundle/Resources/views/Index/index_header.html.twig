@@ -4,7 +4,8 @@
     <ul>
         <li>
             <a class="nav accueil" href="{{ path('haras_homepage') }}">
-                Accueil
+                {#{{ dump(array_search("NavHome", array_column(page.getTexts(), 'name'))) }}#}
+                {{ elements['NavHome'] }}
             </a>
         </li>
         <li>
