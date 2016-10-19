@@ -9,6 +9,12 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Media
 {
+
+    function __toString()
+    {
+        return $this->getName() . " | " . $this->getPath();
+    }
+
     /**
      * @var integer
      */

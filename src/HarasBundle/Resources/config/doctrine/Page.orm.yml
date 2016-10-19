@@ -8,6 +8,11 @@ HarasBundle\Entity\Page:
             id: true
             generator:
                 strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+            unique: true
     manyToMany:
         texts:
             targetEntity: Text
@@ -33,6 +38,7 @@ HarasBundle\Entity\Page:
                         referencedColumnName: id
         articles:
             targetEntity: Article
+            inversedBy: pages
             joinTable:
                 name: pages_articles
                 joinColumns:
@@ -41,6 +47,7 @@ HarasBundle\Entity\Page:
                 inverseJoinColumns:
                     article_id:
                         referencedColumnName: id
+
     manyToOne:
         category:
             targetEntity: Category

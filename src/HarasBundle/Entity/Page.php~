@@ -9,10 +9,22 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Page
 {
+    public function __toString()
+    {
+        // TODO: Implement __toString() method.
+        return $this->getName() . "\tcategory: " . $this->getCategory()->getName();
+    }
+
+
     /**
      * @var integer
      */
     private $id;
+
+    /**
+     * @var string
+     */
+    private $name;
 
     /**
      * @var \HarasBundle\Entity\Category
@@ -52,6 +64,29 @@ class Page
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     * @return Page
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string 
+     */
+    public function getName()
+    {
+        return $this->name;
     }
 
     /**

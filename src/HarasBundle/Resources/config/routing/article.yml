@@ -1,0 +1,24 @@
+article_index:
+    path:     /
+    defaults: { _controller: "HarasBundle:Article:index" }
+    methods:  GET
+
+article_show:
+    path:     /{id}/show
+    defaults: { _controller: "HarasBundle:Article:show" }
+    methods:  GET
+
+article_new:
+    path:     /new
+    defaults: { _controller: "HarasBundle:Article:new" }
+    methods:  [GET, POST]
+
+article_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "HarasBundle:Article:edit" }
+    methods:  [GET, POST]
+
+article_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "HarasBundle:Article:delete" }
+    methods:  DELETE

@@ -1,0 +1,24 @@
+text_index:
+    path:     /
+    defaults: { _controller: "HarasBundle:Text:index" }
+    methods:  GET
+
+text_show:
+    path:     /{id}/show
+    defaults: { _controller: "HarasBundle:Text:show" }
+    methods:  GET
+
+text_new:
+    path:     /new
+    defaults: { _controller: "HarasBundle:Text:new" }
+    methods:  [GET, POST]
+
+text_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "HarasBundle:Text:edit" }
+    methods:  [GET, POST]
+
+text_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "HarasBundle:Text:delete" }
+    methods:  DELETE

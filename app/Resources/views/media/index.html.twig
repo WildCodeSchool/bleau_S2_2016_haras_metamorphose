@@ -1,28 +1,30 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Article list</h1>
+    <h1>Media list</h1>
 
     <table>
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Name</th>
+                <th>Path</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
-        {% for article in articles %}
+        {% for medium in media %}
             <tr>
-                <td><a href="{{ path('article_show', { 'id': article.id }) }}">{{ article.id }}</a></td>
-                <td>{{ article.name }}</td>
+                <td><a href="{{ path('media_show', { 'id': medium.id }) }}">{{ medium.id }}</a></td>
+                <td>{{ medium.name }}</td>
+                <td>{{ medium.path }}</td>
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('article_show', { 'id': article.id }) }}">show</a>
+                            <a href="{{ path('media_show', { 'id': medium.id }) }}">show</a>
                         </li>
                         <li>
-                            <a href="{{ path('article_edit', { 'id': article.id }) }}">edit</a>
+                            <a href="{{ path('media_edit', { 'id': medium.id }) }}">edit</a>
                         </li>
                     </ul>
                 </td>
@@ -33,7 +35,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('article_new') }}">Create a new entry</a>
+            <a href="{{ path('media_new') }}">Create a new entry</a>
         </li>
     </ul>
 {% endblock %}

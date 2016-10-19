@@ -37,4 +37,7 @@ HarasBundle\Entity\Article:
                 inverseJoinColumns:
                     media_id:
                         referencedColumnName: id
+        pages:
+            targetEntity: Page
+            mappedBy: articles
     lifecycleCallbacks: {  }
