@@ -15,6 +15,17 @@ class Text
     }
 
     /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->articles_title = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->articles_content = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->medias = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->pages = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
      * @var integer
      */
     private $id;
@@ -54,16 +65,6 @@ class Text
      */
     private $pages;
 
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->articles_title = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->articles_content = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->medias = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->pages = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
     /**
      * Get id
@@ -249,10 +250,10 @@ class Text
      * @param \HarasBundle\Entity\Page $pages
      * @return Text
      */
-    public function addPage(\HarasBundle\Entity\Page $pages)
+    public function addPage(\HarasBundle\Entity\Page $page)
     {
-        $this->pages[] = $pages;
-
+        $this->pages[] = $page;
+        $page->addText($this);
         return $this;
     }
 
@@ -261,9 +262,9 @@ class Text
      *
      * @param \HarasBundle\Entity\Page $pages
      */
-    public function removePage(\HarasBundle\Entity\Page $pages)
+    public function removePage(\HarasBundle\Entity\Page $page)
     {
-        $this->pages->removeElement($pages);
+        $this->pages->removeElement($page);
     }
 
     /**

@@ -14,7 +14,6 @@ class IndexController extends Controller
         (
             ['id' => 1]
         );
-
         $tableau = [];
         $langues = $this->getRequest()->getLocale();
         foreach ($page->getTexts() as $text)
@@ -27,7 +26,7 @@ class IndexController extends Controller
                 $tableau[$text->getName()] = $text->getTextEn();
         }
 
-//        var_dump($page);
+        var_dump($tableau);
         //var_dump(array_search('NavHome', array_column($page->getTexts(), 'name')));
 
         return $this->render('HarasBundle:Index:index.html.twig', $tableau);

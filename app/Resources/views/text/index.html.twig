@@ -10,6 +10,7 @@
                 <th>Name</th>
                 <th>Textfr</th>
                 <th>Texten</th>
+                <th>Pages</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -20,6 +21,11 @@
                 <td>{{ text.name }}</td>
                 <td>{{ text.textFr }}</td>
                 <td>{{ text.textEn }}</td>
+                <td>
+                    {% for page in text.pages %}
+                        {{ page }}
+                    {% endfor %}
+                </td>
                 <td>
                     <ul>
                         <li>

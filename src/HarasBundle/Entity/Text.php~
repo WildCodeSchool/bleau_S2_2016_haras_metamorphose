@@ -11,8 +11,18 @@ class Text
 {
     function __toString()
     {
-        // TODO: Implement __toString() method.
-        return $this->getName() . ":\t" . $this->getTextEn();
+        return $this->getName();
+    }
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->articles_title = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->articles_content = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->medias = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->pages = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -55,16 +65,6 @@ class Text
      */
     private $pages;
 
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->articles_title = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->articles_content = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->medias = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->pages = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
     /**
      * Get id

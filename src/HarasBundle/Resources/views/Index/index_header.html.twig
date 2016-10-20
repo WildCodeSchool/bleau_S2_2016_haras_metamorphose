@@ -4,34 +4,32 @@
     <ul>
         <li>
             <a class="nav accueil" href="{{ path('haras_homepage') }}">
-                {#{{ dump(array_search("NavHome", array_column(page.getTexts(), 'name'))) }}#}
-                {#{{ elements['NavHome'] }}#}
-                {{ NavHome }}
+                {{ navHome }}
             </a>
         </li>
         <li>
             <a class="nav tourisme" href="{{ path('haras_template') }}">
-                Découvrir
+                {{ navSection1 }}
             </a>
         </li>
         <li>
             <a class="nav travail" href="#">
-                Votre Haras
+                {{ navSection2 }}
             </a>
         </li>
         <li>
             <a class="nav ecologie" href="#">
-                Vous détendre
+                {{ navSection3 }}
             </a>
         </li>
         <li>
             <a class="nav accessibilite" href="#">
-                Co-Working
+                {{ navSection4 }}
             </a>
         </li>
         <li>
             <a class="nav contact" href="contact.php">
-                Contact
+                {{ navContact }}
             </a>
         </li>
     </ul>
