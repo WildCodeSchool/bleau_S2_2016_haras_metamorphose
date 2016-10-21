@@ -26,9 +26,6 @@ class IndexController extends Controller
                 $tableau[$text->getName()] = $text->getTextEn();
         }
 
-        var_dump($tableau);
-        //var_dump(array_search('NavHome', array_column($page->getTexts(), 'name')));
-
         return $this->render('HarasBundle:Index:index.html.twig', $tableau);
     }
 }

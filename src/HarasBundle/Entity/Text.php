@@ -9,9 +9,17 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Text
 {
-    function __toString()
+    public function __toString()
     {
         return $this->getName();
+    }
+
+    public function getTranslation(string $language)
+    {
+        if ($language == 'fr')
+            return $this->getTextFr();
+        else
+            return $this->getTextEn();
     }
 
     /**
@@ -252,8 +260,8 @@ class Text
      */
     public function addPage(\HarasBundle\Entity\Page $page)
     {
-        $this->pages[] = $page;
         $page->addText($this);
+        $this->pages[] = $page;
         return $this;
     }
 
@@ -264,6 +272,7 @@ class Text
      */
     public function removePage(\HarasBundle\Entity\Page $page)
     {
+        $page->getTexts()->removeElement($this);
         $this->pages->removeElement($page);
     }
 

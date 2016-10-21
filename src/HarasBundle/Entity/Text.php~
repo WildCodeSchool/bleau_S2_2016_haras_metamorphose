@@ -250,10 +250,10 @@ class Text
      * @param \HarasBundle\Entity\Page $pages
      * @return Text
      */
-    public function addPage(\HarasBundle\Entity\Page $pages)
+    public function addPage(\HarasBundle\Entity\Page $page)
     {
-        $this->pages[] = $pages;
-
+        $page->addText($this);
+        $this->pages[] = $page;
         return $this;
     }
 
@@ -262,9 +262,10 @@ class Text
      *
      * @param \HarasBundle\Entity\Page $pages
      */
-    public function removePage(\HarasBundle\Entity\Page $pages)
+    public function removePage(\HarasBundle\Entity\Page $page)
     {
-        $this->pages->removeElement($pages);
+        $page->getTexts()->removeElement($this);
+        $this->pages->removeElement($page);
     }
 
     /**

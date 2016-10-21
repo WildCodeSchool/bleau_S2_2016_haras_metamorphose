@@ -28,7 +28,6 @@ class PageController extends Controller
             'pages' => $pages,
         ));
     }
-
     /**
      * Creates a new Page entity.
      *

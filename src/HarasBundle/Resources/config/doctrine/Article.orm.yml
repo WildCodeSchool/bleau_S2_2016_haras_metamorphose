@@ -26,6 +26,12 @@ HarasBundle\Entity\Article:
             joinColumn:
                 name: content_id
                 referencedColumnName: id
+        structure:
+            targetEntity: ArticleStructure
+            inversedBy: structure_article
+            joinColumn:
+                name: structure_id
+                referencedColumnName: id
     manyToMany:
         medias:
             targetEntity: Media

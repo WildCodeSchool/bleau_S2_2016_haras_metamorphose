@@ -22,24 +22,32 @@
         </aside>
         <div id="index_contenu">
             <div id="index_accroche">
-                <h1>Prenez le temps de vivre...</h1>
+                <h1>{{ catchPhrase | nl2br }}</h1>
             </div>
             <div id="index_focus">
                 <div class="tourisme index_rubrique">
                     <img class="index_rubrique_img" src="{{ asset('bundles/haras/images/logo.png') }}" alt="tourisme">
-                    <p>Découvrir</p>
+                    <p>
+                        {{ section1Name }}
+                    </p>
                 </div>
                 <div class="travail index_rubrique">
                     <img class="index_rubrique_img" src="{{ asset('bundles/haras/images/logo.png') }}" alt="travail">
-                    <p>Votre Haras</p>
+                    <p>
+                        {{ section2Name }}
+                    </p>
                 </div>
                 <div class="ecologie index_rubrique">
                     <img class="index_rubrique_img" src="{{ asset('bundles/haras/images/logo.png') }}" alt="ecologie">
-                    <p>Vous détendre</p>
+                    <p>
+                        {{ section3Name }}
+                    </p>
                 </div>
                 <div class="accessibilite index_rubrique">
                     <img class="index_rubrique_img" src="{{ asset('bundles/haras/images/logo.png') }}" alt="tourisme">
-                    <p>Co-working</p>
+                    <p>
+                        {{ section4Name }}
+                    </p>
                 </div>
             </div>
         </div>
