@@ -14,47 +14,33 @@ class TemplateController extends Controller
             ['id' => $id]
         );
         $table = [];
-        $langues = $this->getRequest()->getLocale();
+        $language = $this->getRequest()->getLocale();
 
         //récupère les textes et les met dans un tableau
         foreach ($page->getTexts() as $text)
         {
-            $table[$text->getName()] = $text->getTranslation($langues);
+            $table[$text->getName()] = $text->getTranslation($language);
         }
 
-        foreach ($page->getMedias() as $media)
+        foreach ($page->getMedia() as $media)
         {
-            $mediaRendering = [];
-            $mediaAlt = $media->getAlt();
-            $mediaPath = $media->getPath();
-            if ($langues == 'fr')
-            {
-                $mediaRendering['alt'] = $mediaAlt->getTextFr();
-            }
-            else
-            {
-                $mediaRendering['alt'] = $mediaAlt->getTextEn();
-            }
-            $mediaRendering['path'] = $mediaPath;
-            $table[$media->getName()] = $mediaRendering;
+            $table[$media->getName()] = $media->getMediaTranslation($language);
         }
+
+        $table['articles'] = [];
         foreach ($page->getArticles() as $article)
         {
             $articleRendering = [];
             $textTitle = $article->getTitle();
             $textContent = $article->getContent();
+            $articleRendering['title'] = $textTitle->getTranslation($language);
+            $articleRendering['content'] = $textContent->getTranslation($language);
 
-            if ($langues == 'fr')
+            foreach ($article->getMedia() as $media)
             {
-                $articleRendering['title'] = $textTitle->getTextFr();
-                $articleRendering['content'] = $textContent->getTextFr();
+                $articleRendering[$media->getName()] = $media->getMediaTranslation($language);
             }
-            else
-            {
-                $articleRendering['title'] = $textTitle->getTextEn();
-                $articleRendering['content'] = $textContent->getTextEn();
-            }
-            $page->getArticles();
+            $table['articles'][] = $articleRendering;
         }
 
         return $this->render('HarasBundle::template_remplissage.html.twig', $table);

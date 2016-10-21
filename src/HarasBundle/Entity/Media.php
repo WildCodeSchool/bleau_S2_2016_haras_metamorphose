@@ -9,7 +9,15 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Media
 {
-
+    public function getMediaTranslation($language)
+    {
+        $mediaRendering = [];
+        $mediaAlt = $this->getAlt();
+        $mediaPath = $this->getPath();
+        $mediaRendering['alt'] = $mediaAlt->getTranslation($language);
+        $mediaRendering['path'] = $mediaPath;
+        return $mediaRendering;
+    }
     function __toString()
     {
         return $this->getName() . " | " . $this->getPath();
