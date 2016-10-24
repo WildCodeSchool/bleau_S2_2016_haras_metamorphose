@@ -14,6 +14,91 @@ use HarasBundle\Form\PageType;
  */
 class PageController extends Controller
 {
+    public function homepageAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $page = $em->getRepository('HarasBundle:Page')->findOneBy
+        (
+            ['id' => 1]
+        );
+        $tableau = [];
+        $language = $this->getRequest()->getLocale();
+        foreach ($page->getTexts() as $text)
+        {
+            $text->getTranslation($language);
+        }
+
+        return $this->render('HarasBundle::index.html.twig', $tableau);
+    }
+
+    public function headerAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $page = $em->getRepository('HarasBundle:Page')->findOneBy
+        (
+            ['name' => 'header']
+        );
+        $tableau = [];
+        $language = $this->getRequest()->getLocale();
+        foreach ($page->getTexts() as $text)
+        {
+            $text->getTranslation($language);
+        }
+
+        return $this->render('HarasBundle::template.html.twig', $tableau);
+    }
+
+    public function templateAction(Page $page)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $table = [];
+        $language = $this->getRequest()->getLocale();
+
+        //récupère les textes et les met dans un tableau
+        foreach ($page->getTexts() as $text)
+        {
+            $table[$text->getName()] = $text->getTranslation($language);
+        }
+
+        foreach ($page->getMedias() as $media)
+        {
+            $table[$media->getName()] = $media->getMediaTranslation($language);
+        }
+
+        $table['articles'] = [];
+        foreach ($page->getArticles() as $article)
+        {
+            $articleRendering = [];
+            $textTitle = $article->getTitle();
+            $textContent = $article->getContent();
+            $articleRendering['title'] = $textTitle->getTranslation($language);
+            $articleRendering['content'] = $textContent->getTranslation($language);
+
+            foreach ($article->getMedias() as $media)
+            {
+                $articleRendering[$media->getName()] = $media->getMediaTranslation($language);
+            }
+            $table['articles'][] = $articleRendering;
+        }
+
+        return $this->render('@Haras/template.html.twig', $table);
+    }
+
+    public function contactAction()
+    {
+        return $this->render('HarasBundle::contact.html.twig');
+    }
+
+
+
+
+
+
+
+
+
+
     /**
      * Lists all Page entities.
      *

@@ -10,7 +10,7 @@
     </video>
 
     <header id='_index_header'>
-         {% include "HarasBundle:Index:index_header.html.twig" %}
+         {{ render(controller('HarasBundle:Page:header')) }}
     </header>
 
     <div id="index_corps">
@@ -53,6 +53,6 @@
         </div>
     </div>
     <footer>
-        {% include "HarasBundle:Index:index_footer.html.twig" %}
+        {{ render (controller("HarasBundle:Page:footer")) }}
     </footer>
 {% endblock body %}
