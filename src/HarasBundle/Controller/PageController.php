@@ -21,14 +21,13 @@ class PageController extends Controller
         (
             ['id' => 1]
         );
-        $tableau = [];
+        $table = [];
         $language = $this->getRequest()->getLocale();
         foreach ($page->getTexts() as $text)
         {
-            $text->getTranslation($language);
+            $table[$text->getName()] = $text->getTranslation($language);
         }
-
-        return $this->render('HarasBundle::index.html.twig', $tableau);
+        return $this->render('HarasBundle::index.html.twig', $table);
     }
 
     public function headerAction()
@@ -38,14 +37,14 @@ class PageController extends Controller
         (
             ['name' => 'header']
         );
-        $tableau = [];
+        $table = [];
         $language = $this->getRequest()->getLocale();
         foreach ($page->getTexts() as $text)
         {
-            $text->getTranslation($language);
+            $table[$text->getName()] = $text->getTranslation($language);
         }
 
-        return $this->render('HarasBundle::template.html.twig', $tableau);
+        return $this->render('HarasBundle::header.html.twig', $table);
     }
 
     public function templateAction(Page $page)
@@ -87,10 +86,37 @@ class PageController extends Controller
 
     public function contactAction()
     {
-        return $this->render('HarasBundle::contact.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $page = $em->getRepository('HarasBundle:Page')->findOneBy
+        (
+            ['name' => 'contact']
+        );
+        $table = [];
+        $language = $this->getRequest()->getLocale();
+        foreach ($page->getTexts() as $text)
+        {
+            $table[$text->getName()] = $text->getTranslation($language);
+        }
+
+        return $this->render('HarasBundle::contact.html.twig', $table);
     }
 
+    public function footerAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $page = $em->getRepository('HarasBundle:Page')->findOneBy
+        (
+            ['name' => 'footer']
+        );
+        $table = [];
+        $language = $this->getRequest()->getLocale();
+        foreach ($page->getTexts() as $text)
+        {
+            $table[$text->getName()] = $text->getTranslation($language);
+        }
 
+        return $this->render('HarasBundle::footer.html.twig', $table);
+    }
 
 
 
@@ -106,13 +132,15 @@ class PageController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-
         $pages = $em->getRepository('HarasBundle:Page')->findAll();
-
-        return $this->render('page/index.html.twig', array(
-            'pages' => $pages,
-        ));
+        $table = [];
+        foreach ($pages as $page)
+        {
+            $table[$page->getId()] = $page->getName();
+        }
+        return $this->render('page/index.html.twig', $table);
     }
+
     /**
      * Creates a new Page entity.
      *
@@ -128,7 +156,7 @@ class PageController extends Controller
             $em->persist($page);
             $em->flush();
 
-            return $this->redirectToRoute('page_show', array('id' => $page->getId()));
+            return $this->redirectToRoute('page_show', array('name' => $page->getName()));
         }
 
         return $this->render('page/new.html.twig', array(
@@ -166,7 +194,7 @@ class PageController extends Controller
             $em->persist($page);
             $em->flush();
 
-            return $this->redirectToRoute('page_edit', array('id' => $page->getId()));
+            return $this->redirectToRoute('page_edit', array('name' => $page->getName()));
         }
 
         return $this->render('page/edit.html.twig', array(
@@ -204,7 +232,7 @@ class PageController extends Controller
     private function createDeleteForm(Page $page)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('page_delete', array('id' => $page->getId())))
+            ->setAction($this->generateUrl('page_delete', array('name' => $page->getName())))
             ->setMethod('DELETE')
             ->getForm()
         ;

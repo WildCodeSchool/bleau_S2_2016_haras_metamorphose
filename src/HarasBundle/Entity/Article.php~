@@ -198,4 +198,32 @@ class Article
     {
         return $this->pages;
     }
+    /**
+     * @var \HarasBundle\Entity\ArticleStructure
+     */
+    private $structure;
+
+
+    /**
+     * Set structure
+     *
+     * @param \HarasBundle\Entity\ArticleStructure $structure
+     * @return Article
+     */
+    public function setStructure(\HarasBundle\Entity\ArticleStructure $structure = null)
+    {
+        $this->structure = $structure;
+
+        return $this;
+    }
+
+    /**
+     * Get structure
+     *
+     * @return \HarasBundle\Entity\ArticleStructure 
+     */
+    public function getStructure()
+    {
+        return $this->structure;
+    }
 }

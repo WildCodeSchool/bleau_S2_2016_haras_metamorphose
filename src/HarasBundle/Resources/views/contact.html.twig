@@ -6,8 +6,8 @@
 
 {% block body %}
 <body id="template">
-    <header id="_template_header">
-        {% include "HarasBundle:Index:index_header.html.twig" %}
+    <header id='_template_header'>
+        {{ render(controller('HarasBundle:Page:header')) }}
     </header>
 
     <div class="container article">
@@ -41,7 +41,7 @@
         </div>
     </div>
 
-    {%  include 'HarasBundle::template_footer.html.twig' %}
-
-
+    <footer id="_template_footer">
+        {{ render (controller('HarasBundle:Page:footer')) }}
+    </footer>
 {% endblock body %}
