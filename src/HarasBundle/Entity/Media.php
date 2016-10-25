@@ -23,6 +23,8 @@ class Media
         return $this->getName() . " | " . $this->getPath();
     }
 
+    //    GENERATED CODE
+
     /**
      * @var integer
      */

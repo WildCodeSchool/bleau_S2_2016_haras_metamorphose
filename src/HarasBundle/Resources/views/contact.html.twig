@@ -7,7 +7,8 @@
 {% block body %}
 <body id="template">
     <header id='_template_header'>
-        {{ render(controller('HarasBundle:Page:header')) }}
+        {{ render(controller('HarasBundle:Page:getPage', { 'name': 'header' })) }}
+
     </header>
 
     <div class="container article">
@@ -42,6 +43,6 @@
     </div>
 
     <footer id="_template_footer">
-        {{ render (controller('HarasBundle:Page:footer')) }}
+        {{ render(controller('HarasBundle:Page:getPage', { 'name': 'footer' })) }}
     </footer>
 {% endblock body %}

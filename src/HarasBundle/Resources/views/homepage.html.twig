@@ -10,7 +10,8 @@
     </video>
 
     <header id='_index_header'>
-        {{ render(controller('HarasBundle:Page:header')) }}
+        {{ render(controller('HarasBundle:Page:getPage', { 'name': 'header' })) }}
+
     </header>
 
     <div id="index_corps">
@@ -53,6 +54,6 @@
         </div>
     </div>
     <footer>
-        {{ render (controller('HarasBundle:Page:footer')) }}
+        {{ render(controller('HarasBundle:Page:getPage', { 'name': 'footer' })) }}
     </footer>
 {% endblock body %}

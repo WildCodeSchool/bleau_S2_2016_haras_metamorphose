@@ -14,12 +14,12 @@ use HarasBundle\Form\PageType;
  */
 class PageController extends Controller
 {
-    public function homepageAction()
+    public function getPageAction($name)
     {
         $em = $this->getDoctrine()->getManager();
         $page = $em->getRepository('HarasBundle:Page')->findOneBy
         (
-            ['id' => 1]
+            ['name' => $name]
         );
         $table = [];
         $language = $this->getRequest()->getLocale();
@@ -27,25 +27,9 @@ class PageController extends Controller
         {
             $table[$text->getName()] = $text->getTranslation($language);
         }
-        return $this->render('HarasBundle::index.html.twig', $table);
+        return $this->render('HarasBundle::'. $name . '.html.twig', $table);
     }
 
-    public function headerAction()
-    {
-        $em = $this->getDoctrine()->getManager();
-        $page = $em->getRepository('HarasBundle:Page')->findOneBy
-        (
-            ['name' => 'header']
-        );
-        $table = [];
-        $language = $this->getRequest()->getLocale();
-        foreach ($page->getTexts() as $text)
-        {
-            $table[$text->getName()] = $text->getTranslation($language);
-        }
-
-        return $this->render('HarasBundle::header.html.twig', $table);
-    }
 
     public function templateAction(Page $page)
     {
@@ -83,41 +67,6 @@ class PageController extends Controller
 
         return $this->render('@Haras/template.html.twig', $table);
     }
-
-    public function contactAction()
-    {
-        $em = $this->getDoctrine()->getManager();
-        $page = $em->getRepository('HarasBundle:Page')->findOneBy
-        (
-            ['name' => 'contact']
-        );
-        $table = [];
-        $language = $this->getRequest()->getLocale();
-        foreach ($page->getTexts() as $text)
-        {
-            $table[$text->getName()] = $text->getTranslation($language);
-        }
-
-        return $this->render('HarasBundle::contact.html.twig', $table);
-    }
-
-    public function footerAction()
-    {
-        $em = $this->getDoctrine()->getManager();
-        $page = $em->getRepository('HarasBundle:Page')->findOneBy
-        (
-            ['name' => 'footer']
-        );
-        $table = [];
-        $language = $this->getRequest()->getLocale();
-        foreach ($page->getTexts() as $text)
-        {
-            $table[$text->getName()] = $text->getTranslation($language);
-        }
-
-        return $this->render('HarasBundle::footer.html.twig', $table);
-    }
-
 
 
 
