@@ -27,7 +27,7 @@ class PageController extends Controller
         {
             $table[$text->getName()] = $text->getTranslation($language);
         }
-        return $this->render('HarasBundle::'. $name . '.html.twig', $table);
+        return $this->render('HarasBundle::'.$name.'.html.twig', $table);
     }
 
 
@@ -62,9 +62,9 @@ class PageController extends Controller
             {
                 $articleRendering[$media->getName()] = $media->getMediaTranslation($language);
             }
-            $table['articles'][] = $articleRendering;
-        }
+            array_unshift($table['articles'], $articleRendering);
 
+        }
         return $this->render('@Haras/template.html.twig', $table);
     }
 

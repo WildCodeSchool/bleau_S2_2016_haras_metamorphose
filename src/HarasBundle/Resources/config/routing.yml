@@ -19,7 +19,7 @@ haras_text:
 #    defaults: { _controller: HarasBundle:Page:homepage }
 
 haras_template:
-    path:     /template/{id}
+    path:     /template/{name}
     defaults: { _controller: HarasBundle:Page:template }
 
 #Route general

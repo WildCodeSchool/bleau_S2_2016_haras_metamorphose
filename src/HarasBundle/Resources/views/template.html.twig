@@ -7,8 +7,7 @@
 {% block body %}
 <body id="template">
     <header id="_template_header">
-        {{ render(controller('HarasBundle:Page:getPage', { 'name': 'header' })) }}
-
+      {{ render(controller('HarasBundle:Page:getPage', { 'name': 'header' })) }}
     </header>
     <div>
         <h1 class="title">{{ section1Name }}</h1>
@@ -33,7 +32,7 @@
         {% endfor %}
     </div>
 
-    {{ render(controller('HarasBundle:Page:getPage', { 'name': 'footer' })) }}
+   {{ render(controller('HarasBundle:Page:getPage', { 'name': 'footer' })) }}
 
 
 
