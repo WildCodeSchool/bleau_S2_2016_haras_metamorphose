@@ -14,6 +14,66 @@ use HarasBundle\Form\PageType;
  */
 class PageController extends Controller
 {
+    public function getPageAction($name)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $page = $em->getRepository('HarasBundle:Page')->findOneBy
+        (
+            ['name' => $name]
+        );
+        $table = [];
+        $language = $this->getRequest()->getLocale();
+        foreach ($page->getTexts() as $text)
+        {
+            $table[$text->getName()] = $text->getTranslation($language);
+        }
+        return $this->render('HarasBundle::'.$name.'.html.twig', $table);
+    }
+
+
+    public function templateAction(Page $page)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $table = [];
+        $language = $this->getRequest()->getLocale();
+
+        //récupère les textes et les met dans un tableau
+        foreach ($page->getTexts() as $text)
+        {
+            $table[$text->getName()] = $text->getTranslation($language);
+        }
+
+        foreach ($page->getMedias() as $media)
+        {
+            $table[$media->getName()] = $media->getMediaTranslation($language);
+        }
+
+        $table['articles'] = [];
+        foreach ($page->getArticles() as $article)
+        {
+            $articleRendering = [];
+            $textTitle = $article->getTitle();
+            $textContent = $article->getContent();
+            $articleRendering['title'] = $textTitle->getTranslation($language);
+            $articleRendering['content'] = $textContent->getTranslation($language);
+
+            foreach ($article->getMedias() as $media)
+            {
+                $articleRendering[$media->getName()] = $media->getMediaTranslation($language);
+            }
+            array_unshift($table['articles'], $articleRendering);
+
+        }
+        return $this->render('@Haras/template.html.twig', $table);
+    }
+
+
+
+
+
+
+
     /**
      * Lists all Page entities.
      *
@@ -21,13 +81,15 @@ class PageController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-
         $pages = $em->getRepository('HarasBundle:Page')->findAll();
-
-        return $this->render('page/index.html.twig', array(
-            'pages' => $pages,
-        ));
+        $table = [];
+        foreach ($pages as $page)
+        {
+            $table[$page->getId()] = $page->getName();
+        }
+        return $this->render('page/index.html.twig', $table);
     }
+
     /**
      * Creates a new Page entity.
      *
@@ -43,7 +105,7 @@ class PageController extends Controller
             $em->persist($page);
             $em->flush();
 
-            return $this->redirectToRoute('page_show', array('id' => $page->getId()));
+            return $this->redirectToRoute('page_show', array('name' => $page->getName()));
         }
 
         return $this->render('page/new.html.twig', array(
@@ -81,7 +143,7 @@ class PageController extends Controller
             $em->persist($page);
             $em->flush();
 
-            return $this->redirectToRoute('page_edit', array('id' => $page->getId()));
+            return $this->redirectToRoute('page_edit', array('name' => $page->getName()));
         }
 
         return $this->render('page/edit.html.twig', array(
@@ -119,7 +181,7 @@ class PageController extends Controller
     private function createDeleteForm(Page $page)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('page_delete', array('id' => $page->getId())))
+            ->setAction($this->generateUrl('page_delete', array('name' => $page->getName())))
             ->setMethod('DELETE')
             ->getForm()
         ;

@@ -4,7 +4,7 @@ page_index:
     methods:  GET
 
 page_show:
-    path:     /{id}/show
+    path:     /{name}/show
     defaults: { _controller: "HarasBundle:Page:show" }
     methods:  GET
 
@@ -14,11 +14,11 @@ page_new:
     methods:  [GET, POST]
 
 page_edit:
-    path:     /{id}/edit
+    path:     /{name}/edit
     defaults: { _controller: "HarasBundle:Page:edit" }
     methods:  [GET, POST]
 
 page_delete:
-    path:     /{id}/delete
+    path:     /{name}/delete
     defaults: { _controller: "HarasBundle:Page:delete" }
     methods:  DELETE

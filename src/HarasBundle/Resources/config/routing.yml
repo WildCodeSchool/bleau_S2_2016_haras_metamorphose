@@ -11,18 +11,18 @@ haras_media:
     prefix:   /media
 
 haras_text:
-        resource: "@HarasBundle/Resources/config/routing/text.yml"
-        prefix:   /text
+    resource: "@HarasBundle/Resources/config/routing/text.yml"
+    prefix:   /text
 
-haras_homepage:
-    path:     /
-    defaults: { _controller: HarasBundle:Index:index }
+#haras_homepage:
+#    path:     /
+#    defaults: { _controller: HarasBundle:Page:homepage }
 
 haras_template:
-    path:     /template
-    defaults: { _controller: HarasBundle:Template:template }
+    path:     /template/{name}
+    defaults: { _controller: HarasBundle:Page:template }
 
-haras_contact:
-    path:     /contact
-    defaults: { _controller: HarasBundle:Contact:contact }
-
+#Route general
+haras_get_page:
+    path:     /{name}
+    defaults: { _controller: HarasBundle:Page:getPage, name: homepage }

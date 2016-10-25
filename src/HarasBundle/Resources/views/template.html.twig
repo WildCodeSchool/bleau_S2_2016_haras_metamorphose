@@ -1,0 +1,39 @@
+{% extends '@Haras/base.html.twig' %}
+
+{% block materialize %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+{% endblock materialize %}
+
+{% block body %}
+<body id="template">
+    <header id="_template_header">
+      {{ render(controller('HarasBundle:Page:getPage', { 'name': 'header' })) }}
+    </header>
+    <div>
+        <h1 class="title">{{ section1Name }}</h1>
+    </div>
+    <div class="article">
+        {% for article in articles %}
+            <div class="bloc">
+                <table>
+                    <tr>
+                        <td>
+                            <h2>{{ article.title }}</h2>
+                            <p id="texte-gauche">
+                                {{ article.content }}
+                            </p>
+                        </td>
+                        <td>
+                            <img id="image-droite" src="https://tse3.mm.bing.net/th?id=OIP.M647c41abdcea5ffe31e9ab3ec3621778H0&pid=Api" alt="image_template"/>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        {% endfor %}
+    </div>
+
+   {{ render(controller('HarasBundle:Page:getPage', { 'name': 'footer' })) }}
+
+
+
+{% endblock body %}

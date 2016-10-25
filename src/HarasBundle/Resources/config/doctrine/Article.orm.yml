@@ -28,7 +28,6 @@ HarasBundle\Entity\Article:
                 referencedColumnName: id
         structure:
             targetEntity: ArticleStructure
-            inversedBy: structure_article
             joinColumn:
                 name: structure_id
                 referencedColumnName: id

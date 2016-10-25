@@ -21,7 +21,7 @@
             <a href="{{ path('page_index') }}">Back to the list</a>
         </li>
         <li>
-            <a href="{{ path('page_edit', { 'id': page.id }) }}">Edit</a>
+            <a href="{{ path('page_edit', { 'name': page.name }) }}">Edit</a>
         </li>
         <li>
             {{ form_start(delete_form) }}

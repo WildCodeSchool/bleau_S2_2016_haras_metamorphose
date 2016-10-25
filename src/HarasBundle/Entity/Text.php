@@ -14,7 +14,7 @@ class Text
         return $this->getName();
     }
 
-    public function getTranslation(string $language)
+    public function getTranslation($language)
     {
         if ($language == 'fr')
             return $this->getTextFr();

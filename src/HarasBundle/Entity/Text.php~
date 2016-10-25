@@ -9,9 +9,17 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Text
 {
-    function __toString()
+    public function __toString()
     {
         return $this->getName();
+    }
+
+    public function getTranslation($language)
+    {
+        if ($language == 'fr')
+            return $this->getTextFr();
+        else
+            return $this->getTextEn();
     }
 
     /**
