@@ -2,7 +2,7 @@
 
 {% block body %}
     <header id="_template_header">
-        {{ render(controller('HarasBundle:Page:header')) }}
+        {{ render(controller('HarasBundle:Page:getPage',{'name':'header'})) }}
     </header>
     <h1>Quelle page voulez-vous modifier ?</h1>
 
@@ -46,7 +46,7 @@
             </tr>
             <tr>
                 <td>
-                    <a href="{{ path('haras_contact', { 'name': 'contact' }) }}">
+                    <a href="{{ path('page_show', { 'name': 'contact' }) }}">
                         Contact
                     </a>
                 </td>
@@ -94,7 +94,4 @@
             <a href="{{ path('article_index') }}">Go to article page</a>
         </li>
     </ul> #}
-    <footer>
-         {{ render (controller('HarasBundle:Page:footer')) }}
-    </footer>
 {% endblock %}

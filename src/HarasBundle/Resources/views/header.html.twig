@@ -1,13 +1,13 @@
-<a class="nav" href="{{ path('haras_page_plop', {'name': 'homepage'}) }}"><img id="logo" src="{{ asset('bundles/haras/images/chaval.png') }}" alt="logo"></a>
+<a class="nav" href="{{ path('haras_get_page', {'name': 'homepage'}) }}"><img id="logo" src="{{ asset('bundles/haras/images/chaval.png') }}" alt="logo"></a>
 <div id="menu">
     <ul>
         <li>
-            <a class="nav accueil" href="{{ path('haras_page_plop', {'name': 'homepage'}) }}">
+            <a class="nav accueil" href="{{ path('haras_get_page', {'name': 'homepage'}) }}">
                 {{ homeName }}
             </a>
         </li>
         <li>
-            <a class="nav tourisme" href="{{ path('haras_page_plop', {'name': 'tourisme'}) }}">
+            <a class="nav tourisme" href="{{ path('haras_get_page', {'name': 'tourisme'}) }}">
                 {{ section1Name }}
             </a>
         </li>
@@ -27,7 +27,7 @@
             </a>
         </li>
         <li>
-            <a class="nav contact" href="{{ path('haras_page_plop', {'name': 'contact'}) }}">
+            <a class="nav contact" href="{{ path('haras_get_page', {'name': 'contact'}) }}">
                 {{ contactName }}
             </a>
         </li>

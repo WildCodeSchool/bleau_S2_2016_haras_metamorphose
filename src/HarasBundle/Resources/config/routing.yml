@@ -23,6 +23,6 @@ haras_template:
     defaults: { _controller: HarasBundle:Page:template }
 
 #Route general
-haras_page_plop:
+haras_get_page:
     path:     /{name}
     defaults: { _controller: HarasBundle:Page:getPage, name: homepage }
