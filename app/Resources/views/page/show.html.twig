@@ -1,32 +1,16 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Page</h1>
-
-    <table>
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ page.id }}</td>
-            </tr>
-            <tr>
-                <th>Name</th>
-                <td>{{ page.name }}</td>
-            </tr>
-        </tbody>
-    </table>
-
+    <h1>Edition de la page {{ page.name }}</h1>
+<div>
+    {{ render(controller('HarasBundle:Page:getPage', { 'name': 'homepage' })) }}
+</div>
     <ul>
         <li>
-            <a href="{{ path('page_index') }}">Back to the list</a>
+            <a href="{{ path('page_index') }}">Retourner à la liste des pages</a>
         </li>
         <li>
-            <a href="{{ path('page_edit', { 'name': page.name }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
+            <a href="{{ path('page_edit', { 'name': page.name }) }}">Modifier la page</a>
         </li>
     </ul>
 {% endblock %}
