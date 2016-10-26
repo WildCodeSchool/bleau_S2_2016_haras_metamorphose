@@ -63,7 +63,6 @@ class PageController extends Controller
                 $articleRendering['medias'][] = $media->getMediaTranslation($language);
             }
             array_unshift($table['articles'], $articleRendering);
-
         }
         return $this->render('@Haras/template.html.twig', $table);
     }
