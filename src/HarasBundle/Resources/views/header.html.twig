@@ -12,22 +12,22 @@
             </a>
         </li>
         <li>
-            <a class="nav travail" href="#">
+            <a class="nav travail" href="{{ path('haras_template', {'name': 'section2'}) }}">
                 {{ section2Name }}
             </a>
         </li>
         <li>
-            <a class="nav ecologie" href="#">
+            <a class="nav ecologie" href="{{ path('haras_template', {'name': 'section3'}) }}">
                 {{ section3Name }}
             </a>
         </li>
         <li>
-            <a class="nav accessibilite" href="#">
+            <a class="nav accessibilite" href="{{ path('haras_template', {'name': 'section4'}) }}">
                 {{ section4Name }}
             </a>
         </li>
         <li>
-            <a class="nav contact" href="{{ path('haras_get_page', {'name': 'contact'}) }}">
+            <a class="nav contact" href="{{ path('haras_contact', {'name': 'contact'}) }}">
                 {{ contactName }}
             </a>
         </li>

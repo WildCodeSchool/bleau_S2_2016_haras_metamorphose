@@ -69,7 +69,33 @@ class PageController extends Controller
     }
 
 
+    public function contactAction(Request $request,Page $page){
 
+        $form = $this->createForm('HarasBundle\Form\contactType', $page);
+        $form->handleRequest($request);
+        $send=false;
+        if ($form->isSubmitted() && $form->isValid()) {
+            $subject = $form->get('subject')->getData();
+            $from = $form->get('from')->getData();
+            $body = $form->get('body')->getData();
+            $this->sendMail($subject,$from,$body);
+            $send=true;
+            return $this->render('@Haras/contact.html.twig', array('send' => $send, 'form' => $form->createView()));
+        }
+
+         return $this->render('@Haras/contact.html.twig', array('form' => $form->createView()));
+    }
+
+    public function sendMail($subject, $from, $body)
+    {
+        $message = \Swift_Message::newInstance()
+            ->setSubject($subject)
+            ->setFrom($from)
+            ->setTo('michael.combescot@gmail.com')
+            ->setBody($body)
+        ;
+        $this->get('mailer')->send($message);
+    }
 
 
 
@@ -121,7 +147,6 @@ class PageController extends Controller
     public function showAction(Page $page)
     {
         $deleteForm = $this->createDeleteForm($page);
-
         return $this->render('page/show.html.twig', array(
             'page' => $page,
             'delete_form' => $deleteForm->createView(),

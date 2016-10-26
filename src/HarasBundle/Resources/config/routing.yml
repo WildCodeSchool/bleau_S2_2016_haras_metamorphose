@@ -26,3 +26,7 @@ haras_template:
 haras_get_page:
     path:     /{name}
     defaults: { _controller: HarasBundle:Page:getPage, name: homepage }
+
+haras_contact:
+    path:     /test/{name}
+    defaults: { _controller: HarasBundle:Page:contact}
