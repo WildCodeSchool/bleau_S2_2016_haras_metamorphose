@@ -6,7 +6,6 @@
     <table>
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Name</th>
                 <th>Path</th>
                 <th>Actions</th>
@@ -15,9 +14,9 @@
         <tbody>
         {% for medium in media %}
             <tr>
-                <td><a href="{{ path('media_show', { 'id': medium.id }) }}">{{ medium.id }}</a></td>
                 <td>{{ medium.name }}</td>
                 <td>{{ medium.path }}</td>
+                <td><img src="{{ asset(medium.path) }}" alt="{{ medium.alt }}" height=100px></td>
                 <td>
                     <ul>
                         <li>

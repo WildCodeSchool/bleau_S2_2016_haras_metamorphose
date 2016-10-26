@@ -14,6 +14,16 @@ use HarasBundle\Form\MediaType;
  */
 class MediaController extends Controller
 {
+
+    private function uploadMediaFileAndSetPath(Media $media, $form)
+    {
+        $file = $form->get('file')->getData();
+        $media->setPath('bundles/haras/images/'.$media->getName().'.'.$file->guessExtension());
+        $name = $media->getName();
+        $extension = $file->guessExtension();
+        $file->move($this->getParameter('medias_directory'),$name.'.'.$extension);
+    }
+
     /**
      * Lists all Media entities.
      *
@@ -35,20 +45,22 @@ class MediaController extends Controller
      */
     public function newAction(Request $request)
     {
-        $medium = new Media();
-        $form = $this->createForm('HarasBundle\Form\MediaType', $medium);
+        $media = new Media();
+        $form = $this->createForm('HarasBundle\Form\MediaType', $media);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $this->uploadMediaFileAndSetPath($media, $form);
+            // persist entity in db
             $em = $this->getDoctrine()->getManager();
-            $em->persist($medium);
+            $em->persist($media);
             $em->flush();
 
-            return $this->redirectToRoute('media_show', array('id' => $medium->getId()));
+            return $this->redirectToRoute('media_show', array('id' => $media->getId()));
         }
 
         return $this->render('media/new.html.twig', array(
-            'medium' => $medium,
+            'medium' => $media,
             'form' => $form->createView(),
         ));
     }
@@ -71,22 +83,23 @@ class MediaController extends Controller
      * Displays a form to edit an existing Media entity.
      *
      */
-    public function editAction(Request $request, Media $medium)
+    public function editAction(Request $request, Media $media)
     {
-        $deleteForm = $this->createDeleteForm($medium);
-        $editForm = $this->createForm('HarasBundle\Form\MediaType', $medium);
+        $deleteForm = $this->createDeleteForm($media);
+        $editForm = $this->createForm('HarasBundle\Form\MediaType', $media);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
+            $this->uploadMediaFileAndSetPath($media, $editForm);
             $em = $this->getDoctrine()->getManager();
-            $em->persist($medium);
+            $em->persist($media);
             $em->flush();
 
-            return $this->redirectToRoute('media_edit', array('id' => $medium->getId()));
+            return $this->redirectToRoute('media_edit', array('id' => $media->getId()));
         }
 
         return $this->render('media/edit.html.twig', array(
-            'medium' => $medium,
+            'medium' => $media,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
@@ -102,6 +115,9 @@ class MediaController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            // supression du fichier en même temps que l'entité
+            $fileName = explode('images/',$medium->getPath());
+            unlink($this->getParameter('medias_directory').$fileName[1]);
             $em = $this->getDoctrine()->getManager();
             $em->remove($medium);
             $em->flush();
