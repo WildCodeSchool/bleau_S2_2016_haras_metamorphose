@@ -35,20 +35,23 @@ class PageController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
+//		Generate the table containing all the variables for the view
         $table = [];
         $language = $this->getRequest()->getLocale();
 
-        //récupère les textes et les met dans un tableau
-        foreach ($page->getTexts() as $text)
+//		Add the page's category to the view.
+		$table['category'] = strval($page->getCategory());	// prefer strval() over $category->getName() as category can be null
+//		Add texts and medias to the view (respectively as strings and arrays of strings ['path', 'alt']
+		foreach ($page->getTexts() as $text)
         {
             $table[$text->getName()] = $text->getTranslation($language);
         }
-
         foreach ($page->getMedias() as $media)
         {
             $table[$media->getName()] = $media->getMediaTranslation($language);
         }
 
+//		The page's articles are sent via an 'articles' array to the view.
         $table['articles'] = [];
         foreach ($page->getArticles() as $article)
         {
@@ -58,11 +61,12 @@ class PageController extends Controller
             $articleRendering['title'] = $textTitle->getTranslation($language);
             $articleRendering['content'] = $textContent->getTranslation($language);
 			$articleRendering['structure'] = $article->getStructure();
-            foreach ($article->getMedias() as $media)
+            foreach ($article->getMedias() as $media)	// Be careful! The medias are stored in a table even when there's only one!
             {
                 $articleRendering['medias'][] = $media->getMediaTranslation($language);
             }
-            array_unshift($table['articles'], $articleRendering);
+            array_unshift($table['articles'], $articleRendering);	// The articles are prepended so that the views get
+														// them in reversed order (chronologically from last to first)
         }
         return $this->render('@Haras/template.html.twig', $table);
     }

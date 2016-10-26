@@ -1,4 +1,8 @@
 @charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0; }
+
 /*//////////////////////////////////////////////
 /////////////// _index_footer.scss /////////////
 //////////////////////////////////////////////*/
@@ -348,34 +352,36 @@ body, html {
 /*//////////////////////////////////////////////
 //////////////// _template.scss ////////////////
 //////////////////////////////////////////////*/
-#template .article {
-  border-radius: 15px; }
-#template h1 {
-  text-align: center; }
-#template label {
-  display: block;
-  width: 120px;
-  float: left;
-  padding-top: 5px; }
-#template .message label {
-  margin-top: 60px; }
-#template input, #template textarea {
-  width: 200px;
-  padding: 5px;
-  border-radius: 3px; }
-#template button {
-  margin-left: 150px; }
-#template .bloc1 {
-  background-color: white;
-  text-align: left; }
-#template .bloc2 {
-  background-color: #d82679;
-  text-align: right; }
-#template table {
-  display: inline-block;
-  width: 80%; }
-#template .parallax-container {
-  height: 150px; }
+#template {
+  /* footer/header colour */ }
+  #template .article {
+    border-radius: 15px; }
+  #template h1 {
+    text-align: center; }
+  #template label {
+    display: block;
+    width: 120px;
+    float: left;
+    padding-top: 5px; }
+  #template .message label {
+    margin-top: 60px; }
+  #template input, #template textarea {
+    width: 200px;
+    padding: 5px;
+    border-radius: 3px; }
+  #template button {
+    margin-left: 150px; }
+  #template .bloc1 {
+    background-color: white;
+    text-align: left; }
+  #template .bloc2 {
+    background-color: #d82679;
+    text-align: right; }
+  #template table {
+    display: inline-block;
+    width: 80%; }
+  #template .parallax-container {
+    height: 150px; }
 
 /*//////////////////////////////////////////////
 //////////// _template_footer.scss /////////////
@@ -469,7 +475,7 @@ body, html {
     font-size: 14px;
     font-weight: normal;
     color: #d1d2d2;
-    width: 400px;
+    width: 20em;
     padding: 18px; }
   #_template_footer .footer-right ::-webkit-input-placeholder {
     color: #5c666b; }
