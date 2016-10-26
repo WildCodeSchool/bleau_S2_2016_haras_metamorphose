@@ -57,13 +57,12 @@ class PageController extends Controller
             $textContent = $article->getContent();
             $articleRendering['title'] = $textTitle->getTranslation($language);
             $articleRendering['content'] = $textContent->getTranslation($language);
-
+			$articleRendering['structure'] = $article->getStructure();
             foreach ($article->getMedias() as $media)
             {
-                $articleRendering[$media->getName()] = $media->getMediaTranslation($language);
+                $articleRendering['medias'][] = $media->getMediaTranslation($language);
             }
             array_unshift($table['articles'], $articleRendering);
-
         }
         return $this->render('@Haras/template.html.twig', $table);
     }
