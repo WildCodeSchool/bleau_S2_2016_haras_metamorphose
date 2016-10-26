@@ -13,20 +13,53 @@
         <h1 class="title">{{ section1Name }}</h1>
     </div>
     <div class="article">
+
         {% for article in articles %}
-            <div class="bloc">
-                <table>
-                    <tr>
-                        <td>
-                            <h2>{{ article.title }}</h2>
-                            <p id="texte-gauche">
-                                {{ article.content }}
-                            </p>
-                        </td>
-                        <td>
-                            <img id="image-droite" src="https://tse3.mm.bing.net/th?id=OIP.M647c41abdcea5ffe31e9ab3ec3621778H0&pid=Api" alt="image_template"/>
-                        </td>
-                    </tr>
+            <div class="article-block">
+                    {% switch article.structure %}
+                    {% case 'imageRight' %}
+                        <table class='imageRight'>
+                            <tr>
+                                <td>
+                                    <h2>{{ article.title }}</h2>
+                                    <p id="text-left">
+                                        {{ article.content }}
+                                    </p>
+                                </td>
+                                <td>
+                                    <img id="image-right" src="{{ asset(article.medias[0].path) }}" alt="{{ article.medias[0].alt }}"/>
+                                </td>
+                            </tr>
+                        </table>
+                    {% case 'imageLeft' %}
+                        <table class='imageLeft'>
+                            <tr>
+                                <td>
+                                    <img id="image-left" src="{{ asset(article.medias[0].path) }}" alt="{{ article.medias[0].alt }}"/>
+                                </td>
+                                <td>
+                                    <h2>{{ article.title }}</h2>
+                                    <p id="text-right">
+                                        {{ article.content }}
+                                    </p>
+                                </td>
+                            </tr>
+                        </table>
+                    {% case 'video' %}
+                    <div class="video">
+                        <video src="{{ asset(article.medias[0].path) }}"></video>
+                        <h2>{{ article.title }}</h2>
+                        <p id="text-video">
+                            {{ article.content }}
+                        </p>
+                    </div>
+                    {% case 'slider' %}
+                    <div class="slider carousel">
+                        {% for image in slider.medias %}
+                            <img class="carousel-item" src="{{ asset(image.path) }}" alt="{{ image.alt }}">
+                        {% endfor %}
+                    </div>
+                    {% endswitch %}
                 </table>
             </div>
         {% endfor %}
@@ -37,3 +70,10 @@
 
 
 {% endblock body %}
+{% javascripts %}
+    {{ parent() }}
+
+    $(document).ready(function(){
+        $('.carousel').carousel();
+    });
+{% endblock javascripts %}
