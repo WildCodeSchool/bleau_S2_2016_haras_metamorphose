@@ -10,7 +10,7 @@
       {{ render(controller('HarasBundle:Page:getPage', { 'name': 'header' })) }}
     </header>
     <div>
-        <h1 class="title">{{ section1Name }}</h1>
+        <h1 class="title">{#{{ section1Name }}#}</h1>
     </div>
     <div class="article">
         {% for article in articles %}

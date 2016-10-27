@@ -14,59 +14,46 @@ use HarasBundle\Form\PageType;
  */
 class PageController extends Controller
 {
-    public function getPageAction($name)
+    public function getPageAction(Page $page)
     {
-        $em = $this->getDoctrine()->getManager();
-        $page = $em->getRepository('HarasBundle:Page')->findOneBy
-        (
-            ['name' => $name]
-        );
+        $name = $page->getName();
         $table = [];
         $language = $this->getRequest()->getLocale();
-        foreach ($page->getTexts() as $text)
-        {
-            $table[$text->getName()] = $text->getTranslation($language);
-        }
-        return $this->render('HarasBundle::'.$name.'.html.twig', $table);
-    }
-
-
-    public function templateAction(Page $page)
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $table = [];
-        $language = $this->getRequest()->getLocale();
-
-        //récupère les textes et les met dans un tableau
+        // récupération du texte propre à la page
         foreach ($page->getTexts() as $text)
         {
             $table[$text->getName()] = $text->getTranslation($language);
         }
 
-        foreach ($page->getMedias() as $media)
+        if($name == 'section1' || $name == 'section2' || $name == 'section3' || $name == 'section4')
         {
-            $table[$media->getName()] = $media->getMediaTranslation($language);
-        }
-
-        $table['articles'] = [];
-        foreach ($page->getArticles() as $article)
-        {
-            $articleRendering = [];
-            $textTitle = $article->getTitle();
-            $textContent = $article->getContent();
-            $articleRendering['title'] = $textTitle->getTranslation($language);
-            $articleRendering['content'] = $textContent->getTranslation($language);
-			$articleRendering['structure'] = $article->getStructure();
-            foreach ($article->getMedias() as $media)
+             // récupération des média
+            foreach ($page->getMedias() as $media)
             {
-                $articleRendering['medias'][] = $media->getMediaTranslation($language);
+                $table[$media->getName()] = $media->getMediaTranslation($language);
             }
+            // récupération des articles
+            $table['articles'] = [];
+            $articleRendering = [];
+            foreach ($page->getArticles() as $article)
+            {
+                $textTitle = $article->getTitle();
+                $textContent = $article->getContent();
+                $articleRendering['title'] = $textTitle->getTranslation($language);
+                $articleRendering['content'] = $textContent->getTranslation($language);
+                $articleRendering['structure'] = $article->getStructure();
+                // récupération des médias de l'article
+                foreach ($article->getMedias() as $media)
+                {
+                $articleRendering['medias'][] = $media->getMediaTranslation($language);
+                }
+            }
+            // Organisation des articles par ordre chronologique inverse
             array_unshift($table['articles'], $articleRendering);
+            return $this->render('HarasBundle::template.html.twig', $table);
         }
-        return $this->render('@Haras/template.html.twig', $table);
+            return $this->render('HarasBundle::'.$name.'.html.twig', $table);
     }
-
 
     public function contactAction(Request $request,Page $page){
 
@@ -82,7 +69,7 @@ class PageController extends Controller
             return $this->render('@Haras/contact.html.twig', array('send' => $send, 'form' => $form->createView()));
         }
 
-         return $this->render('@Haras/contact.html.twig', array('form' => $form->createView()));
+         return $this->render('@Haras/contact.html.twig', array('form' => $form->createView(), 'page' => $page));
     }
 
     public function sendMail($subject, $from, $body)
@@ -95,9 +82,6 @@ class PageController extends Controller
         ;
         $this->get('mailer')->send($message);
     }
-
-
-
 
     /**
      * Lists all Page entities.
