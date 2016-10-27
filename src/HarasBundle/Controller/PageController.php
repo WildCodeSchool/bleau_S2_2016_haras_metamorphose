@@ -14,7 +14,7 @@ use HarasBundle\Form\PageType;
  */
 class PageController extends Controller
 {
-    public function getPageAction(Page $page)
+    public function getPageAction(Request $request, Page $page)
     {
         $name = $page->getName();
         $table = [];
@@ -24,7 +24,7 @@ class PageController extends Controller
         {
             $table[$text->getName()] = $text->getTranslation($language);
         }
-
+        // page template
         if($name == 'section1' || $name == 'section2' || $name == 'section3' || $name == 'section4')
         {
              // récupération des média
@@ -52,25 +52,29 @@ class PageController extends Controller
             array_unshift($table['articles'], $articleRendering);
             return $this->render('HarasBundle::template.html.twig', $table);
         }
+        // page contact
+        else if($name == 'contact')
+        {
+            $form = $this->createForm('HarasBundle\Form\contactType', $page);
+            $form->handleRequest($request);
+            $send=false;
+            if ($form->isSubmitted() && $form->isValid()) 
+            {
+                $subject = $form->get('subject')->getData();
+                $from = $form->get('from')->getData();
+                $body = $form->get('body')->getData();
+                $this->sendMail($subject,$from,$body);
+                $send=true;
+                return $this->render('@Haras/contact.html.twig', array('send' => $send, 'form' => $form->createView()));
+            }
+            return $this->render('@Haras/contact.html.twig', array('form' => $form->createView(), 'page' => $page));
+        }
+
+
+
             return $this->render('HarasBundle::'.$name.'.html.twig', $table);
     }
 
-    public function contactAction(Request $request,Page $page){
-
-        $form = $this->createForm('HarasBundle\Form\contactType', $page);
-        $form->handleRequest($request);
-        $send=false;
-        if ($form->isSubmitted() && $form->isValid()) {
-            $subject = $form->get('subject')->getData();
-            $from = $form->get('from')->getData();
-            $body = $form->get('body')->getData();
-            $this->sendMail($subject,$from,$body);
-            $send=true;
-            return $this->render('@Haras/contact.html.twig', array('send' => $send, 'form' => $form->createView()));
-        }
-
-         return $this->render('@Haras/contact.html.twig', array('form' => $form->createView(), 'page' => $page));
-    }
 
     public function sendMail($subject, $from, $body)
     {

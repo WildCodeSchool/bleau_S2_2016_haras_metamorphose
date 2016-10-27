@@ -18,7 +18,3 @@ haras_text:
 haras_get_page:
     path:     /{name}
     defaults: { _controller: HarasBundle:Page:getPage, name: homepage }
-
-haras_contact:
-    path:     /contact/{name}
-    defaults: { _controller: HarasBundle:Page:contact }
