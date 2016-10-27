@@ -14,69 +14,80 @@ use HarasBundle\Form\PageType;
  */
 class PageController extends Controller
 {
-    public function getPageAction($name)
+    public function getPageAction(Request $request, Page $page)
     {
-        $em = $this->getDoctrine()->getManager();
-        $page = $em->getRepository('HarasBundle:Page')->findOneBy
-        (
-            ['name' => $name]
-        );
+        $name = $page->getName();
         $table = [];
         $language = $this->getRequest()->getLocale();
+        // récupération du texte propre à la page
         foreach ($page->getTexts() as $text)
         {
             $table[$text->getName()] = $text->getTranslation($language);
         }
-        return $this->render('HarasBundle::'.$name.'.html.twig', $table);
-    }
-
-
-    public function templateAction(Page $page)
-    {
-        $em = $this->getDoctrine()->getManager();
-
-//		Generate the table containing all the variables for the view
-        $table = [];
-        $language = $this->getRequest()->getLocale();
-
-//		Add the page's category to the view.
-		$table['category'] = strval($page->getCategory());	// prefer strval() over $category->getName() as category can be null
-//		Add texts and medias to the view (respectively as strings and arrays of strings ['path', 'alt']
-		foreach ($page->getTexts() as $text)
+        // page template
+        if($name == 'section1' || $name == 'section2' || $name == 'section3' || $name == 'section4')
         {
-            $table[$text->getName()] = $text->getTranslation($language);
-        }
-        foreach ($page->getMedias() as $media)
-        {
-            $table[$media->getName()] = $media->getMediaTranslation($language);
-        }
-
-//		The page's articles are sent via an 'articles' array to the view.
-        $table['articles'] = [];
-        foreach ($page->getArticles() as $article)
-        {
-            $articleRendering = [];
-			$articleRendering['id'] = $article->getId();
-            $textTitle = $article->getTitle();
-            $textContent = $article->getContent();
-            $articleRendering['title'] = $textTitle->getTranslation($language);
-            $articleRendering['content'] = $textContent->getTranslation($language);
-			$articleRendering['structure'] = $article->getStructure();
-            foreach ($article->getMedias() as $media)	// Be careful! The medias are stored in a table even when there's only one!
+             // récupération des média
+            foreach ($page->getMedias() as $media)
             {
-                $articleRendering['medias'][] = $media->getMediaTranslation($language);
+                $table[$media->getName()] = $media->getMediaTranslation($language);
+            }
+            // récupération des articles
+            $table['articles'] = [];
+            $articleRendering = [];
+
+            foreach ($page->getArticles() as $article)
+            {
+				$articleRendering['id'] = $article->getId();
+                $textTitle = $article->getTitle();
+                $textContent = $article->getContent();
+                $articleRendering['title'] = $textTitle->getTranslation($language);
+                $articleRendering['content'] = $textContent->getTranslation($language);
+                $articleRendering['structure'] = $article->getStructure();
+                // récupération des médias de l'article
+                foreach ($article->getMedias() as $media)
+                {
+                	$articleRendering['medias'][] = $media->getMediaTranslation($language);
+                }
             }
             array_unshift($table['articles'], $articleRendering);	// The articles are prepended so that the views get
 														// them in reversed order (chronologically from last to first)
+            return $this->render('HarasBundle::template.html.twig', $table);
         }
-        return $this->render('@Haras/template.html.twig', $table);
+        // page contact
+        else if($name == 'contact')
+        {
+            $form = $this->createForm('HarasBundle\Form\contactType', $page);
+            $form->handleRequest($request);
+            $send=false;
+            if ($form->isSubmitted() && $form->isValid()) 
+            {
+                $subject = $form->get('subject')->getData();
+                $from = $form->get('from')->getData();
+                $body = $form->get('body')->getData();
+                $this->sendMail($subject,$from,$body);
+                $send=true;
+                return $this->render('@Haras/contact.html.twig', array('send' => $send, 'form' => $form->createView()));
+            }
+            return $this->render('@Haras/contact.html.twig', array('form' => $form->createView(), 'page' => $page));
+        }
+
+
+
+            return $this->render('HarasBundle::'.$name.'.html.twig', $table);
     }
 
 
-
-
-
-
+    public function sendMail($subject, $from, $body)
+    {
+        $message = \Swift_Message::newInstance()
+            ->setSubject($subject)
+            ->setFrom($from)
+            ->setTo('michael.combescot@gmail.com')
+            ->setBody($body)
+        ;
+        $this->get('mailer')->send($message);
+    }
 
     /**
      * Lists all Page entities.
@@ -125,7 +136,6 @@ class PageController extends Controller
     public function showAction(Page $page)
     {
         $deleteForm = $this->createDeleteForm($page);
-
         return $this->render('page/show.html.twig', array(
             'page' => $page,
             'delete_form' => $deleteForm->createView(),

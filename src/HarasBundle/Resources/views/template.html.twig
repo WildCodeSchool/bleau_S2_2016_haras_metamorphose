@@ -52,7 +52,7 @@
                     </p>
                 </div>
             {% elseif article.structure.name == 'slider' %}
-                <div class="slider carousel carousel-slider">
+                <div class="slider carousel carousel-slider data-indicators='true'">
                     {% for image in article.medias %}
                         <div class="carousel-item">
                             <img class="carousel-item" src="{{ asset(image.path) }}" alt="{{ image.alt }}">
