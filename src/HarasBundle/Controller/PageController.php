@@ -56,6 +56,7 @@ class PageController extends Controller
         foreach ($page->getArticles() as $article)
         {
             $articleRendering = [];
+			$articleRendering['id'] = $article->getId();
             $textTitle = $article->getTitle();
             $textContent = $article->getContent();
             $articleRendering['title'] = $textTitle->getTranslation($language);

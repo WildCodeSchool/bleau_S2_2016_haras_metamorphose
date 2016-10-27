@@ -12,9 +12,9 @@
     <div>
         <h1 class="title">{{ pageTitle }}</h1>
     </div>
-    <div class="article">
+    <div class="articles">
         {% for article in articles %}
-            <div class="article-block">
+            <div class="article-block center">
             {% if article.structure.name == 'imageRight' %}
                 <table class='imageRight'>
                     <tr>
@@ -52,18 +52,20 @@
                     </p>
                 </div>
             {% elseif article.structure.name == 'slider' %}
-                <div class="slider carousel">
+                <div class="slider carousel carousel-slider">
                     {% for image in article.medias %}
-                        <img class="carousel-item" src="{{ asset(image.path) }}" alt="{{ image.alt }}">
+                        <div class="carousel-item">
+                            <img class="carousel-item" src="{{ asset(image.path) }}" alt="{{ image.alt }}">
+                        </div>
                     {% endfor %}
                 </div>
             {% endif %}
-            </div>
+            </div>	<!--	End of article-block    -->
         {% endfor %}
     </div>
-
-   {{ render(controller('HarasBundle:Page:getPage', { 'name': 'footer' })) }}
-
+    <footer id="_template_footer">
+        {{ render(controller('HarasBundle:Page:getPage', { 'name': 'footer' })) }}
+    </footer>
 
 
 {% endblock body %}
@@ -71,7 +73,7 @@
     {{ parent() }}
     <script>
         $(document).ready(function(){
-            $('.carousel').carousel();
+            $('.carousel.carousel-slider').carousel({full_width: true});
         });
     </script>
 {% endblock javascripts %}
