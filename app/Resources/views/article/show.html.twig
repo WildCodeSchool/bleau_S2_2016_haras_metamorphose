@@ -1,27 +1,43 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Article</h1>
+    <h1>Article {{ article.name }}</h1>
 
     <table>
         <tbody>
+            <thead>
             <tr>
-                <th>Id</th>
-                <td>{{ article.id }}</td>
+                <th>Nom de l'article</th>
+                <td>
+                    {{ article.name }}
+                </td>
             </tr>
             <tr>
-                <th>Name</th>
-                <td>{{ article.name }}</td>
+                <th>Page où il est situé</th>
+                <td>
+                    {{ article.pages[0] }}
+                </td>
+                </tr>
+            <tr>
+                <th>Liste des textes</th>
+                <td>
+                    {{ article.title }}
+                </td>
+            <tr>
+                <th>Contenu</th>
+                <td>
+                    {{ article.content }}
+                </td>
             </tr>
         </tbody>
     </table>
 
     <ul>
         <li>
-            <a href="{{ path('article_index') }}">Back to the list</a>
+            <a href="{{ path('article_edit', { 'id': article.id }) }}">Modifier cet article</a>
         </li>
         <li>
-            <a href="{{ path('article_edit', { 'id': article.id }) }}">Edit</a>
+            <a href="{{ path('article_index') }}">Retour à la liste des articles</a>
         </li>
         <li>
             {{ form_start(delete_form) }}

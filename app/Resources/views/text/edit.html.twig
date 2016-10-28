@@ -1,10 +1,29 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Text edit</h1>
+    <h1>Modification du texte {{ text.name }}</h1>
 
     {{ form_start(edit_form) }}
-        {{ form_widget(edit_form) }}
+        <div>
+            Nom
+            {{ form_errors(edit_form.name) }}
+            {{ form_widget(edit_form.name) }}
+        </div>
+        <div>
+            Texte en français
+            {{ form_errors(edit_form.textFr) }}
+            {{ form_widget(edit_form.textFr) }}
+        </div>
+        <div>
+            Texte en anglais
+            {{ form_errors(edit_form.textEn) }}
+            {{ form_widget(edit_form.textEn) }}
+        </div>
+        <div>
+            Page
+            {{ form_errors(edit_form.pages) }}
+            {{ form_widget(edit_form.pages) }}
+        </div>
         <input type="submit" value="Edit" />
     {{ form_end(edit_form) }}
 

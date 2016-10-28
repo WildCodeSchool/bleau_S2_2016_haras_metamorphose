@@ -1,11 +1,31 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Article edit</h1>
+    <h1>Modifier l'article {{ article.name }}</h1>
 
     {{ form_start(edit_form) }}
-        {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
+        <div>
+            Page où est situé l'article
+            {{ form_errors(edit_form.pages) }}
+            {{ form_widget(edit_form.pages) }}
+        </div>
+            <div>
+            Titre
+            {{ form_errors(edit_form.title) }}
+            {{ form_widget(edit_form.title) }}
+        </div>
+        <div>
+            Contenu
+            {{ form_errors(edit_form.content) }}
+            {{ form_widget(edit_form.content) }}
+        </div>
+        <div>
+            Médias
+            {{ form_errors(edit_form.medias) }}
+            {{ form_widget(edit_form.medias) }}
+        </div>
+
+    <input type="submit" value="Edit" />
     {{ form_end(edit_form) }}
 
     <ul>
