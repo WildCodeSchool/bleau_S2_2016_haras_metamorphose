@@ -20,9 +20,10 @@ class ArticleType extends AbstractType
             ->add('content')
             ->add('medias')
             ->add('pages')
+            ->add('structure')
         ;
     }
-    
+
     /**
      * @param OptionsResolver $resolver
      */
