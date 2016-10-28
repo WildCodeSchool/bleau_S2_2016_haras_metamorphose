@@ -31,9 +31,9 @@
             </div>
         {% endfor %}
     </div>
-
-   {{ render(controller('HarasBundle:Page:getPage', { 'name': 'footer' })) }}
-
+    <footer id="_template_footer"> 
+        {{ render(controller('HarasBundle:Page:getPage', { 'name': 'footer' })) }}
+     </footer>
 
 
 {% endblock body %}
