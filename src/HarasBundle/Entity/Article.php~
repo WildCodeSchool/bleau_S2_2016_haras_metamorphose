@@ -15,6 +15,8 @@ class Article
         return strval($this->getTitle());
     }
 
+//    GENERATED CODE
+
     /**
      * @var integer
      */

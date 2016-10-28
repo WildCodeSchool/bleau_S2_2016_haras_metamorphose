@@ -1,47 +1,50 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <header id="_template_header">
+    {#<header id="_template_header">#}
         {#{{ render(controller('HarasBundle:Page:getPage'),{'name':'header'}) }} #}
-    </header>
-    <h1>Article list</h1>
+    {#</header>#}
+    <h1>Liste des articles de la page</h1>
 
     <table>
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Actions</th>
+                <th>Nom</th>
+                <th>Voir</th>
+                <th>Editer</th>
             </tr>
         </thead>
         <tbody>
-        {% for article in articles %}
-            <tr>
-                <td><a href="{{ path('article_show', { 'id': article.id }) }}">{{ article.id }}</a></td>
-                <td>{{ article.name }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('article_show', { 'id': article.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('article_edit', { 'id': article.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
+            {% for article in articles %}
+                <tr>
+                    <td>{{ article.name }}</td>
+                    <td>
+                        <a href="{{ path('article_show', { 'id': article.id }) }}">Visualiser</a>
+                    </td>
+                    <td>
+                        <a href="{{ path('article_edit', { 'id': article.id }) }}">Editer</a>
+                    </td>
+                </tr>
+            {% endfor %}
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('article_new') }}">Create a new entry</a>
-        </li>
-        <li>
-        </li>
-        <li>
-            <a href="{{ path('text_index') }}">Go to text page</a>
-        </li>
-    </ul>
+    <table>
+        <tbody>
+            <tr>
+                <td>
+                    <a href="{{ path('article_new') }}">
+                        <input type="submit" value="Ajouter un nouvel article">
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="{{ path('page_index') }}">
+                        <input type="submit" value="Retourner à la liste des pages">
+                    </a>
+                </d>
+            </tr>
+        </tbody>
+    </table>
 {% endblock %}

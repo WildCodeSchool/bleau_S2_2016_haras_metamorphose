@@ -21,7 +21,6 @@ class ArticleController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-
         $articles = $em->getRepository('HarasBundle:Article')->findAll();
 
         return $this->render('article/index.html.twig', array(
@@ -46,10 +45,15 @@ class ArticleController extends Controller
 
             return $this->redirectToRoute('article_show', array('id' => $article->getId()));
         }
+        $form->remove('name');
+        $form->remove('title');
+        $form->remove('content');
+        $form->remove('medias');
 
         return $this->render('article/new.html.twig', array(
             'article' => $article,
             'form' => $form->createView(),
+
         ));
     }
 
@@ -91,7 +95,6 @@ class ArticleController extends Controller
             'delete_form' => $deleteForm->createView(),
         ));
     }
-
     /**
      * Deletes a Article entity.
      *

@@ -4,7 +4,21 @@
     <h1>Media edit</h1>
 
     {{ form_start(edit_form) }}
-        {{ form_widget(edit_form) }}
+    <div>
+        Nom
+        {{ form_errors(edit_form.name) }}
+        {{ form_widget(edit_form.name) }}
+    </div>
+    <div>
+        Fichier
+        {{ form_errors(edit_form.file) }}
+        {{ form_widget(edit_form.file) }}
+    </div>
+    <div>
+        Nom du fichier
+        {{ form_errors(edit_form.alt) }}
+        {{ form_widget(edit_form.alt) }}
+    </div>
         <input type="submit" value="Edit" />
     {{ form_end(edit_form) }}
 
