@@ -1,59 +1,53 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <header id="_template_header">
-        {{ render(controller('HarasBundle:Page:getPage',{'name':'header'})) }}
-    </header>
-    <h1>Quelle page voulez-vous modifier ?</h1>
 
-    <table>
-        <tbody>
-            <tr>
-                <td>
+    <h1 class="title">Quelle page voulez-vous modifier ?</h1>
+
+    <div>
+        <div class="button">
                     <a href="{{ path('page_show', { 'name': 'homepage' }) }}">
-                        Page d'accueil
+                        <input type="submit" value="Page d'accueil" />
                     </a>
-                </td>
-            </tr>
-            <tr>
-                <td>
+
                     <a href="{{ path('page_show', { 'name': 'section1' }) }}">
-                        Section 1
+                        <input type="submit" value="Section 1" />
                     </a>
-                </td>
-                <td>
+
+
                     <a href="{{ path('page_show', { 'name': 'section2' }) }}">
-                        Section 2
+                        <input type="submit" value="Section 2" />
                     </a>
-                </td>
-                <td>
+
+
                     <a href="{{ path('page_show', { 'name': 'section3' }) }}">
-                        Section 3
+                        <input type="submit" value="Section 3" />
                     </a>
-                </td>
-                <td>
+
+
                     <a href="{{ path('page_show', { 'name': 'section4' }) }}">
-                        Section 4
+                        <input type="submit" value="Section 4" />
                     </a>
-                </td>
-            </tr>
-            <tr>
-                <td>
+
+
+
+
+
                     <a href="{{ path('page_show', { 'name': 'contact' }) }}">
-                        Contact
+                        <input type="submit" value="Contact" />
                     </a>
-                </td>
-            </tr>
-            <tr>
-                <td>
+
+
                     <a href="{{ path('page_show', { 'name': 'header' }) }}">
-                        En-tête
+                        <input type="submit" value="En-tête" />
                     </a>
-                </td>
-                <td>
+
+
                     <a href="{{ path('page_show', { 'name': 'footer' }) }}">
-                        Pied de page
+                        <input type="submit" value="Pied de page" />
                     </a>
+         </div>
+    </div>
                 </td>
             </tr>
         </tbody>
