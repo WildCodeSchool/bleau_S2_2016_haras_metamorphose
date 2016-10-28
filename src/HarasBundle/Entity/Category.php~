@@ -9,11 +9,12 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Category
 {
-
     public function __toString()
     {
         return $this->getName();
     }
+
+//    GENERATED CODE
 
     /**
      * @var integer

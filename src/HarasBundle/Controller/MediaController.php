@@ -17,10 +17,10 @@ class MediaController extends Controller
 
     private function uploadMediaFileAndSetPath(Media $media, $form)
     {
-        $file = $form->get('file')->getData();
-        $media->setPath('bundles/haras/images/'.$media->getName().'.'.$file->guessExtension());
         $name = $media->getName();
         $extension = $file->guessExtension();
+        $file = $form->get('file')->getData();
+        $media->setPath('bundles/haras/images/'.$name.'.'.$extension);
         $file->move($this->getParameter('medias_directory'),$name.'.'.$extension);
     }
 
