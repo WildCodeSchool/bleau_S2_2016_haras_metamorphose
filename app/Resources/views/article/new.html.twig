@@ -3,6 +3,12 @@
 {% block body %}
     <h1>Création d'un nouvel article</h1>
     {{ form_start(form) }}
+    <div>
+        Nom de l'article
+        {{ form_errors(form.name) }}
+        {{ form_widget(form.name) }}
+    </div>
+    </div>
         <div>
             Structure de l'article
             {{ form_errors(form.structure) }}

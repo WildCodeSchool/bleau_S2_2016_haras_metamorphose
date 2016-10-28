@@ -14,20 +14,26 @@
             </tr>
             <tr>
                 <th>Page où il est situé</th>
+                {% for page in article.pages %}
                 <td>
-                    {{ article.pages[0] }}
+                    {{ page.name }}
                 </td>
                 </tr>
+            {% endfor %}
             <tr>
                 <th>Liste des textes</th>
-                <td>
-                    {{ article.title }}
-                </td>
+                {% for text in article.title %}
+                    <td>
+                        {{ article.title }}
+                    </td>
+                {% endfor %}
             <tr>
-                <th>Contenu</th>
+                <th>Contenus</th>
+                {% for text in article.content %}#}
                 <td>
                     {{ article.content }}
                 </td>
+                {% endfor %}
             </tr>
         </tbody>
     </table>
