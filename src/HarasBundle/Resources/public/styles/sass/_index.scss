@@ -26,6 +26,7 @@ body, html {
 //////////////////////////////*/
 
 #index_corps {
+	text-align: center;
 	position:relative;
 	display: table-row;
 	width: 100%;
@@ -57,9 +58,8 @@ body, html {
 
 /* Mise en page de l'accroche et des rubriques */
 
-#index_accroche {
+#index_catchPhrase {
 	margin-top: 10%;
-	text-align: center;
 	color: white;
 	text-shadow: 3px 3px rgba(0, 0, 0, 0.7);
 }
@@ -131,4 +131,28 @@ body, html {
 
 .accessibilite.hover {
 	background-color: rgba(183, 21, 134, 1);
+}
+
+// Typed.js pointer
+
+.typed-cursor{
+    opacity: 1;
+    -webkit-animation: blink 0.7s infinite;
+    -moz-animation: blink 0.7s infinite;
+    animation: blink 0.7s infinite;
+}
+@keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-webkit-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-moz-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
 }

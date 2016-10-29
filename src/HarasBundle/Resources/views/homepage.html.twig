@@ -2,8 +2,6 @@
 
 {% block body %}
 <body id="_index">
-
-
 <div id="index_wrapper">
     <video id="index_video" autoplay loop muted>
         <source src="{{ asset('bundles/haras/videos/video.mp4') }}" type='video/mp4'>
@@ -11,7 +9,6 @@
 
     <header id='_index_header'>
         {{ render(controller('HarasBundle:Page:getPage', { 'name': 'header' })) }}
-
     </header>
 
     <div id="index_corps">
@@ -22,9 +19,7 @@
             <img class="icone-social" src="{{ asset('bundles/haras/images/pinterest.svg') }}" alt="Pinterest">
         </aside>
         <div id="index_contenu">
-            <div id="index_accroche">
-                <h1>{{ catchPhrase | nl2br }}</h1>
-            </div>
+            <div id="index_catchPhrase"></div>
             <div id="index_focus">
                 <div class="tourisme index_rubrique">
                     <img class="index_rubrique_img" src="{{ asset('bundles/haras/images/logo.png') }}" alt="tourisme">
@@ -53,7 +48,7 @@
             </div>
         </div>
     </div>
-    <footer>
+    <footer id="_index_footer">
         {{ render(controller('HarasBundle:Page:getPage', { 'name': 'footer' })) }}
     </footer>
 {% endblock body %}

@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use HarasBundle\Entity\Page;
 use HarasBundle\Form\PageType;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 /**
  * Page controller.
@@ -14,16 +15,18 @@ use HarasBundle\Form\PageType;
  */
 class PageController extends Controller
 {
-    public function getPageAction(Request $request, Page $page)
+    public function getPageAction(Request $request, Page $page, $langChoice)
     {
+        $this->get('language.change')->select($request,$langChoice);
+        $language = $request->getSession()->get('_locale');
         $name = $page->getName();
         $table = [];
-        $language = $this->getRequest()->getLocale();
         // récupération du texte propre à la page
         foreach ($page->getTexts() as $text)
         {
             $table[$text->getName()] = $text->getTranslation($language);
         }
+
         // page template
         if($name == 'section1' || $name == 'section2' || $name == 'section3' || $name == 'section4')
         {
@@ -65,14 +68,11 @@ class PageController extends Controller
                 $body = $form->get('body')->getData();
                 $this->sendMail($subject,$from,$body);
                 $send=true;
-                return $this->render('@Haras/contact.html.twig', array('send' => $send, 'form' => $form->createView()));
+                return $this->render('@Haras/contact.html.twig', array('send' => $send, 'form' => $form->createView(), 'page'=> $page));
             }
-            return $this->render('@Haras/contact.html.twig', array('form' => $form->createView(), 'page' => $page));
+            return $this->render('@Haras/contact.html.twig', array('send' => $send, 'form' => $form->createView(), 'page' => $page));
         }
-
-
-
-            return $this->render('HarasBundle::'.$name.'.html.twig', $table);
+        return $this->render('HarasBundle::'.$name.'.html.twig', $table);
     }
 
 

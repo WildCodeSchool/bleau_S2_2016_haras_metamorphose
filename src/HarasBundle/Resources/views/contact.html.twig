@@ -10,19 +10,20 @@
         {{ render(controller('HarasBundle:Page:getPage', { 'name': 'header' })) }}
 
     </header>
-
     <div class="container article">
         <div class="row">
             <h1 class="title">Nous contacter</h1>
         </div>
         {{ form_start(form) }}
-            <input type="submit" value="Create" />
             {{ form_widget(form) }}
-           
+           <input type="submit" value="Create" />
         {{ form_end(form) }}
     </div>
+    {% if send == true %}
+        <p>Le formulaire a bien été envoyé</p>
+    {% endif %}
 
     <footer id="_template_footer">
-        {{ render(controller('HarasBundle:Page:getPage', { 'name': 'footer' })) }}
+        {{ render(controller('HarasBundle:Page:getPage', { 'name': 'footer'})) }}
     </footer>
 {% endblock body %}

@@ -3,7 +3,6 @@
 // }); */
 
 $(document).ready(function() {
-	$('html').addClass('jQuery-fonctionne');
 //Cas .Tourisme survolée
 	function toggleTourisme() {
 		$('.tourisme').toggleClass("hover");
@@ -33,4 +32,11 @@ $(document).ready(function() {
 	$('.accessibilite').on('mouseenter', toggleAccessibilite);
 	$('.accessibilite').on('mouseleave', toggleAccessibilite); 
 
+	// typed.js for homepage's sentence
+    $(function typedFunction(string1, string2){
+        $("#index_catchPhrase").typed({
+            strings: [string1, string2],
+            typeSpeed: 6
+        });
+    });
 });
