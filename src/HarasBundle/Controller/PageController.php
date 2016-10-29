@@ -26,15 +26,14 @@ class PageController extends Controller
         {
             $table[$text->getName()] = $text->getTranslation($language);
         }
-
+        // récupération de médias
+        foreach ($page->getMedias() as $media)
+        {
+            $table[$media->getName()] = $media->getMediaTranslation($language);
+        }
         // page template
         if($name == 'section1' || $name == 'section2' || $name == 'section3' || $name == 'section4')
         {
-             // récupération des média
-            foreach ($page->getMedias() as $media)
-            {
-                $table[$media->getName()] = $media->getMediaTranslation($language);
-            }
             // récupération des articles
             $table['articles'] = [];
             $articleRendering = [];
