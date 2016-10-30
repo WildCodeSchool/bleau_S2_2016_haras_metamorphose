@@ -25,17 +25,17 @@ class PageController extends Controller
         $table['page'] = $page->getName();
         $name = $table['page'];
         // récupération du texte propre à la page
-        foreach ($pages as $page)
+        foreach($pages as $p)
         {
-            foreach($page->getTexts() as $text)
+            foreach($p->getTexts() as $text)
             {
             $table[$text->getName()] = $text->getTranslation($language);
             }
         }
         // récupération de médias
-        foreach ($pages as $page)
+        foreach ($pages as $p)
         {
-            foreach ($page->getMedias() as $media)
+            foreach ($p->getMedias() as $media)
             {
                 $table[$media->getName()] = $media->getMediaTranslation($language);
             }
@@ -68,7 +68,9 @@ class PageController extends Controller
         {
             $form = $this->createForm('HarasBundle\Form\contactType', $page);
             $form->handleRequest($request);
+            $table['form'] = $form->createView();
             $send=false;
+            $table['send'] = $send;
             if ($form->isSubmitted() && $form->isValid()) 
             {
                 $subject = $form->get('subject')->getData();
@@ -77,12 +79,13 @@ class PageController extends Controller
                 $this->sendMail($subject,$from,$body);
                 // permet de savoir si le questionnaire a été envoyé
                 $send=true;
+                $table['send'] = $send;
                 // on efface le questionnaire et on en créé un nouveau pour qu'à l'envoi les champs soient reset
                 unset($form);
                 $form = $this->createForm('HarasBundle\Form\contactType', $page);
-                return $this->render('@Haras/contact.html.twig', array('send' => $send, 'form' => $form->createView()));
+                return $this->render('@Haras/contact.html.twig', $table);
             }
-            return $this->render('@Haras/contact.html.twig', array('send' => $send, 'form' => $form->createView()));
+            return $this->render('@Haras/contact.html.twig', $table);
         }
         // renvoi par défaut si non template et non contact
         return $this->render('HarasBundle::'.$name.'.html.twig', $table);
