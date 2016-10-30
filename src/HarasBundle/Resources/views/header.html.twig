@@ -36,13 +36,13 @@
 <div id="langues">
     <ul>
         <li>
-            <a class="fr" href="{{ path('haras_get_page', {'langChoice': 'fr'}) }}">
+            <a class="fr" href="{{ path('haras_get_page', {'langChoice': 'fr', 'name': page }) }}">
                 Fr
             </a>
         </li>
         <p>|<p>
         <li>
-            <a class="en" href="{{ path('haras_get_page', {'langChoice': 'en'}) }}">
+            <a class="en" href="{{ path('haras_get_page', {'langChoice': 'en', 'name': page }) }}">
                 En
             </a>
         </li>

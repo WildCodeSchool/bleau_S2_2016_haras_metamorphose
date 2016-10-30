@@ -17,19 +17,28 @@ class PageController extends Controller
 {
     public function getPageAction(Request $request, Page $page, $langChoice)
     {
+        $em = $this->getDoctrine()->getManager();
+        $pages = $em->getRepository('HarasBundle:Page')->findById([14, 15, $page->getId()]);
         $this->get('language.change')->select($request,$langChoice);
         $language = $request->getSession()->get('_locale');
-        $name = $page->getName();
         $table = [];
+        $table['page'] = $page->getName();
+        $name = $table['page'];
         // récupération du texte propre à la page
-        foreach ($page->getTexts() as $text)
+        foreach ($pages as $page)
         {
+            foreach($page->getTexts() as $text)
+            {
             $table[$text->getName()] = $text->getTranslation($language);
+            }
         }
         // récupération de médias
-        foreach ($page->getMedias() as $media)
+        foreach ($pages as $page)
         {
-            $table[$media->getName()] = $media->getMediaTranslation($language);
+            foreach ($page->getMedias() as $media)
+            {
+                $table[$media->getName()] = $media->getMediaTranslation($language);
+            }
         }
         // page template
         if($name == 'section1' || $name == 'section2' || $name == 'section3' || $name == 'section4')
@@ -66,11 +75,16 @@ class PageController extends Controller
                 $from = $form->get('from')->getData();
                 $body = $form->get('body')->getData();
                 $this->sendMail($subject,$from,$body);
+                // permet de savoir si le questionnaire a été envoyé
                 $send=true;
-                return $this->render('@Haras/contact.html.twig', array('send' => $send, 'form' => $form->createView(), 'page'=> $page));
+                // on efface le questionnaire et on en créé un nouveau pour qu'à l'envoi les champs soient reset
+                unset($form);
+                $form = $this->createForm('HarasBundle\Form\contactType', $page);
+                return $this->render('@Haras/contact.html.twig', array('send' => $send, 'form' => $form->createView()));
             }
-            return $this->render('@Haras/contact.html.twig', array('send' => $send, 'form' => $form->createView(), 'page' => $page));
+            return $this->render('@Haras/contact.html.twig', array('send' => $send, 'form' => $form->createView()));
         }
+        // renvoi par défaut si non template et non contact
         return $this->render('HarasBundle::'.$name.'.html.twig', $table);
     }
 
