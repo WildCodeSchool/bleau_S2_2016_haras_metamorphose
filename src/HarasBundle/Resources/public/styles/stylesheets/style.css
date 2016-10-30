@@ -298,10 +298,12 @@ body, html {
 #index_catchPhrase {
   margin-top: 10%;
   color: white;
+  font-size: 2.5em;
+  font-weight: bold;
   text-shadow: 3px 3px rgba(0, 0, 0, 0.7);
 }
 
-/* line 67, ../sass/_index.scss */
+/* line 69, ../sass/_index.scss */
 #index_focus {
   position: absolute;
   bottom: 30px;
@@ -312,7 +314,7 @@ body, html {
   margin-bottom: 40px;
 }
 
-/* line 77, ../sass/_index.scss */
+/* line 79, ../sass/_index.scss */
 .index_rubrique {
   display: inline-block;
   border-radius: 10px;
@@ -327,39 +329,39 @@ body, html {
   transition: all 1s ease;
 }
 
-/* line 87, ../sass/_index.scss */
+/* line 89, ../sass/_index.scss */
 .index_rubrique_img {
   width: 120px;
   margin-top: 10px;
 }
 
-/* line 92, ../sass/_index.scss */
+/* line 94, ../sass/_index.scss */
 .index_rubrique p {
   font-size: 18px;
   margin: 0;
 }
 
-/* line 97, ../sass/_index.scss */
+/* line 99, ../sass/_index.scss */
 .index_rubrique.tourisme {
   background-color: rgba(7, 64, 10, 0.6);
 }
 
-/* line 101, ../sass/_index.scss */
+/* line 103, ../sass/_index.scss */
 .index_rubrique.travail {
   background-color: rgba(140, 104, 34, 0.6);
 }
 
-/* line 105, ../sass/_index.scss */
+/* line 107, ../sass/_index.scss */
 .index_rubrique.ecologie {
   background-color: rgba(39, 34, 140, 0.6);
 }
 
-/* line 109, ../sass/_index.scss */
+/* line 111, ../sass/_index.scss */
 .index_rubrique.accessibilite {
   background-color: rgba(183, 21, 134, 0.6);
 }
 
-/* line 113, ../sass/_index.scss */
+/* line 115, ../sass/_index.scss */
 .index_rubrique.hover {
   height: 300px;
   width: 300px;
@@ -367,67 +369,31 @@ body, html {
   box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.7);
 }
 
-/* line 120, ../sass/_index.scss */
+/* line 122, ../sass/_index.scss */
 .tourisme.hover {
   background-color: #07400a;
 }
 
-/* line 124, ../sass/_index.scss */
+/* line 126, ../sass/_index.scss */
 .travail.hover {
   background-color: #8c6822;
 }
 
-/* line 128, ../sass/_index.scss */
+/* line 130, ../sass/_index.scss */
 .ecologie.hover {
   background-color: #27228c;
 }
 
-/* line 132, ../sass/_index.scss */
+/* line 134, ../sass/_index.scss */
 .accessibilite.hover {
   background-color: #b71586;
 }
 
-/* line 138, ../sass/_index.scss */
+/* line 140, ../sass/_index.scss */
 .typed-cursor {
-  opacity: 1;
-  -webkit-animation: blink 0.7s infinite;
-  -moz-animation: blink 0.7s infinite;
-  animation: blink 0.7s infinite;
+  display: none;
 }
 
-@keyframes blink {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-@-webkit-keyframes blink {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-@-moz-keyframes blink {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
 /*//////////////////////////////////////////////
 ///////////// _formulaire_avis.scss /////////////
 //////////////////////////////////////////////*/

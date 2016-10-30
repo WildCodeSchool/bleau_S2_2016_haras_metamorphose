@@ -83,6 +83,7 @@ class PageController extends Controller
                 // on efface le questionnaire et on en créé un nouveau pour qu'à l'envoi les champs soient reset
                 unset($form);
                 $form = $this->createForm('HarasBundle\Form\contactType', $page);
+                $table['form'] = $form->createView();
                 return $this->render('@Haras/contact.html.twig', $table);
             }
             return $this->render('@Haras/contact.html.twig', $table);

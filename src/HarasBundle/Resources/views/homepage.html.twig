@@ -19,6 +19,7 @@
             <img class="icone-social" src="{{ asset('bundles/haras/images/pinterest.svg') }}" alt="Pinterest">
         </aside>
         <div id="index_contenu">
+            <!-- Contenu du div généré avec typed.js -->
             <div id="index_catchPhrase"></div>
             <div id="index_focus">
                 <div class="tourisme index_rubrique">
@@ -52,3 +53,18 @@
         {% include 'HarasBundle::footer.html.twig' %}
     </footer>
 {% endblock body %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        // le temps est en ms
+        $(function typedFunction(){
+            $("#index_catchPhrase").typed({
+                strings: ['{{ catchPhrase1 }}', '{{ catchPhrase2 }}'],
+                typeSpeed: 150,
+                backSpeed: 50,
+                backDelay: 5000,
+            });
+        });
+    </script>
+{% endblock javascripts %}
