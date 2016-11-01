@@ -19,10 +19,17 @@ class PageController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $pages = $em->getRepository('HarasBundle:Page')->findById([14, 15, $page->getId()]);
+        // appel du service de traduction, si defaultLocale != fr ou en -> _locale = en,
+        // sinon _locale = defaultLocale. Si langChoice n'et pas null, fixe la _locale de 
+        // la session à la langue choisis dans le header
         $this->get('language.change')->select($request,$langChoice);
+        // on récupère _locale pour sélectionner les texte dans la langue voulue
         $language = $request->getSession()->get('_locale');
         $table = [];
+        // récupération du nom de la page pour la réinjecter dans le header, nécessaire à 
+        // la traduction sans changer la page en cours
         $table['page'] = $page->getName();
+        // on définit cette variable pour simpifier le code de le contrôleur
         $name = $table['page'];
         // récupération du texte propre à la page
         foreach($pages as $p)
