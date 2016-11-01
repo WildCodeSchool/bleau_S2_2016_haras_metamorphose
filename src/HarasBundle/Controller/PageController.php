@@ -5,6 +5,7 @@ namespace HarasBundle\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
+use HarasBundle\Entity\Article;
 use HarasBundle\Entity\Page;
 use HarasBundle\Form\PageType;
 use Symfony\Component\HttpFoundation\Session\Session;
@@ -18,6 +19,8 @@ class PageController extends Controller
     public function getPageAction(Request $request, Page $page, $langChoice)
     {
         $em = $this->getDoctrine()->getManager();
+        // suite à la moficiation des render en include, on doit récup le header et le footer
+        // en même temps que la page appelée
         $pages = $em->getRepository('HarasBundle:Page')->findById([14, 15, $page->getId()]);
         // appel du service de traduction, si defaultLocale != fr ou en -> _locale = en,
         // sinon _locale = defaultLocale. Si langChoice n'et pas null, fixe la _locale de 
@@ -32,6 +35,8 @@ class PageController extends Controller
         // on définit cette variable pour simpifier le code de le contrôleur
         $name = $table['page'];
         // récupération du texte propre à la page
+        // A noter, la variable s'appele $p et non $page car sinon ça fait un conflit 
+        // avec le $page qu'on récupère en paramètre
         foreach($pages as $p)
         {
             foreach($p->getTexts() as $text)
@@ -65,9 +70,9 @@ class PageController extends Controller
                 {
                 $articleRendering['medias'][] = $media->getMediaTranslation($language);
                 }
+                // Organisation des articles par ordre chronologique inverse
+                array_unshift($table['articles'], $articleRendering);
             }
-            // Organisation des articles par ordre chronologique inverse
-            array_unshift($table['articles'], $articleRendering);
             return $this->render('HarasBundle::template.html.twig', $table);
         }
         // page contact
