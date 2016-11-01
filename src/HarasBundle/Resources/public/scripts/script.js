@@ -1,16 +1,10 @@
-// /*$('.show').on('click',function(){
-//  $(this).slideToggle();
-// }); */
-
 $(document).ready(function() {
-	$('html').addClass('jQuery-fonctionne');
 //Cas .Tourisme survolée
 	function toggleTourisme() {
 		$('.tourisme').toggleClass("hover");
 	}
 	$('.tourisme').on('mouseenter', toggleTourisme);
 	$('.tourisme').on('mouseleave', toggleTourisme); 
-
 //Cas .Travail survolée
 	function toggleTravail() {
 		$('.travail').toggleClass("hover");

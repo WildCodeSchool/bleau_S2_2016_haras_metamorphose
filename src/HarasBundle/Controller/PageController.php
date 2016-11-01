@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use HarasBundle\Entity\Page;
 use HarasBundle\Form\PageType;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 /**
  * Page controller.
@@ -14,24 +15,41 @@ use HarasBundle\Form\PageType;
  */
 class PageController extends Controller
 {
-    public function getPageAction(Request $request, Page $page)
+    public function getPageAction(Request $request, Page $page, $langChoice)
     {
-        $name = $page->getName();
+        $em = $this->getDoctrine()->getManager();
+        $pages = $em->getRepository('HarasBundle:Page')->findById([14, 15, $page->getId()]);
+        // appel du service de traduction, si defaultLocale != fr ou en -> _locale = en,
+        // sinon _locale = defaultLocale. Si langChoice n'et pas null, fixe la _locale de 
+        // la session à la langue choisis dans le header
+        $this->get('language.change')->select($request,$langChoice);
+        // on récupère _locale pour sélectionner les texte dans la langue voulue
+        $language = $request->getSession()->get('_locale');
         $table = [];
-        $language = $this->getRequest()->getLocale();
+        // récupération du nom de la page pour la réinjecter dans le header, nécessaire à 
+        // la traduction sans changer la page en cours
+        $table['page'] = $page->getName();
+        // on définit cette variable pour simpifier le code de le contrôleur
+        $name = $table['page'];
         // récupération du texte propre à la page
-        foreach ($page->getTexts() as $text)
+        foreach($pages as $p)
         {
+            foreach($p->getTexts() as $text)
+            {
             $table[$text->getName()] = $text->getTranslation($language);
+            }
+        }
+        // récupération de médias
+        foreach ($pages as $p)
+        {
+            foreach ($p->getMedias() as $media)
+            {
+                $table[$media->getName()] = $media->getMediaTranslation($language);
+            }
         }
         // page template
         if($name == 'section1' || $name == 'section2' || $name == 'section3' || $name == 'section4')
         {
-             // récupération des média
-            foreach ($page->getMedias() as $media)
-            {
-                $table[$media->getName()] = $media->getMediaTranslation($language);
-            }
             // récupération des articles
             $table['articles'] = [];
             $articleRendering = [];
@@ -57,22 +75,28 @@ class PageController extends Controller
         {
             $form = $this->createForm('HarasBundle\Form\contactType', $page);
             $form->handleRequest($request);
+            $table['form'] = $form->createView();
             $send=false;
+            $table['send'] = $send;
             if ($form->isSubmitted() && $form->isValid()) 
             {
                 $subject = $form->get('subject')->getData();
                 $from = $form->get('from')->getData();
                 $body = $form->get('body')->getData();
                 $this->sendMail($subject,$from,$body);
+                // permet de savoir si le questionnaire a été envoyé
                 $send=true;
-                return $this->render('@Haras/contact.html.twig', array('send' => $send, 'form' => $form->createView()));
+                $table['send'] = $send;
+                // on efface le questionnaire et on en créé un nouveau pour qu'à l'envoi les champs soient reset
+                unset($form);
+                $form = $this->createForm('HarasBundle\Form\contactType', $page);
+                $table['form'] = $form->createView();
+                return $this->render('@Haras/contact.html.twig', $table);
             }
-            return $this->render('@Haras/contact.html.twig', array('form' => $form->createView(), 'page' => $page));
+            return $this->render('@Haras/contact.html.twig', $table);
         }
-
-
-
-            return $this->render('HarasBundle::'.$name.'.html.twig', $table);
+        // renvoi par défaut si non template et non contact
+        return $this->render('HarasBundle::'.$name.'.html.twig', $table);
     }
 
 

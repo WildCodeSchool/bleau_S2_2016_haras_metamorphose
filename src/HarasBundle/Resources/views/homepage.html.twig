@@ -2,16 +2,13 @@
 
 {% block body %}
 <body id="_index">
-
-
 <div id="index_wrapper">
     <video id="index_video" autoplay loop muted>
         <source src="{{ asset('bundles/haras/videos/video.mp4') }}" type='video/mp4'>
     </video>
 
     <header id='_index_header'>
-        {{ render(controller('HarasBundle:Page:getPage', { 'name': 'header' })) }}
-
+        {% include 'HarasBundle::header.html.twig' %}
     </header>
 
     <div id="index_corps">
@@ -22,38 +19,52 @@
             <img class="icone-social" src="{{ asset('bundles/haras/images/pinterest.svg') }}" alt="Pinterest">
         </aside>
         <div id="index_contenu">
-            <div id="index_accroche">
-                <h1>{{ catchPhrase | nl2br }}</h1>
+            <!-- Contenu du div généré avec typed.js -->
+        <div id="index_catchPhrase"></div>
+        <div id="index_focus">
+            <div class="tourisme index_rubrique">
+                <img class="index_rubrique_img" src="{{ asset('bundles/haras/images/logo.png') }}" alt="tourisme">
+                <p>
+                    {{ section1Name }}
+                </p>
             </div>
-            <div id="index_focus">
-                <div class="tourisme index_rubrique">
-                    <img class="index_rubrique_img" src="{{ asset('bundles/haras/images/logo.png') }}" alt="tourisme">
-                    <p>
-                        {{ section1Name }}
-                    </p>
-                </div>
-                <div class="travail index_rubrique">
-                    <img class="index_rubrique_img" src="{{ asset('bundles/haras/images/logo.png') }}" alt="travail">
-                    <p>
-                        {{ section2Name }}
-                    </p>
-                </div>
-                <div class="ecologie index_rubrique">
-                    <img class="index_rubrique_img" src="{{ asset('bundles/haras/images/logo.png') }}" alt="ecologie">
-                    <p>
-                        {{ section3Name }}
-                    </p>
-                </div>
-                <div class="accessibilite index_rubrique">
-                    <img class="index_rubrique_img" src="{{ asset('bundles/haras/images/logo.png') }}" alt="tourisme">
-                    <p>
-                        {{ section4Name }}
-                    </p>
-                </div>
+            <div class="travail index_rubrique">
+                <img class="index_rubrique_img" src="{{ asset('bundles/haras/images/logo.png') }}" alt="travail">
+                <p>
+                    {{ section2Name }}
+                </p>
+            </div>
+            <div class="ecologie index_rubrique">
+                <img class="index_rubrique_img" src="{{ asset('bundles/haras/images/logo.png') }}" alt="ecologie">
+                <p>
+                    {{ section3Name }}
+                </p>
+            </div>
+            <div class="accessibilite index_rubrique">
+                <img class="index_rubrique_img" src="{{ asset('bundles/haras/images/logo.png') }}" alt="tourisme">
+                <p>
+                    {{ section4Name }}
+                </p>
             </div>
         </div>
+        </div>
     </div>
-    <footer id="_index_footer"> 
-        {{ render(controller('HarasBundle:Page:getPage', { 'name': 'footer' })) }} 
+    <footer id="_index_footer">
+        {% include 'HarasBundle::footer.html.twig' %}
     </footer>
 {% endblock body %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        // le temps est en ms
+        $(function typedFunction(){
+            $("#index_catchPhrase").typed({
+                strings: ['{{ catchPhrase1 }}', '{{ catchPhrase2 }}'],
+                typeSpeed: 150,
+                backSpeed: 50,
+                backDelay: 5000,
+            });
+        });
+    </script>
+{% endblock javascripts %}
