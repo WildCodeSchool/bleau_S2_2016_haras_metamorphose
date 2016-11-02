@@ -16,8 +16,21 @@
             <h1 class="title">Nous contacter</h1>
         </div>
         {{ form_start(form) }}
-            <input type="submit" value="Create" />
-            {{ form_widget(form) }}
+
+        <div>
+        Votre Email
+        {{ form_errors(form.from) }}
+        {{ form_widget(form.from) }}
+        </div>
+        Articles
+        {{ form_errors(form.subject) }}
+        {{ form_widget(form.subject) }}
+
+        Articles
+        {{ form_errors(form.body) }}
+        {{ form_widget(form.body) }}
+
+        <input type="submit" value="Send" />
            
         {{ form_end(form) }}
     </div>
