@@ -2,46 +2,38 @@
 
 {% block body %}
     <h1>Edition de la page {{ page.name }}</h1>
-    <table>
+    <div class="admin_list">
         {{ form_start(edit_form) }}
-        <tr>
-            <td>
-                Nom
-                {{ form_errors(edit_form.name) }}
-                {{ form_widget(edit_form.name) }}
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Articles
-                {{ form_errors(edit_form.articles) }}
-                {{ form_widget(edit_form.articles) }}
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <a href="{{ path('page_show', { 'name': page.name }) }}">
-                    <input type="submit" value="Valider les modifications de la page" />
-                </a>
-            </td>
-        </tr>
+        <div>
+            Nom
+            {{ form_errors(edit_form.name) }}
+            {{ form_widget(edit_form.name) }}
+        </div>
+        <div>
+            Articles
+            {{ form_errors(edit_form.articles) }}
+            {{ form_widget(edit_form.articles) }}
+        </div>
+    </div>
+    <div class="admin_button">
+            <a href="{{ path('page_show', { 'name': page.name }) }}">
+                <input type="submit" value="Valider les modifications de la page" />
+            </a>
+    </div>
         {{ form_end(edit_form) }}
-    </table>
-    
-    <table>
-        <tr>
-            <td>
-                {{ form_start(delete_form) }}
-                    <input type="submit" value="Supprimer la page">
-                {{ form_end(delete_form) }}
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <a href="{{ path('page_index') }}">
-                    <input type="submit" value="Retour à la liste des pages">
-                </a>
-            </td>
-        </tr>
-    </table>
+    <div class="admin_button">
+        <a href="{{ path('article_new') }}">
+            <input type="submit" value="Ajouter un article" />
+        </a>
+    </div>
+    <div class="admin_button">
+        {{ form_start(delete_form) }}
+            <input type="submit" value="Supprimer la page">
+        {{ form_end(delete_form) }}
+    </div>
+    <div class="admin_button">
+        <a href="{{ path('page_index') }}">
+            <input type="submit" value="Retour à la liste des pages">
+        </a>
+    </div>
 {% endblock %}

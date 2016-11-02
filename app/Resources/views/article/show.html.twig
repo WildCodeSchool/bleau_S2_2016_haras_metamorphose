@@ -14,35 +14,43 @@
             </tr>
             <tr>
                 <th>Page où il est situé</th>
+                {% for page in article.pages %}
                 <td>
-                    {{ article.pages[0] }}
+                    {{ page.name }}
                 </td>
                 </tr>
+            {% endfor %}
             <tr>
                 <th>Liste des textes</th>
-                <td>
-                    {{ article.title }}
-                </td>
+                {% for text in article.title %}
+                    <td>
+                        {{ article.title }}
+                    </td>
+                {% endfor %}
             <tr>
-                <th>Contenu</th>
+                <th>Contenus</th>
+                {% for text in article.content %}#}
                 <td>
                     {{ article.content }}
                 </td>
+                {% endfor %}
             </tr>
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('article_edit', { 'id': article.id }) }}">Modifier cet article</a>
-        </li>
-        <li>
-            <a href="{{ path('article_index') }}">Retour à la liste des articles</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+    <div class="admin_button">
+        <a href="{{ path('article_edit', { 'id': article.id }) }}">
+            <input type="submit" value="Modifier cet article">
+        </a>
+    </div>
+    <div class="admin_button">
+        <a href="{{ path('article_index') }}">
+            <input type="submit" value="Liste des articles">
+        </a>
+    </div>
+    <div class="admin_button">
+        {{ form_start(delete_form) }}
+            <input type="submit" value="Supprimer l'article">
+        {{ form_end(delete_form) }}
+    </div>
 {% endblock %}

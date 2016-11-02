@@ -3,6 +3,12 @@
 {% block body %}
     <h1>Création d'un nouvel article</h1>
     {{ form_start(form) }}
+    <div class="admin_content">
+        <div>
+            Nom de l'article
+            {{ form_errors(form.name) }}
+            {{ form_widget(form.name) }}
+        </div>
         <div>
             Structure de l'article
             {{ form_errors(form.structure) }}
@@ -15,9 +21,9 @@
         </div>
         <input type="submit" value="Création de l'article" />
     {{ form_end(form) }}
-    <ul>
-        <li>
-            <a href="{{ path('article_index') }}">Retourner à la liste des articles</a>
-        </li>
-    </ul>
+     <div>
+        <a href="{{ path('article_index') }}">
+            <input type="submit" value="Retourner à la liste des articles">
+         <a/>
+    </div>
 {% endblock %}

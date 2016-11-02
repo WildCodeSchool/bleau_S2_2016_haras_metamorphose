@@ -3,12 +3,19 @@
 {% block body %}
     <h1>Modifier l'article {{ article.name }}</h1>
 
+    <div class="admin_content">
     {{ form_start(edit_form) }}
+        <div>
+            Nom
+            {{ form_errors(edit_form.name) }}
+            {{ form_widget(edit_form.name) }}
+        </div>
         <div>
             Page où est situé l'article
             {{ form_errors(edit_form.pages) }}
             {{ form_widget(edit_form.pages) }}
         </div>
+<<<<<<< HEAD
         <div>
             Titre
             {{ form_errors(edit_form.title) }}
@@ -29,18 +36,91 @@
             {{ form_errors(edit_form.medias) }}
             {{ form_widget(edit_form.medias) }}
         </div>
+=======
+>>>>>>> DevSymfonyMarielle
 
-    <input type="submit" value="Edit" />
-    {{ form_end(edit_form) }}
+        {% if article.title is not null %}
 
-    <ul>
-        <li>
-            <a href="{{ path('article_index') }}">Back to the list</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+        <table>
+            <th>
+                Nom du titre de l'article
+            </th>
+            <td>
+                {{ article.title }}
+            </td>
+            <td>
+                <a href="{{ path('text_show', { 'id': article.title.id }) }}">Voir</a>
+            </td>
+            <td>
+                <a href="{{ path('text_edit', { 'id': article.title.id }) }}">Editer</a>
+            </td>
+        </table>
+        {% endif %}
+        {% if article.content is not null %}
+        <table>
+            <tr>
+                <th>
+                    Nom du contenu de l'article :
+                </th>
+                <td>
+                    {{ article.content }}
+                </td>
+                <td>
+                    <a href="{{ path('text_show', { 'id': article.content.id }) }}">Voir</a>
+                </td>
+                <td>
+                    <a href="{{ path('text_edit', { 'id': article.content.id }) }}">Editer</a>
+                </td>
+            </tr>
+        </table>
+        {% endif %}
+        {% if article.medias is not null %}
+        <table>
+            <thead>
+            <tr>
+                <th>Nom des médias</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for media in article.medias %}
+                <tr>
+                    <td>
+                        {{ media.name }}
+                    </td>
+                    <td>
+                        <a href="{{ path('media_show', { 'id': media.id }) }}">Voir</a>
+                    </td>
+                    <td>
+                        <a href="{{ path('media_edit', { 'id': media.id }) }}">Editer</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        {% endif %}
+    </div>
+    <div>
+        <input type="submit" value="Modifier l'article" />
+        {{ form_end(edit_form) }}
+    </div>
+    <div class="admin_button">
+        <a href="{{ path('text_new') }}">
+            <input type="submit" value="Ajouter un texte" />
+        </a>
+    </div>
+    <div class="admin_button">
+        <a href="{{ path('media_new') }}">
+            <input type="submit" value="Ajouter un média" />
+        </a>
+    </div>
+    <div class="admin_button">
+        <a href="{{ path('article_index') }}">
+            <input type="submit" value="Retourner à la liste des articles">
+        </a>
+    </div>
+    <div class="admin_button">
+        {{ form_start(delete_form) }}
+            <input type="submit" value="Supprimer l'article">
+        {{ form_end(delete_form) }}
+    </div>
 {% endblock %}
