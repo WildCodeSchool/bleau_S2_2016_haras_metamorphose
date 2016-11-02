@@ -23,8 +23,8 @@ class PageController extends Controller
         // en même temps que la page appelée
         $pages = $em->getRepository('HarasBundle:Page')->findById([14, 15, $page->getId()]);
         // appel du service de traduction, si defaultLocale != fr ou en -> _locale = en,
-        // sinon _locale = defaultLocale. Si langChoice n'et pas null, fixe la _locale de 
-        // la session à la langue choisis dans le header
+        // sinon _locale = defaultLocale. Si langChoice n'et pas null, fixe la _locale 
+        // de la session à la langue choisis dans le header
         $this->get('language.change')->select($request,$langChoice);
         // on récupère _locale pour sélectionner les texte dans la langue voulue
         $language = $request->getSession()->get('_locale');
@@ -55,11 +55,26 @@ class PageController extends Controller
         // page template
         if($name == 'section1' || $name == 'section2' || $name == 'section3' || $name == 'section4')
         {
-            // récupération des articles
+            $table['pageNb'] = $request->query->get('pageNb');
+
+            $offset = 0;
+            $query = $em->createQuery("
+                SELECT article_id
+                FROM pages_articles AS pa
+                JOIN article AS a ON a.id = pa.article_id
+                WHERE pa.page_id = ".$page->getId()."
+                ORDER BY a.createAt DESC
+                LIMIT 10 OFFSET ".$offset);
+            $results = $query->getResult();
+            var_dump($results);
+
+            var_dump($test);
+            // $results = $query->getResult();
+                // récupération des articles
             $table['articles'] = [];
-            $articleRendering = [];
             foreach ($page->getArticles() as $article)
             {
+                $articleRendering = [];
                 $textTitle = $article->getTitle();
                 $textContent = $article->getContent();
                 $articleRendering['title'] = $textTitle->getTranslation($language);
@@ -68,7 +83,7 @@ class PageController extends Controller
                 // récupération des médias de l'article
                 foreach ($article->getMedias() as $media)
                 {
-                $articleRendering['medias'][] = $media->getMediaTranslation($language);
+                    $articleRendering['medias'][] = $media->getMediaTranslation($language);
                 }
                 // Organisation des articles par ordre chronologique inverse
                 array_unshift($table['articles'], $articleRendering);

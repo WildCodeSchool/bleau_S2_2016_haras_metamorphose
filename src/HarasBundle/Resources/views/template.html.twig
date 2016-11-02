@@ -61,6 +61,10 @@
             </div>
         {% endfor %}
     </div>
+    <ul class="navigation">
+        <li><a href="#">">Début</a></li>
+        <li><a href="#">Précédent</a></li>
+        <li><a href="{{ path('haras_get_page', {'name': page, 'pageNb' : pageNb+1}) }}">Suivant</a></li>
     <footer id="_template_footer"> 
         {% include 'HarasBundle::footer.html.twig' %}
      </footer>
