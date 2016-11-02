@@ -15,20 +15,23 @@
         <div class="row">
             <h1 class="title">Nous contacter</h1>
         </div>
-        {{ form_start(form) }}
 
+        {{ form_start(form) }}
         <div>
-        Votre Email
+        Email
         {{ form_errors(form.from) }}
         {{ form_widget(form.from) }}
         </div>
-        Articles
+        <div>
+        Nom
         {{ form_errors(form.subject) }}
         {{ form_widget(form.subject) }}
-
-        Articles
+        </div>
+        <div>
+        Message
         {{ form_errors(form.body) }}
         {{ form_widget(form.body) }}
+        </div>
 
         <input type="submit" value="Send" />
            

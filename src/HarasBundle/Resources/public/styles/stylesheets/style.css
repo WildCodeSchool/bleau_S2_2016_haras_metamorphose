@@ -743,7 +743,7 @@ body, html {
   background-color: rgba(0, 120, 122, 0.6);
 }
 /* line 9, ../sass/_admin.scss */
-#_admin .buttons {
+#_admin .admin_button {
   background-color: #4CAF50;
   /* Green */
   border: none;
