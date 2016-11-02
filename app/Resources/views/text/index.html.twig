@@ -2,44 +2,38 @@
 
 {% block body %}
     <h1>Liste des textes</h1>
-
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Textfr</th>
-                <th>Texten</th>
-                <th>Pages</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for text in texts %}
-            <tr>
-                <td><a href="{{ path('text_show', { 'id': text.id }) }}">{{ text.id }}</a></td>
-                <td>{{ text.name }}</td>
-                <td>{{ text.textFr }}</td>
-                <td>{{ text.textEn }}</td>
-                <td>
-                    {% for page in text.pages %}
-                        {{ page }}
-                    {% endfor %}
-                </td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('text_show', { 'id': text.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('text_edit', { 'id': text.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+    <div class="admin_content">
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Texte en Français</th>
+                    <th>Texte en Anglais</th>
+                    <th>Pages</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for text in texts %}
+                <tr>
+                    <td><a href="{{ path('text_show', { 'id': text.id }) }}">{{ text.name }}</td>
+                    <td>{{ text.textFr }}</td>
+                    <td>{{ text.textEn }}</td>
+                    <td>
+                        {% for page in text.pages %}
+                            {{ page }}
+                        {% endfor %}
+                    </td>
+                    <td>
+                        <a href="{{ path('text_show', { 'id': text.id }) }}">show</a>
+                    </td>
+                    <td>
+                        <a href="{{ path('text_edit', { 'id': text.id }) }}">edit</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
 
     <ul>
         <li>

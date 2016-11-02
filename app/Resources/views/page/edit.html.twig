@@ -23,11 +23,9 @@
         </div>
         {{ form_end(edit_form) }}
         <div>
-            {% for article in page.articles %}
                 <a href="{{ path('article_new') }}">
                     <input type="submit" value="Ajouter un article" />
                 </a>
-            {% endfor %}
         </div>
 
         <div>

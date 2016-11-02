@@ -14,24 +14,68 @@
             {{ form_errors(edit_form.pages) }}
             {{ form_widget(edit_form.pages) }}
         </div>
-        <div>
-            Titre
-            {{ form_errors(edit_form.title) }}
-            {{ form_widget(edit_form.title) }}
-        </div>
-        <div>
-            Contenu
-            {{ form_errors(edit_form.content) }}
-            {{ form_widget(edit_form.content) }}
-        </div>
-        <div>
-            Médias
-            {{ form_errors(edit_form.medias) }}
-            {{ form_widget(edit_form.medias) }}
-        </div>
-
-    <input type="submit" value="Edit" />
+    <div class="admin_content">
+        <table>
+            <th>
+                Nom du titre de l'article
+            </th>
+            <td>
+                {{ article.title }}
+            </td>
+            <td>
+                <a href="{{ path('text_show', { 'id': article.title.id }) }}">Voir</a>
+            </td>
+            <td>
+                <a href="{{ path('text_edit', { 'id': article.title.id }) }}">Editer</a>
+            </td>
+        </table>
+    </div>
+    <div class="admin_content">
+        <table>
+            <tr>
+                <th>
+                    Nom du contenu de l'article :
+                </th>
+                <td>
+                    {{ article.content }}
+                </td>
+                <td>
+                    <a href="{{ path('text_show', { 'id': article.content.id }) }}">Voir</a>
+                </td>
+                <td>
+                    <a href="{{ path('text_edit', { 'id': article.content.id }) }}">Editer</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="admin_content">
+        <table>
+            <thead>
+            <tr>
+                <th>Nom des médias</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for media in article.medias %}
+                <tr>
+                    <td>
+                        {{ media.name }}
+                    </td>
+                    <td>
+                        <a href="{{ path('media_show', { 'id': media.id }) }}">Voir</a>
+                    </td>
+                    <td>
+                        <a href="{{ path('media_edit', { 'id': media.id }) }}">Editer</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div>
+    <input type="submit" value="Modifier l'article" />
     {{ form_end(edit_form) }}
+    </div>
     <div>
             <a href="{{ path('text_new') }}">
                 <input type="submit" value="Ajouter un texte" />

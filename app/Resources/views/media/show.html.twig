@@ -1,16 +1,16 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>{{ media.name }}</h1>
+    <h1>{{ medium.name }}</h1>
 
     <table>
         <tbody>
             <tr>
-                <th>Name</th>
+                <th>Nom</th>
                 <td>{{ medium.name }}</td>
             </tr>
             <tr>
-                <th>file</th>
+                <th>Fichier</th>
                 <td><img src="{{ asset(medium.path) }}" alt="{{ medium.alt }}"></td>
             </tr>
         </tbody>

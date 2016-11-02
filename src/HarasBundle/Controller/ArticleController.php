@@ -88,6 +88,11 @@ class ArticleController extends Controller
             return $this->redirectToRoute('article_edit', array('id' => $article->getId()));
         }
         $editForm->remove('structure');
+        $editForm->remove('title');
+        $editForm->remove('content');
+        $editForm->remove('medias');
+
+
 
         return $this->render('article/edit.html.twig', array(
             'article' => $article,
