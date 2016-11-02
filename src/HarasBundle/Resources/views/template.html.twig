@@ -25,7 +25,7 @@
                             </p>
                         </td>
                         <td>
-                            <img id="image-right" src="{{ asset(article.medias|first.path) }}" alt="{{ article.medias|first.alt }}"/>
+                            <img class="image-right" src="{{ asset(article.medias|first.path) }}" alt="{{ article.medias|first.alt }}"/>
                         </td>
                     </tr>
                 </table>
@@ -33,11 +33,11 @@
                 <table class='imageLeft'>
                     <tr>
                         <td>
-                            <img id="image-left" src="{{ asset(article.medias|first.path) }}" alt="{{ article.medias|first.alt }}"/>
+                            <img class="image-left" src="{{ asset(article.medias|first.path) }}" alt="{{ article.medias|first.alt }}"/>
                         </td>
                         <td>
                             <h2>{{ article.title }}</h2>
-                            <p id="text-right">
+                            <p class="text-right">
                                 {{ article.content }}
                             </p>
                         </td>
@@ -47,7 +47,7 @@
                 <div class="video">
                     <video src="{{ asset(article.medias[0].path) }}"></video>
                     <h2>{{ article.title }}</h2>
-                    <p id="text-video">
+                    <p class="text-video">
                         {{ article.content }}
                     </p>
                 </div>
