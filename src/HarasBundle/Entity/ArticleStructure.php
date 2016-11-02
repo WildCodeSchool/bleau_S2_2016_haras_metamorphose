@@ -9,23 +9,14 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class ArticleStructure
 {
-<<<<<<< HEAD
     public function __toString()
     {
         return $this->getName();
     }
-=======
-
-    public function __toString()
-    {
-        return strval($this->getName());
-    }
-
 
     //    GENERATED CODE
 
 
->>>>>>> DevSymfonyMarielle
     /**
      * @var int
      */

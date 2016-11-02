@@ -19,6 +19,21 @@
             {{ form_errors(form.pages) }}
             {{ form_widget(form.pages) }}
         </div>
+        <div>
+            Titre du texte :
+            {{ form_errors(form.title) }}
+            {{ form_widget(form.title) }}
+        </div>
+        <div>
+            Contenu du texte :
+            {{ form_errors(form.content) }}
+            {{ form_widget(form.content) }}
+        </div>
+        <div>
+            Média :
+            {{ form_errors(form.medias) }}
+            {{ form_widget(form.medias) }}
+        </div>
         <input type="submit" value="Création de l'article" />
     {{ form_end(form) }}
      <div>
