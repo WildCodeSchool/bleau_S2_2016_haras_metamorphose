@@ -38,17 +38,19 @@
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('article_edit', { 'id': article.id }) }}">Modifier cet article</a>
-        </li>
-        <li>
-            <a href="{{ path('article_index') }}">Retour à la liste des articles</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+    <div class="admin_button">
+        <a href="{{ path('article_edit', { 'id': article.id }) }}">
+            <input type="submit" value="Modifier cet article">
+        </a>
+    </div>
+    <div class="admin_button">
+        <a href="{{ path('article_index') }}">
+            <input type="submit" value="Liste des articles">
+        </a>
+    </div>
+    <div class="admin_button">
+        {{ form_start(delete_form) }}
+            <input type="submit" value="Supprimer l'article">
+        {{ form_end(delete_form) }}
+    </div>
 {% endblock %}

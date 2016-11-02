@@ -2,42 +2,40 @@
 
 {% block body %}
     <h1>Liste des textes</h1>
-    <div class="admin_content">
-        <table>
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Texte en Français</th>
-                    <th>Texte en Anglais</th>
-                    <th>Pages</th>
-                </tr>
-            </thead>
-            <tbody>
-            {% for text in texts %}
-                <tr>
-                    <td><a href="{{ path('text_show', { 'id': text.id }) }}">{{ text.name }}</td>
-                    <td>{{ text.textFr }}</td>
-                    <td>{{ text.textEn }}</td>
-                    <td>
-                        {% for page in text.pages %}
-                            {{ page }}
-                        {% endfor %}
-                    </td>
-                    <td>
-                        <a href="{{ path('text_show', { 'id': text.id }) }}">show</a>
-                    </td>
-                    <td>
-                        <a href="{{ path('text_edit', { 'id': text.id }) }}">edit</a>
-                    </td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
-    </div>
 
-    <ul>
-        <li>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Texte en Français</th>
+                <th>Texte en Anglais</th>
+                <th>Pages</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for text in texts %}
+            <tr>
+                <td>{{ text.name }}</td>
+                <td>{{ text.textFr }}</td>
+                <td>{{ text.textEn }}</td>
+                <td>
+                    {% for page in text.pages %}
+                        {{ page }}
+                    {% endfor %}
+                </td>
+                <td>
+                    <a href="{{ path('text_show', { 'id': text.id }) }}">Voir</a>
+                </td>
+                <td>
+                    <a href="{{ path('text_edit', { 'id': text.id }) }}">Editer</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="admin_button">
             <a href="{{ path('text_new') }}">Create a new entry</a>
-        </li>
-    </ul>
+        <input type="submit" value="Créer un nouveau texte">
+    </div>
 {% endblock %}

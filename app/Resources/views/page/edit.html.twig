@@ -4,15 +4,15 @@
     <h1>Edition de la page {{ page.name }}</h1>
     <div class="admin_list">
         {{ form_start(edit_form) }}
-        <div class="admin_content">
-                Nom
-                {{ form_errors(edit_form.name) }}
-                {{ form_widget(edit_form.name) }}
+        <div>
+            Nom
+            {{ form_errors(edit_form.name) }}
+            {{ form_widget(edit_form.name) }}
         </div>
-        <div class="admin_content">
-                Articles
-                {{ form_errors(edit_form.articles) }}
-                {{ form_widget(edit_form.articles) }}
+        <div>
+            Articles
+            {{ form_errors(edit_form.articles) }}
+            {{ form_widget(edit_form.articles) }}
         </div>
     </div>
     <div class="admin_button">
@@ -26,12 +26,12 @@
             <input type="submit" value="Ajouter un article" />
         </a>
     </div>
-    <div>
+    <div class="admin_button">
         {{ form_start(delete_form) }}
             <input type="submit" value="Supprimer la page">
         {{ form_end(delete_form) }}
     </div>
-    <div>
+    <div class="admin_button">
         <a href="{{ path('page_index') }}">
             <input type="submit" value="Retour à la liste des pages">
         </a>

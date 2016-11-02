@@ -3,6 +3,7 @@
 {% block body %}
     <h1>Modifier l'article {{ article.name }}</h1>
 
+    <div class="admin_content">
     {{ form_start(edit_form) }}
         <div>
             Nom
@@ -14,7 +15,9 @@
             {{ form_errors(edit_form.pages) }}
             {{ form_widget(edit_form.pages) }}
         </div>
-    <div class="admin_content">
+
+        {% if article.title is not null %}
+
         <table>
             <th>
                 Nom du titre de l'article
@@ -29,8 +32,8 @@
                 <a href="{{ path('text_edit', { 'id': article.title.id }) }}">Editer</a>
             </td>
         </table>
-    </div>
-    <div class="admin_content">
+        {% endif %}
+        {% if article.content is not null %}
         <table>
             <tr>
                 <th>
@@ -47,8 +50,8 @@
                 </td>
             </tr>
         </table>
-    </div>
-    <div class="admin_content">
+        {% endif %}
+        {% if article.medias is not null %}
         <table>
             <thead>
             <tr>
@@ -71,30 +74,30 @@
             {% endfor %}
             </tbody>
         </table>
+        {% endif %}
     </div>
     <div>
-    <input type="submit" value="Modifier l'article" />
-    {{ form_end(edit_form) }}
+        <input type="submit" value="Modifier l'article" />
+        {{ form_end(edit_form) }}
     </div>
-    <div>
-            <a href="{{ path('text_new') }}">
-                <input type="submit" value="Ajouter un texte" />
-            </a>
+    <div class="admin_button">
+        <a href="{{ path('text_new') }}">
+            <input type="submit" value="Ajouter un texte" />
+        </a>
     </div>
-    <div>
-            <a href="{{ path('media_new') }}">
-                <input type="submit" value="Ajouter un média" />
-            </a>
+    <div class="admin_button">
+        <a href="{{ path('media_new') }}">
+            <input type="submit" value="Ajouter un média" />
+        </a>
     </div>
-
-    <ul>
-        <li>
-            <a href="{{ path('article_index') }}">Back to the list</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+    <div class="admin_button">
+        <a href="{{ path('article_index') }}">
+            <input type="submit" value="Retourner à la liste des articles">
+        </a>
+    </div>
+    <div class="admin_button">
+        {{ form_start(delete_form) }}
+            <input type="submit" value="Supprimer l'article">
+        {{ form_end(delete_form) }}
+    </div>
 {% endblock %}
