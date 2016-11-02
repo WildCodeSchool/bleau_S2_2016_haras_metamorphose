@@ -27,18 +27,31 @@
   -ms-transition: all 1s;
   transition: all 1s;
   text-align: center;
-  font-size: 16px;
   position: relative;
   /* Colonnes footer */
   /* Footer partie basse -> Copyright */
   /*  Footer button*/
   /* form input*/
 }
-/* line 25, ../sass/_index_footer.scss */
+/* line 24, ../sass/_index_footer.scss */
 #_index_footer p {
-  font-size: 16px;
+  font-size: 1em;
+  margin-top: 1.5em;
 }
-/* line 33, ../sass/_index_footer.scss */
+/* line 29, ../sass/_index_footer.scss */
+#_index_footer h1 {
+  font-size: 2em;
+  margin-bottom: 1em;
+}
+/* line 34, ../sass/_index_footer.scss */
+#_index_footer h2 {
+  font-size: 1.5em;
+}
+/* line 38, ../sass/_index_footer.scss */
+#_index_footer h3 {
+  font-size: 1em;
+}
+/* line 46, ../sass/_index_footer.scss */
 #_index_footer .footer .footer-left,
 #_index_footer .footer .footer-center,
 #_index_footer .footer .footer-right {
@@ -47,41 +60,43 @@
   vertical-align: top;
   text-align: left;
 }
-/* line 42, ../sass/_index_footer.scss */
+/* line 55, ../sass/_index_footer.scss */
 #_index_footer #avis {
   font-weight: bold;
   margin-top: 30px;
   text-decoration: none;
 }
-/* line 47, ../sass/_index_footer.scss */
+/* line 60, ../sass/_index_footer.scss */
 #_index_footer .footer .footer-left {
   width: 30%;
   /*font-size: 12px;*/
 }
-/* line 52, ../sass/_index_footer.scss */
+/* line 65, ../sass/_index_footer.scss */
 #_index_footer .footer .footer-center {
   width: 30%;
 }
-/* line 56, ../sass/_index_footer.scss */
+/* line 69, ../sass/_index_footer.scss */
 #_index_footer .footer .footer-right {
   width: 30%;
   text-align: left;
 }
-/* line 61, ../sass/_index_footer.scss */
+/* line 74, ../sass/_index_footer.scss */
 #_index_footer .footer a {
   color: white;
 }
-/* line 67, ../sass/_index_footer.scss */
+/* line 80, ../sass/_index_footer.scss */
 #_index_footer #footer-bottom {
   background-color: #003f40;
   text-align: left;
   height: 20px;
+  padding-top: 1em;
+  padding-bottom: 1em;
 }
-/* line 74, ../sass/_index_footer.scss */
+/* line 88, ../sass/_index_footer.scss */
 #_index_footer #copyright {
   padding-left: 5%;
 }
-/* line 78, ../sass/_index_footer.scss */
+/* line 92, ../sass/_index_footer.scss */
 #_index_footer #footer-bottom a:link, #_index_footer a:visited {
   color: white;
   text-align: center;
@@ -89,16 +104,15 @@
   display: inline-block;
   font-size: 15px;
 }
-/* line 86, ../sass/_index_footer.scss */
+/* line 100, ../sass/_index_footer.scss */
 #_index_footer #footer-bottom a:hover, #_index_footer a:active {
   color: white;
-  text-decoration: underline;
 }
-/* line 91, ../sass/_index_footer.scss */
+/* line 105, ../sass/_index_footer.scss */
 #_index_footer #mentions {
   padding-left: 2%;
 }
-/* line 99, ../sass/_index_footer.scss */
+/* line 113, ../sass/_index_footer.scss */
 #_index_footer button {
   background-color: #4CAF50;
   /* Green */
@@ -116,18 +130,18 @@
   cursor: pointer;
   width: 181px;
 }
-/* line 116, ../sass/_index_footer.scss */
+/* line 130, ../sass/_index_footer.scss */
 #_index_footer .button1 {
   background-color: #4CAF50;
   color: white;
   border: 2px solid #4CAF50;
 }
-/* line 122, ../sass/_index_footer.scss */
+/* line 136, ../sass/_index_footer.scss */
 #_index_footer .button1:hover {
   background-color: white;
   color: #4CAF50;
 }
-/* line 129, ../sass/_index_footer.scss */
+/* line 143, ../sass/_index_footer.scss */
 #_index_footer .footer-right form input,
 #_index_footer .footer-right form textarea {
   display: block;
@@ -144,26 +158,26 @@
   width: 400px;
   padding: 18px;
 }
-/* line 148, ../sass/_index_footer.scss */
+/* line 160, ../sass/_index_footer.scss */
 #_index_footer .footer-right ::-webkit-input-placeholder {
   color: #5c666b;
 }
-/* line 152, ../sass/_index_footer.scss */
+/* line 164, ../sass/_index_footer.scss */
 #_index_footer .footer-right ::-moz-placeholder {
   color: #5c666b;
   opacity: 1;
 }
-/* line 157, ../sass/_index_footer.scss */
+/* line 169, ../sass/_index_footer.scss */
 #_index_footer .footer-right :-ms-input-placeholder {
   color: #5c666b;
 }
-/* line 161, ../sass/_index_footer.scss */
+/* line 173, ../sass/_index_footer.scss */
 #_index_footer .footer-right form input {
   height: 55px;
-  margin-bottom: 15px;
+  margin-bottom: 1em;
   width: 181px;
 }
-/* line 167, ../sass/_index_footer.scss */
+/* line 179, ../sass/_index_footer.scss */
 #_index_footer .footer-right form textarea {
   height: 100px;
   margin-bottom: 20px;
@@ -565,7 +579,7 @@ body, html {
   margin-top: 20px;
   background-color: #d82679;
   text-align: center;
-  font-size: 1em;
+  font-size: 16px;
   position: relative;
   /* Colonnes footer */
   /* Footer partie basse -> Copyright */
@@ -579,9 +593,22 @@ body, html {
 }
 /* line 18, ../sass/_template_footer.scss */
 #_template_footer p {
+  font-size: 16px;
+}
+/* line 22, ../sass/_template_footer.scss */
+#_template_footer h1 {
+  font-size: 2em;
+  text-align: left;
+}
+/* line 27, ../sass/_template_footer.scss */
+#_template_footer h2 {
+  font-size: 1.5em;
+}
+/* line 31, ../sass/_template_footer.scss */
+#_template_footer h3 {
   font-size: 1em;
 }
-/* line 26, ../sass/_template_footer.scss */
+/* line 40, ../sass/_template_footer.scss */
 #_template_footer .footer-left,
 #_template_footer .footer-center,
 #_template_footer .footer-right {
@@ -590,41 +617,36 @@ body, html {
   vertical-align: top;
   text-align: left;
 }
-/* line 35, ../sass/_template_footer.scss */
-#_template_footer #avis {
-  font-weight: bold;
-  margin-top: 30px;
-  text-decoration: none;
-}
-/* line 40, ../sass/_template_footer.scss */
+/* line 48, ../sass/_template_footer.scss */
 #_template_footer .footer-left {
   width: 30%;
   /*font-size: 12px;*/
 }
-/* line 45, ../sass/_template_footer.scss */
+/* line 53, ../sass/_template_footer.scss */
 #_template_footer .footer-center {
   width: 30%;
 }
-/* line 49, ../sass/_template_footer.scss */
+/* line 57, ../sass/_template_footer.scss */
 #_template_footer .footer-right {
   width: 30%;
   text-align: left;
 }
-/* line 54, ../sass/_template_footer.scss */
+/* line 62, ../sass/_template_footer.scss */
 #_template_footer a {
   color: white;
 }
-/* line 60, ../sass/_template_footer.scss */
+/* line 68, ../sass/_template_footer.scss */
 #_template_footer #footer-bottom {
   background-color: #003f40;
   text-align: left;
   padding: 0.5em;
+  margin-top: 1em;
 }
-/* line 66, ../sass/_template_footer.scss */
+/* line 75, ../sass/_template_footer.scss */
 #_template_footer #copyright {
   padding-left: 5%;
 }
-/* line 71, ../sass/_template_footer.scss */
+/* line 80, ../sass/_template_footer.scss */
 #_template_footer #footer-bottom a:link, #_template_footer a:visited {
   color: white;
   text-align: center;
@@ -632,17 +654,96 @@ body, html {
   display: inline-block;
   font-size: 15px;
 }
-/* line 79, ../sass/_template_footer.scss */
+/* line 88, ../sass/_template_footer.scss */
 #_template_footer #footer-bottom a:hover, #_template_footer a:active {
   color: white;
   text-decoration: underline;
 }
-/* line 84, ../sass/_template_footer.scss */
+/* line 93, ../sass/_template_footer.scss */
 #_template_footer #mentions {
   padding-left: 2%;
 }
-/* line 92, ../sass/_template_footer.scss */
+/* line 101, ../sass/_template_footer.scss */
 #_template_footer button {
+  background-color: #4CAF50;
+  /* Green */
+  border: none;
+  color: white;
+  padding: 16px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  -webkit-transition-duration: 0.4s;
+  /* Safari */
+  transition-duration: 0.4s;
+  cursor: pointer;
+  width: 181px;
+  margin-left: 1em;
+}
+/* line 119, ../sass/_template_footer.scss */
+#_template_footer .button1 {
+  background-color: #4CAF50;
+  color: white;
+  border: 2px solid #4CAF50;
+}
+/* line 125, ../sass/_template_footer.scss */
+#_template_footer .button1:hover {
+  background-color: white;
+  color: #4CAF50;
+}
+/* line 132, ../sass/_template_footer.scss */
+#_template_footer .footer-right form input,
+#_template_footer .footer-right form textarea {
+  display: block;
+  border-radius: 3px;
+  box-sizing: border-box;
+  background-color: white;
+  box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.1);
+  border: none;
+  resize: none;
+  font: inherit;
+  font-size: 14px;
+  font-weight: normal;
+  color: #d1d2d2;
+  width: 400px;
+  margin-left: 1em;
+  padding-left: 1em;
+}
+/* line 151, ../sass/_template_footer.scss */
+#_template_footer .footer-right ::-webkit-input-placeholder {
+  color: #5c666b;
+}
+/* line 155, ../sass/_template_footer.scss */
+#_template_footer .footer-right ::-moz-placeholder {
+  color: #5c666b;
+  opacity: 1;
+}
+/* line 160, ../sass/_template_footer.scss */
+#_template_footer .footer-right :-ms-input-placeholder {
+  color: #5c666b;
+}
+/* line 164, ../sass/_template_footer.scss */
+#_template_footer .footer-right form input {
+  height: 55px;
+  margin-bottom: 15px;
+  width: 181px;
+}
+/* line 170, ../sass/_template_footer.scss */
+#_template_footer .footer-right form textarea {
+  height: 100px;
+  margin-bottom: 20px;
+}
+
+/*//////////////////////////////////////////////
+///////////// _admin.scss /////////////////////
+//////////////////////////////////////////////*/
+/* line 6, ../sass/_admin.scss */
+#_admin {
+  background-color: rgba(0, 120, 122, 0.6);
+}
+/* line 9, ../sass/_admin.scss */
+#_admin .admin_button {
   background-color: #4CAF50;
   /* Green */
   border: none;
@@ -658,56 +759,4 @@ body, html {
   transition-duration: 0.4s;
   cursor: pointer;
   width: 181px;
-}
-/* line 109, ../sass/_template_footer.scss */
-#_template_footer .button1 {
-  background-color: #4CAF50;
-  color: white;
-  border: 2px solid #4CAF50;
-}
-/* line 115, ../sass/_template_footer.scss */
-#_template_footer .button1:hover {
-  background-color: white;
-  color: #4CAF50;
-}
-/* line 122, ../sass/_template_footer.scss */
-#_template_footer .footer-right form input,
-#_template_footer .footer-right form textarea {
-  display: block;
-  border-radius: 3px;
-  box-sizing: border-box;
-  background-color: white;
-  box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.1);
-  border: none;
-  resize: none;
-  font: inherit;
-  font-size: 14px;
-  font-weight: normal;
-  color: #d1d2d2;
-  width: 400px;
-  padding: 18px;
-}
-/* line 141, ../sass/_template_footer.scss */
-#_template_footer .footer-right ::-webkit-input-placeholder {
-  color: #5c666b;
-}
-/* line 145, ../sass/_template_footer.scss */
-#_template_footer .footer-right ::-moz-placeholder {
-  color: #5c666b;
-  opacity: 1;
-}
-/* line 150, ../sass/_template_footer.scss */
-#_template_footer .footer-right :-ms-input-placeholder {
-  color: #5c666b;
-}
-/* line 154, ../sass/_template_footer.scss */
-#_template_footer .footer-right form input {
-  height: 55px;
-  margin-bottom: 15px;
-  width: 181px;
-}
-/* line 160, ../sass/_template_footer.scss */
-#_template_footer .footer-right form textarea {
-  height: 100px;
-  margin-bottom: 20px;
 }
