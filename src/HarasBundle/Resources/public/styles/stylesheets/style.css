@@ -1,0 +1,762 @@
+@charset "UTF-8";
+/* line 20, ../sass/style.scss */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/*//////////////////////////////////////////////
+/////////////// _index_footer.scss /////////////
+//////////////////////////////////////////////*/
+/* line 5, ../sass/_index_footer.scss */
+#_index_footer:hover {
+  background-color: #00787a;
+  height: 255px;
+  margin-top: -255px;
+}
+
+/* line 11, ../sass/_index_footer.scss */
+#_index_footer {
+  overflow: hidden;
+  margin-top: -50px;
+  height: 50px;
+  background-color: rgba(0, 120, 122, 0.6);
+  -webkit-transition: all 1s;
+  -moz-transition: all 1s;
+  -o-transition: all 1s;
+  -ms-transition: all 1s;
+  transition: all 1s;
+  text-align: center;
+  position: relative;
+  /* Colonnes footer */
+  /* Footer partie basse -> Copyright */
+  /*  Footer button*/
+  /* form input*/
+}
+/* line 24, ../sass/_index_footer.scss */
+#_index_footer p {
+  font-size: 1em;
+  margin-top: 1.5em;
+}
+/* line 29, ../sass/_index_footer.scss */
+#_index_footer h1 {
+  font-size: 2em;
+  margin-bottom: 1em;
+}
+/* line 34, ../sass/_index_footer.scss */
+#_index_footer h2 {
+  font-size: 1.5em;
+}
+/* line 38, ../sass/_index_footer.scss */
+#_index_footer h3 {
+  font-size: 1em;
+}
+/* line 46, ../sass/_index_footer.scss */
+#_index_footer .footer .footer-left,
+#_index_footer .footer .footer-center,
+#_index_footer .footer .footer-right {
+  display: inline-block;
+  color: white;
+  vertical-align: top;
+  text-align: left;
+}
+/* line 55, ../sass/_index_footer.scss */
+#_index_footer #avis {
+  font-weight: bold;
+  margin-top: 30px;
+  text-decoration: none;
+}
+/* line 60, ../sass/_index_footer.scss */
+#_index_footer .footer .footer-left {
+  width: 30%;
+  /*font-size: 12px;*/
+}
+/* line 65, ../sass/_index_footer.scss */
+#_index_footer .footer .footer-center {
+  width: 30%;
+}
+/* line 69, ../sass/_index_footer.scss */
+#_index_footer .footer .footer-right {
+  width: 30%;
+  text-align: left;
+}
+/* line 74, ../sass/_index_footer.scss */
+#_index_footer .footer a {
+  color: white;
+}
+/* line 80, ../sass/_index_footer.scss */
+#_index_footer #footer-bottom {
+  background-color: #003f40;
+  text-align: left;
+  height: 20px;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+/* line 88, ../sass/_index_footer.scss */
+#_index_footer #copyright {
+  padding-left: 5%;
+}
+/* line 92, ../sass/_index_footer.scss */
+#_index_footer #footer-bottom a:link, #_index_footer a:visited {
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+}
+/* line 100, ../sass/_index_footer.scss */
+#_index_footer #footer-bottom a:hover, #_index_footer a:active {
+  color: white;
+}
+/* line 105, ../sass/_index_footer.scss */
+#_index_footer #mentions {
+  padding-left: 2%;
+}
+/* line 113, ../sass/_index_footer.scss */
+#_index_footer button {
+  background-color: #4CAF50;
+  /* Green */
+  border: none;
+  color: white;
+  padding: 16px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  -webkit-transition-duration: 0.4s;
+  /* Safari */
+  transition-duration: 0.4s;
+  cursor: pointer;
+  width: 181px;
+}
+/* line 130, ../sass/_index_footer.scss */
+#_index_footer .button1 {
+  background-color: #4CAF50;
+  color: white;
+  border: 2px solid #4CAF50;
+}
+/* line 136, ../sass/_index_footer.scss */
+#_index_footer .button1:hover {
+  background-color: white;
+  color: #4CAF50;
+}
+/* line 143, ../sass/_index_footer.scss */
+#_index_footer .footer-right form input,
+#_index_footer .footer-right form textarea {
+  display: block;
+  border-radius: 3px;
+  box-sizing: border-box;
+  background-color: white;
+  box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.1);
+  border: none;
+  resize: none;
+  font: inherit;
+  font-size: 14px;
+  font-weight: normal;
+  color: #d1d2d2;
+  width: 400px;
+  padding: 18px;
+}
+/* line 160, ../sass/_index_footer.scss */
+#_index_footer .footer-right ::-webkit-input-placeholder {
+  color: #5c666b;
+}
+/* line 164, ../sass/_index_footer.scss */
+#_index_footer .footer-right ::-moz-placeholder {
+  color: #5c666b;
+  opacity: 1;
+}
+/* line 169, ../sass/_index_footer.scss */
+#_index_footer .footer-right :-ms-input-placeholder {
+  color: #5c666b;
+}
+/* line 173, ../sass/_index_footer.scss */
+#_index_footer .footer-right form input {
+  height: 55px;
+  margin-bottom: 1em;
+  width: 181px;
+}
+/* line 179, ../sass/_index_footer.scss */
+#_index_footer .footer-right form textarea {
+  height: 100px;
+  margin-bottom: 20px;
+}
+
+/*//////////////////////////////////////////////
+/////////////// _index_header.scss /////////////
+//////////////////////////////////////////////*/
+/* line 5, ../sass/_index_header.scss */
+#_index_header {
+  height: 80px;
+  display: table-row;
+  text-shadow: 2px 2px rgba(0, 0, 0, 0.7);
+  font-size: 1em;
+  font-weight: bold;
+}
+/* line 12, ../sass/_index_header.scss */
+#_index_header #logo {
+  width: 70px;
+  float: left;
+  margin: 5px;
+  margin-right: 60px;
+}
+/* line 18, ../sass/_index_header.scss */
+#_index_header #menu {
+  float: right;
+  margin-right: 10px;
+}
+/* line 23, ../sass/_index_header.scss */
+#_index_header #menu ul {
+  list-style-type: none;
+  overflow: hidden;
+}
+/* line 28, ../sass/_index_header.scss */
+#_index_header #menu li {
+  display: inline;
+  margin-right: 10px;
+}
+/* line 33, ../sass/_index_header.scss */
+#_index_header #menu a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 5px;
+  border-radius: 10px;
+  color: white;
+}
+/* line 44, ../sass/_index_header.scss */
+#_index_header #langues li {
+  display: inline;
+}
+/* line 48, ../sass/_index_header.scss */
+#_index_header #langues a {
+  margin: 3px;
+  border-radius: 10px;
+  text-decoration: none;
+  padding: 5px;
+  color: white;
+}
+/* line 55, ../sass/_index_header.scss */
+#_index_header #langues p {
+  display: inline;
+  color: white;
+}
+/* line 59, ../sass/_index_header.scss */
+#_index_header .accueil:hover, #_index_header #langues a:hover, #_index_header .contact:hover {
+  background-color: blue;
+}
+
+/*//////////////////////////////////////////////
+////////////////// _index.scss /////////////////
+//////////////////////////////////////////////*/
+/* line 5, ../sass/_index.scss */
+body, html {
+  height: 100%;
+  font-family: sans-serif;
+  margin: 0;
+}
+
+/* line 11, ../sass/_index.scss */
+#index_video {
+  position: fixed;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -100;
+}
+
+/* line 18, ../sass/_index.scss */
+#index_wrapper {
+  display: table;
+  height: 100%;
+  width: 100%;
+}
+
+/*//////////////////////////////
+// Mise en page corps accueil //
+//////////////////////////////*/
+/* line 28, ../sass/_index.scss */
+#index_corps {
+  position: relative;
+  display: table-row;
+  width: 100%;
+  height: 100%;
+}
+
+/* Mise en page de l'aside avec les icones des réseaux sociaux */
+/* line 37, ../sass/_index.scss */
+#index_social {
+  float: left;
+  margin-top: 8%;
+  text-align: center;
+  width: 70px;
+}
+
+/* line 44, ../sass/_index.scss */
+.icone-social {
+  width: 50px;
+  -webkit-transition: all 0.6s;
+  -moz-transition: all 0.6s;
+  -o-transition: all 0.6s;
+  -ms-transition: all 0.6s;
+  transition: all 0.6s;
+}
+
+/* line 53, ../sass/_index.scss */
+.icone-social:hover {
+  transform: scale(1.3) rotateZ(360deg);
+}
+
+/* Mise en page de l'accroche et des rubriques */
+/* line 60, ../sass/_index.scss */
+#index_accroche {
+  margin-top: 10%;
+  text-align: center;
+  color: white;
+  text-shadow: 3px 3px rgba(0, 0, 0, 0.7);
+}
+
+/* line 67, ../sass/_index.scss */
+#index_focus {
+  position: absolute;
+  bottom: 30px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* line 77, ../sass/_index.scss */
+.index_rubrique {
+  display: inline-block;
+  border-radius: 10px;
+  width: 180px;
+  height: 190px;
+  margin: 5px;
+  overflow: hidden;
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  -ms-transition: all 1s ease;
+  transition: all 1s ease;
+}
+
+/* line 87, ../sass/_index.scss */
+.index_rubrique_img {
+  width: 120px;
+  margin-top: 10px;
+}
+
+/* line 92, ../sass/_index.scss */
+.index_rubrique p {
+  font-size: 18px;
+  margin: 0;
+}
+
+/* line 97, ../sass/_index.scss */
+.index_rubrique.tourisme {
+  background-color: rgba(7, 64, 10, 0.6);
+}
+
+/* line 101, ../sass/_index.scss */
+.index_rubrique.travail {
+  background-color: rgba(140, 104, 34, 0.6);
+}
+
+/* line 105, ../sass/_index.scss */
+.index_rubrique.ecologie {
+  background-color: rgba(39, 34, 140, 0.6);
+}
+
+/* line 109, ../sass/_index.scss */
+.index_rubrique.accessibilite {
+  background-color: rgba(183, 21, 134, 0.6);
+}
+
+/* line 113, ../sass/_index.scss */
+.index_rubrique.hover {
+  height: 300px;
+  width: 300px;
+  margin-top: -110px;
+  box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.7);
+}
+
+/* line 120, ../sass/_index.scss */
+.tourisme.hover {
+  background-color: #07400a;
+}
+
+/* line 124, ../sass/_index.scss */
+.travail.hover {
+  background-color: #8c6822;
+}
+
+/* line 128, ../sass/_index.scss */
+.ecologie.hover {
+  background-color: #27228c;
+}
+
+/* line 132, ../sass/_index.scss */
+.accessibilite.hover {
+  background-color: #b71586;
+}
+
+/*//////////////////////////////////////////////
+///////////// _formulaire_avis.scss /////////////
+//////////////////////////////////////////////*/
+/* line 5, ../sass/_formulaire_avis.scss */
+#formulaire_avis {
+  text-align: center;
+}
+/* line 8, ../sass/_formulaire_avis.scss */
+#formulaire_avis span {
+  display: inline-block;
+  width: 500px;
+}
+/* line 13, ../sass/_formulaire_avis.scss */
+#formulaire_avis p {
+  text-align: justify;
+}
+/* line 17, ../sass/_formulaire_avis.scss */
+#formulaire_avis input {
+  width: 200px;
+}
+/* line 21, ../sass/_formulaire_avis.scss */
+#formulaire_avis textarea {
+  width: 200px;
+  border-radius: 5px;
+}
+
+/*//////////////////////////////////////////////
+/////////////// _template_header.scss /////////////
+//////////////////////////////////////////////*/
+/* line 5, ../sass/_template_header.scss */
+#_template_header {
+  background-color: #d82679;
+  color: white;
+  height: 100px;
+  font-size: 16px;
+  padding-top: 10px;
+}
+/* line 13, ../sass/_template_header.scss */
+#_template_header #logo {
+  width: 70px;
+  float: left;
+  margin: 5px;
+  margin-right: 60px;
+}
+/* line 20, ../sass/_template_header.scss */
+#_template_header #menu {
+  float: right;
+  margin-right: 10px;
+}
+/* line 25, ../sass/_template_header.scss */
+#_template_header #menu ul {
+  list-style-type: none;
+  overflow: hidden;
+}
+/* line 30, ../sass/_template_header.scss */
+#_template_header #menu li {
+  display: inline;
+  margin-right: 10px;
+}
+/* line 35, ../sass/_template_header.scss */
+#_template_header #menu a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 5px;
+  border-radius: 10px;
+  color: white;
+}
+/* line 43, ../sass/_template_header.scss */
+#_template_header #langues ul {
+  list-style-type: none;
+  overflow: hidden;
+}
+/* line 48, ../sass/_template_header.scss */
+#_template_header #langues li {
+  display: inline;
+}
+/* line 53, ../sass/_template_header.scss */
+#_template_header #langues a {
+  margin: 3px;
+  display: inline-block;
+  border-radius: 10px;
+  text-decoration: none;
+  padding: 5px;
+  color: white;
+}
+/* line 61, ../sass/_template_header.scss */
+#_template_header #langues p {
+  display: inline;
+}
+/* line 65, ../sass/_template_header.scss */
+#_template_header #langues a:hover {
+  background-color: blue;
+}
+/* line 69, ../sass/_template_header.scss */
+#_template_header .tourisme:hover {
+  background-color: rgba(7, 64, 10, 0.6);
+}
+/* line 73, ../sass/_template_header.scss */
+#_template_header .travail:hover {
+  background-color: rgba(140, 104, 34, 0.6);
+}
+/* line 76, ../sass/_template_header.scss */
+#_template_header .ecologie:hover {
+  background-color: rgba(39, 34, 140, 0.6);
+}
+/* line 79, ../sass/_template_header.scss */
+#_template_header .accessibilite:hover {
+  background-color: rgba(183, 21, 134, 0.6);
+}
+/* line 83, ../sass/_template_header.scss */
+#_template_header .accueil:hover, #_template_header #langues a:hover, #_template_header .contact:hover {
+  background-color: blue;
+}
+
+/*//////////////////////////////////////////////
+//////////////// _template.scss ////////////////
+//////////////////////////////////////////////*/
+/* line 5, ../sass/_template.scss */
+#template {
+  /* footer/header colour */
+}
+/* line 16, ../sass/_template.scss */
+#template .article {
+  border-radius: 15px;
+}
+/* line 23, ../sass/_template.scss */
+#template h1 {
+  text-align: center;
+}
+/* line 27, ../sass/_template.scss */
+#template label {
+  display: block;
+  width: 120px;
+  float: left;
+  padding-top: 5px;
+}
+/* line 34, ../sass/_template.scss */
+#template .message label {
+  margin-top: 60px;
+}
+/* line 37, ../sass/_template.scss */
+#template input, #template textarea {
+  width: 200px;
+  padding: 5px;
+  border-radius: 3px;
+}
+/* line 43, ../sass/_template.scss */
+#template button {
+  margin-left: 150px;
+}
+/* line 47, ../sass/_template.scss */
+#template .bloc1 {
+  background-color: white;
+  text-align: left;
+}
+/* line 52, ../sass/_template.scss */
+#template .bloc2 {
+  background-color: #d82679;
+  text-align: right;
+}
+/* line 58, ../sass/_template.scss */
+#template table {
+  display: inline-block;
+  width: 80%;
+}
+/* line 63, ../sass/_template.scss */
+#template .parallax-container {
+  height: 150px;
+}
+
+/*//////////////////////////////////////////////
+//////////// _template_footer.scss /////////////
+//////////////////////////////////////////////*/
+/* line 6, ../sass/_template_footer.scss */
+#_template_footer {
+  margin-top: 20px;
+  background-color: #d82679;
+  text-align: center;
+  font-size: 16px;
+  position: relative;
+  /* Colonnes footer */
+  /* Footer partie basse -> Copyright */
+  /*  Footer button*/
+  /* form input*/
+}
+/* line 13, ../sass/_template_footer.scss */
+#_template_footer .p-titre {
+  font-size: 1.4em;
+  font-weight: bold;
+}
+/* line 18, ../sass/_template_footer.scss */
+#_template_footer p {
+  font-size: 16px;
+}
+/* line 22, ../sass/_template_footer.scss */
+#_template_footer h1 {
+  font-size: 2em;
+  text-align: left;
+}
+/* line 27, ../sass/_template_footer.scss */
+#_template_footer h2 {
+  font-size: 1.5em;
+}
+/* line 31, ../sass/_template_footer.scss */
+#_template_footer h3 {
+  font-size: 1em;
+}
+/* line 40, ../sass/_template_footer.scss */
+#_template_footer .footer-left,
+#_template_footer .footer-center,
+#_template_footer .footer-right {
+  display: inline-block;
+  color: white;
+  vertical-align: top;
+  text-align: left;
+}
+/* line 48, ../sass/_template_footer.scss */
+#_template_footer .footer-left {
+  width: 30%;
+  /*font-size: 12px;*/
+}
+/* line 53, ../sass/_template_footer.scss */
+#_template_footer .footer-center {
+  width: 30%;
+}
+/* line 57, ../sass/_template_footer.scss */
+#_template_footer .footer-right {
+  width: 30%;
+  text-align: left;
+}
+/* line 62, ../sass/_template_footer.scss */
+#_template_footer a {
+  color: white;
+}
+/* line 68, ../sass/_template_footer.scss */
+#_template_footer #footer-bottom {
+  background-color: #003f40;
+  text-align: left;
+  padding: 0.5em;
+  margin-top: 1em;
+}
+/* line 75, ../sass/_template_footer.scss */
+#_template_footer #copyright {
+  padding-left: 5%;
+}
+/* line 80, ../sass/_template_footer.scss */
+#_template_footer #footer-bottom a:link, #_template_footer a:visited {
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+}
+/* line 88, ../sass/_template_footer.scss */
+#_template_footer #footer-bottom a:hover, #_template_footer a:active {
+  color: white;
+  text-decoration: underline;
+}
+/* line 93, ../sass/_template_footer.scss */
+#_template_footer #mentions {
+  padding-left: 2%;
+}
+/* line 101, ../sass/_template_footer.scss */
+#_template_footer button {
+  background-color: #4CAF50;
+  /* Green */
+  border: none;
+  color: white;
+  padding: 16px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  -webkit-transition-duration: 0.4s;
+  /* Safari */
+  transition-duration: 0.4s;
+  cursor: pointer;
+  width: 181px;
+  margin-left: 1em;
+}
+/* line 119, ../sass/_template_footer.scss */
+#_template_footer .button1 {
+  background-color: #4CAF50;
+  color: white;
+  border: 2px solid #4CAF50;
+}
+/* line 125, ../sass/_template_footer.scss */
+#_template_footer .button1:hover {
+  background-color: white;
+  color: #4CAF50;
+}
+/* line 132, ../sass/_template_footer.scss */
+#_template_footer .footer-right form input,
+#_template_footer .footer-right form textarea {
+  display: block;
+  border-radius: 3px;
+  box-sizing: border-box;
+  background-color: white;
+  box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.1);
+  border: none;
+  resize: none;
+  font: inherit;
+  font-size: 14px;
+  font-weight: normal;
+  color: #d1d2d2;
+  width: 400px;
+  margin-left: 1em;
+  padding-left: 1em;
+}
+/* line 151, ../sass/_template_footer.scss */
+#_template_footer .footer-right ::-webkit-input-placeholder {
+  color: #5c666b;
+}
+/* line 155, ../sass/_template_footer.scss */
+#_template_footer .footer-right ::-moz-placeholder {
+  color: #5c666b;
+  opacity: 1;
+}
+/* line 160, ../sass/_template_footer.scss */
+#_template_footer .footer-right :-ms-input-placeholder {
+  color: #5c666b;
+}
+/* line 164, ../sass/_template_footer.scss */
+#_template_footer .footer-right form input {
+  height: 55px;
+  margin-bottom: 15px;
+  width: 181px;
+}
+/* line 170, ../sass/_template_footer.scss */
+#_template_footer .footer-right form textarea {
+  height: 100px;
+  margin-bottom: 20px;
+}
+
+/*//////////////////////////////////////////////
+///////////// _admin.scss /////////////////////
+//////////////////////////////////////////////*/
+/* line 6, ../sass/_admin.scss */
+#_admin {
+  background-color: rgba(0, 120, 122, 0.6);
+}
+/* line 9, ../sass/_admin.scss */
+#_admin .admin_button {
+  background-color: #4CAF50;
+  /* Green */
+  border: none;
+  color: white;
+  padding: 16px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  -webkit-transition-duration: 0.4s;
+  /* Safari */
+  transition-duration: 0.4s;
+  cursor: pointer;
+  width: 181px;
+}

@@ -1,6 +1,50 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+<<<<<<< HEAD
+
+    <h1 class="title">Quelle page voulez-vous modifier ?</h1>
+
+    <div>
+        <div class="button">
+                    <a href="{{ path('page_show', { 'name': 'homepage' }) }}">
+                        <input type="submit" value="Page d'accueil" />
+                    </a>
+
+                    <a href="{{ path('page_show', { 'name': 'section1' }) }}">
+                        <input type="submit" value="Section 1" />
+                    </a>
+
+
+                    <a href="{{ path('page_show', { 'name': 'section2' }) }}">
+                        <input type="submit" value="Section 2" />
+                    </a>
+
+
+                    <a href="{{ path('page_show', { 'name': 'section3' }) }}">
+                        <input type="submit" value="Section 3" />
+                    </a>
+
+
+                    <a href="{{ path('page_show', { 'name': 'section4' }) }}">
+                        <input type="submit" value="Section 4" />
+                    </a>
+
+                    <a href="{{ path('page_show', { 'name': 'contact' }) }}">
+                        <input type="submit" value="Contact" />
+                    </a>
+
+
+                    <a href="{{ path('page_show', { 'name': 'header' }) }}">
+                        <input type="submit" value="En-tête" />
+                    </a>
+
+
+                    <a href="{{ path('page_show', { 'name': 'footer' }) }}">
+                        <input type="submit" value="Pied de page" />
+                    </a>
+         </div>
+=======
     <header id="_template_header">
         {{ render(controller('HarasBundle:Page:getPage',{'name':'header'})) }}
     </header>
@@ -49,5 +93,6 @@
                 <input type="submit" value="Pied de page">
             </a>
         </div>
+>>>>>>> DevSymfonyMarielle
     </div>
 {% endblock %}

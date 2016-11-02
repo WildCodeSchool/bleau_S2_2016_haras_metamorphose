@@ -17,6 +17,11 @@ $border-radius:3px;
 	transition: $params;
 }
 
+* {
+	margin: 0;
+	padding: 0;
+}
+
 //// Ajoutez ici vos fichiers ("@import ma_page" importe _ma_page.scss) ////
 @import 'index_footer';
 @import 'index_header';
@@ -25,3 +30,5 @@ $border-radius:3px;
 @import 'template_header';
 @import 'template';
 @import 'template_footer';
+@import 'admin';
+

@@ -14,14 +14,6 @@ haras_text:
     resource: "@HarasBundle/Resources/config/routing/text.yml"
     prefix:   /text
 
-#haras_homepage:
-#    path:     /
-#    defaults: { _controller: HarasBundle:Page:homepage }
-
-haras_template:
-    path:     /template/{name}
-    defaults: { _controller: HarasBundle:Page:template }
-
 #Route general
 haras_get_page:
     path:     /{name}

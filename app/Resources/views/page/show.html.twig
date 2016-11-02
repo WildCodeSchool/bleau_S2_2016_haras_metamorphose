@@ -1,7 +1,12 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+<<<<<<< HEAD
+    <h1 class="title">Voici les articles de la page {{ page.name }}</h1>
+
+=======
     <h1>Voici les articles de la page {{ page.name }}</h1>
+>>>>>>> DevSymfonyMarielle
     <table>
         <thead>
             <tr>
@@ -27,6 +32,16 @@
         </tbody>
     </table>
 
+<<<<<<< HEAD
+    <ul>
+        <li>
+            <a href="{{ path('page_index') }}">Retourner à la liste des pages</a>
+        </li>
+        <li>
+            <a href="{{ path('page_edit', { 'name': page.name }) }}">Modifier la page</a>
+        </li>
+    </ul>
+=======
     <div class="admin_button">
         <a href="{{ path('page_edit', { 'name': page.name }) }}">
             <input type="submit" value="Modifier la page" />
@@ -37,4 +52,5 @@
             <input type="submit" value="Retourner à la liste des pages" />
         </a>
     </div>
+>>>>>>> DevSymfonyMarielle
 {% endblock %}

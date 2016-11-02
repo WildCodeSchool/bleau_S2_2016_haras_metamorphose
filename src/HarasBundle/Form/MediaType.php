@@ -16,7 +16,7 @@ class MediaType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('file','file', array('label' => 'File to download: ', 'mapped' => false))
+            ->add('file', 'file', array('label' => 'File to download: ', 'mapped' => false))
             ->add('alt')
         ;
     }
