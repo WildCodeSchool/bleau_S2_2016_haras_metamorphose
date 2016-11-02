@@ -2,43 +2,38 @@
 
 {% block body %}
     <h1>Voici les articles de la page {{ page.name }}</h1>
-    <div classs="admin_list">
-        <table>
-            <thead>
+    <table>
+        <thead>
+        <tr>
+            <th>Nom des articles</th>
+            <th>Voir</th>
+            <th>Editer</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for article in page.articles %}
             <tr>
-                <th>Nom des articles</th>
-                <th>Voir</th>
-                <th>Editer</th>
+                <td>
+                    {{ article.name }}
+                </td>
+                <td>
+                    <a href="{{ path('article_show', { 'id': article.id }) }}">Visualiser</a>
+                </td>
+                <td>
+                    <a href="{{ path('article_edit', { 'id': article.id }) }}">Editer</a>
+                </td>
             </tr>
-            </thead>
-            <tbody>
-            {% for article in page.articles %}
-                <tr>
-                    <td>
-                        {{ article.name }}
-                    </td>
-                    <td>
-                        <a href="{{ path('article_show', { 'id': article.id }) }}">Visualiser</a>
-                    </td>
-                    <td>
-                        <a href="{{ path('article_edit', { 'id': article.id }) }}">Editer</a>
-                    </td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
-    </div>
+        {% endfor %}
+        </tbody>
+    </table>
 
-    <div class="admin_buttons"
-        <div>
+    <div class="admin_button"
             <a href="{{ path('page_edit', { 'name': page.name }) }}">
                 <input type="submit" value="Modifier la page" />
             </a>
-        </div>
-        <div>
-            <a href="{{ path('page_index') }}">
-                <input type="submit" value="Retourner à la liste des pages" />
-            </a>
-        </div>
+    <div class="admin_button">
+        <a href="{{ path('page_index') }}">
+            <input type="submit" value="Retourner à la liste des pages" />
+        </a>
     </div>
 {% endblock %}
