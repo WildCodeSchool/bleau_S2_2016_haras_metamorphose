@@ -3,11 +3,10 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //// Variables ////
-$tourisme-color: rgba(7, 64, 10, 0.6);
-$travail-color: rgba(140, 104, 34, 0.6);
-$ecologie-color: rgba(39, 34, 140, 0.6);
-$accessibilite-color: rgba(183, 21, 134, 0.6);
-$border-radius:3px;
+$section1-color: rgb(7, 64, 10);
+$section2-color: rgb(140, 104, 34);
+$section3-color: rgb(39, 34, 140);
+$section4-color: rgb(183, 21, 134);
 
 @mixin transition($params) {
 	-webkit-transition: $params;
@@ -20,7 +19,13 @@ $border-radius:3px;
 * {
 	margin: 0;
 	padding: 0;
+}
+$border-radius: 3px;
 
+body, html {
+	height: 100%;
+	font-family: sans-serif;
+	margin: 0;
 }
 
 //// Ajoutez ici vos fichiers ("@import ma_page" importe _ma_page.scss) ////
@@ -29,5 +34,5 @@ $border-radius:3px;
 @import 'index';
 @import 'formulaire_avis';
 @import 'template_header';
-@import 'template';
 @import 'template_footer';
+@import 'template';

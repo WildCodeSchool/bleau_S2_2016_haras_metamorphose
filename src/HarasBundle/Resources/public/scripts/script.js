@@ -4,33 +4,36 @@
 
 $(document).ready(function() {
 	$('html').addClass('jQuery-fonctionne');
-//Cas .Tourisme survolée
-	function toggleTourisme() {
-		$('.tourisme').toggleClass("hover");
+//Survol des liens vers les sections
+//Cas .section1 survolée
+	function toggleSection1() {
+		$('.section1').toggleClass("hover");
 	}
-	$('.tourisme').on('mouseenter', toggleTourisme);
-	$('.tourisme').on('mouseleave', toggleTourisme); 
+	var section = $('.section1');
+	section.on('mouseenter', toggleSection1);
+	section.on('mouseleave', toggleSection1);
 
-//Cas .Travail survolée
-	function toggleTravail() {
-		$('.travail').toggleClass("hover");
+//Cas .section2 survolée
+	function toggleSection2() {
+		$('.section2').toggleClass("hover");
 	}
-	$('.travail').on('mouseenter', toggleTravail);
-	$('.travail').on('mouseleave', toggleTravail); 
+	section = $('.section2');
+	section.on('mouseenter', toggleSection2);
+	section.on('mouseleave', toggleSection2);
 
-//Cas .Ecologie survolée
-	function toggleEcologie() {
-		$('.ecologie').toggleClass("hover");
+//Cas .section3 survolée
+	function toggleSection3() {
+		$('.section3').toggleClass("hover");
 	}
-	$('.ecologie').on('mouseenter', toggleEcologie);
-	$('.ecologie').on('mouseleave', toggleEcologie); 
+	section = $('.section3');
+	section.on('mouseenter', toggleSection3);
+	section.on('mouseleave', toggleSection3);
 
-
-//Cas .Accessibilite survolée
-	function toggleAccessibilite() {
-		$('.accessibilite').toggleClass("hover");
+//Cas .section4 survolée
+	function toggleSection4() {
+		$('.section4').toggleClass("hover");
 	}
-	$('.accessibilite').on('mouseenter', toggleAccessibilite);
-	$('.accessibilite').on('mouseleave', toggleAccessibilite); 
-
+	section = $('.section4');
+	section.on('mouseenter', toggleSection4);
+	section.on('mouseleave', toggleSection4);
 });

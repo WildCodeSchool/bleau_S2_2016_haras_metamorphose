@@ -18,6 +18,7 @@ class PageController extends Controller
     {
         $name = $page->getName();
         $table = [];
+		$table['category'] = strval($page->getCategory());
         $language = $this->getRequest()->getLocale();
         // récupération du texte propre à la page
         foreach ($page->getTexts() as $text)
@@ -27,31 +28,30 @@ class PageController extends Controller
         // page template
         if($name == 'section1' || $name == 'section2' || $name == 'section3' || $name == 'section4')
         {
-             // récupération des média
+             // récupération des médias
             foreach ($page->getMedias() as $media)
             {
                 $table[$media->getName()] = $media->getMediaTranslation($language);
             }
             // récupération des articles
             $table['articles'] = [];
-            $articleRendering = [];
-
             foreach ($page->getArticles() as $article)
             {
+				$articleRendering = [];
 				$articleRendering['id'] = $article->getId();
                 $textTitle = $article->getTitle();
                 $textContent = $article->getContent();
                 $articleRendering['title'] = $textTitle->getTranslation($language);
                 $articleRendering['content'] = $textContent->getTranslation($language);
-                $articleRendering['structure'] = $article->getStructure();
+                $articleRendering['structure'] = $article->getStructure()->getName();
                 // récupération des médias de l'article
                 foreach ($article->getMedias() as $media)
                 {
                 	$articleRendering['medias'][] = $media->getMediaTranslation($language);
                 }
+				array_unshift($table['articles'], $articleRendering);	// The articles are prepended so that the views get
+				// them in reversed order (chronologically from last to first)
             }
-            array_unshift($table['articles'], $articleRendering);	// The articles are prepended so that the views get
-														// them in reversed order (chronologically from last to first)
             return $this->render('HarasBundle::template.html.twig', $table);
         }
         // page contact
@@ -71,10 +71,7 @@ class PageController extends Controller
             }
             return $this->render('@Haras/contact.html.twig', array('form' => $form->createView(), 'page' => $page));
         }
-
-
-
-            return $this->render('HarasBundle::'.$name.'.html.twig', $table);
+		return $this->render('HarasBundle::'.$name.'.html.twig', $table);
     }
 
 
@@ -88,6 +85,22 @@ class PageController extends Controller
         ;
         $this->get('mailer')->send($message);
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     /**
      * Lists all Page entities.
