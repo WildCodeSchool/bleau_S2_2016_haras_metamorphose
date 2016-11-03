@@ -6,35 +6,33 @@
     <table>
         <tbody>
             <tr>
-                <th>Id</th>
-                <td>{{ text.id }}</td>
-            </tr>
-            <tr>
-                <th>Name</th>
+                <th>Nom</th>
                 <td>{{ text.name }}</td>
             </tr>
             <tr>
-                <th>Textfr</th>
+                <th>Texte en Français</th>
                 <td>{{ text.textFr }}</td>
             </tr>
             <tr>
-                <th>Texten</th>
+                <th>Texte en Anglais</th>
                 <td>{{ text.textEn }}</td>
             </tr>
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('text_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('text_edit', { 'id': text.id }) }}">Edit</a>
-        </li>
-        <li>
+    <div class="admin_button">
+            <a href="{{ path('text_edit', { 'id': text.id }) }}">
+                <input type="submit" value="Modifier le texte">
+            </a>
+    </div>
+    <div class="admin_button">
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+                <input type="submit" value="Supprimer le texte">
             {{ form_end(delete_form) }}
-        </li>
-    </ul>
+    </div>
+    <div class="admin_button">
+        <a href="{{ path('text_index') }}">
+            <input type="submit" value="Liste des textes">
+        </a>
+    </div>
 {% endblock %}

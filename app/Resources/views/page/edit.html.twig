@@ -34,6 +34,11 @@
                     </div>
                     <div>
                         {{ form_end(edit_form) }}
+                        <div class="admin_button">
+                            <a href="{{ path('article_new') }}">
+                                <input type="submit" value="Ajouter un article" />
+                            </a>
+                        </div>
                         {{ form_start(delete_form) }}
                         <div class="admin_button col m6">
                             <input class="waves-effect waves-light btn delete" type="submit" value="Supprimer la page">
