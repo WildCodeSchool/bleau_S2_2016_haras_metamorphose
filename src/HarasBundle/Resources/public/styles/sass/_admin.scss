@@ -4,27 +4,44 @@
 
 
 #_admin {
-    background-color: rgba(0, 120, 122, 0.6);
+    background-color: lightgreen;
+    height: 100%;
+    width: 100%;
+   // background-image: url("../images/test.png");
 
     .admin_button {
-      background-color: #4CAF50; /* Green */
-      border: none;
-      color: white;
-      padding: 16px 16px;
+      font-size: 1em;
       text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 16px;
-      margin: 4px 2px;
-      -webkit-transition-duration: 0.4s; /* Safari */
-      transition-duration: 0.4s;
-      cursor: pointer;
-      width: 181px;
+      margin: 2em 0em 2em 0em;
+      min-height: 2em;
+
     }
+
+    h1 {
+      font-size: 2em;
+      color: white;
+      text-align: center;
+    }
+
+    .table {
+      border: 1px solid black;
+    }
+
     .admin_title {
-
-
+      color: darkslategrey;
     }
+    
+    .delete {
+      background-color: #d82679;
+    }
+
+    .cadre {
+      background-color: rgba(255, 255, 255, 0.5);
+      padding: 2em;
+      margin-top: 5%;
+      border-radius: 1em;
+    }
+  /*
     .admin_content {
 
     }
@@ -39,5 +56,5 @@
 
     .admin_edit {
 
-    }
+    }*/
 }
