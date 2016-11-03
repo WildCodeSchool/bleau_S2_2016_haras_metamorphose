@@ -55,24 +55,23 @@ class PageController extends Controller
         // page template
         if($name == 'section1' || $name == 'section2' || $name == 'section3' || $name == 'section4')
         {
-            $table['pageNb'] = $request->query->get('pageNb');
+            // définition des paramètre de la requête sur le repository
+            $pageNb = $request->query->get('pageNb');
+            $limit = $this->getParameter('articles_per_page');
+            // Vérification de l'existence de $pageNb.
+            // Cette variable est null par défaut.
+            if($pageNb == null || intVal($pageNb)<1 || !ctype_digit($pageNb))
+            {
+                $pageNb = 1;
+            }
 
-            $offset = 0;
-            $query = $em->createQuery("
-                SELECT article_id
-                FROM pages_articles AS pa
-                JOIN article AS a ON a.id = pa.article_id
-                WHERE pa.page_id = ".$page->getId()."
-                ORDER BY a.createAt DESC
-                LIMIT 10 OFFSET ".$offset);
-            $results = $query->getResult();
-            var_dump($results);
-
-            var_dump($test);
-            // $results = $query->getResult();
-                // récupération des articles
+            // appel de la fonction pour récupérer 10 articles
+            $repository = $em->getRepository('HarasBundle:Article');
+            $result = $repository->findArticles($pageNb, $page, $limit);
+            // Pour récupérer le numéro de page voulue dans la vue
+            $table['pageNb'] = $pageNb;
             $table['articles'] = [];
-            foreach ($page->getArticles() as $article)
+            foreach ($result as $article)
             {
                 $articleRendering = [];
                 $textTitle = $article->getTitle();
