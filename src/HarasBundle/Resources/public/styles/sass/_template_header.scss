@@ -1,0 +1,87 @@
+/*//////////////////////////////////////////////
+/////////////// _template_header.scss /////////////
+//////////////////////////////////////////////*/
+
+#_template_header {
+
+	background-color: rgb(216,38,121);
+	color:white;
+	height:100px;
+	font-size:16px;
+	padding-top:10px;
+
+	#logo{
+		width:70px;
+		float:left;
+		margin:5px;
+		margin-right:60px;
+	}
+
+	#menu{
+		float:right;
+		margin-right:10px;
+	}
+
+	#menu ul {
+		list-style-type: none;
+		overflow: hidden;
+	}
+
+	#menu li{
+		display:inline;
+		margin-right:10px
+	}
+
+	#menu a {
+		text-decoration:none;
+		display:inline-block;
+		padding:5px;
+		border-radius:10px;
+		color:white;
+	}
+
+	#langues ul{
+		list-style-type: none;
+		overflow: hidden;
+	}
+
+	#langues li {
+		display: inline;
+
+	}
+
+	#langues a {
+		margin:3px;
+		display:inline-block;
+		border-radius:10px;
+		text-decoration: none;
+		padding:5px;
+		color:white;
+	}
+	#langues p{
+		display:inline;
+	}
+	
+	#langues a:hover {
+		background-color: blue;
+	}
+	
+	.tourisme:hover {
+		background-color: $tourisme-color;
+	}
+
+	.travail:hover{
+		background-color: $travail-color;
+	}
+	.ecologie:hover{
+		background-color: $ecologie-color;
+	}
+	.accessibilite:hover{
+		background-color: $accessibilite-color;
+	}
+
+	.accueil:hover, #langues a:hover, .contact:hover{
+		background-color: blue;
+	}
+
+}

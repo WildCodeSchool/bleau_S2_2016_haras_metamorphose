@@ -10,30 +10,68 @@
       {{ render(controller('HarasBundle:Page:getPage', { 'name': 'header' })) }}
     </header>
     <div>
-        <h1 class="title">{{ section1Name }}</h1>
+        <h1 class="title">{#{{ section1Name }}#}</h1>
     </div>
     <div class="article">
         {% for article in articles %}
-            <div class="bloc">
-                <table>
+            <div class="article-block">
+            {% if article.structure.name == 'imageRight' %}
+                <table class='imageRight'>
                     <tr>
                         <td>
                             <h2>{{ article.title }}</h2>
-                            <p id="texte-gauche">
+                            <p id="text-left">
                                 {{ article.content }}
                             </p>
                         </td>
                         <td>
-                            <img id="image-droite" src="https://tse3.mm.bing.net/th?id=OIP.M647c41abdcea5ffe31e9ab3ec3621778H0&pid=Api" alt="image_template"/>
+                            <img class="image-right" src="{{ asset(article.medias|first.path) }}" alt="{{ article.medias|first.alt }}"/>
                         </td>
                     </tr>
                 </table>
+            {% elseif article.structure.name == 'imageLeft' %}
+                <table class='imageLeft'>
+                    <tr>
+                        <td>
+                            <img class="image-left" src="{{ asset(article.medias|first.path) }}" alt="{{ article.medias|first.alt }}"/>
+                        </td>
+                        <td>
+                            <h2>{{ article.title }}</h2>
+                            <p class="text-right">
+                                {{ article.content }}
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            {% elseif article.structure.name == 'video' %}
+                <div class="video">
+                    <video src="{{ asset(article.medias[0].path) }}"></video>
+                    <h2>{{ article.title }}</h2>
+                    <p class="text-video">
+                        {{ article.content }}
+                    </p>
+                </div>
+            {% elseif article.structure.name == 'slider' %}
+                <div class="slider carousel">
+                    {% for image in article.medias %}
+                        <img class="carousel-item" src="{{ asset(image.path) }}" alt="{{ image.alt }}">
+                    {% endfor %}
+                </div>
+            {% endif %}
             </div>
         {% endfor %}
     </div>
-
-   {{ render(controller('HarasBundle:Page:getPage', { 'name': 'footer' })) }}
-
+    <footer id="_template_footer"> 
+        {{ render(controller('HarasBundle:Page:getPage', { 'name': 'footer' })) }}
+     </footer>
 
 
 {% endblock body %}
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        $(document).ready(function(){
+            $('.carousel').carousel();
+        });
+    </script>
+{% endblock javascripts %}

@@ -1,61 +1,67 @@
-{% extends 'base.html.twig' %}
-
+{% extends '@Haras/base.html.twig' %}
+{% block materialize %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+{% endblock materialize %}
 {% block body %}
-    <header id="_template_header">
-        {{ render(controller('HarasBundle:Page:getPage',{'name':'header'})) }}
-    </header>
-    <h1>Quelle page voulez-vous modifier ?</h1>
+    <body id="_admin">
 
-    <table>
-        <tbody>
-            <tr>
-                <td>
-                    <a href="{{ path('page_show', { 'name': 'homepage' }) }}">
-                        Page d'accueil
+        <div class="container">
+            <div class="row">
+                <div class="cadre">
+                <h1 class="admin_title">Quelle page voulez-vous modifier ?</h1>
+
+                <div class="admin_button col m12">
+                    <a class="waves-effect waves-light btn" href="{{ path('page_show', { 'name': 'homepage' }) }}">
+                        <input type="submit" value="Homepage" />
                     </a>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <a href="{{ path('page_show', { 'name': 'section1' }) }}">
-                        Section 1
-                    </a>
-                </td>
-                <td>
-                    <a href="{{ path('page_show', { 'name': 'section2' }) }}">
-                        Section 2
-                    </a>
-                </td>
-                <td>
-                    <a href="{{ path('page_show', { 'name': 'section3' }) }}">
-                        Section 3
-                    </a>
-                </td>
-                <td>
-                    <a href="{{ path('page_show', { 'name': 'section4' }) }}">
-                        Section 4
-                    </a>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <a href="{{ path('page_show', { 'name': 'contact' }) }}">
-                        Contact
-                    </a>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <a href="{{ path('page_show', { 'name': 'header' }) }}">
-                        En-tête
-                    </a>
-                </td>
-                <td>
-                    <a href="{{ path('page_show', { 'name': 'footer' }) }}">
-                        Pied de page
-                    </a>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-{% endblock %}
+                </div>
+                <div class="row">
+                    <div class="admin_button col m3">
+                        <a class="waves-effect waves-light btn" href="{{ path('page_show', { 'name': 'section1' }) }}">
+                            <input type="submit" value="Section 1" />
+                        </a>
+                    </div>
+
+                    <div class="admin_button col m3">
+                        <a class="waves-effect waves-light btn" href="{{ path('page_show', { 'name': 'section2' }) }}">
+                            <input type="submit" value="Section 2" />
+                        </a>
+                    </div>
+                    <div class="admin_button col m3">
+                        <a class="waves-effect waves-light btn" href="{{ path('page_show', { 'name': 'section3' }) }}">
+                            <input type="submit" value="Section 3" />
+                        </a>
+                    </div>
+
+                    <div class="admin_button col m3">
+                        <a class="waves-effect waves-light btn" href="{{ path('page_show', { 'name': 'section4' }) }}">
+                            <input type="submit" value="Section 4" />
+                        </a>
+                    </div>
+                </div>
+                <div class="row">
+                        <div class="admin_button col m12">
+                            <a class="waves-effect waves-light btn" href="{{ path('page_show', { 'name': 'contact' }) }}">
+                                <input type="submit" value="Contact" />
+                            </a>
+                        </div>
+                </div>
+                <div class="row">
+                    <div class="admin_button col m6">
+                        <a class="waves-effect waves-light btn" href="{{ path('page_show', { 'name': 'header' }) }}">
+                            <input type="submit" value="Header" />
+                        </a>
+                    </div>
+
+                    <div class="admin_button col m6">
+                        <a class="waves-effect waves-light btn" href="{{ path('page_show', { 'name': 'footer' }) }}">
+                            <input type="submit" value="Footer" />
+                        </a>
+                    </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </body>
+{% endblock body %}

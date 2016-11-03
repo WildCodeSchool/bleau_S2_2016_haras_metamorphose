@@ -1,41 +1,55 @@
-{% extends 'base.html.twig' %}
+{% extends '@Haras/base.html.twig' %}
+
+{% block materialize %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+{% endblock materialize %}
 
 {% block body %}
-    <h1>Modifier l'article {{ article.name }}</h1>
+    <body id="_admin">
+        <h1>Modifier l'article {{ article.name }}</h1>
 
-    {{ form_start(edit_form) }}
-        <div>
-            Page où est situé l'article
-            {{ form_errors(edit_form.pages) }}
-            {{ form_widget(edit_form.pages) }}
-        </div>
+        {{ form_start(edit_form) }}
+            <div class="input-field inline" >
+                <input placeholder="Placeholder" id="Page" type="text" class="validate">
+                <label for="Page">test</label>
+                Page où est situé l'article
+                {{ form_errors(edit_form.pages) }}
+                {{ form_widget(edit_form.pages) }}
+            </div>
             <div>
-            Titre
-            {{ form_errors(edit_form.title) }}
-            {{ form_widget(edit_form.title) }}
-        </div>
-        <div>
-            Contenu
-            {{ form_errors(edit_form.content) }}
-            {{ form_widget(edit_form.content) }}
-        </div>
-        <div>
-            Médias
-            {{ form_errors(edit_form.medias) }}
-            {{ form_widget(edit_form.medias) }}
-        </div>
+                Titre
+                {{ form_errors(edit_form.title) }}
+                {{ form_widget(edit_form.title) }}
+            </div>
+            <div>
+                Titre
+                {{ form_errors(edit_form.title) }}
+                {{ form_widget(edit_form.title) }}
+            </div>
+            <div>
+                Contenu
+                {{ form_errors(edit_form.content) }}
+                {{ form_widget(edit_form.content) }}
+            </div>
+            <div>
+                Médias
+                {{ form_errors(edit_form.medias) }}
+                {{ form_widget(edit_form.medias) }}
+            </div>
 
-    <input type="submit" value="Edit" />
-    {{ form_end(edit_form) }}
+        <input type="submit" value="Edit" />
+        {{ form_end(edit_form) }}
 
-    <ul>
-        <li>
-            <a href="{{ path('article_index') }}">Back to the list</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+        <ul>
+            <li>
+                <a class="waves-effect waves-light btn" href="{{ path('article_index') }}">Back to the list</a>
+            </li>
+            <li>
+                {{ form_start(delete_form) }}
+                    <input type="submit" value="Delete">
+                {{ form_end(delete_form) }}
+            </li>
+        </ul>
+    </body>
 {% endblock %}

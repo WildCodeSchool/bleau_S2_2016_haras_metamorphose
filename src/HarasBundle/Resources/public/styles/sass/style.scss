@@ -1,0 +1,36 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////// Compilez ce fichier via la commande sass style.scss style.css  /////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//// Variables ////
+$tourisme-color: rgba(7, 64, 10, 0.6);
+$travail-color: rgba(140, 104, 34, 0.6);
+$ecologie-color: rgba(39, 34, 140, 0.6);
+$accessibilite-color: rgba(183, 21, 134, 0.6);
+$border-radius:3px;
+
+@mixin transition($params) {
+	-webkit-transition: $params;
+	-moz-transition: $params;
+	-o-transition: $params;
+	-ms-transition: $params;
+	transition: $params;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+//// Ajoutez ici vos fichiers ("@import ma_page" importe _ma_page.scss) ////
+@import 'index_footer';
+@import 'index_header';
+@import 'index';
+@import 'formulaire_avis';
+@import 'template_header';
+@import 'template';
+@import 'template_footer';
+@import 'admin';
+@import 'contact';
+
+

@@ -1,47 +1,54 @@
-{% extends 'base.html.twig' %}
+{% extends '@Haras/base.html.twig' %}
+{% block materialize %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+{% endblock materialize %}
 
 {% block body %}
-    <h1>Edition de la page {{ page.name }}</h1>
-    <table>
-        {{ form_start(edit_form) }}
-        <tr>
-            <td>
-                Nom
-                {{ form_errors(edit_form.name) }}
-                {{ form_widget(edit_form.name) }}
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Articles
-                {{ form_errors(edit_form.articles) }}
-                {{ form_widget(edit_form.articles) }}
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <a href="{{ path('page_show', { 'name': page.name }) }}">
-                    <input type="submit" value="Valider les modifications de la page" />
-                </a>
-            </td>
-        </tr>
-        {{ form_end(edit_form) }}
-    </table>
-    
-    <table>
-        <tr>
-            <td>
-                {{ form_start(delete_form) }}
-                    <input type="submit" value="Supprimer la page">
-                {{ form_end(delete_form) }}
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <a href="{{ path('page_index') }}">
-                    <input type="submit" value="Retour à la liste des pages">
-                </a>
-            </td>
-        </tr>
-    </table>
+<body id="_admin">
+    <div class="container">
+        <div class="row">
+                <h1>Edition de la page {{ page.name }}</h1>
+                <table>
+                    {{ form_start(edit_form) }}
+                    <tr>
+                        <td>
+                            Nom
+                            {{ form_errors(edit_form.name) }}
+                            {{ form_widget(edit_form.name) }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Articles
+                            {{ form_errors(edit_form.articles) }}
+                            {{ form_widget(edit_form.articles) }}
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="row">
+                    <div class="admin_button col m6">
+                        <a class="waves-effect waves-light btn" href="{{ path('page_show', { 'name': page.name }) }}">
+                            <input type="submit" value="Valider les modifications de la page" />
+                        </a>
+                    </div>
+                    <div>
+                        {{ form_end(edit_form) }}
+                        {{ form_start(delete_form) }}
+                        <div class="admin_button col m6">
+                            <input class="waves-effect waves-light btn delete" type="submit" value="Supprimer la page">
+                        </div>
+                        {{ form_end(delete_form) }}
+                    </div>
+                </div>
+           <div class="row">
+                    <div class="admin_button col m12">
+                        <a class="waves-effect waves-light btn" href="{{ path('page_index') }}">
+                            <input type="submit" value="Retour à la liste des pages">
+                        </a>
+
+            </div>
+        </div>
+    </div>
+</body>
 {% endblock %}

@@ -1,50 +1,55 @@
-{% extends 'base.html.twig' %}
+{% extends '@Haras/base.html.twig' %}
+{% block materialize %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+{% endblock materialize %}
 
 {% block body %}
-    {#<header id="_template_header">#}
-        {#{{ render(controller('HarasBundle:Page:getPage'),{'name':'header'}) }} #}
-    {#</header>#}
-    <h1>Liste des articles de la page</h1>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Nom</th>
-                <th>Voir</th>
-                <th>Editer</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for article in articles %}
-                <tr>
-                    <td>{{ article.name }}</td>
-                    <td>
-                        <a href="{{ path('article_show', { 'id': article.id }) }}">Visualiser</a>
-                    </td>
-                    <td>
-                        <a href="{{ path('article_edit', { 'id': article.id }) }}">Editer</a>
-                    </td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+<body id="_admin">
+    <div class="container">
+        <div class="row">
+            <h1>Liste des articles de la page</h1>
 
-    <table>
-        <tbody>
-            <tr>
-                <td>
-                    <a href="{{ path('article_new') }}">
-                        <input type="submit" value="Ajouter un nouvel article">
-                    </a>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <a href="{{ path('page_index') }}">
-                        <input type="submit" value="Retourner à la liste des pages">
-                    </a>
-                </d>
-            </tr>
-        </tbody>
-    </table>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Page Name</th>
+                        <th>Visualize</th>
+                        <th>Edit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for article in articles %}
+                        <tr>
+                            <td>{{ article.name }}</td>
+                            <td>
+                                <a href="{{ path('article_show', { 'id': article.id }) }}">Visualiser</a>
+                            </td>
+                            <td>
+                                <a href="{{ path('article_edit', { 'id': article.id }) }}">Editer</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <table>
+                <tbody>
+                    <div class="row">
+                        <div class="admin_button col m6">
+                            <a class="waves-effect waves-light btn" href="{{ path('article_new') }}">
+                                <input type="submit" value="Add new article">
+                            </a>
+                        </div>
+                        <div class="admin_button col m6">
+                            <a class="waves-effect waves-light btn" href="{{ path('page_index') }}">
+                            <input type="submit" value="return to pages list">
+                            </a>
+                        </div>
+                    </div>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
 {% endblock %}
