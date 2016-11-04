@@ -9,7 +9,7 @@ imports:
 parameters:
     locale: fr
     medias_directory: '%kernel.root_dir%/../src/HarasBundle/Resources/public/images'
-    articles_per_page: 10
+    articles_per_page: 3
 
 framework:
     #esi:             ~

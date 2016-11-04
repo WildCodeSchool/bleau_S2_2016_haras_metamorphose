@@ -10,28 +10,28 @@
         {% include 'HarasBundle::header.html.twig' %}
     </header>
 
-    <h1>Nous contacter</h1>
+    <h1 class="center">{{ pageTitle }}</h1>
     <div class="container article">
         <div class="row">
             <div class="contact_form col s6">
 
                 {{ form_start(form) }}
                 <div>
-                Email
+                <p>{{ contactMail }}</p>
                 {{ form_errors(form.from) }}
                 {{ form_widget(form.from) }}
                 </div>
                 <div>
-                Nom
+                <p>{{ contactName }}</p>
                 {{ form_errors(form.subject) }}
                 {{ form_widget(form.subject) }}
                 </div>
                 <div>
-                Message
+                <p>{{ contactMessage }}</p>
                 {{ form_errors(form.body) }}
                 {{ form_widget(form.body) }}
                 </div>
-                <input type="submit" value="Send" />
+                <input type="submit" value="{{ sendButton }}" />
             </div>
                 {{ form_end(form) }}
         <div class="map-holder col s6">

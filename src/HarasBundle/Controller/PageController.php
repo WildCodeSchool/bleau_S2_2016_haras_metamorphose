@@ -66,9 +66,9 @@ class PageController extends Controller
             {
                 $pageNb = 1;
             }
-            elseif($pageNb > (count($page->getArticles())/$limit) && $pageNb>1)
+            elseif($pageNb > count($page->getArticles())/$limit)
             {
-                $pageNb = $pageNb-1;
+                $pageNb = ceil(count($page->getArticles())/$limit);
             }
             // appel de la fonction pour récupérer 10 articles
             $repository = $em->getRepository('HarasBundle:Article');
