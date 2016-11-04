@@ -9,11 +9,9 @@
     <header id="_template_header">
         {% include 'HarasBundle::header.html.twig' %}
     </header>
-    <div>
+    <div class="row grey lighten-3">
+        <div class="articles col s12 m10 offset-m1 l8 offset-l2 white">
         <h1 class="title center">{{ pageTitle }}</h1>
-    </div>
-    <div class="row">
-        <div class="articles col s12 m10 offset-m1 l8 offset-l2">
         {% for article in articles %}
             <div class="article-block row center">
             {% if article != null %}
