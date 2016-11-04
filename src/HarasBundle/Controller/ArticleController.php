@@ -45,12 +45,15 @@ class ArticleController extends Controller
 
             return $this->redirectToRoute('article_show', array('id' => $article->getId()));
         }
+        $form->remove('createdAt');
 
         return $this->render('article/new.html.twig', array(
             'article' => $article,
             'form' => $form->createView(),
 
         ));
+
+
     }
 
     /**
@@ -89,6 +92,8 @@ class ArticleController extends Controller
         $editForm->remove('content');
         $editForm->remove('structure');
         $editForm->remove('medias');
+        $editForm->remove('createdAt');
+
 
 
 

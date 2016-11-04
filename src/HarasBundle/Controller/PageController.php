@@ -144,21 +144,6 @@ class PageController extends Controller
         $this->get('mailer')->send($message);
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     /**
      * Lists all Page entities.
      *

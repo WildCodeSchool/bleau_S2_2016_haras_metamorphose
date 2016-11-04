@@ -23,6 +23,16 @@
             {{ form_start(form) }}
             <div class="row">
                 <div class="col s12">
+                    Name
+                    <div class="input-field inline">
+                        {{ form_errors(form.name) }}
+                        {{ form_widget(form.name) }}
+                        <label for="nom" data-error="wrong" data-success="right"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12">
                     Article structure
                     <div class="input-field inline">
                         <select>
@@ -47,21 +57,53 @@
                     </div>
                 </div>
             </div>
+            <div class="row">
+                <div class="col s12">
+                    Article title
+                    <div class="input-field inline">
+                        <select>
+                            <option value=
+                                    {{ form_errors(form.title) }}
+                                    {{ form_widget(form.title) }}
+                                    </option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12">
+                    Article content
+                    <div class="input-field inline">
+                        <select>
+                            <option value=
+                                    {{ form_errors(form.content) }}
+                                    {{ form_widget(form.content) }}
+                                    </option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <form action="#">
+                    <p>Médias
+                        {{ form_errors(form.medias) }}
+                        {{ form_widget(form.medias) }}
+                        <input type="checkbox" id="medias"/>
+                        <label for="medias"></label>
+                    </p>
+                </form>
+            </div>
             <div class="admin_button col m3">
                 <a class="waves-effect waves-light btn">
                     <input type="submit" value="Create article"/>
                 </a>
             </div>
             {{ form_end(form) }}
-            <ul>
-                <li>
                     <div class="admin_button col m3">
                         <a class="waves-effect waves-light btn" href="{{ path('article_index') }}">Return to articles
                             list>
                         </a>
                     </div>
-                </li>
-            </ul>
         </div>
     </div>
 </div>
