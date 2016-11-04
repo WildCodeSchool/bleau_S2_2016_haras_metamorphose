@@ -29,6 +29,8 @@ class PageController extends Controller
         // on récupère _locale pour sélectionner les texte dans la langue voulue
         $language = $request->getSession()->get('_locale');
         $table = [];
+		// récupération de la catégorie de la page pour définir automatiquement la couleur du header et du footer.
+		$table['category'] = strval($page->getCategory());
         // récupération du nom de la page pour la réinjecter dans le header, nécessaire à 
         // la traduction sans changer la page en cours
         $table['page'] = $page->getName();
@@ -55,7 +57,7 @@ class PageController extends Controller
         // page template
         if($name == 'section1' || $name == 'section2' || $name == 'section3' || $name == 'section4')
         {
-            // définition des paramètre de la requête sur le repository
+            // définition des paramètres de la requête sur le repository
             $pageNb = $request->query->get('pageNb');
             $limit = $this->getParameter('articles_per_page');
             // Vérification de l'existence de $pageNb.
@@ -71,14 +73,18 @@ class PageController extends Controller
             // Pour récupérer le numéro de page voulue dans la vue
             $table['pageNb'] = $pageNb;
             $table['articles'] = [];
+
             foreach ($result as $article)
             {
                 $articleRendering = [];
+				// On récupère l'id de l'article pour lui créer une classe propre (au cas où quelqu'un souhaiterait faire
+				// un traitement spécifique à un article précis)
+				$articleRendering['id'] = $article->getId();
                 $textTitle = $article->getTitle();
                 $textContent = $article->getContent();
                 $articleRendering['title'] = $textTitle->getTranslation($language);
                 $articleRendering['content'] = $textContent->getTranslation($language);
-                $articleRendering['structure'] = $article->getStructure();
+                $articleRendering['structure'] = $article->getStructure()->getName();
                 // récupération des médias de l'article
                 foreach ($article->getMedias() as $media)
                 {
@@ -129,6 +135,22 @@ class PageController extends Controller
         ;
         $this->get('mailer')->send($message);
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     /**
      * Lists all Page entities.

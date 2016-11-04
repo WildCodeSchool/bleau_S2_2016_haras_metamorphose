@@ -14,37 +14,37 @@
     <div id="index_corps">
         <div id="index_contenu">
             <!-- Contenu du div généré avec typed.js -->
-        <div id="index_catchPhrase"></div>
-        <div id="index_focus">
-            <div class="tourisme index_rubrique">
-                <img class="index_rubrique_img" src="{{ asset('bundles/haras/images/logo.png') }}" alt="tourisme">
-                <p>
-                    {{ section1Name }}
-                </p>
+            <div id="index_catchPhrase"></div>
+            <div id="index_focus">
+                <a class="section1Link index_rubrique" href="{{ path('haras_get_page', {'name': 'section1'}) }}">
+                    <img class="index_rubrique_img" src="{{ asset('bundles/haras/images/logo.png') }}" alt="tourisme">
+                    <p>
+                        {{ section1Name }}
+                    </p>
+                </a>
+                <a class="section2Link index_rubrique" href="{{ path('haras_get_page', {'name': 'section2'}) }}">
+                    <img class="index_rubrique_img" src="{{ asset('bundles/haras/images/logo.png') }}" alt="travail">
+                    <p>
+                        {{ section2Name }}
+                    </p>
+                </a>
+                <a class="section3Link index_rubrique" href="{{ path('haras_get_page', {'name': 'section3'}) }}">
+                    <img class="index_rubrique_img" src="{{ asset('bundles/haras/images/logo.png') }}" alt="ecologie">
+                    <p>
+                        {{ section3Name }}
+                    </p>
+                </a>
+                <a class="section4Link index_rubrique" href="{{ path('haras_get_page', {'name': 'section4'}) }}">
+                    <img class="index_rubrique_img" src="{{ asset('bundles/haras/images/logo.png') }}" alt="tourisme">
+                    <p>
+                        {{ section4Name }}
+                    </p>
+                </a>
             </div>
-            <div class="travail index_rubrique">
-                <img class="index_rubrique_img" src="{{ asset('bundles/haras/images/logo.png') }}" alt="travail">
-                <p>
-                    {{ section2Name }}
-                </p>
-            </div>
-            <div class="ecologie index_rubrique">
-                <img class="index_rubrique_img" src="{{ asset('bundles/haras/images/logo.png') }}" alt="ecologie">
-                <p>
-                    {{ section3Name }}
-                </p>
-            </div>
-            <div class="accessibilite index_rubrique">
-                <img class="index_rubrique_img" src="{{ asset('bundles/haras/images/logo.png') }}" alt="tourisme">
-                <p>
-                    {{ section4Name }}
-                </p>
-            </div>
-        </div>
         </div>
     </div>
     <footer id="_index_footer">
-        {% include 'HarasBundle::footer.html.twig' %}
+        {{ render(controller('HarasBundle:Page:getPage', { 'name': 'footer' })) }}
     </footer>
 {% endblock body %}
 

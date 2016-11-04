@@ -1,0 +1,60 @@
+/*//////////////////////////////////////////////
+///////////// _admin.scss /////////////////////
+//////////////////////////////////////////////*/
+
+
+#_admin {
+    background-color: lightgreen;
+    height: 100%;
+    width: 100%;
+   // background-image: url("../images/test.png");
+
+    .admin_button {
+      font-size: 1em;
+      text-align: center;
+      margin: 2em 0em 2em 0em;
+      min-height: 2em;
+
+    }
+
+    h1 {
+      font-size: 2em;
+      color: white;
+      text-align: center;
+    }
+
+    .table {
+      border: 1px solid black;
+    }
+
+    .admin_title {
+      color: darkslategrey;
+    }
+    
+    .delete {
+      background-color: #d82679;
+    }
+
+    .cadre {
+      background-color: rgba(255, 255, 255, 0.5);
+      padding: 2em;
+      margin-top: 5%;
+      border-radius: 1em;
+    }
+  /*
+    .admin_content {
+
+    }
+
+    .admin_show {
+
+    }
+
+    .admin_edit {
+
+    }
+
+    .admin_edit {
+
+    }*/
+}

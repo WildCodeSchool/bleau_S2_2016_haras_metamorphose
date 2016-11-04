@@ -19,12 +19,14 @@ HarasBundle\Entity\Article:
         title:
             targetEntity: Text
             inversedBy: articles_title
+            nullable: true
             joinColumn:
                 name: title_id
                 referencedColumnName: id
         content:
             targetEntity: Text
             inversedBy: articles_content
+            nullable: true
             joinColumn:
                 name: content_id
                 referencedColumnName: id

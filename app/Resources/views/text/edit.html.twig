@@ -3,6 +3,7 @@
 {% block body %}
     <h1>Modification du texte {{ text.name }}</h1>
 
+    <div class="admin_content">
     {{ form_start(edit_form) }}
         <div>
             Nom
@@ -24,17 +25,17 @@
             {{ form_errors(edit_form.pages) }}
             {{ form_widget(edit_form.pages) }}
         </div>
-        <input type="submit" value="Edit" />
+        <input type="submit" value="Valider" />
     {{ form_end(edit_form) }}
-
-    <ul>
-        <li>
-            <a href="{{ path('text_index') }}">Back to the list</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+    </div>
+    <div class="admin_button">
+        {{ form_start(delete_form) }}
+        <input type="submit" value="Supprimer">
+        {{ form_end(delete_form) }}
+    </div>
+    <div class="admin_button">
+        <a href="{{ path('text_index') }}">
+            <input type="submit" value="Liste des textes">
+        </a>
+     </div>
 {% endblock %}

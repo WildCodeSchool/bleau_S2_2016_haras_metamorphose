@@ -10,3 +10,10 @@
 /vendor/
 /bin/
 /composer.phar
+.sass-cache/
+.idea
+.nbproject
+#*#
+*~
+*.scssc
+*.scss.map

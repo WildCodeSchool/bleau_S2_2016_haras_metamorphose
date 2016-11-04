@@ -45,10 +45,6 @@ class ArticleController extends Controller
 
             return $this->redirectToRoute('article_show', array('id' => $article->getId()));
         }
-        $form->remove('name');
-        $form->remove('title');
-        $form->remove('content');
-        $form->remove('medias');
 
         return $this->render('article/new.html.twig', array(
             'article' => $article,
@@ -88,6 +84,13 @@ class ArticleController extends Controller
 
             return $this->redirectToRoute('article_edit', array('id' => $article->getId()));
         }
+
+        $editForm->remove('title');
+        $editForm->remove('content');
+        $editForm->remove('structure');
+        $editForm->remove('medias');
+
+
 
         return $this->render('article/edit.html.twig', array(
             'article' => $article,

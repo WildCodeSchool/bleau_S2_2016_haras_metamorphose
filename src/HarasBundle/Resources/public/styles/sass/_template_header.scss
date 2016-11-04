@@ -71,18 +71,17 @@
 		background-color: blue;
 	}
 	
-	.tourisme:hover {
-		background-color: $tourisme-color;
+	.section1Link.hover {
+		background-color: $section1-color;
 	}
-
-	.travail:hover{
-		background-color: $travail-color;
+	.section2Link.hover{
+		background-color: $section2-color;
 	}
-	.ecologie:hover{
-		background-color: $ecologie-color;
+	.section3Link.hover{
+		background-color: $section3-color;
 	}
-	.accessibilite:hover{
-		background-color: $accessibilite-color;
+	.section4Link.hover{
+		background-color: $section4-color;
 	}
 
 	.accueil:hover, #langues a:hover, .contact:hover{
@@ -109,5 +108,4 @@
 		transform: scale(1.3) rotateZ(360deg);
 
 	}
-
 }
