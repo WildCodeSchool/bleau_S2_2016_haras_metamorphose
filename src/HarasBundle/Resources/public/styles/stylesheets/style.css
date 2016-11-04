@@ -27,14 +27,21 @@ body, html {
   -ms-transition: all 1s;
   transition: all 1s;
   text-align: center;
-  font-size: 16px;
   position: relative;
   /* Colonnes footer */
   /* Footer partie basse -> Copyright */
   /*  Footer button*/
   /* form input*/ }
   #_index_footer p {
-    font-size: 16px; }
+    font-size: 1em;
+    margin-top: 1.5em; }
+  #_index_footer h1 {
+    font-size: 2em;
+    margin-bottom: 1em; }
+  #_index_footer h2 {
+    font-size: 1.5em; }
+  #_index_footer h3 {
+    font-size: 1em; }
   #_index_footer .footer .footer-left,
   #_index_footer .footer .footer-center,
   #_index_footer .footer .footer-right {
@@ -59,7 +66,9 @@ body, html {
   #_index_footer #footer-bottom {
     background-color: #003f40;
     text-align: left;
-    height: 20px; }
+    height: 20px;
+    padding-top: 1em;
+    padding-bottom: 1em; }
   #_index_footer #copyright {
     padding-left: 5%; }
   #_index_footer #footer-bottom a:link, #_index_footer a:visited {
@@ -69,8 +78,7 @@ body, html {
     display: inline-block;
     font-size: 15px; }
   #_index_footer #footer-bottom a:hover, #_index_footer a:active {
-    color: white;
-    text-decoration: underline; }
+    color: white; }
   #_index_footer #mentions {
     padding-left: 2%; }
   #_index_footer button {
@@ -120,7 +128,7 @@ body, html {
     color: #5c666b; }
   #_index_footer .footer-right form input {
     height: 55px;
-    margin-bottom: 15px;
+    margin-bottom: 1em;
     width: 181px; }
   #_index_footer .footer-right form textarea {
     height: 100px;
@@ -346,7 +354,7 @@ body, html {
   margin-top: 20px;
   background-color: #d82679;
   text-align: center;
-  font-size: 1em;
+  font-size: 16px;
   position: relative;
   /* Colonnes footer */
   /* Footer partie basse -> Copyright */
@@ -356,6 +364,13 @@ body, html {
     font-size: 1.4em;
     font-weight: bold; }
   #_template_footer p {
+    font-size: 16px; }
+  #_template_footer h1 {
+    font-size: 2em;
+    text-align: left; }
+  #_template_footer h2 {
+    font-size: 1.5em; }
+  #_template_footer h3 {
     font-size: 1em; }
   #_template_footer .footer-left,
   #_template_footer .footer-center,
@@ -364,10 +379,6 @@ body, html {
     color: white;
     vertical-align: top;
     text-align: left; }
-  #_template_footer #avis {
-    font-weight: bold;
-    margin-top: 30px;
-    text-decoration: none; }
   #_template_footer .footer-left {
     width: 30%;
     /*font-size: 12px;*/ }
@@ -381,7 +392,8 @@ body, html {
   #_template_footer #footer-bottom {
     background-color: #003f40;
     text-align: left;
-    padding: 0.5em; }
+    padding: 0.5em;
+    margin-top: 1em; }
   #_template_footer #copyright {
     padding-left: 5%; }
   #_template_footer #footer-bottom a:link, #_template_footer a:visited {
@@ -405,12 +417,12 @@ body, html {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    margin: 4px 2px;
     -webkit-transition-duration: 0.4s;
     /* Safari */
     transition-duration: 0.4s;
     cursor: pointer;
-    width: 181px; }
+    width: 181px;
+    margin-left: 1em; }
   #_template_footer .button1 {
     background-color: #4CAF50;
     color: white;
@@ -432,7 +444,8 @@ body, html {
     font-weight: normal;
     color: #d1d2d2;
     width: 400px;
-    padding: 18px; }
+    margin-left: 1em;
+    padding-left: 1em; }
   #_template_footer .footer-right ::-webkit-input-placeholder {
     color: #5c666b; }
   #_template_footer .footer-right ::-moz-placeholder {
@@ -467,5 +480,69 @@ body, html {
 
 #_template .media {
   max-width: 40%; }
+
+/*//////////////////////////////////////////////
+///////////// _admin.scss /////////////////////
+//////////////////////////////////////////////*/
+#_admin {
+  background-color: lightgreen;
+  height: 100%;
+  width: 100%;
+  /*
+    .admin_content {
+
+    }
+
+    .admin_show {
+
+    }
+
+    .admin_edit {
+
+    }
+
+    .admin_edit {
+
+    }*/ }
+  #_admin .admin_button {
+    font-size: 1em;
+    text-align: center;
+    margin: 2em 0em 2em 0em;
+    min-height: 2em; }
+  #_admin h1 {
+    font-size: 2em;
+    color: white;
+    text-align: center; }
+  #_admin .table {
+    border: 1px solid black; }
+  #_admin .admin_title {
+    color: darkslategrey; }
+  #_admin .delete {
+    background-color: #d82679; }
+  #_admin .cadre {
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 2em;
+    margin-top: 5%;
+    border-radius: 1em; }
+
+/*//////////////////////////////////////////////
+///////////// _contact.scss ////////////////////
+//////////////////////////////////////////////*/
+#contact {
+  display: inline-block; }
+
+.map-holder {
+  width: 600px;
+  height: 600px; }
+
+#map {
+  width: 100% !important;
+  height: 100% !important;
+  margin-bottom: 3em; }
+
+.contact_form {
+  text-align: center;
+  margin-bottom: 3em;
+  padding: 2em; }
 
 /*# sourceMappingURL=style.css.map */

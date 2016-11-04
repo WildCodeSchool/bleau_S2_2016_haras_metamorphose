@@ -1,20 +1,20 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Media edit</h1>
+    <h1>Edition du média {{ medium.name }}</h1>
 
     {{ form_start(edit_form) }}
-    <div>
+    <div class="admin_content">
         Nom
         {{ form_errors(edit_form.name) }}
         {{ form_widget(edit_form.name) }}
     </div>
-    <div>
+    <div class="admin_content">
         Fichier
         {{ form_errors(edit_form.file) }}
         {{ form_widget(edit_form.file) }}
     </div>
-    <div>
+    <div class="admin_content">
         Nom du fichier
         {{ form_errors(edit_form.alt) }}
         {{ form_widget(edit_form.alt) }}
@@ -22,14 +22,14 @@
         <input type="submit" value="Edit" />
     {{ form_end(edit_form) }}
 
-    <ul>
-        <li>
-            <a href="{{ path('media_index') }}">Back to the list</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+    <div class="admin_button"
+        <a href="{{ path('media_index') }}">
+            <input type="submit" value="Retour à la liste des médias">
+        </a>
+    </div>
+    <div class="admin_button">
+        {{ form_start(delete_form) }}
+            <input type="submit" value="Delete">
+        {{ form_end(delete_form) }}
+    </div>
 {% endblock %}

@@ -1,0 +1,23 @@
+/*//////////////////////////////////////////////
+///////////// _contact.scss ////////////////////
+//////////////////////////////////////////////*/
+
+#contact {
+  display: inline-block;
+}
+.map-holder {
+  width: 600px;
+  height: 600px;
+}
+#map {
+  width: 100% !important;
+  height: 100% !important;
+  margin-bottom: 3em;
+}
+
+.contact_form {
+
+  text-align: center;
+  margin-bottom: 3em;
+  padding: 2em;
+}

@@ -1,13 +1,13 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Media list</h1>
+    <h1>Liste des médias</h1>
 
     <table>
         <thead>
             <tr>
-                <th>Name</th>
-                <th>Path</th>
+                <th>Nom</th>
+                <th>Lien</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -31,10 +31,9 @@
         {% endfor %}
         </tbody>
     </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('media_new') }}">Create a new entry</a>
-        </li>
-    </ul>
+    <div class="admin_button"
+            <a href="{{ path('media_new') }}">
+                <input type="submit" value="Créer un nouveau média">
+        </a>
+    </div>
 {% endblock %}

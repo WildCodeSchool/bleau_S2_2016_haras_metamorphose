@@ -15,3 +15,5 @@
 .nbproject
 #*#
 *~
+*.scssc
+*.scss.map
