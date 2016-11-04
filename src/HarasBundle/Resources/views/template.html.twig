@@ -60,7 +60,7 @@
         </div>  <!--  End of articles  -->
     </div>  <!-- End of articles row -->
     <div class="row">
-        <ul class="paginationNav col s6 offset-s3 m4 offset-m4 l4 offset-l4 center {{ category }}">
+        <ul class="paginationNav col s12 m8 offset-m2 l4 offset-l4 center {{ category }}">
             <li><a href="{{ path('haras_get_page', {'name': page, 'pageNb' : pageNb-1}) }}"><< Précédent</a></li>
             <li><a href="{{ path('haras_get_page', {'name': page, 'pageNb' : 1}) }}">Début</a></li>
             <li><a href="{{ path('haras_get_page', {'name': page, 'pageNb' : pageNb+1}) }}">Suivant >></a></li>
