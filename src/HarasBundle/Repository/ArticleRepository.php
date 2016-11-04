@@ -12,4 +12,17 @@ use Doctrine\ORM\EntityRepository;
  */
 class ArticleRepository extends EntityRepository
 {
+	public function findArticles($pageNb, $page, $limit)
+	{
+        $offset = ($pageNb-1)*$limit;
+        $qb = $this->createQueryBuilder('a')
+            ->select('a')
+            ->join('a.pages','p')
+            ->where('p = :page')
+            ->setParameter('page', $page)
+            ->orderBy('a.createdAt', 'DESC')
+            ->setFirstResult( $offset )
+            ->setMaxResults( $limit );
+   	return $qb->getQuery()->getResult();
+	}
 }

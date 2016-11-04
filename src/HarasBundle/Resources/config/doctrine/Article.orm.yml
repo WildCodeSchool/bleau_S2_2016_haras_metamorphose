@@ -13,6 +13,8 @@ HarasBundle\Entity\Article:
             type: string
             length: 255
             unique: true
+        createdAt:
+            type: date
     manyToOne:
         title:
             targetEntity: Text

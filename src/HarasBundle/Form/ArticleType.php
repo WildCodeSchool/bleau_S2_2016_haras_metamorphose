@@ -21,6 +21,7 @@ class ArticleType extends AbstractType
             ->add('medias')
             ->add('pages')
             ->add('structure')
+            ->add('createdAt')
         ;
     }
 

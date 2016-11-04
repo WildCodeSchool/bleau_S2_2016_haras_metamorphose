@@ -1,8 +1,15 @@
 @charset "UTF-8";
-/* line 20, ../sass/style.scss */
+/* line 19, ../sass/style.scss */
 * {
   margin: 0;
   padding: 0;
+}
+
+/* line 25, ../sass/style.scss */
+body, html {
+  height: 100%;
+  font-family: sans-serif;
+  margin: 0;
 }
 
 /*//////////////////////////////////////////////
@@ -193,6 +200,7 @@
   text-shadow: 2px 2px rgba(0, 0, 0, 0.7);
   font-size: 1em;
   font-weight: bold;
+  /* Mise en page de l'aside avec les icones des réseaux sociaux */
 }
 /* line 12, ../sass/_index_header.scss */
 #_index_header #logo {
@@ -205,18 +213,19 @@
 #_index_header #menu {
   float: right;
   margin-right: 10px;
+  margin-top: 10px !important;
 }
-/* line 23, ../sass/_index_header.scss */
+/* line 24, ../sass/_index_header.scss */
 #_index_header #menu ul {
   list-style-type: none;
   overflow: hidden;
 }
-/* line 28, ../sass/_index_header.scss */
+/* line 29, ../sass/_index_header.scss */
 #_index_header #menu li {
   display: inline;
   margin-right: 10px;
 }
-/* line 33, ../sass/_index_header.scss */
+/* line 34, ../sass/_index_header.scss */
 #_index_header #menu a {
   text-decoration: none;
   display: inline-block;
@@ -224,11 +233,16 @@
   border-radius: 10px;
   color: white;
 }
-/* line 44, ../sass/_index_header.scss */
+/* line 42, ../sass/_index_header.scss */
+#_index_header #langues {
+  float: left;
+  margin-top: 10px !important;
+}
+/* line 47, ../sass/_index_header.scss */
 #_index_header #langues li {
   display: inline;
 }
-/* line 48, ../sass/_index_header.scss */
+/* line 51, ../sass/_index_header.scss */
 #_index_header #langues a {
   margin: 3px;
   border-radius: 10px;
@@ -236,87 +250,76 @@
   padding: 5px;
   color: white;
 }
-/* line 55, ../sass/_index_header.scss */
+/* line 58, ../sass/_index_header.scss */
 #_index_header #langues p {
   display: inline;
   color: white;
 }
-/* line 59, ../sass/_index_header.scss */
+/* line 62, ../sass/_index_header.scss */
 #_index_header .accueil:hover, #_index_header #langues a:hover, #_index_header .contact:hover {
   background-color: blue;
 }
-
-/*//////////////////////////////////////////////
-////////////////// _index.scss /////////////////
-//////////////////////////////////////////////*/
-/* line 5, ../sass/_index.scss */
-body, html {
-  height: 100%;
-  font-family: sans-serif;
-  margin: 0;
-}
-
-/* line 11, ../sass/_index.scss */
-#index_video {
-  position: fixed;
-  min-width: 100%;
-  min-height: 100%;
-  z-index: -100;
-}
-
-/* line 18, ../sass/_index.scss */
-#index_wrapper {
-  display: table;
-  height: 100%;
-  width: 100%;
-}
-
-/*//////////////////////////////
-// Mise en page corps accueil //
-//////////////////////////////*/
-/* line 28, ../sass/_index.scss */
-#index_corps {
-  position: relative;
-  display: table-row;
-  width: 100%;
-  height: 100%;
-}
-
-/* Mise en page de l'aside avec les icones des réseaux sociaux */
-/* line 37, ../sass/_index.scss */
-#index_social {
+/* line 68, ../sass/_index_header.scss */
+#_index_header #social {
   float: left;
-  margin-top: 8%;
-  text-align: center;
-  width: 70px;
+  margin-left: 100px;
+  margin-top: 10px;
 }
-
-/* line 44, ../sass/_index.scss */
-.icone-social {
-  width: 50px;
+/* line 74, ../sass/_index_header.scss */
+#_index_header .icone-social {
+  width: 40px;
   -webkit-transition: all 0.6s;
   -moz-transition: all 0.6s;
   -o-transition: all 0.6s;
   -ms-transition: all 0.6s;
   transition: all 0.6s;
 }
-
-/* line 53, ../sass/_index.scss */
-.icone-social:hover {
+/* line 83, ../sass/_index_header.scss */
+#_index_header .icone-social:hover {
   transform: scale(1.3) rotateZ(360deg);
 }
 
-/* Mise en page de l'accroche et des rubriques */
-/* line 60, ../sass/_index.scss */
-#index_accroche {
-  margin-top: 10%;
+/*//////////////////////////////////////////////
+////////////////// _index.scss /////////////////
+//////////////////////////////////////////////*/
+/* line 6, ../sass/_index.scss */
+#_index {
+  /*//////////////////////////////
+  // Mise en page corps accueil //
+  //////////////////////////////*/
+  /* Mise en page de l'accroche et des rubriques */
+}
+/* line 7, ../sass/_index.scss */
+#_index #index_video {
+  position: fixed;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -100;
+}
+/* line 14, ../sass/_index.scss */
+#_index #index_wrapper {
+  display: table;
+  height: 100%;
+  width: 100%;
+}
+/* line 24, ../sass/_index.scss */
+#_index #index_corps {
   text-align: center;
+  position: relative;
+  display: table-row;
+  width: 100%;
+  height: 100%;
+}
+/* line 34, ../sass/_index.scss */
+#_index #index_catchPhrase {
+  margin-top: 10%;
   color: white;
+  font-size: 2.5em;
+  font-weight: bold;
   text-shadow: 3px 3px rgba(0, 0, 0, 0.7);
 }
-
-/* line 67, ../sass/_index.scss */
-#index_focus {
+/* line 42, ../sass/_index.scss */
+#_index #index_focus {
   position: absolute;
   bottom: 30px;
   left: 0;
@@ -325,106 +328,74 @@ body, html {
   text-align: center;
   margin-bottom: 40px;
 }
-
-/* line 77, ../sass/_index.scss */
-.index_rubrique {
+/* line 52, ../sass/_index.scss */
+#_index .index_rubrique {
   display: inline-block;
   border-radius: 10px;
   width: 180px;
   height: 190px;
   margin: 5px;
   overflow: hidden;
+  text-decoration: none;
+  color: white;
   -webkit-transition: all 1s ease;
   -moz-transition: all 1s ease;
   -o-transition: all 1s ease;
   -ms-transition: all 1s ease;
   transition: all 1s ease;
 }
-
-/* line 87, ../sass/_index.scss */
-.index_rubrique_img {
-  width: 120px;
-  margin-top: 10px;
-}
-
-/* line 92, ../sass/_index.scss */
-.index_rubrique p {
+/* line 62, ../sass/_index.scss */
+#_index .index_rubrique p {
   font-size: 18px;
   margin: 0;
 }
-
-/* line 97, ../sass/_index.scss */
-.index_rubrique.tourisme {
-  background-color: rgba(7, 64, 10, 0.6);
+/* line 66, ../sass/_index.scss */
+#_index .index_rubrique .index_rubrique_img {
+  width: 120px;
+  margin-top: 10px;
 }
-
-/* line 101, ../sass/_index.scss */
-.index_rubrique.travail {
-  background-color: rgba(140, 104, 34, 0.6);
-}
-
-/* line 105, ../sass/_index.scss */
-.index_rubrique.ecologie {
-  background-color: rgba(39, 34, 140, 0.6);
-}
-
-/* line 109, ../sass/_index.scss */
-.index_rubrique.accessibilite {
-  background-color: rgba(183, 21, 134, 0.6);
-}
-
-/* line 113, ../sass/_index.scss */
-.index_rubrique.hover {
+/* line 74, ../sass/_index.scss */
+#_index .index_rubrique.hover {
   height: 300px;
   width: 300px;
   margin-top: -110px;
   box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.7);
 }
-
-/* line 120, ../sass/_index.scss */
-.tourisme.hover {
+/* line 82, ../sass/_index.scss */
+#_index .typed-cursor {
+  display: none;
+}
+/* line 86, ../sass/_index.scss */
+#_index .index_rubrique.section1Link {
+  background-color: rgba(7, 64, 10, 0.6);
+}
+/* line 89, ../sass/_index.scss */
+#_index .section1Link.hover {
   background-color: #07400a;
 }
-
-/* line 124, ../sass/_index.scss */
-.travail.hover {
+/* line 93, ../sass/_index.scss */
+#_index .index_rubrique.section2Link {
+  background-color: rgba(140, 104, 34, 0.6);
+}
+/* line 96, ../sass/_index.scss */
+#_index .section2Link.hover {
   background-color: #8c6822;
 }
-
-/* line 128, ../sass/_index.scss */
-.ecologie.hover {
+/* line 100, ../sass/_index.scss */
+#_index .index_rubrique.section3Link {
+  background-color: rgba(39, 34, 140, 0.6);
+}
+/* line 103, ../sass/_index.scss */
+#_index .section3Link.hover {
   background-color: #27228c;
 }
-
-/* line 132, ../sass/_index.scss */
-.accessibilite.hover {
+/* line 107, ../sass/_index.scss */
+#_index .index_rubrique.section4Link {
+  background-color: rgba(183, 21, 134, 0.6);
+}
+/* line 110, ../sass/_index.scss */
+#_index .section4Link.hover {
   background-color: #b71586;
-}
-
-/*//////////////////////////////////////////////
-///////////// _formulaire_avis.scss /////////////
-//////////////////////////////////////////////*/
-/* line 5, ../sass/_formulaire_avis.scss */
-#formulaire_avis {
-  text-align: center;
-}
-/* line 8, ../sass/_formulaire_avis.scss */
-#formulaire_avis span {
-  display: inline-block;
-  width: 500px;
-}
-/* line 13, ../sass/_formulaire_avis.scss */
-#formulaire_avis p {
-  text-align: justify;
-}
-/* line 17, ../sass/_formulaire_avis.scss */
-#formulaire_avis input {
-  width: 200px;
-}
-/* line 21, ../sass/_formulaire_avis.scss */
-#formulaire_avis textarea {
-  width: 200px;
-  border-radius: 5px;
 }
 
 /*//////////////////////////////////////////////
@@ -436,31 +407,33 @@ body, html {
   color: white;
   height: 100px;
   font-size: 16px;
+  font-weight: bold;
   padding-top: 10px;
+  /* Mise en page de l'aside avec les icones des réseaux sociaux */
 }
-/* line 13, ../sass/_template_header.scss */
+/* line 14, ../sass/_template_header.scss */
 #_template_header #logo {
   width: 70px;
   float: left;
   margin: 5px;
   margin-right: 60px;
 }
-/* line 20, ../sass/_template_header.scss */
+/* line 21, ../sass/_template_header.scss */
 #_template_header #menu {
   float: right;
   margin-right: 10px;
 }
-/* line 25, ../sass/_template_header.scss */
+/* line 26, ../sass/_template_header.scss */
 #_template_header #menu ul {
   list-style-type: none;
   overflow: hidden;
 }
-/* line 30, ../sass/_template_header.scss */
+/* line 31, ../sass/_template_header.scss */
 #_template_header #menu li {
   display: inline;
   margin-right: 10px;
 }
-/* line 35, ../sass/_template_header.scss */
+/* line 36, ../sass/_template_header.scss */
 #_template_header #menu a {
   text-decoration: none;
   display: inline-block;
@@ -468,16 +441,20 @@ body, html {
   border-radius: 10px;
   color: white;
 }
-/* line 43, ../sass/_template_header.scss */
+/* line 44, ../sass/_template_header.scss */
+#_template_header #langues {
+  float: left;
+}
+/* line 48, ../sass/_template_header.scss */
 #_template_header #langues ul {
   list-style-type: none;
   overflow: hidden;
 }
-/* line 48, ../sass/_template_header.scss */
+/* line 53, ../sass/_template_header.scss */
 #_template_header #langues li {
   display: inline;
 }
-/* line 53, ../sass/_template_header.scss */
+/* line 58, ../sass/_template_header.scss */
 #_template_header #langues a {
   margin: 3px;
   display: inline-block;
@@ -486,89 +463,51 @@ body, html {
   padding: 5px;
   color: white;
 }
-/* line 61, ../sass/_template_header.scss */
+/* line 66, ../sass/_template_header.scss */
 #_template_header #langues p {
   display: inline;
 }
-/* line 65, ../sass/_template_header.scss */
+/* line 70, ../sass/_template_header.scss */
 #_template_header #langues a:hover {
   background-color: blue;
 }
-/* line 69, ../sass/_template_header.scss */
-#_template_header .tourisme:hover {
-  background-color: rgba(7, 64, 10, 0.6);
+/* line 74, ../sass/_template_header.scss */
+#_template_header .section1Link.hover {
+  background-color: #07400a;
 }
-/* line 73, ../sass/_template_header.scss */
-#_template_header .travail:hover {
-  background-color: rgba(140, 104, 34, 0.6);
+/* line 77, ../sass/_template_header.scss */
+#_template_header .section2Link.hover {
+  background-color: #8c6822;
 }
-/* line 76, ../sass/_template_header.scss */
-#_template_header .ecologie:hover {
-  background-color: rgba(39, 34, 140, 0.6);
-}
-/* line 79, ../sass/_template_header.scss */
-#_template_header .accessibilite:hover {
-  background-color: rgba(183, 21, 134, 0.6);
+/* line 80, ../sass/_template_header.scss */
+#_template_header .section3Link.hover {
+  background-color: #27228c;
 }
 /* line 83, ../sass/_template_header.scss */
+#_template_header .section4Link.hover {
+  background-color: #b71586;
+}
+/* line 87, ../sass/_template_header.scss */
 #_template_header .accueil:hover, #_template_header #langues a:hover, #_template_header .contact:hover {
   background-color: blue;
 }
-
-/*//////////////////////////////////////////////
-//////////////// _template.scss ////////////////
-//////////////////////////////////////////////*/
-/* line 5, ../sass/_template.scss */
-#template {
-  /* footer/header colour */
-}
-/* line 16, ../sass/_template.scss */
-#template .article {
-  border-radius: 15px;
-}
-/* line 23, ../sass/_template.scss */
-#template h1 {
-  text-align: center;
-}
-/* line 27, ../sass/_template.scss */
-#template label {
-  display: block;
-  width: 120px;
+/* line 93, ../sass/_template_header.scss */
+#_template_header #social {
   float: left;
-  padding-top: 5px;
+  margin-left: 100px;
 }
-/* line 34, ../sass/_template.scss */
-#template .message label {
-  margin-top: 60px;
+/* line 98, ../sass/_template_header.scss */
+#_template_header .icone-social {
+  width: 40px;
+  -webkit-transition: all 0.6s;
+  -moz-transition: all 0.6s;
+  -o-transition: all 0.6s;
+  -ms-transition: all 0.6s;
+  transition: all 0.6s;
 }
-/* line 37, ../sass/_template.scss */
-#template input, #template textarea {
-  width: 200px;
-  padding: 5px;
-  border-radius: 3px;
-}
-/* line 43, ../sass/_template.scss */
-#template button {
-  margin-left: 150px;
-}
-/* line 47, ../sass/_template.scss */
-#template .bloc1 {
-  background-color: white;
-  text-align: left;
-}
-/* line 52, ../sass/_template.scss */
-#template .bloc2 {
-  background-color: #d82679;
-  text-align: right;
-}
-/* line 58, ../sass/_template.scss */
-#template table {
-  display: inline-block;
-  width: 80%;
-}
-/* line 63, ../sass/_template.scss */
-#template .parallax-container {
-  height: 150px;
+/* line 107, ../sass/_template_header.scss */
+#_template_header .icone-social:hover {
+  transform: scale(1.3) rotateZ(360deg);
 }
 
 /*//////////////////////////////////////////////
@@ -733,6 +672,77 @@ body, html {
 #_template_footer .footer-right form textarea {
   height: 100px;
   margin-bottom: 20px;
+}
+
+/*//////////////////////////////////////////////
+//////////////// _template.scss ////////////////
+//////////////////////////////////////////////*/
+/* footer/header colour */
+/* footer/header colour */
+/* line 16, ../sass/_template.scss */
+#_template.section1 footer, #_template.section1 header {
+  background-color: #07400a;
+}
+/* line 19, ../sass/_template.scss */
+#_template.section1 .paginationNav {
+  border-top: 0.1em solid #07400a;
+  color: #07400a;
+}
+
+/* line 25, ../sass/_template.scss */
+#_template.section2 footer, #_template.section2 header {
+  background-color: #8c6822;
+}
+/* line 28, ../sass/_template.scss */
+#_template.section2 .paginationNav {
+  border-top: 0.1em solid #8c6822;
+  color: #8c6822;
+}
+
+/* line 34, ../sass/_template.scss */
+#_template.section3 footer, #_template.section3 header {
+  background-color: #27228c;
+}
+/* line 37, ../sass/_template.scss */
+#_template.section3 .paginationNav {
+  border-top: 0.1em solid #27228c;
+  color: #27228c;
+}
+
+/* line 43, ../sass/_template.scss */
+#_template.section4 footer, #_template.section4 header {
+  background-color: #b71586;
+}
+/* line 46, ../sass/_template.scss */
+#_template.section4 .paginationNav {
+  border-top: 0.1em solid #b71586;
+  color: #b71586;
+}
+
+/* line 53, ../sass/_template.scss */
+#_template .media {
+  max-width: 40%;
+}
+
+/* line 58, ../sass/_template.scss */
+.paginationNav {
+  padding-top: 10px !important;
+}
+/* line 60, ../sass/_template.scss */
+.paginationNav * {
+  color: inherit;
+}
+
+/* line 65, ../sass/_template.scss */
+.paginationNav li {
+  display: inline;
+  margin-right: 0.5em;
+  font-weight: bold;
+}
+
+/* line 71, ../sass/_template.scss */
+.content {
+  text-align: justify;
 }
 
 /*//////////////////////////////////////////////

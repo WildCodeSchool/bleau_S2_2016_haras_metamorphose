@@ -8,3 +8,5 @@ services:
         class: HarasBundle\Form\RegistrationType
         tags:
             - { name: form.type, alias: app_user_registration }
+    language.change:
+        class: HarasBundle\Services\languageChange

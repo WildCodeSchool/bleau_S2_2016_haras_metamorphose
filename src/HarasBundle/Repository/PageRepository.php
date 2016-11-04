@@ -12,4 +12,7 @@ use Doctrine\ORM\EntityRepository;
  */
 class PageRepository extends EntityRepository
 {
+	public function findArticles($pageNb, $id, $limit)
+	{
+    }
 }
