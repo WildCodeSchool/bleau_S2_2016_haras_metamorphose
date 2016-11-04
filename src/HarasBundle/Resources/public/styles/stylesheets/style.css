@@ -685,7 +685,7 @@ body, html {
 }
 /* line 19, ../sass/_template.scss */
 #_template.section1 .paginationNav {
-  border-top: 3px solid #07400a;
+  border-top: 0.1em solid #07400a;
   color: #07400a;
 }
 
@@ -695,7 +695,7 @@ body, html {
 }
 /* line 28, ../sass/_template.scss */
 #_template.section2 .paginationNav {
-  border-top: 3px solid #8c6822;
+  border-top: 0.1em solid #8c6822;
   color: #8c6822;
 }
 
@@ -705,7 +705,7 @@ body, html {
 }
 /* line 37, ../sass/_template.scss */
 #_template.section3 .paginationNav {
-  border-top: 3px solid #27228c;
+  border-top: 0.1em solid #27228c;
   color: #27228c;
 }
 
@@ -715,7 +715,7 @@ body, html {
 }
 /* line 46, ../sass/_template.scss */
 #_template.section4 .paginationNav {
-  border-top: 3px solid #b71586;
+  border-top: 0.1em solid #b71586;
   color: #b71586;
 }
 
@@ -736,7 +736,7 @@ body, html {
 /* line 65, ../sass/_template.scss */
 .paginationNav li {
   display: inline;
-  margin-right: 15px;
+  margin-right: 0.5em;
   font-weight: bold;
 }
 
