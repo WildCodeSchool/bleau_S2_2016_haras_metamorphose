@@ -11,11 +11,11 @@
 
             <table>
                 <thead>
-                <tr>
-                    <th>Nom des articles</th>
-                    <th>Voir</th>
-                    <th>Editer</th>
-                </tr>
+                    <tr>
+                        <th>Name of articles</th>
+                        <th>Show</th>
+                        <th>Edit</th>
+                    </tr>
                 </thead>
                 <tbody>
                 {% for article in page.articles %}
@@ -24,10 +24,54 @@
                             {{ article.name }}
                         </td>
                         <td>
-                            <a href="{{ path('article_show', { 'id': article.id }) }}">Visualiser</a>
+                            <a href="{{ path('article_show', { 'id': article.id }) }}">Show</a>
                         </td>
                         <td>
-                            <a href="{{ path('article_edit', { 'id': article.id }) }}">Editer</a>
+                            <a href="{{ path('article_edit', { 'id': article.id }) }}">Edit</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+                <thead>
+                <tr>
+                    <th>Name of texts</th>
+                    <th>Show</th>
+                    <th>Edit</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for text in page.texts %}
+                    <tr>
+                        <td>
+                            {{ text.name }}
+                        </td>
+                        <td>
+                            <a href="{{ path('text_show', { 'id': text.id }) }}">Show</a>
+                        </td>
+                        <td>
+                            <a href="{{ path('text_edit', { 'id': text.id }) }}">Edit</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+                <thead>
+                <tr>
+                    <th>Name of medias</th>
+                    <th>Show</th>
+                    <th>Edit</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for media in page.medias %}
+                    <tr>
+                        <td>
+                            {{ media.name }}
+                        </td>
+                        <td>
+                            <a href="{{ path('media_show', { 'id': media.id }) }}">Show</a>
+                        </td>
+                        <td>
+                            <a href="{{ path('media_edit', { 'id': media.id }) }}">Edit</a>
                         </td>
                     </tr>
                 {% endfor %}
