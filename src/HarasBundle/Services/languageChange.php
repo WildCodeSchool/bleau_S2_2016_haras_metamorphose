@@ -11,7 +11,7 @@ class languageChange extends Controller
 // a language has been selected, put it in the session _locale.
     public function select(Request $request, $langChoice)
     {
-    	$langSession = $request->getSession()->get('_locale');
+    	$langSession = $request->getLocale();
         if($langChoice)
         {
             $request->getSession()->set('_locale', $langChoice);
