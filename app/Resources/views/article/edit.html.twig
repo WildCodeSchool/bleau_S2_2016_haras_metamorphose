@@ -1,4 +1,9 @@
-{% extends 'base.html.twig' %}
+{% extends '@Haras/base.html.twig' %}
+
+{% block materialize %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+{% endblock materialize %}
 
 {% block body %}
     <!-- Compiled and minified CSS -->
@@ -13,8 +18,8 @@
             $('select').material_select();
         });
     </script>
+<body id="_admin">
     <h1>Modifier l'article {{ article.name }}</h1>
-
     <div class="admin_content">
     {{ form_start(edit_form) }}
         <div class="row">

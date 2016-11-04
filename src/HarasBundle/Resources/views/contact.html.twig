@@ -10,35 +10,51 @@
         {{ render(controller('HarasBundle:Page:getPage', { 'name': 'header' })) }}
 
     </header>
+    <h1>Nous contacter</h1>
 
-    <div class="container article">
+    <div class="container">
         <div class="row">
-            <h1 class="title">Nous contacter</h1>
-        </div>
+            <div class="contact_form col s6">
 
-        {{ form_start(form) }}
-        <div>
-        Email
-        {{ form_errors(form.from) }}
-        {{ form_widget(form.from) }}
+                {{ form_start(form) }}
+                <div>
+                Email
+                {{ form_errors(form.from) }}
+                {{ form_widget(form.from) }}
+                </div>
+                <div>
+                Nom
+                {{ form_errors(form.subject) }}
+                {{ form_widget(form.subject) }}
+                </div>
+                <div>
+                Message
+                {{ form_errors(form.body) }}
+                {{ form_widget(form.body) }}
+                </div>
+                <input type="submit" value="Send" />
+            </div>
+                {{ form_end(form) }}
+        <div class="map-holder col s6">
+            <div id="map"></div>
         </div>
-        <div>
-        Nom
-        {{ form_errors(form.subject) }}
-        {{ form_widget(form.subject) }}
         </div>
-        <div>
-        Message
-        {{ form_errors(form.body) }}
-        {{ form_widget(form.body) }}
-        </div>
-
-        <input type="submit" value="Send" />
-           
-        {{ form_end(form) }}
     </div>
-
     <footer id="_template_footer">
         {{ render(controller('HarasBundle:Page:getPage', { 'name': 'footer' })) }}
     </footer>
+
+    <script>
+        var map;
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: {lat: 49.419292, lng: 2.8311797999999726},
+                zoom: 15
+            });
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAr10cIoZKJLUnRzAcZQmd9rFNSjRmWLCk&callback=initMap"
+            async defer></script>
+
+</body>
 {% endblock body %}

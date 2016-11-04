@@ -1,40 +1,45 @@
-{% extends 'base.html.twig' %}
+{% extends '@Haras/base.html.twig' %}
+{% block materialize %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+{% endblock materialize %}
 
 {% block body %}
-    <h1>Voici les articles de la page {{ page.name }}</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>Nom des articles</th>
-                <th>Voir</th>
-                <th>Editer</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for article in page.articles %}
-            <tr>
-                <td>
-                    {{ article.name }}
-                </td>
-                <td>
-                    <a href="{{ path('article_show', { 'id': article.id }) }}">Visualiser</a>
-                </td>
-                <td>
-                    <a href="{{ path('article_edit', { 'id': article.id }) }}">Editer</a>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+<body id="_admin">
+    <div class="container">
+        <div class="row">
+            <h1 class="admin_title">Voici les articles de la page {{ page.name }}</h1>
 
-    <div class="admin_button">
-        <a href="{{ path('page_edit', { 'name': page.name }) }}">
-            <input type="submit" value="Modifier la page" />
-        </a>
+            <table>
+                <thead>
+                <tr>
+                    <th>Nom des articles</th>
+                    <th>Voir</th>
+                    <th>Editer</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for article in page.articles %}
+                    <tr>
+                        <td>
+                            {{ article.name }}
+                        </td>
+                        <td>
+                            <a href="{{ path('article_show', { 'id': article.id }) }}">Visualiser</a>
+                        </td>
+                        <td>
+                            <a href="{{ path('article_edit', { 'id': article.id }) }}">Editer</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            <div class="admin_button col m6">
+                <a class="waves-effect waves-light btn"href="{{ path('page_index') }}">Retourner à la liste des pages</a>
+            </div>
+            <div class="admin_button col m6">
+                    <a class="waves-effect waves-light btn" href="{{ path('page_edit', { 'name': page.name }) }}">Modifier la page</a>
+            </div>
+        </div>
     </div>
-    <div class="admin_button">
-        <a href="{{ path('page_index') }}">
-            <input type="submit" value="Retourner à la liste des pages" />
-        </a>
-    </div>
+</body>
 {% endblock %}

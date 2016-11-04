@@ -1,6 +1,10 @@
-{% extends 'base.html.twig' %}
+{% extends '@Haras/base.html.twig' %}
+{% block materialize %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+{% endblock materialize %}
 
 {% block body %}
+    <body id="_admin">
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
 
@@ -53,4 +57,5 @@
             <input type="submit" value="Retour à la liste des pages">
         </a>
     </div>
+    </body>
 {% endblock %}

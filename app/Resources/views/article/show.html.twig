@@ -1,6 +1,10 @@
-{% extends 'base.html.twig' %}
+{% extends '@Haras/base.html.twig' %}
+{% block materialize %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+{% endblock materialize %}
 
 {% block body %}
+<body id="_admin">
     <h1>Article {{ article.name }}</h1>
 
     <table>
@@ -44,7 +48,6 @@
             {% endfor %}
         </tr>
     </table>
-
     <div class="admin_button">
         <a href="{{ path('article_edit', { 'id': article.id }) }}">
             <input type="submit" value="Modifier cet article">

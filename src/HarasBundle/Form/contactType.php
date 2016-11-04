@@ -17,7 +17,7 @@ class contactType extends AbstractType
         $builder
             ->add('from','email',array('mapped' => false, 'label' => false))
             ->add('subject','text',array('mapped' => false,'label' => false))
-            ->add('body','text',array('mapped' => false,'label' => false))
+            ->add('body','textarea',array('mapped' => false,'label' => false))
         ;
     }
     
