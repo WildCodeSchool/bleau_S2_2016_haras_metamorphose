@@ -44,7 +44,7 @@
         </div>
     </div>
     <footer id="_index_footer">
-        {{ render(controller('HarasBundle:Page:getPage', { 'name': 'footer' })) }}
+        {% include 'HarasBundle::footer.html.twig' %}
     </footer>
 {% endblock body %}
 

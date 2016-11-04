@@ -11,15 +11,31 @@ class languageChange extends Controller
 // a language has been selected, put it in the session _locale.
     public function select(Request $request, $langChoice)
     {
-    	$langSession = $request->getLocale();
         if($langChoice)
         {
             $request->getSession()->set('_locale', $langChoice);
+            $request->getSession()->set('defaultLocale', $langChoice);
         }
-        else
+        if($request->getSession()->get('defaultLocale') == null)
         {
-        	if($langSession!='fr' && $langSession!='en')
-        		$request->getSession()->set('_locale', 'en');
+            if(isset($_SERVER['HTTP_ACCEPT_LANGUAGE']))
+            {
+                $langs=explode(',',$_SERVER['HTTP_ACCEPT_LANGUAGE']);
+                $choice=$langs[0];
+                if($choice!='fr' && $choice!='en')
+                {
+                $request->getSession()->set('_locale', 'en');
+                }
+                else
+                {
+                    $request->getSession()->set('_locale', $choice);
+                }
+            }
+            else
+            {
+                $request->getSession()->set('_locale', 'en');
+            }
         }
     }
+        
 }
