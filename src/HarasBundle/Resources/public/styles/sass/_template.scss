@@ -16,20 +16,36 @@
 	footer, header {
 		background-color: $section1-color;
 	}
+	.paginationNav{
+		border-top: 3px solid $section1-color;
+		color: $section1-color;
+	}
 }
 #_template.section2 {
 	footer, header {
 		background-color: $section2-color;
+	}
+	.paginationNav{
+		border-top: 3px solid $section2-color;
+		color: $section2-color;
 	}
 }
 #_template.section3 {
 	footer, header {
 		background-color: $section3-color;
 	}
+	.paginationNav{
+		border-top: 3px solid $section3-color;
+		color: $section3-color;
+	}
 }
 #_template.section4 {
 	footer, header {
 		background-color: $section4-color;
+	}
+	.paginationNav{
+		border-top: 3px solid $section4-color;
+		color: $section4-color;
 	}
 }
 
@@ -37,4 +53,21 @@
 	.media {
 		max-width: 40%;
 	}
+}
+
+.paginationNav{
+	padding-top: 10px !important;
+	* {
+		color: inherit;
+	}
+}
+
+.paginationNav li{
+	display: inline;
+	margin-right: 15px;
+	font-weight: bold;
+}
+
+.content{
+	text-align: justify;
 }

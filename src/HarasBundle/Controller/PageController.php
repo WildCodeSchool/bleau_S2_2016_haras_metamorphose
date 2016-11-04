@@ -66,7 +66,10 @@ class PageController extends Controller
             {
                 $pageNb = 1;
             }
-
+            elseif($pageNb > (count($page->getArticles())/$limit) && $pageNb>1)
+            {
+                $pageNb = $pageNb-1;
+            }
             // appel de la fonction pour récupérer 10 articles
             $repository = $em->getRepository('HarasBundle:Article');
             $result = $repository->findArticles($pageNb, $page, $limit);
@@ -91,7 +94,7 @@ class PageController extends Controller
                     $articleRendering['medias'][] = $media->getMediaTranslation($language);
                 }
                 // Organisation des articles par ordre chronologique inverse
-                array_unshift($table['articles'], $articleRendering);
+                $table['articles'][] = $articleRendering;
             }
             return $this->render('HarasBundle::template.html.twig', $table);
         }

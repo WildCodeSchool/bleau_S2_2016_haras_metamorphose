@@ -1,21 +1,28 @@
 @charset "UTF-8";
+/* line 19, ../sass/style.scss */
 * {
   margin: 0;
-  padding: 0; }
+  padding: 0;
+}
 
+/* line 25, ../sass/style.scss */
 body, html {
   height: 100%;
   font-family: sans-serif;
-  margin: 0; }
+  margin: 0;
+}
 
 /*//////////////////////////////////////////////
 /////////////// _index_footer.scss /////////////
 //////////////////////////////////////////////*/
+/* line 5, ../sass/_index_footer.scss */
 #_index_footer:hover {
   background-color: #00787a;
   height: 255px;
-  margin-top: -255px; }
+  margin-top: -255px;
+}
 
+/* line 11, ../sass/_index_footer.scss */
 #_index_footer {
   overflow: hidden;
   margin-top: -50px;
@@ -31,254 +38,370 @@ body, html {
   /* Colonnes footer */
   /* Footer partie basse -> Copyright */
   /*  Footer button*/
-  /* form input*/ }
-  #_index_footer p {
-    font-size: 1em;
-    margin-top: 1.5em; }
-  #_index_footer h1 {
-    font-size: 2em;
-    margin-bottom: 1em; }
-  #_index_footer h2 {
-    font-size: 1.5em; }
-  #_index_footer h3 {
-    font-size: 1em; }
-  #_index_footer .footer .footer-left,
-  #_index_footer .footer .footer-center,
-  #_index_footer .footer .footer-right {
-    display: inline-block;
-    color: white;
-    vertical-align: top;
-    text-align: left; }
-  #_index_footer #avis {
-    font-weight: bold;
-    margin-top: 30px;
-    text-decoration: none; }
-  #_index_footer .footer .footer-left {
-    width: 30%;
-    /*font-size: 12px;*/ }
-  #_index_footer .footer .footer-center {
-    width: 30%; }
-  #_index_footer .footer .footer-right {
-    width: 30%;
-    text-align: left; }
-  #_index_footer .footer a {
-    color: white; }
-  #_index_footer #footer-bottom {
-    background-color: #003f40;
-    text-align: left;
-    height: 20px;
-    padding-top: 1em;
-    padding-bottom: 1em; }
-  #_index_footer #copyright {
-    padding-left: 5%; }
-  #_index_footer #footer-bottom a:link, #_index_footer a:visited {
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 15px; }
-  #_index_footer #footer-bottom a:hover, #_index_footer a:active {
-    color: white; }
-  #_index_footer #mentions {
-    padding-left: 2%; }
-  #_index_footer button {
-    background-color: #4CAF50;
-    /* Green */
-    border: none;
-    color: white;
-    padding: 16px 16px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    -webkit-transition-duration: 0.4s;
-    /* Safari */
-    transition-duration: 0.4s;
-    cursor: pointer;
-    width: 181px; }
-  #_index_footer .button1 {
-    background-color: #4CAF50;
-    color: white;
-    border: 2px solid #4CAF50; }
-  #_index_footer .button1:hover {
-    background-color: white;
-    color: #4CAF50; }
-  #_index_footer .footer-right form input,
-  #_index_footer .footer-right form textarea {
-    display: block;
-    border-radius: 3px;
-    box-sizing: border-box;
-    background-color: white;
-    box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.1);
-    border: none;
-    resize: none;
-    font: inherit;
-    font-size: 14px;
-    font-weight: normal;
-    color: #d1d2d2;
-    width: 400px;
-    padding: 18px; }
-  #_index_footer .footer-right ::-webkit-input-placeholder {
-    color: #5c666b; }
-  #_index_footer .footer-right ::-moz-placeholder {
-    color: #5c666b;
-    opacity: 1; }
-  #_index_footer .footer-right :-ms-input-placeholder {
-    color: #5c666b; }
-  #_index_footer .footer-right form input {
-    height: 55px;
-    margin-bottom: 1em;
-    width: 181px; }
-  #_index_footer .footer-right form textarea {
-    height: 100px;
-    margin-bottom: 20px; }
+  /* form input*/
+}
+/* line 24, ../sass/_index_footer.scss */
+#_index_footer p {
+  font-size: 1em;
+  margin-top: 1.5em;
+}
+/* line 29, ../sass/_index_footer.scss */
+#_index_footer h1 {
+  font-size: 2em;
+  margin-bottom: 1em;
+}
+/* line 34, ../sass/_index_footer.scss */
+#_index_footer h2 {
+  font-size: 1.5em;
+}
+/* line 38, ../sass/_index_footer.scss */
+#_index_footer h3 {
+  font-size: 1em;
+}
+/* line 46, ../sass/_index_footer.scss */
+#_index_footer .footer .footer-left,
+#_index_footer .footer .footer-center,
+#_index_footer .footer .footer-right {
+  display: inline-block;
+  color: white;
+  vertical-align: top;
+  text-align: left;
+}
+/* line 55, ../sass/_index_footer.scss */
+#_index_footer #avis {
+  font-weight: bold;
+  margin-top: 30px;
+  text-decoration: none;
+}
+/* line 60, ../sass/_index_footer.scss */
+#_index_footer .footer .footer-left {
+  width: 30%;
+  /*font-size: 12px;*/
+}
+/* line 65, ../sass/_index_footer.scss */
+#_index_footer .footer .footer-center {
+  width: 30%;
+}
+/* line 69, ../sass/_index_footer.scss */
+#_index_footer .footer .footer-right {
+  width: 30%;
+  text-align: left;
+}
+/* line 74, ../sass/_index_footer.scss */
+#_index_footer .footer a {
+  color: white;
+}
+/* line 80, ../sass/_index_footer.scss */
+#_index_footer #footer-bottom {
+  background-color: #003f40;
+  text-align: left;
+  height: 20px;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+/* line 88, ../sass/_index_footer.scss */
+#_index_footer #copyright {
+  padding-left: 5%;
+}
+/* line 92, ../sass/_index_footer.scss */
+#_index_footer #footer-bottom a:link, #_index_footer a:visited {
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+}
+/* line 100, ../sass/_index_footer.scss */
+#_index_footer #footer-bottom a:hover, #_index_footer a:active {
+  color: white;
+}
+/* line 105, ../sass/_index_footer.scss */
+#_index_footer #mentions {
+  padding-left: 2%;
+}
+/* line 113, ../sass/_index_footer.scss */
+#_index_footer button {
+  background-color: #4CAF50;
+  /* Green */
+  border: none;
+  color: white;
+  padding: 16px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  -webkit-transition-duration: 0.4s;
+  /* Safari */
+  transition-duration: 0.4s;
+  cursor: pointer;
+  width: 181px;
+}
+/* line 130, ../sass/_index_footer.scss */
+#_index_footer .button1 {
+  background-color: #4CAF50;
+  color: white;
+  border: 2px solid #4CAF50;
+}
+/* line 136, ../sass/_index_footer.scss */
+#_index_footer .button1:hover {
+  background-color: white;
+  color: #4CAF50;
+}
+/* line 143, ../sass/_index_footer.scss */
+#_index_footer .footer-right form input,
+#_index_footer .footer-right form textarea {
+  display: block;
+  border-radius: 3px;
+  box-sizing: border-box;
+  background-color: white;
+  box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.1);
+  border: none;
+  resize: none;
+  font: inherit;
+  font-size: 14px;
+  font-weight: normal;
+  color: #d1d2d2;
+  width: 400px;
+  padding: 18px;
+}
+/* line 160, ../sass/_index_footer.scss */
+#_index_footer .footer-right ::-webkit-input-placeholder {
+  color: #5c666b;
+}
+/* line 164, ../sass/_index_footer.scss */
+#_index_footer .footer-right ::-moz-placeholder {
+  color: #5c666b;
+  opacity: 1;
+}
+/* line 169, ../sass/_index_footer.scss */
+#_index_footer .footer-right :-ms-input-placeholder {
+  color: #5c666b;
+}
+/* line 173, ../sass/_index_footer.scss */
+#_index_footer .footer-right form input {
+  height: 55px;
+  margin-bottom: 1em;
+  width: 181px;
+}
+/* line 179, ../sass/_index_footer.scss */
+#_index_footer .footer-right form textarea {
+  height: 100px;
+  margin-bottom: 20px;
+}
 
 /*//////////////////////////////////////////////
 /////////////// _index_header.scss /////////////
 //////////////////////////////////////////////*/
+/* line 5, ../sass/_index_header.scss */
 #_index_header {
   height: 80px;
   display: table-row;
   text-shadow: 2px 2px rgba(0, 0, 0, 0.7);
   font-size: 1em;
   font-weight: bold;
-  /* Mise en page de l'aside avec les icones des réseaux sociaux */ }
-  #_index_header #logo {
-    width: 70px;
-    float: left;
-    margin: 5px;
-    margin-right: 60px; }
-  #_index_header #menu {
-    float: right;
-    margin-right: 10px;
-    margin-top: 10px !important; }
-  #_index_header #menu ul {
-    list-style-type: none;
-    overflow: hidden; }
-  #_index_header #menu li {
-    display: inline;
-    margin-right: 10px; }
-  #_index_header #menu a {
-    text-decoration: none;
-    display: inline-block;
-    padding: 5px;
-    border-radius: 10px;
-    color: white; }
-  #_index_header #langues {
-    float: left;
-    margin-top: 10px !important; }
-  #_index_header #langues li {
-    display: inline; }
-  #_index_header #langues a {
-    margin: 3px;
-    border-radius: 10px;
-    text-decoration: none;
-    padding: 5px;
-    color: white; }
-  #_index_header #langues p {
-    display: inline;
-    color: white; }
-  #_index_header .accueil:hover, #_index_header #langues a:hover, #_index_header .contact:hover {
-    background-color: blue; }
-  #_index_header #social {
-    float: left;
-    margin-left: 100px;
-    margin-top: 10px; }
-  #_index_header .icone-social {
-    width: 40px;
-    -webkit-transition: all 0.6s;
-    -moz-transition: all 0.6s;
-    -o-transition: all 0.6s;
-    -ms-transition: all 0.6s;
-    transition: all 0.6s; }
-  #_index_header .icone-social:hover {
-    transform: scale(1.3) rotateZ(360deg); }
+  /* Mise en page de l'aside avec les icones des réseaux sociaux */
+}
+/* line 12, ../sass/_index_header.scss */
+#_index_header #logo {
+  width: 70px;
+  float: left;
+  margin: 5px;
+  margin-right: 60px;
+}
+/* line 18, ../sass/_index_header.scss */
+#_index_header #menu {
+  float: right;
+  margin-right: 10px;
+  margin-top: 10px !important;
+}
+/* line 24, ../sass/_index_header.scss */
+#_index_header #menu ul {
+  list-style-type: none;
+  overflow: hidden;
+}
+/* line 29, ../sass/_index_header.scss */
+#_index_header #menu li {
+  display: inline;
+  margin-right: 10px;
+}
+/* line 34, ../sass/_index_header.scss */
+#_index_header #menu a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 5px;
+  border-radius: 10px;
+  color: white;
+}
+/* line 42, ../sass/_index_header.scss */
+#_index_header #langues {
+  float: left;
+  margin-top: 10px !important;
+}
+/* line 47, ../sass/_index_header.scss */
+#_index_header #langues li {
+  display: inline;
+}
+/* line 51, ../sass/_index_header.scss */
+#_index_header #langues a {
+  margin: 3px;
+  border-radius: 10px;
+  text-decoration: none;
+  padding: 5px;
+  color: white;
+}
+/* line 58, ../sass/_index_header.scss */
+#_index_header #langues p {
+  display: inline;
+  color: white;
+}
+/* line 62, ../sass/_index_header.scss */
+#_index_header .accueil:hover, #_index_header #langues a:hover, #_index_header .contact:hover {
+  background-color: blue;
+}
+/* line 68, ../sass/_index_header.scss */
+#_index_header #social {
+  float: left;
+  margin-left: 100px;
+  margin-top: 10px;
+}
+/* line 74, ../sass/_index_header.scss */
+#_index_header .icone-social {
+  width: 40px;
+  -webkit-transition: all 0.6s;
+  -moz-transition: all 0.6s;
+  -o-transition: all 0.6s;
+  -ms-transition: all 0.6s;
+  transition: all 0.6s;
+}
+/* line 83, ../sass/_index_header.scss */
+#_index_header .icone-social:hover {
+  transform: scale(1.3) rotateZ(360deg);
+}
 
 /*//////////////////////////////////////////////
 ////////////////// _index.scss /////////////////
 //////////////////////////////////////////////*/
+/* line 6, ../sass/_index.scss */
 #_index {
   /*//////////////////////////////
   // Mise en page corps accueil //
   //////////////////////////////*/
-  /* Mise en page de l'accroche et des rubriques */ }
-  #_index #index_video {
-    position: fixed;
-    min-width: 100%;
-    min-height: 100%;
-    z-index: -100; }
-  #_index #index_wrapper {
-    display: table;
-    height: 100%;
-    width: 100%; }
-  #_index #index_corps {
-    text-align: center;
-    position: relative;
-    display: table-row;
-    width: 100%;
-    height: 100%; }
-  #_index #index_catchPhrase {
-    margin-top: 10%;
-    color: white;
-    font-size: 2.5em;
-    font-weight: bold;
-    text-shadow: 3px 3px rgba(0, 0, 0, 0.7); }
-  #_index #index_focus {
-    position: absolute;
-    bottom: 30px;
-    left: 0;
-    right: 0;
-    margin: auto;
-    text-align: center;
-    margin-bottom: 40px; }
-  #_index .index_rubrique {
-    display: inline-block;
-    border-radius: 10px;
-    width: 180px;
-    height: 190px;
-    margin: 5px;
-    overflow: hidden;
-    text-decoration: none;
-    color: white;
-    -webkit-transition: all 1s ease;
-    -moz-transition: all 1s ease;
-    -o-transition: all 1s ease;
-    -ms-transition: all 1s ease;
-    transition: all 1s ease; }
-    #_index .index_rubrique p {
-      font-size: 18px;
-      margin: 0; }
-    #_index .index_rubrique .index_rubrique_img {
-      width: 120px;
-      margin-top: 10px; }
-  #_index .index_rubrique.hover {
-    height: 300px;
-    width: 300px;
-    margin-top: -110px;
-    box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.7); }
-  #_index .typed-cursor {
-    display: none; }
-  #_index .index_rubrique.section1Link {
-    background-color: rgba(7, 64, 10, 0.6); }
-  #_index .section1Link.hover {
-    background-color: #07400a; }
-  #_index .index_rubrique.section2Link {
-    background-color: rgba(140, 104, 34, 0.6); }
-  #_index .section2Link.hover {
-    background-color: #8c6822; }
-  #_index .index_rubrique.section3Link {
-    background-color: rgba(39, 34, 140, 0.6); }
-  #_index .section3Link.hover {
-    background-color: #27228c; }
-  #_index .index_rubrique.section4Link {
-    background-color: rgba(183, 21, 134, 0.6); }
-  #_index .section4Link.hover {
-    background-color: #b71586; }
+  /* Mise en page de l'accroche et des rubriques */
+}
+/* line 7, ../sass/_index.scss */
+#_index #index_video {
+  position: fixed;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -100;
+}
+/* line 14, ../sass/_index.scss */
+#_index #index_wrapper {
+  display: table;
+  height: 100%;
+  width: 100%;
+}
+/* line 24, ../sass/_index.scss */
+#_index #index_corps {
+  text-align: center;
+  position: relative;
+  display: table-row;
+  width: 100%;
+  height: 100%;
+}
+/* line 34, ../sass/_index.scss */
+#_index #index_catchPhrase {
+  margin-top: 10%;
+  color: white;
+  font-size: 2.5em;
+  font-weight: bold;
+  text-shadow: 3px 3px rgba(0, 0, 0, 0.7);
+}
+/* line 42, ../sass/_index.scss */
+#_index #index_focus {
+  position: absolute;
+  bottom: 30px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  text-align: center;
+  margin-bottom: 40px;
+}
+/* line 52, ../sass/_index.scss */
+#_index .index_rubrique {
+  display: inline-block;
+  border-radius: 10px;
+  width: 180px;
+  height: 190px;
+  margin: 5px;
+  overflow: hidden;
+  text-decoration: none;
+  color: white;
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  -ms-transition: all 1s ease;
+  transition: all 1s ease;
+}
+/* line 62, ../sass/_index.scss */
+#_index .index_rubrique p {
+  font-size: 18px;
+  margin: 0;
+}
+/* line 66, ../sass/_index.scss */
+#_index .index_rubrique .index_rubrique_img {
+  width: 120px;
+  margin-top: 10px;
+}
+/* line 74, ../sass/_index.scss */
+#_index .index_rubrique.hover {
+  height: 300px;
+  width: 300px;
+  margin-top: -110px;
+  box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.7);
+}
+/* line 82, ../sass/_index.scss */
+#_index .typed-cursor {
+  display: none;
+}
+/* line 86, ../sass/_index.scss */
+#_index .index_rubrique.section1Link {
+  background-color: rgba(7, 64, 10, 0.6);
+}
+/* line 89, ../sass/_index.scss */
+#_index .section1Link.hover {
+  background-color: #07400a;
+}
+/* line 93, ../sass/_index.scss */
+#_index .index_rubrique.section2Link {
+  background-color: rgba(140, 104, 34, 0.6);
+}
+/* line 96, ../sass/_index.scss */
+#_index .section2Link.hover {
+  background-color: #8c6822;
+}
+/* line 100, ../sass/_index.scss */
+#_index .index_rubrique.section3Link {
+  background-color: rgba(39, 34, 140, 0.6);
+}
+/* line 103, ../sass/_index.scss */
+#_index .section3Link.hover {
+  background-color: #27228c;
+}
+/* line 107, ../sass/_index.scss */
+#_index .index_rubrique.section4Link {
+  background-color: rgba(183, 21, 134, 0.6);
+}
+/* line 110, ../sass/_index.scss */
+#_index .section4Link.hover {
+  background-color: #b71586;
+}
 
 /*//////////////////////////////////////////////
 /////////////// _template_header.scss /////////////
 //////////////////////////////////////////////*/
+/* line 5, ../sass/_template_header.scss */
 #_template_header {
   background-color: #d82679;
   color: white;
@@ -286,71 +409,111 @@ body, html {
   font-size: 16px;
   font-weight: bold;
   padding-top: 10px;
-  /* Mise en page de l'aside avec les icones des réseaux sociaux */ }
-  #_template_header #logo {
-    width: 70px;
-    float: left;
-    margin: 5px;
-    margin-right: 60px; }
-  #_template_header #menu {
-    float: right;
-    margin-right: 10px; }
-  #_template_header #menu ul {
-    list-style-type: none;
-    overflow: hidden; }
-  #_template_header #menu li {
-    display: inline;
-    margin-right: 10px; }
-  #_template_header #menu a {
-    text-decoration: none;
-    display: inline-block;
-    padding: 5px;
-    border-radius: 10px;
-    color: white; }
-  #_template_header #langues {
-    float: left; }
-  #_template_header #langues ul {
-    list-style-type: none;
-    overflow: hidden; }
-  #_template_header #langues li {
-    display: inline; }
-  #_template_header #langues a {
-    margin: 3px;
-    display: inline-block;
-    border-radius: 10px;
-    text-decoration: none;
-    padding: 5px;
-    color: white; }
-  #_template_header #langues p {
-    display: inline; }
-  #_template_header #langues a:hover {
-    background-color: blue; }
-  #_template_header .section1Link.hover {
-    background-color: #07400a; }
-  #_template_header .section2Link.hover {
-    background-color: #8c6822; }
-  #_template_header .section3Link.hover {
-    background-color: #27228c; }
-  #_template_header .section4Link.hover {
-    background-color: #b71586; }
-  #_template_header .accueil:hover, #_template_header #langues a:hover, #_template_header .contact:hover {
-    background-color: blue; }
-  #_template_header #social {
-    float: left;
-    margin-left: 100px; }
-  #_template_header .icone-social {
-    width: 40px;
-    -webkit-transition: all 0.6s;
-    -moz-transition: all 0.6s;
-    -o-transition: all 0.6s;
-    -ms-transition: all 0.6s;
-    transition: all 0.6s; }
-  #_template_header .icone-social:hover {
-    transform: scale(1.3) rotateZ(360deg); }
+  /* Mise en page de l'aside avec les icones des réseaux sociaux */
+}
+/* line 14, ../sass/_template_header.scss */
+#_template_header #logo {
+  width: 70px;
+  float: left;
+  margin: 5px;
+  margin-right: 60px;
+}
+/* line 21, ../sass/_template_header.scss */
+#_template_header #menu {
+  float: right;
+  margin-right: 10px;
+}
+/* line 26, ../sass/_template_header.scss */
+#_template_header #menu ul {
+  list-style-type: none;
+  overflow: hidden;
+}
+/* line 31, ../sass/_template_header.scss */
+#_template_header #menu li {
+  display: inline;
+  margin-right: 10px;
+}
+/* line 36, ../sass/_template_header.scss */
+#_template_header #menu a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 5px;
+  border-radius: 10px;
+  color: white;
+}
+/* line 44, ../sass/_template_header.scss */
+#_template_header #langues {
+  float: left;
+}
+/* line 48, ../sass/_template_header.scss */
+#_template_header #langues ul {
+  list-style-type: none;
+  overflow: hidden;
+}
+/* line 53, ../sass/_template_header.scss */
+#_template_header #langues li {
+  display: inline;
+}
+/* line 58, ../sass/_template_header.scss */
+#_template_header #langues a {
+  margin: 3px;
+  display: inline-block;
+  border-radius: 10px;
+  text-decoration: none;
+  padding: 5px;
+  color: white;
+}
+/* line 66, ../sass/_template_header.scss */
+#_template_header #langues p {
+  display: inline;
+}
+/* line 70, ../sass/_template_header.scss */
+#_template_header #langues a:hover {
+  background-color: blue;
+}
+/* line 74, ../sass/_template_header.scss */
+#_template_header .section1Link.hover {
+  background-color: #07400a;
+}
+/* line 77, ../sass/_template_header.scss */
+#_template_header .section2Link.hover {
+  background-color: #8c6822;
+}
+/* line 80, ../sass/_template_header.scss */
+#_template_header .section3Link.hover {
+  background-color: #27228c;
+}
+/* line 83, ../sass/_template_header.scss */
+#_template_header .section4Link.hover {
+  background-color: #b71586;
+}
+/* line 87, ../sass/_template_header.scss */
+#_template_header .accueil:hover, #_template_header #langues a:hover, #_template_header .contact:hover {
+  background-color: blue;
+}
+/* line 93, ../sass/_template_header.scss */
+#_template_header #social {
+  float: left;
+  margin-left: 100px;
+}
+/* line 98, ../sass/_template_header.scss */
+#_template_header .icone-social {
+  width: 40px;
+  -webkit-transition: all 0.6s;
+  -moz-transition: all 0.6s;
+  -o-transition: all 0.6s;
+  -ms-transition: all 0.6s;
+  transition: all 0.6s;
+}
+/* line 107, ../sass/_template_header.scss */
+#_template_header .icone-social:hover {
+  transform: scale(1.3) rotateZ(360deg);
+}
 
 /*//////////////////////////////////////////////
 //////////// _template_footer.scss /////////////
 //////////////////////////////////////////////*/
+/* line 6, ../sass/_template_footer.scss */
 #_template_footer {
   margin-top: 20px;
   background-color: #d82679;
@@ -360,131 +523,232 @@ body, html {
   /* Colonnes footer */
   /* Footer partie basse -> Copyright */
   /*  Footer button*/
-  /* form input*/ }
-  #_template_footer .p-titre {
-    font-size: 1.4em;
-    font-weight: bold; }
-  #_template_footer p {
-    font-size: 16px; }
-  #_template_footer h1 {
-    font-size: 2em;
-    text-align: left; }
-  #_template_footer h2 {
-    font-size: 1.5em; }
-  #_template_footer h3 {
-    font-size: 1em; }
-  #_template_footer .footer-left,
-  #_template_footer .footer-center,
-  #_template_footer .footer-right {
-    display: inline-block;
-    color: white;
-    vertical-align: top;
-    text-align: left; }
-  #_template_footer .footer-left {
-    width: 30%;
-    /*font-size: 12px;*/ }
-  #_template_footer .footer-center {
-    width: 30%; }
-  #_template_footer .footer-right {
-    width: 30%;
-    text-align: left; }
-  #_template_footer a {
-    color: white; }
-  #_template_footer #footer-bottom {
-    background-color: #003f40;
-    text-align: left;
-    padding: 0.5em;
-    margin-top: 1em; }
-  #_template_footer #copyright {
-    padding-left: 5%; }
-  #_template_footer #footer-bottom a:link, #_template_footer a:visited {
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 15px; }
-  #_template_footer #footer-bottom a:hover, #_template_footer a:active {
-    color: white;
-    text-decoration: underline; }
-  #_template_footer #mentions {
-    padding-left: 2%; }
-  #_template_footer button {
-    background-color: #4CAF50;
-    /* Green */
-    border: none;
-    color: white;
-    padding: 16px 16px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    -webkit-transition-duration: 0.4s;
-    /* Safari */
-    transition-duration: 0.4s;
-    cursor: pointer;
-    width: 181px;
-    margin-left: 1em; }
-  #_template_footer .button1 {
-    background-color: #4CAF50;
-    color: white;
-    border: 2px solid #4CAF50; }
-  #_template_footer .button1:hover {
-    background-color: white;
-    color: #4CAF50; }
-  #_template_footer .footer-right form input,
-  #_template_footer .footer-right form textarea {
-    display: block;
-    border-radius: 3px;
-    box-sizing: border-box;
-    background-color: white;
-    box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.1);
-    border: none;
-    resize: none;
-    font: inherit;
-    font-size: 14px;
-    font-weight: normal;
-    color: #d1d2d2;
-    width: 400px;
-    margin-left: 1em;
-    padding-left: 1em; }
-  #_template_footer .footer-right ::-webkit-input-placeholder {
-    color: #5c666b; }
-  #_template_footer .footer-right ::-moz-placeholder {
-    color: #5c666b;
-    opacity: 1; }
-  #_template_footer .footer-right :-ms-input-placeholder {
-    color: #5c666b; }
-  #_template_footer .footer-right form input {
-    height: 55px;
-    margin-bottom: 15px;
-    width: 181px; }
-  #_template_footer .footer-right form textarea {
-    height: 100px;
-    margin-bottom: 20px; }
+  /* form input*/
+}
+/* line 13, ../sass/_template_footer.scss */
+#_template_footer .p-titre {
+  font-size: 1.4em;
+  font-weight: bold;
+}
+/* line 18, ../sass/_template_footer.scss */
+#_template_footer p {
+  font-size: 16px;
+}
+/* line 22, ../sass/_template_footer.scss */
+#_template_footer h1 {
+  font-size: 2em;
+  text-align: left;
+}
+/* line 27, ../sass/_template_footer.scss */
+#_template_footer h2 {
+  font-size: 1.5em;
+}
+/* line 31, ../sass/_template_footer.scss */
+#_template_footer h3 {
+  font-size: 1em;
+}
+/* line 40, ../sass/_template_footer.scss */
+#_template_footer .footer-left,
+#_template_footer .footer-center,
+#_template_footer .footer-right {
+  display: inline-block;
+  color: white;
+  vertical-align: top;
+  text-align: left;
+}
+/* line 48, ../sass/_template_footer.scss */
+#_template_footer .footer-left {
+  width: 30%;
+  /*font-size: 12px;*/
+}
+/* line 53, ../sass/_template_footer.scss */
+#_template_footer .footer-center {
+  width: 30%;
+}
+/* line 57, ../sass/_template_footer.scss */
+#_template_footer .footer-right {
+  width: 30%;
+  text-align: left;
+}
+/* line 62, ../sass/_template_footer.scss */
+#_template_footer a {
+  color: white;
+}
+/* line 68, ../sass/_template_footer.scss */
+#_template_footer #footer-bottom {
+  background-color: #003f40;
+  text-align: left;
+  padding: 0.5em;
+  margin-top: 1em;
+}
+/* line 75, ../sass/_template_footer.scss */
+#_template_footer #copyright {
+  padding-left: 5%;
+}
+/* line 80, ../sass/_template_footer.scss */
+#_template_footer #footer-bottom a:link, #_template_footer a:visited {
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+}
+/* line 88, ../sass/_template_footer.scss */
+#_template_footer #footer-bottom a:hover, #_template_footer a:active {
+  color: white;
+  text-decoration: underline;
+}
+/* line 93, ../sass/_template_footer.scss */
+#_template_footer #mentions {
+  padding-left: 2%;
+}
+/* line 101, ../sass/_template_footer.scss */
+#_template_footer button {
+  background-color: #4CAF50;
+  /* Green */
+  border: none;
+  color: white;
+  padding: 16px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  -webkit-transition-duration: 0.4s;
+  /* Safari */
+  transition-duration: 0.4s;
+  cursor: pointer;
+  width: 181px;
+  margin-left: 1em;
+}
+/* line 119, ../sass/_template_footer.scss */
+#_template_footer .button1 {
+  background-color: #4CAF50;
+  color: white;
+  border: 2px solid #4CAF50;
+}
+/* line 125, ../sass/_template_footer.scss */
+#_template_footer .button1:hover {
+  background-color: white;
+  color: #4CAF50;
+}
+/* line 132, ../sass/_template_footer.scss */
+#_template_footer .footer-right form input,
+#_template_footer .footer-right form textarea {
+  display: block;
+  border-radius: 3px;
+  box-sizing: border-box;
+  background-color: white;
+  box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.1);
+  border: none;
+  resize: none;
+  font: inherit;
+  font-size: 14px;
+  font-weight: normal;
+  color: #d1d2d2;
+  width: 400px;
+  margin-left: 1em;
+  padding-left: 1em;
+}
+/* line 151, ../sass/_template_footer.scss */
+#_template_footer .footer-right ::-webkit-input-placeholder {
+  color: #5c666b;
+}
+/* line 155, ../sass/_template_footer.scss */
+#_template_footer .footer-right ::-moz-placeholder {
+  color: #5c666b;
+  opacity: 1;
+}
+/* line 160, ../sass/_template_footer.scss */
+#_template_footer .footer-right :-ms-input-placeholder {
+  color: #5c666b;
+}
+/* line 164, ../sass/_template_footer.scss */
+#_template_footer .footer-right form input {
+  height: 55px;
+  margin-bottom: 15px;
+  width: 181px;
+}
+/* line 170, ../sass/_template_footer.scss */
+#_template_footer .footer-right form textarea {
+  height: 100px;
+  margin-bottom: 20px;
+}
 
 /*//////////////////////////////////////////////
 //////////////// _template.scss ////////////////
 //////////////////////////////////////////////*/
 /* footer/header colour */
 /* footer/header colour */
+/* line 16, ../sass/_template.scss */
 #_template.section1 footer, #_template.section1 header {
-  background-color: #07400a; }
+  background-color: #07400a;
+}
+/* line 19, ../sass/_template.scss */
+#_template.section1 .paginationNav {
+  border-top: 3px solid #07400a;
+  color: #07400a;
+}
 
+/* line 25, ../sass/_template.scss */
 #_template.section2 footer, #_template.section2 header {
-  background-color: #8c6822; }
+  background-color: #8c6822;
+}
+/* line 28, ../sass/_template.scss */
+#_template.section2 .paginationNav {
+  border-top: 3px solid #8c6822;
+  color: #8c6822;
+}
 
+/* line 34, ../sass/_template.scss */
 #_template.section3 footer, #_template.section3 header {
-  background-color: #27228c; }
+  background-color: #27228c;
+}
+/* line 37, ../sass/_template.scss */
+#_template.section3 .paginationNav {
+  border-top: 3px solid #27228c;
+  color: #27228c;
+}
 
+/* line 43, ../sass/_template.scss */
 #_template.section4 footer, #_template.section4 header {
-  background-color: #b71586; }
+  background-color: #b71586;
+}
+/* line 46, ../sass/_template.scss */
+#_template.section4 .paginationNav {
+  border-top: 3px solid #b71586;
+  color: #b71586;
+}
 
+/* line 53, ../sass/_template.scss */
 #_template .media {
-  max-width: 40%; }
+  max-width: 40%;
+}
+
+/* line 58, ../sass/_template.scss */
+.paginationNav {
+  padding-top: 10px !important;
+}
+/* line 60, ../sass/_template.scss */
+.paginationNav * {
+  color: inherit;
+}
+
+/* line 65, ../sass/_template.scss */
+.paginationNav li {
+  display: inline;
+  margin-right: 15px;
+  font-weight: bold;
+}
+
+/* line 71, ../sass/_template.scss */
+.content {
+  text-align: justify;
+}
 
 /*//////////////////////////////////////////////
 ///////////// _admin.scss /////////////////////
 //////////////////////////////////////////////*/
+/* line 6, ../sass/_admin.scss */
 #_admin {
   background-color: lightgreen;
   height: 100%;
@@ -504,46 +768,65 @@ body, html {
 
     .admin_edit {
 
-    }*/ }
-  #_admin .admin_button {
-    font-size: 1em;
-    text-align: center;
-    margin: 2em 0em 2em 0em;
-    min-height: 2em; }
-  #_admin h1 {
-    font-size: 2em;
-    color: white;
-    text-align: center; }
-  #_admin .table {
-    border: 1px solid black; }
-  #_admin .admin_title {
-    color: darkslategrey; }
-  #_admin .delete {
-    background-color: #d82679; }
-  #_admin .cadre {
-    background-color: rgba(255, 255, 255, 0.5);
-    padding: 2em;
-    margin-top: 5%;
-    border-radius: 1em; }
+    }*/
+}
+/* line 12, ../sass/_admin.scss */
+#_admin .admin_button {
+  font-size: 1em;
+  text-align: center;
+  margin: 2em 0em 2em 0em;
+  min-height: 2em;
+}
+/* line 20, ../sass/_admin.scss */
+#_admin h1 {
+  font-size: 2em;
+  color: white;
+  text-align: center;
+}
+/* line 26, ../sass/_admin.scss */
+#_admin .table {
+  border: 1px solid black;
+}
+/* line 30, ../sass/_admin.scss */
+#_admin .admin_title {
+  color: darkslategrey;
+}
+/* line 34, ../sass/_admin.scss */
+#_admin .delete {
+  background-color: #d82679;
+}
+/* line 38, ../sass/_admin.scss */
+#_admin .cadre {
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 2em;
+  margin-top: 5%;
+  border-radius: 1em;
+}
 
 /*//////////////////////////////////////////////
 ///////////// _contact.scss ////////////////////
 //////////////////////////////////////////////*/
+/* line 5, ../sass/_contact.scss */
 #contact {
-  display: inline-block; }
+  display: inline-block;
+}
 
+/* line 8, ../sass/_contact.scss */
 .map-holder {
   width: 600px;
-  height: 600px; }
+  height: 600px;
+}
 
+/* line 12, ../sass/_contact.scss */
 #map {
   width: 100% !important;
   height: 100% !important;
-  margin-bottom: 3em; }
+  margin-bottom: 3em;
+}
 
+/* line 18, ../sass/_contact.scss */
 .contact_form {
   text-align: center;
   margin-bottom: 3em;
-  padding: 2em; }
-
-/*# sourceMappingURL=style.css.map */
+  padding: 2em;
+}
