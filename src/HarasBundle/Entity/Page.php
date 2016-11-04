@@ -11,7 +11,6 @@ class Page
 {
     public function __toString()
     {
-        // TODO: Implement __toString() method.
         return $this->getName() . "\tcategory: " . strval($this->getCategory());
 
     }

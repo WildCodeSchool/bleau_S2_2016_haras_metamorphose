@@ -1,16 +1,18 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Media creation</h1>
-
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
+    <h1>Création d'un nouveau média</h1>
+    <div class="admin_content">
+        {{ form_start(form) }}
+        <p>
+            {{ form_widget(form) }}
+            <input type="submit" value="Enregistrer" />
+        </p>
     {{ form_end(form) }}
-
-    <ul>
-        <li>
-            <a href="{{ path('media_index') }}">Back to the list</a>
-        </li>
-    </ul>
+    </div>
+    <div class="admin_button">
+        <a href="{{ path('media_index') }}">
+            <input type="submit" value="Liste des médias">
+        </a>
+    </div>
 {% endblock %}

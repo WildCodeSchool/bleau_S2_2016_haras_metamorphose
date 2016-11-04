@@ -4,13 +4,41 @@
     <h1>Création d'un nouveau texte</h1>
 
     {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
+    <div>
+        <p>
+            Nom
+            {{ form_errors(form.name) }}
+            {{ form_widget(form.name) }}
+        </p>
+    </div>
+    <div>
+        <p>
+            Texte en Français
+            {{ form_errors(form.textFr) }}
+            {{ form_widget(form.textFr) }}
+        </p>
+    </div>
+    <div>
+        <p>
+            Texte en Anglais
+            {{ form_errors(form.textEn) }}
+            {{ form_widget(form.textEn) }}
+        </p>
+    </div>
+    <div>
+        <p>
+            Article lié
+            {% for text in text.articlesTitle %}
+                {{ title }}
+            {% endfor %}
+        </p>
+    </div>
+    <input type="submit" value="Create" />
     {{ form_end(form) }}
 
-    <ul>
-        <li>
-            <a href="{{ path('text_index') }}">Back to the list</a>
-        </li>
-    </ul>
+    <div class="admin_button">
+            <a href="{{ path('text_index') }}">
+                <input type="submit" value="Liste des textes">
+            </a>
+    </div>
 {% endblock %}

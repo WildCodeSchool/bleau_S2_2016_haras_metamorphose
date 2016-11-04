@@ -9,11 +9,11 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Article
 {
-
     public function __toString()
     {
         return strval($this->getTitle());
     }
+
 
 //    GENERATED CODE
 
@@ -54,6 +54,7 @@ class Article
     {
         $this->medias = new \Doctrine\Common\Collections\ArrayCollection();
         $this->pages = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->createdAt = new \DateTime();
     }
 
     /**
@@ -177,6 +178,7 @@ class Article
     public function addPage(\HarasBundle\Entity\Page $pages)
     {
         $this->pages[] = $pages;
+        $page->addArticle($this);
 
         return $this;
     }
@@ -227,5 +229,33 @@ class Article
     public function getStructure()
     {
         return $this->structure;
+    }
+    /**
+     * @var \DateTime
+     */
+    private $createdAt;
+
+
+    /**
+     * Set createdAt
+     *
+     * @param \DateTime $createdAt
+     * @return Article
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * Get createdAt
+     *
+     * @return \DateTime 
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
     }
 }

@@ -17,6 +17,7 @@ class MediaController extends Controller
 
     private function uploadMediaFileAndSetPath(Media $media, $form)
     {
+		$file = $form->get('file')->getData();
         $name = $media->getName();
         $file = $form->get('file')->getData();
         $extension = $file->guessExtension();
@@ -95,7 +96,7 @@ class MediaController extends Controller
             $em->persist($media);
             $em->flush();
 
-            return $this->redirectToRoute('media_edit', array('id' => $media->getId()));
+            return $this->redirectToRoute('media_index');
         }
 
         return $this->render('media/edit.html.twig', array(

@@ -7,12 +7,11 @@
 {% block body %}
 <body id="template">
     <header id='_template_header'>
-        {{ render(controller('HarasBundle:Page:getPage', { 'name': 'header' })) }}
-
+        {% include 'HarasBundle::header.html.twig' %}
     </header>
-    <h1>Nous contacter</h1>
 
-    <div class="container">
+    <h1>Nous contacter</h1>
+    <div class="container article">
         <div class="row">
             <div class="contact_form col s6">
 
@@ -39,9 +38,16 @@
             <div id="map"></div>
         </div>
         </div>
+        {{ form_start(form) }}
+            {{ form_widget(form) }}
+           <input type="submit" value="Create" />
+        {{ form_end(form) }}
     </div>
+    {% if send == true %}
+        <p>Le formulaire a bien été envoyé</p>
+    {% endif %}
     <footer id="_template_footer">
-        {{ render(controller('HarasBundle:Page:getPage', { 'name': 'footer' })) }}
+        {% include 'HarasBundle::footer.html.twig' %}
     </footer>
 
     <script>

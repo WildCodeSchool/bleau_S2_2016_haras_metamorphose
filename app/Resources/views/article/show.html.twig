@@ -23,6 +23,7 @@
                 <h1 class="admin_title"> Article {{ article.name }}</h1>
 
     <table>
+<<<<<<< HEAD
         <tbody>
             <thead>
             <tr>
@@ -44,12 +45,49 @@
                 </td>
             <tr>
                 <th>Content</th>
+=======
+        <tr>
+            <th>Nom de l'article</th>
+            <td>
+                {{ article.name }}
+            </td>
+        </tr>
+        <tr>
+            <th>Page où il est situé</th>
+            {% for page in article.pages %}
+            <td>
+                {{ page.name }}
+            </td>
+            </tr>
+        {% endfor %}
+        <tr>
+            <th>Titre du texte</th>
+            {% for text in article.title %}
+                <td>
+                    {{ article.title }}
+                </td>
+            {% endfor %}
+        <tr>
+            <th>Contenu du texte</th>
+            {% for text in article.content %}#}
+>>>>>>> DevSymfony
                 <td>
                     {{ article.content }}
                 </td>
-            </tr>
-        </tbody>
+            {% endfor %}
+        </tr>
+        <tr>
+            <th>Médias</th>
+            {% for medias in article.medias %}
+                <tr>
+                    <td>
+                        {{ medias.name }}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tr>
     </table>
+<<<<<<< HEAD
             <div class="row">
                 <div class="admin_button col m6">
                     <a class="waves-effect waves-light btn" href="{{ path('article_edit', { 'id': article.id }) }}">Modify article</a>
@@ -67,4 +105,21 @@
         </li>
     </ul>
 </body>
+=======
+    <div class="admin_button">
+        <a href="{{ path('article_edit', { 'id': article.id }) }}">
+            <input type="submit" value="Modifier cet article">
+        </a>
+    </div>
+    <div class="admin_button">
+        <a href="{{ path('article_index') }}">
+            <input type="submit" value="Liste des articles">
+        </a>
+    </div>
+    <div class="admin_button">
+        {{ form_start(delete_form) }}
+            <input type="submit" value="Supprimer l'article">
+        {{ form_end(delete_form) }}
+    </div>
+>>>>>>> DevSymfony
 {% endblock %}

@@ -6,18 +6,15 @@
     <table>
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Name</th>
-                <th>Textfr</th>
-                <th>Texten</th>
+                <th>Texte en Français</th>
+                <th>Texte en Anglais</th>
                 <th>Pages</th>
-                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for text in texts %}
             <tr>
-                <td><a href="{{ path('text_show', { 'id': text.id }) }}">{{ text.id }}</a></td>
                 <td>{{ text.name }}</td>
                 <td>{{ text.textFr }}</td>
                 <td>{{ text.textEn }}</td>
@@ -27,23 +24,19 @@
                     {% endfor %}
                 </td>
                 <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('text_show', { 'id': text.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('text_edit', { 'id': text.id }) }}">edit</a>
-                        </li>
-                    </ul>
+                    <a href="{{ path('text_show', { 'id': text.id }) }}">Voir</a>
+                </td>
+                <td>
+                    <a href="{{ path('text_edit', { 'id': text.id }) }}">Editer</a>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('text_new') }}">Create a new entry</a>
-        </li>
-    </ul>
+    <div class="admin_button">
+            <a href="{{ path('text_new') }}">
+                <input type="submit" value="Créer un nouveau texte">
+            </a>
+    </div>
 {% endblock %}

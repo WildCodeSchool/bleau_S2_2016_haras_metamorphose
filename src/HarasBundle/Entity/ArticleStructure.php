@@ -13,6 +13,10 @@ class ArticleStructure
     {
         return $this->getName();
     }
+
+    //    GENERATED CODE
+
+
     /**
      * @var int
      */

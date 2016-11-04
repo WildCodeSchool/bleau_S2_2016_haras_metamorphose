@@ -9,6 +9,17 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class ArticleStructure
 {
+    public function __toString()
+    {
+        return $this->getName();
+    }
+<<<<<<< HEAD
+
+    //    GENERATED CODE
+
+
+=======
+>>>>>>> DevSymfony
     /**
      * @var int
      */

@@ -46,6 +46,7 @@ class TextController extends Controller
 
             return $this->redirectToRoute('text_show', array('id' => $text->getId()));
         }
+        $form->remove('pages');
 
         return $this->render('text/new.html.twig', array(
             'text' => $text,
@@ -84,6 +85,7 @@ class TextController extends Controller
 
             return $this->redirectToRoute('text_edit', array('id' => $text->getId()));
         }
+        $editForm->remove('pages');
 
         return $this->render('text/edit.html.twig', array(
             'text' => $text,
