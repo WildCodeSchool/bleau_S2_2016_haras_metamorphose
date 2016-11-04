@@ -1,130 +1,116 @@
 {% extends '@Haras/base.html.twig' %}
 
 {% block materialize %}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
-{% endblock materialize %}
-
-{% block body %}
-    <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
 
     <!-- Compiled and minified JavaScript -->
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             Materialize.updateTextFields();
             $('select').material_select();
         });
     </script>
-<body id="_admin">
-    <h1>Modifier l'article {{ article.name }}</h1>
-    <div class="admin_content">
-    {{ form_start(edit_form) }}
-        <div class="row">
-            <div class="col s12">
-                Nom
-                <div class="input-field inline">
-                    {{ form_errors(edit_form.name) }}
-                    {{ form_widget(edit_form.name) }}
-                    <label for="nom" data-error="wrong" data-success="right">
-                    </label>
+{% endblock materialize %}
+
+{% block body %}
+    <body id="_admin">
+    <div class="container">
+        <div class="cadre">
+            <div class="row">
+                <h1 class="admin_title">Modifier l'article {{ article.name }}</h1>
+                {{ form_start(edit_form) }}
+                <div class="row">
+                    <div class="col s12">
+                        Name
+                        <div class="input-field inline">
+                            {{ form_errors(edit_form.name) }}
+                            {{ form_widget(edit_form.name) }}
+                            <label for="nom" data-error="wrong" data-success="right"></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div> Page où est situé l'article
+                        <div class="input-field inline">
+                            <select>
+                                <option value= {{ form_errors(edit_form.pages) }} {{ form_widget(edit_form.pages) }} </option>
+                            </select>
+                        </div> {% if article.title is not null %}
+                            <table>
+                                <th> Nom du titre de l'article</th>
+                                <td> {{ article.title }} </td>
+                                <td>
+                                    <a href="{{ path('text_show', { 'id': article.title.id }) }}">View</a>
+                                </td>
+                                <td>
+                                    <a href="{{ path('text_edit', { 'id': article.title.id }) }}">Edit</a>
+                                </td>
+                            </table> {% endif %} {% if article.content is not null %}
+                            <table>
+                                <tr>
+                                    <th> Nom du contenu de l'article :
+                                    </th>
+                                    <td> {{ article.content }} </td>
+                                    <td>
+                                        <a href="{{ path('text_show', { 'id': article.content.id }) }}">View</a>
+                                    </td>
+                                    <td>
+                                        <a href="{{ path('text_edit', { 'id': article.content.id }) }}">Edit</a>
+                                    </td>
+                                </tr>
+                            </table> {% endif %} {% if article.medias is not null %}
+                            <table>
+                                <thead>
+                                <tr>
+                                    <th>Nom des médias</th>
+                                </tr>
+                                </thead>
+                                <tbody> {% for media in article.medias %}
+                                    <tr>
+                                        <td> {{ media.name }} </td>
+                                        <td>
+                                            <a href="{{ path('media_show', { 'id': media.id }) }}">View</a>
+                                        </td>
+                                        <td>
+                                            <a href="{{ path('media_edit', { 'id': media.id }) }}">Edit</a>
+                                        </td>
+                                    </tr> {% endfor %}
+                                </tbody>
+                            </table> {% endif %}
+                        <div class="row">
+                            <div class="admin_button col m3">
+                                <a class="waves-effect waves-light btn" href="{{ path('text_new') }}">
+                                    <input type="submit" value="Add text"/>
+                                </a>
+                            </div>
+                            <div class="admin_button col m3">
+                                <a class="waves-effect waves-light btn" href="{{ path('media_new') }}">
+                                    <input type="submit" value="Add media"/>
+                                </a>
+                            </div>
+                            <div class="admin_button col m3">
+                                <a class="waves-effect waves-light btn">
+                                    <input type="submit" value="Modify  article"/></a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="admin_button col m12">
+                                <a class="waves-effect waves-light btn" href="{{ path('article_index') }}">
+                                    <input type="submit" value="Return to Articles list">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="admin_button col m12">
+                                <a class="waves-effect waves-light btn delete">
+                                    <input type="submit" value="Delete article"></a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div>
-                Page où est situé l'article
-                <div class="input-field inline">
-                    <select>
-                        <option value=
-                            {{ form_errors(edit_form.pages) }}
-                            {{ form_widget(edit_form.pages) }}
-                        </option>
-                    </select>
-        </div>
-        {% if article.title is not null %}
-            <table>
-                <th>
-                    Nom du titre de l'article
-                </th>
-                <td>
-                    {{ article.title }}
-                </td>
-                <td>
-                    <a href="{{ path('text_show', { 'id': article.title.id }) }}">Voir</a>
-                </td>
-                <td>
-                    <a href="{{ path('text_edit', { 'id': article.title.id }) }}">Editer</a>
-                </td>
-            </table>
-        {% endif %}
-        {% if article.content is not null %}
-            <table>
-                <tr>
-                    <th>
-                        Nom du contenu de l'article :
-                    </th>
-                    <td>
-                        {{ article.content }}
-                    </td>
-                    <td>
-                        <a href="{{ path('text_show', { 'id': article.content.id }) }}">Voir</a>
-                    </td>
-                    <td>
-                        <a href="{{ path('text_edit', { 'id': article.content.id }) }}">Editer</a>
-                    </td>
-                </tr>
-            </table>
-        {% endif %}
-        {% if article.medias is not null %}
-            <table>
-                <thead>
-                <tr>
-                    <th>Nom des médias</th>
-                </tr>
-                </thead>
-                <tbody>
-                {% for media in article.medias %}
-                    <tr>
-                        <td>
-                            {{ media.name }}
-                        </td>
-                        <td>
-                            <a href="{{ path('media_show', { 'id': media.id }) }}">Voir</a>
-                        </td>
-                        <td>
-                            <a href="{{ path('media_edit', { 'id': media.id }) }}">Editer</a>
-                        </td>
-                    </tr>
-                {% endfor %}
-                </tbody>
-            </table>
-        {% endif %}
-    </div>
-    <div>
-        <input type="submit" value="Modifier l'article" />
-        {{ form_end(edit_form) }}
-    </div>
-    <div class="admin_button">
-        <a href="{{ path('text_new') }}">
-            <input type="submit" value="Ajouter un texte" />
-        </a>
-    </div>
-    <div class="admin_button">
-        <a href="{{ path('media_new') }}">
-            <input type="submit" value="Ajouter un média" />
-        </a>
-    </div>
-    <div class="admin_button">
-        <a href="{{ path('article_index') }}">
-            <input type="submit" value="Retourner à la liste des articles">
-        </a>
-    </div>
-    <div class="admin_button">
-        {{ form_start(delete_form) }}
-            <input type="submit" value="Supprimer l'article">
-        {{ form_end(delete_form) }}
-    </div>
+    </body>
 {% endblock %}

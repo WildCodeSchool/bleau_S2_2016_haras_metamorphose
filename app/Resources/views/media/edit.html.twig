@@ -1,41 +1,81 @@
-{% extends 'base.html.twig' %}
+{% extends '@Haras/base.html.twig' %}
+
+{% block materialize %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            Materialize.updateTextFields();
+            $('select').material_select();
+        });
+    </script>
+{% endblock materialize %}
 
 {% block body %}
-    <h1>Edition du média {{ medium.name }}</h1>
+<<<<<<< HEAD
+    <body id="_admin">
+    <div class="container">
+        <div class="cadre">
+            <div class="row">
+                <h1 class="admin_title">Media edit</h1>
 
-    {{ form_start(edit_form) }}
-    <div class="admin_content">
-        <p>
-            Nom
-            {{ form_errors(edit_form.name) }}
-            {{ form_widget(edit_form.name) }}
-        </p>
-    </div>
-    <div class="admin_content">
-        <p>
-            Fichier
-            {{ form_errors(edit_form.file) }}
-            {{ form_widget(edit_form.file) }}
-        </p>
-    </div>
-    <div class="admin_content">
-        <p>
-            Nom du fichier
-            {{ form_errors(edit_form.alt) }}
-            {{ form_widget(edit_form.alt) }}
-        </p>
-    </div>
-        <input type="submit" value="Edit" />
-    {{ form_end(edit_form) }}
+                {{ form_start(edit_form) }}
+                <div class="col m12">
+                    <p>Current media: </p>
+                    <img src="{{ asset(medium.path) }}" alt="{{ medium.alt }}" height=100px>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12">
+                    Change Name:
+                    <div class="input-field inline">
+                        {{ form_errors(edit_form.name) }}
+                        {{ form_widget(edit_form.name) }}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12">
+                    Change current media:
+                    {{ form_errors(edit_form.file) }}
+                    {{ form_widget(edit_form.file) }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12">
+                    File name:
+                    <div class="input-field inline">
+                        {{ form_errors(edit_form.alt) }}
+                        {{ form_widget(edit_form.alt) }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="admin_button col m6">
+                        <a class="waves-effect waves-light btn">
+                            <input type="submit" value="Edit"/>
+                        </a>
+                    </div>
+                    <div class="row">
+                        {{ form_start(delete_form) }}
+                        <div class="admin_button col m6">
+                            <a class="waves-effect waves-light btn delete">
+                                <input type="submit" value="Delete">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="admin_button col m12">
+                        <a class="waves-effect waves-light btn" href="{{ path('media_index') }}">Back to the list</a>
+                    </div>
 
-    <div class="admin_button">
-        <a href="{{ path('media_index') }}">
-            <input type="submit" value="Retour à la liste des médias">
-        </a>
-    </div>
-    <div class="admin_button">
-        {{ form_start(delete_form) }}
-            <input type="submit" value="Delete">
-        {{ form_end(delete_form) }}
-    </div>
+                </div>
+                {{ form_end(delete_form) }}
+                {{ form_end(edit_form) }}
+
+
+            </div>
+        </div>
+    </body>
 {% endblock %}

@@ -1,64 +1,79 @@
 {% extends '@Haras/base.html.twig' %}
-{% block materialize %}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
-{% endblock materialize %}
 
-{% block body %}
-    <body id="_admin">
-    <!-- Compiled and minified CSS -->
+{% block materialize %}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
 
     <!-- Compiled and minified JavaScript -->
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             Materialize.updateTextFields();
             $('select').material_select();
         });
     </script>
-    <h1>Edition de la page {{ page.name }}</h1>
-    <div class="admin_list">
-        {{ form_start(edit_form) }}
+{% endblock materialize %}
+
+{% block body %}
+    <body id="_admin">
+    <div class="container">
+        <div class="cadre">
             <div class="row">
-                <div class="col s12">
-                    Nom
+                <h1 class="admin_title">Edit page {{ page.name }}</h1>
+                {{ form_start(edit_form) }}
+                <div>
+                    Edit page Name
                     <div class="input-field inline">
                         {{ form_errors(edit_form.name) }}
                         {{ form_widget(edit_form.name) }}
-                        <label for="nom" data-error="wrong" data-success="right">
-                        </label>
+                        <label for="nom" data-error="wrong" data-success="right"></label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col m12">
+                        Linked Articles
+                        <div class="input-field inline">
+                            <select>
+                                <option value=
+                                        {{ form_errors(edit_form.articles) }}
+                                    {{ form_widget(edit_form.articles) }} </option>
+                            </select>
+                        </div>
                     </div>
                 </div>
             </div>
-        <div class="input-field inline col s12">
-            Articles
-            <select>
-                <option value=
-                    {{ form_errors(edit_form.articles) }}
-                    {{ form_widget(edit_form.articles) }}
-                        </option>
-            </select>
+            <div class="row">
+                <div class="admin_button col m4">
+                    <a class="waves-effect waves-light btn" href="{{ path('page_show', { 'name': page.name }) }}">
+                        <input type="submit" value="Validate page modifications"/>
+                    </a>
+                </div>
+                <div class="admin_button col m4">
+                    <a class="waves-effect waves-light btn" href="{{ path('article_new', { 'name': page.name }) }}">
+                        <input type="submit" value="Add article"/>
+                    </a>
+                </div>
+                <div>
+                    {{ form_end(edit_form) }}
+                    {{ form_start(delete_form) }}
+                    <div class="admin_button col m4">
+                        <input class="waves-effect waves-light btn delete" type="submit" value="Delete page">
+                    </div>
+                    {{ form_end(delete_form) }}
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="admin_button col m12">
+                    <a class="waves-effect waves-light btn" href="{{ path('page_index') }}">
+                        <input type="submit" value="Return to pages list">
+                    </a>
+                </div>
+            </div>
         </div>
 
 
 
-    </div>
-    <div class="admin_button">
-        <a href="{{ path('page_show', { 'name': page.name }) }}">
-            <input type="submit" value="Valider les modifications de la page" />
-        </a>
-    </div>
-    {{ form_end(edit_form) }}
-    <div class="admin_button">
-        <a href="{{ path('article_new') }}">
-            <input type="submit" value="Ajouter un article" />
-        </a>
-    </div>
-    <div class="admin_button">
-        <a href="{{ path('page_index') }}">
-            <input type="submit" value="Retour à la liste des pages">
-        </a>
     </div>
     </body>
 {% endblock %}

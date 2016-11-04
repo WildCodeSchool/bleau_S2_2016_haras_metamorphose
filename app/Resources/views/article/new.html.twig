@@ -1,56 +1,112 @@
-{% extends 'base.html.twig' %}
+{% extends '@Haras/base.html.twig' %}
+
+{% block materialize %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            Materialize.updateTextFields();
+            $('select').material_select();
+        });
+    </script>
+{% endblock materialize %}
 
 {% block body %}
-    <h1>Création d'un nouvel article</h1>
-    {{ form_start(form) }}
-    <div class="admin_content">
-        <div>
-            <p>
-                Nom de l'article
-                {{ form_errors(form.name) }}
-                {{ form_widget(form.name) }}
-            </p>
+<body id="_admin">
+<div class="container">
+    <div class="cadre">
+        <div class="row">
+            <h1 class="admin_title">Create new article</h1>
+            {{ form_start(form) }}
+            <div class="row">
+                <div class="col s12">
+                    Name
+                    <div class="input-field inline">
+                        {{ form_errors(form.name) }}
+                        {{ form_widget(form.name) }}
+                        <label for="nom" data-error="wrong" data-success="right"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12">
+                    Article structure
+                    <div class="input-field inline">
+                        <select>
+                            <option value=
+                                    {{ form_errors(form.structure) }}
+                                    {{ form_widget(form.structure) }}
+                                    </option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12">
+                    Article location
+                    <div class="input-field inline">
+                        <select>
+                            <option value=
+                                    {{ form_errors(form.pages) }}
+                                    {{ form_widget(form.pages) }}
+                                    </option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12">
+                    Article title
+                    <div class="input-field inline">
+                        <select>
+                            <option value=
+                                    {{ form_errors(form.title) }}
+                                    {{ form_widget(form.title) }}
+                                    </option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12">
+                    Article content
+                    <div class="input-field inline">
+                        <select>
+                            <option value=
+                                    {{ form_errors(form.content) }}
+                                    {{ form_widget(form.content) }}
+                                    </option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <form action="#">
+                    <p>Médias
+                        {{ form_errors(form.medias) }}
+                        {{ form_widget(form.medias) }}
+                        <input type="checkbox" id="medias"/>
+                        <label for="medias"></label>
+                    </p>
+                </form>
+            </div>
+            <div class="admin_button col m3">
+                <a class="waves-effect waves-light btn">
+                    <input type="submit" value="Create article"/>
+                </a>
+            </div>
+            {{ form_end(form) }}
+            <div class="admin_button col m3">
+                <a class="waves-effect waves-light btn" href="{{ path('article_index') }}">Return to articles
+                    list>
+                </a>
+            </div>
         </div>
-        <div>
-            <p>
-                Structure de l'article
-                {{ form_errors(form.structure) }}
-                {{ form_widget(form.structure) }}
-            </p>
-        </div>
-        <div>
-            <p>
-                Page où est situé l'article
-                {{ form_errors(form.pages) }}
-                {{ form_widget(form.pages) }}
-            </p>
-        </div>
-        <div>
-            <p>
-                Titre du texte
-                {{ form_errors(form.title) }}
-                {{ form_widget(form.title) }}
-            </p>
-        </div>
-        <div>
-            <p>
-                Contenu du texte
-                {{ form_errors(form.content) }}
-                {{ form_widget(form.content) }}
-            </p>
-        </div>
-        <div>
-            <p>
-                Médias
-                {{ form_errors(form.medias) }}
-                {{ form_widget(form.medias) }}
-            </p>
-        </div>
-        <input type="submit" value="Création de l'article" />
-    {{ form_end(form) }}
-     <div>
-        <a href="{{ path('article_index') }}">
-            <input type="submit" value="Retourner à la liste des articles">
-         <a/>
     </div>
+</div>
+</body>
+
 {% endblock %}

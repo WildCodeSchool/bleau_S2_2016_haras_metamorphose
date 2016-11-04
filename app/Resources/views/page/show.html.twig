@@ -1,13 +1,25 @@
 {% extends '@Haras/base.html.twig' %}
+
 {% block materialize %}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            Materialize.updateTextFields();
+            $('select').material_select();
+        });
+    </script>
 {% endblock materialize %}
 
 {% block body %}
-<body id="_admin">
+    <body id="_admin">
     <div class="container">
-        <div class="row">
-            <h1 class="admin_title">Voici les articles de la page {{ page.name }}</h1>
+        <div class="cadre">
+            <div class="row">
+                <h1 class="admin_title">Articles of the {{ page.name }}</h1>
 
             <table>
                 <thead>
@@ -73,17 +85,23 @@
                         <td>
                             <a href="{{ path('media_edit', { 'id': media.id }) }}">Edit</a>
                         </td>
-                    </tr>
-                {% endfor %}
-                </tbody>
-            </table>
-            <div class="admin_button col m6">
-                <a class="waves-effect waves-light btn"href="{{ path('page_index') }}">Retourner à la liste des pages</a>
-            </div>
-            <div class="admin_button col m6">
-                    <a class="waves-effect waves-light btn" href="{{ path('page_edit', { 'name': page.name }) }}">Modifier la page</a>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                <div class="row">
+                    <div class="admin_button col m6">
+                        <a class="waves-effect waves-light btn" href="{{ path('page_edit', { 'name': page.name }) }}">Modify
+                            page</a>
+                    </div>
+                    <div class="admin_button col m6">
+                        <a class="waves-effect waves-light btn" href="{{ path('article_new', { 'name': page.name }) }}">Add
+                            Article</a>
+                    </div>
+                </div>
+                <div class="admin_button col m12">
+                    <a class="waves-effect waves-light btn" href="{{ path('page_index') }}">Return to pages list</a>
+                </div>
             </div>
         </div>
-    </div>
-</body>
+    </body>
 {% endblock %}

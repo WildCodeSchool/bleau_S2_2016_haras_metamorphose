@@ -1,13 +1,51 @@
 {% extends '@Haras/base.html.twig' %}
+
 {% block materialize %}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            Materialize.updateTextFields();
+            $('select').material_select();
+        });
+    </script>
 {% endblock materialize %}
 
 {% block body %}
-<body id="_admin">
-    <h1>Article {{ article.name }}</h1>
+    <body id="_admin">
+    <div class="container">
+        <div class="cadre">
+            <div class="row">
+
+                <h1 class="admin_title"> Article {{ article.name }}</h1>
 
     <table>
+<<<<<<< HEAD
+        <tbody>
+            <thead>
+            <tr>
+                <th>Article Name</th>
+                <td>
+                    {{ article.name }}
+                </td>
+            </tr>
+            <tr>
+                <th>Page location</th>
+                <td>
+                    {{ article.pages[0] }}
+                </td>
+                </tr>
+            <tr>
+                <th>Texts list</th>
+                <td>
+                    {{ article.title }}
+                </td>
+            <tr>
+                <th>Content</th>
+=======
         <tr>
             <th>Nom de l'article</th>
             <td>
@@ -32,6 +70,7 @@
         <tr>
             <th>Contenu du texte</th>
             {% for text in article.content %}#}
+>>>>>>> DevSymfony
                 <td>
                     {{ article.content }}
                 </td>
@@ -48,6 +87,25 @@
             {% endfor %}
         </tr>
     </table>
+<<<<<<< HEAD
+            <div class="row">
+                <div class="admin_button col m6">
+                    <a class="waves-effect waves-light btn" href="{{ path('article_edit', { 'id': article.id }) }}">Modify article</a>
+                </div>
+                <div class="admin_button col m6">
+                    <a class="waves-effect waves-light btn" href="{{ path('article_index') }}">Return to articles list</a>
+                </div>
+            </div>
+            <div class="row">
+            {{ form_start(delete_form) }}
+                <div class="admin_button col m12">
+                <input class="waves-effect waves-light btn delete" type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+            </div>
+        </li>
+    </ul>
+</body>
+=======
     <div class="admin_button">
         <a href="{{ path('article_edit', { 'id': article.id }) }}">
             <input type="submit" value="Modifier cet article">
@@ -63,4 +121,5 @@
             <input type="submit" value="Supprimer l'article">
         {{ form_end(delete_form) }}
     </div>
+>>>>>>> DevSymfony
 {% endblock %}
