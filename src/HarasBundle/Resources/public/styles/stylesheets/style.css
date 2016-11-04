@@ -226,37 +226,39 @@ body, html {
     height: 190px;
     margin: 5px;
     overflow: hidden;
+    text-decoration: none;
+    color: white;
     -webkit-transition: all 1s ease;
     -moz-transition: all 1s ease;
     -o-transition: all 1s ease;
     -ms-transition: all 1s ease;
     transition: all 1s ease; }
+    #_index .index_rubrique p {
+      font-size: 18px;
+      margin: 0; }
   #_index .index_rubrique_img {
     width: 120px;
     margin-top: 10px; }
-  #_index .index_rubrique p {
-    font-size: 18px;
-    margin: 0; }
   #_index .index_rubrique.hover {
     height: 300px;
     width: 300px;
     margin-top: -110px;
     box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.7); }
-  #_index .index_rubrique.section1 {
+  #_index .index_rubrique.section1Link {
     background-color: rgba(7, 64, 10, 0.6); }
-  #_index .section1.hover {
+  #_index .section1Link.hover {
     background-color: #07400a; }
-  #_index .index_rubrique.section2 {
+  #_index .index_rubrique.section2Link {
     background-color: rgba(140, 104, 34, 0.6); }
-  #_index .section2.hover {
+  #_index .section2Link.hover {
     background-color: #8c6822; }
-  #_index .index_rubrique.section3 {
+  #_index .index_rubrique.section3Link {
     background-color: rgba(39, 34, 140, 0.6); }
-  #_index .section3.hover {
+  #_index .section3Link.hover {
     background-color: #27228c; }
-  #_index .index_rubrique.section4 {
+  #_index .index_rubrique.section4Link {
     background-color: rgba(183, 21, 134, 0.6); }
-  #_index .section4.hover {
+  #_index .section4Link.hover {
     background-color: #b71586; }
 
 /*//////////////////////////////////////////////
@@ -320,13 +322,13 @@ body, html {
     display: inline; }
   #_template_header #langues a:hover {
     background-color: blue; }
-  #_template_header .section1:hover {
+  #_template_header .section1Link.hover {
     background-color: #07400a; }
-  #_template_header .section2:hover {
+  #_template_header .section2Link.hover {
     background-color: #8c6822; }
-  #_template_header .section3:hover {
+  #_template_header .section3Link.hover {
     background-color: #27228c; }
-  #_template_header .section4:hover {
+  #_template_header .section4Link.hover {
     background-color: #b71586; }
   #_template_header .accueil:hover, #_template_header #langues a:hover, #_template_header .contact:hover {
     background-color: blue; }

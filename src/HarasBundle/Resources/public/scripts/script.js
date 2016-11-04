@@ -7,33 +7,33 @@ $(document).ready(function() {
 //Survol des liens vers les sections
 //Cas .section1 survolée
 	function toggleSection1() {
-		$('.section1').toggleClass("hover");
+		$('.section1Link').toggleClass("hover");
 	}
-	var section = $('.section1');
+	var section = $('.section1Link');
 	section.on('mouseenter', toggleSection1);
 	section.on('mouseleave', toggleSection1);
 
 //Cas .section2 survolée
 	function toggleSection2() {
-		$('.section2').toggleClass("hover");
+		$('.section2Link').toggleClass("hover");
 	}
-	section = $('.section2');
+	section = $('.section2Link');
 	section.on('mouseenter', toggleSection2);
 	section.on('mouseleave', toggleSection2);
 
 //Cas .section3 survolée
 	function toggleSection3() {
-		$('.section3').toggleClass("hover");
+		$('.section3Link').toggleClass("hover");
 	}
-	section = $('.section3');
+	section = $('.section3Link');
 	section.on('mouseenter', toggleSection3);
 	section.on('mouseleave', toggleSection3);
 
 //Cas .section4 survolée
 	function toggleSection4() {
-		$('.section4').toggleClass("hover");
+		$('.section4Link').toggleClass("hover");
 	}
-	section = $('.section4');
+	section = $('.section4Link');
 	section.on('mouseenter', toggleSection4);
 	section.on('mouseleave', toggleSection4);
 });

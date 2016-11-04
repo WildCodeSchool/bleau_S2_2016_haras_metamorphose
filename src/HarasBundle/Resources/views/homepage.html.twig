@@ -26,30 +26,30 @@
                 <h1>{{ catchPhrase | nl2br }}</h1>
             </div>
             <div id="index_focus">
-                <div class="section1 index_rubrique">
+                <a class="section1Link index_rubrique" href="{{ path('haras_get_page', {'name': 'section1'}) }}">
                     <img class="index_rubrique_img" src="{{ asset('bundles/haras/images/logo.png') }}" alt="tourisme">
                     <p>
                         {{ section1Name }}
                     </p>
-                </div>
-                <div class="section2 index_rubrique">
+                </a>
+                <a class="section2Link index_rubrique" href="{{ path('haras_get_page', {'name': 'section2'}) }}">
                     <img class="index_rubrique_img" src="{{ asset('bundles/haras/images/logo.png') }}" alt="travail">
                     <p>
                         {{ section2Name }}
                     </p>
-                </div>
-                <div class="section3 index_rubrique">
+                </a>
+                <a class="section3Link index_rubrique" href="{{ path('haras_get_page', {'name': 'section3'}) }}">
                     <img class="index_rubrique_img" src="{{ asset('bundles/haras/images/logo.png') }}" alt="ecologie">
                     <p>
                         {{ section3Name }}
                     </p>
-                </div>
-                <div class="section4 index_rubrique">
+                </a>
+                <a class="section4Link index_rubrique" href="{{ path('haras_get_page', {'name': 'section4'}) }}">
                     <img class="index_rubrique_img" src="{{ asset('bundles/haras/images/logo.png') }}" alt="tourisme">
                     <p>
                         {{ section4Name }}
                     </p>
-                </div>
+                </a>
             </div>
         </div>
     </div>

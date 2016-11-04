@@ -66,21 +66,20 @@
 		background-color: blue;
 	}
 	
-	.section1:hover {
+	.section1Link.hover {
 		background-color: $section1-color;
 	}
-	.section2:hover{
+	.section2Link.hover{
 		background-color: $section2-color;
 	}
-	.section3:hover{
+	.section3Link.hover{
 		background-color: $section3-color;
 	}
-	.section4:hover{
+	.section4Link.hover{
 		background-color: $section4-color;
 	}
 
 	.accueil:hover, #langues a:hover, .contact:hover{
 		background-color: blue;
 	}
-
 }

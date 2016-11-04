@@ -2,6 +2,7 @@
 ////////////////// _index.scss /////////////////
 //////////////////////////////////////////////*/
 
+$icone-transparency: 0.4;
 #_index {
 	#index_video {
 		position: fixed;
@@ -76,19 +77,19 @@
 		height: 190px;
 		margin: 5px;
 		overflow: hidden;
+		text-decoration: none;
+		color: white;
 		@include transition(all 1s ease);
+		p {
+			font-size: 18px;
+			margin: 0;
+		}
 	}
 
 	.index_rubrique_img {
 		width: 120px;
 		margin-top: 10px;
 	}
-
-	.index_rubrique p {
-		font-size: 18px;
-		margin: 0;
-	}
-
 
 	.index_rubrique.hover {
 		height: 300px;
@@ -97,31 +98,31 @@
 		box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.7);
 	}
 
-	.index_rubrique.section1 {
-		background-color: transparentize($section1-color, .4);
+	.index_rubrique.section1Link {
+		background-color: transparentize($section1-color, $icone-transparency);
 	}
-	.section1.hover {
+	.section1Link.hover {
 		background-color: $section1-color;
 	}
 
-	.index_rubrique.section2 {
-		background-color: transparentize($section2-color, .4);
+	.index_rubrique.section2Link {
+		background-color: transparentize($section2-color, $icone-transparency);
 	}
-	.section2.hover {
+	.section2Link.hover {
 		background-color: $section2-color;
 	}
 
-	.index_rubrique.section3 {
-		background-color: transparentize($section3-color, .4);;
+	.index_rubrique.section3Link {
+		background-color: transparentize($section3-color, $icone-transparency);;
 	}
-	.section3.hover {
+	.section3Link.hover {
 		background-color: $section3-color;
 	}
 
-	.index_rubrique.section4 {
-		background-color: transparentize($section4-color, .4);
+	.index_rubrique.section4Link {
+		background-color: transparentize($section4-color, $icone-transparency);
 	}
-	.section4.hover {
+	.section4Link.hover {
 		background-color: $section4-color;
 	}
 
