@@ -7,7 +7,7 @@
     background-color: lightgreen;
     height: 100%;
     width: 100%;
-   // background-image: url("../images/test.png");
+    background-image: url("../../../web/bundles/haras/images/test.png");
 
     .admin_button {
       font-size: 1em;
@@ -41,20 +41,8 @@
       margin-top: 5%;
       border-radius: 1em;
     }
-  /*
-    .admin_content {
 
+    .image_preview {
+      max-height: 300px;
     }
-
-    .admin_show {
-
-    }
-
-    .admin_edit {
-
-    }
-
-    .admin_edit {
-
-    }*/
 }

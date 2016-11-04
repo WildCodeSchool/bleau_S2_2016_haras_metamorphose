@@ -1,40 +1,59 @@
-{% extends 'base.html.twig' %}
+{% extends '@Haras/base.html.twig' %}
+
+{% block materialize %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+{% endblock materialize %}
 
 {% block body %}
-    <h1>Media list</h1>
+    <body id="_admin">
+    <div class="container">
+        <div class="row">
+            <div class="cadre">
+                <h1 class="admin_title">Medias list</h1>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Path</th>
+                        <th>Image</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for medium in media %}
+                        <tr>
+                            <td>{{ medium.name }}</td>
+                            <td>{{ medium.path }}</td>
+                            <td><img src="{{ asset(medium.path) }}" alt="{{ medium.alt }}" height=100px></td>
+                            <td>
+                                <ul>
+                                    <li>
+                                        <a href="{{ path('media_show', { 'id': medium.id }) }}">show</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ path('media_edit', { 'id': medium.id }) }}">edit</a>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                <ul>
+                    <li>
+                        <div class="row">
+                            <div class="admin_button col m6">
+                                <a class="waves-effect waves-light btn"{{ path('media_new') }}">Create a new entry</a>
+                            </div>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Path</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for medium in media %}
-            <tr>
-                <td>{{ medium.name }}</td>
-                <td>{{ medium.path }}</td>
-                <td><img src="{{ asset(medium.path) }}" alt="{{ medium.alt }}" height=100px></td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('media_show', { 'id': medium.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('media_edit', { 'id': medium.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('media_new') }}">Create a new entry</a>
-        </li>
-    </ul>
+                            <div class="admin_button col m6">
+                                <a class="waves-effect waves-light btn" href="{{ path('page_index') }}">Return to pages
+                                    list</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    </body>
 {% endblock %}

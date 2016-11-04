@@ -743,22 +743,7 @@ body, html {
   background-color: lightgreen;
   height: 100%;
   width: 100%;
-  /*
-    .admin_content {
-
-    }
-
-    .admin_show {
-
-    }
-
-    .admin_edit {
-
-    }
-
-    .admin_edit {
-
-    }*/
+  background-image: url("../../../web/bundles/haras/images/test.png");
 }
 /* line 12, ../sass/_admin.scss */
 #_admin .admin_button {
@@ -791,6 +776,10 @@ body, html {
   padding: 2em;
   margin-top: 5%;
   border-radius: 1em;
+}
+/* line 45, ../sass/_admin.scss */
+#_admin .image_preview {
+  max-height: 300px;
 }
 
 /*//////////////////////////////////////////////

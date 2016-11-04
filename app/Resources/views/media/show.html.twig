@@ -1,32 +1,46 @@
-{% extends 'base.html.twig' %}
+{% extends '@Haras/base.html.twig' %}
+
+{% block materialize %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+{% endblock materialize %}
 
 {% block body %}
-    <h1>Media</h1>
+<body id="_admin">
+    <div class="container">
+        <div class="row">
+            <div class="cadre">
+                <h1 class="admin_title">Media</h1>
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>Name</th>
+                            <td>{{ medium.name }}</td>
+                        </tr>
+                        <tr>
+                            <th>Preview</th>
+                            <td><img class="image_preview" src="{{ asset(medium.path) }}" alt="{{ medium.alt }}"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                    <div class="row">
+                        <div class="admin_button col m6">
+                            <a class="waves-effect waves-light btn" href="{{ path('media_edit', { 'id': medium.id }) }}">Edit</a>
+                        </div>
+                        <div class="admin_button col m6">
+                            <input class="waves-effect waves-light btn delete" type="submit" value="Delete">
+                        </div>
 
-    <table>
-        <tbody>
-            <tr>
-                <th>Name</th>
-                <td>{{ medium.name }}</td>
-            </tr>
-            <tr>
-                <th>file</th>
-                <td><img src="{{ asset(medium.path) }}" alt="{{ medium.alt }}"></td>
-            </tr>
-        </tbody>
-    </table>
+                    </div>
+                        {{ form_start(delete_form) }}
+                    <div class="row">
+                        <div class="admin_button col m12">
+                            <a class="waves-effect waves-light btn" href="{{ path('media_index') }}">Back to the list</a>
+                        </div>
+                    {{ form_end(delete_form) }}
 
-    <ul>
-        <li>
-            <a href="{{ path('media_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('media_edit', { 'id': medium.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+                    </div>
+            </div>
+        </div>
+    </div>
+</body>
 {% endblock %}
