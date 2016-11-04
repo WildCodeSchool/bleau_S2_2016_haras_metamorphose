@@ -5,34 +5,46 @@
     {{ form_start(form) }}
     <div class="admin_content">
         <div>
-            Nom de l'article
-            {{ form_errors(form.name) }}
-            {{ form_widget(form.name) }}
+            <p>
+                Nom de l'article
+                {{ form_errors(form.name) }}
+                {{ form_widget(form.name) }}
+            </p>
         </div>
         <div>
-            Structure de l'article
-            {{ form_errors(form.structure) }}
-            {{ form_widget(form.structure) }}
+            <p>
+                Structure de l'article
+                {{ form_errors(form.structure) }}
+                {{ form_widget(form.structure) }}
+            </p>
         </div>
         <div>
-            Page où est situé l'article
-            {{ form_errors(form.pages) }}
-            {{ form_widget(form.pages) }}
+            <p>
+                Page où est situé l'article
+                {{ form_errors(form.pages) }}
+                {{ form_widget(form.pages) }}
+            </p>
         </div>
         <div>
-            Titre du texte :
-            {{ form_errors(form.title) }}
-            {{ form_widget(form.title) }}
+            <p>
+                Titre du texte
+                {{ form_errors(form.title) }}
+                {{ form_widget(form.title) }}
+            </p>
         </div>
         <div>
-            Contenu du texte :
-            {{ form_errors(form.content) }}
-            {{ form_widget(form.content) }}
+            <p>
+                Contenu du texte
+                {{ form_errors(form.content) }}
+                {{ form_widget(form.content) }}
+            </p>
         </div>
         <div>
-            Média :
-            {{ form_errors(form.medias) }}
-            {{ form_widget(form.medias) }}
+            <p>
+                Médias
+                {{ form_errors(form.medias) }}
+                {{ form_widget(form.medias) }}
+            </p>
         </div>
         <input type="submit" value="Création de l'article" />
     {{ form_end(form) }}

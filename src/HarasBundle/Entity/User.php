@@ -2,26 +2,19 @@
 
 namespace HarasBundle\Entity;
 
+use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
-/**
- * ArticleStructure
- */
-class ArticleStructure
+class User extends BaseUser
 {
-    public function __toString()
+    protected $id;
+
+    public function __construct()
     {
-        return $this->getName();
+        parent::__construct();
+        // your own logic
     }
-
-    //    GENERATED CODE
-
-
-    /**
-     * @var int
-     */
-    private $id;
-
     /**
      * @var string
      */
@@ -29,20 +22,10 @@ class ArticleStructure
 
 
     /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
      * Set name
      *
      * @param string $name
-     * @return ArticleStructure
+     * @return User
      */
     public function setName($name)
     {

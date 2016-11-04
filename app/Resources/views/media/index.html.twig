@@ -8,7 +8,6 @@
             <tr>
                 <th>Nom</th>
                 <th>Lien</th>
-                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -16,16 +15,14 @@
             <tr>
                 <td>{{ medium.name }}</td>
                 <td>{{ medium.path }}</td>
-                <td><img src="{{ asset(medium.path) }}" alt="{{ medium.alt }}" height=100px></td>
                 <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('media_show', { 'id': medium.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('media_edit', { 'id': medium.id }) }}">edit</a>
-                        </li>
-                    </ul>
+                    <img src="{{ asset(medium.path) }}" alt="{{ medium.alt }}" height=100px>
+                </td>
+                <td>
+                    <a href="{{ path('media_show', { 'id': medium.id }) }}">Voir</a>
+                </td>
+                <td>
+                    <a href="{{ path('media_edit', { 'id': medium.id }) }}">Editer</a>
                 </td>
             </tr>
         {% endfor %}

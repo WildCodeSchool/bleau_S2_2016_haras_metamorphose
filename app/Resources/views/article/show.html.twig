@@ -4,38 +4,45 @@
     <h1>Article {{ article.name }}</h1>
 
     <table>
-        <tbody>
-            <thead>
-            <tr>
-                <th>Nom de l'article</th>
-                <td>
-                    {{ article.name }}
-                </td>
+        <tr>
+            <th>Nom de l'article</th>
+            <td>
+                {{ article.name }}
+            </td>
+        </tr>
+        <tr>
+            <th>Page où il est situé</th>
+            {% for page in article.pages %}
+            <td>
+                {{ page.name }}
+            </td>
             </tr>
-            <tr>
-                <th>Page où il est situé</th>
-                {% for page in article.pages %}
+        {% endfor %}
+        <tr>
+            <th>Titre du texte</th>
+            {% for text in article.title %}
                 <td>
-                    {{ page.name }}
+                    {{ article.title }}
                 </td>
-                </tr>
             {% endfor %}
-            <tr>
-                <th>Liste des textes</th>
-                {% for text in article.title %}
-                    <td>
-                        {{ article.title }}
-                    </td>
-                {% endfor %}
-            <tr>
-                <th>Contenus</th>
-                {% for text in article.content %}#}
+        <tr>
+            <th>Contenu du texte</th>
+            {% for text in article.content %}#}
                 <td>
                     {{ article.content }}
                 </td>
-                {% endfor %}
-            </tr>
-        </tbody>
+            {% endfor %}
+        </tr>
+        <tr>
+            <th>Médias</th>
+            {% for medias in article.medias %}
+                <tr>
+                    <td>
+                        {{ medias.name }}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tr>
     </table>
 
     <div class="admin_button">

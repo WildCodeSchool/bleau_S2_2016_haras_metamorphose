@@ -5,24 +5,30 @@
 
     {{ form_start(edit_form) }}
     <div class="admin_content">
-        Nom
-        {{ form_errors(edit_form.name) }}
-        {{ form_widget(edit_form.name) }}
+        <p>
+            Nom
+            {{ form_errors(edit_form.name) }}
+            {{ form_widget(edit_form.name) }}
+        </p>
     </div>
     <div class="admin_content">
-        Fichier
-        {{ form_errors(edit_form.file) }}
-        {{ form_widget(edit_form.file) }}
+        <p>
+            Fichier
+            {{ form_errors(edit_form.file) }}
+            {{ form_widget(edit_form.file) }}
+        </p>
     </div>
     <div class="admin_content">
-        Nom du fichier
-        {{ form_errors(edit_form.alt) }}
-        {{ form_widget(edit_form.alt) }}
+        <p>
+            Nom du fichier
+            {{ form_errors(edit_form.alt) }}
+            {{ form_widget(edit_form.alt) }}
+        </p>
     </div>
         <input type="submit" value="Edit" />
     {{ form_end(edit_form) }}
 
-    <div class="admin_button"
+    <div class="admin_button">
         <a href="{{ path('media_index') }}">
             <input type="submit" value="Retour à la liste des médias">
         </a>

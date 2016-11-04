@@ -69,6 +69,9 @@ class PageController extends Controller
             }
             return $this->render('@Haras/contact.html.twig', array('form' => $form->createView(), 'page' => $page));
         }
+        else if ($name == 'login'){
+            return $this->redirectToRoute('fos_user_security_login');
+        }
 
 
 

@@ -1,79 +1,101 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            Materialize.updateTextFields();
+            $('select').material_select();
+        });
+    </script>
     <h1>Modifier l'article {{ article.name }}</h1>
 
     <div class="admin_content">
     {{ form_start(edit_form) }}
-        <div>
-            Nom
-            {{ form_errors(edit_form.name) }}
-            {{ form_widget(edit_form.name) }}
+        <div class="row">
+            <div class="col s12">
+                Nom
+                <div class="input-field inline">
+                    {{ form_errors(edit_form.name) }}
+                    {{ form_widget(edit_form.name) }}
+                    <label for="nom" data-error="wrong" data-success="right">
+                    </label>
+                </div>
+            </div>
         </div>
-        <div>
-            Page où est situé l'article
-            {{ form_errors(edit_form.pages) }}
-            {{ form_widget(edit_form.pages) }}
+        <div class="row">
+            <div>
+                Page où est situé l'article
+                <div class="input-field inline">
+                    <select>
+                        <option value=
+                            {{ form_errors(edit_form.pages) }}
+                            {{ form_widget(edit_form.pages) }}
+                        </option>
+                    </select>
         </div>
-
         {% if article.title is not null %}
-
-        <table>
-            <th>
-                Nom du titre de l'article
-            </th>
-            <td>
-                {{ article.title }}
-            </td>
-            <td>
-                <a href="{{ path('text_show', { 'id': article.title.id }) }}">Voir</a>
-            </td>
-            <td>
-                <a href="{{ path('text_edit', { 'id': article.title.id }) }}">Editer</a>
-            </td>
-        </table>
-        {% endif %}
-        {% if article.content is not null %}
-        <table>
-            <tr>
+            <table>
                 <th>
-                    Nom du contenu de l'article :
+                    Nom du titre de l'article
                 </th>
                 <td>
-                    {{ article.content }}
+                    {{ article.title }}
                 </td>
                 <td>
-                    <a href="{{ path('text_show', { 'id': article.content.id }) }}">Voir</a>
+                    <a href="{{ path('text_show', { 'id': article.title.id }) }}">Voir</a>
                 </td>
                 <td>
-                    <a href="{{ path('text_edit', { 'id': article.content.id }) }}">Editer</a>
+                    <a href="{{ path('text_edit', { 'id': article.title.id }) }}">Editer</a>
                 </td>
-            </tr>
-        </table>
+            </table>
         {% endif %}
-        {% if article.medias is not null %}
-        <table>
-            <thead>
-            <tr>
-                <th>Nom des médias</th>
-            </tr>
-            </thead>
-            <tbody>
-            {% for media in article.medias %}
+        {% if article.content is not null %}
+            <table>
                 <tr>
+                    <th>
+                        Nom du contenu de l'article :
+                    </th>
                     <td>
-                        {{ media.name }}
+                        {{ article.content }}
                     </td>
                     <td>
-                        <a href="{{ path('media_show', { 'id': media.id }) }}">Voir</a>
+                        <a href="{{ path('text_show', { 'id': article.content.id }) }}">Voir</a>
                     </td>
                     <td>
-                        <a href="{{ path('media_edit', { 'id': media.id }) }}">Editer</a>
+                        <a href="{{ path('text_edit', { 'id': article.content.id }) }}">Editer</a>
                     </td>
                 </tr>
-            {% endfor %}
-            </tbody>
-        </table>
+            </table>
+        {% endif %}
+        {% if article.medias is not null %}
+            <table>
+                <thead>
+                <tr>
+                    <th>Nom des médias</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for media in article.medias %}
+                    <tr>
+                        <td>
+                            {{ media.name }}
+                        </td>
+                        <td>
+                            <a href="{{ path('media_show', { 'id': media.id }) }}">Voir</a>
+                        </td>
+                        <td>
+                            <a href="{{ path('media_edit', { 'id': media.id }) }}">Editer</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
         {% endif %}
     </div>
     <div>
