@@ -19,6 +19,7 @@ class MediaController extends Controller
     {
 		$file = $form->get('file')->getData();
         $name = $media->getName();
+        $file = $form->get('file')->getData();
         $extension = $file->guessExtension();
         $media->setPath('bundles/haras/images/'.$name.'.'.$extension);
         $file->move($this->getParameter('medias_directory'),$name.'.'.$extension);

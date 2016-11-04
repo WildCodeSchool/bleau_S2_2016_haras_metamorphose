@@ -1,16 +1,23 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Article creation</h1>
-
+    <h1>Création d'un nouvel article</h1>
     {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
+        <div>
+            Structure de l'article
+            {{ form_errors(form.structure) }}
+            {{ form_widget(form.structure) }}
+        </div>
+        <div>
+            Page où est situé l'article
+            {{ form_errors(form.pages) }}
+            {{ form_widget(form.pages) }}
+        </div>
+        <input type="submit" value="Création de l'article" />
     {{ form_end(form) }}
-
     <ul>
         <li>
-            <a href="{{ path('article_index') }}">Back to the list</a>
+            <a href="{{ path('article_index') }}">Retourner à la liste des articles</a>
         </li>
     </ul>
 {% endblock %}

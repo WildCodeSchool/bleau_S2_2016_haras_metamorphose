@@ -1,32 +1,40 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Page</h1>
+    <h1>Voici les articles de la page {{ page.name }}</h1>
 
     <table>
+        <thead>
+        <tr>
+            <th>Nom des articles</th>
+            <th>Voir</th>
+            <th>Editer</th>
+        </tr>
+        </thead>
         <tbody>
+        {% for article in page.articles %}
             <tr>
-                <th>Id</th>
-                <td>{{ page.id }}</td>
+                <td>
+                    {{ article.name }}
+                </td>
+                <td>
+                    <a href="{{ path('article_show', { 'id': article.id }) }}">Visualiser</a>
+                </td>
+                <td>
+                    <a href="{{ path('article_edit', { 'id': article.id }) }}">Editer</a>
+                </td>
             </tr>
-            <tr>
-                <th>Name</th>
-                <td>{{ page.name }}</td>
-            </tr>
+        {% endfor %}
         </tbody>
     </table>
 
+
     <ul>
         <li>
-            <a href="{{ path('page_index') }}">Back to the list</a>
+            <a href="{{ path('page_index') }}">Retourner à la liste des pages</a>
         </li>
         <li>
-            <a href="{{ path('page_edit', { 'name': page.name }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
+            <a href="{{ path('page_edit', { 'name': page.name }) }}">Modifier la page</a>
         </li>
     </ul>
 {% endblock %}

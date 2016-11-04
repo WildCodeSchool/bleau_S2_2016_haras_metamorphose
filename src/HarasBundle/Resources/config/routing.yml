@@ -16,5 +16,8 @@ haras_text:
 
 #Main Route
 haras_get_page:
-    path:     /{name}
-    defaults: { _controller: HarasBundle:Page:getPage, name: homepage }
+    path:     /{name}/{langChoice}
+    defaults: 
+        _controller: HarasBundle:Page:getPage
+        name: homepage
+        langChoice: null

@@ -12,7 +12,6 @@ HarasBundle\Entity\Text:
         name:
             type: string
             length: 255
-            unique: true
         textFr:
             type: text
             nullable: true

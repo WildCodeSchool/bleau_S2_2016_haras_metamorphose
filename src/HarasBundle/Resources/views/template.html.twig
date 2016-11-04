@@ -7,7 +7,7 @@
 {% block body %}
 <body id="_template" class="{{ category }}">
     <header id="_template_header">
-      {{ render(controller('HarasBundle:Page:getPage', { 'name': 'header' })) }}
+        {% include 'HarasBundle::header.html.twig' %}
     </header>
     <div>
         <h1 class="title center">{{ pageTitle }}</h1>
@@ -52,11 +52,17 @@
                     </ul>
                 </div>
             {% endif %}
+<<<<<<< HEAD
             </div>  <!--  End of .article-id  -->
         {% endif %}
         </div>	<!--  End of article-block  -->
     {% endfor %}
     </div>  <!--  End of articles container  -->
+    <ul class="navigation">
+        <li><a href="{{ path('haras_get_page', {'name': page, 'pageNb' : 1}) }}">Début</a></li>
+        <li><a href="{{ path('haras_get_page', {'name': page, 'pageNb' : pageNb-1}) }}">Précédent</a></li>
+        <li><a href="{{ path('haras_get_page', {'name': page, 'pageNb' : pageNb+1}) }}">Suivant</a></li>
+    </ul>
     <footer id="_template_footer">
         {{ render(controller('HarasBundle:Page:getPage', { 'name': 'footer' })) }}
     </footer>

@@ -1,7 +1,3 @@
-// /*$('.show').on('click',function(){
-//  $(this).slideToggle();
-// }); */
-
 $(document).ready(function() {
 	$('html').addClass('jQuery-fonctionne');
 //Survol des liens vers les sections
