@@ -6,28 +6,26 @@
     {{ form_start(form) }}
     <div>
         <p>
-            Nom
-            {{ form_errors(form.name) }}
-            {{ form_widget(form.name) }}
+            Name
         </p>
     </div>
     <div>
         <p>
-            Texte en Français
+            Text in French
             {{ form_errors(form.textFr) }}
             {{ form_widget(form.textFr) }}
         </p>
     </div>
     <div>
         <p>
-            Texte en Anglais
+            Text in English
             {{ form_errors(form.textEn) }}
             {{ form_widget(form.textEn) }}
         </p>
     </div>
     <div>
         <p>
-            Article lié
+            Article
             {% for text in text.articlesTitle %}
                 {{ title }}
             {% endfor %}
@@ -38,7 +36,7 @@
 
     <div class="admin_button">
             <a href="{{ path('text_index') }}">
-                <input type="submit" value="Liste des textes">
+                <input type="submit" value="Back to the list">
             </a>
     </div>
 {% endblock %}

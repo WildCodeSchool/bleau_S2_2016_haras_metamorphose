@@ -26,18 +26,16 @@
                         <div class="admin_button col m6">
                             <a class="waves-effect waves-light btn" href="{{ path('media_edit', { 'id': medium.id }) }}">Edit</a>
                         </div>
+                        {{ form_start(delete_form) }}
                         <div class="admin_button col m6">
                             <input class="waves-effect waves-light btn delete" type="submit" value="Delete">
                         </div>
-
+                        {{ form_end(delete_form) }}
                     </div>
-                        {{ form_start(delete_form) }}
                     <div class="row">
                         <div class="admin_button col m12">
                             <a class="waves-effect waves-light btn" href="{{ path('media_index') }}">Back to the list</a>
                         </div>
-                    {{ form_end(delete_form) }}
-
                     </div>
             </div>
         </div>

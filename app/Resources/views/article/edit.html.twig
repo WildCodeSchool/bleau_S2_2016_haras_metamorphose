@@ -19,7 +19,7 @@
     <div class="container">
         <div class="cadre">
             <div class="row">
-                <h1 class="admin_title">Modifier l'article {{ article.name }}</h1>
+                <h1 class="admin_title">Modify article {{ article.name }}</h1>
                 {{ form_start(edit_form) }}
                 <div class="row">
                     <div class="col s12">
@@ -32,27 +32,44 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div> Page où est situé l'article
+                    <div> Page article
                         <div class="input-field inline">
                             <select>
                                 <option value= {{ form_errors(edit_form.pages) }} {{ form_widget(edit_form.pages) }} </option>
                             </select>
-                        </div> {% if article.title is not null %}
-                            <table>
-                                <th> Nom du titre de l'article</th>
-                                <td> {{ article.title }} </td>
-                                <td>
-                                    <a href="{{ path('text_show', { 'id': article.title.id }) }}">View</a>
-                                </td>
-                                <td>
-                                    <a href="{{ path('text_edit', { 'id': article.title.id }) }}">Edit</a>
-                                </td>
-                            </table> {% endif %} {% if article.content is not null %}
+                        </div>
+                        {% if article.title is not null %}
                             <table>
                                 <tr>
-                                    <th> Nom du contenu de l'article :
-                                    </th>
-                                    <td> {{ article.content }} </td>
+                                    <th>Article title (French)</th>
+                                    <td> {{ article.title.textFr }} </td>
+                                </tr>
+
+                                <tr>
+                                    <th>Article title (English)</th>
+                                    <td> {{ article.title.textEn }} </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a href="{{ path('text_show', { 'id': article.title.id }) }}">View</a>
+                                    </td>
+                                    <td>
+                                        <a href="{{ path('text_edit', { 'id': article.title.id }) }}">Edit</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        {% endif %}
+                        {% if article.content is not null %}
+                            <table>
+                                <tr>
+                                    <th>Article content (French)</th>
+                                    <td> {{ article.content.textFr }} </td>
+                                </tr>
+                                <tr>
+                                    <th>Article content (English)</th>
+                                    <td> {{ article.content.textEn }} </td>
+                                </tr>
+                                <tr>
                                     <td>
                                         <a href="{{ path('text_show', { 'id': article.content.id }) }}">View</a>
                                     </td>
@@ -64,34 +81,36 @@
                             <table>
                                 <thead>
                                 <tr>
-                                    <th>Nom des médias</th>
+                                    <th>Medias</th>
                                 </tr>
                                 </thead>
                                 <tbody> {% for media in article.medias %}
                                     <tr>
-                                        <td> {{ media.name }} </td>
+                                        <th>Media description (French)</th>
+                                        <td> {{ media.alt.textFr }} </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Media description (English)</th>
+                                        <td> {{ media.alt.textEn }} </td>
+                                    </tr>
+                                    <tr>
+                                        <td><img src="{{ asset(media.path) }}" alt="{{ media.alt }}" height=100px</td>
+                                    </tr>
+                                    <tr>
                                         <td>
                                             <a href="{{ path('media_show', { 'id': media.id }) }}">View</a>
                                         </td>
                                         <td>
                                             <a href="{{ path('media_edit', { 'id': media.id }) }}">Edit</a>
                                         </td>
-                                    </tr> {% endfor %}
+                                    </tr>
+                                {% endfor %}
                                 </tbody>
-                            </table> {% endif %}
+                            </table>
+                        {% endif %}
                         <div class="row">
-                            <div class="admin_button col m3">
-                                <a class="waves-effect waves-light btn" href="{{ path('text_new') }}">
-                                    <input type="submit" value="Add text"/>
-                                </a>
-                            </div>
-                            <div class="admin_button col m3">
-                                <a class="waves-effect waves-light btn" href="{{ path('media_new') }}">
-                                    <input type="submit" value="Add media"/>
-                                </a>
-                            </div>
-                            <div class="admin_button col m3">
-                                <a class="waves-effect waves-light btn">
+                            <div class="admin_button col m12">
+                                <a class="waves-effect waves-light btn" href="{{ path('article_show', {'id': article.id}) }}">
                                     <input type="submit" value="Modify  article"/></a>
                             </div>
                         </div>

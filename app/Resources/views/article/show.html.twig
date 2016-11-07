@@ -40,39 +40,61 @@
                     </tr>
                     {% endfor %}
                     <tr>
-                        <th>Text title</th>
-                        {% for text in article.title %}
-                            <td>
-                                {{ article.title }}
-                            </td>
-                        {% endfor %}
+                        <th>Text title (French)</th>
+                        <td>
+                            {{ article.title.textFr }}
+                        </td>
+                    </tr>
                     <tr>
-                        <th>Text content</th>
-                        {% for text in article.content %}#}
+                        <th>Text title (English)</th>
+                        <td>
+                            {{ article.title.textEn }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Text content (French)</th>
                             <td>
-                                {{ article.content }}
+                                {{ article.content.textFr }}
                             </td>
-                        {% endfor %}
+                    </tr>
+                    <tr>
+                        <th>Text content (English)</th>
+                        <td>
+                            {{ article.content.textEn }}
+                        </td>
                     </tr>
                     <tr>
                         <th>Medias</th>
-                        {% for medias in article.medias %}
+                        {% for media in article.medias %}
                         <tr>
-                            <td>
-                                {{ medias.name }}
-                            </td>
+                            <th>Media description (French)</th>
+                            <td> {{ media.alt.textFr }} </td>
+                        </tr>
+                        <tr>
+                            <th>Media description (English)</th>
+                            <td> {{ media.alt.textEn }} </td>
+                        </tr>
+                        <tr>
+                            <td><img src="{{ asset(media.path) }}" alt="{{ media.alt }}" height=100px</td>
                         </tr>
                     {% endfor %}
                     </tr>
                 </table>
                 <div class="row">
-                    <div class="admin_button col m6">
+                    <div class="admin_button col m4">
                         <a class="waves-effect waves-light btn" href="{{ path('article_edit', { 'id': article.id }) }}">Modify
-                            article</a>
+                            article
+                        </a>
                     </div>
-                    <div class="admin_button col m6">
+                    <div class="admin_button col m4">
+                        <a class="waves-effect waves-light btn" href="{{ path('media_new') }}">
+                            <input type="submit" value="Add media"/>
+                        </a>
+                    </div>
+                    <div class="admin_button col m4">
                         <a class="waves-effect waves-light btn" href="{{ path('article_index') }}">Return to articles
-                            list</a>
+                            list
+                        </a>
                     </div>
                 </div>
                 <div class="row">
