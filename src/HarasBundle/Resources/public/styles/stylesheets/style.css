@@ -758,43 +758,49 @@ body, html {
   background-color: lightgreen;
   height: 100%;
   width: 100%;
-  background-image: url("../../../web/bundles/haras/images/test.png");
+  color: darkslategrey;
 }
-/* line 12, ../sass/_admin.scss */
+/* line 13, ../sass/_admin.scss */
 #_admin .admin_button {
   font-size: 1em;
   text-align: center;
   margin: 2em 0em 2em 0em;
   min-height: 2em;
 }
-/* line 20, ../sass/_admin.scss */
+/* line 21, ../sass/_admin.scss */
 #_admin h1 {
   font-size: 2em;
   color: white;
   text-align: center;
 }
-/* line 26, ../sass/_admin.scss */
+/* line 27, ../sass/_admin.scss */
 #_admin .table {
   border: 1px solid black;
 }
-/* line 30, ../sass/_admin.scss */
+/* line 31, ../sass/_admin.scss */
 #_admin .admin_title {
   color: darkslategrey;
 }
-/* line 34, ../sass/_admin.scss */
+/* line 35, ../sass/_admin.scss */
 #_admin .delete {
   background-color: #d82679;
 }
-/* line 38, ../sass/_admin.scss */
+/* line 39, ../sass/_admin.scss */
 #_admin .cadre {
   background-color: rgba(255, 255, 255, 0.5);
   padding: 2em;
   margin-top: 5%;
   border-radius: 1em;
 }
-/* line 45, ../sass/_admin.scss */
+/* line 46, ../sass/_admin.scss */
 #_admin .image_preview {
   max-height: 300px;
+}
+/* line 50, ../sass/_admin.scss */
+#_admin .text_area {
+  width: 50%;
+  background-color: white;
+  border-radius: 5px;
 }
 
 /*//////////////////////////////////////////////

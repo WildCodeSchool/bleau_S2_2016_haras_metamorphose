@@ -1,38 +1,69 @@
-{% extends 'base.html.twig' %}
+{% extends '@Haras/base.html.twig' %}
+
+{% block materialize %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            Materialize.updateTextFields();
+            $('select').material_select();
+        });
+    </script>
+{% endblock materialize %}
 
 {% block body %}
-    <h1>Visualisation d'un texte</h1>
+    <body id="_admin">
+    <div class="container">
+        <div class="cadre">
+            <div class="row">
+                <h1 class="admin_title">Visualize text</h1>
 
-    <table>
-        <tbody>
-            <tr>
-                <th>Nom</th>
-                <td>{{ text.name }}</td>
-            </tr>
-            <tr>
-                <th>Texte en Français</th>
-                <td>{{ text.textFr }}</td>
-            </tr>
-            <tr>
-                <th>Texte en Anglais</th>
-                <td>{{ text.textEn }}</td>
-            </tr>
-        </tbody>
-    </table>
+                <table>
+                    <tbody>
+                    <tr>
+                        <th>Nom</th>
+                        <td>{{ text.name }}</td>
+                    </tr>
+                    <tr>
+                        <th>Texte en Français</th>
+                        <td>{{ text.textFr }}</td>
+                    </tr>
+                    <tr>
+                        <th>Texte en Anglais</th>
+                        <td>{{ text.textEn }}</td>
+                    </tr>
+                    </tbody>
+                </table>
 
-    <div class="admin_button">
-            <a href="{{ path('text_edit', { 'id': text.id }) }}">
-                <input type="submit" value="Modifier le texte">
-            </a>
+                <div class="row">
+                    <div class="admin_button col m3">
+                        <a class="waves-effect waves-light btn" href="{{ path('text_edit', { 'id': text.id }) }}">
+                            <input type="submit" value="Modifier le texte">
+                        </a>
+                    </div>
+                    <div class="admin_button col m3">
+                        <div class="admin_button col m3">
+                            <a class="waves-effect waves-light btn" href="{{ path('text_index') }}">
+                                <input type="submit" value="Liste des textes">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="admin_button col m3">
+                        <a class="waves-effect waves-light btn">
+                            {{ form_start(delete_form) }}
+                            <input type="submit" value="Supprimer le texte">
+                            {{ form_end(delete_form) }}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="admin_button">
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Supprimer le texte">
-            {{ form_end(delete_form) }}
     </div>
-    <div class="admin_button">
-        <a href="{{ path('text_index') }}">
-            <input type="submit" value="Liste des textes">
-        </a>
-    </div>
+    </body>
 {% endblock %}

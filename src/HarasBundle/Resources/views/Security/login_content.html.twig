@@ -4,19 +4,49 @@
     <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
 {% endif %}
 
-<form action="{{ path("fos_user_security_check") }}" method="post">
-    {% if csrf_token %}
-        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
-    {% endif %}
+{% block materialize %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
 
-    <label for="username">{{ 'security.login.username'|trans }}</label>
-    <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
+    <!-- Compiled and minified JavaScript -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            Materialize.updateTextFields();
+            $('select').material_select();
+        });
+    </script>
+{% endblock materialize %}
 
-    <label for="password">{{ 'security.login.password'|trans }}</label>
-    <input type="password" id="password" name="_password" required="required" />
+{% block body %}
+<body id="_admin">
+<div class="container">
+    <div class="cadre">
+        <div class="row">
+            <h1 class="admin_title">Login</h1>
+                <form action="{{ path("fos_user_security_check") }}" method="post">
+                    {% if csrf_token %}
+                        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+                    {% endif %}
 
-    <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
-    <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
+                    <label for="username">{{ 'Username'|trans }}</label>
+                    <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
 
-    <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
-</form>
+                    <label for="password">{{ 'Password'|trans }}</label>
+                    <input type="password" id="password" name="_password" required="required" />
+
+                    <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+                    <label for="remember_me">{{ 'Remember me'|trans }}</label>
+
+                    <div class="row">
+                        <div class="admin_button col m12">
+                            <input class="waves-effect waves-light btn" type="submit" id="_submit" name="_submit" value="{{ 'Login'|trans }} "/>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    </body>
+
+{% endblock %}

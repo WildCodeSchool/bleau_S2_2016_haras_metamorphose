@@ -13,13 +13,10 @@ class ArticleStructure
     {
         return $this->getName();
     }
-<<<<<<< HEAD
 
     //    GENERATED CODE
 
 
-=======
->>>>>>> DevSymfony
     /**
      * @var int
      */
