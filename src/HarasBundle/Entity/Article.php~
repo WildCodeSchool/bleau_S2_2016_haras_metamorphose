@@ -178,6 +178,7 @@ class Article
     public function addPage(\HarasBundle\Entity\Page $pages)
     {
         $this->pages[] = $pages;
+        $page->addArticle($this);
 
         return $this;
     }

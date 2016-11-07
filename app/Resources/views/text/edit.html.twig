@@ -1,57 +1,73 @@
-{% extends 'base.html.twig' %}
+{% extends '@Haras/base.html.twig' %}
 
-{% block body %}*    <!-- Compiled and minified CSS -->
+{% block materialize %}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
 
     <!-- Compiled and minified JavaScript -->
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             Materialize.updateTextFields();
             $('select').material_select();
         });
     </script>
-    <h1>Modification du texte {{ text.name }}</h1>
+{% endblock materialize %}
 
-    <div class="admin_content">
-    {{ form_start(edit_form) }}
-        <div class="row">
-            <div class="col s12">
-                Nom
-                <div class="input-field inline">
-                    {{ form_errors(edit_form.name) }}
-                    {{ form_widget(edit_form.name) }}
-                    <label for="nom" data-error="wrong" data-success="right">
-                    </label>
+{% block body %} 
+    <body id="_admin"> 
+    <div class="container"> 
+        <div class="cadre"> 
+            <div class="row">  <h1 class="admin_title">Text edit for: {{ text.name }}</h1> 
+                <div class="admin_content">  {{ form_start(edit_form) }} 
+                    <div class="row"> 
+                        <div class="col s12">  Name 
+                            <div class="input-field inline text_area"> 
+                                {{ form_errors(edit_form.name) }}
+                                  {{ form_widget(edit_form.name) }} 
+                                <label for="nom" data-error="wrong" data-success="right"> </label> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row"> 
+                        <div class="col s12">  French text 
+                            <div class="input-field inline text_area"> 
+                                {{ form_errors(edit_form.textFr) }}
+                                 {{ form_widget(edit_form.textFr) }} 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row"> 
+                        <div class="col s12">  English text 
+                            <div class="input-field inline text_area"> 
+                                {{ form_errors(edit_form.textEn) }}
+                                 {{ form_widget(edit_form.textEn) }} 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row"> 
+                        <div class="admin_button col s12 m6"> 
+                            <a class="waves-effect waves-light btn"> 
+                                <input type="submit" value="Valider">  {{ form_end(edit_form) }} 
+                            </a> 
+                        </div>
+                        <div class="admin_button col s12 m6"> 
+                            <a class="waves-effect waves-light btn" href="{{ path('text_index') }}"> 
+                                <input style="color:white" type="submit" value="Texts list"> 
+                            </a> 
+                        </div>
+                    </div>
+                    <div class="row"> 
+                        <div class="admin_button col m12">
+                            <a class="waves-effect waves-light btn delete">
+                                <input type="submit" value="Delete article">
+                                {{ form_start(delete_form) }} 
+                                {{ form_end(delete_form) }} 
+
+                            </a> 
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col s12">
-                Texte en français
-                {{ form_errors(edit_form.textFr) }}
-                {{ form_widget(edit_form.textFr) }}
-            </div>
-        </div>
-        <div class="row">
-            <div class="col s12">
-                Texte en anglais
-                {{ form_errors(edit_form.textEn) }}
-                {{ form_widget(edit_form.textEn) }}
-            </div>
-        </div>
-        <input type="submit" value="Valider" />
-    {{ form_end(edit_form) }}
-    </div>
-    <div class="admin_button">
-        {{ form_start(delete_form) }}
-        <input type="submit" value="Supprimer">
-        {{ form_end(delete_form) }}
-    </div>
-    <div class="admin_button">
-        <a href="{{ path('text_index') }}">
-            <input type="submit" value="Liste des textes">
-        </a>
-     </div>
-{% endblock %}
+    </body> {% endblock %}

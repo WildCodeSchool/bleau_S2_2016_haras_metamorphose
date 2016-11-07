@@ -70,6 +70,7 @@
                                 <tbody> {% for media in article.medias %}
                                     <tr>
                                         <td> {{ media.name }} </td>
+                                        <td><img src="{{ asset(media.path) }}" alt="{{ media.alt }}" height=100px></td>
                                         <td>
                                             <a href="{{ path('media_show', { 'id': media.id }) }}">View</a>
                                         </td>
@@ -91,7 +92,7 @@
                                 </a>
                             </div>
                             <div class="admin_button col m3">
-                                <a class="waves-effect waves-light btn">
+                                <a class="waves-effect waves-light btn" href="{{ path('article_new') }}">
                                     <input type="submit" value="Modify  article"/></a>
                             </div>
                         </div>
