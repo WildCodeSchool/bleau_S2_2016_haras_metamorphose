@@ -45,15 +45,18 @@ class PageController extends Controller
             {
             $table[$text->getName()] = $text->getTranslation($language);
             }
-        }
-        // récupération de médias
-        foreach ($pages as $p)
-        {
+            // récupération de médias
             foreach ($p->getMedias() as $media)
             {
                 $table[$media->getName()] = $media->getMediaTranslation($language);
             }
         }
+        // si homepage, détermination background image/video
+        if($name == 'homepage')
+        {
+            $table['isVideo'] = $this->isVideo($table['homepageBackground']['path']);
+        }
+        
         // page template
         if($name == 'section1' || $name == 'section2' || $name == 'section3' || $name == 'section4')
         {
@@ -132,7 +135,7 @@ class PageController extends Controller
         return $this->render('HarasBundle::'.$name.'.html.twig', $table);
     }
 
-
+    // envoi de mail de la page contact
     public function sendMail($subject, $from, $body)
     {
         $message = \Swift_Message::newInstance()
@@ -142,6 +145,16 @@ class PageController extends Controller
             ->setBody($body)
         ;
         $this->get('mailer')->send($message);
+    }
+
+    // vérifie si un fichier est de type video
+    public function isVideo($path)
+    {
+        // renvoi un string du style video/mp4 ou img/png
+        $type = mime_content_type($this->getParameter('web_directory').$path);
+        // renvoi true si une occurence de la chaîne 'video' est présente dans $type
+        // strpos renvoie la première position de la chaîne si trouvée
+        return strpos($type, 'video') === 0;
     }
 
     /**

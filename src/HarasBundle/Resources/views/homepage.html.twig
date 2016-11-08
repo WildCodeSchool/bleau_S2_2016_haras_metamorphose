@@ -1,11 +1,16 @@
 {% extends '@Haras/base.html.twig' %}
 
 {% block body %}
-<body id="_index" background="{{ asset('bundles/haras/images/test.png') }}">
-<div id="index_wrapper">
-    <video id="index_video" autoplay loop muted>
-        <source src="{{ asset('bundles/haras/videos/video.mp4') }}" type='video/mp4'>
-    </video>
+{% if isVideo == false %}
+<body id="_index" background="{{ asset(homepageBackground.path) }}">
+    <div id="index_wrapper">
+{% else %}
+<body id="_index">
+    <div id="index_wrapper">
+        <video id="index_video" autoplay loop muted>
+            <source src="{{ asset(homepageBackground.path) }}" type='video/mp4'>
+        </video>
+{% endif %}
 
     <header id='_index_header'>
         {% include 'HarasBundle::header.html.twig' %}
