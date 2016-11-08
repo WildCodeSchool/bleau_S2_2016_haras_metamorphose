@@ -24,7 +24,7 @@ class languageChange extends Controller
                 $choice=$langs[0];
                 if($choice!='fr' && $choice!='en')
                 {
-                $request->getSession()->set('_locale', 'en');
+                    $request->getSession()->set('_locale', 'en');
                 }
                 else
                 {
