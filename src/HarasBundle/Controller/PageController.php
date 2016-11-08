@@ -104,7 +104,7 @@ class PageController extends Controller
         // page contact
         else if($name == 'contact')
         {
-            $form = $this->createForm('HarasBundle\Form\contactType', $page);
+            $form = $this->createForm('HarasBundle\Form\contactType');
             $form->handleRequest($request);
             $table['form'] = $form->createView();
             $send=false;
@@ -168,7 +168,7 @@ class PageController extends Controller
         $table = [];
         foreach ($pages as $page)
         {
-            $table[$page->getId()] = $page->getName();
+            $table[$page->getName()] = $page;
         }
         return $this->render('page/index.html.twig', $table);
     }
@@ -203,10 +203,8 @@ class PageController extends Controller
      */
     public function showAction(Page $page)
     {
-        $deleteForm = $this->createDeleteForm($page);
         return $this->render('page/show.html.twig', array(
-            'page' => $page,
-            'delete_form' => $deleteForm->createView(),
+            'page' => $page
         ));
     }
 

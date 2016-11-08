@@ -6,6 +6,8 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use HarasBundle\Entity\Article;
+use HarasBundle\Entity\ArticleStructure;
+use HarasBundle\Entity\Page;
 use HarasBundle\Form\ArticleType;
 
 /**
@@ -32,9 +34,29 @@ class ArticleController extends Controller
      * Creates a new Article entity.
      *
      */
-    public function newAction(Request $request)
+
+    public function newSelectAction(Request $request, Page $page)
     {
-        $article = new Article();
+        $form = $this->createForm('HarasBundle\Form\ArticleSelectType', $page);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid())
+        {
+            return $this->redirectToRoute('article_new', array(
+                'name' => $form->get('name')->getData(),
+                'structure' => $form->get('structure')->getData()->getName(),
+                'page' => $page->getName()
+                ));
+        }
+
+        return $this->render('article/newSelectStructure.html.twig', array(
+            'form' => $form->createView(),
+            'page' => $page
+        ));
+    }
+
+    public function newAction(Request $request, $name, ArticleStructure $structure, Page $page)
+    {
         $form = $this->createForm('HarasBundle\Form\ArticleType', $article);
         $form->handleRequest($request);
 
@@ -45,15 +67,12 @@ class ArticleController extends Controller
 
             return $this->redirectToRoute('article_show', array('id' => $article->getId()));
         }
-        $form->remove('createdAt');
 
         return $this->render('article/new.html.twig', array(
             'article' => $article,
             'form' => $form->createView(),
 
         ));
-
-
     }
 
     /**

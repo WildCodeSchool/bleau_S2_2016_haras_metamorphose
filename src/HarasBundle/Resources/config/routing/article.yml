@@ -8,10 +8,14 @@ article_show:
     defaults: { _controller: "HarasBundle:Article:show" }
     methods:  GET
 
-article_new:
-    path:     /new
-    defaults: { _controller: "HarasBundle:Article:new" }
+article_select:
+    path:     /{name}/select
+    defaults: { _controller: "HarasBundle:Article:newSelect" }
     methods:  [GET, POST]
+
+article_new:
+    path:     /new/{page}/{name}/{structure}
+    defaults: { _controller: "HarasBundle:Article:new" }
 
 article_edit:
     path:     /{id}/edit
