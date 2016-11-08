@@ -16,7 +16,6 @@ $icone-transparency: 0.4;
 		height: 100%;
 		width: 100%;
 	}
-
 	/*//////////////////////////////
 	// Mise en page corps accueil //
 	//////////////////////////////*/
@@ -68,14 +67,14 @@ $icone-transparency: 0.4;
 			margin-top: 10px;
 		}
 	}
-
-
-
-	.index_rubrique.hover {
-		height: 300px;
-		width: 300px;
-		margin-top: -110px;
-		box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.7);
+	
+	@media all and (min-width: 900px) {
+		.index_rubrique.hover {
+			height: 300px;
+			width: 300px;
+			margin-top: -110px;
+			box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.7);
+		}
 	}
 
 	// Typed.js pointer

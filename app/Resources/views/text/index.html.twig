@@ -19,12 +19,12 @@
 <div class="container">
     <div class="cadre">
         <div class="row">
-            <h1 class="admin_title">Liste des textes</h1>
+            <h1 class="admin_title">Texts list</h1>
                 <table>
                     <thead>
                         <tr>
                             <th>Name</th>
-                            <th>Texte en Français</th>
+                            <th>French test</th>
                             <th>English text</th>
                             <th>Pages</th>
                         </tr>
@@ -41,10 +41,10 @@
                                 {% endfor %}
                             </td>
                             <td>
-                                <a href="{{ path('text_show', { 'id': text.id }) }}">Voir</a>
+                                <a href="{{ path('text_show', { 'id': text.id }) }}">Show</a>
                             </td>
                             <td>
-                                <a href="{{ path('text_edit', { 'id': text.id }) }}">Editer</a>
+                                <a href="{{ path('text_edit', { 'id': text.id }) }}">Edit</a>
                             </td>
                         </tr>
                     {% endfor %}
@@ -52,7 +52,7 @@
                 </table>
                     <div class="admin_button col s12">
                         <a class="waves-effect waves-light btn" href="{{ path('text_new') }}">
-                            <input type="submit" value="Créer un nouveau texte">
+                            <input type="submit" value="Create a new text">
                         </a>
                     </div>
                 </div>
