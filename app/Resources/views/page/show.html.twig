@@ -16,6 +16,21 @@
 
 {% block body %}
     <body id="_admin">
+
+    <nav class="nav">
+        <div class="nav-wrapper">
+            <ul>
+                <li><a href="{{ path('page_index', { 'name': 'homepage' }) }}">Index</a></li>
+                <li><a href="{{ path('article_new', { 'name': 'homepage' }) }}">New Article</a></li>
+                <li><a href="{{ path('haras_get_page', {'name': 'homepage'}) }}">Homepage</a></li>
+                <li><a class="background-color: blue" href="{{ path('fos_user_security_logout') }}">
+                        {{ 'Logout'|trans({}, 'FOSUserBundle') }}
+                    </a>
+
+                </li>
+            </ul>
+        </div>
+    </nav>
     <div class="container">
         <div class="cadre">
             <div class="row">
@@ -25,7 +40,6 @@
                 <thead>
                     <tr>
                         <th>Name of articles</th>
-                        <th>Show</th>
                         <th>Edit</th>
                     </tr>
                 </thead>
@@ -36,9 +50,6 @@
                             {{ article.name }}
                         </td>
                         <td>
-                            <a href="{{ path('article_show', { 'id': article.id }) }}">Show</a>
-                        </td>
-                        <td>
                             <a href="{{ path('article_edit', { 'id': article.id }) }}">Edit</a>
                         </td>
                     </tr>
@@ -47,7 +58,6 @@
                 <thead>
                 <tr>
                     <th>Name of texts</th>
-                    <th>Show</th>
                     <th>Edit</th>
                 </tr>
                 </thead>
@@ -57,9 +67,7 @@
                         <td>
                             {{ text.name }}
                         </td>
-                        <td>
-                            <a href="{{ path('text_show', { 'id': text.id }) }}">Show</a>
-                        </td>
+
                         <td>
                             <a href="{{ path('text_edit', { 'id': text.id }) }}">Edit</a>
                         </td>
@@ -69,7 +77,6 @@
                 <thead>
                 <tr>
                     <th>Name of medias</th>
-                    <th>Show</th>
                     <th>Edit</th>
                 </tr>
                 </thead>
@@ -78,9 +85,6 @@
                         {% for media in page.medias %}
                             <td>
                             {{ page.medias.name }}
-                        </td>
-                        <td>
-                            <a href="{{ path('media_show', { 'id': media.id }) }}">Show</a>
                         </td>
                         <td>
                             <a href="{{ path('media_edit', { 'id': media.id }) }}">Edit</a>
@@ -97,7 +101,7 @@
                 </div>
                 <div class="admin_button col m12">
                     <a class="waves-effect waves-light btn" href="{{ path('page_index') }}">
-                        Return to pages list
+                        Return to index
                     </a>
                 </div>
             </div>
