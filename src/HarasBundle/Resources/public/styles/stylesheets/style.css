@@ -755,7 +755,7 @@ body, html {
 //////////////////////////////////////////////*/
 /* line 6, ../sass/_admin.scss */
 #_admin {
-  background-color: lightgreen;
+  background-color: darkgrey;
   height: 100%;
   width: 100%;
   color: darkslategrey;
@@ -801,6 +801,10 @@ body, html {
   width: 50%;
   background-color: white;
   border-radius: 5px;
+}
+/* line 57, ../sass/_admin.scss */
+#_admin .nav {
+  background-color: green;
 }
 
 /*//////////////////////////////////////////////

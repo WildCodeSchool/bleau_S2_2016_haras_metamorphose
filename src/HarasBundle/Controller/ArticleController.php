@@ -37,6 +37,7 @@ class ArticleController extends Controller
         $article = new Article();
         $form = $this->createForm('HarasBundle\Form\ArticleType', $article);
         $form->handleRequest($request);
+        $toto=1;
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();

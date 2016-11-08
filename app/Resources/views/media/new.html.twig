@@ -1,18 +1,95 @@
-{% extends 'base.html.twig' %}
+{% extends '@Haras/base.html.twig' %}
+
+
+{% block materialize %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            Materialize.updateTextFields();
+            $('select').material_select();
+        });
+    </script>
+{% endblock materialize %}
 
 {% block body %}
-    <h1>Création d'un nouveau média</h1>
-    <div class="admin_content">
-        {{ form_start(form) }}
-        <p>
-            {{ form_widget(form) }}
-            <input type="submit" value="Enregistrer" />
-        </p>
-    {{ form_end(form) }}
-    </div>
-    <div class="admin_button">
-        <a href="{{ path('media_index') }}">
-            <input type="submit" value="Liste des médias">
-        </a>
-    </div>
+    <body id="_admin">
+    <nav class="nav">
+        <div class="nav-wrapper">
+            <ul>
+                <li><a href="{{ path('page_index', { 'name': 'homepage' }) }}">Index</a></li>
+                <li><a href="{{ path('article_new', { 'name': 'homepage' }) }}">New Article</a></li>
+                <li><a href="{{ path('haras_get_page', {'name': 'homepage'}) }}">Homepage</a></li>
+                <li><a class="background-color: blue" href="{{ path('fos_user_security_logout') }}">
+                        {{ 'Logout'|trans({}, 'FOSUserBundle') }}
+                    </a>
+
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="cadre">
+            <div class="row">
+                <h1 class="admin_title">Création d'un nouveau média</h1>
+                <div class="admin_content">
+
+                                {{ form_start(form) }}
+                                <div class="row">
+                                    <div class="col m12">
+                                        Name
+                                        <div class="input-field inline text_area">
+                                            {{ form_errors(form.name) }}
+                                            {{ form_widget(form.name) }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col m12">
+                                        file
+                                        <div class="input-field inline text_area">
+                                            {{ form_errors(form.file) }}
+                                            {{ form_widget(form.file) }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col m12">
+                                        Media description
+                                        <div class="input-field inline text_area">
+                                            {{ form_errors(form.alt) }}
+                                            {{ form_widget(form.alt) }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="admin_button col m3">
+                                        <a class="waves-effect waves-light btn">
+                                            <input type="submit" value="Create"/>
+                                            {{ form_end(form) }}
+                                        </a>
+                                    </div>
+
+                                    <div class="admin_button col m3">
+                                        <a class="waves-effect waves-light btn" href="{{ path('text_index') }}">
+                                            <input type="submit" value="Texts list">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p>
+                            <input type="submit" value="Enregistrer"/>
+                        </p>
+                        {{ form_end(form) }}
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </body>
 {% endblock %}
