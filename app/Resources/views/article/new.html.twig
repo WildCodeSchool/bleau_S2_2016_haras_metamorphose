@@ -15,15 +15,17 @@
 {% endblock materialize %}
 
 {% block body %}
+{{ dump(form.title) }}
 <body id="_admin">
 <div class="container">
     <div class="cadre">
         <div class="row">
             <h1 class="admin_title">Create new article</h1>
             {{ form_start(form) }}
+            {% if form.title is defined %}
             <div class="row">
                 <div class="col s12">
-                    Article title
+                    <p>Article title</p>
                     <div class="input-field inline">
                         <select>
                             <option value=
@@ -34,9 +36,12 @@
                     </div>
                 </div>
             </div>
+            {{ form_widget(form.title) }}
+            {% endif %}
+            {% if form.content is defined %}
             <div class="row">
                 <div class="col s12">
-                    Article content
+                    <p>Article content</p>
                     <div class="input-field inline">
                         <select>
                             <option value=
@@ -47,6 +52,7 @@
                     </div>
                 </div>
             </div>
+            {% endif %}
             <div class="row">
                 <form action="#">
                     <p>Médias

@@ -13,10 +13,6 @@ article_select:
     defaults: { _controller: "HarasBundle:Article:newSelect" }
     methods:  [GET, POST]
 
-article_new:
-    path:     /new/{page}/{name}/{structure}
-    defaults: { _controller: "HarasBundle:Article:new" }
-
 article_edit:
     path:     /{id}/edit
     defaults: { _controller: "HarasBundle:Article:edit" }

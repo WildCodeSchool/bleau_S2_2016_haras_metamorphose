@@ -27,7 +27,7 @@ class ArticleSelectType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'HarasBundle\Entity\Page'
+            'data_class' => null
         ));
     }
 }

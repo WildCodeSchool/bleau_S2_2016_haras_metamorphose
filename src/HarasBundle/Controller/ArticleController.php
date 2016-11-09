@@ -4,8 +4,10 @@ namespace HarasBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 
 use HarasBundle\Entity\Article;
+use HarasBundle\Entity\Text;
 use HarasBundle\Entity\ArticleStructure;
 use HarasBundle\Entity\Page;
 use HarasBundle\Form\ArticleType;
@@ -37,33 +39,53 @@ class ArticleController extends Controller
 
     public function newSelectAction(Request $request, Page $page)
     {
-        $form = $this->createForm('HarasBundle\Form\ArticleSelectType', $page);
+        $form = $this->createForm('HarasBundle\Form\ArticleSelectType');
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid())
         {
-            return $this->redirectToRoute('article_new', array(
+            return $this->forward('HarasBundle:Article:new', array(
                 'name' => $form->get('name')->getData(),
-                'structure' => $form->get('structure')->getData()->getName(),
-                'page' => $page->getName()
+                'structure' => $form->get('structure')->getData(),
+                'page' => $page
                 ));
         }
 
         return $this->render('article/newSelectStructure.html.twig', array(
             'form' => $form->createView(),
-            'page' => $page
         ));
     }
 
-    public function newAction(Request $request, $name, ArticleStructure $structure, Page $page)
+    public function newAction(Request $request, Page $page, ArticleStructure $structure, $name)
     {
-        $form = $this->createForm('HarasBundle\Form\ArticleType', $article);
+        $article = new Article();
+        if($structure->getName() == 'slider')
+        {
+            $form = $this->createForm('HarasBundle\Form\ArticleType', $article);
+            $form
+                ->remove('title')
+                ->remove('content')
+                ->add('medias')
+                ;
+        }
+        else
+        {
+            $title = new Text();
+            $title->setName($name.' | Title');
+            $content = new Text();
+            $content->setName($name.' | content');
+            // $article->setTitle($title);
+            // $article->setContent($content);
+            $form = $this->createForm('HarasBundle\Form\ArticleType', $article);
+            $form->add('medias', CollectionType::class, array(
+                'entry_type' => MediaType::class));
+        }
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($article);
             $em->flush();
+            $page->addArticles($article);
 
             return $this->redirectToRoute('article_show', array('id' => $article->getId()));
         }
