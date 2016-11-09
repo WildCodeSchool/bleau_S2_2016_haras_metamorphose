@@ -832,7 +832,7 @@ body, html {
 /* line 8, ../sass/_contact.scss */
 .map-holder {
   width: 600px;
-  height: 600px;
+  height: 500px;
 }
 
 /* line 12, ../sass/_contact.scss */
@@ -840,11 +840,17 @@ body, html {
   width: 100% !important;
   height: 100% !important;
   margin-bottom: 3em;
+  margin-left: 2em;
+  border: 2px grey solid;
 }
 
-/* line 18, ../sass/_contact.scss */
+/* line 20, ../sass/_contact.scss */
 .contact_form {
-  text-align: center;
   margin-bottom: 3em;
   padding: 2em;
+}
+
+/* line 26, ../sass/_contact.scss */
+.button {
+  margin: 2em;
 }
