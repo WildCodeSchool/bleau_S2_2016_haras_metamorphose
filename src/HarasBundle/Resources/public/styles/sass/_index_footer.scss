@@ -2,15 +2,24 @@
 /////////////// _index_footer.scss /////////////
 //////////////////////////////////////////////*/
 
-#_index_footer:hover {
-	background-color: rgba(0, 120, 122, 1);
-	height:255px;
-	margin-top:-255px;
+@media all and (min-width: 900px) {
+	#_index_footer:hover {
+		background-color: rgba(0, 120, 122, 1);
+		height:255px;
+		margin-top:-255px;
+	}
+	#_index_footer {
+		overflow: hidden;
+		margin-top: -50px;
+	}
 }
-
+@media all and (max-width: 900px) {
+	#_index_footer {
+		height:255px;
+		background-color: rgba(0, 120, 122, 1);
+	}
+}
 #_index_footer {
-	overflow: hidden;
-	margin-top: -50px;
 	height: 50px;
 	background-color: rgba(0, 120, 122, 0.6);
 	-webkit-transition: all 1s;
