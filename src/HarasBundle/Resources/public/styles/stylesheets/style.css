@@ -802,6 +802,12 @@ body, html {
   background-color: white;
   border-radius: 5px;
 }
+/* line 57, ../sass/_admin.scss */
+#_admin .input-title {
+  border-radius: 5px;
+  padding: 5px;
+  width: 50%;
+}
 
 /*//////////////////////////////////////////////
 ///////////// _contact.scss ////////////////////

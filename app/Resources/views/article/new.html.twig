@@ -15,60 +15,56 @@
 {% endblock materialize %}
 
 {% block body %}
-{{ dump(form.title) }}
 <body id="_admin">
 <div class="container">
     <div class="cadre">
         <div class="row">
             <h1 class="admin_title">Create new article</h1>
             {{ form_start(form) }}
-            {% if form.title is defined %}
-            <div class="row">
-                <div class="col s12">
-                    <p>Article title</p>
-                    <div class="input-field inline">
-                        <select>
-                            <option value=
-                                    {{ form_errors(form.title) }}
-                                    {{ form_widget(form.title) }}
-                                    </option>
-                        </select>
+                {% if form.title is defined %}
+                    <div class="row">
+                        <div class="col s12">
+                            <div id="titleFr" class="input-title white">
+                                <p>Title in French</p>
+                                {{ form_errors(form.title.textFr) }}
+                                {{ form_widget(form.title.textFr) }}
+                            </div>
+                            <div class="input-field white">
+                                 <p>Title in English</p>
+                                {{ form_errors(form.title.textEn) }}
+                                {{ form_widget(form.title.textEn) }}
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            {{ form_widget(form.title) }}
-            {% endif %}
-            {% if form.content is defined %}
-            <div class="row">
-                <div class="col s12">
-                    <p>Article content</p>
-                    <div class="input-field inline">
-                        <select>
-                            <option value=
-                                    {{ form_errors(form.content) }}
-                                    {{ form_widget(form.content) }}
-                                    </option>
-                        </select>
+                {% endif %}
+                {% if form.content is defined %}
+                     <div class="row">
+                        <div class="col s12">
+                            <div class="input-field white">
+                                <p>Content in French</p>
+                                {{ form_errors(form.content.textFr) }}
+                                {{ form_widget(form.content.textFr) }}
+                                 <p>Content in English</p>
+                                {{ form_errors(form.content.textEn) }}
+                                {{ form_widget(form.content.textEn) }}
+                            </div>
+                        </div>
                     </div>
+                {% endif %}
+                <div class="row">
+                        <p>Medias
+                            {{ form_errors(form.medias) }}
+                            {{ form_widget(form.medias) }}
+                            <input type="checkbox" id="medias"/>
+                        </p>
                 </div>
-            </div>
-            {% endif %}
-            <div class="row">
-                <form action="#">
-                    <p>Médias
-                        {{ form_errors(form.medias) }}
-                        {{ form_widget(form.medias) }}
-                        <input type="checkbox" id="medias"/>
-                    </p>
-                </form>
-            </div>
-            <div class="admin_button col s3">
-                <input class="waves-effect waves-light btn" type="submit" value="Create article"/>
-            </div>
+                <div class="admin_button col s3">
+                    <input class="waves-effect waves-light btn" type="submit" value="Create article"/>
+                </div>
             {{ form_end(form) }}
-            <div class="admin_button col s3">
+<!--             <div class="admin_button col s3">
                 <a class="waves-effect waves-light btn" href="{{ path('article_index') }}"></a>
-            </div>
+            </div> -->
         </div>
     </div>
 </div>

@@ -175,9 +175,9 @@ class Article
      * @param \HarasBundle\Entity\Page $pages
      * @return Article
      */
-    public function addPage(\HarasBundle\Entity\Page $pages)
+    public function addPage(\HarasBundle\Entity\Page $page)
     {
-        $this->pages[] = $pages;
+        $this->pages = [$page];
         $page->addArticle($this);
 
         return $this;

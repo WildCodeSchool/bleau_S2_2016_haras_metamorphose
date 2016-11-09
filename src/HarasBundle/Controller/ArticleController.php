@@ -8,6 +8,7 @@ use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 
 use HarasBundle\Entity\Article;
 use HarasBundle\Entity\Text;
+use HarasBundle\Entity\Media;
 use HarasBundle\Entity\ArticleStructure;
 use HarasBundle\Entity\Page;
 use HarasBundle\Form\ArticleType;
@@ -44,10 +45,10 @@ class ArticleController extends Controller
 
         if ($form->isSubmitted() && $form->isValid())
         {
-            return $this->forward('HarasBundle:Article:new', array(
+            return $this->redirectToRoute('article_new', array(
                 'name' => $form->get('name')->getData(),
-                'structure' => $form->get('structure')->getData(),
-                'page' => $page
+                'structure' => $form->get('structure')->getData()->getId(),
+                'page' => $page->getId()
                 ));
         }
 
@@ -59,9 +60,9 @@ class ArticleController extends Controller
     public function newAction(Request $request, Page $page, ArticleStructure $structure, $name)
     {
         $article = new Article();
+        $form = $this->createForm('HarasBundle\Form\ArticleType', $article);
         if($structure->getName() == 'slider')
         {
-            $form = $this->createForm('HarasBundle\Form\ArticleType', $article);
             $form
                 ->remove('title')
                 ->remove('content')
@@ -70,30 +71,28 @@ class ArticleController extends Controller
         }
         else
         {
-            $title = new Text();
-            $title->setName($name.' | Title');
-            $content = new Text();
-            $content->setName($name.' | content');
-            // $article->setTitle($title);
-            // $article->setContent($content);
-            $form = $this->createForm('HarasBundle\Form\ArticleType', $article);
-            $form->add('medias', CollectionType::class, array(
-                'entry_type' => MediaType::class));
+            $form->add('medias');
         }
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
+            $article->setStructure($structure);
+            $article->setName($name);
+            $article->addPage($page);
+            if($structure->getName() != 'slider')
+            {
+                $article->getTitle()->setName($name.' | Title');
+                $article->getContent()->setName($name.' | Content');
+            }
             $em = $this->getDoctrine()->getManager();
             $em->persist($article);
             $em->flush();
-            $page->addArticles($article);
 
             return $this->redirectToRoute('article_show', array('id' => $article->getId()));
         }
 
         return $this->render('article/new.html.twig', array(
             'article' => $article,
-            'form' => $form->createView(),
-
+            'form' => $form->createView()
         ));
     }
 
@@ -129,11 +128,11 @@ class ArticleController extends Controller
             return $this->redirectToRoute('article_edit', array('id' => $article->getId()));
         }
 
-        $editForm->remove('title');
-        $editForm->remove('content');
-        $editForm->remove('structure');
-        $editForm->remove('medias');
-        $editForm->remove('createdAt');
+        // $editForm->remove('title');
+        // $editForm->remove('content');
+        // $editForm->remove('structure');
+        // $editForm->remove('medias');
+        // $editForm->remove('createdAt');
 
 
 
