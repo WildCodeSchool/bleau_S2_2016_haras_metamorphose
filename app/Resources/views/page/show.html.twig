@@ -20,8 +20,8 @@
     <nav class="nav">
         <div class="nav-wrapper">
             <ul>
-                <li><a href="{{ path('page_index', { 'name': 'homepage' }) }}">Index</a></li>
-                <li><a href="{{ path('article_new', { 'name': 'homepage' }) }}">New Article</a></li>
+                <li><a href="{{ path('page_index') }}">Index</a></li>
+                <li><a href="{{ path('article_select', { 'name': page.name }) }}">New Article</a></li>
                 <li><a href="{{ path('haras_get_page', {'name': 'homepage'}) }}">Homepage</a></li>
                 <li><a class="background-color: blue" href="{{ path('fos_user_security_logout') }}">
                         {{ 'Logout'|trans({}, 'FOSUserBundle') }}

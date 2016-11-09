@@ -128,11 +128,11 @@ class ArticleController extends Controller
             return $this->redirectToRoute('article_edit', array('id' => $article->getId()));
         }
 
-        // $editForm->remove('title');
-        // $editForm->remove('content');
-        // $editForm->remove('structure');
-        // $editForm->remove('medias');
-        // $editForm->remove('createdAt');
+        $editForm->remove('title');
+        $editForm->remove('content');
+        $editForm->remove('structure');
+        $editForm->remove('medias');
+        $editForm->remove('createdAt');
 
 
 
