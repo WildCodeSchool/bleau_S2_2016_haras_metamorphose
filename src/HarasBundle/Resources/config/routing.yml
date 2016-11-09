@@ -1,18 +1,18 @@
 haras_page:
     resource: "@HarasBundle/Resources/config/routing/page.yml"
-    prefix:   /page
+    prefix:   /admin/page
 
 haras_article:
     resource: "@HarasBundle/Resources/config/routing/article.yml"
-    prefix:   /article
+    prefix:   /admin/article
 
 haras_media:
     resource: "@HarasBundle/Resources/config/routing/media.yml"
-    prefix:   /media
+    prefix:   /admin/media
 
 haras_text:
     resource: "@HarasBundle/Resources/config/routing/text.yml"
-    prefix:   /text
+    prefix:   /admin/text
 
 #Main Route
 haras_get_page:

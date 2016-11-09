@@ -19,7 +19,7 @@ class PageController extends Controller
     public function getPageAction(Request $request, Page $page, $langChoice)
     {
         $em = $this->getDoctrine()->getManager();
-        // suite à la moficiation des render en include, on doit récup le header et le footer
+        // suite à la modification des render en include, on doit récup le header et le footer
         // en même temps que la page appelée
         $pages = $em->getRepository('HarasBundle:Page')->findById([14, 15, $page->getId()]);
         // appel du service de traduction, si defaultLocale != fr ou en -> _locale = en,
@@ -37,7 +37,7 @@ class PageController extends Controller
         // on définit cette variable pour simpifier le code de le contrôleur
         $name = $table['page'];
         // récupération du texte propre à la page
-        // A noter, la variable s'appele $p et non $page car sinon ça fait un conflit 
+        // A noter, la variable s'appelle $p et non $page car sinon ça fait un conflit
         // avec le $page qu'on récupère en paramètre
         foreach($pages as $p)
         {
