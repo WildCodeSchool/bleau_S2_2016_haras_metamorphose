@@ -6,6 +6,20 @@
 
 {% block body %}
     <body id="_admin">
+    <nav class="nav">
+        <div class="nav-wrapper">
+            <ul>
+                <li><a href="{{ path('page_index', { 'name': 'homepage' }) }}">Index</a></li>
+                <li><a href="{{ path('article_new', { 'name': 'homepage' }) }}">New Article</a></li>
+                <li><a href="{{ path('haras_get_page', {'name': 'homepage'}) }}">Homepage</a></li>
+                <li><a class="background-color: blue" href="{{ path('fos_user_security_logout') }}">
+                        {{ 'Logout'|trans({}, 'FOSUserBundle') }}
+                    </a>
+
+                </li>
+            </ul>
+        </div>
+    </nav>
     <div class="container">
         <div class="row">
             <div class="cadre">
@@ -26,9 +40,6 @@
                             <td><img src="{{ asset(medium.path) }}" alt="{{ medium.alt }}" height=100px></td>
                             <td>
                                 <ul>
-                                    <li>
-                                        <a href="{{ path('media_show', { 'id': medium.id }) }}">show</a>
-                                    </li>
                                     <li>
                                         <a href="{{ path('media_edit', { 'id': medium.id }) }}">edit</a>
                                     </li>

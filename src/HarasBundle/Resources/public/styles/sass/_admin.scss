@@ -4,7 +4,7 @@
 
 
 #_admin {
-    background-color: lightgreen;
+    background-color: darkgrey;
     height: 100%;
     width: 100%;
     //background-image: url("../../../public/images/test.png");
@@ -58,5 +58,8 @@
       border-radius: 5px;
       padding: 5px;
       width: 50%;
+    }
+    .nav {
+      background-color: green;
     }
 }

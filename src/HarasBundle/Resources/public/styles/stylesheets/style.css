@@ -15,17 +15,29 @@ body, html {
 /*//////////////////////////////////////////////
 /////////////// _index_footer.scss /////////////
 //////////////////////////////////////////////*/
-/* line 5, ../sass/_index_footer.scss */
-#_index_footer:hover {
-  background-color: #00787a;
-  height: 255px;
-  margin-top: -255px;
-}
+@media all and (min-width: 900px) {
+  /* line 6, ../sass/_index_footer.scss */
+  #_index_footer:hover {
+    background-color: #00787a;
+    height: 255px;
+    margin-top: -255px;
+  }
 
-/* line 11, ../sass/_index_footer.scss */
+  /* line 11, ../sass/_index_footer.scss */
+  #_index_footer {
+    overflow: hidden;
+    margin-top: -50px;
+  }
+}
+@media all and (max-width: 900px) {
+  /* line 17, ../sass/_index_footer.scss */
+  #_index_footer {
+    height: 255px;
+    background-color: #00787a;
+  }
+}
+/* line 22, ../sass/_index_footer.scss */
 #_index_footer {
-  overflow: hidden;
-  margin-top: -50px;
   height: 50px;
   background-color: rgba(0, 120, 122, 0.6);
   -webkit-transition: all 1s;
@@ -40,25 +52,25 @@ body, html {
   /*  Footer button*/
   /* form input*/
 }
-/* line 24, ../sass/_index_footer.scss */
+/* line 33, ../sass/_index_footer.scss */
 #_index_footer p {
   font-size: 1em;
   margin-top: 1.5em;
 }
-/* line 29, ../sass/_index_footer.scss */
+/* line 38, ../sass/_index_footer.scss */
 #_index_footer h1 {
   font-size: 2em;
   margin-bottom: 1em;
 }
-/* line 34, ../sass/_index_footer.scss */
+/* line 43, ../sass/_index_footer.scss */
 #_index_footer h2 {
   font-size: 1.5em;
 }
-/* line 38, ../sass/_index_footer.scss */
+/* line 47, ../sass/_index_footer.scss */
 #_index_footer h3 {
   font-size: 1em;
 }
-/* line 46, ../sass/_index_footer.scss */
+/* line 55, ../sass/_index_footer.scss */
 #_index_footer .footer .footer-left,
 #_index_footer .footer .footer-center,
 #_index_footer .footer .footer-right {
@@ -67,31 +79,31 @@ body, html {
   vertical-align: top;
   text-align: left;
 }
-/* line 55, ../sass/_index_footer.scss */
+/* line 64, ../sass/_index_footer.scss */
 #_index_footer #avis {
   font-weight: bold;
   margin-top: 30px;
   text-decoration: none;
 }
-/* line 60, ../sass/_index_footer.scss */
+/* line 69, ../sass/_index_footer.scss */
 #_index_footer .footer .footer-left {
   width: 30%;
   /*font-size: 12px;*/
 }
-/* line 65, ../sass/_index_footer.scss */
+/* line 74, ../sass/_index_footer.scss */
 #_index_footer .footer .footer-center {
   width: 30%;
 }
-/* line 69, ../sass/_index_footer.scss */
+/* line 78, ../sass/_index_footer.scss */
 #_index_footer .footer .footer-right {
   width: 30%;
   text-align: left;
 }
-/* line 74, ../sass/_index_footer.scss */
+/* line 83, ../sass/_index_footer.scss */
 #_index_footer .footer a {
   color: white;
 }
-/* line 80, ../sass/_index_footer.scss */
+/* line 89, ../sass/_index_footer.scss */
 #_index_footer #footer-bottom {
   background-color: #003f40;
   text-align: left;
@@ -99,11 +111,11 @@ body, html {
   padding-top: 1em;
   padding-bottom: 1em;
 }
-/* line 88, ../sass/_index_footer.scss */
+/* line 97, ../sass/_index_footer.scss */
 #_index_footer #copyright {
   padding-left: 5%;
 }
-/* line 92, ../sass/_index_footer.scss */
+/* line 101, ../sass/_index_footer.scss */
 #_index_footer #footer-bottom a:link, #_index_footer a:visited {
   color: white;
   text-align: center;
@@ -111,15 +123,15 @@ body, html {
   display: inline-block;
   font-size: 15px;
 }
-/* line 100, ../sass/_index_footer.scss */
+/* line 109, ../sass/_index_footer.scss */
 #_index_footer #footer-bottom a:hover, #_index_footer a:active {
   color: white;
 }
-/* line 105, ../sass/_index_footer.scss */
+/* line 114, ../sass/_index_footer.scss */
 #_index_footer #mentions {
   padding-left: 2%;
 }
-/* line 113, ../sass/_index_footer.scss */
+/* line 122, ../sass/_index_footer.scss */
 #_index_footer button {
   background-color: #4CAF50;
   /* Green */
@@ -137,18 +149,18 @@ body, html {
   cursor: pointer;
   width: 181px;
 }
-/* line 130, ../sass/_index_footer.scss */
+/* line 139, ../sass/_index_footer.scss */
 #_index_footer .button1 {
   background-color: #4CAF50;
   color: white;
   border: 2px solid #4CAF50;
 }
-/* line 136, ../sass/_index_footer.scss */
+/* line 145, ../sass/_index_footer.scss */
 #_index_footer .button1:hover {
   background-color: white;
   color: #4CAF50;
 }
-/* line 143, ../sass/_index_footer.scss */
+/* line 152, ../sass/_index_footer.scss */
 #_index_footer .footer-right form input,
 #_index_footer .footer-right form textarea {
   display: block;
@@ -165,26 +177,26 @@ body, html {
   width: 400px;
   padding: 18px;
 }
-/* line 160, ../sass/_index_footer.scss */
+/* line 169, ../sass/_index_footer.scss */
 #_index_footer .footer-right ::-webkit-input-placeholder {
   color: #5c666b;
 }
-/* line 164, ../sass/_index_footer.scss */
+/* line 173, ../sass/_index_footer.scss */
 #_index_footer .footer-right ::-moz-placeholder {
   color: #5c666b;
   opacity: 1;
 }
-/* line 169, ../sass/_index_footer.scss */
+/* line 178, ../sass/_index_footer.scss */
 #_index_footer .footer-right :-ms-input-placeholder {
   color: #5c666b;
 }
-/* line 173, ../sass/_index_footer.scss */
+/* line 182, ../sass/_index_footer.scss */
 #_index_footer .footer-right form input {
   height: 55px;
   margin-bottom: 1em;
   width: 181px;
 }
-/* line 179, ../sass/_index_footer.scss */
+/* line 188, ../sass/_index_footer.scss */
 #_index_footer .footer-right form textarea {
   height: 100px;
   margin-bottom: 20px;
@@ -302,7 +314,7 @@ body, html {
   height: 100%;
   width: 100%;
 }
-/* line 24, ../sass/_index.scss */
+/* line 23, ../sass/_index.scss */
 #_index #index_corps {
   text-align: center;
   position: relative;
@@ -310,7 +322,7 @@ body, html {
   width: 100%;
   height: 100%;
 }
-/* line 34, ../sass/_index.scss */
+/* line 33, ../sass/_index.scss */
 #_index #index_catchPhrase {
   margin-top: 10%;
   color: white;
@@ -318,7 +330,7 @@ body, html {
   font-weight: bold;
   text-shadow: 3px 3px rgba(0, 0, 0, 0.7);
 }
-/* line 42, ../sass/_index.scss */
+/* line 41, ../sass/_index.scss */
 #_index #index_focus {
   position: absolute;
   bottom: 30px;
@@ -328,7 +340,7 @@ body, html {
   text-align: center;
   margin-bottom: 40px;
 }
-/* line 52, ../sass/_index.scss */
+/* line 51, ../sass/_index.scss */
 #_index .index_rubrique {
   display: inline-block;
   border-radius: 10px;
@@ -344,56 +356,58 @@ body, html {
   -ms-transition: all 1s ease;
   transition: all 1s ease;
 }
-/* line 62, ../sass/_index.scss */
+/* line 61, ../sass/_index.scss */
 #_index .index_rubrique p {
   font-size: 18px;
   margin: 0;
 }
-/* line 66, ../sass/_index.scss */
+/* line 65, ../sass/_index.scss */
 #_index .index_rubrique .index_rubrique_img {
   width: 120px;
   margin-top: 10px;
 }
-/* line 74, ../sass/_index.scss */
-#_index .index_rubrique.hover {
-  height: 300px;
-  width: 300px;
-  margin-top: -110px;
-  box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.7);
+@media all and (min-width: 900px) {
+  /* line 72, ../sass/_index.scss */
+  #_index .index_rubrique.hover {
+    height: 300px;
+    width: 300px;
+    margin-top: -110px;
+    box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.7);
+  }
 }
-/* line 82, ../sass/_index.scss */
+/* line 81, ../sass/_index.scss */
 #_index .typed-cursor {
   display: none;
 }
-/* line 86, ../sass/_index.scss */
+/* line 85, ../sass/_index.scss */
 #_index .index_rubrique.section1Link {
   background-color: rgba(7, 64, 10, 0.6);
 }
-/* line 89, ../sass/_index.scss */
+/* line 88, ../sass/_index.scss */
 #_index .section1Link.hover {
   background-color: #07400a;
 }
-/* line 93, ../sass/_index.scss */
+/* line 92, ../sass/_index.scss */
 #_index .index_rubrique.section2Link {
   background-color: rgba(140, 104, 34, 0.6);
 }
-/* line 96, ../sass/_index.scss */
+/* line 95, ../sass/_index.scss */
 #_index .section2Link.hover {
   background-color: #8c6822;
 }
-/* line 100, ../sass/_index.scss */
+/* line 99, ../sass/_index.scss */
 #_index .index_rubrique.section3Link {
   background-color: rgba(39, 34, 140, 0.6);
 }
-/* line 103, ../sass/_index.scss */
+/* line 102, ../sass/_index.scss */
 #_index .section3Link.hover {
   background-color: #27228c;
 }
-/* line 107, ../sass/_index.scss */
+/* line 106, ../sass/_index.scss */
 #_index .index_rubrique.section4Link {
   background-color: rgba(183, 21, 134, 0.6);
 }
-/* line 110, ../sass/_index.scss */
+/* line 109, ../sass/_index.scss */
 #_index .section4Link.hover {
   background-color: #b71586;
 }
@@ -723,29 +737,38 @@ body, html {
 #_template .media {
   max-width: 40%;
 }
+/* line 56, ../sass/_template.scss */
+#_template .text-left {
+  margin-left: 2em;
+  margin-right: 2em;
+}
+/* line 60, ../sass/_template.scss */
+#_template .text-right {
+  margin-left: 35em;
+}
 
-/* line 58, ../sass/_template.scss */
+/* line 65, ../sass/_template.scss */
 .paginationNav {
   padding-top: 10px !important;
 }
-/* line 60, ../sass/_template.scss */
+/* line 67, ../sass/_template.scss */
 .paginationNav * {
   color: inherit;
 }
 
-/* line 65, ../sass/_template.scss */
+/* line 72, ../sass/_template.scss */
 .paginationNav li {
   display: inline;
   margin-right: 0.5em;
   font-weight: bold;
 }
 
-/* line 71, ../sass/_template.scss */
+/* line 78, ../sass/_template.scss */
 .content {
   text-align: justify;
 }
 
-/* line 75, ../sass/_template.scss */
+/* line 82, ../sass/_template.scss */
 .article-block {
   margin-top: 100px !important;
 }
@@ -755,7 +778,7 @@ body, html {
 //////////////////////////////////////////////*/
 /* line 6, ../sass/_admin.scss */
 #_admin {
-  background-color: lightgreen;
+  background-color: darkgrey;
   height: 100%;
   width: 100%;
   color: darkslategrey;
@@ -808,6 +831,10 @@ body, html {
   padding: 5px;
   width: 50%;
 }
+/* line 62, ../sass/_admin.scss */
+#_admin .nav {
+  background-color: green;
+}
 
 /*//////////////////////////////////////////////
 ///////////// _contact.scss ////////////////////
@@ -820,7 +847,7 @@ body, html {
 /* line 8, ../sass/_contact.scss */
 .map-holder {
   width: 600px;
-  height: 600px;
+  height: 500px;
 }
 
 /* line 12, ../sass/_contact.scss */
@@ -828,11 +855,17 @@ body, html {
   width: 100% !important;
   height: 100% !important;
   margin-bottom: 3em;
+  margin-left: 2em;
+  border: 2px grey solid;
 }
 
-/* line 18, ../sass/_contact.scss */
+/* line 20, ../sass/_contact.scss */
 .contact_form {
-  text-align: center;
   margin-bottom: 3em;
   padding: 2em;
+}
+
+/* line 26, ../sass/_contact.scss */
+.button {
+  margin: 2em;
 }

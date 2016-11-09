@@ -5,7 +5,7 @@
 {% endblock materialize %}
 
 {% block body %}
-<body id="template">
+    <body id="template">
     <header id='_template_header'>
         {% include 'HarasBundle::header.html.twig' %}
     </header>
@@ -17,50 +17,81 @@
 
                 {{ form_start(form) }}
                 <div>
-                <p>{{ contactMail }}</p>
-                {{ form_errors(form.from) }}
-                {{ form_widget(form.from) }}
+                    <p>{{ contactName }}</p>
+                    {{ form_errors(form.subject) }}
+                    {{ form_widget(form.subject) }}
                 </div>
                 <div>
-                <p>{{ contactName }}</p>
-                {{ form_errors(form.subject) }}
-                {{ form_widget(form.subject) }}
+                    <p>{{ contactMail }}</p>
+                    {{ form_errors(form.from) }}
+                    {{ form_widget(form.from) }}
                 </div>
-                <div>
-                <p>{{ contactMessage }}</p>
-                {{ form_errors(form.body) }}
-                {{ form_widget(form.body) }}
+                <div class="text_area">
+                    <p>{{ contactMessage }}</p>
+                    {{ form_errors(form.body) }}
+                    {{ form_widget(form.body) }}
                 </div>
-                <input type="submit" value="{{ sendButton }}" />
+                <input class=" button waves-effect waves-light btn col s6" type="submit" value="{{ sendButton }}"/>
+                <div class="col s6 ">
+                    {% if send == true %}
+                        <p>Le formulaire a bien été envoyé</p>
+                    {% endif %}
+                </div>
             </div>
-                {{ form_end(form) }}
-        <div class="map-holder col s6">
-            <div id="map"></div>
+            {{ form_end(form) }}
+
+            <div class="map-holder col s6">
+                <div id="map"></div>
+            </div>
         </div>
-        </div>
-        {{ form_start(form) }}
-            {{ form_widget(form) }}
-           <input type="submit" value="Create" />
-        {{ form_end(form) }}
+
+
     </div>
-    {% if send == true %}
-        <p>Le formulaire a bien été envoyé</p>
-    {% endif %}
     <footer id="_template_footer">
         {% include 'HarasBundle::footer.html.twig' %}
     </footer>
 
     <script>
         var map;
+
         function initMap() {
-            map = new google.maps.Map(document.getElementById('map'), {
-                center: {lat: 49.419292, lng: 2.8311797999999726},
-                zoom: 15
+            var compiegne = {lat: 49.416672, lng: 2.83333};
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 15,
+                center: compiegne
+            });
+
+            var contentString =
+                    '<div id="content">' +
+                    '<div id="siteNotice">' +
+                    '</div>' +
+                    '<h4 id="firstHeading" class="firstHeading">Haras de la métamorphose</h4>' +
+                    '<div id="bodyContent">' +
+                    '<p><b>Adresse</b></p>' +
+                    '<p>110 rue du colonel fabien' +
+                    ' 92160 Antony </p>' +
+                    '<p><b>Tel:</b><p>01 46 74 64 93</p></p>' +
+                    '</div>' +
+                    '</div>';
+
+
+            var infowindow = new google.maps.InfoWindow({
+                content: contentString
+            });
+
+            var marker = new google.maps.Marker({
+                position: compiegne,
+                map: map,
+                title: 'compiegne '
+            });
+            marker.addListener('click', function () {
+                infowindow.open(map, marker);
             });
         }
+
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAr10cIoZKJLUnRzAcZQmd9rFNSjRmWLCk&callback=initMap"
             async defer></script>
 
-</body>
+    </body>
 {% endblock body %}

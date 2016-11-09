@@ -16,6 +16,20 @@
 
 {% block body %} 
     <body id="_admin"> 
+    <nav class="nav">
+        <div class="nav-wrapper">
+            <ul>
+                <li><a href="{{ path('page_index', { 'name': 'homepage' }) }}">Index</a></li>
+                <li><a href="{{ path('article_new', { 'name': 'homepage' }) }}">New Article</a></li>
+                <li><a href="{{ path('haras_get_page', {'name': 'homepage'}) }}">Homepage</a></li>
+                <li><a class="background-color: blue" href="{{ path('fos_user_security_logout') }}">
+                        {{ 'Logout'|trans({}, 'FOSUserBundle') }}
+                    </a>
+
+                </li>
+            </ul>
+        </div>
+    </nav>
     <div class="container"> 
         <div class="cadre"> 
             <div class="row">  <h1 class="admin_title">Text edit for: {{ text.name }}</h1> 
@@ -51,8 +65,8 @@
                                 <input type="submit" value="Valider">  {{ form_end(edit_form) }} 
                             </a> 
                         </div>
-                        <div class="admin_button col s12 m6"> 
-                            <a class="waves-effect waves-light btn" href="{{ path('text_index') }}"> 
+                        <div class="admin_button col s12 m6" href="{{ path('text_index') }}"> 
+                            <a class="waves-effect waves-light btn" > 
                                 <input style="color:white" type="submit" value="Texts list"> 
                             </a> 
                         </div>
