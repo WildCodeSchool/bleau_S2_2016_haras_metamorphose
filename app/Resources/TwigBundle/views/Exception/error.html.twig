@@ -1,16 +1,24 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="{{ _charset }}" />
-        <title>An Error Occurred: {{ status_text }}</title>
-    </head>
-    <body>
-        <h1>Youpi!</h1>
-        <h2>The server returned a "{{ status_code }} {{ status_text }}".</h2>
+<head>
+    <meta charset="{{ _charset }}"/>
+    <title>An Error Occurred: {{ status_text }}</title>
 
+    <link rel="stylesheet" href="{{ asset('bundles/haras/styles/stylesheets/style.css') }}">
+
+
+</head>
+<body id="_error">
+    <div class="text_error">
         <div>
-            Something is broken. Please let us know what you were doing when this error occurred.
-            We will fix it as soon as possible. Sorry for any inconvenience caused.
+            <h1>404</h1>
         </div>
-    </body>
+        <p>The server returned a "{{ status_code }} {{ status_text }}".</p>
+        <p>It seems that you have lost your way</p>
+        <div class="link">
+            <a href="{{ path('fos_user_security_login') }}">return to Login Page</a>
+        </div>
+    </div>
+
+</body>
 </html>

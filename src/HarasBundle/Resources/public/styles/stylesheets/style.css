@@ -821,6 +821,37 @@ body, html {
   background-color: green;
 }
 
+/* line 62, ../sass/_admin.scss */
+#_error {
+  background-image: url("../../images/error.jpg");
+  background-repeat: no-repeat;
+  background-color: grey;
+  background-position: center;
+  color: #FFFFFF;
+}
+/* line 69, ../sass/_admin.scss */
+#_error .text_error {
+  text-align: center;
+}
+/* line 72, ../sass/_admin.scss */
+#_error h1 {
+  font-size: 9em;
+}
+/* line 75, ../sass/_admin.scss */
+#_error p {
+  font-size: 1.5em;
+}
+/* line 79, ../sass/_admin.scss */
+#_error a {
+  text-decoration: none;
+  color: #FFFFFF;
+  padding-top: 1em;
+}
+/* line 84, ../sass/_admin.scss */
+#_error .link {
+  margin-top: 1em;
+}
+
 /*//////////////////////////////////////////////
 ///////////// _contact.scss ////////////////////
 //////////////////////////////////////////////*/
