@@ -16,7 +16,6 @@
 
 {% block body %}
     {% include 'HarasBundle::nav_admin.html.twig' %}
-
     <body id="_admin">
     <div class="container">
         <div class="cadre">
@@ -39,30 +38,32 @@
                         </td>
                     </tr>
                     {% endfor %}
-                    <tr>
-                        <th>Text title (French)</th>
-                        <td>
-                            {{ article.title.textFr }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Text title (English)</th>
-                        <td>
-                            {{ article.title.textEn }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Text content (French)</th>
+                    {% if article.structure.name != 'slider' %}
+                        <tr>
+                            <th>Text title (French)</th>
+                            <td>
+                                {{ article.title.textFr }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Text title (English)</th>
+                            <td>
+                                {{ article.title.textEn }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Text content (French)</th>
                             <td>
                                 {{ article.content.textFr }}
                             </td>
-                    </tr>
-                    <tr>
-                        <th>Text content (English)</th>
-                        <td>
-                            {{ article.content.textEn }}
-                        </td>
-                    </tr>
+                        </tr>
+                        <tr>
+                            <th>Text content (English)</th>
+                            <td>
+                                {{ article.content.textEn }}
+                            </td>
+                        </tr>
+                    {% endif %}
                     <tr>
                         <th>Medias</th>
                         {% for media in article.medias %}

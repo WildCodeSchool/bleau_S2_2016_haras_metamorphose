@@ -15,10 +15,8 @@ class TextType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name')
             ->add('textFr')
             ->add('textEn')
-            ->add('pages')
         ;
     }
     

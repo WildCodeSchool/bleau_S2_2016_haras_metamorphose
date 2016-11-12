@@ -16,7 +16,6 @@
 
 {% block body %}
     {% include 'HarasBundle::nav_admin.html.twig' %}
-
     <body id="_admin">
     <div class="container">
         <div class="cadre">
@@ -81,8 +80,8 @@
                 </table>
                 <div class="row">
                     <div class="admin_button col m12">
-                        <a class="waves-effect waves-light btn" href="{{ path('article_new', { 'name': page.name }) }}">
-                            Add article
+                        <a class="waves-effect waves-light btn" href="{{ path('article_select', { 'name': page.name }) }}">
+                            Add article to {{page.name}}
                         </a>
                     </div>
                 </div>
