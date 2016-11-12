@@ -20,7 +20,6 @@
         <div class="nav-wrapper">
             <ul>
                 <li><a href="{{ path('page_index', { 'name': 'homepage' }) }}">Index</a></li>
-                <li><a href="{{ path('article_new', { 'name': 'homepage' }) }}">New Article</a></li>
                 <li><a href="{{ path('haras_get_page', {'name': 'homepage'}) }}">Homepage</a></li>
                 <li><a class="background-color: blue" href="{{ path('fos_user_security_logout') }}">
                         {{ 'Logout'|trans({}, 'FOSUserBundle') }}
@@ -36,22 +35,6 @@
                 <h1 class="admin_title">Modify article {{ article.name }}</h1>
                 {{ form_start(edit_form) }}
                 <div class="row">
-                    <div class="col s12">
-                        Name
-                        <div class="input-field inline">
-                            {{ form_errors(edit_form.name) }}
-                            {{ form_widget(edit_form.name) }}
-                            <label for="nom" data-error="wrong" data-success="right"></label>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div> Page article
-                        <div class="input-field inline">
-                            <select>
-                                <option value= {{ form_errors(edit_form.pages) }} {{ form_widget(edit_form.pages) }} </option>
-                            </select>
-                        </div>
                         {% if article.title is not null %}
                             <table>
                                 <tr>

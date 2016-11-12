@@ -55,6 +55,7 @@
 
 {% block javascripts %}
     {{ parent() }}
+    <script src="{{ asset('bundles/haras/scripts/typed.js') }}"></script>
     <script>
         // le temps est en ms
         $(function typedFunction(){

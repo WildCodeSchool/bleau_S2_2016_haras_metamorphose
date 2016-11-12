@@ -1,0 +1,30 @@
+/*//////////////////////////////////////////////
+///////////// _admin.scss /////////////////////
+//////////////////////////////////////////////*/
+
+#_error {
+  background-image: url("../../images/error.jpg");
+  background-repeat: no-repeat;
+  background-color: grey;
+  background-position: center;
+  color: #FFFFFF;
+
+  .text_error {
+    text-align: center;
+  }
+  h1 {
+    font-size: 9em;
+  }
+  p {
+    font-size: 1.5em;
+  }
+
+  a {
+    text-decoration: none;
+    color: #FFFFFF;
+    padding-top: 1em;
+  }
+  .link {
+    margin-top: 1em;
+  }
+}

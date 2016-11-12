@@ -20,6 +20,7 @@ HarasBundle\Entity\Article:
             targetEntity: Text
             inversedBy: articles_title
             nullable: true
+            cascade: ['all']
             joinColumn:
                 name: title_id
                 referencedColumnName: id
@@ -27,6 +28,7 @@ HarasBundle\Entity\Article:
             targetEntity: Text
             inversedBy: articles_content
             nullable: true
+            cascade: ['all']
             joinColumn:
                 name: content_id
                 referencedColumnName: id
