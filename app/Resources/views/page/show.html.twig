@@ -15,81 +15,68 @@
 {% endblock materialize %}
 
 {% block body %}
+    {% include 'HarasBundle::nav_admin.html.twig' %}
+
     <body id="_admin">
-
-    <nav class="nav">
-        <div class="nav-wrapper">
-            <ul>
-                <li><a href="{{ path('page_index', { 'name': 'homepage' }) }}">Index</a></li>
-                <li><a href="{{ path('article_new', { 'name': 'homepage' }) }}">New Article</a></li>
-                <li><a href="{{ path('haras_get_page', {'name': 'homepage'}) }}">Homepage</a></li>
-                <li><a class="background-color: blue" href="{{ path('fos_user_security_logout') }}">
-                        {{ 'Logout'|trans({}, 'FOSUserBundle') }}
-                    </a>
-
-                </li>
-            </ul>
-        </div>
-    </nav>
     <div class="container">
         <div class="cadre">
             <div class="row">
                 <h1 class="admin_title">Articles of the {{ page.name }}</h1>
 
-            <table>
-                <thead>
+                <table>
+                    <thead>
                     <tr>
                         <th>Name of articles</th>
                         <th>Edit</th>
                     </tr>
-                </thead>
-                <tbody>
-                {% for article in page.articles %}
+                    </thead>
+                    <tbody>
+                    {% for article in page.articles %}
+                        <tr>
+                            <td>
+                                {{ article.name }}
+                            </td>
+                            <td>
+                                <a href="{{ path('article_edit', { 'id': article.id }) }}">Edit</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                    <thead>
                     <tr>
-                        <td>
-                            {{ article.name }}
-                        </td>
-                        <td>
-                            <a href="{{ path('article_edit', { 'id': article.id }) }}">Edit</a>
-                        </td>
+                        <th>Name of texts</th>
+                        <th>Edit</th>
                     </tr>
-                {% endfor %}
-                </tbody>
-                <thead>
-                <tr>
-                    <th>Name of texts</th>
-                    <th>Edit</th>
-                </tr>
-                </thead>
-                <tbody>
-                {% for text in page.texts %}
-                    <tr>
-                        <td>
-                            {{ text.name }}
-                        </td>
+                    </thead>
+                    <tbody>
+                    {% for text in page.texts %}
+                        <tr>
+                            <td>
+                                {{ text.name }}
+                            </td>
 
-                        <td>
-                            <a href="{{ path('text_edit', { 'id': text.id }) }}">Edit</a>
-                        </td>
+                            <td>
+                                <a href="{{ path('text_edit', { 'id': text.id }) }}">Edit</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                    <thead>
+                    <tr>
+                        <th>Name of medias</th>
+                        <th>Edit</th>
                     </tr>
-                {% endfor %}
-                </tbody>
-                <thead>
-                <tr>
-                    <th>Name of medias</th>
-                    <th>Edit</th>
-                </tr>
-                </thead>
-                <tbody>
+                    </thead>
+                    <tbody>
                     <tr>
                         {% for media in page.medias %}
                             <td>
-                            {{ page.medias.name }}
-                        </td>
-                        <td>
-                            <a href="{{ path('media_edit', { 'id': media.id }) }}">Edit</a>
-                        </td>
-                    {% endfor %}
+                                {{ page.medias.name }}
+                            </td>
+                            <td>
+                                <a href="{{ path('media_edit', { 'id': media.id }) }}">Edit</a>
+                            </td>
+                        {% endfor %}
                     </tbody>
                 </table>
                 <div class="row">
@@ -106,5 +93,6 @@
                 </div>
             </div>
         </div>
+    </div>
     </body>
 {% endblock %}

@@ -16,26 +16,14 @@
 {% endblock materialize %}
 
 {% block body %}
-    <body id="_admin">
-    <nav class="nav">
-        <div class="nav-wrapper">
-            <ul>
-                <li><a href="{{ path('page_index', { 'name': 'homepage' }) }}">Index</a></li>
-                <li><a href="{{ path('article_new', { 'name': 'homepage' }) }}">New Article</a></li>
-                <li><a href="{{ path('haras_get_page', {'name': 'homepage'}) }}">Homepage</a></li>
-                <li><a class="background-color: blue" href="{{ path('fos_user_security_logout') }}">
-                        {{ 'Logout'|trans({}, 'FOSUserBundle') }}
-                    </a>
 
-                </li>
-            </ul>
-        </div>
-    </nav>
+    {% include 'HarasBundle::nav_admin.html.twig' %}
+
+    <body id="_admin">
     <div class="container">
         <div class="cadre">
             <div class="row">
                 <h1 class="admin_title">Which page do you want to modify ?</h1>
-
                 <div class="admin_button col m12">
                     <a class="waves-effect waves-light btn" href="{{ path('page_show', { 'name': 'homepage' }) }}">
                         <input type="submit" value="Homepage"/>
@@ -88,6 +76,7 @@
                 </div>
 
             </div>
+        </div>
         </div>
     </body>
 {% endblock body %}
