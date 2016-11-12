@@ -737,29 +737,38 @@ body, html {
 #_template .media {
   max-width: 40%;
 }
+/* line 56, ../sass/_template.scss */
+#_template .text-left {
+  margin-left: 2em;
+  margin-right: 2em;
+}
+/* line 60, ../sass/_template.scss */
+#_template .text-right {
+  margin-left: 35em;
+}
 
-/* line 58, ../sass/_template.scss */
+/* line 65, ../sass/_template.scss */
 .paginationNav {
   padding-top: 10px !important;
 }
-/* line 60, ../sass/_template.scss */
+/* line 67, ../sass/_template.scss */
 .paginationNav * {
   color: inherit;
 }
 
-/* line 65, ../sass/_template.scss */
+/* line 72, ../sass/_template.scss */
 .paginationNav li {
   display: inline;
   margin-right: 0.5em;
   font-weight: bold;
 }
 
-/* line 71, ../sass/_template.scss */
+/* line 78, ../sass/_template.scss */
 .content {
   text-align: justify;
 }
 
-/* line 75, ../sass/_template.scss */
+/* line 82, ../sass/_template.scss */
 .article-block {
   margin-top: 100px !important;
 }
@@ -817,39 +826,14 @@ body, html {
   border-radius: 5px;
 }
 /* line 57, ../sass/_admin.scss */
+#_admin .input-title {
+  border-radius: 5px;
+  padding: 5px;
+  width: 50%;
+}
+/* line 62, ../sass/_admin.scss */
 #_admin .nav {
   background-color: green;
-}
-
-/* line 62, ../sass/_admin.scss */
-#_error {
-  background-image: url("../../images/error.jpg");
-  background-repeat: no-repeat;
-  background-color: grey;
-  background-position: center;
-  color: #FFFFFF;
-}
-/* line 69, ../sass/_admin.scss */
-#_error .text_error {
-  text-align: center;
-}
-/* line 72, ../sass/_admin.scss */
-#_error h1 {
-  font-size: 9em;
-}
-/* line 75, ../sass/_admin.scss */
-#_error p {
-  font-size: 1.5em;
-}
-/* line 79, ../sass/_admin.scss */
-#_error a {
-  text-decoration: none;
-  color: #FFFFFF;
-  padding-top: 1em;
-}
-/* line 84, ../sass/_admin.scss */
-#_error .link {
-  margin-top: 1em;
 }
 
 /*//////////////////////////////////////////////

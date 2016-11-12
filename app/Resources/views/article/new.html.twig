@@ -20,8 +20,7 @@
     <div class="nav-wrapper">
         <ul>
             <li><a href="{{ path('page_index', { 'name': 'homepage' }) }}">Index</a></li>
-            <li><a href="{{ path('article_new', { 'name': 'homepage' }) }}">New Article</a></li>
-            <li><a href="{{ path('haras_get_page', {'name': 'homepage'}) }}">Homepage</a></li>
+                <li><a href="{{ path('haras_get_page', {'name': 'homepage'}) }}">Homepage</a></li>
             <li><a class="background-color: blue" href="{{ path('fos_user_security_logout') }}">
                     {{ 'Logout'|trans({}, 'FOSUserBundle') }}
                 </a>
@@ -35,73 +34,46 @@
         <div class="row">
             <h1 class="admin_title">Create new article</h1>
             {{ form_start(form) }}
-            <div class="row">
-                <div class="col s12">
-                    Article structure
-                    <div class="input-field inline">
-                        <select>
-                            <option value=
-                                    {{ form_errors(form.structure) }}
-                                    {{ form_widget(form.structure) }}
-                                    </option>
-                        </select>
+                {% if form.title is defined %}
+                    <div class="row">
+                        <div class="col s12">
+                            <div id="titleFr" class="input-title white">
+                                <p>Title in French</p>
+                                {{ form_errors(form.title.textFr) }}
+                                {{ form_widget(form.title.textFr) }}
+                            </div>
+                            <div class="input-field white">
+                                 <p>Title in English</p>
+                                {{ form_errors(form.title.textEn) }}
+                                {{ form_widget(form.title.textEn) }}
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col s12">
-                    Article location
-                    <div class="input-field inline">
-                        <select>
-                            <option value=
-                                    {{ form_errors(form.pages) }}
-                                    {{ form_widget(form.pages) }}
-                                    </option>
-                        </select>
+                {% endif %}
+                {% if form.content is defined %}
+                     <div class="row">
+                        <div class="col s12">
+                            <div class="input-field white">
+                                <p>Content in French</p>
+                                {{ form_errors(form.content.textFr) }}
+                                {{ form_widget(form.content.textFr) }}
+                                 <p>Content in English</p>
+                                {{ form_errors(form.content.textEn) }}
+                                {{ form_widget(form.content.textEn) }}
+                            </div>
+                        </div>
                     </div>
+                {% endif %}
+                <div class="row">
+                        <p>Medias
+                            {{ form_errors(form.medias) }}
+                            {{ form_widget(form.medias) }}
+                            <input type="checkbox" id="medias"/>
+                        </p>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col s12">
-                    Article title
-                    <div class="input-field inline">
-                        <select>
-                            <option value=
-                                    {{ form_errors(form.title) }}
-                                    {{ form_widget(form.title) }}
-                                    </option>
-                        </select>
-                    </div>
+                <div class="admin_button col s3">
+                    <input class="waves-effect waves-light btn" type="submit" value="Create article"/>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col s12">
-                    Article content
-                    <div class="input-field inline">
-                        <select>
-                            <option value=
-                                    {{ form_errors(form.content) }}
-                                    {{ form_widget(form.content) }}
-                                    </option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <form action="#">
-                    <p>Médias
-                        {{ form_errors(form.medias) }}
-                        {{ form_widget(form.medias) }}
-                        <input type="checkbox" id="medias"/>
-                        <label for="medias"></label>
-                    </p>
-                </form>
-            </div>
-            <div class="admin_button col m3">
-                <a class="waves-effect waves-light btn" href="{{ path('article_new') }}">
-                    <input type="submit" value="Create article"/>
-                </a>
-            </div>
             {{ form_end(form) }}
             <div class="admin_button col m3">
                 <a class="waves-effect waves-light btn" href="{{ path('page_index', { 'name': 'homepage' }) }}">

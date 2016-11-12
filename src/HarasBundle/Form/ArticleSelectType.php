@@ -5,10 +5,9 @@ namespace HarasBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-// ajout pour appeler le formulaire de text dans le formulaire d'article
-use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
-class ArticleType extends AbstractType
+class ArticleSelectType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -16,8 +15,9 @@ class ArticleType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('title', TextType::class, array('label' => false))
-                ->add('content', TextType::class, array('label' => false))
+        $builder
+            ->add('name', 'text', array('mapped' => false))
+            ->add('structure', EntityType::class, array('class' => 'HarasBundle:ArticleStructure', 'mapped' => false))
         ;
     }
 
@@ -27,7 +27,7 @@ class ArticleType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'HarasBundle\Entity\Article'
+            'data_class' => null
         ));
     }
 }

@@ -4,8 +4,13 @@ namespace HarasBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 
 use HarasBundle\Entity\Article;
+use HarasBundle\Entity\Text;
+use HarasBundle\Entity\Media;
+use HarasBundle\Entity\ArticleStructure;
+use HarasBundle\Entity\Page;
 use HarasBundle\Form\ArticleType;
 
 /**
@@ -32,28 +37,63 @@ class ArticleController extends Controller
      * Creates a new Article entity.
      *
      */
-    public function newAction(Request $request)
+
+    public function newSelectAction(Request $request, Page $page)
+    {
+        $form = $this->createForm('HarasBundle\Form\ArticleSelectType');
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid())
+        {
+            return $this->redirectToRoute('article_new', array(
+                'name' => $form->get('name')->getData(),
+                'structure' => $form->get('structure')->getData()->getId(),
+                'page' => $page->getId()
+                ));
+        }
+
+        return $this->render('article/newSelectStructure.html.twig', array(
+            'form' => $form->createView(),
+        ));
+    }
+
+    public function newAction(Request $request, Page $page, ArticleStructure $structure, $name)
     {
         $article = new Article();
         $form = $this->createForm('HarasBundle\Form\ArticleType', $article);
+        if($structure->getName() == 'slider')
+        {
+            $form
+                ->remove('title')
+                ->remove('content')
+                ->add('medias')
+                ;
+        }
+        else
+        {
+            $form->add('medias');
+        }
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
+            $article->setStructure($structure);
+            $article->setName($name);
+            $article->addPage($page);
+            if($structure->getName() != 'slider')
+            {
+                $article->getTitle()->setName($name.' | Title');
+                $article->getContent()->setName($name.' | Content');
+            }
             $em = $this->getDoctrine()->getManager();
             $em->persist($article);
             $em->flush();
 
             return $this->redirectToRoute('article_show', array('id' => $article->getId()));
         }
-        $form->remove('createdAt');
 
         return $this->render('article/new.html.twig', array(
             'article' => $article,
-            'form' => $form->createView(),
-
+            'form' => $form->createView()
         ));
-
-
     }
 
     /**

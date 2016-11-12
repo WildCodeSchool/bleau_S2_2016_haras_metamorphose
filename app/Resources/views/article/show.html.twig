@@ -20,7 +20,6 @@
         <div class="nav-wrapper">
             <ul>
                 <li><a href="{{ path('page_index', { 'name': 'homepage' }) }}">Index</a></li>
-                <li><a href="{{ path('article_new', { 'name': 'homepage' }) }}">New Article</a></li>
                 <li><a href="{{ path('haras_get_page', {'name': 'homepage'}) }}">Homepage</a></li>
                 <li><a class="background-color: blue" href="{{ path('fos_user_security_logout') }}">
                         {{ 'Logout'|trans({}, 'FOSUserBundle') }}
@@ -51,30 +50,32 @@
                         </td>
                     </tr>
                     {% endfor %}
-                    <tr>
-                        <th>Text title (French)</th>
-                        <td>
-                            {{ article.title.textFr }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Text title (English)</th>
-                        <td>
-                            {{ article.title.textEn }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Text content (French)</th>
+                    {% if article.structure.name != 'slider' %}
+                        <tr>
+                            <th>Text title (French)</th>
+                            <td>
+                                {{ article.title.textFr }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Text title (English)</th>
+                            <td>
+                                {{ article.title.textEn }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Text content (French)</th>
                             <td>
                                 {{ article.content.textFr }}
                             </td>
-                    </tr>
-                    <tr>
-                        <th>Text content (English)</th>
-                        <td>
-                            {{ article.content.textEn }}
-                        </td>
-                    </tr>
+                        </tr>
+                        <tr>
+                            <th>Text content (English)</th>
+                            <td>
+                                {{ article.content.textEn }}
+                            </td>
+                        </tr>
+                    {% endif %}
                     <tr>
                         <th>Medias</th>
                         {% for media in article.medias %}
