@@ -1,0 +1,123 @@
+{% extends '::base.html.twig' %}
+
+{% block materialize %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            Materialize.updateTextFields();
+            $('select').material_select();
+        });
+    </script>
+{% endblock materialize %}
+
+{% block body %}
+
+    <body id="_admin">
+    {% include 'HarasBundle::nav_admin.html.twig' %}
+    
+
+    <div class="container">
+        <div class="cadre">
+            <div class="row">
+                <h1 class="admin_title">{{ page.name | capitalize }}</h1>
+                <hr>
+                {% if page.name matches '{^section}' %}
+                    <div class="row">
+                        <div class="admin_button col m12">
+                            <a class="waves-effect waves-light btn" href="{{ path('article_select', { 'name': page.name }) }}">
+                                Add article to {{page.name}}
+                            </a>
+                        </div>
+                    </div>
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>Name of articles</th>
+                            <th>Edit</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for article in page.articles %}
+                            <tr>
+                                <td>
+                                    {{ article.name }}
+                                </td>
+                                <td>
+                                    <a href="{{ path('article_edit', { 'article': article.id}) }}">Edit</a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                    <hr>
+                {% endif %}
+                {% if page.texts is not empty %}
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>Name of texts</th>
+                            <th>Edit</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for text in page.texts %}
+                            <tr>
+                                <td>
+                                    {{ text.name }}
+                                </td>
+                                <td>
+                                    <a href="{{ path('text_edit', { 'page': page.id, 'text': text.id  }) }}">Edit</a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                {% endif %}
+                {% if page.medias is not empty %}
+                    <hr>
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>Name of medias</th>
+                            <th>Media</th>
+                            <th>Edit</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            {% for media in page.medias %}
+                                <tr>
+                                    <td>
+                                        <p>{{ media.name }}</p>
+                                    </td>
+                                    <td>
+                                        {% if media.name == 'homepageBackground' and video == true %}
+                                            <video class="admin_img" id="index_video" autoplay loop muted>
+                                                <source src="{{ asset(media.path) }}" type='video/mp4'>
+                                            </video>
+                                        {% else %}
+                                            <img class="admin_img" src="{{ asset(media.path) }}" alt="{{ media.alt }}">
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        <a href="{{ path('media_edit', { 'id': media.id }) }}">Edit</a>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                        </tbody>
+                    </table>
+                {% endif %}
+                <hr>
+                <div class="admin_button col m12">
+                    <a class="waves-effect waves-light btn" href="{{ path('page_index') }}">
+                        Return to index
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    </body>
+{% endblock %}

@@ -1,0 +1,8 @@
+page_index:
+    path:     /
+    defaults: { _controller: "HarasBundle:Page:index" }
+
+page_show:
+    path:     /{name}/show
+    defaults: { _controller: "HarasBundle:Page:show" }
+    methods:  GET

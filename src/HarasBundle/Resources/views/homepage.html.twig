@@ -1,0 +1,104 @@
+{% extends '@Haras/base.html.twig' %}
+
+{% block body %}
+
+{% if mobile == false %}
+    {% if isVideo == false %}
+    <body id="_homepage" background="{{ asset(homepageBackground.path) }}">
+        <div id="homepage_wrapper">
+    {% else %}
+    <body id="_homepage">
+        <div id="homepage_wrapper">
+            <video id="homepage_video" autoplay loop muted>
+                <source src="{{ asset(homepageBackground.path) }}" type='video/mp4'>
+            </video>
+    {% endif %}
+{% else %}
+    <body id="_homepage" background="{{ asset(homepageBackgroundMobile.path) }}">
+        <div id="homepage_wrapper">
+{% endif %}
+    <header id='_homepage_header'>
+        {% include 'HarasBundle::header.html.twig' %}
+    </header>
+
+    <div id="homepage_corps">
+        <div id="homepage_contenu">
+            <!-- Contenu du div généré avec typed.js -->
+            <h1 id="homepage_catchPhrase"></h1>
+            <div id="homepage_focus">
+                <a class="section1Link homepage_rubrique" href="{{ path('haras_get_page', {'name': 'section1'}) }}">
+                    <div class="focus-img-wrapper">
+                        <img class="homepage_rubrique_img" src="{{ asset(section1Image.path) }}" alt="tourisme">
+                    </div>
+                    <p class="homepage_rubrique_title">
+                        {{ section1Name }}
+                    </p>
+                    <div class="focus-text-wrapper">
+                         <p class="homepage_rubrique_text">
+                            {{ section1Text | nl2br }}
+                        </p>
+                    </div>
+    
+                </a>
+                <a class="section2Link homepage_rubrique" href="{{ path('haras_get_page', {'name': 'section2'}) }}">
+                    <div class="focus-img-wrapper">
+                        <img class="homepage_rubrique_img" src="{{ asset(section2Image.path) }}" alt="travail">
+                    </div>
+                    <p class="homepage_rubrique_title">
+                        {{ section2Name | nl2br }}
+                    </p>
+                    <div class="focus-text-wrapper">
+                        <p class="homepage_rubrique_text">
+                            {{ section2Text | nl2br }}
+                        </p>
+                    </div>
+                </a>
+                <a class="section3Link homepage_rubrique" href="{{ path('haras_get_page', {'name': 'section3'}) }}">
+                    <div class="focus-img-wrapper">
+                        <img class="homepage_rubrique_img" src="{{ asset(section3Image.path) }}" alt="ecologie">
+                    </div>
+                    <p class="homepage_rubrique_title">
+                        {{ section3Name }}
+                    </p>
+                    <div class="focus-text-wrapper">
+                         <p class="homepage_rubrique_text">
+                            {{ section3Text | nl2br }}
+                        </p>
+                    </div>
+                </a>
+                <a class="section4Link homepage_rubrique" href="{{ path('haras_get_page', {'name': 'section4'}) }}">
+                    <div class="focus-img-wrapper">
+                        <img class="homepage_rubrique_img" src="{{ asset(section4Image.path) }}" alt="tourisme">
+                    </div>
+                    <p class="homepage_rubrique_title">
+                        {{ section4Name }}
+                    </p>
+                    <div class="focus-text-wrapper">
+                         <p class="homepage_rubrique_text">
+                            {{ section4Text | nl2br }}
+                        </p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <footer id="_homepage_footer">
+        {% include 'HarasBundle::footer.html.twig' %}
+    </footer>
+{% endblock body %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('bundles/haras/scripts/typed.js') }}"></script>
+    <script>
+        // le temps est en ms
+        $(function typedFunction(){
+            $("#homepage_catchPhrase").typed({
+                strings: ['{{ catchPhrase1 }}', '{{ catchPhrase2 }}'],
+                typeSpeed: 150,
+                backSpeed: 50,
+                backDelay: 5000
+            });
+        });
+    </script>
+{% endblock javascripts %}

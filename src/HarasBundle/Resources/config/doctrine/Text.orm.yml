@@ -1,0 +1,37 @@
+HarasBundle\Entity\Text:
+    type: entity
+    table: null
+    repositoryClass: HarasBundle\Repository\TextRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        textFr:
+            type: text
+            nullable: true
+            column: text_fr
+        textEn:
+            type: text
+            nullable: true
+            column: text_en
+    oneToMany:
+        articles_title:
+            targetEntity: Article
+            mappedBy: title
+        articles_content:
+            targetEntity: Article
+            mappedBy: content
+        medias:
+            targetEntity: Media
+            mappedBy: alt
+    manyToMany:
+        pages:
+            targetEntity: Page
+            mappedBy: texts
+    lifecycleCallbacks: {  }

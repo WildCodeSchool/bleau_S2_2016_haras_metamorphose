@@ -1,0 +1,54 @@
+<a class="nav" href="{{ path('haras_get_page', {'name': 'homepage'}) }}"><img id="logo" src="{{ asset(logo.path) }}" alt="logo"></a>
+<div id="langues">
+    <ul>
+        <li>
+            <a class="fr" href="{{ path('haras_get_page', {'langChoice': 'fr', 'name': page }) }}">
+                Fr
+            </a>
+        </li>
+        <p>|<p>
+        <li>
+            <a class="en" href="{{ path('haras_get_page', {'langChoice': 'en', 'name': page }) }}">
+                En
+            </a>
+        </li>
+    </ul>
+</div>
+<div id="social">
+    <a href="#"><img class="icone-social" src="{{ asset(facebook.path) }}" alt="logo"></a>
+    <a href="#"><img class="icone-social" src="{{ asset(twitter.path) }}" alt="logo"></a>
+</div>
+<div id="menu">
+    <ul>
+        <li>
+            <a class="nav accueil" href="{{ path('haras_get_page', {'name': 'homepage'}) }}">
+                {{ homeName }}
+            </a>
+        </li>
+        <li>
+            <a class="nav section1Link" href="{{ path('haras_get_page', {'name': 'section1'}) }}">
+                {{ section1Name }}
+            </a>
+        </li>
+        <li>
+            <a class="nav section2Link" href="{{ path('haras_get_page', {'name': 'section2'}) }}">
+                {{ section2Name }}
+            </a>
+        </li>
+        <li>
+            <a class="nav section3Link" href="{{ path('haras_get_page', {'name': 'section3'}) }}">
+                {{ section3Name }}
+            </a>
+        </li>
+        <li>
+            <a class="nav section4Link" href="{{ path('haras_get_page', {'name': 'section4'}) }}">
+                {{ section4Name }}
+            </a>
+        </li>
+        <li>
+            <a class="nav contact" href="{{ path('haras_get_page', {'name': 'contact'}) }}">
+                {{ contactName }}
+            </a>
+        </li>
+    </ul>
+</div>

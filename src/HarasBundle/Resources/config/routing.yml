@@ -1,0 +1,23 @@
+haras_page:
+    resource: "@HarasBundle/Resources/config/routing/page.yml"
+    prefix:   /admin/page
+
+haras_article:
+    resource: "@HarasBundle/Resources/config/routing/article.yml"
+    prefix:   /admin/article
+
+haras_media:
+    resource: "@HarasBundle/Resources/config/routing/media.yml"
+    prefix:   /admin/media
+
+haras_text:
+    resource: "@HarasBundle/Resources/config/routing/text.yml"
+    prefix:   /admin/text
+
+#Main Route
+haras_get_page:
+    path:     /{name}/{langChoice}
+    defaults: 
+        _controller: HarasBundle:Page:getPage
+        name: homepage
+        langChoice: null

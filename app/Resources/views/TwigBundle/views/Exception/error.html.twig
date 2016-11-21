@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="{{ _charset }}"/>
+    <title>An Error Occurred: {{ status_text }}</title>
+
+    <link rel="stylesheet" href="{{ asset('bundles/haras/styles/stylesheets/style.css') }}">
+
+
+</head>
+<body id="_error">
+    <div class="text_error">
+        <div>
+            <h1>404</h1>
+        </div>
+        <p>The server returned a "{{ status_code }} {{ status_text }}".</p>
+        <p>It seems that you have lost your way</p>
+        <div class="link">
+            <a href="{{ path('fos_user_security_login') }}">return to Login Page</a>
+        </div>
+    </div>
+
+</body>
+</html>

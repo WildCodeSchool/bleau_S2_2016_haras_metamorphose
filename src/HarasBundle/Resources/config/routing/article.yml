@@ -1,0 +1,20 @@
+
+article_select:
+    path:     /{name}/select
+    defaults: { _controller: "HarasBundle:Article:newSelect" }
+    methods:  [GET, POST]
+
+article_new:
+    path:     /{name}/{page}/{structure}
+    defaults: { _controller: "HarasBundle:Article:new" }
+    methods:  [GET, POST]
+
+article_edit:
+    path:     /{article}
+    defaults: { _controller: "HarasBundle:Article:edit" }
+    methods:  [GET, POST]
+
+article_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "HarasBundle:Article:delete" }
+    methods:  DELETE

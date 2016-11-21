@@ -1,0 +1,4 @@
+media_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "HarasBundle:Media:edit" }
+    methods:  [GET, POST, DELETE]

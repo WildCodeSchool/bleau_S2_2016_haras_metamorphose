@@ -1,0 +1,6 @@
+haras:
+    resource: "@HarasBundle/Resources/config/routing.yml"
+    prefix:   /
+
+fos_user:
+    resource: "@HarasBundle/Resources/config/routing/all.xml"

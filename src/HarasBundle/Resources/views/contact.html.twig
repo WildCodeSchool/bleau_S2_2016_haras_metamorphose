@@ -1,0 +1,86 @@
+{% extends '@Haras/base.html.twig' %}
+
+{% block materialize %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+{% endblock materialize %}
+
+{% block body %}
+    <div id="_contact">
+        <header id='_template_header'>
+            {% include 'HarasBundle::header.html.twig' %}
+        </header>
+
+        <h1 class="center">{{ pageTitle }}</h1>
+        <div class="container page-content row">
+            <div class="contact_form col s6">
+                {{ form_start(form) }}
+                <div>
+                    <p>{{ contactName }}</p>
+                    {{ form_errors(form.subject) }}
+                    {{ form_widget(form.subject) }}
+                </div>
+                <div>
+                    <p>{{ contactMail }}</p>
+                    {{ form_errors(form.from) }}
+                    {{ form_widget(form.from) }}
+                </div>
+                <div class="text_area">
+                    <p>{{ contactMessage }}</p>
+                    {{ form_errors(form.body) }}
+                    {{ form_widget(form.body) }}
+                </div>
+                <input class=" button waves-effect waves-light btn col s6" type="submit" value="{{ sendButton }}"/>
+                <div class="col s6 ">
+                    {% if send == true %}
+                        <p>Le formulaire a bien été envoyé</p>
+                    {% endif %}
+                </div>
+            </div>
+            {{ form_end(form) }}
+
+            <div class="map-holder col s6">
+                <div id="map"></div>
+            </div>
+        </div>
+        <footer id="_template_footer">
+            {% include 'HarasBundle::footer.html.twig' %}
+        </footer>
+
+        <script>
+            function initMap() {
+                var compiegne = {lat: 49.416672, lng: 2.83333};
+                var map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: 15,
+                    center: compiegne
+                });
+
+                var contentString =
+                    '<div id="content">' +
+                        '<div id="siteNotice">' +
+                        '</div>' +
+                        '<h4 id="firstHeading" class="firstHeading">{{ contactName }}</h4>' +
+                        '<div id="bodyContent">' +
+                            '<p><b>{{ contactAddress }}</b></p>' +
+                            '<p>{{ contactAddressLocation}}<br>{{ contactAddressPostalCode }}</p>' +
+                            '<p><b>Tel:</b><p>{{ contactTel }}</p></p>' +
+                        '</div>' +
+                    '</div>';
+
+                var infowindow = new google.maps.InfoWindow({
+                    content: contentString
+                });
+
+                var marker = new google.maps.Marker({
+                    position: compiegne,
+                    map: map,
+                    title: 'compiegne'
+                });
+                marker.addListener('click', function () {
+                    infowindow.open(map, marker);
+                });
+            }
+        </script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAr10cIoZKJLUnRzAcZQmd9rFNSjRmWLCk&callback=initMap"
+                async defer></script>
+    </div>
+{% endblock body %}

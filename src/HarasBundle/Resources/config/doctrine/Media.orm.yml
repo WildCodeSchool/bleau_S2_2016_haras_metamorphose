@@ -1,0 +1,33 @@
+HarasBundle\Entity\Media:
+    type: entity
+    table: null
+    repositoryClass: HarasBundle\Repository\MediaRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+            unique: true
+        path:
+            type: string
+            length: 255
+            nullable: true
+            unique: true
+    manyToOne:
+        alt:
+            targetEntity: Text
+            inversedBy: medias
+            cascade: ['all']
+            joinColumn:
+                name: alt_id
+                referencedColumnName: id
+    manyToMany:
+        pages:
+            targetEntity: Page
+            mappedBy: medias
+    lifecycleCallbacks: {  }

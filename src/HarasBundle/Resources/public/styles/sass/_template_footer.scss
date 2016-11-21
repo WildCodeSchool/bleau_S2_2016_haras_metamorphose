@@ -1,0 +1,162 @@
+/*//////////////////////////////////////////////
+//////////// _template_footer.scss /////////////
+//////////////////////////////////////////////*/
+
+
+#_template_footer {
+	margin-top:0px;
+	background-color: rgb(216,38,121);
+	text-align: center;
+	font-size: 16px;
+	position:relative;
+
+	.p-titre{
+		font-size:1.4em;
+		font-weight:bold;
+	}
+
+	p {
+		font-size: 16px;
+	}
+
+	h1 {
+        font-size: 2em;
+        text-align: left;
+     }
+
+    h2 {
+      font-size: 1.5em;
+    }
+
+    h3 {
+      font-size: 1em;
+    }
+
+	
+	.footer-top{
+	}
+	/* Colonnes footer */
+
+	.footer-left,
+	.footer-center,
+	.footer-right {
+		display: inline-block;
+		color: white;
+		vertical-align: top;
+		width: 30%;
+		text-align: left;
+	}
+
+	a {
+		color: white;
+	}
+
+	/* Footer partie basse -> Copyright */
+
+	#footer-bottom {
+		background-color: rgb(0, 63, 64);
+		text-align: left;
+		padding:0.5em;
+        margin-top: 1em;
+	}
+
+	#copyright {
+		padding-left: 5%;
+
+	}
+
+	#footer-bottom a:link, a:visited {
+		color: white;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 15px;
+	}
+
+	#footer-bottom a:hover, a:active {
+		color: white;
+		text-decoration: underline;
+	}
+
+	#mentions {
+		padding-left: 2%;
+	}
+
+	/*  Footer button*/
+
+
+
+	button {
+		background-color: #4CAF50; /* Green */
+		border: none;
+		color: white;
+		padding: 16px 16px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 16px;
+
+		-webkit-transition-duration: 0.4s; /* Safari */
+		transition-duration: 0.4s;
+		cursor: pointer;
+		width: 181px;
+        margin-left: 1em;
+
+	}
+
+	.button1 {
+		background-color: #4CAF50;
+		color: white;
+		border: 2px solid #4CAF50;
+	}
+
+	.button1:hover {
+		background-color: white;
+		color: #4CAF50;
+	}
+
+	/* form input*/
+
+	.footer-right form input,
+	.footer-right form textarea {
+		display: block;
+		border-radius: 3px;
+		box-sizing: border-box;
+		background-color: white;
+		box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.1);
+		border: none;
+		resize: none;
+		font: inherit;
+		font-size: 14px;
+		font-weight: normal;
+		color: #d1d2d2;
+		width: 400px;
+		//padding: 18px;
+        margin-left: 1em;
+        padding-left: 1em;
+	}
+
+	.footer-right ::-webkit-input-placeholder {
+		color: #5c666b;
+	}
+
+	.footer-right ::-moz-placeholder {
+		color: #5c666b;
+		opacity: 1;
+	}
+
+	.footer-right :-ms-input-placeholder {
+		color: #5c666b;
+	}
+
+	.footer-right form input {
+		height: 55px;
+		margin-bottom: 15px;
+		width: 181px;
+	}
+
+	.footer-right form textarea {
+		height: 100px;
+		margin-bottom: 20px;
+	}
+}

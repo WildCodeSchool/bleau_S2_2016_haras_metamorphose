@@ -1,0 +1,3 @@
+text_edit:
+    path:     /edit/{page}/{text}/
+    defaults: { _controller: "HarasBundle:Text:edit" }

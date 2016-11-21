@@ -1,0 +1,87 @@
+/*//////////////////////////////////////////////
+/////////////// _index_footer.scss /////////////
+//////////////////////////////////////////////*/
+
+#_homepage_footer {
+	text-align: center;
+	overflow:hidden;
+
+	p {
+		font-size: 1em;
+	}
+
+	h1 {
+		font-size: 1.5em;
+		margin-bottom: 10px;
+		text-align:center;
+	}
+
+	a{
+		text-decoration: none;
+		color: white;
+	}
+
+	.footer-top {
+		height: 210px;
+		/* Colonnes footer */
+		.footer-left, .footer-right {
+			display: inline-block;
+			color: white;
+			width: 40%;
+			vertical-align: top;
+			text-align: left;
+		}
+		.footer-left{
+			margin-right: 30px;
+		}
+		.footer-scroll{
+			width: 100%;
+			text-align:justify;
+			overflow: auto;
+			height: 160px;
+		}
+		.footer-scroll p{
+			margin-right: 15px;
+			margin-left: 15px;
+		}
+	}
+	/* Footer partie basse -> Copyright */
+
+	#footer-bottom {
+		background-color: $footer-bottom-color;
+		text-align: left;
+		height:20px;
+		padding-top: 1em;
+		padding-bottom: 1em;
+	}
+
+	#copyright {
+		padding-left: 5%;
+	}
+}
+
+@media all and (min-width: 901px) {
+	#_homepage_footer {
+		height: 30px;
+		margin-top: -30px;
+		background-color: transparentize($homepage-footer-color, 0.4);
+		-webkit-transition: all 1s;
+		-moz-transition: all 1s;
+		-o-transition: all 1s;
+		-ms-transition: all 1s;
+		transition: all 1s;
+		text-align: center;
+	}
+	#_homepage_footer:hover {
+		height:255px;
+		margin-top:-255px;
+		background-color: $homepage-footer-color;
+	}
+}
+
+@media all and (max-width: 900px) {
+	#_homepage_footer {
+		height:255px;
+		background-color: $homepage-footer-color;
+	}
+}

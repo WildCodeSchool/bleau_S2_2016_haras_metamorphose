@@ -1,0 +1,141 @@
+<?php
+
+namespace HarasBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * ArticleVideo
+ */
+class ArticleVideo
+{
+    
+
+    /**
+     * @var integer
+     */
+    private $id;
+
+    /**
+     * @var string
+     */
+    private $name;
+
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     * @return ArticleVideo
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string 
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+    /**
+     * @var \HarasBundle\Entity\Text
+     */
+    private $title;
+
+    /**
+     * @var \HarasBundle\Entity\Text
+     */
+    private $desc;
+
+    /**
+     * @var \HarasBundle\Entity\Link
+     */
+    private $video;
+
+
+    /**
+     * Set title
+     *
+     * @param \HarasBundle\Entity\Text $title
+     * @return ArticleVideo
+     */
+    public function setTitle(\HarasBundle\Entity\Text $title = null)
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
+    /**
+     * Get title
+     *
+     * @return \HarasBundle\Entity\Text 
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * Set desc
+     *
+     * @param \HarasBundle\Entity\Text $desc
+     * @return ArticleVideo
+     */
+    public function setDesc(\HarasBundle\Entity\Text $desc = null)
+    {
+        $this->desc = $desc;
+
+        return $this;
+    }
+
+    /**
+     * Get desc
+     *
+     * @return \HarasBundle\Entity\Text 
+     */
+    public function getDesc()
+    {
+        return $this->desc;
+    }
+
+    /**
+     * Set video
+     *
+     * @param \HarasBundle\Entity\Link $video
+     * @return ArticleVideo
+     */
+    public function setVideo(\HarasBundle\Entity\Link $video = null)
+    {
+        $this->video = $video;
+
+        return $this;
+    }
+
+    /**
+     * Get video
+     *
+     * @return \HarasBundle\Entity\Link 
+     */
+    public function getVideo()
+    {
+        return $this->video;
+    }
+}

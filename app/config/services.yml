@@ -1,0 +1,18 @@
+# Learn more about services, parameters and containers at
+# http://symfony.com/doc/current/book/service_container.html
+parameters:
+#    parameter_name: value
+
+services:
+    app.form.registration:
+        class: HarasBundle\Form\RegistrationType
+        tags:
+            - { name: form.type, alias: app_user_registration }
+    language.change:
+        class: HarasBundle\Services\languageChange
+    app.exception_controller:
+        class: HarasBundle\Controller\CustomExceptionController
+        arguments: ['@twig', '%kernel.debug%']
+    media.interface:
+        class: HarasBundle\Services\mediaInterface
+        arguments: ['@service_container']

@@ -1,0 +1,37 @@
+{% extends '::base.html.twig' %}
+
+{% block materialize %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            Materialize.updateTextFields();
+            $('select').material_select();
+        });
+    </script>
+{% endblock materialize %}
+
+{% block body %}
+{% include 'HarasBundle::nav_admin.html.twig' %}
+<body id="_admin">
+<div class="container">
+    <div class="cadre">
+        <div class="row">
+            <h1 class="admin_title">Create new article</h1>
+            {{ form_start(form) }}
+                {{ form_widget(form) }}
+                <input class="waves-effect waves-light btn" type="submit" value="Create article"/>
+            {{ form_end(form) }}
+            <div class="admin_button col m3">
+                <a class="waves-effect waves-light btn" href="{{ path('page_show', { 'name' : page.name }) }}">
+                    <input type="submit" value="Return to {{ page.name }}"/>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
