@@ -7,8 +7,8 @@
             <div class="cadre">
                 <div class="row">
                     <h1 class="admin_title">{{ page.name | capitalize }}</h1>
-                    <hr>
                     {% if page.name matches '{^section}' %}
+						<hr>
                         <div class="row">
                             <div class="admin_button col m12">
                                 <a class="waves-effect waves-light btn" href="{{ path('article_select', { 'name': page.name }) }}">
@@ -36,9 +36,9 @@
                             {% endfor %}
                             </tbody>
                         </table>
-                        <hr>
                     {% endif %}
                     {% if page.texts is not empty %}
+						<hr>
                         <table>
                             <thead>
                             <tr>
