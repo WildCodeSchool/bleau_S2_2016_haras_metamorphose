@@ -72,11 +72,3 @@
     </footer>
 <div/> <!-- End of id="_template" class="{{ category }}" -->
 {% endblock body %}
-{% block javascripts %}
-    {{ parent() }}
-    <script>
-        $(document).ready(function(){
-            $('.slider').slider();
-        });
-    </script>
-{% endblock javascripts %}

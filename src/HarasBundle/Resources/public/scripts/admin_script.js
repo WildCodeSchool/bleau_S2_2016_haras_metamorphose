@@ -1,5 +1,9 @@
 $(document).ready(function() {
 	$('html').addClass('jQuery-fonctionne');
+
+	Materialize.updateTextFields();
+	$('select').material_select();
+
 	///////////////////////////////////////////////////////
 	////////// Ajout des médias dans les sliders //////////
 	///////////////////////////////////////////////////////

@@ -1,83 +1,67 @@
 {% extends '::base.html.twig' %}
 
-{% block materialize %}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
-
-    <!-- Compiled and minified JavaScript -->
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            Materialize.updateTextFields();
-            $('select').material_select();
-        });
-    </script>
-{% endblock materialize %}
-
-
 {% block body %}
-    {% include 'HarasBundle::nav_admin.html.twig' %}
-    <body id="_admin">
-    <div class="container">
-        <div class="cadre">
-            <div class="row">
-                <h1 class="admin_title">Edit</h1>
-                {{ form_start(form) }}
-                {% if form.title is defined %}
-                    <div class="row">
-                        <div class="col s12">
-                            <div id="titleFr" class="input-title white">
-                                <p>Title in French</p>
-                                {{ form_errors(form.title.textFr) }}
-                                {{ form_widget(form.title.textFr) }}
-                            </div>
-                            <div class="input-field white">
-                                <p>Title in English</p>
-                                {{ form_errors(form.title.textEn) }}
-                                {{ form_widget(form.title.textEn) }}
-                            </div>
-                        </div>
-                    </div>
-                {% endif %}
-                {% if form.content is defined %}
-                    <div class="row">
-                        <div class="col s12">
-                            <div class="input-field white">
-                                <p>Content in French</p>
-                                {{ form_errors(form.content.textFr) }}
-                                {{ form_widget(form.content.textFr) }}
-                                <p>Content in English</p>
-                                {{ form_errors(form.content.textEn) }}
-                                {{ form_widget(form.content.textEn) }}
-                            </div>
-                        </div>
-                    </div>
-                {% endif %}
+    <div id="_admin">
+        {% include 'HarasBundle::nav_admin.html.twig' %}
+        <div class="container">
+            <div class="cadre">
                 <div class="row">
-                <p>Medias</p>
-                {% for key,media in form.medias.children %}
-                    <img class="image_preview" src="{{ asset(article.medias[key].path) }}" alt="media">
-                    {{ form_widget(form.medias.children[key]) }}
-                {% endfor %}
-                {{ form_widget(form) }}
-                </div>
-                <div class="admin_button col s3">
-                    <input class="waves-effect waves-light btn" type="submit" value="Edit article"/>
-                </div>
-                {{ form_end(form) }}
-                <div class="admin_button col m3">
-                    <a class="waves-effect waves-light btn" href="{{ path('page_index', { 'name': 'homepage' }) }}">
-                        <input type="submit" value="Return to index"/>
+                    <h1 class="admin_title">Edit</h1>
+                    {{ form_start(form) }}
+                    {% if form.title is defined %}
+                        <div class="row">
+                            <div class="col s12">
+                                <div id="titleFr" class="input-title white">
+                                    <p>Title in French</p>
+                                    {{ form_errors(form.title.textFr) }}
+                                    {{ form_widget(form.title.textFr) }}
+                                </div>
+                                <div class="input-field white">
+                                    <p>Title in English</p>
+                                    {{ form_errors(form.title.textEn) }}
+                                    {{ form_widget(form.title.textEn) }}
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                    {% if form.content is defined %}
+                        <div class="row">
+                            <div class="col s12">
+                                <div class="input-field white">
+                                    <p>Content in French</p>
+                                    {{ form_errors(form.content.textFr) }}
+                                    {{ form_widget(form.content.textFr) }}
+                                    <p>Content in English</p>
+                                    {{ form_errors(form.content.textEn) }}
+                                    {{ form_widget(form.content.textEn) }}
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                    <div class="row">
+                    <p>Medias</p>
+                    {% for key,media in form.medias.children %}
+                        <img class="image_preview" src="{{ asset(article.medias[key].path) }}" alt="media">
+                        {{ form_widget(form.medias.children[key]) }}
+                    {% endfor %}
+                    {{ form_widget(form) }}
+                    </div>
+                    <div class="admin_button col s3">
+                        <input class="waves-effect waves-light btn" type="submit" value="Edit article"/>
+                    </div>
+                    {{ form_end(form) }}
+                    <a class="admin_button col m3" href="{{ path('page_index', { 'name': 'homepage' }) }}">
+                        <div class="waves-effect waves-light btn" >
+                            <input type="submit" value="Return to index"/>
+                        </div>
                     </a>
+                    {{ form_start(delete_form) }}
+                     <div class="admin_button col s3">
+                        <input class="waves-effect waves-light btn" type="submit" value="Delete article"/>
+                    </div>
+                    {{ form_end(delete_form) }}
                 </div>
-                {{ form_start(delete_form) }}
-                 <div class="admin_button col s3">
-                    <input class="waves-effect waves-light btn" type="submit" value="Delete article"/>
-                </div>
-                {{ form_end(delete_form) }}
             </div>
         </div>
     </div>
-    </body>
-
 {% endblock %}

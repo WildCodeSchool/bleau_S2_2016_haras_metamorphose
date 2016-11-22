@@ -1,25 +1,11 @@
 {% extends '@Haras/base.html.twig' %}
 
-{% block materialize %}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
-
-    <!-- Compiled and minified JavaScript -->
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            Materialize.updateTextFields();
-            $('select').material_select();
-        });
-    </script>
-{% endblock materialize %}
-
 {% block body %} 
-    {% include 'HarasBundle::nav_admin.html.twig' %}
-    <body id="_admin"> 
-    <div class="container"> 
+    <div id="_admin" class="container"> 
+        {% include 'HarasBundle::nav_admin.html.twig' %}
         <div class="cadre"> 
-            <div class="row">  <h1 class="admin_title">Text edit for: {{ text.name }}</h1> 
+            <div class="row"> 
+                <h1 class="admin_title">Text edit for: {{ text.name }}</h1> 
                 <div class="admin_content"> 
                 {{ form_start(edit_form) }} 
                     <div class="row"> 
@@ -31,7 +17,8 @@
                         </div>
                     </div>
                     <div class="row"> 
-                        <div class="col s12">  English text 
+                        <div class="col s12"> 
+                            <p>English text </p>
                             <div class="input-field inline text_area"> 
                                 {{ form_errors(edit_form.textEn) }}
                                  {{ form_widget(edit_form.textEn) }} 
@@ -40,18 +27,19 @@
                     </div>
                     <div class="row"> 
                         <div class="admin_button col s12 m6">
-                            <a class="waves-effect waves-light btn"> 
+                            <div class="waves-effect waves-light btn"> 
                                 <input type="submit" value="Valider"> 
-                            </a> 
+                            </div> 
                         </div>
                     </div>
                 {{ form_end(edit_form) }} 
-            </div>
-            <div class="admin_button col s12 m6">       
-                <a class="waves-effect waves-light btn" href="{{ path('page_show', { 'name' : page.name }) }}"> 
-                    <input style="color:white" type="submit" value="Back to page {{ page.name }}"> 
-                </a> 
+                </div>
+                <div class="admin_button col s12 m6"> 
+                    <a class="waves-effect waves-light btn" href="{{ path('page_show', { 'name' : page.name }) }}"> 
+                        <div class="text-white">Back to page {{ page.name }}</div> 
+                    </a> 
+                </div>
             </div>
         </div>
-    </body> 
+    </div>
 {% endblock %}

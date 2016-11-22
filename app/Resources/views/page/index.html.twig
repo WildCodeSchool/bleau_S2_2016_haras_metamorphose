@@ -1,79 +1,65 @@
 {% extends '::base.html.twig' %}
 
-{% block materialize %}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
-
-    <!-- Compiled and minified JavaScript -->
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            Materialize.updateTextFields();
-            $('select').material_select();
-        });
-    </script>
-{% endblock materialize %}
-
 {% block body %}
-    {% include 'HarasBundle::nav_admin.html.twig' %}
-    <body id="_admin">
-    <div class="container">
-        <div class="cadre">
-            <div class="row">
-                <h1 class="admin_title">Which page do you want to modify ?</h1>
-                <div class="admin_button col m12">
-                    <a class="waves-effect waves-light btn" href="{{ path('page_show', { 'name': 'homepage' }) }}">
-                        <input type="submit" value="Homepage"/>
-                    </a>
-                </div>
+    <div id="_admin">
+        {% include 'HarasBundle::nav_admin.html.twig' %}
+        <div class="container">
+            <div class="cadre">
                 <div class="row">
-                    <div class="admin_button col m3">
-                        <a class="waves-effect waves-light btn" href="{{ path('page_show', { 'name': 'section1' }) }}">
-                            <input type="submit" value="{{ section1Name }}"/>
-                        </a>
-                    </div>
-
-                    <div class="admin_button col m3">
-                        <a class="waves-effect waves-light btn" href="{{ path('page_show', { 'name': 'section2' }) }}">
-                            <input type="submit" value="{{ section2Name }}"/>
-                        </a>
-                    </div>
-                    <div class="admin_button col m3">
-                        <a class="waves-effect waves-light btn" href="{{ path('page_show', { 'name': 'section3' }) }}">
-                            <input type="submit" value="{{ section3Name }}"/>
-                        </a>
-                    </div>
-
-                    <div class="admin_button col m3">
-                        <a class="waves-effect waves-light btn" href="{{ path('page_show', { 'name': 'section4' }) }}">
-                            <input type="submit" value="{{ section4Name }}"/>
-                        </a>
-                    </div>
-                </div>
-                <div class="row">
+                    <h1 class="admin_title">Which page do you want to modify ?</h1>
                     <div class="admin_button col m12">
-                        <a class="waves-effect waves-light btn" href="{{ path('page_show', { 'name': 'contact' }) }}">
-                            <input type="submit" value="Contact"/>
+                        <a class="waves-effect waves-light btn" href="{{ path('page_show', { 'name': 'homepage' }) }}">
+                            <input type="submit" value="Homepage"/>
                         </a>
                     </div>
+                    <div class="row">
+                        <div class="admin_button col m3">
+                            <a class="waves-effect waves-light btn" href="{{ path('page_show', { 'name': 'section1' }) }}">
+                                <input type="submit" value="{{ section1Name }}"/>
+                            </a>
+                        </div>
+
+                        <div class="admin_button col m3">
+                            <a class="waves-effect waves-light btn" href="{{ path('page_show', { 'name': 'section2' }) }}">
+                                <input type="submit" value="{{ section2Name }}"/>
+                            </a>
+                        </div>
+                        <div class="admin_button col m3">
+                            <a class="waves-effect waves-light btn" href="{{ path('page_show', { 'name': 'section3' }) }}">
+                                <input type="submit" value="{{ section3Name }}"/>
+                            </a>
+                        </div>
+
+                        <div class="admin_button col m3">
+                            <a class="waves-effect waves-light btn" href="{{ path('page_show', { 'name': 'section4' }) }}">
+                                <input type="submit" value="{{ section4Name }}"/>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="admin_button col m12">
+                            <a class="waves-effect waves-light btn" href="{{ path('page_show', { 'name': 'contact' }) }}">
+                                <input type="submit" value="Contact"/>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="admin_button col m6">
+                            <a class="waves-effect waves-light btn" href="{{ path('page_show', { 'name': 'header' }) }}">
+                                <input type="submit" value="Header"/>
+                            </a>
+                        </div>
+
+                        <div class="admin_button col m6">
+                            <a class="waves-effect waves-light btn" href="{{ path('page_show', { 'name': 'footer' }) }}">
+                                <input type="submit" value="Footer"/>
+                            </a>
+                        </div>
+
+                    </div>
+
                 </div>
-                <div class="row">
-                    <div class="admin_button col m6">
-                        <a class="waves-effect waves-light btn" href="{{ path('page_show', { 'name': 'header' }) }}">
-                            <input type="submit" value="Header"/>
-                        </a>
-                    </div>
-
-                    <div class="admin_button col m6">
-                        <a class="waves-effect waves-light btn" href="{{ path('page_show', { 'name': 'footer' }) }}">
-                            <input type="submit" value="Footer"/>
-                        </a>
-                    </div>
-
-                </div>
-
             </div>
         </div>
-        </div>
-    </body>
+    </div>
 {% endblock body %}

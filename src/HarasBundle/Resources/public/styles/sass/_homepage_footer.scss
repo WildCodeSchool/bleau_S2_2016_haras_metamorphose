@@ -16,7 +16,7 @@
 		text-align:center;
 	}
 
-	a{
+	* {
 		text-decoration: none;
 		color: white;
 	}
@@ -26,7 +26,6 @@
 		/* Colonnes footer */
 		.footer-left, .footer-right {
 			display: inline-block;
-			color: white;
 			width: 40%;
 			vertical-align: top;
 			text-align: left;
@@ -70,7 +69,6 @@
 		-o-transition: all 1s;
 		-ms-transition: all 1s;
 		transition: all 1s;
-		text-align: center;
 	}
 	#_homepage_footer:hover {
 		height:255px;

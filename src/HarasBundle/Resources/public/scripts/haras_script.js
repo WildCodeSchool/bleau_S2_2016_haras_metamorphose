@@ -1,8 +1,9 @@
 $(document).ready(function() {
 	$('html').addClass('jQuery-fonctionne');
+
 //Survol des liens vers les sections sur la page d'accueil
 // ( la rubrique de la homepage et le bouton de la barre de navigation
-// sont toutes les deux de classe sectionNLink, donc le survol de l'une
+// sont tous les deux de classe sectionNLink, donc le survol de l'un
 // ajoute la classe hover aux deux)
 //Cas .section1 survolée
 	function toggleSection1() {
@@ -35,4 +36,7 @@ $(document).ready(function() {
 	section = $('.section4Link');
 	section.on('mouseenter', toggleSection4);
 	section.on('mouseleave', toggleSection4);
+
+	// Lance l'animation des sliders
+	$('.slider').slider();
 });
