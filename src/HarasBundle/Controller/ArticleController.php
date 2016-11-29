@@ -61,6 +61,7 @@ class ArticleController extends Controller
 	 */
     public function newAction(Request $request, Page $page, ArticleStructure $structure, $name)
     {
+        //RECUPERER CE SLIDER POUR PLATEFORME
         $article = new Article();
         $form = $this->createForm('HarasBundle\Form\ArticleType', $article);
         if($structure->getName() == 'slider')
