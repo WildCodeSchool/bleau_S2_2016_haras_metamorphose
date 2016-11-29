@@ -1,0 +1,24 @@
+PlateFormeBundle\Entity\NewsLetter:
+    type: entity
+    table: null
+    repositoryClass: PlateFormeBundle\Repository\NewsLetterRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        libelle:
+            type: string
+            length: 255
+        objet:
+            type: string
+            length: 255
+        dateCreation:
+            type: date
+        etat:
+            type: boolean
+        dateEnvoie:
+            type: date
+    lifecycleCallbacks: {  }
