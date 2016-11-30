@@ -19,7 +19,7 @@
                         <div class="article article-{{ article.id }}">
                         {% if article.structure == 'imageRight' %}
                             <div class='imageRight'>
-                                <img class="media image-right right" src="{{ asset(article.medias|first.path) }}" alt="{{ article.medias|first.alt }}"/>
+                                <img class="media image image-right right" src="{{ asset(article.medias|first.path) }}" alt="{{ article.medias|first.alt }}"/>
                                 <h2>{{ article.title }}</h2>
                                 <p class="content text-left">
                                     {{ article.content | nl2br }}
@@ -27,7 +27,7 @@
                             </div>
                         {% elseif article.structure == 'imageLeft' %}
                             <div class='imageLeft'>
-                                <img class="media image-left left" src="{{ asset(article.medias|first.path) }}" alt="{{ article.medias|first.alt }}"/>
+                                <img class="media image image-left left" src="{{ asset(article.medias|first.path) }}" alt="{{ article.medias|first.alt }}"/>
                                 <h2>{{ article.title }}</h2>
                                 <p class="content text-right">
                                     {{ article.content | nl2br }}

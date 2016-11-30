@@ -10,6 +10,11 @@
 	font-size: 16px;
 	position:relative;
 
+	* {
+		text-decoration: none;
+		color: white;
+	}
+
 	.p-titre{
 		font-size:1.4em;
 		font-weight:bold;
@@ -41,14 +46,9 @@
 	.footer-center,
 	.footer-right {
 		display: inline-block;
-		color: white;
 		vertical-align: top;
 		width: 30%;
 		text-align: left;
-	}
-
-	a {
-		color: white;
 	}
 
 	/* Footer partie basse -> Copyright */
@@ -66,7 +66,6 @@
 	}
 
 	#footer-bottom a:link, a:visited {
-		color: white;
 		text-align: center;
 		text-decoration: none;
 		display: inline-block;
@@ -74,7 +73,6 @@
 	}
 
 	#footer-bottom a:hover, a:active {
-		color: white;
 		text-decoration: underline;
 	}
 
@@ -89,7 +87,6 @@
 	button {
 		background-color: #4CAF50; /* Green */
 		border: none;
-		color: white;
 		padding: 16px 16px;
 		text-align: center;
 		text-decoration: none;
@@ -106,7 +103,6 @@
 
 	.button1 {
 		background-color: #4CAF50;
-		color: white;
 		border: 2px solid #4CAF50;
 	}
 

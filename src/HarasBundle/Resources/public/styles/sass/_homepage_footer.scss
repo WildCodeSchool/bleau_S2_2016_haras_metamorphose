@@ -13,7 +13,7 @@
 	h1 {
 		font-size: 1.5em;
 		margin-bottom: 10px;
-		text-align:center;
+		text-align: center;
 	}
 
 	* {
@@ -61,14 +61,13 @@
 
 @media all and (min-width: 901px) {
 	#_homepage_footer {
+
+		position: fixed;
+		bottom: 0;
 		height: 30px;
 		margin-top: -30px;
 		background-color: transparentize($homepage-footer-color, 0.4);
-		-webkit-transition: all 1s;
-		-moz-transition: all 1s;
-		-o-transition: all 1s;
-		-ms-transition: all 1s;
-		transition: all 1s;
+		@include transition(all 1s);
 	}
 	#_homepage_footer:hover {
 		height:255px;

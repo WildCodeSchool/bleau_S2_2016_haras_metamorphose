@@ -7,6 +7,10 @@ $rubrique-width : 300px;
 $rubrique-height : 300px;
 
 #_homepage {
+	height: 100%;
+	font-family: sans-serif;
+	margin: 0;
+
 	#homepage_video {
 		position: fixed;
 		min-width: 100%;

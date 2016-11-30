@@ -67,20 +67,15 @@
 
 	.article {
 
-		.media {
-			.image {
-				max-width: 40%;
-			}
+		.media.image {
+			margin: 0 2em;
+			max-width: 50%;
 		}
 		.content {
 			text-align: justify;
 		}
 		.text-left {
-			margin-left: 2em;
-			margin-right: 2em;
-		}
-		.text-right {
-			margin-left: 35em;
+			margin: 0 2em;
 		}
 	}
 	.article-block{
