@@ -169,8 +169,6 @@ class ArticleController extends Controller
             {
                 if($media->getFile() != null)
                 {
-                    $explode = explode('/', $media->getPath());
-                    unlink($this->get('kernel')->getRootDir().'/../src/HarasBundle/Resources/public/media/'.end($explode));
                     $this->get('media.interface')->mediaUpload($media);
                 }
             }
