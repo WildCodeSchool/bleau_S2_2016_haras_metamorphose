@@ -2,10 +2,10 @@
 -- version 4.5.4.1deb2ubuntu2
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Nov 17, 2016 at 02:42 PM
--- Server version: 5.7.13-0ubuntu0.16.04.2
--- PHP Version: 7.0.8-0ubuntu0.16.04.3
+-- Client :  localhost
+-- Généré le :  Mer 30 Novembre 2016 à 14:21
+-- Version du serveur :  5.7.16-0ubuntu0.16.04.1
+-- Version de PHP :  7.0.8-0ubuntu0.16.04.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `haras`
+-- Base de données :  `haras`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `article`
+-- Structure de la table `article`
 --
 
 CREATE TABLE `article` (
@@ -35,17 +35,10 @@ CREATE TABLE `article` (
   `created_at` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
---
--- Dumping data for table `article`
---
-
-INSERT INTO `article` (`id`, `name`, `title_id`, `content_id`, `structure_id`, `created_at`) VALUES
-(5, 'ffdkfhd', 115, 116, 4, '2016-11-17');
-
 -- --------------------------------------------------------
 
 --
--- Table structure for table `articles_medias`
+-- Structure de la table `articles_medias`
 --
 
 CREATE TABLE `articles_medias` (
@@ -53,17 +46,10 @@ CREATE TABLE `articles_medias` (
   `media_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
---
--- Dumping data for table `articles_medias`
---
-
-INSERT INTO `articles_medias` (`article_id`, `media_id`) VALUES
-(5, 37);
-
 -- --------------------------------------------------------
 
 --
--- Table structure for table `article_structure`
+-- Structure de la table `article_structure`
 --
 
 CREATE TABLE `article_structure` (
@@ -72,7 +58,7 @@ CREATE TABLE `article_structure` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `article_structure`
+-- Contenu de la table `article_structure`
 --
 
 INSERT INTO `article_structure` (`id`, `name`) VALUES
@@ -84,7 +70,7 @@ INSERT INTO `article_structure` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `category`
+-- Structure de la table `category`
 --
 
 CREATE TABLE `category` (
@@ -93,7 +79,7 @@ CREATE TABLE `category` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `category`
+-- Contenu de la table `category`
 --
 
 INSERT INTO `category` (`id`, `name`) VALUES
@@ -105,7 +91,7 @@ INSERT INTO `category` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `fos_user`
+-- Structure de la table `fos_user`
 --
 
 CREATE TABLE `fos_user` (
@@ -129,16 +115,16 @@ CREATE TABLE `fos_user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `fos_user`
+-- Contenu de la table `fos_user`
 --
 
 INSERT INTO `fos_user` (`id`, `username`, `username_canonical`, `email`, `email_canonical`, `enabled`, `salt`, `password`, `last_login`, `locked`, `expired`, `expires_at`, `confirmation_token`, `password_requested_at`, `roles`, `credentials_expired`, `credentials_expire_at`) VALUES
-(2, 'admin', 'admin', 'admin@admin.admin', 'admin@admin.admin', 1, 'yrsiuwwrj400c88kss08808c8g8w0w', '$2y$13$yrsiuwwrj400c88kss088uakatjOT.IYYFTkFwJ9NsvgXgkvvqIbm', '2016-11-17 13:28:15', 0, 0, NULL, NULL, NULL, 'a:2:{i:0;s:11:"SUPER_ADMIN";i:1;s:16:"ROLE_SUPER_ADMIN";}', 0, NULL);
+(2, 'admin', 'admin', 'admin@admin.admin', 'admin@admin.admin', 1, 'yrsiuwwrj400c88kss08808c8g8w0w', '$2y$13$yrsiuwwrj400c88kss088uakatjOT.IYYFTkFwJ9NsvgXgkvvqIbm', '2016-11-30 10:43:45', 0, 0, NULL, NULL, NULL, 'a:2:{i:0;s:11:"SUPER_ADMIN";i:1;s:16:"ROLE_SUPER_ADMIN";}', 0, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `media`
+-- Structure de la table `media`
 --
 
 CREATE TABLE `media` (
@@ -149,7 +135,7 @@ CREATE TABLE `media` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `media`
+-- Contenu de la table `media`
 --
 
 INSERT INTO `media` (`id`, `name`, `path`, `alt_id`) VALUES
@@ -161,12 +147,12 @@ INSERT INTO `media` (`id`, `name`, `path`, `alt_id`) VALUES
 (29, 'logo', 'bundles/haras/media/logo.png', 96),
 (30, 'facebook', 'bundles/haras/media/facebook.svg', 97),
 (31, 'twitter', 'bundles/haras/media/twitter.svg', 98),
-(37, 'ffdkfhd_Media_1', 'bundles/haras/media/ffdkfhd_Media_1.mp4', 117);
+(38, 'homepageBackgroundMobile', 'bundles/haras/media/homepageBackgroundMobile.jpeg', 99);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `page`
+-- Structure de la table `page`
 --
 
 CREATE TABLE `page` (
@@ -176,7 +162,7 @@ CREATE TABLE `page` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `page`
+-- Contenu de la table `page`
 --
 
 INSERT INTO `page` (`id`, `category_id`, `name`) VALUES
@@ -187,12 +173,13 @@ INSERT INTO `page` (`id`, `category_id`, `name`) VALUES
 (13, 4, 'section4'),
 (14, NULL, 'header'),
 (15, NULL, 'footer'),
-(17, NULL, 'contact');
+(17, NULL, 'contact'),
+(18, NULL, 'login');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pages_articles`
+-- Structure de la table `pages_articles`
 --
 
 CREATE TABLE `pages_articles` (
@@ -200,17 +187,10 @@ CREATE TABLE `pages_articles` (
   `article_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
---
--- Dumping data for table `pages_articles`
---
-
-INSERT INTO `pages_articles` (`page_id`, `article_id`) VALUES
-(10, 5);
-
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pages_medias`
+-- Structure de la table `pages_medias`
 --
 
 CREATE TABLE `pages_medias` (
@@ -219,7 +199,7 @@ CREATE TABLE `pages_medias` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `pages_medias`
+-- Contenu de la table `pages_medias`
 --
 
 INSERT INTO `pages_medias` (`page_id`, `media_id`) VALUES
@@ -228,6 +208,7 @@ INSERT INTO `pages_medias` (`page_id`, `media_id`) VALUES
 (1, 13),
 (1, 14),
 (1, 15),
+(1, 38),
 (14, 29),
 (14, 30),
 (14, 31);
@@ -235,7 +216,7 @@ INSERT INTO `pages_medias` (`page_id`, `media_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pages_texts`
+-- Structure de la table `pages_texts`
 --
 
 CREATE TABLE `pages_texts` (
@@ -244,7 +225,7 @@ CREATE TABLE `pages_texts` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `pages_texts`
+-- Contenu de la table `pages_texts`
 --
 
 INSERT INTO `pages_texts` (`page_id`, `text_id`) VALUES
@@ -301,7 +282,7 @@ INSERT INTO `pages_texts` (`page_id`, `text_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `text`
+-- Structure de la table `text`
 --
 
 CREATE TABLE `text` (
@@ -312,7 +293,7 @@ CREATE TABLE `text` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `text`
+-- Contenu de la table `text`
 --
 
 INSERT INTO `text` (`id`, `name`, `text_fr`, `text_en`) VALUES
@@ -323,7 +304,7 @@ INSERT INTO `text` (`id`, `name`, `text_fr`, `text_en`) VALUES
 (5, 'section4Name', 'Co-working', 'Co-working'),
 (18, 'catchPhrase1', 'Prenez le temps de vivre...', 'Take some time...'),
 (19, 'footerTitle1', 'Qui sommes-nous ?', 'About us'),
-(20, 'footerContent1', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus assumenda est molestiae repellat sequi tempore, temporibus. Amet facilis laborum molestias officiis recusandae ut voluptates. Ducimus molestias, nemo? Blanditiis, excepturi unde!', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus assumenda est molestiae repellat sequi tempore, temporibus. Amet facilis laborum molestias officiis recusandae ut voluptates. Ducimus molestias, nemo? Blanditiis, excepturi unde!'),
+(20, 'footerContent1', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus assumenda est molestiae repellat sequi tempore, temporibus. Amet facilis laborum molestias officiis recusandae ut voluptates. Ducimus molestias, nemo? Blanditiis, excepturi unde! pdsdjsdskdjks Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus assumenda est molestiae repellat sequi tempore, temporibus. Amet facilis laborum molestias officiis recusandae ut voluptates. Ducimus molestias, nemo? Blanditiis, excepturi unde! pdsdjsdskdjks Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus assumenda est molestiae repellat sequi tempore, temporibus. Amet facilis laborum molestias officiis recusandae ut voluptates. Ducimus molestias, nemo? Blanditiis, excepturi unde! pdsdjsdskdjks', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus assumenda est molestiae repellat sequi tempore, temporibus. Amet facilis laborum molestias officiis recusandae ut voluptates. Ducimus molestias, nemo? Blanditiis, excepturi unde! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus assumenda est molestiae repellat sequi tempore, temporibus. Amet facilis laborum molestias officiis recusandae ut voluptates. Ducimus molestias, nemo? Blanditiis, excepturi unde! pdsdjsdskdjks Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus assumenda est molestiae repellat sequi tempore, temporibus. Amet facilis laborum molestias officiis recusandae ut voluptates. Ducimus molestias, nemo? Blanditiis, excepturi unde! pdsdjsdskdjks Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus assumenda est molestiae repellat sequi tempore, temporibus. Amet facilis laborum molestias officiis recusandae ut voluptates. Ducimus molestias, nemo? Blanditiis, excepturi unde! pdsdjsdskdjks'),
 (21, 'footerTitle2', 'Coordonnées', 'Contact infos'),
 (22, 'footerContent2', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus assumenda est molestiae repellat sequi tempore, temporibus. Amet facilis laborum molestias officiis recusandae ut voluptates. Ducimus molestias, nemo? Blanditiis, excepturi unde!', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus assumenda est molestiae repellat sequi tempore, temporibus. Amet facilis laborum molestias officiis recusandae ut voluptates. Ducimus molestias, nemo? Blanditiis, excepturi unde!'),
 (38, 'pageTitle', 'Section n°1', 'Section #1'),
@@ -349,24 +330,21 @@ INSERT INTO `text` (`id`, `name`, `text_fr`, `text_en`) VALUES
 (101, 'section2alt', 'section2image', 'section2image'),
 (102, 'section3Alt', 'section3image', 'section3image'),
 (103, 'section4Alt', 'section4image', 'section4image'),
-(115, 'ffdkfhd | Title', 'sd', 'dsds'),
-(116, 'ffdkfhd | Content', 'dsd', 'sddssdsdsdsds'),
-(117, 'ffdkfhd_Media_1_Alt', 'sdsd', 'dsd'),
 (118, 'navPrev', 'Précédent', 'Previous'),
 (119, 'navNext', 'Suivante', 'Next'),
 (120, 'navFirst', 'Début', 'First page'),
-(121, 'contactAdress', 'Adresse', 'Adress'),
+(121, 'contactAddressTitle', 'Adresse', 'Address'),
 (122, 'contactName', 'Haras de la métamorphose', 'Haras de la métamorphose'),
-(123, 'contactAdressLocation', '110 rue du colonel fabien', '110 rue du colonel fabien'),
+(123, 'contactAddressLocation', '110 rue du colonel fabien', '110 rue du colonel fabien'),
 (124, 'contactTel', '01 46 74 64 93', '01 46 74 64 93'),
-(125, 'contactAdressPostalCode', '92568 Domont', '92568 Domont');
+(125, 'contactAddressPostalCode', '92568 Domont', '92568 Domont');
 
 --
--- Indexes for dumped tables
+-- Index pour les tables exportées
 --
 
 --
--- Indexes for table `article`
+-- Index pour la table `article`
 --
 ALTER TABLE `article`
   ADD PRIMARY KEY (`id`),
@@ -376,7 +354,7 @@ ALTER TABLE `article`
   ADD KEY `IDX_23A0E662534008B` (`structure_id`);
 
 --
--- Indexes for table `articles_medias`
+-- Index pour la table `articles_medias`
 --
 ALTER TABLE `articles_medias`
   ADD PRIMARY KEY (`article_id`,`media_id`),
@@ -384,21 +362,21 @@ ALTER TABLE `articles_medias`
   ADD KEY `IDX_A8EA7BACEA9FDD75` (`media_id`);
 
 --
--- Indexes for table `article_structure`
+-- Index pour la table `article_structure`
 --
 ALTER TABLE `article_structure`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `UNIQ_B53467CE5E237E06` (`name`);
 
 --
--- Indexes for table `category`
+-- Index pour la table `category`
 --
 ALTER TABLE `category`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `UNIQ_64C19C15E237E06` (`name`);
 
 --
--- Indexes for table `fos_user`
+-- Index pour la table `fos_user`
 --
 ALTER TABLE `fos_user`
   ADD PRIMARY KEY (`id`),
@@ -407,7 +385,7 @@ ALTER TABLE `fos_user`
   ADD UNIQUE KEY `UNIQ_957A6479C05FB297` (`confirmation_token`);
 
 --
--- Indexes for table `media`
+-- Index pour la table `media`
 --
 ALTER TABLE `media`
   ADD PRIMARY KEY (`id`),
@@ -416,7 +394,7 @@ ALTER TABLE `media`
   ADD KEY `IDX_6A2CA10C53F5CCF9` (`alt_id`);
 
 --
--- Indexes for table `page`
+-- Index pour la table `page`
 --
 ALTER TABLE `page`
   ADD PRIMARY KEY (`id`),
@@ -424,7 +402,7 @@ ALTER TABLE `page`
   ADD KEY `IDX_140AB62012469DE2` (`category_id`);
 
 --
--- Indexes for table `pages_articles`
+-- Index pour la table `pages_articles`
 --
 ALTER TABLE `pages_articles`
   ADD PRIMARY KEY (`page_id`,`article_id`),
@@ -432,7 +410,7 @@ ALTER TABLE `pages_articles`
   ADD KEY `IDX_FF9228997294869C` (`article_id`);
 
 --
--- Indexes for table `pages_medias`
+-- Index pour la table `pages_medias`
 --
 ALTER TABLE `pages_medias`
   ADD PRIMARY KEY (`page_id`,`media_id`),
@@ -440,7 +418,7 @@ ALTER TABLE `pages_medias`
   ADD KEY `IDX_BF58D48EEA9FDD75` (`media_id`);
 
 --
--- Indexes for table `pages_texts`
+-- Index pour la table `pages_texts`
 --
 ALTER TABLE `pages_texts`
   ADD PRIMARY KEY (`page_id`,`text_id`),
@@ -448,56 +426,56 @@ ALTER TABLE `pages_texts`
   ADD KEY `IDX_F3C65AD5698D3548` (`text_id`);
 
 --
--- Indexes for table `text`
+-- Index pour la table `text`
 --
 ALTER TABLE `text`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT pour les tables exportées
 --
 
 --
--- AUTO_INCREMENT for table `article`
+-- AUTO_INCREMENT pour la table `article`
 --
 ALTER TABLE `article`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
--- AUTO_INCREMENT for table `article_structure`
+-- AUTO_INCREMENT pour la table `article_structure`
 --
 ALTER TABLE `article_structure`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
--- AUTO_INCREMENT for table `category`
+-- AUTO_INCREMENT pour la table `category`
 --
 ALTER TABLE `category`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
--- AUTO_INCREMENT for table `fos_user`
+-- AUTO_INCREMENT pour la table `fos_user`
 --
 ALTER TABLE `fos_user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
--- AUTO_INCREMENT for table `media`
+-- AUTO_INCREMENT pour la table `media`
 --
 ALTER TABLE `media`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 --
--- AUTO_INCREMENT for table `page`
+-- AUTO_INCREMENT pour la table `page`
 --
 ALTER TABLE `page`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
--- AUTO_INCREMENT for table `text`
+-- AUTO_INCREMENT pour la table `text`
 --
 ALTER TABLE `text`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=126;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=135;
 --
--- Constraints for dumped tables
+-- Contraintes pour les tables exportées
 --
 
 --
--- Constraints for table `article`
+-- Contraintes pour la table `article`
 --
 ALTER TABLE `article`
   ADD CONSTRAINT `FK_23A0E662534008B` FOREIGN KEY (`structure_id`) REFERENCES `article_structure` (`id`),
@@ -505,7 +483,7 @@ ALTER TABLE `article`
   ADD CONSTRAINT `FK_23A0E66A9F87BD` FOREIGN KEY (`title_id`) REFERENCES `text` (`id`);
 
 --
--- Constraints for table `articles_medias`
+-- Contraintes pour la table `articles_medias`
 --
 ALTER TABLE `articles_medias`
   ADD CONSTRAINT `FK_A8EA7BAC7294869C` FOREIGN KEY (`article_id`) REFERENCES `article` (`id`),
