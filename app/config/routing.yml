@@ -1,10 +1,10 @@
 plate_forme:
     resource: "@PlateFormeBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /plateforme
 
 haras:
     resource: "@HarasBundle/Resources/config/routing.yml"
     prefix:   /
 
 fos_user:
-    resource: "@HarasBundle/Resources/config/routing/all.xml"
+    resource: "@UserBundle/Resources/config/routing/all.xml"

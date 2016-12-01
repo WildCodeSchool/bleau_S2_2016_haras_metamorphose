@@ -1,7 +1,7 @@
 <?php
 // src/AppBundle/Form/RegistrationType.php
 
-namespace HarasBundle\Form;
+namespace UserBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
