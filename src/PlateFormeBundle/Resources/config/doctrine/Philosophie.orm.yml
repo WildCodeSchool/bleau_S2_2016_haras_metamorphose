@@ -1,0 +1,14 @@
+PlateFormeBundle\Entity\Philosophie:
+    type: entity
+    table: null
+    repositoryClass: PlateFormeBundle\Repository\PhilosophieRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        texte:
+            type: text
+    lifecycleCallbacks: {  }

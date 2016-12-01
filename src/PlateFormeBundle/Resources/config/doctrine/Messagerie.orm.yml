@@ -1,0 +1,17 @@
+PlateFormeBundle\Entity\Messagerie:
+    type: entity
+    table: null
+    repositoryClass: PlateFormeBundle\Repository\MessagerieRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        titre:
+            type: string
+            length: 255
+        message:
+            type: text
+    lifecycleCallbacks: {  }

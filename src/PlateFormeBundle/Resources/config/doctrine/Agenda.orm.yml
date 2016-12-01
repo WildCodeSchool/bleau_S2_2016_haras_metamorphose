@@ -1,0 +1,22 @@
+PlateFormeBundle\Entity\Agenda:
+    type: entity
+    table: null
+    repositoryClass: PlateFormeBundle\Repository\AgendaRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        titre:
+            type: string
+            length: 255
+        texte:
+            type: text
+        date:
+            type: datetime
+        lieu:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }

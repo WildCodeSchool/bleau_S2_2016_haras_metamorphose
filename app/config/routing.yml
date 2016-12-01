@@ -1,3 +1,7 @@
+plate_forme:
+    resource: "@PlateFormeBundle/Resources/config/routing.yml"
+    prefix:   /
+
 haras:
     resource: "@HarasBundle/Resources/config/routing.yml"
     prefix:   /
