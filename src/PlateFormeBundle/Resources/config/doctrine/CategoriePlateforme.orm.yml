@@ -1,7 +1,7 @@
-PlateFormeBundle\Entity\Post:
+PlateFormeBundle\Entity\CategoriePlateforme:
     type: entity
     table: null
-    repositoryClass: PlateFormeBundle\Repository\PostRepository
+    repositoryClass: PlateFormeBundle\Repository\CategoriePlateformeRepository
     id:
         id:
             type: integer
@@ -9,21 +9,20 @@ PlateFormeBundle\Entity\Post:
             generator:
                 strategy: AUTO
     fields:
-        titre:
+        nom:
             type: string
             length: 255
-        contenu:
-            type: text
+            unique: true
         actif:
             type: boolean
 
     oneToMany:
         enfant:
-          targetEntity: PlateFormeBundle\Entity\Post
+          targetEntity: PlateFormeBundle\Entity\CategoriePlateforme
           mappedBy: parent
     manyToOne:
         parent:
-          targetEntity: PlateFormeBundle\Entity\Post
+          targetEntity: PlateFormeBundle\Entity\CategoriePlateforme
           inversedBy: enfant
 
     lifecycleCallbacks: {  }
