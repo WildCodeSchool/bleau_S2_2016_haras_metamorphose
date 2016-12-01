@@ -3,9 +3,9 @@
 namespace PlateFormeBundle\Entity;
 
 /**
- * Post
+ * CategoriePlateforme
  */
-class Post
+class CategoriePlateforme
 {
     /**
      * @var int
@@ -15,15 +15,15 @@ class Post
     /**
      * @var string
      */
-    private $titre;
+    private $nom;
 
     /**
-     * @var string
+     * @var bool
      */
-    private $contenu;
+    private $actif;
 
     /**
-     * @var int
+     * @var bool
      */
     private $parent;
 
@@ -44,59 +44,59 @@ class Post
     }
 
     /**
-     * Set titre
+     * Set nom
      *
-     * @param string $titre
+     * @param string $nom
      *
-     * @return Post
+     * @return CategoriePlateforme
      */
-    public function setTitre($titre)
+    public function setNom($nom)
     {
-        $this->titre = $titre;
+        $this->nom = $nom;
 
         return $this;
     }
 
     /**
-     * Get titre
+     * Get nom
      *
      * @return string
      */
-    public function getTitre()
+    public function getNom()
     {
-        return $this->titre;
+        return $this->nom;
     }
 
     /**
-     * Set contenu
+     * Set actif
      *
-     * @param string $contenu
+     * @param boolean $actif
      *
-     * @return Post
+     * @return CategoriePlateforme
      */
-    public function setContenu($contenu)
+    public function setActif($actif)
     {
-        $this->contenu = $contenu;
+        $this->actif = $actif;
 
         return $this;
     }
 
     /**
-     * Get contenu
+     * Get actif
      *
-     * @return string
+     * @return bool
      */
-    public function getContenu()
+    public function getActif()
     {
-        return $this->contenu;
+        return $this->actif;
     }
 
     /**
      * Set parent
      *
-     * @param integer $parent
+     * @param boolean $parent
      *
-     * @return Post
+     * @return CategoriePlateforme
      */
     public function setParent($parent)
     {
@@ -108,7 +108,7 @@ class Post
     /**
      * Get parent
      *
-     * @return int
+     * @return bool
      */
     public function getParent()
     {
@@ -120,7 +120,7 @@ class Post
      *
      * @param integer $enfant
      *
-     * @return Post
+     * @return CategoriePlateforme
      */
     public function setEnfant($enfant)
     {
@@ -139,11 +139,6 @@ class Post
         return $this->enfant;
     }
     /**
-     * @var boolean
-     */
-    private $actif;
-
-    /**
      * Constructor
      */
     public function __construct()
@@ -152,37 +147,13 @@ class Post
     }
 
     /**
-     * Set actif
-     *
-     * @param boolean $actif
-     *
-     * @return Post
-     */
-    public function setActif($actif)
-    {
-        $this->actif = $actif;
-
-        return $this;
-    }
-
-    /**
-     * Get actif
-     *
-     * @return boolean
-     */
-    public function getActif()
-    {
-        return $this->actif;
-    }
-
-    /**
      * Add enfant
      *
-     * @param \PlateFormeBundle\Entity\Post $enfant
+     * @param \PlateFormeBundle\Entity\CategoriePlateforme $enfant
      *
-     * @return Post
+     * @return CategoriePlateforme
      */
-    public function addEnfant(\PlateFormeBundle\Entity\Post $enfant)
+    public function addEnfant(\PlateFormeBundle\Entity\CategoriePlateforme $enfant)
     {
         $this->enfant[] = $enfant;
 
@@ -192,9 +163,9 @@ class Post
     /**
      * Remove enfant
      *
-     * @param \PlateFormeBundle\Entity\Post $enfant
+     * @param \PlateFormeBundle\Entity\CategoriePlateforme $enfant
      */
-    public function removeEnfant(\PlateFormeBundle\Entity\Post $enfant)
+    public function removeEnfant(\PlateFormeBundle\Entity\CategoriePlateforme $enfant)
     {
         $this->enfant->removeElement($enfant);
     }
