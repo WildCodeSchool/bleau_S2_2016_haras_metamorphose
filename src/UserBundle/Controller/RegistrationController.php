@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace HarasBundle\Controller;
+namespace UserBundle\Controller;
 
 use FOS\UserBundle\Event\FilterUserResponseEvent;
 use FOS\UserBundle\Event\FormEvent;
