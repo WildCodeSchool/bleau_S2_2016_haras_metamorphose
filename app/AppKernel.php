@@ -20,6 +20,7 @@ class AppKernel extends Kernel
             new SunCat\MobileDetectBundle\MobileDetectBundle(),
             new PlateFormeBundle\PlateFormeBundle(),
             new UserBundle\UserBundle(),
+            new ADesigns\CalendarBundle\ADesignsCalendarBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {

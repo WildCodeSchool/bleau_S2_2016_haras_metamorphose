@@ -5,6 +5,7 @@
     <title>{% block title %}PLateforme du Haras de la métamorphose{% endblock %}</title>
         <link rel="stylesheet" href="{{ asset('bundles/haras/styles/stylesheets/style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+    <link rel="stylesheet" href="{{ asset('bundles/adesignscalendar/css/fullcalendar/fullcalendar.css') }}" />
     <link rel="icon" type="image/x-icon" href="{{ asset('bundles/plateforme/images/icone-cheval.png') }}" />
 </head>
 <body>
@@ -13,8 +14,11 @@
     {% block body %}{% endblock %}
     {% block footer %}{% endblock %}
 
+    {#APPEL DES SCRIPTS JS ORDRE Jquery/Materialize/Calendar/Main(en surcharge)#}
     <script src="{{ asset('bundles/haras/scripts/jquery-3.1.1.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+    <script type="text/javascript" src="{{ asset('bundles/adesignscalendar/js/fullcalendar/jquery.fullcalendar.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/adesignscalendar/js/calendar-settings.js') }}"></script>
     <script src="{{ asset('bundles/haras/scripts/main.js') }}"></script>
 
     {% block javascripts %}{% endblock %}
