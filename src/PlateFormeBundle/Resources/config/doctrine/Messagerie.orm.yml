@@ -14,4 +14,11 @@ PlateFormeBundle\Entity\Messagerie:
             length: 255
         message:
             type: text
+
+    manyToOne:
+        emmeteur:
+            targetEntity: UserBundle\Entity\User
+        recepteur:
+            targetEntity: UserBundle\Entity\User
+
     lifecycleCallbacks: {  }

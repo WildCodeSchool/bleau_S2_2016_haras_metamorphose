@@ -198,4 +198,62 @@ class Post
     {
         $this->enfant->removeElement($enfant);
     }
+    /**
+     * @var \PlateFormeBundle\Entity\CategoriePlateforme
+     */
+    private $categorie;
+
+    /**
+     * @var \UserBundle\Entity\User
+     */
+    private $user;
+
+
+    /**
+     * Set categorie
+     *
+     * @param \PlateFormeBundle\Entity\CategoriePlateforme $categorie
+     *
+     * @return Post
+     */
+    public function setCategorie(\PlateFormeBundle\Entity\CategoriePlateforme $categorie = null)
+    {
+        $this->categorie = $categorie;
+
+        return $this;
+    }
+
+    /**
+     * Get categorie
+     *
+     * @return \PlateFormeBundle\Entity\CategoriePlateforme
+     */
+    public function getCategorie()
+    {
+        return $this->categorie;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \UserBundle\Entity\User $user
+     *
+     * @return Post
+     */
+    public function setUser(\UserBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \UserBundle\Entity\User
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
 }
