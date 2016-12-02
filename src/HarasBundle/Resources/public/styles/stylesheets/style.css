@@ -154,7 +154,7 @@ body, html {
   text-align: center;
 }
 /* line 19, ../sass/_homepage_footer.scss */
-#_homepage_footer a {
+#_homepage_footer * {
   text-decoration: none;
   color: white;
 }
@@ -166,28 +166,27 @@ body, html {
 /* line 27, ../sass/_homepage_footer.scss */
 #_homepage_footer .footer-top .footer-left, #_homepage_footer .footer-top .footer-right {
   display: inline-block;
-  color: white;
   width: 40%;
   vertical-align: top;
   text-align: left;
 }
-/* line 34, ../sass/_homepage_footer.scss */
+/* line 33, ../sass/_homepage_footer.scss */
 #_homepage_footer .footer-top .footer-left {
   margin-right: 30px;
 }
-/* line 37, ../sass/_homepage_footer.scss */
+/* line 36, ../sass/_homepage_footer.scss */
 #_homepage_footer .footer-top .footer-scroll {
   width: 100%;
   text-align: justify;
   overflow: auto;
   height: 160px;
 }
-/* line 43, ../sass/_homepage_footer.scss */
+/* line 42, ../sass/_homepage_footer.scss */
 #_homepage_footer .footer-top .footer-scroll p {
   margin-right: 15px;
   margin-left: 15px;
 }
-/* line 50, ../sass/_homepage_footer.scss */
+/* line 49, ../sass/_homepage_footer.scss */
 #_homepage_footer #footer-bottom {
   background-color: #003f40;
   text-align: left;
@@ -195,13 +194,13 @@ body, html {
   padding-top: 1em;
   padding-bottom: 1em;
 }
-/* line 58, ../sass/_homepage_footer.scss */
+/* line 57, ../sass/_homepage_footer.scss */
 #_homepage_footer #copyright {
   padding-left: 5%;
 }
 
 @media all and (min-width: 901px) {
-  /* line 64, ../sass/_homepage_footer.scss */
+  /* line 63, ../sass/_homepage_footer.scss */
   #_homepage_footer {
     height: 30px;
     margin-top: -30px;
@@ -211,10 +210,9 @@ body, html {
     -o-transition: all 1s;
     -ms-transition: all 1s;
     transition: all 1s;
-    text-align: center;
   }
 
-  /* line 75, ../sass/_homepage_footer.scss */
+  /* line 73, ../sass/_homepage_footer.scss */
   #_homepage_footer:hover {
     height: 255px;
     margin-top: -255px;
@@ -222,7 +220,7 @@ body, html {
   }
 }
 @media all and (max-width: 900px) {
-  /* line 83, ../sass/_homepage_footer.scss */
+  /* line 81, ../sass/_homepage_footer.scss */
   #_homepage_footer {
     height: 255px;
     background-color: #00787a;
@@ -885,3 +883,6 @@ body, html {
 #_contact .button {
   margin: 2em;
 }
+
+/*
+@import '';*/
