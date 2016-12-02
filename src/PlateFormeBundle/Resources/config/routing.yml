@@ -5,3 +5,10 @@ plate_forme_homepage:
 plate_forme_agenda:
     resource: "@PlateFormeBundle/Resources/config/routing/agenda.yml"
     prefix:   /agenda
+
+fullcalendar_loader:
+    path: /pfc-load-calendar-events
+    defaults: { _controller: ADesignsCalendarBundle:Calendar:loadCalendar }
+    options:
+        expose: true
+

@@ -10,4 +10,9 @@ class DefaultController extends Controller
     {
         return $this->render('PlateFormeBundle:Default:index.html.twig');
     }
+
+    public function calendarAction()
+    {
+        return $this->render('@PlateForme/agenda/calendar.html.twig');
+    }
 }
