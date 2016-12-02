@@ -22,7 +22,7 @@ class PostController extends Controller
 
         $posts = $em->getRepository('PlateFormeBundle:Post')->findAll();
 
-        return $this->render('post/index.html.twig', array(
+        return $this->render('@PlateForme/post/index.html.twig', array(
             'posts' => $posts,
         ));
     }
@@ -45,7 +45,7 @@ class PostController extends Controller
             return $this->redirectToRoute('post_show', array('id' => $post->getId()));
         }
 
-        return $this->render('post/new.html.twig', array(
+        return $this->render('@PlateForme/post/new.html.twig', array(
             'post' => $post,
             'form' => $form->createView(),
         ));
@@ -59,7 +59,7 @@ class PostController extends Controller
     {
         $deleteForm = $this->createDeleteForm($post);
 
-        return $this->render('post/show.html.twig', array(
+        return $this->render('@PlateForme/post/show.html.twig', array(
             'post' => $post,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -81,7 +81,7 @@ class PostController extends Controller
             return $this->redirectToRoute('post_edit', array('id' => $post->getId()));
         }
 
-        return $this->render('post/edit.html.twig', array(
+        return $this->render('@PlateForme/post/edit.html.twig', array(
             'post' => $post,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

@@ -7,6 +7,13 @@ namespace PlateFormeBundle\Entity;
  */
 class CategoriePlateforme
 {
+    // Permet de convertir l'objet CATEGORIE dans MODELE en CHAINE DE CARACTERE
+    public function __toString()
+    {
+        return $this->nom;
+    }
+
+    // GENERATED CODE //
     /**
      * @var int
      */

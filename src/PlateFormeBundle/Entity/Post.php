@@ -7,6 +7,12 @@ namespace PlateFormeBundle\Entity;
  */
 class Post
 {
+    // Permet de convertir l'objet CATEGORIE dans MODELE en CHAINE DE CARACTERE
+    public function __toString()
+    {
+        return $this->titre;
+    }
+
     /**
      * @var int
      */

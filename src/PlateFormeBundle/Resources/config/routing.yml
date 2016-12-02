@@ -2,6 +2,10 @@ plate_forme_post:
     resource: "@PlateFormeBundle/Resources/config/routing/post.yml"
     prefix:   /post
 
+plate_forme_categorieplateforme:
+        resource: "@PlateFormeBundle/Resources/config/routing/categorieplateforme.yml"
+        prefix:   /categorieplateforme
+
 plate_forme_homepage:
     path:     /
     defaults: { _controller: PlateFormeBundle:Default:index }
