@@ -1,15 +1,6 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Haras de la métamorphose{% endblock %}</title>
-        {% block materialize %}
-        {% endblock materialize %}
-        {% block stylesheets %}
-            <link rel="stylesheet" href="{{ asset('bundles/haras/styles/stylesheets/style.css') }}">
-        {% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('licos.ico') }}" />
-    </head>
+{% extends '@PlateForme/Default/basePlateforme.html.twig' %}
+
+{% block body %}
     <body>
         <div>
             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
@@ -37,4 +28,5 @@
             {% endblock fos_user_content %}
         </div>
     </body>
-</html>
+{% endblock %}
+
