@@ -4,16 +4,16 @@
 jQuery(document).ready(function($) {
 
     console.log('jQuery de main.js a démarré le test est bon');
-    init_corinne();
+    init_plateforme();
     gestionSlider();
     autoplay();
-    click_droit_off();
+    /*click_droit_off();*/
 
     // RETOUR VERS LE HAUT
     retour_haut();
 
     // ZOOM SUR LES IMAGES
-    zoom_images();
+    /*zoom_images();*/
 
     // Fontion fonction
     gere_facebook();
@@ -30,7 +30,7 @@ jQuery(document).ready(function($) {
 // *                       JS General
 // ********************************************************************
 
-function init_corinne()
+function init_plateforme()
 {
     // pour le menu hamburger
     $(".button-collapse").sideNav();
