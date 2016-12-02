@@ -80,4 +80,62 @@ class Messagerie
     {
         return $this->message;
     }
+    /**
+     * @var \UserBundle\Entity\User
+     */
+    private $emmeteur;
+
+    /**
+     * @var \UserBundle\Entity\User
+     */
+    private $recepteur;
+
+
+    /**
+     * Set emmeteur
+     *
+     * @param \UserBundle\Entity\User $emmeteur
+     *
+     * @return Messagerie
+     */
+    public function setEmmeteur(\UserBundle\Entity\User $emmeteur = null)
+    {
+        $this->emmeteur = $emmeteur;
+
+        return $this;
+    }
+
+    /**
+     * Get emmeteur
+     *
+     * @return \UserBundle\Entity\User
+     */
+    public function getEmmeteur()
+    {
+        return $this->emmeteur;
+    }
+
+    /**
+     * Set recepteur
+     *
+     * @param \UserBundle\Entity\User $recepteur
+     *
+     * @return Messagerie
+     */
+    public function setRecepteur(\UserBundle\Entity\User $recepteur = null)
+    {
+        $this->recepteur = $recepteur;
+
+        return $this;
+    }
+
+    /**
+     * Get recepteur
+     *
+     * @return \UserBundle\Entity\User
+     */
+    public function getRecepteur()
+    {
+        return $this->recepteur;
+    }
 }
