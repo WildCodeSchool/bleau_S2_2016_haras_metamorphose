@@ -5,13 +5,13 @@ parameters:
 
 services:
     app.form.registration:
-        class: HarasBundle\Form\RegistrationType
+        class: UserBundle\Form\RegistrationType
         tags:
             - { name: form.type, alias: app_user_registration }
     language.change:
         class: HarasBundle\Services\languageChange
     app.exception_controller:
-        class: HarasBundle\Controller\CustomExceptionController
+        class: HarasBundle\Controller\ExceptionController
         arguments: ['@twig', '%kernel.debug%']
     media.interface:
         class: HarasBundle\Services\mediaInterface

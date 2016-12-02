@@ -5,6 +5,8 @@ namespace PlateFormeBundle\Entity;
 /**
  * Agenda
  */
+
+// Mettre enfant de entity bundle
 class Agenda
 {
     /**

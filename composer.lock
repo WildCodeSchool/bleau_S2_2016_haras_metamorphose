@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e8d22b26944b8c2b9c2e1a61a99b79c1",
-    "content-hash": "97482263ba91a2ecf3297439e571890e",
+    "hash": "0c5ff8df82b4c56f6f201d2ff7dbdc05",
+    "content-hash": "8509ad10654743ba51651baea9b4d5df",
     "packages": [
         {
             "name": "adesigns/calendar-bundle",
