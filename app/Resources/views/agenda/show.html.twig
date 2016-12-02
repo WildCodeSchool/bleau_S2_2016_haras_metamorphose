@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Agenda</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ agenda.id }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ agenda.titre }}</td>
+            </tr>
+            <tr>
+                <th>Texte</th>
+                <td>{{ agenda.texte }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{% if agenda.date %}{{ agenda.date|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Lieu</th>
+                <td>{{ agenda.lieu }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('agenda_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('agenda_edit', { 'id': agenda.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
