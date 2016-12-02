@@ -21,4 +21,5 @@ PlateFormeBundle\Entity\NewsLetter:
             type: boolean
         dateEnvoie:
             type: date
+
     lifecycleCallbacks: {  }

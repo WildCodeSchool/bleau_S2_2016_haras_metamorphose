@@ -14,9 +14,11 @@ PlateFormeBundle\Entity\Agenda:
             length: 255
         texte:
             type: text
-        date:
-            type: datetime
+#        date:
+#            type: datetime
         lieu:
             type: string
             length: 255
+
+
     lifecycleCallbacks: {  }

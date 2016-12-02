@@ -19,11 +19,16 @@ PlateFormeBundle\Entity\Post:
 
     oneToMany:
         enfant:
-          targetEntity: PlateFormeBundle\Entity\Post
-          mappedBy: parent
+            targetEntity: PlateFormeBundle\Entity\Post
+            mappedBy: parent
     manyToOne:
         parent:
-          targetEntity: PlateFormeBundle\Entity\Post
-          inversedBy: enfant
+            targetEntity: PlateFormeBundle\Entity\Post
+            inversedBy: enfant
+        categorie:
+            targetEntity: PlateFormeBundle\Entity\CategoriePlateforme
+        user:
+            targetEntity: UserBundle\Entity\User
+
 
     lifecycleCallbacks: {  }
