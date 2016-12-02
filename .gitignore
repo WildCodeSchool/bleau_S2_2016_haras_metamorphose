@@ -6,3 +6,4 @@
 *~
 *.scssc
 *.css.map
+.DS_Store
