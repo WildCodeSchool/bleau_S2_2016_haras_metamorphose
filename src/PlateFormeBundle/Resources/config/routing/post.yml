@@ -8,6 +8,12 @@ post_show:
     defaults: { _controller: "PlateFormeBundle:Post:show" }
     methods:  GET
 
+post_showAllPost:
+    path:     /{id}/showAllPost
+    defaults: { _controller: "PlateFormeBundle:Post:showAllPost" }
+    methods:  GET
+
+
 post_new:
     path:     /new
     defaults: { _controller: "PlateFormeBundle:Post:new" }

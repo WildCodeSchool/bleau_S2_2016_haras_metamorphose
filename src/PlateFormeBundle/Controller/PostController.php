@@ -16,11 +16,12 @@ class PostController extends Controller
      * Lists all post entities.
      *
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
+        // Connexion à la BdD
         $em = $this->getDoctrine()->getManager();
-
-        $posts = $em->getRepository('PlateFormeBundle:Post')->findAll();
+        // Ramene le Fil de discussion parent et actif
+        $posts = $em->getRepository('PlateFormeBundle:Post')->findBy(array('parent' => null, 'actif'=> 1));
 
         return $this->render('@PlateForme/post/index.html.twig', array(
             'posts' => $posts,
@@ -64,6 +65,33 @@ class PostController extends Controller
             'delete_form' => $deleteForm->createView(),
         ));
     }
+
+    /**
+     * Finds and displays a post entity.
+     *
+     */
+    public function showAllPostAction(Request $request)
+    {
+
+        // Connexion à la BdD
+        $em = $this->getDoctrine()->getManager();
+        // Ramene le Fil de discussion parent et actif
+
+        // Récupération du numéro du post fil de discussion
+        $idPostFirst = $request->get('id');
+        $postParents = $em->getRepository('PlateFormeBundle:Post')->findBy(array( 'id' => $idPostFirst));
+
+        $postEnfants = $em->getRepository('PlateFormeBundle:Post')->findBy(array( 'parent' => $idPostFirst, 'actif'=> 1));
+
+//        return $this->render('@PlateForme/post/index.html.twig', array(
+//            'posts' => $posts,
+//        ));
+        return $this->render('@PlateForme/post/showAllPost.html.twig', array(
+            'postParents' => $postParents,
+            'postEnfants' => $postEnfants,
+        ));
+    }
+
 
     /**
      * Displays a form to edit an existing post entity.

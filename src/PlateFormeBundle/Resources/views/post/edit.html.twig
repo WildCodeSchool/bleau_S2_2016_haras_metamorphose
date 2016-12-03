@@ -1,12 +1,59 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Post edit</h1>
 
-    {{ form_start(edit_form) }}
-        {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
-    {{ form_end(edit_form) }}
+    <div class="postContainer postAdmin">
+        <h1>Edition des messages</h1>
+        {{ form_start(edit_form) }}
+        {#<div class="row">#}
+            <div class="col l6 m6 s12">
+                <div class="row input-field">
+                    {#{{ dump(post) }}#}
+                    {#{{ dump(edit_form.enfant) }}#}
+                    {{ form_label(edit_form.titre) }}
+                    {{ form_widget(edit_form.titre) }}
+                    {{ form_errors(edit_form.titre) }}
+                </div>
+            </div>
+            <div class="col l6 m6 s12">
+                {{ form_label(edit_form.contenu) }}
+                {{ form_widget(edit_form.contenu) }}
+                {{ form_errors(edit_form.contenu) }}
+            </div>
+            <div class="col l6 m6 s12">
+                {{ form_label(edit_form.parent) }}
+                {{ form_widget(edit_form.parent) }}
+                {{ form_errors(edit_form.parent) }}
+            </div>
+            <div class="col l6 m6 s12">
+                <p>parent</p>
+                {{ form_label(edit_form.enfant) }}
+                {{ form_widget(edit_form.enfant) }}
+                {{ form_errors(edit_form.enfant) }}
+            </div>
+            <div class="col l6 m6 s12">
+                <p>parent</p>
+                {{ form_label(edit_form.actif) }}
+                {{ form_widget(edit_form.actif) }}
+                {{ form_errors(edit_form.actif) }}
+            </div>
+            <div class="col l6 m6 s12">
+                <p>parent</p>
+                {{ form_label(edit_form.categorie) }}
+                {{ form_widget(edit_form.categorie) }}
+                {{ form_errors(edit_form.categorie) }}
+            </div>
+            <div class="col l6 m6 s12">
+                <p>parent</p>
+                {{ form_label(edit_form.user) }}
+                {{ form_widget(edit_form.user) }}
+                {{ form_errors(edit_form.user) }}
+            </div>
+        {#</div>#}
+        {{ form_end(edit_form) }}
+    </div>
+
+
 
     <ul>
         <li>

@@ -6,8 +6,10 @@
     {% block materialize %}
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
     {% endblock materialize %}
+
     {% block stylesheets %}
         <link rel="stylesheet" href="{{ asset('bundles/haras/styles/stylesheets/style.css') }}">
+        <link rel="stylesheet" href="{{ asset('PlateFormeBundle/Resources/public/css/materialize.min.css') }}">
     {% endblock %}
     <link rel="icon" type="image/x-icon" href="{{ asset('licos.ico') }}" />
 </head>
@@ -18,7 +20,8 @@
         <!-- Compiled and minified JavaScript -->
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
-        <script src="{{ asset('bundles/haras/scripts/admin_script.js') }}"></script>
+        {#<script src="{{ asset('bundles/haras/scripts/admin_script.js') }}"></script>#}
+        <script src="{{ asset('bundles/haras/scripts/plateforme.js') }}"></script>
     {% endblock %}
 </body>
 </html>

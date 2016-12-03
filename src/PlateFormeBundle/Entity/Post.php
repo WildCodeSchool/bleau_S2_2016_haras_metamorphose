@@ -7,7 +7,7 @@ namespace PlateFormeBundle\Entity;
  */
 class Post
 {
-    // Permet de convertir l'objet CATEGORIE dans MODELE en CHAINE DE CARACTERE
+    // Permet de convertir l'objet CHAINE DE CARACTERE
     public function __toString()
     {
         return $this->titre;
@@ -31,13 +31,30 @@ class Post
     /**
      * @var int
      */
+//    Si $parent = 1 fil de discussion
+//    Si $parent = 0 commentaire
     private $parent;
 
     /**
      * @var int
      */
+//    Si $enfant si = 0 est un fil de discussio
+//    Si $enfant rempli = id de son parent
     private $enfant;
 
+    /**
+     * @var boolean
+     */
+    private $actif;
+        /**
+     * @var \PlateFormeBundle\Entity\CategoriePlateforme
+     */
+    private $categorie;
+
+    /**
+     * @var \UserBundle\Entity\User
+     */
+    private $user;
 
     /**
      * Get id
@@ -144,10 +161,6 @@ class Post
     {
         return $this->enfant;
     }
-    /**
-     * @var boolean
-     */
-    private $actif;
 
     /**
      * Constructor
@@ -204,15 +217,7 @@ class Post
     {
         $this->enfant->removeElement($enfant);
     }
-    /**
-     * @var \PlateFormeBundle\Entity\CategoriePlateforme
-     */
-    private $categorie;
 
-    /**
-     * @var \UserBundle\Entity\User
-     */
-    private $user;
 
 
     /**
