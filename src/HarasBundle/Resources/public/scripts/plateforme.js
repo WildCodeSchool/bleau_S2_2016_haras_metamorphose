@@ -5,3 +5,18 @@ $(document).ready(function(){
     $('.collapsible').collapsible();
   });
 
+
+
+//***************************************************//
+//    Materialize js pour select                     //
+//*****************************************************
+
+//
+$(document).ready(function() {
+    $('select').material_select();
+  });
+
+$('select').material_select('destroy');
+
+// Materialize js pour bouton radio
+$('#mySwitch').prop('checked')

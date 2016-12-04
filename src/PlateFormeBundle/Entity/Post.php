@@ -31,8 +31,8 @@ class Post
     /**
      * @var int
      */
-//    Si $parent = 1 fil de discussion
-//    Si $parent = 0 commentaire
+//    Si $parent = null fil de discussion
+//    Si $parent = int commentaire
     private $parent;
 
     /**
@@ -46,6 +46,7 @@ class Post
      * @var boolean
      */
     private $actif;
+
         /**
      * @var \PlateFormeBundle\Entity\CategoriePlateforme
      */

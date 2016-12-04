@@ -5,6 +5,7 @@ namespace PlateFormeBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 
 class PostType extends AbstractType
 {
@@ -16,13 +17,21 @@ class PostType extends AbstractType
         $builder
             ->add('titre')
             ->add('contenu')
-            ->add('actif')
-            ->add('parent')
-            ->add('categorie')
-            ->add('user')
-            ->add('enfant')
         ;
     }
+
+//        public function buildForm(FormBuilderInterface $builder, array $options)
+//    {
+//        $builder
+//            ->add('titre')
+//            ->add('contenu')
+//            ->add('actif')
+//            ->add('parent')
+//            ->add('categorie')
+//            ->add('user')
+//            ->add('enfant')
+//        ;
+//    }
     
     /**
      * {@inheritdoc}

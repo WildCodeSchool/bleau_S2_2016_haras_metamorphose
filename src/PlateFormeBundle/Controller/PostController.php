@@ -17,15 +17,14 @@ class PostController extends Controller
      * Lists all post entities.
      *
      */
-    public function indexAction(Request $request)
+    public function indexAction()
     {
         // Connexion à la BdD
         $em = $this->getDoctrine()->getManager();
         // Ramene le Fil de discussion parent et actif
-
-        $postParents = $em->getRepository('PlateFormeBundle:Post')->findBy(array('actif'=> 1));
-//        $postEnfants = $em->getRepository('PlateFormeBundle:Post')->findBy(array('actif'=> 1));
-        $categories = $em->getRepository('PlateFormeBundle:CategoriePlateforme')->findBy(array('actif'=> 1, 'parent' => null));
+        $postParents = $em->getRepository('PlateFormeBundle:Post')->findBy(array('actif'=> 1, 'parent' => null));
+        // Ramene les catégories (out sous catégorie = parent = null) actives
+        $categories = $em->getRepository('PlateFormeBundle:CategoriePlateforme')->findBy(array('actif'=> 1,'parent' => null ));
 
         return $this->render('@PlateForme/post/index.html.twig', array(
             'postParents' => $postParents,
@@ -37,23 +36,40 @@ class PostController extends Controller
      * Creates a new post entity.
      *
      */
-    public function newAction(Request $request)
+    public function newAction(Request $request, Post $post1 )
     {
         $post = new Post();
         $form = $this->createForm('PlateFormeBundle\Form\PostType', $post);
+
+        var_dump('$post1->getCategorie()->getId()) : ' . $post1->getCategorie()->getId());
+
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            // Enregistrement en BdD
+            // Ajout de l'id Parent au post
+            $post->setParent($request->get('id'));
+            // Ajout de la catégorie du parent au post
+            $post->setCategorie($post1->getCategorie()->getId());
+            // Ajout actif
+            $post->setActif(true);
+            // Ajout Enfant
+            $post->setEnfant($request->get('id'));
+            // Ajout user null pour le moment
+            $post->setUser(null);
+            var_dump($post);
             $em->persist($post);
             $em->flush($post);
 
-            return $this->redirectToRoute('post_show', array('id' => $post->getId()));
+            return $this->redirectToRoute('page_index');
         }
 
         return $this->render('@PlateForme/post/new.html.twig', array(
             'post' => $post,
             'form' => $form->createView(),
+            'cat' => $request->get('cat'),
+            'id' => $request->get('id'),
         ));
     }
 

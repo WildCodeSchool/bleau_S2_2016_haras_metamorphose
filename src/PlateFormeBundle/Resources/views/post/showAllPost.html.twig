@@ -20,7 +20,7 @@
             </div>
           </div>
         </div>
-        {% endfor %}
+
     </div>
 
     {% for postEnfant in postEnfants %}
@@ -43,14 +43,18 @@
     </div>
     {% endfor %}
 
+
+
     {# Ajout d'un nouveau post sur ce fil de discussion #}
     <div class="row center">
         <a class="btn-floating btn-large waves-effect waves-light green darken-3"
-           href="{{ path('post_new') }}">
+           href="{{ path('post_new', {'cat' : postParent.categorie.id,  'id' : postParent.id }) }}">
             <i class="material-icons">+</i>
         </a>
     </div>
-
+            {{ postParent.categorie.id }} <br><br>
+            {{ postParent.id }}
+    {% endfor %}
     <ul>
         <li>
             <a href="{{ path('post_index') }}">Back to the list</a>

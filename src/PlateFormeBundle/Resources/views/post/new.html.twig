@@ -1,16 +1,46 @@
-{% extends 'base.html.twig' %}
+{% extends '@PlateForme/Default/basePlateforme.html.twig' %}
 
 {% block body %}
-    <h1>Post creation</h1>
+<div class="postContainer postAdmin">
+    <h1>Nouveau Post</h1>
 
     {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
+        <div style="background-color: #9ccc65"></div>
+        {#id parent : {{ idParent }} <br>#}
+        {#catégorie parent : {{ catParent }}#}
+        <div class="row input-field">
+            {{ form_label(form.titre) }}
+            {{ form_widget(form.titre) }}
+            {{ form_errors(form.titre) }}
+        </div>
+        <div class="row input-field">
+            {{ form_label(form.contenu) }}
+            {{ form_widget(form.contenu) }}
+            {{ form_errors(form.contenu) }}
+        </div>
+        {# Récupérer user qui crée le post #}
+        {#<div class="row input-field">#}
+            {#{{ form_label(form.user) }}#}
+            {#{{ form_widget(form.user) }}#}
+            {#{{ form_errors(form.user) }}#}
+        {#</div>#}
+
+        <div class="row center">
+        <button class="btn-large waves-effect waves-light grey darken-1"
+                type="submit"
+                title="Valider"
+                value="Create">
+            <i class="material-icons">Valider</i>
+        </button>
+        </div>
     {{ form_end(form) }}
 
-    <ul>
-        <li>
-            <a href="{{ path('post_index') }}">Back to the list</a>
-        </li>
-    </ul>
+    <div class="row center">
+
+        <a class="btn-floating btn-large waves-effect waves-light blue darken-1"
+           href="{{ path('post_index') }}">
+            <i class="small material-icons">/</i>
+        </a>
+    </div>
+</div>
 {% endblock %}

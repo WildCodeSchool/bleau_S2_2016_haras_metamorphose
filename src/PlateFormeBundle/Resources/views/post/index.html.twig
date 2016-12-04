@@ -1,8 +1,8 @@
 {% extends '@PlateForme/Default/basePlateforme.html.twig' %}
 
 {% block body %}
-<section>
-  {#<aside>#}
+<section class="postSectionIndex">
+  {#<aside class="postAsideIndex">#}
     {#<!—Ce aside est en dehors de la balise article. Son contenu est relié à la page, mais pas autant que la balise aside à l’intérieur de la balise article. -->#}
     {#<h2>Mes liens préférés</h2>#}
     {#<ul>#}
@@ -12,12 +12,12 @@
     {#</ul>#}
   {#</aside>#}
 
-  <article>
+  <article class="postArticleIndex">
     <h1>Discussions par catégorie</h1>
 
     {% for categorie in categories %}
 
-    <ul class="collapsible col offset-l2 l8 s12 m6 postDivPrincipale" data-collapsible="accordion">
+    <ul class="collapsible col  postDivPrincipale" data-collapsible="accordion">
         <li>
           {# Niveau 1 : Catégories #}
           <div class="collapsible-header postListTitleCat">
@@ -26,8 +26,8 @@
           </div>
           {# Niveau 2 : Parents #}
           <div class="collapsible-body">
-
                 {% for postParent in postParents %}
+                    {# Selectionne la catégorie et les post parent#}
                     {% if (postParent.categorie.id == categorie.id) and (postParent.parent == null) %}
                         <ul class="collapsible col offset-l2 l8 s12 m6 postDivPrincipale" data-collapsible="accordion">
                             <li>
@@ -39,18 +39,28 @@
                                   <div>
                                     <p>{{ postParent.contenu }}</p>
                                   </div>
-                                  <div class="center">
-                                    <p>{{ postParent.categorie }}</p>
-                                    <p>{{ postParent.user }}</p>
-                                    <a class="waves-effect waves-teal btn-flat" href="{{ path('post_showAllPost', { 'id': postParent.id }) }}">
+                                  <div>
+                                    <p>Catégorie : {{ postParent.categorie.nom }}</p>
+                                    <p>User : {{ postParent.user }}</p>
+                                    <a class="waves-effect waves-teal btn-flat"
+                                       href="{{ path('post_showAllPost', { 'id': postParent.id }) }}">
                                         <i class="material-icons">voir</i>
                                     </a>
-                                    <a class="waves-effect waves-teal btn-flat" href="{{ path('post_edit', { 'id': postParent.id }) }}">
+                                    <a class="waves-effect waves-teal btn-flat"
+                                       href="{{ path('post_edit', { 'id': postParent.id }) }}">
                                         <i class="material-icons">modifier</i>
                                     </a>
                                   </div>
                               </div>
                             </li>
+
+                            {# Ajout nouveau post sur post fil de discussion selectionné (récuperation ID et CAT) #}
+                            <div class="row center">
+                                <a class="btn btn-small waves-effect waves-light green darken-3"
+                                   href="{{ path('post_new' , {'cat' : postParent.categorie.id, 'id' : postParent.id }) }}">
+                                    <i class="material-icons">ajout post sur {{ postParent.titre }}</i>
+                                </a>
+                            </div>
                         </ul>
                     {% endif %}
                 {% endfor %}
@@ -62,10 +72,10 @@
 
 
     <div class="row center">
-        <a class="btn-floating btn-large waves-effect waves-light green darken-3"
-           href="{{ path('post_new') }}">
-            <i class="material-icons">+</i>
-        </a>
+        {#<a class="btn-floating btn-large waves-effect waves-light green darken-3"#}
+           {#href="{{ path('post_new') }}">#}
+            {#<i class="material-icons">+</i>#}
+        {#</a>#}
     </div>
    </article>
 </section>

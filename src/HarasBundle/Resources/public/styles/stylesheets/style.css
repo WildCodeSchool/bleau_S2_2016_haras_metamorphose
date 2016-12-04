@@ -897,49 +897,23 @@ body, html {
   flex: 1 0 auto;
 }
 
-/* line 12, ../sass/_post.scss */
+/* line 15, ../sass/_post.scss */
+.postSectionIndex {
+  margin-left: 70px !important;
+  margin-right: 70px !important;
+}
+
+/* line 27, ../sass/_post.scss */
 .postListTitleCat {
   background-color: #ffb84d !important;
 }
 
-/* line 16, ../sass/_post.scss */
+/* line 31, ../sass/_post.scss */
 .postListTitlePost {
   background-color: #00bcd4 !important;
 }
 
-/* line 20, ../sass/_post.scss */
+/* line 35, ../sass/_post.scss */
 .postDivPrincipale {
   padding-bottom: 0px !important;
-}
-
-/*Corps*/
-/* line 26, ../sass/_post.scss */
-article, aside {
-  display: inline-block;
-  vertical-align: top;
-  text-align: justify;
-}
-
-/* line 33, ../sass/_post.scss */
-article {
-  widht: 630px;
-  margin-right: 15px;
-}
-
-/* line 39, ../sass/_post.scss */
-article p {
-  font-size: 0.8em;
-}
-
-/* line 44, ../sass/_post.scss */
-aside {
-  position: relative;
-  width: 235px;
-  background-color: #706b64;
-  box-shadow: 0px 2px 5px #1c1a19;
-  border-radius: 5px;
-  padding: 10px;
-  color: white;
-  font-size: 0.9em;
-  float: left;
 }
