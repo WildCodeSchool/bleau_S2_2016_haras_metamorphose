@@ -3,6 +3,7 @@
 namespace PlateFormeBundle\Controller;
 
 use PlateFormeBundle\Entity\Post;
+use PlateFormeBundle\Entity\CategoriePlateforme;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -21,10 +22,14 @@ class PostController extends Controller
         // Connexion à la BdD
         $em = $this->getDoctrine()->getManager();
         // Ramene le Fil de discussion parent et actif
-        $posts = $em->getRepository('PlateFormeBundle:Post')->findBy(array('parent' => null, 'actif'=> 1));
+
+        $postParents = $em->getRepository('PlateFormeBundle:Post')->findBy(array('actif'=> 1));
+//        $postEnfants = $em->getRepository('PlateFormeBundle:Post')->findBy(array('actif'=> 1));
+        $categories = $em->getRepository('PlateFormeBundle:CategoriePlateforme')->findBy(array('actif'=> 1, 'parent' => null));
 
         return $this->render('@PlateForme/post/index.html.twig', array(
-            'posts' => $posts,
+            'postParents' => $postParents,
+            'categories' => $categories,
         ));
     }
 
@@ -79,13 +84,9 @@ class PostController extends Controller
 
         // Récupération du numéro du post fil de discussion
         $idPostFirst = $request->get('id');
-        $postParents = $em->getRepository('PlateFormeBundle:Post')->findBy(array( 'id' => $idPostFirst));
-
+        $postParents = $em->getRepository('PlateFormeBundle:Post')->findBy(array( 'id' => $idPostFirst, 'actif'=> 1));
         $postEnfants = $em->getRepository('PlateFormeBundle:Post')->findBy(array( 'parent' => $idPostFirst, 'actif'=> 1));
 
-//        return $this->render('@PlateForme/post/index.html.twig', array(
-//            'posts' => $posts,
-//        ));
         return $this->render('@PlateForme/post/showAllPost.html.twig', array(
             'postParents' => $postParents,
             'postEnfants' => $postEnfants,

@@ -1,70 +1,72 @@
-{% extends 'base.html.twig' %}
+{% extends '@PlateForme/Default/basePlateforme.html.twig' %}
 
 {% block body %}
-    <h1>Liste des fils de discussion</h1>
+<section>
+  {#<aside>#}
+    {#<!—Ce aside est en dehors de la balise article. Son contenu est relié à la page, mais pas autant que la balise aside à l’intérieur de la balise article. -->#}
+    {#<h2>Mes liens préférés</h2>#}
+    {#<ul>#}
+      {#<li><a href="#">a</a></li>#}
+      {#<li><a href="#">b</a></li>#}
+      {#<li><a href="#">c</a></li>#}
+    {#</ul>#}
+  {#</aside>#}
 
-    <div class="row">
-        {% for post in posts %}
-        <div class="col s12 m6">
-          <div class="card light-green darken-1">
-            <div class="card-content white-text">
-              <span class="card-title">{{ post.titre }}</span>
-              <p>{{ post.contenu }}</p>
-            </div>
-            <div class="card-action">
-                <p>{{ post.categorie }}</p>
-                <p>{{ post.user }}</p>
-                {#<a href="{{ path('post_show', { 'id': post.id }) }}">show</a>#}
-                <a href="{{ path('post_showAllPost', { 'id': post.id }) }}">Voir</a>
-                <a href="{{ path('post_edit', { 'id': post.id }) }}">Modifier</a>
-            </div>
-          </div>
-        </div>
-        {% endfor %}
-      </div>
+  <article>
+    <h1>Discussions par catégorie</h1>
 
-    {#<table class="responsive-table">#}
-        {#<thead>#}
-            {#<tr>#}
-                {#<th>Id</th>#}
-                {#<th>Titre</th>#}
-                {#<th>Contenu</th>#}
-                {#<th>Catégorie</th>#}
-                {#<th>User</th>#}
-                {#<th>Actif</th>#}
-                {#<th>Actions</th>#}
-            {#</tr>#}
-        {#</thead>#}
-        {#<tbody>#}
-        {#{% for post in posts %}#}
-            {#<tr>#}
-                {#<td><a href="{{ path('post_show', { 'id': post.id }) }}">{{ post.id }}</a></td>#}
-                {#<td>{{ post.titre }}</td>#}
-                {#<td>{{ post.contenu }}</td>#}
-                {#<td>{{ post.categorie }}</td>#}
-                {#<td>{{ post.user }}</td>#}
-                {#<td>{% if post.actif %}Oui{% else %}Non{% endif %}</td>#}
-                {#<td>#}
-                    {#<ul>#}
-                        {#<li>#}
-                            {#<a href="{{ path('post_show', { 'id': post.id }) }}">show</a>#}
-                        {#</li>#}
-                        {#<li>#}
-                            {#<a href="{{ path('post_showAllPost', { 'id': post.id }) }}">showAll</a>#}
-                        {#</li>#}
-                        {#<li>#}
-                            {#<a href="{{ path('post_edit', { 'id': post.id }) }}">edit</a>#}
-                        {#</li>#}
-                    {#</ul>#}
-                {#</td>#}
-            {#</tr>#}
-        {#{% endfor %}#}
-        {#</tbody>#}
-    {#</table>#}
+    {% for categorie in categories %}
 
-    <ul>
+    <ul class="collapsible col offset-l2 l8 s12 m6 postDivPrincipale" data-collapsible="accordion">
         <li>
-            <a href="{{ path('post_new') }}">Create a new post</a>
+          {# Niveau 1 : Catégories #}
+          <div class="collapsible-header postListTitleCat">
+              {#<i class="material-icons">filter_drama</i>#}
+              {{ categorie.nom}}
+          </div>
+          {# Niveau 2 : Parents #}
+          <div class="collapsible-body">
+
+                {% for postParent in postParents %}
+                    {% if (postParent.categorie.id == categorie.id) and (postParent.parent == null) %}
+                        <ul class="collapsible col offset-l2 l8 s12 m6 postDivPrincipale" data-collapsible="accordion">
+                            <li>
+                              <div class="collapsible-header postListTitlePost">
+                                  {#<i class="material-icons">filter_drama</i>#}
+                                  {{ postParent.titre }}
+                              </div>
+                              <div class="collapsible-body">
+                                  <div>
+                                    <p>{{ postParent.contenu }}</p>
+                                  </div>
+                                  <div class="center">
+                                    <p>{{ postParent.categorie }}</p>
+                                    <p>{{ postParent.user }}</p>
+                                    <a class="waves-effect waves-teal btn-flat" href="{{ path('post_showAllPost', { 'id': postParent.id }) }}">
+                                        <i class="material-icons">voir</i>
+                                    </a>
+                                    <a class="waves-effect waves-teal btn-flat" href="{{ path('post_edit', { 'id': postParent.id }) }}">
+                                        <i class="material-icons">modifier</i>
+                                    </a>
+                                  </div>
+                              </div>
+                            </li>
+                        </ul>
+                    {% endif %}
+                {% endfor %}
+
+          </div>
         </li>
     </ul>
+    {% endfor %}
+
+
+    <div class="row center">
+        <a class="btn-floating btn-large waves-effect waves-light green darken-3"
+           href="{{ path('post_new') }}">
+            <i class="material-icons">+</i>
+        </a>
+    </div>
+   </article>
+</section>
 {% endblock %}

@@ -8,3 +8,48 @@
 .postContainer, .PostMain {
   flex: 1 0 auto;
 }
+
+.postListTitleCat {
+  background-color: #ffb84d !important;
+}
+
+.postListTitlePost {
+  background-color: #00bcd4 !important;
+}
+
+.postDivPrincipale {
+  padding-bottom: 0px !important;
+}
+
+    /*Corps*/
+
+    article, aside
+    {
+        display : inline-block;
+        vertical-align : top;
+        text-align : justify;
+    }
+
+    article
+    {
+        widht : 630px;
+        margin-right : 15px;
+    }
+
+    article p
+    {
+        font-size : 0.8em;
+    }
+
+    aside
+    {
+        position : relative;
+        width : 235px;
+        background-color : #706b64;
+        box-shadow : 0px 2px 5px #1c1a19;
+        border-radius : 5px;
+        padding : 10px;
+        color : white;
+        font-size : 0.9em;
+        float : left;
+    }

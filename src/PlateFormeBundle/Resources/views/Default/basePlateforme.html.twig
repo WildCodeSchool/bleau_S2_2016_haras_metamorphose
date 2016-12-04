@@ -4,8 +4,9 @@
     <meta charset="UTF-8" />
     <title>{% block title %}PLateforme du Haras de la métamorphose{% endblock %}</title>
         <link rel="stylesheet" href="{{ asset('bundles/haras/styles/stylesheets/style.css') }}">
-        <link rel="stylesheet" href="{{ asset('bundles/plateforme/css/materialize.min.css') }}">
-    <link rel="icon" type="image/x-icon" href="{{ asset('bundles/plateforme/images/icone-cheval.png') }}" />
+        <!-- Compiled and minified CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+        <link rel="icon" type="image/x-icon" href="{{ asset('bundles/plateforme/images/icone-cheval.png') }}" />
 </head>
 <body>
 
@@ -14,8 +15,9 @@
     {% block footer %}{% endblock %}
 
     <script src="{{ asset('bundles/haras/scripts/jquery-3.1.1.js') }}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
     <script src="{{ asset('bundles/haras/scripts/plateforme.js') }}"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
 
     {% block javascripts %}{% endblock %}
 
