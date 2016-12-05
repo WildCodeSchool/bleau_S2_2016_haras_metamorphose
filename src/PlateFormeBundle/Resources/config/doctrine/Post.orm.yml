@@ -24,9 +24,11 @@ PlateFormeBundle\Entity\Post:
     manyToOne:
         parent:
             targetEntity: PlateFormeBundle\Entity\Post
+            cascade: ["persist", "remove"]
             inversedBy: enfant
         categorie:
             targetEntity: PlateFormeBundle\Entity\CategoriePlateforme
+            cascade: ["persist", "remove"]
         user:
             targetEntity: UserBundle\Entity\User
 

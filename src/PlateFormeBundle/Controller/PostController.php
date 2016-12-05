@@ -36,33 +36,37 @@ class PostController extends Controller
      * Creates a new post entity.
      *
      */
-    public function newAction(Request $request, Post $post1 )
+    public function newAction(Request $request, CategoriePlateforme $cat, Post $id)
     {
         $post = new Post();
         $form = $this->createForm('PlateFormeBundle\Form\PostType', $post);
 
-        var_dump('$post1->getCategorie()->getId()) : ' . $post1->getCategorie()->getId());
 
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             // Enregistrement en BdD
+
             // Ajout de l'id Parent au post
-            $post->setParent($request->get('id'));
+            $post->setParent($id);
+
             // Ajout de la catégorie du parent au post
-            $post->setCategorie($post1->getCategorie()->getId());
+            $post->setCategorie($cat);
+
             // Ajout actif
             $post->setActif(true);
+
             // Ajout Enfant
-            $post->setEnfant($request->get('id'));
+//            $post->addEnfant($post->getEnfant());
+
             // Ajout user null pour le moment
-            $post->setUser(null);
-            var_dump($post);
+//            $post->setUser(null);
+//            var_dump($post);
             $em->persist($post);
             $em->flush($post);
 
-            return $this->redirectToRoute('page_index');
+            return $this->redirectToRoute('post_index');
         }
 
         return $this->render('@PlateForme/post/new.html.twig', array(

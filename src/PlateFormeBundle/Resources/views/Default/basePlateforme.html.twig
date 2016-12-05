@@ -1,25 +1,26 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8" />
-    <title>{% block title %}PLateforme du Haras de la métamorphose{% endblock %}</title>
-        <link rel="stylesheet" href="{{ asset('bundles/haras/styles/stylesheets/style.css') }}">
-        <!-- Compiled and minified CSS -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
-        <link rel="icon" type="image/x-icon" href="{{ asset('bundles/plateforme/images/icone-cheval.png') }}" />
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}PLateforme du Haras de la métamorphose{% endblock %}</title>
+            <link rel="stylesheet" href="{{ asset('bundles/haras/styles/stylesheets/style.css') }}">
+            <!-- Compiled and minified CSS -->
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+            <link rel="icon" type="image/x-icon" href="{{ asset('bundles/plateforme/images/icone-cheval.png') }}" />
+    </head>
+    <body>
 
-    {% block header %}{% endblock %}
-    {% block body %}{% endblock %}
-    {% block footer %}{% endblock %}
+        {% block header %}{% endblock %}
+        {% block body %}{% endblock %}
+        {% block footer %}{% endblock %}
 
-    <script src="{{ asset('bundles/haras/scripts/jquery-3.1.1.js') }}"></script>
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
-    <script src="{{ asset('bundles/haras/scripts/plateforme.js') }}"></script>
-    {% block javascripts %}{% endblock %}
+        <script src="{{ asset('bundles/haras/scripts/jquery-3.1.1.js') }}"></script>
+        <!-- Compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+        <script src="{{ asset('bundles/haras/scripts/plateforme.js') }}"></script>
+        {% block javascripts %}{% endblock %}
 
-</body>
+    </body>
 </html>
 

@@ -14,8 +14,9 @@ class CategoriePlateforme
     }
 
     // GENERATED CODE //
+
     /**
-     * @var int
+     * @var integer
      */
     private $id;
 
@@ -25,25 +26,32 @@ class CategoriePlateforme
     private $nom;
 
     /**
-     * @var bool
+     * @var boolean
      */
     private $actif;
 
     /**
-     * @var bool
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $enfant;
+
+    /**
+     * @var \PlateFormeBundle\Entity\CategoriePlateforme
      */
     private $parent;
 
     /**
-     * @var int
+     * Constructor
      */
-    private $enfant;
-
+    public function __construct()
+    {
+        $this->enfant = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -91,66 +99,11 @@ class CategoriePlateforme
     /**
      * Get actif
      *
-     * @return bool
+     * @return boolean
      */
     public function getActif()
     {
         return $this->actif;
-    }
-
-    /**
-     * Set parent
-     *
-     * @param boolean $parent
-     *
-     * @return CategoriePlateforme
-     */
-    public function setParent($parent)
-    {
-        $this->parent = $parent;
-
-        return $this;
-    }
-
-    /**
-     * Get parent
-     *
-     * @return bool
-     */
-    public function getParent()
-    {
-        return $this->parent;
-    }
-
-    /**
-     * Set enfant
-     *
-     * @param integer $enfant
-     *
-     * @return CategoriePlateforme
-     */
-    public function setEnfant($enfant)
-    {
-        $this->enfant = $enfant;
-
-        return $this;
-    }
-
-    /**
-     * Get enfant
-     *
-     * @return int
-     */
-    public function getEnfant()
-    {
-        return $this->enfant;
-    }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->enfant = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -175,5 +128,39 @@ class CategoriePlateforme
     public function removeEnfant(\PlateFormeBundle\Entity\CategoriePlateforme $enfant)
     {
         $this->enfant->removeElement($enfant);
+    }
+
+    /**
+     * Get enfant
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getEnfant()
+    {
+        return $this->enfant;
+    }
+
+    /**
+     * Set parent
+     *
+     * @param \PlateFormeBundle\Entity\CategoriePlateforme $parent
+     *
+     * @return CategoriePlateforme
+     */
+    public function setParent(\PlateFormeBundle\Entity\CategoriePlateforme $parent = null)
+    {
+        $this->parent = $parent;
+
+        return $this;
+    }
+
+    /**
+     * Get parent
+     *
+     * @return \PlateFormeBundle\Entity\CategoriePlateforme
+     */
+    public function getParent()
+    {
+        return $this->parent;
     }
 }

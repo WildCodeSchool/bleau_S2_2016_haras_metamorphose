@@ -13,8 +13,10 @@ class Post
         return $this->titre;
     }
 
+    // GENERATED CODE //
+
     /**
-     * @var int
+     * @var integer
      */
     private $id;
 
@@ -29,25 +31,21 @@ class Post
     private $contenu;
 
     /**
-     * @var int
-     */
-//    Si $parent = null fil de discussion
-//    Si $parent = int commentaire
-    private $parent;
-
-    /**
-     * @var int
-     */
-//    Si $enfant si = 0 est un fil de discussio
-//    Si $enfant rempli = id de son parent
-    private $enfant;
-
-    /**
      * @var boolean
      */
     private $actif;
 
-        /**
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $enfant;
+
+    /**
+     * @var \PlateFormeBundle\Entity\Post
+     */
+    private $parent;
+
+    /**
      * @var \PlateFormeBundle\Entity\CategoriePlateforme
      */
     private $categorie;
@@ -58,9 +56,17 @@ class Post
     private $user;
 
     /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->enfant = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -116,62 +122,6 @@ class Post
     }
 
     /**
-     * Set parent
-     *
-     * @param integer $parent
-     *
-     * @return Post
-     */
-    public function setParent($parent)
-    {
-        $this->parent = $parent;
-
-        return $this;
-    }
-
-    /**
-     * Get parent
-     *
-     * @return int
-     */
-    public function getParent()
-    {
-        return $this->parent;
-    }
-
-    /**
-     * Set enfant
-     *
-     * @param integer $enfant
-     *
-     * @return Post
-     */
-    public function setEnfant($enfant)
-    {
-        $this->enfant = $enfant;
-
-        return $this;
-    }
-
-    /**
-     * Get enfant
-     *
-     * @return int
-     */
-    public function getEnfant()
-    {
-        return $this->enfant;
-    }
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->enfant = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
      * Set actif
      *
      * @param boolean $actif
@@ -219,7 +169,39 @@ class Post
         $this->enfant->removeElement($enfant);
     }
 
+    /**
+     * Get enfant
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getEnfant()
+    {
+        return $this->enfant;
+    }
 
+    /**
+     * Set parent
+     *
+     * @param \PlateFormeBundle\Entity\Post $parent
+     *
+     * @return Post
+     */
+    public function setParent(\PlateFormeBundle\Entity\Post $parent = null)
+    {
+        $this->parent = $parent;
+
+        return $this;
+    }
+
+    /**
+     * Get parent
+     *
+     * @return \PlateFormeBundle\Entity\Post
+     */
+    public function getParent()
+    {
+        return $this->parent;
+    }
 
     /**
      * Set categorie
