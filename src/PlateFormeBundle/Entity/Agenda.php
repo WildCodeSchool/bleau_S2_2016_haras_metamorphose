@@ -2,17 +2,18 @@
 
 namespace PlateFormeBundle\Entity;
 
+use ADesigns\CalendarBundle\Entity\EventEntity;
+
 /**
  * Agenda
  */
 
-// Mettre enfant de entity bundle
-class Agenda
+class Agenda extends EventEntity
 {
     /**
      * @var int
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
