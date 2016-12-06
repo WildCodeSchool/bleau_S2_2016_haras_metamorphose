@@ -24,6 +24,9 @@ jQuery(document).ready(function($) {
     // initialisation des listbox (select)
     selecteur();
 
+    // FONCTION BOITE MODALE
+    modal();
+
 });
 
 // ********************************************************************
@@ -119,3 +122,16 @@ function selecteur() {
     $('select').material_select();
 
 }
+
+// ********************************************************************
+// *                    Materilize MODAL
+// ********************************************************************
+
+function modal() {
+    $(document).ready(function(){
+        // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+        $('.modal-trigger').leanModal();
+        /*$('.ModalAdd').modal(open);*/
+    });
+}
+
