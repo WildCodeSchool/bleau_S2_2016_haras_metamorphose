@@ -17,5 +17,5 @@
         prefix="/resetting" />
     <import
         resource="@FOSUserBundle/Resources/config/routing/change_password.xml"
-        prefix="/profile" />
+        prefix="/login" />
 </routes>
