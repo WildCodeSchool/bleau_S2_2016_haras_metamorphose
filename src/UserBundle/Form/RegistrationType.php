@@ -1,13 +1,18 @@
 <?php
 // src/AppBundle/Form/RegistrationType.php
-namespace UserBundle\Form\;
+namespace UserBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+
 class RegistrationType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('nom');
+        $builder
+            ->add('nom')
+            ->add('prenom')
+            ->add('profession')
+        ;
     }
     public function getParent()
     {
