@@ -1,0 +1,24 @@
+{% extends '@PlateForme/layout.html.twig' %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ asset('bundles/haras/styles/stylesheets/calendar/fullcalendar.print.css') }}">
+    <link rel="stylesheet" href="{{ asset('bundles/haras/styles/stylesheets/calendar/calendar_main.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col s12"></div>
+            <div id='calendar'></div>
+        </div>
+    </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('bundles/haras/scripts/calendar/moment.min.js') }}"></script>
+    <script src="{{ asset('bundles/haras/scripts/calendar/jquery.min.js') }}"></script>
+    <script src="{{ asset('bundles/haras/scripts/calendar/fullcalendar.min.js') }}"></script>
+    <script src="{{ asset('bundles/haras/scripts/calendar/calendar-events.js') }}"></script>
+{% endblock %}
+

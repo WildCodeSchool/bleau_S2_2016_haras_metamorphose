@@ -134,4 +134,3 @@ function modal() {
         /*$('.ModalAdd').modal(open);*/
     });
 }
-

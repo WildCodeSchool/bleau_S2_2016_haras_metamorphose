@@ -3,15 +3,15 @@ plate_forme_homepage:
     defaults: { _controller: PlateFormeBundle:Default:index }
 
 #Route Calendar
-adesigns_calendar:
-    resource: "@ADesignsCalendarBundle/Resources/config/routing.xml"
-    prefix:   /
 
-fullcalendar_loader:
-    path: /pfc-load-calendar-events
-    defaults: { _controller: ADesignsCalendarBundle:Calendar:loadCalendar }
-    options:
-        expose: true
+plate_forme_calendar:
+    path:     /calendar
+    defaults: { _controller: PlateFormeBundle:Default:calendar }
+
+plate_forme_calendar_index:
+    path:     /calendar_index
+    defaults: { _controller: PlateFormeBundle:Default:calendar_index }
+
 
 plate_forme_agenda:
     resource: "@PlateFormeBundle/Resources/config/routing/agenda.yml"

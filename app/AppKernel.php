@@ -20,7 +20,6 @@ class AppKernel extends Kernel
             new SunCat\MobileDetectBundle\MobileDetectBundle(),
             new PlateFormeBundle\PlateFormeBundle(),
             new UserBundle\UserBundle(),
-            new ADesigns\CalendarBundle\ADesignsCalendarBundle(),
             new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
         );
 
