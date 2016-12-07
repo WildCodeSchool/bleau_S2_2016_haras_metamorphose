@@ -2,20 +2,23 @@ plate_forme_homepage:
     path:     /
     defaults: { _controller: PlateFormeBundle:Default:index }
 
-#Route Calendar
-
+# ------------------------ Route Calendar -----------------------------------
+# CALENDAR ADMIN
 plate_forme_calendar:
     path:     /calendar
     defaults: { _controller: PlateFormeBundle:Default:calendar }
 
+#CALENDAR USER NON SELECTABLE
 plate_forme_calendar_index:
     path:     /calendar_index
     defaults: { _controller: PlateFormeBundle:Default:calendar_index }
 
 
+# ------------------------ plate_forme_agenda: ------------------------------
 plate_forme_agenda:
-    resource: "@PlateFormeBundle/Resources/config/routing/agenda.yml"
-    prefix:   /agenda
+        resource: "@PlateFormeBundle/Resources/config/routing/agenda.yml"
+        prefix:   /agenda
+
 
 #FOS JS Routing ==> permet de convertir route php en js
 fos_js_routing:

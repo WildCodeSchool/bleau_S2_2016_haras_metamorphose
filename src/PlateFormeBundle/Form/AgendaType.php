@@ -13,7 +13,7 @@ class AgendaType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('titre')->add('texte')->add('date')->add('lieu')        ;
+        $builder->add('start')->add('end')->add('titre')->add('texte')->add('lieu')->add('couleur')->add('slider')        ;
     }
     
     /**

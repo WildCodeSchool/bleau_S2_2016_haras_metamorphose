@@ -7,10 +7,13 @@
         <thead>
             <tr>
                 <th>Id</th>
+                <th>Start</th>
+                <th>End</th>
                 <th>Titre</th>
                 <th>Texte</th>
-                <th>Date</th>
                 <th>Lieu</th>
+                <th>Couleur</th>
+                <th>Slider</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -18,10 +21,13 @@
         {% for agenda in agendas %}
             <tr>
                 <td><a href="{{ path('agenda_show', { 'id': agenda.id }) }}">{{ agenda.id }}</a></td>
+                <td>{% if agenda.start %}{{ agenda.start|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if agenda.end %}{{ agenda.end|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>{{ agenda.titre }}</td>
                 <td>{{ agenda.texte }}</td>
-                <td>{% if agenda.date %}{{ agenda.date|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>{{ agenda.lieu }}</td>
+                <td>{{ agenda.couleur }}</td>
+                <td>{% if agenda.slider %}Yes{% else %}No{% endif %}</td>
                 <td>
                     <ul>
                         <li>

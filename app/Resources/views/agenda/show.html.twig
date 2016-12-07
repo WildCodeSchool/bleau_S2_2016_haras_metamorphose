@@ -10,6 +10,14 @@
                 <td>{{ agenda.id }}</td>
             </tr>
             <tr>
+                <th>Start</th>
+                <td>{% if agenda.start %}{{ agenda.start|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>End</th>
+                <td>{% if agenda.end %}{{ agenda.end|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
                 <th>Titre</th>
                 <td>{{ agenda.titre }}</td>
             </tr>
@@ -18,12 +26,16 @@
                 <td>{{ agenda.texte }}</td>
             </tr>
             <tr>
-                <th>Date</th>
-                <td>{% if agenda.date %}{{ agenda.date|date('Y-m-d H:i:s') }}{% endif %}</td>
-            </tr>
-            <tr>
                 <th>Lieu</th>
                 <td>{{ agenda.lieu }}</td>
+            </tr>
+            <tr>
+                <th>Couleur</th>
+                <td>{{ agenda.couleur }}</td>
+            </tr>
+            <tr>
+                <th>Slider</th>
+                <td>{% if agenda.slider %}Yes{% else %}No{% endif %}</td>
             </tr>
         </tbody>
     </table>
