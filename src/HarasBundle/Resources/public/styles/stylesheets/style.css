@@ -897,23 +897,28 @@ body, html {
   flex: 1 0 auto;
 }
 
-/* line 15, ../sass/_post.scss */
+/* line 17, ../sass/_post.scss */
 .postSectionIndex {
   margin-left: 70px !important;
   margin-right: 70px !important;
 }
 
-/* line 27, ../sass/_post.scss */
+/* line 29, ../sass/_post.scss */
 .postListTitleCat {
   background-color: #ffb84d !important;
 }
 
-/* line 31, ../sass/_post.scss */
+/* line 33, ../sass/_post.scss */
+.postListTitleSousCat {
+  background-color: #dfb4cd !important;
+}
+
+/* line 37, ../sass/_post.scss */
 .postListTitlePost {
   background-color: #00bcd4 !important;
 }
 
-/* line 35, ../sass/_post.scss */
+/* line 41, ../sass/_post.scss */
 .postDivPrincipale {
   padding-bottom: 0px !important;
 }
