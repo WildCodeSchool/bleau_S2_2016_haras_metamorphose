@@ -11,7 +11,7 @@ plate_forme_calendar:
 #CALENDAR USER NON SELECTABLE
 plate_forme_calendar_index:
     path:     /calendar_index
-    defaults: { _controller: PlateFormeBundle:Default:calendar_index }
+    defaults: { _controller: PlateFormeBundle:Default:calendar_index}
 
 
 # ------------------------ plate_forme_agenda: ------------------------------

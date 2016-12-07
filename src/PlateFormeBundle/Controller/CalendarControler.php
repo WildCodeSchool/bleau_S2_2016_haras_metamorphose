@@ -10,21 +10,49 @@ namespace PlateFormeBundle\Controller;
 use PlateFormeBundle\Entity\Agenda;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Serializer;
 
 class CalendarControler extends Controller
 {
     public function indexAction()
     {
-        $em = $this->getDoctrine()->getManager();
+        $em = $this->getDoctrine()->getManager(); //appel doctrine methode BDD
 
-        $agendas = $em->getRepository('PlateFormeBundle:Agenda')->findAll();
+        $agenda = $em->getRepository('PlateFormeBundle:Agenda')->findAll(); // appel de la table
 
-        $json = file_get_contents(dirname(__FILE__) . '@PlateFormeBundle/Resources/views/fullcalendar/views/json/events.json');
-        $input_arrays = json_decode($json, true);
+        $normalizer = new ObjectNormalizer(); //Normalisation des données pour passer en JSON
 
-        return $this->render('@PlateForme/fullcalendar/views/agenda-views.html.twig', array(
-            'json' => $input_arrays,
-        ));
+        $encoder = new JsonEncoder(); // Encodage des données en JSON
+
+        /* ENCODAGE DE DATE POUR RECUP SEPAREMENT*/
+        $dateCallback = function ($dateTime) {
+            return $dateTime instanceof \DateTime
+                ? $dateTime->format(\DateTime::ISO8601)
+                : '';
+        };
+
+        /* CREATION TABLEAU POUR ENVOI AU JSON */
+        $normalizer->setCallbacks(array('start' => $dateCallback, 'end' => $dateCallback));
+
+        $serializer = new Serializer(array($normalizer), array($encoder));
+        $jsonObject = $serializer->serialize($agenda, 'json');
+
+        if (isset($jsonObject) && isset($agenda)){
+            $response = new Response();
+            $response->setContent($jsonObject);
+
+            /*return $response;*/
+
+            return $this->$response->render('@PlateForme/fullcalendar/views/agenda-views.html.twig');/*, array(
+                'json' => $response,
+            ));*/
+        }
+
+
     }
 
     /**

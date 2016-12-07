@@ -29,8 +29,8 @@ function calendar() {
                 center: 'title',
                 right: 'month,agendaWeek,agendaDay'
             },
-            defaultDate: '2016-12-12',
-            navLinks: true, // can click day/week names to navigate views
+            lang: 'fr',
+            navLinks: true, // Peut cliquer sur jour/semaine pour avoir une vue
             selectable: true,
             selectHelper: true,
             select: function(start, end) {
@@ -49,15 +49,68 @@ function calendar() {
             },
             editable: true,
             eventLimit: true, // allow "more" link when too many events
-            events: {
-                url: '../../../../../PlateFormeBundle/Resources/views/fullcalendar/views/json/events.json',
-                error: function() {
-                    $('#script-warning').show();
-                }
-            },
-            loading: function(bool) {
-                $('#loading').toggle(bool);
-            }
+
+            events: [
+
+                        // your event source
+                        {
+                            id:'1',
+                            start: '2016-12-07',
+                            end: '2016-12-08',
+                            title: 'HELLO',
+                            color: 'yellow',    // an option!
+                            textColor: 'black'  // an option!
+                        }
+
+                        // any other sources...
+
+                    ]
+
+
+                    /*Routing.generate('events'),
+
+                    dayClick: function(date) {
+                        console.log(roles);
+                        if (date._d >= current_date_time && roles != null){
+                            window.location = Routing.generate('events') + date.format() + '/new';
+                        }
+                    },
+
+                    eventRender: function(event, element, calEvent) {
+                        var editEvent = Routing.generate('events') + event.id + '/edit';
+                        element.each(function() {
+                            element.append(
+                                '</br>' +
+                                '<strong>' +
+                                event.titre +
+                                '</strong>'
+                            );
+                        })
+                    },
+                    eventClick:  function(calEvent){
+                        var day = moment(calEvent.start._d).format("dddd Do MMMM YYYY");
+                        var ponctuation = ' de ';
+                        var startTime = moment(calEvent.start._i).format('HH:mm à ');
+                        var endTime = moment(calEvent.end._i).format("HH:mm");
+                        var Time = 'Le ' + day + ponctuation + startTime + endTime;
+                        var editEvent = Routing.generate('events') + calEvent.id + '/edit';
+                        var deleteEvent = Routing.generate('events') + calEvent.id + '/delete';
+
+                        $('#modalTime').html(Time);
+                        $('#modalTitle').html( calEvent.titre );
+                        console.log(calEvent);
+                        if (calEvent.images.url != null){
+                            $('#imgevent').html( '<img src="' + asset + calEvent.images.webPath + '" alt="' + calEvent.images.alt +'"/>' );
+                        }
+                        $('#fullCalModal').modal();
+
+                        $('#delete_event').show();
+                        $('#delete_event').attr('href', deleteEvent);
+                        $('#edit_event').show();
+                        $('#edit_event').attr('href', editEvent);
+
+                    }*/
+
         });
 
     });
