@@ -5,3 +5,6 @@ plate_forme_homepage:
 plate_forme_register:
     resource: "@UserBundle/Resources/config/routing/all.xml"
 
+#plate_forme_profil:
+#    resource: "@FOSUserBundle/Resources/config/routing/profile.xml"
+
