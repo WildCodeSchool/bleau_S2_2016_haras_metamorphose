@@ -41,20 +41,21 @@
             {# Niveau 2 : SOUS CATEGORIES #}
             {#****************************#}
             {% for allCategorie in allCategories %}
-                    {% if (allCategorie.parent.id is defined) and (allCategorie.parent.id == categorieEnLecture ) %}
+            {% if (allCategorie.parent.id is defined) and (allCategorie.parent.id == categorieEnLecture ) %}
             <div class="collapsible-body">
                 {# Selectionne sous catégorie  parentId not null #}
                 <ul class="collapsible popout postDivPrincipale" data-collapsible="accordion">
-
                     <li>
                       <div class="collapsible-header postListTitleSousCat">
                           {{ allCategorie.nom }}
+                          {% set sousCategorieEnLecture = allCategorie.id %}
                       </div>
                       {% endif %}
                         {#**************************}
                         {# Niveau 3 : Post Parents #}
                         {#*************************#}
                         {% for postParent in postParents %}
+                        {% if (postParent.categorie == sousCategorieEnLecture) %}
                           <div class="collapsible-body">
                             <ul class="collapsible popout col offset-l2 l8 s12 m6 postDivPrincipale" data-collapsible="accordion">
                                 <li>
@@ -80,6 +81,7 @@
                                       </div>
                                   </div>
                                 </li>
+                                {% endif %}
                                 {# Ajout nouveau post sur post fil de discussion selectionné (récuperation ID et CAT) #}
                                 <div class="row center">
                                     <a class="btn btn-small waves-effect waves-light green darken-3"
