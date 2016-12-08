@@ -5,8 +5,8 @@ jQuery(document).ready(function($) {
 
     console.log('jQuery de main.js a démarré : ligne 6');
     init_plateforme();
-    gestionSlider();
-    autoplay();
+    //gestionSlider();
+    //autoplay();
     /*click_droit_off();*/
 
     // RETOUR VERS LE HAUT

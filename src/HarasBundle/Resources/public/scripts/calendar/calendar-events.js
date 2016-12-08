@@ -98,7 +98,12 @@ function calendar() {
             },
             eventClick:  function(calEvent){
                 var day = moment(calEvent.start._d).format("dddd Do MMMM YYYY");
-                var ponctuation = ' de ';
+                // .format();
+                // dddd = jour en character
+                // Do = date du jour en chiffre (fontionne uniquement apres dddd)
+                // MMMMM = mois en character
+                // YYYY = année en chiffre
+
                 var startTime = moment(calEvent.start._i).format('HH:mm à ');
                 var endTime = moment(calEvent.end._i).format("HH:mm");
                 var Time = 'Le ' + day + ponctuation + startTime + endTime;
@@ -112,18 +117,18 @@ function calendar() {
                 console.log(startTime);
                 console.log(endTime);
 
-                // $('#modalTime').html(Time);
-                // $('#modalTitle').html( calEvent.titre );
-                // console.log(calEvent);
-                // if (calEvent.images.url != null){
-                //     $('#imgevent').html( '<img src="' + asset + calEvent.images.webPath + '" alt="' + calEvent.images.alt +'"/>' );
-                // }
-                // $('#fullCalModal').modal();
-                //
-                // $('#delete_event').show();
-                // $('#delete_event').attr('href', deleteEvent);
-                // $('#edit_event').show();
-                // $('#edit_event').attr('href', editEvent);
+                $('#modalTime').html(Time);
+                $('#modalTitle').html( calEvent.titre );
+                console.log(calEvent);
+                if (calEvent.images.url != null){
+                    $('#imgevent').html( '<img src="' + asset + calEvent.images.webPath + '" alt="' + calEvent.images.alt +'"/>' );
+                }
+                $('#fullCalModal').modal();
+
+                $('#delete_event').show();
+                $('#delete_event').attr('href', deleteEvent);
+                $('#edit_event').show();
+                $('#edit_event').attr('href', editEvent);
 
             }
 
