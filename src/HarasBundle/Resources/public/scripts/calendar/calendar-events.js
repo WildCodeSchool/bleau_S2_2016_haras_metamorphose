@@ -8,7 +8,7 @@
 jQuery(document).ready(function($) {
 
     console.log('CALENDAR-EVENTS.JS a démarré : ligne 10');
-    console.log(role);
+
     // FULL CALENDAR
     calendar();
 
@@ -24,6 +24,7 @@ function calendar() {
 
         var current_date_time = new Date();
         var role = "ROLE_ADMIN";
+        console.log(role);
 
         $('#calendar').fullCalendar({
             header: {
@@ -83,6 +84,7 @@ function calendar() {
                 }
             },
 
+            /* ------------------------ FONCTION DU RENDU DE L'EVENEMENT ------------------------------*/
             eventRender: function(event, element, calEvent) {
                 var editEvent = Routing.generate('agenda') + event.id + '/edit';
 
@@ -104,25 +106,21 @@ function calendar() {
                 // MMMMM = mois en character
                 // YYYY = année en chiffre
 
+                var ponctuation1 = "de";
+                var ponctuation2 = "à";
                 var startTime = moment(calEvent.start._i).format('HH:mm à ');
                 var endTime = moment(calEvent.end._i).format("HH:mm");
-                var Time = 'Le ' + day + ponctuation + startTime + endTime;
+                var Time = 'Le ' + day + ponctuation1 + startTime + ponctuation2 + endTime;
                 var editEvent = Routing.generate('agenda') + calEvent.id + '/edit';
                 var deleteEvent = Routing.generate('agenda') + calEvent.id + '/delete';
 
                 console.log('CALENDAR-EVENTS.JS - FONCTION EVENTCLICK a démarré : ligne 110');
-                console.log(calEvent);
-                console.log(day);
-                console.log(ponctuation);
-                console.log(startTime);
-                console.log(endTime);
 
                 $('#modalTime').html(Time);
                 $('#modalTitle').html( calEvent.titre );
-                console.log(calEvent);
-                if (calEvent.images.url != null){
-                    $('#imgevent').html( '<img src="' + asset + calEvent.images.webPath + '" alt="' + calEvent.images.alt +'"/>' );
-                }
+                // if (calEvent.images.url != null){
+                //     $('#imgevent').html( '<img src="' + asset + calEvent.images.webPath + '" alt="' + calEvent.images.alt +'"/>' );
+                // }
                 $('#fullCalModal').modal();
 
                 $('#delete_event').show();
