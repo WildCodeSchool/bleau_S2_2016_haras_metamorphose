@@ -23,17 +23,17 @@ class PostController extends Controller
         $em = $this->getDoctrine()->getManager();
         // Ramene le Fil de discussion parent et actif
         $postParents = $em->getRepository('PlateFormeBundle:Post')->findBy(array('actif'=> 1, 'parent' => null));
-        // Ramene Toute la table catégorie  (actif = oui)
-        $allCategories = $em->getRepository('PlateFormeBundle:CategoriePlateforme')->findBy(array('actif'=> 1));
+        // Ramene les catégories  (actif = oui)
+        $categories = $em->getRepository('PlateFormeBundle:CategoriePlateforme')->findBy(array('actif'=> 1, 'parent' => null));
+//        $allCategories = $em->getRepository('PlateFormeBundle:CategoriePlateforme')->findBy(array('actif'=> 1,'parent' => null));
         // Ramene les catégories (out sous catégorie = parent = null) actives
-        $categories = $em->getRepository('PlateFormeBundle:CategoriePlateforme')->findBy(array('actif'=> 1,'parent' => null ));
+//        $sousCategories = $em->getRepository('PlateFormeBundle:CategoriePlateforme')->findBy(array('actif'=> 1 ));
         // Ramene sous catégorie
         // SELECT * FROM `categorie_plateforme` WHERE `parent_id` is NOT null and actif = 1
         $repository = $em->getRepository('PlateFormeBundle:CategoriePlateforme');
         $sousCategories = $repository->getSousCategorie();
         return $this->render('@PlateForme/post/index.html.twig', array(
             'postParents' => $postParents,
-            'allCategories' => $allCategories,
             'categories' => $categories,
             'sousCategories' => $sousCategories,
         ));

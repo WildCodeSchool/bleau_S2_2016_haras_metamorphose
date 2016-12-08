@@ -20,47 +20,53 @@
     {#post detail sous cat : {{ dump(postParent.categorie.nom) }}#}
     {#{% endfor %}#}
 
+     {{ dump(categories)  }}
+     {{ dump(sousCategories)  }}
+    {{ dump(postParents)  }}
+
   {# DEBUT CODE #}
+
   <article class="postArticleIndex">
     <h1 class="center">Discussions par catégorie</h1>
-    {% for allCategorie in allCategories %}
+
     <ul class="collapsible popout postDivPrincipale" data-collapsible="popout">
-        <li>
-          {#***********************#}
-          {# Niveau 1 : Catégories #}
-          {#***********************#}
-          {# Selectionne uniquement les catégories (parentId = NULL #}
-          {% if (allCategorie.parent.id is not defined) %}
+      {#***********************#}
+      {# Niveau 1 : Catégories #}
+      {#***********************#}
+      {% for categorie in categories %}
+      <li>
           <div class="collapsible-header postListTitleCat">
-                {{ allCategorie.nom }}
-                {% set categorieEnLecture = allCategorie.id %}
-                {#{{ dump(categorieEnLecture) }}#}
+                {{ categorie.nom }}
+                {# Stockage de l'ID de la CATEGORIE #}
+                {% set categorieEnLecture = categorie.id %}
           </div>
-          {% endif %}
+            <div class="collapsible-body">
+                <ul class="collapsible popout postDivPrincipale" data-collapsible="accordion">
             {#****************************#}
             {# Niveau 2 : SOUS CATEGORIES #}
             {#****************************#}
-            {% for allCategorie in allCategories %}
-            {% if (allCategorie.parent.id is defined) and (allCategorie.parent.id == categorieEnLecture ) %}
-            <div class="collapsible-body">
-                {# Selectionne sous catégorie  parentId not null #}
-                <ul class="collapsible popout postDivPrincipale" data-collapsible="accordion">
+            {% for sousCategorie in sousCategories %}
+            {# Selectionne sous catégorie  parentId not null #}
+            {% if sousCategorie.parent.id == categorieEnLecture %}
                     <li>
                       <div class="collapsible-header postListTitleSousCat">
-                          {{ allCategorie.nom }}
-                          {% set sousCategorieEnLecture = allCategorie.id %}
+                          {{ sousCategorie.nom }}
+                          {# Stockage de l'ID de la SOUS CATEGORIE #}
+                          {% set sousCategorieEnLecture = sousCategorie.id %}
                       </div>
-                      {% endif %}
+                        <div class="collapsible-body">
+                            <ul class="collapsible popout col offset-l2 l8 s12 m6 postDivPrincipale" data-collapsible="accordion">
+
                         {#**************************}
                         {# Niveau 3 : Post Parents #}
                         {#*************************#}
                         {% for postParent in postParents %}
-                        {% if (postParent.categorie == sousCategorieEnLecture) %}
-                          <div class="collapsible-body">
-                            <ul class="collapsible popout col offset-l2 l8 s12 m6 postDivPrincipale" data-collapsible="accordion">
-                                <li>
+                        {# Selectionne sous categorieId du postParent #}
+                        {% if (postParent.categorie.id == sousCategorieEnLecture) and (postParent.categorie.parent.id == categorieEnLecture) %}
+                             <li>
                                   <div class="collapsible-header postListTitlePost">
                                       <i class="material-icons">place</i>
+                                      {{ postParent.id }}
                                       {{ postParent.titre }}
                                   </div>
                                   <div class="collapsible-body">
@@ -68,7 +74,8 @@
                                         <p>{{ postParent.contenu }}</p>
                                       </div>
                                       <div>
-                                        <p>Catégorie : {{ postParent.categorie.nom }}</p>
+                                        <p>Catégorie : {{ postParent.categorie.parent.nom }}</p>
+                                        <p>Sous-Catégorie : {{ postParent.categorie.nom }}</p>
                                         <p>User : {{ postParent.user }}</p>
                                         <a class="waves-effect waves-teal btn-flat"
                                            href="{{ path('post_showAllPost', { 'id': postParent.id }) }}">
@@ -79,34 +86,37 @@
                                             <i class="material-icons">mode_edit</i>
                                         </a>
                                       </div>
-                                  </div>
+                                  </div> {# fin class="collapsible-body" POSTPARENT #}
                                 </li>
-                                {% endif %}
-                                {# Ajout nouveau post sur post fil de discussion selectionné (récuperation ID et CAT) #}
-                                <div class="row center">
-                                    <a class="btn btn-small waves-effect waves-light green darken-3"
-                                       href="{{ path('post_new' , {'cat' : postParent.categorie.id, 'id' : postParent.id }) }}">
-                                        <i class="material-icons">add</i>
-                                    </a>
-                                </div>
+                                 {#Ajout nouveau post sur post fil de discussion selectionné (récuperation ID et CAT)#}
+
+                            {% endif %}  {# fin if POST PARENT #}
+                            {% endfor %} {# for for POST PARENT #}
                             </ul>
-                              {% endfor %}
-                          </div> {# Fin Div  class="collapsible-body" niveau post parent #}
-                    {% endfor %}
+                            <div class="row center">
+                                {#<a class="btn btn-small waves-effect waves-light green darken-3"#}
+                                   {#href="{{ path('post_new' , {'cat' : sousCategorieEnLecture, 'id' : null }) }}">#}
+                                    {#<i class="material-icons">add</i>#}
+                                {#</a>#}
+                            </div>
+                          {% endif %} {# fin if SOUS CATEGORIE #}
+                        {% endfor %} {# fin for SOUS CATEGORIE #}
+                          </div> {# Fin Div  class="collapsible-body" niveau POST PARENTS #}
                     </li>
                 </ul>
-            </div>
+            </div> {# fin class="collapsible-body" SOUS CATEGORIES #}
         </li>
+            {% endfor %} {# fin for CATEGORIE #}
     </ul>
-    {% endfor %} {# fin FOR categorie #}
 
 
-    <div class="row center">
+    {# Bouton création nouveau fil de discussion sur cat et ssCat ou il se trouve #}
+    {#<div class="row center">#}
         {#<a class="btn-floating btn-large waves-effect waves-light green darken-3"#}
-           {#href="{{ path('post_new') }}">#}
+            {#href="{{ path('post_new' , {'cat' : postParent.categorie.id, 'id' : NULL }) }}">#}
             {#<i class="material-icons">+</i>#}
         {#</a>#}
-    </div>
+    {#</div>#}
    </article>
 </section>
 {% endblock %}
