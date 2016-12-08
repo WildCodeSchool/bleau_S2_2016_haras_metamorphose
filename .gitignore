@@ -6,4 +6,6 @@
 *~
 *.scssc
 *.css.map
+.idea
+/vendor
 .DS_Store
