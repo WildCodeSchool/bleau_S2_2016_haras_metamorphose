@@ -9,3 +9,15 @@ plate_forme_register:
 plate_forme_admin:
     path:     /admin
     defaults: { _controller: PlateFormeBundle:Default:admin }
+
+# ------------------------ plate_forme_agenda: ------------------------------
+plate_forme_agenda:
+      resource: "@PlateFormeBundle/Resources/config/routing/agenda.yml"
+      prefix:   /agenda
+      options:
+          expose: true
+
+#FOS JS Routing ==> permet de convertir route php en js
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
+    prefix:   /

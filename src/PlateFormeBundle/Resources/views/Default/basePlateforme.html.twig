@@ -1,31 +1,48 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8" />
-    <title>{% block title %}PLateforme du Haras de la métamorphose{% endblock %}</title>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}PLateforme du Haras de la métamorphose{% endblock %}</title>
+        <link rel="icon" type="image/x-icon" href="{{ asset('bundles/plateforme/images/icone-cheval.png') }}" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+        <link rel="stylesheet" href="{{ asset('bundles/haras/styles/stylesheets/calendar/fullcalendar.css') }}">
         <link rel="stylesheet" href="{{ asset('bundles/haras/styles/stylesheets/style.css') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
-    <link rel="icon" type="image/x-icon" href="{{ asset('bundles/plateforme/images/icone-cheval.png') }}" />
 
-    <!-- Icons -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://opensource.keycdn.com/fontawesome/4.6.3/font-awesome.min.css" integrity="sha384-Wrgq82RsEean5tP3NK3zWAemiNEXofJsTwTyHmNb/iL3dP/sZJ4+7sOld1uqYJtE" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+        <link rel="icon" type="image/x-icon" href="{{ asset('bundles/plateforme/images/icone-cheval.png') }}" />
 
-</head>
-<body>
+        <!-- Icons -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://opensource.keycdn.com/fontawesome/4.6.3/font-awesome.min.css" integrity="sha384-Wrgq82RsEean5tP3NK3zWAemiNEXofJsTwTyHmNb/iL3dP/sZJ4+7sOld1uqYJtE" crossorigin="anonymous">
 
-    {% block header %}{% endblock %}
-    {% block body %}{% endblock %}
-    {% block footer %}{% endblock %}
+       <style>
+        {% block head %}
+        {% endblock %}
+        </style>
+    </head>
+    <body>
+
+        {% block header %}{% endblock %}
+
+        {% block body %}{% endblock %}
+
+        {% block footer %}{% endblock %}
 
 
+        {# FOS JS ROUTING SCRIPT #}
+        <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+        <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
 
-    {% block javascripts %}
-    <script src="{{ asset('bundles/haras/scripts/jquery-3.1.1.js') }}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
-    <script src="{{ asset('bundles/haras/scripts/main.js') }}">
-    {% endblock %}
+        {# APPEL DES SCRIPTS JS ORDRE Jquery/Materialize/Calendar/Main(en surcharge) #}
+        <script src="{{ asset('bundles/haras/scripts/jquery-3.1.1.js') }}"></script>
+        <script src="{{ asset('bundles/haras/scripts/materialize.min.js') }}"></script>
 
-</body>
+        {# APPEL DES JS DE FULLCALENDAR ET AUTRES PAGES #}
+        {% block javascripts %}{% endblock %}
+
+        {#SCRIPTS DE SURCHARGE#}
+        <script src="{{ asset('bundles/haras/scripts/main.js') }}"></script>
+
+    </body>
 </html>
 

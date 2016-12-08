@@ -9,16 +9,21 @@ PlateFormeBundle\Entity\Agenda:
             generator:
                 strategy: AUTO
     fields:
+        start:
+            type: datetime
+        end:
+            type: datetime
         titre:
             type: string
             length: 255
         texte:
             type: text
-#        date:
-#            type: datetime
         lieu:
             type: string
             length: 255
-
-
+        couleur:
+            type: string
+            length: 255
+        slider:
+            type: boolean
     lifecycleCallbacks: {  }

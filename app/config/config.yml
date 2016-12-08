@@ -4,6 +4,7 @@ imports:
     - { resource: services.yml }
     - { resource: "@HarasBundle/Resources/config/services.yml" }
     - { resource: "@PlateFormeBundle/Resources/config/services.yml" }
+    - { resource: "@PlateFormeBundle/Resources/config/services.xml" }
     - { resource: "@UserBundle/Resources/config/services.yml" }
 
 # Put parameters here that don't need to change on each machine where the app is deployed

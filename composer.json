@@ -22,7 +22,8 @@
         "sensio/framework-extra-bundle": "^3.0.2",
         "incenteev/composer-parameter-handler": "~2.0",
         "friendsofsymfony/user-bundle": "~2.0@dev",
-        "suncat/mobile-detect-bundle": "0.10.*"
+        "suncat/mobile-detect-bundle": "0.10.*",
+        "friendsofsymfony/jsrouting-bundle": "^1.6"
     },
     "require-dev": {
         "sensio/generator-bundle": "~3.0",
