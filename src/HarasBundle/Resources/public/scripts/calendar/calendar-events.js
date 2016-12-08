@@ -96,34 +96,34 @@ function calendar() {
                     );
                 })
             },
-            eventClick:  function(event){
-                var day = moment(event.start._d).format("dddd Do MMMM YYYY");
+            eventClick:  function(calEvent){
+                var day = moment(calEvent.start._d).format("dddd Do MMMM YYYY");
                 var ponctuation = ' de ';
-                var startTime = moment(event.start._i).format('HH:mm à ');
-                var endTime = moment(event.end._i).format("HH:mm");
+                var startTime = moment(calEvent.start._i).format('HH:mm à ');
+                var endTime = moment(calEvent.end._i).format("HH:mm");
                 var Time = 'Le ' + day + ponctuation + startTime + endTime;
                 var editEvent = Routing.generate('agenda') + calEvent.id + '/edit';
                 var deleteEvent = Routing.generate('agenda') + calEvent.id + '/delete';
 
                 console.log('CALENDAR-EVENTS.JS - FONCTION EVENTCLICK a démarré : ligne 110');
-                console.log(event);
+                console.log(calEvent);
                 console.log(day);
                 console.log(ponctuation);
                 console.log(startTime);
                 console.log(endTime);
 
-                $('#modalTime').html(Time);
-                $('#modalTitle').html( calEvent.titre );
-                console.log(calEvent);
-                if (calEvent.images.url != null){
-                    $('#imgevent').html( '<img src="' + asset + calEvent.images.webPath + '" alt="' + calEvent.images.alt +'"/>' );
-                }
-                $('#fullCalModal').modal();
-
-                $('#delete_event').show();
-                $('#delete_event').attr('href', deleteEvent);
-                $('#edit_event').show();
-                $('#edit_event').attr('href', editEvent);
+                // $('#modalTime').html(Time);
+                // $('#modalTitle').html( calEvent.titre );
+                // console.log(calEvent);
+                // if (calEvent.images.url != null){
+                //     $('#imgevent').html( '<img src="' + asset + calEvent.images.webPath + '" alt="' + calEvent.images.alt +'"/>' );
+                // }
+                // $('#fullCalModal').modal();
+                //
+                // $('#delete_event').show();
+                // $('#delete_event').attr('href', deleteEvent);
+                // $('#edit_event').show();
+                // $('#edit_event').attr('href', editEvent);
 
             }
 
