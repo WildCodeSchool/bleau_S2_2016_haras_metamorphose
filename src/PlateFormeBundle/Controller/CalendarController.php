@@ -19,6 +19,12 @@ use Symfony\Component\Serializer\Serializer;
 
 class CalendarController extends Controller
 {
+
+    /**
+     * Lists all agenda entities.
+     *
+     */
+
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager(); //appel doctrine methode BDD
@@ -48,46 +54,4 @@ class CalendarController extends Controller
         return $response;
     }
 
-    /**
-     * Creates a new calendar entity.
-     *
-     */
-    /*public function newAction(Request $request)
-    {
-        $agenda = new Agenda();
-        $form = $this->createForm('PlateFormeBundle\Form\AgendaType', $agenda);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($agenda);
-            $em->flush($agenda);
-
-            return $this->redirectToRoute('agenda_show', array('id' => $agenda->getId()));
-        }
-
-        return $this->render('@PlateForme/agenda/new.html.twig', array(
-            'agenda' => $agenda,
-            'form' => $form->createView(),
-        ));
-    }
-
-    public function editAction(Request $request, Agenda $agenda)
-    {
-        $deleteForm = $this->createDeleteForm($agenda);
-        $editForm = $this->createForm('PlateFormeBundle\Form\AgendaType', $agenda);
-        $editForm->handleRequest($request);
-
-        if ($editForm->isSubmitted() && $editForm->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
-
-            return $this->redirectToRoute('agenda_edit', array('id' => $agenda->getId()));
-        }
-
-        return $this->render('agenda/edit.html.twig', array(
-            'agenda' => $agenda,
-            'edit_form' => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
-        ));
-    }*/
 }

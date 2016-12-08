@@ -85,8 +85,14 @@ function calendar() {
             },
 
             /* ------------------------ FONCTION DU RENDU DE L'EVENEMENT ------------------------------*/
-            eventRender: function(event, element, calEvent) {
-                var editEvent = Routing.generate('agenda') + event.id + '/edit';
+            eventRender: function(event, element) {
+
+                if (event.id != null && role == 'ROLE_ADMIN'){
+                    // lors du click sur la case il renvoie l'ide vers la page edit
+                    window.location = Routing.generate('agenda') + event.id + '/edit';
+                }
+
+                //var editEvent = Routing.generate('agenda') + event.id + '/edit';
 
                 console.log('CALENDAR-EVENTS.JS - FONCTION EVENTRENDER a démarré : ligne 89');
 

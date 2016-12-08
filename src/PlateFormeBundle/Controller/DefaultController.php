@@ -15,4 +15,5 @@ class DefaultController extends Controller
     {
         return $this->render('@PlateForme/fullcalendar/views/agenda-views.html.twig');
     }
+
 }

@@ -140,8 +140,6 @@ function modal() {
     console.log('APP.JS - FONCTION MODAL a démarré : ligne 140');
 
     $(document).ready(function(){
-        // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
         $('.modal-trigger').modal();
-        /*$('.ModalAdd').modal(open);*/
     });
 }

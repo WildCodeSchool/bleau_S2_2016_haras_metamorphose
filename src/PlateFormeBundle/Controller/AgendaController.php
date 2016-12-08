@@ -12,20 +12,6 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class AgendaController extends Controller
 {
-    /**
-     * Lists all agenda entities.
-     *
-     */
-    /*public function indexAction()
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $agendas = $em->getRepository('PlateFormeBundle:Agenda')->findAll();
-
-        return $this->render('@PlateForme/agenda/index.html.twig', array(
-            'agendas' => $agendas,
-        ));
-    }*/
 
     /**
      * Creates a new agenda entity.
