@@ -31,9 +31,21 @@ class AgendaController extends Controller
      * Creates a new agenda entity.
      *
      */
-    public function newAction(Request $request)
+    public function newAction(Request $request, $start)
     {
         $agenda = new Agenda();
+        if ($start == 0) {
+            $newTime = new \DateTime();
+            $startEvent = $newTime->format('d-m-Y H:i:s');
+            $agenda->setStart(new \DateTime($startEvent));
+            $endtime = new \DateTime();
+            $endEvent = $endtime->format('d-m-Y H:i:s');
+            $agenda->setEnd(new \DateTime($endEvent));
+        }
+        else {
+            $agenda->setStart(new \DateTime($start));
+            $agenda->setEnd(new \DateTime($start));
+        }
         $form = $this->createForm('PlateFormeBundle\Form\AgendaType', $agenda);
         $form->handleRequest($request);
 

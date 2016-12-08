@@ -11,11 +11,6 @@ class DefaultController extends Controller
         return $this->render('PlateFormeBundle:Default:index.html.twig');
     }
 
-    public function calendarAction()
-    {
-        return $this->render('@PlateForme/fullcalendar/views/background-events.html.twig');
-    }
-
     public function calendar_indexAction()
     {
         return $this->render('@PlateForme/fullcalendar/views/agenda-views.html.twig');

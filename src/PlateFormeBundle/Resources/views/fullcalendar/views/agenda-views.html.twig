@@ -7,6 +7,9 @@
 
 {% block body %}
     <div class="container">
+        <div>
+            <a href="{{ path('agenda_new') }}">create</a>
+        </div>
         <div class="row">
             <div class="col s12"></div>
                 <div id='calendar'></div>
@@ -16,8 +19,16 @@
 {% endblock %}
 
 {% block javascripts %}
+    <script>
+        {% if is_granted('ROLE_ADMIN') %}
+        var role = 'admin';
+        {% elseif is_granted('ROLE_USER') %}
+        var role = 'user';
+        {% else %}
+        var role = null;
+        {% endif %}
+    </script>
     <script src="{{ asset('bundles/haras/scripts/calendar/moment.min.js') }}"></script>
-    <script src="{{ asset('bundles/haras/scripts/calendar/jquery.min.js') }}"></script>
     <script src="{{ asset('bundles/haras/scripts/calendar/fullcalendar.min.js') }}"></script>
     <script src="{{ asset('bundles/haras/scripts/calendar/calendar-events.js') }}"></script>
 {% endblock %}

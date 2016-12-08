@@ -7,6 +7,7 @@
  */
 
 namespace PlateFormeBundle\Controller;
+
 use PlateFormeBundle\Entity\Agenda;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,7 +17,7 @@ use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
 
-class CalendarControler extends Controller
+class CalendarController extends Controller
 {
     public function indexAction()
     {
@@ -41,18 +42,10 @@ class CalendarControler extends Controller
         $serializer = new Serializer(array($normalizer), array($encoder));
         $jsonObject = $serializer->serialize($agenda, 'json');
 
-        if (isset($jsonObject) && isset($agenda)){
-            $response = new Response();
-            $response->setContent($jsonObject);
+        $response = new Response();
+        $response->setContent($jsonObject);
 
-            /*return $response;*/
-
-            return $this->$response->render('@PlateForme/fullcalendar/views/agenda-views.html.twig');/*, array(
-                'json' => $response,
-            ));*/
-        }
-
-
+        return $response;
     }
 
     /**

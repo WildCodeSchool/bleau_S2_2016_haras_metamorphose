@@ -36,7 +36,7 @@ jQuery(document).ready(function($) {
 function init_plateforme()
 {
     // pour le menu hamburger
-    $(".button-collapse").sideNav();
+    $('.button-collapse').sideNav();
     $('#contact-body').hide();
 
 
@@ -44,11 +44,6 @@ function init_plateforme()
     $("#access-body").hide().show(2000).css("display" ,"block");
 
     $('#textarea1').trigger('autoresize');
-
-    $('.modal-trigger').leanModal();
-    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-    // $('.modal').leanModal();
-
 
     $(".dropdown-button").dropdown();
 
@@ -130,7 +125,7 @@ function selecteur() {
 function modal() {
     $(document).ready(function(){
         // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-        $('.modal-trigger').leanModal();
+        $('.modal-trigger').modal();
         /*$('.ModalAdd').modal(open);*/
     });
 }

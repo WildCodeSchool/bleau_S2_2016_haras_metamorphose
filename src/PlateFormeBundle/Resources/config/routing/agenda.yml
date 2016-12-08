@@ -1,7 +1,11 @@
 agenda_index:
-    path:     /
-    defaults: { _controller: "PlateFormeBundle:Agenda:index" }
+    path:     /events_json
+    defaults: { _controller: "PlateFormeBundle:Calendar:index" }
     methods:  GET
+
+agenda:
+    path: /
+    defaults: { _controller: "PlateFormeBundle:Default:calendar_index" }
 
 agenda_show:
     path:     /{id}/show
@@ -9,8 +13,8 @@ agenda_show:
     methods:  GET
 
 agenda_new:
-    path:     /new
-    defaults: { _controller: "PlateFormeBundle:Agenda:new" }
+    path:     /{start}/new
+    defaults: { _controller: "PlateFormeBundle:Agenda:new", start: 0 }
     methods:  [GET, POST]
 
 agenda_edit:
