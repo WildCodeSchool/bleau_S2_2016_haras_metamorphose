@@ -3,7 +3,7 @@
 // ********************************************************************
 jQuery(document).ready(function($) {
 
-    console.log('jQuery de main.js a démarré le test est bon');
+    console.log('jQuery de main.js a démarré : ligne 6');
     init_plateforme();
     gestionSlider();
     autoplay();
@@ -35,6 +35,7 @@ jQuery(document).ready(function($) {
 
 function init_plateforme()
 {
+    console.log('APP.JS - FONCTION INIT_PLATEFORME a démarré : ligne 38');
     // pour le menu hamburger
     $('.button-collapse').sideNav();
     $('#contact-body').hide();
@@ -54,11 +55,16 @@ function init_plateforme()
 // ********************************************************************
 
 function autoplay() {
+
+    console.log('APP.JS - FONCTION AUTOPLAY a démarré : ligne 38');
+
     $('.carousel').carousel('next');
     setTimeout(autoplay, 4500);
 }
 
 function gestionSlider() {
+
+    console.log('APP.JS - FONCTION GESTIONSLIDER a démarré : ligne 67');
 
     $('.carousel.carousel-slider').carousel({full_width: true, indicators: true});
     $('.carousel').carousel({
@@ -71,6 +77,9 @@ function gestionSlider() {
 // ********************************************************************
 
 function retour_haut() {
+
+    console.log('APP.JS - FONCTION RETOUR_HAUT a démarré : ligne 81');
+
     $('body').prepend('<a href="#" class="back-to-top">Back to Top</a>');
 
     var amountScrolled = 300;
@@ -97,6 +106,8 @@ function retour_haut() {
 
 function gere_facebook() {
 
+    console.log('APP.JS - FONCTION GERE_FACEBOOK a démarré : ligne 109');
+
     (function(d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) return;
@@ -113,6 +124,8 @@ function gere_facebook() {
 
 function selecteur() {
 
+    console.log('APP.JS - FONCTION SELECTEUR a démarré : ligne 127');
+
     // console.log('ma fonction')
     $('select').material_select();
 
@@ -123,6 +136,9 @@ function selecteur() {
 // ********************************************************************
 
 function modal() {
+
+    console.log('APP.JS - FONCTION MODAL a démarré : ligne 140');
+
     $(document).ready(function(){
         // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
         $('.modal-trigger').modal();
