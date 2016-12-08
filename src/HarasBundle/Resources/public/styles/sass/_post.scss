@@ -19,13 +19,6 @@
   margin-right: 70px !important;
 }
 
-.postAsideIndex {
-
-}
-
-.postArticleIndex {
-
-}
 .postListTitleCat {
   background-color: #ffb84d !important;
 }
@@ -40,4 +33,22 @@
 
 .postDivPrincipale {
   padding-bottom: 0px !important;
+}
+//**********************************
+// index post
+//**********************************
+// réduit visuel contenu des posts
+//**********************************
+.bigtxt{
+	max-height: 150px;
+	overflow: auto;
+}
+//**********************************
+// Page show all post
+//**********************************
+// réduit visuel contenu des posts
+//**********************************
+.filDeDiscussion {
+  margin-left: 10% !important;
+  margin-right: 10% !important;
 }

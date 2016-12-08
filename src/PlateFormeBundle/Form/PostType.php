@@ -6,6 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Ivory\CKEditorBundle\Form\Type\CKEditorType;
 
 class PostType extends AbstractType
 {
@@ -16,7 +17,7 @@ class PostType extends AbstractType
     {
         $builder
             ->add('titre')
-            ->add('contenu')
+            ->add('contenu', CKEditorType::class, array('config' => array( 'config_name' => 'my_config', 'uiColor' => '#ffffff')));
         ;
     }
 

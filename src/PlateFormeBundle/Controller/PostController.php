@@ -48,13 +48,11 @@ class PostController extends Controller
         $post = new Post();
         $form = $this->createForm('PlateFormeBundle\Form\PostType', $post);
 
-
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             // Enregistrement en BdD
-
             // Ajout de l'id Parent au post
             $post->setParent($id);
 
@@ -69,7 +67,6 @@ class PostController extends Controller
 
             // Ajout user null pour le moment
 //            $post->setUser(null);
-//            var_dump($post);
 
             // Ajout +1 sur nbPost sur User
 
@@ -137,7 +134,8 @@ class PostController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('post_edit', array('id' => $post->getId()));
+            // Redirection sur le fil de discussion initial
+            return $this->redirectToRoute('post_showAllPost', array('id' => $post->getParent()->getId()));
         }
 
         return $this->render('@PlateForme/post/edit.html.twig', array(

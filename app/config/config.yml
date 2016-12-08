@@ -89,3 +89,21 @@ mobile_detect:
         mobile: ~
         tablet: ~
     switch_device_view: ~
+
+# CKeditor configuration
+ivory_ck_editor:
+#    base_path: "ckeditor"
+#    js_path:   "/bundles/mediaproject/ivoryckeditor/ckeditor.js"
+    plugins:
+#        youtube:
+#            path:                       '/ivoryckeditor/plugins/youtube/'
+#            filename:                   'plugin.js'
+    default_config: my_config
+    configs:
+        my_config:
+            #toolbar: basic
+            #toolbar:                    [ [ 'Preview' ], [ 'Cut','Copy','Paste','PasteText','PasteFromWord','-','Undo','Redo' ], [ 'Find','Replace','-','SelectAll','-','SpellChecker', 'Scayt' ], [ 'Source' ], [ "About" ], "/", [ 'Bold','Italic','Underline','Strike', 'Blockquote','Subscript','Superscript','-','RemoveFormat' ], [ 'NumberedList','BulletedList','-','Outdent','Indent','-','-','JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock' ], [ 'Link','Unlink','Anchor' ], [ 'pbckcode', 'Image', 'Video', 'Table','SpecialChar','Iframe' ], '/', [ 'Styles', 'Format','Font','FontSize' ], [ 'TextColor','BGColor' ], [ 'RemoveFormat' ], [ 'Maximize' ] ]
+#            skin: 'moono-lisa,/web/bundles/mediaproject/ivoryckeditor/skins/moono-lisa/'
+            toolbar:                    [ [ 'Preview' ], [ 'Cut','Copy','Paste','PasteText','PasteFromWord','-','Undo','Redo' ], [ 'Find','Replace','-','SelectAll','-','SpellChecker', 'Scayt' ], "/", [ 'Bold','Italic','Underline','Strike', 'Blockquote','Subscript','Superscript','-','RemoveFormat' ], [ 'NumberedList','BulletedList','-','Outdent','Indent','-','-','JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock' ], [ 'Link','Unlink','Anchor' ], [ 'pbckcode', 'Image', 'Video', 'Table','SpecialChar','Iframe' ], '/', [ 'Styles', 'Format','Font','FontSize' ], [ 'TextColor','BGColor' ], [ 'RemoveFormat' ], [ 'Maximize' ] ]
+            language: %locale%
+            uiColor: #FFA500

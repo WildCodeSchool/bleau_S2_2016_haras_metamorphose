@@ -903,22 +903,34 @@ body, html {
   margin-right: 70px !important;
 }
 
-/* line 29, ../sass/_post.scss */
+/* line 22, ../sass/_post.scss */
 .postListTitleCat {
   background-color: #ffb84d !important;
 }
 
-/* line 33, ../sass/_post.scss */
+/* line 26, ../sass/_post.scss */
 .postListTitleSousCat {
   background-color: #dfb4cd !important;
 }
 
-/* line 37, ../sass/_post.scss */
+/* line 30, ../sass/_post.scss */
 .postListTitlePost {
   background-color: #00bcd4 !important;
 }
 
-/* line 41, ../sass/_post.scss */
+/* line 34, ../sass/_post.scss */
 .postDivPrincipale {
   padding-bottom: 0px !important;
+}
+
+/* line 42, ../sass/_post.scss */
+.bigtxt {
+  max-height: 150px;
+  overflow: auto;
+}
+
+/* line 51, ../sass/_post.scss */
+.filDeDiscussion {
+  margin-left: 10% !important;
+  margin-right: 10% !important;
 }

@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends '@PlateForme/layout.html.twig' %}
 
 {% block body %}
     <h1>Post</h1>
@@ -15,7 +15,7 @@
             </tr>
             <tr>
                 <th>Contenu</th>
-                <td>{{ post.contenu }}</td>
+                <td>{{ post.contenu|raw }}</td>
             </tr>
             <tr>
                 <th>Actif</th>
