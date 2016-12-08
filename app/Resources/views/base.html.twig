@@ -8,8 +8,13 @@
     {% endblock materialize %}
     {% block stylesheets %}
         <link rel="stylesheet" href="{{ asset('bundles/haras/styles/stylesheets/style.css') }}">
+        <!-- Icons -->
+        <link rel="icon" type="image/x-icon" href="{{ asset('licos.ico') }}" />
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://opensource.keycdn.com/fontawesome/4.6.3/font-awesome.min.css" integrity="sha384-Wrgq82RsEean5tP3NK3zWAemiNEXofJsTwTyHmNb/iL3dP/sZJ4+7sOld1uqYJtE" crossorigin="anonymous">
     {% endblock %}
-    <link rel="icon" type="image/x-icon" href="{{ asset('licos.ico') }}" />
+
+
 </head>
 <body>
     {% block body %}{% endblock %}

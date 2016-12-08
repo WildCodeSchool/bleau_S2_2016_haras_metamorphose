@@ -10,7 +10,7 @@ jQuery(document).ready(function($) {
     /*click_droit_off();*/
 
     // RETOUR VERS LE HAUT
-    retour_haut();
+    // retour_haut();
 
     // ZOOM SUR LES IMAGES
     /*zoom_images();*/
