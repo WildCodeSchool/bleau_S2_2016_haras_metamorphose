@@ -4,10 +4,18 @@ parameters:
 #    parameter_name: value
 
 services:
+
+#   User Service
     app.form.registration:
         class: UserBundle\Form\RegistrationType
+        arguments: [%fos_user.model.user.class%, @app_roles_helper]
         tags:
             - { name: form.type, alias: app_user_registration }
+    app_roles_helper:
+       class: UserBundle\Services\RolesHelper
+       arguments: ['%security.role_hierarchy.roles%']
+
+#   Langue Service
     language.change:
         class: HarasBundle\Services\languageChange
     app.exception_controller:
@@ -16,3 +24,12 @@ services:
     media.interface:
         class: HarasBundle\Services\mediaInterface
         arguments: ['@service_container']
+
+# [...] Vos autres services
+    redirect.after.login:
+        class: UserBundle\Redirection\AfterLoginRedirection
+        arguments: [@router]
+
+    redirect.after.logout:
+        class: UserBundle\Redirection\AfterLogoutRedirection
+        arguments: [@router, @security.context]
