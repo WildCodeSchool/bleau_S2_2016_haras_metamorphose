@@ -16,7 +16,7 @@ class AgendaController extends Controller
      * Lists all agenda entities.
      *
      */
-    public function indexAction()
+    /*public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
 
@@ -25,7 +25,7 @@ class AgendaController extends Controller
         return $this->render('@PlateForme/agenda/index.html.twig', array(
             'agendas' => $agendas,
         ));
-    }
+    }*/
 
     /**
      * Creates a new agenda entity.

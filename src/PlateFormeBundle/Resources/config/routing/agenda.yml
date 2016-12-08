@@ -2,6 +2,8 @@ agenda_index:
     path:     /events_json
     defaults: { _controller: "PlateFormeBundle:Calendar:index" }
     methods:  GET
+    options:
+        expose: true
 
 agenda:
     path: /

@@ -29,7 +29,7 @@ class CalendarController extends Controller
 
         $encoder = new JsonEncoder(); // Encodage des données en JSON
 
-        /* ENCODAGE DE DATE POUR RECUP SEPAREMENT*/
+        /* ENCODAGE DE DATE POUR RECUP */
         $dateCallback = function ($dateTime) {
             return $dateTime instanceof \DateTime
                 ? $dateTime->format(\DateTime::ISO8601)
@@ -49,10 +49,10 @@ class CalendarController extends Controller
     }
 
     /**
-     * Creates a new agenda entity.
+     * Creates a new calendar entity.
      *
      */
-    public function newAction(Request $request)
+    /*public function newAction(Request $request)
     {
         $agenda = new Agenda();
         $form = $this->createForm('PlateFormeBundle\Form\AgendaType', $agenda);
@@ -89,5 +89,5 @@ class CalendarController extends Controller
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
-    }
+    }*/
 }

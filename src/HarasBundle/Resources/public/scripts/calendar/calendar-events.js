@@ -7,8 +7,7 @@
 // ********************************************************************
 jQuery(document).ready(function($) {
 
-    console.log('MA FONCTION CALENDAR-EVENT EST OK !!');
-    console.log('jQuery de main.js a démarré le test est bon');
+    console.log('CALENDAR-EVENTS.JS a démarré : ligne 10');
     console.log(role);
     // FULL CALENDAR
     calendar();
@@ -20,7 +19,7 @@ jQuery(document).ready(function($) {
 // ********************************************************************
 
 function calendar() {
-    console.log('MON CALENDAR');
+    console.log('CALENDAR-EVENTS - FONCTION CALENDAR a démarré : ligne 22');
     $(document).ready(function() {
 
         var current_date_time = new Date();
@@ -37,35 +36,58 @@ function calendar() {
             selectable: true, // Permet de cliquer sur la case pour envoyer au new
             selectHelper: true,
 
-            /* GENERATION D'UN POP UP JS  */
+    /* ---------------------------- GENERATION D'UN POP UP JS ---------------------------- */
             /*select: function(start, end) {
-                var title = prompt('Event Title:');
-                var eventData;
-                if (title) {
-                    eventData = {
-                        title: title,
-                        start: start,
-                        end: end
-                    };
-                    $('#calendar').fullCalendar('renderEvent', eventData, true); // stick? = true
-                }
-                $('#calendar').fullCalendar('unselect');
-            },*/
+             var title = prompt('Event Title:');
+             var eventData;
+             if (title) {
+             eventData = {
+             title: title,
+             start: start,
+             end: end
+             };
+             $('#calendar').fullCalendar('renderEvent', eventData, true); // stick? = true
+             }
+             $('#calendar').fullCalendar('unselect');
+             },*/
+    /* ----------------------------------------------------------------------------------- */
+
+            firstDay: 1, // jour ou l'agenda commentce 1 = lundi, 2 = mardi , etc...
+            weekNumbers: true, // affichage du numéro de la semaine en cour
+            businessHours: { // heure de travail
+                start: '09:00',
+                end: '23:00',
+                dow: [1, 2, 3, 4, 5]
+            },
+            handleWindowResize: true, // redimenssionne auto du calendrier en fonction de la width du navigateur
+            weekends: true, // affichage des weekends
+            slotLabelFormat: 'HH:mm', // format de l'heure sur les slots
+            timeFormat: 'HH:mm',
+            minTime: "08:00:00", // heure de début du calendar
+            slotEventOverlap: false, // Les évènements ne se chevauchent pas
+
             editable: true,
             eventLimit: true, // allow "more" link when too many events
 
-            events: Routing.generate('agenda'),
+            events: Routing.generate('agenda_index'),
 
             dayClick: function(date) {
+
                 console.log(role);
+                console.log('CALENDAR-EVENTS.JS - FONCTION DAYCLICK a démarré : ligne 76');
+
                 /* VERIFICATION QUE LA DATE SOIT PAS INFERIRIEUR  A LA SELECTION ET LA DEFINITION DES ROLES */
                 if (date._d >= current_date_time && role == 'ROLE_ADMIN'){
+                    // lors du click sur la case il renvoie la date vers la page new
                     window.location = Routing.generate('agenda') + date.format() + '/new';
                 }
-            }/*,*/
+            },
 
-            /*eventRender: function(event, element, calEvent) {
-                var editEvent = Routing.generate('events') + event.id + '/edit';
+            eventRender: function(event, element, calEvent) {
+                var editEvent = Routing.generate('agenda') + event.id + '/edit';
+
+                console.log('CALENDAR-EVENTS.JS - FONCTION EVENTRENDER a démarré : ligne 89');
+
                 element.each(function() {
                     element.append(
                         '</br>' +
@@ -98,7 +120,7 @@ function calendar() {
                 $('#edit_event').attr('href', editEvent);
 
             }
-*/
+
         });
 
     });
