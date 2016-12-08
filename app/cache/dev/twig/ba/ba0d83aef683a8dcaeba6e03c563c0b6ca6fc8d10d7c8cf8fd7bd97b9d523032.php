@@ -20,8 +20,8 @@ class __TwigTemplate_5dcdba1e458824fa7dac2d39127df0a26659e351ae1b97204caff4debfd
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_501a96dc8596c54fa7ebb86f0ed889e7727486b2102d5ebf1857c6dec5357cb5 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_501a96dc8596c54fa7ebb86f0ed889e7727486b2102d5ebf1857c6dec5357cb5->enter($__internal_501a96dc8596c54fa7ebb86f0ed889e7727486b2102d5ebf1857c6dec5357cb5_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "base.html.twig"));
+        $__internal_0881412abe658e020b32d89605cdab0f0a8e2e41ce0110ee29a14d588c3c6b5b = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_0881412abe658e020b32d89605cdab0f0a8e2e41ce0110ee29a14d588c3c6b5b->enter($__internal_0881412abe658e020b32d89605cdab0f0a8e2e41ce0110ee29a14d588c3c6b5b_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "base.html.twig"));
 
         // line 1
         echo "<!DOCTYPE html>
@@ -38,86 +38,92 @@ class __TwigTemplate_5dcdba1e458824fa7dac2d39127df0a26659e351ae1b97204caff4debfd
         // line 9
         echo "    ";
         $this->displayBlock('stylesheets', $context, $blocks);
-        // line 12
-        echo "    <link rel=\"icon\" type=\"image/x-icon\" href=\"";
-        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("licos.ico"), "html", null, true);
-        echo "\" />
+        // line 16
+        echo "
+
 </head>
 <body>
     ";
-        // line 15
+        // line 20
         $this->displayBlock('body', $context, $blocks);
-        // line 16
+        // line 21
         echo "    ";
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 23
+        // line 28
         echo "</body>
 </html>";
         
-        $__internal_501a96dc8596c54fa7ebb86f0ed889e7727486b2102d5ebf1857c6dec5357cb5->leave($__internal_501a96dc8596c54fa7ebb86f0ed889e7727486b2102d5ebf1857c6dec5357cb5_prof);
+        $__internal_0881412abe658e020b32d89605cdab0f0a8e2e41ce0110ee29a14d588c3c6b5b->leave($__internal_0881412abe658e020b32d89605cdab0f0a8e2e41ce0110ee29a14d588c3c6b5b_prof);
 
     }
 
     // line 5
     public function block_title($context, array $blocks = array())
     {
-        $__internal_98c2f4daa1455f9622506d818c44ee1491738c709f9851ba083633aa7cc68f7b = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_98c2f4daa1455f9622506d818c44ee1491738c709f9851ba083633aa7cc68f7b->enter($__internal_98c2f4daa1455f9622506d818c44ee1491738c709f9851ba083633aa7cc68f7b_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
+        $__internal_116bc5eeb2d85eefc1a803301362c7ef25fe30aaa72d217dbf7edc2edaad7b71 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_116bc5eeb2d85eefc1a803301362c7ef25fe30aaa72d217dbf7edc2edaad7b71->enter($__internal_116bc5eeb2d85eefc1a803301362c7ef25fe30aaa72d217dbf7edc2edaad7b71_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
 
         echo "Haras de la métamorphose - administration";
         
-        $__internal_98c2f4daa1455f9622506d818c44ee1491738c709f9851ba083633aa7cc68f7b->leave($__internal_98c2f4daa1455f9622506d818c44ee1491738c709f9851ba083633aa7cc68f7b_prof);
+        $__internal_116bc5eeb2d85eefc1a803301362c7ef25fe30aaa72d217dbf7edc2edaad7b71->leave($__internal_116bc5eeb2d85eefc1a803301362c7ef25fe30aaa72d217dbf7edc2edaad7b71_prof);
 
     }
 
     // line 6
     public function block_materialize($context, array $blocks = array())
     {
-        $__internal_2503ebf9c3a66d09997cd8e7a7119553265a311f75f5c10683f51d4988358a79 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_2503ebf9c3a66d09997cd8e7a7119553265a311f75f5c10683f51d4988358a79->enter($__internal_2503ebf9c3a66d09997cd8e7a7119553265a311f75f5c10683f51d4988358a79_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "materialize"));
+        $__internal_acccc25c316674bff127947505a7751619adeb439d79390743353545a45f79e8 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_acccc25c316674bff127947505a7751619adeb439d79390743353545a45f79e8->enter($__internal_acccc25c316674bff127947505a7751619adeb439d79390743353545a45f79e8_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "materialize"));
 
         // line 7
         echo "        <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css\">
     ";
         
-        $__internal_2503ebf9c3a66d09997cd8e7a7119553265a311f75f5c10683f51d4988358a79->leave($__internal_2503ebf9c3a66d09997cd8e7a7119553265a311f75f5c10683f51d4988358a79_prof);
+        $__internal_acccc25c316674bff127947505a7751619adeb439d79390743353545a45f79e8->leave($__internal_acccc25c316674bff127947505a7751619adeb439d79390743353545a45f79e8_prof);
 
     }
 
     // line 9
     public function block_stylesheets($context, array $blocks = array())
     {
-        $__internal_847fdf8c9ac14bf33ed8168dde6d63ed582fbaac21ff18b7c40135d378eaae7e = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_847fdf8c9ac14bf33ed8168dde6d63ed582fbaac21ff18b7c40135d378eaae7e->enter($__internal_847fdf8c9ac14bf33ed8168dde6d63ed582fbaac21ff18b7c40135d378eaae7e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "stylesheets"));
+        $__internal_43c0c3e98f8fd1082fe2f3a5cc21f1c77870d9631f689328ee847892b0843935 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_43c0c3e98f8fd1082fe2f3a5cc21f1c77870d9631f689328ee847892b0843935->enter($__internal_43c0c3e98f8fd1082fe2f3a5cc21f1c77870d9631f689328ee847892b0843935_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "stylesheets"));
 
         // line 10
         echo "        <link rel=\"stylesheet\" href=\"";
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("bundles/haras/styles/stylesheets/style.css"), "html", null, true);
         echo "\">
+        <!-- Icons -->
+        <link rel=\"icon\" type=\"image/x-icon\" href=\"";
+        // line 12
+        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("licos.ico"), "html", null, true);
+        echo "\" />
+        <link href=\"https://fonts.googleapis.com/icon?family=Material+Icons\" rel=\"stylesheet\">
+        <link rel=\"stylesheet\" href=\"https://opensource.keycdn.com/fontawesome/4.6.3/font-awesome.min.css\" integrity=\"sha384-Wrgq82RsEean5tP3NK3zWAemiNEXofJsTwTyHmNb/iL3dP/sZJ4+7sOld1uqYJtE\" crossorigin=\"anonymous\">
     ";
         
-        $__internal_847fdf8c9ac14bf33ed8168dde6d63ed582fbaac21ff18b7c40135d378eaae7e->leave($__internal_847fdf8c9ac14bf33ed8168dde6d63ed582fbaac21ff18b7c40135d378eaae7e_prof);
+        $__internal_43c0c3e98f8fd1082fe2f3a5cc21f1c77870d9631f689328ee847892b0843935->leave($__internal_43c0c3e98f8fd1082fe2f3a5cc21f1c77870d9631f689328ee847892b0843935_prof);
 
     }
 
-    // line 15
+    // line 20
     public function block_body($context, array $blocks = array())
     {
-        $__internal_c7b4e7f5c8aced3c4d52cc78130594ac723cf208a8d9dcde38114206926d6140 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_c7b4e7f5c8aced3c4d52cc78130594ac723cf208a8d9dcde38114206926d6140->enter($__internal_c7b4e7f5c8aced3c4d52cc78130594ac723cf208a8d9dcde38114206926d6140_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_5b1b8a56190881cabea4b9af0726c3efa95f3cd335d80e5c7945e2d0ddeb00e1 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_5b1b8a56190881cabea4b9af0726c3efa95f3cd335d80e5c7945e2d0ddeb00e1->enter($__internal_5b1b8a56190881cabea4b9af0726c3efa95f3cd335d80e5c7945e2d0ddeb00e1_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         
-        $__internal_c7b4e7f5c8aced3c4d52cc78130594ac723cf208a8d9dcde38114206926d6140->leave($__internal_c7b4e7f5c8aced3c4d52cc78130594ac723cf208a8d9dcde38114206926d6140_prof);
+        $__internal_5b1b8a56190881cabea4b9af0726c3efa95f3cd335d80e5c7945e2d0ddeb00e1->leave($__internal_5b1b8a56190881cabea4b9af0726c3efa95f3cd335d80e5c7945e2d0ddeb00e1_prof);
 
     }
 
-    // line 16
+    // line 21
     public function block_javascripts($context, array $blocks = array())
     {
-        $__internal_e499dce1fa8168c1ae8731c761b54871b5eb16e363faa0d76e9711e5b5c74be3 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_e499dce1fa8168c1ae8731c761b54871b5eb16e363faa0d76e9711e5b5c74be3->enter($__internal_e499dce1fa8168c1ae8731c761b54871b5eb16e363faa0d76e9711e5b5c74be3_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
+        $__internal_00a50cfa7e14fbd8ebc340b921b805439706d419660513a8499b1bda533e4230 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_00a50cfa7e14fbd8ebc340b921b805439706d419660513a8499b1bda533e4230->enter($__internal_00a50cfa7e14fbd8ebc340b921b805439706d419660513a8499b1bda533e4230_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 17
+        // line 22
         echo "        <script src=\"";
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("bundles/haras/scripts/jquery-3.1.1.js"), "html", null, true);
         echo "\"></script>
@@ -125,12 +131,12 @@ class __TwigTemplate_5dcdba1e458824fa7dac2d39127df0a26659e351ae1b97204caff4debfd
         <script type=\"text/javascript\" src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js\"></script>
         <script src=\"https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js\"></script>
         <script src=\"";
-        // line 21
+        // line 26
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("bundles/haras/scripts/admin_script.js"), "html", null, true);
         echo "\"></script>
     ";
         
-        $__internal_e499dce1fa8168c1ae8731c761b54871b5eb16e363faa0d76e9711e5b5c74be3->leave($__internal_e499dce1fa8168c1ae8731c761b54871b5eb16e363faa0d76e9711e5b5c74be3_prof);
+        $__internal_00a50cfa7e14fbd8ebc340b921b805439706d419660513a8499b1bda533e4230->leave($__internal_00a50cfa7e14fbd8ebc340b921b805439706d419660513a8499b1bda533e4230_prof);
 
     }
 
@@ -139,14 +145,9 @@ class __TwigTemplate_5dcdba1e458824fa7dac2d39127df0a26659e351ae1b97204caff4debfd
         return "base.html.twig";
     }
 
-    public function isTraitable()
-    {
-        return false;
-    }
-
     public function getDebugInfo()
     {
-        return array (  129 => 21,  121 => 17,  115 => 16,  104 => 15,  94 => 10,  88 => 9,  80 => 7,  74 => 6,  62 => 5,  54 => 23,  51 => 16,  49 => 15,  42 => 12,  39 => 9,  37 => 6,  33 => 5,  27 => 1,);
+        return array (  135 => 26,  127 => 22,  121 => 21,  110 => 20,  99 => 12,  93 => 10,  87 => 9,  79 => 7,  73 => 6,  61 => 5,  53 => 28,  50 => 21,  48 => 20,  42 => 16,  39 => 9,  37 => 6,  33 => 5,  27 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -169,8 +170,13 @@ class __TwigTemplate_5dcdba1e458824fa7dac2d39127df0a26659e351ae1b97204caff4debfd
     {% endblock materialize %}
     {% block stylesheets %}
         <link rel=\"stylesheet\" href=\"{{ asset('bundles/haras/styles/stylesheets/style.css') }}\">
+        <!-- Icons -->
+        <link rel=\"icon\" type=\"image/x-icon\" href=\"{{ asset('licos.ico') }}\" />
+        <link href=\"https://fonts.googleapis.com/icon?family=Material+Icons\" rel=\"stylesheet\">
+        <link rel=\"stylesheet\" href=\"https://opensource.keycdn.com/fontawesome/4.6.3/font-awesome.min.css\" integrity=\"sha384-Wrgq82RsEean5tP3NK3zWAemiNEXofJsTwTyHmNb/iL3dP/sZJ4+7sOld1uqYJtE\" crossorigin=\"anonymous\">
     {% endblock %}
-    <link rel=\"icon\" type=\"image/x-icon\" href=\"{{ asset('licos.ico') }}\" />
+
+
 </head>
 <body>
     {% block body %}{% endblock %}

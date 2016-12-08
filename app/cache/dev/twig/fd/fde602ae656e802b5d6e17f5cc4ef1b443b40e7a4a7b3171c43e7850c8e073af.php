@@ -22,44 +22,71 @@ class __TwigTemplate_196fcef981784405e126b6e4d304d1385fbcf87f244f3ab6d588355c3ef
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_dcc8f479bf188b1bd8c8a7aec1c5f3529b577093e3fbab142a924732d17e94aa = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_dcc8f479bf188b1bd8c8a7aec1c5f3529b577093e3fbab142a924732d17e94aa->enter($__internal_dcc8f479bf188b1bd8c8a7aec1c5f3529b577093e3fbab142a924732d17e94aa_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@PlateForme/layout.html.twig"));
+        $__internal_bb6a4025eab96e90b2af10eb8a33301498b8d5dfe641fd8ab0e3981293b393df = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_bb6a4025eab96e90b2af10eb8a33301498b8d5dfe641fd8ab0e3981293b393df->enter($__internal_bb6a4025eab96e90b2af10eb8a33301498b8d5dfe641fd8ab0e3981293b393df_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@PlateForme/layout.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_dcc8f479bf188b1bd8c8a7aec1c5f3529b577093e3fbab142a924732d17e94aa->leave($__internal_dcc8f479bf188b1bd8c8a7aec1c5f3529b577093e3fbab142a924732d17e94aa_prof);
+        $__internal_bb6a4025eab96e90b2af10eb8a33301498b8d5dfe641fd8ab0e3981293b393df->leave($__internal_bb6a4025eab96e90b2af10eb8a33301498b8d5dfe641fd8ab0e3981293b393df_prof);
 
     }
 
     // line 3
     public function block_header($context, array $blocks = array())
     {
-        $__internal_c681cb770c4a0c552d2cc311c897f1380d3efc50bf00f8d3320ac6c684d24ba4 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_c681cb770c4a0c552d2cc311c897f1380d3efc50bf00f8d3320ac6c684d24ba4->enter($__internal_c681cb770c4a0c552d2cc311c897f1380d3efc50bf00f8d3320ac6c684d24ba4_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "header"));
+        $__internal_953be3dec1ea54e466a6982370b748d311015fbe77ed470220df3d5cba141766 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_953be3dec1ea54e466a6982370b748d311015fbe77ed470220df3d5cba141766->enter($__internal_953be3dec1ea54e466a6982370b748d311015fbe77ed470220df3d5cba141766_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "header"));
 
         // line 4
         echo "
-    <p>JE SUIS UN HEADER</p>
+   <header>
+
+       <!-- Dropdown Structure -->
+       <ul id=\"dropdown1\" class=\"dropdown-content\">
+           <li><a href=\"#!\">one</a></li>
+           <li><a href=\"#!\">two</a></li>
+           <li class=\"divider\"></li>
+           <li><a href=\"#!\">three</a></li>
+       </ul>
+       <nav>
+           <div class=\"nav-wrapper\">
+               <a href=\"#!\" class=\"brand-logo\">Logo</a>
+               <ul class=\"right hide-on-med-and-down\">
+                   <li><a href=\"sass.html\">Sass</a></li>
+                   <li><a href=\"badges.html\">Components</a></li>
+                   <!-- Dropdown Trigger -->
+                   <li><a class=\"dropdown-button\" href=\"";
+        // line 21
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("fos_user_profile_show");
+        echo "\" data-activates=\"dropdown1\">Dropdown<i class=\"fa fa-user fa-2x\"></i></a></li>
+               </ul>
+           </div>
+       </nav>
+
+
+
+
+   </header>
 
 ";
         
-        $__internal_c681cb770c4a0c552d2cc311c897f1380d3efc50bf00f8d3320ac6c684d24ba4->leave($__internal_c681cb770c4a0c552d2cc311c897f1380d3efc50bf00f8d3320ac6c684d24ba4_prof);
+        $__internal_953be3dec1ea54e466a6982370b748d311015fbe77ed470220df3d5cba141766->leave($__internal_953be3dec1ea54e466a6982370b748d311015fbe77ed470220df3d5cba141766_prof);
 
     }
 
-    // line 9
+    // line 33
     public function block_footer($context, array $blocks = array())
     {
-        $__internal_24fc6cc0eff02e3020d1be84f3d63d029b8517df8b67c4ef0effa641aba6a6ef = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_24fc6cc0eff02e3020d1be84f3d63d029b8517df8b67c4ef0effa641aba6a6ef->enter($__internal_24fc6cc0eff02e3020d1be84f3d63d029b8517df8b67c4ef0effa641aba6a6ef_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "footer"));
+        $__internal_51b652d2fad2395b7d9468ab0463bf30858e29adb1c713751ed26e8a2d95127c = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_51b652d2fad2395b7d9468ab0463bf30858e29adb1c713751ed26e8a2d95127c->enter($__internal_51b652d2fad2395b7d9468ab0463bf30858e29adb1c713751ed26e8a2d95127c_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "footer"));
 
-        // line 10
+        // line 34
         echo "
     <p>ET MOI UN FOOTER</p>
 
 ";
         
-        $__internal_24fc6cc0eff02e3020d1be84f3d63d029b8517df8b67c4ef0effa641aba6a6ef->leave($__internal_24fc6cc0eff02e3020d1be84f3d63d029b8517df8b67c4ef0effa641aba6a6ef_prof);
+        $__internal_51b652d2fad2395b7d9468ab0463bf30858e29adb1c713751ed26e8a2d95127c->leave($__internal_51b652d2fad2395b7d9468ab0463bf30858e29adb1c713751ed26e8a2d95127c_prof);
 
     }
 
@@ -75,7 +102,7 @@ class __TwigTemplate_196fcef981784405e126b6e4d304d1385fbcf87f244f3ab6d588355c3ef
 
     public function getDebugInfo()
     {
-        return array (  57 => 10,  51 => 9,  41 => 4,  35 => 3,  11 => 1,);
+        return array (  84 => 34,  78 => 33,  60 => 21,  41 => 4,  35 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -92,7 +119,31 @@ class __TwigTemplate_196fcef981784405e126b6e4d304d1385fbcf87f244f3ab6d588355c3ef
 
 {% block header %}
 
-    <p>JE SUIS UN HEADER</p>
+   <header>
+
+       <!-- Dropdown Structure -->
+       <ul id=\"dropdown1\" class=\"dropdown-content\">
+           <li><a href=\"#!\">one</a></li>
+           <li><a href=\"#!\">two</a></li>
+           <li class=\"divider\"></li>
+           <li><a href=\"#!\">three</a></li>
+       </ul>
+       <nav>
+           <div class=\"nav-wrapper\">
+               <a href=\"#!\" class=\"brand-logo\">Logo</a>
+               <ul class=\"right hide-on-med-and-down\">
+                   <li><a href=\"sass.html\">Sass</a></li>
+                   <li><a href=\"badges.html\">Components</a></li>
+                   <!-- Dropdown Trigger -->
+                   <li><a class=\"dropdown-button\" href=\"{{ path('fos_user_profile_show') }}\" data-activates=\"dropdown1\">Dropdown<i class=\"fa fa-user fa-2x\"></i></a></li>
+               </ul>
+           </div>
+       </nav>
+
+
+
+
+   </header>
 
 {% endblock %}
 

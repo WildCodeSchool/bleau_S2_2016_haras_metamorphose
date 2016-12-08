@@ -153,6 +153,7 @@
     <parameter key="validator.translation_domain">validators</parameter>
     <parameter key="validator.api">2.5-bc</parameter>
     <parameter key="fragment.listener.class">Symfony\Component\HttpKernel\EventListener\FragmentListener</parameter>
+    <parameter key="translator.logging">true</parameter>
     <parameter key="profiler.class">Symfony\Component\HttpKernel\Profiler\Profiler</parameter>
     <parameter key="profiler_listener.class">Symfony\Component\HttpKernel\EventListener\ProfilerListener</parameter>
     <parameter key="data_collector.config.class">Symfony\Component\HttpKernel\DataCollector\ConfigDataCollector</parameter>
@@ -236,11 +237,12 @@
     <parameter key="security.validator.user_password.class">Symfony\Component\Security\Core\Validator\Constraints\UserPasswordValidator</parameter>
     <parameter key="security.expression_language.class">Symfony\Component\Security\Core\Authorization\ExpressionLanguage</parameter>
     <parameter key="security.role_hierarchy.roles" type="collection">
-      <parameter key="ROLE_ADMIN" type="collection">
+      <parameter key="ROLE_MODERATEUR" type="collection">
         <parameter>ROLE_USER</parameter>
       </parameter>
-      <parameter key="ROLE_SUPER_ADMIN" type="collection">
-        <parameter>ROLE_ADMIN</parameter>
+      <parameter key="ROLE_ADMIN" type="collection">
+        <parameter>ROLE_USER</parameter>
+        <parameter>ROLE_MODERATEUR</parameter>
       </parameter>
     </parameter>
     <parameter key="security.authentication.retry_entry_point.class">Symfony\Component\Security\Http\EntryPoint\RetryAuthenticationEntryPoint</parameter>
@@ -638,6 +640,10 @@
         <parameter>router</parameter>
         <parameter>@WebProfiler/Collector/router.html.twig</parameter>
       </parameter>
+      <parameter key="data_collector.translation" type="collection">
+        <parameter>translation</parameter>
+        <parameter>@WebProfiler/Collector/translation.html.twig</parameter>
+      </parameter>
       <parameter key="data_collector.security" type="collection">
         <parameter>security</parameter>
         <parameter>@Security/Collector/security.html.twig</parameter>
@@ -674,6 +680,19 @@
   <services>
     <service id="app.form.registration" class="UserBundle\Form\RegistrationType">
       <tag name="form.type" alias="app_user_registration"/>
+      <argument>UserBundle\Entity\User</argument>
+      <argument type="service" id="app_roles_helper"/>
+    </service>
+    <service id="app_roles_helper" class="UserBundle\Services\RolesHelper">
+      <argument type="collection">
+        <argument key="ROLE_MODERATEUR" type="collection">
+          <argument>ROLE_USER</argument>
+        </argument>
+        <argument key="ROLE_ADMIN" type="collection">
+          <argument>ROLE_USER</argument>
+          <argument>ROLE_MODERATEUR</argument>
+        </argument>
+      </argument>
     </service>
     <service id="language.change" class="HarasBundle\Services\languageChange"/>
     <service id="app.exception_controller" class="HarasBundle\Controller\ExceptionController">
@@ -682,6 +701,13 @@
     </service>
     <service id="media.interface" class="HarasBundle\Services\mediaInterface">
       <argument type="service" id="service_container"/>
+    </service>
+    <service id="redirect.after.login" class="UserBundle\Redirection\AfterLoginRedirection">
+      <argument type="service" id="router"/>
+    </service>
+    <service id="redirect.after.logout" class="UserBundle\Redirection\AfterLogoutRedirection">
+      <argument type="service" id="router"/>
+      <argument type="service" id="security.context"/>
     </service>
     <service id="controller_name_converter" class="Symfony\Bundle\FrameworkBundle\Controller\ControllerNameParser" public="false">
       <tag name="monolog.logger" channel="request"/>
@@ -735,7 +761,7 @@
         <argument type="service">
           <service class="Symfony\Bundle\FrameworkBundle\CacheWarmer\TranslationsCacheWarmer" public="false">
             <tag name="kernel.cache_warmer"/>
-            <argument type="service" id="translator"/>
+            <argument type="service" id="translator.default"/>
           </service>
         </argument>
         <argument type="service">
@@ -878,7 +904,9 @@
     </service>
     <service id="translator.default" class="Symfony\Bundle\FrameworkBundle\Translation\Translator">
       <argument type="service" id="service_container"/>
-      <argument type="service" id="translator.selector"/>
+      <argument type="service">
+        <service class="Symfony\Component\Translation\MessageSelector" public="false"/>
+      </argument>
       <argument type="collection">
         <argument key="translation.loader.php" type="collection">
           <argument>php</argument>
@@ -918,17 +946,334 @@
       <argument type="collection">
         <argument key="cache_dir">/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/app/cache/dev/translations</argument>
         <argument key="debug">true</argument>
+        <argument key="resource_files" type="collection">
+          <argument key="af" type="collection">
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.af.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.af.yml</argument>
+          </argument>
+          <argument key="ar" type="collection">
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.ar.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.ar.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.ar.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.ar.yml</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.ar.yml</argument>
+          </argument>
+          <argument key="az" type="collection">
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.az.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.az.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.az.xlf</argument>
+          </argument>
+          <argument key="bg" type="collection">
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.bg.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.bg.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.bg.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.bg.yml</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.bg.yml</argument>
+          </argument>
+          <argument key="ca" type="collection">
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.ca.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.ca.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.ca.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.ca.yml</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.ca.yml</argument>
+          </argument>
+          <argument key="cs" type="collection">
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.cs.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.cs.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.cs.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.cs.yml</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.cs.yml</argument>
+          </argument>
+          <argument key="cy" type="collection">
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.cy.xlf</argument>
+          </argument>
+          <argument key="da" type="collection">
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.da.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.da.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.da.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.da.yml</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.da.yml</argument>
+          </argument>
+          <argument key="de" type="collection">
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.de.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.de.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.de.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.de.yml</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.de.yml</argument>
+          </argument>
+          <argument key="el" type="collection">
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.el.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.el.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.el.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.el.yml</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.el.yml</argument>
+          </argument>
+          <argument key="en" type="collection">
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.en.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.en.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.en.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.en.yml</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.en.yml</argument>
+          </argument>
+          <argument key="es" type="collection">
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.es.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.es.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.es.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.es.yml</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.es.yml</argument>
+          </argument>
+          <argument key="et" type="collection">
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.et.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.et.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.et.yml</argument>
+          </argument>
+          <argument key="eu" type="collection">
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.eu.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.eu.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.eu.yml</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.eu.yml</argument>
+          </argument>
+          <argument key="fa" type="collection">
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.fa.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.fa.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.fa.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.fa.yml</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.fa.yml</argument>
+          </argument>
+          <argument key="fi" type="collection">
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.fi.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.fi.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.fi.yml</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.fi.yml</argument>
+          </argument>
+          <argument key="fr" type="collection">
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.fr.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.fr.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.fr.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.fr.yml</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.fr.yml</argument>
+          </argument>
+          <argument key="gl" type="collection">
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.gl.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.gl.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.gl.xlf</argument>
+          </argument>
+          <argument key="he" type="collection">
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.he.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.he.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.he.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.he.yml</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.he.yml</argument>
+          </argument>
+          <argument key="hr" type="collection">
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.hr.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.hr.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.hr.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.hr.yml</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.hr.yml</argument>
+          </argument>
+          <argument key="hu" type="collection">
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.hu.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.hu.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.hu.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.hu.yml</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.hu.yml</argument>
+          </argument>
+          <argument key="hy" type="collection">
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.hy.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.hy.xlf</argument>
+          </argument>
+          <argument key="id" type="collection">
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.id.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.id.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.id.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.id.yml</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.id.yml</argument>
+          </argument>
+          <argument key="it" type="collection">
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.it.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.it.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.it.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.it.yml</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.it.yml</argument>
+          </argument>
+          <argument key="ja" type="collection">
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.ja.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.ja.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.ja.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.ja.yml</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.ja.yml</argument>
+          </argument>
+          <argument key="lb" type="collection">
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.lb.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.lb.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.lb.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.lb.yml</argument>
+          </argument>
+          <argument key="lt" type="collection">
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.lt.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.lt.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.lt.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.lt.yml</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.lt.yml</argument>
+          </argument>
+          <argument key="lv" type="collection">
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.lv.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.lv.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.lv.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.lv.yml</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.lv.yml</argument>
+          </argument>
+          <argument key="mn" type="collection">
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.mn.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.mn.xlf</argument>
+          </argument>
+          <argument key="nl" type="collection">
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.nl.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.nl.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.nl.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.nl.yml</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.nl.yml</argument>
+          </argument>
+          <argument key="nn" type="collection">
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.nn.xlf</argument>
+          </argument>
+          <argument key="no" type="collection">
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.no.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.no.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.no.xlf</argument>
+          </argument>
+          <argument key="pl" type="collection">
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.pl.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.pl.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.pl.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.pl.yml</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.pl.yml</argument>
+          </argument>
+          <argument key="pt" type="collection">
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.pt.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.pt.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.pt.yml</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.pt.yml</argument>
+          </argument>
+          <argument key="pt_BR" type="collection">
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.pt_BR.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.pt_BR.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.pt_BR.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.pt_BR.yml</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.pt_BR.yml</argument>
+          </argument>
+          <argument key="ro" type="collection">
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.ro.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.ro.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.ro.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.ro.yml</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.ro.yml</argument>
+          </argument>
+          <argument key="ru" type="collection">
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.ru.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.ru.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.ru.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.ru.yml</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.ru.yml</argument>
+          </argument>
+          <argument key="sk" type="collection">
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.sk.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.sk.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.sk.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.sk.yml</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.sk.yml</argument>
+          </argument>
+          <argument key="sl" type="collection">
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.sl.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.sl.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.sl.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.sl.yml</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.sl.yml</argument>
+          </argument>
+          <argument key="sq" type="collection">
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.sq.xlf</argument>
+          </argument>
+          <argument key="sr_Cyrl" type="collection">
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.sr_Cyrl.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.sr_Cyrl.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.sr_Cyrl.xlf</argument>
+          </argument>
+          <argument key="sr_Latn" type="collection">
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.sr_Latn.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.sr_Latn.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.sr_Latn.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.sr_Latn.yml</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.sr_Latn.yml</argument>
+          </argument>
+          <argument key="sv" type="collection">
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.sv.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.sv.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.sv.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.sv.yml</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.sv.yml</argument>
+          </argument>
+          <argument key="th" type="collection">
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.th.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.th.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.th.yml</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.th.yml</argument>
+          </argument>
+          <argument key="tr" type="collection">
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.tr.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.tr.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.tr.yml</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.tr.yml</argument>
+          </argument>
+          <argument key="uk" type="collection">
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.uk.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.uk.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.uk.yml</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.uk.yml</argument>
+          </argument>
+          <argument key="vi" type="collection">
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.vi.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.vi.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.vi.yml</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.vi.yml</argument>
+          </argument>
+          <argument key="zh_CN" type="collection">
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.zh_CN.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.zh_CN.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.zh_CN.xlf</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.zh_CN.yml</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.zh_CN.yml</argument>
+          </argument>
+          <argument key="zh_TW" type="collection">
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.zh_TW.xlf</argument>
+          </argument>
+          <argument key="pt_PT" type="collection">
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.pt_PT.xlf</argument>
+          </argument>
+          <argument key="ua" type="collection">
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.ua.xlf</argument>
+          </argument>
+          <argument key="ky" type="collection">
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.ky.yml</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.ky.yml</argument>
+          </argument>
+          <argument key="nb" type="collection">
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.nb.yml</argument>
+            <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.nb.yml</argument>
+          </argument>
+        </argument>
       </argument>
       <argument type="collection"/>
       <call method="setConfigCacheFactory">
         <argument type="service" id="config_cache_factory"/>
       </call>
+      <call method="setFallbackLocales">
+        <argument type="collection">
+          <argument>fr</argument>
+        </argument>
+      </call>
       <autowiring-type>Symfony\Component\Translation\TranslatorInterface</autowiring-type>
     </service>
-    <service id="translator" class="Symfony\Component\Translation\IdentityTranslator">
-      <argument type="service" id="translator.selector"/>
-    </service>
-    <service id="translator.selector" class="Symfony\Component\Translation\MessageSelector" public="false"/>
     <service id="translation.loader.php" class="Symfony\Component\Translation\Loader\PhpFileLoader">
       <tag name="translation.loader" alias="php"/>
     </service>
@@ -1579,6 +1924,9 @@
         <argument type="service" id="data_collector.router"/>
       </call>
       <call method="add">
+        <argument type="service" id="data_collector.translation"/>
+      </call>
+      <call method="add">
         <argument type="service">
           <service class="Symfony\Bundle\SecurityBundle\DataCollector\SecurityDataCollector" public="false">
             <tag name="data_collector" template="@Security/Collector/security.html.twig" id="security" priority="270"/>
@@ -1657,6 +2005,10 @@
     <service id="data_collector.form" class="Symfony\Component\Form\Extension\DataCollector\FormDataCollector">
       <tag name="data_collector" template="@WebProfiler/Collector/form.html.twig" id="form" priority="310"/>
       <argument type="service" id="data_collector.form.extractor"/>
+    </service>
+    <service id="data_collector.translation" class="Symfony\Component\Translation\DataCollector\TranslationDataCollector">
+      <tag name="data_collector" template="@WebProfiler/Collector/translation.html.twig" id="translation" priority="275"/>
+      <argument type="service" id="translator"/>
     </service>
     <service id="routing.loader" class="Symfony\Bundle\FrameworkBundle\Routing\DelegatingLoader">
       <argument type="service" id="controller_name_converter"/>
@@ -1950,7 +2302,7 @@
         </argument>
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>58469e4d32f4e8.30966769</argument>
+            <argument>584990ceb808d4.38670417</argument>
           </service>
         </argument>
       </argument>
@@ -2003,11 +2355,12 @@
     </service>
     <service id="security.role_hierarchy" class="Symfony\Component\Security\Core\Role\RoleHierarchy" public="false">
       <argument type="collection">
-        <argument key="ROLE_ADMIN" type="collection">
+        <argument key="ROLE_MODERATEUR" type="collection">
           <argument>ROLE_USER</argument>
         </argument>
-        <argument key="ROLE_SUPER_ADMIN" type="collection">
-          <argument>ROLE_ADMIN</argument>
+        <argument key="ROLE_ADMIN" type="collection">
+          <argument>ROLE_USER</argument>
+          <argument>ROLE_MODERATEUR</argument>
         </argument>
       </argument>
     </service>
@@ -2033,7 +2386,7 @@
       <argument type="service" id="security.token_storage" on-invalid="null"/>
       <call method="registerListener">
         <argument>main</argument>
-        <argument>/logout</argument>
+        <argument>fos_user_security_logout</argument>
         <argument>logout</argument>
         <argument>_csrf_token</argument>
         <argument>null</argument>
@@ -2110,6 +2463,17 @@
                   </argument>
                   <argument>null</argument>
                 </call>
+                <call method="add">
+                  <argument type="service">
+                    <service class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
+                      <argument>^/user</argument>
+                    </service>
+                  </argument>
+                  <argument type="collection">
+                    <argument>ROLE_ADMIN</argument>
+                  </argument>
+                  <argument>null</argument>
+                </call>
               </service>
             </argument>
             <argument type="service">
@@ -2141,21 +2505,11 @@
                 <argument type="service" id="router" on-invalid="null"/>
               </service>
             </argument>
-            <argument type="service">
-              <service class="Symfony\Component\Security\Http\Logout\DefaultLogoutSuccessHandler" public="false">
-                <argument type="service">
-                  <service class="Symfony\Component\Security\Http\HttpUtils" public="false">
-                    <argument type="service" id="router" on-invalid="null"/>
-                    <argument type="service" id="router" on-invalid="null"/>
-                  </service>
-                </argument>
-                <argument>/</argument>
-              </service>
-            </argument>
+            <argument type="service" id="redirect.after.logout"/>
             <argument type="collection">
               <argument key="csrf_parameter">_csrf_token</argument>
               <argument key="csrf_token_id">logout</argument>
-              <argument key="logout_path">/logout</argument>
+              <argument key="logout_path">fos_user_security_logout</argument>
             </argument>
             <call method="addHandler">
               <argument type="service">
@@ -2178,26 +2532,16 @@
             </argument>
             <argument>main</argument>
             <argument type="service">
-              <service class="Symfony\Component\Security\Http\Authentication\DefaultAuthenticationSuccessHandler" public="false">
-                <argument type="service">
-                  <service class="Symfony\Component\Security\Http\HttpUtils" public="false">
-                    <argument type="service" id="router" on-invalid="null"/>
-                    <argument type="service" id="router" on-invalid="null"/>
-                  </service>
+              <service class="Symfony\Component\Security\Http\Authentication\CustomAuthenticationSuccessHandler" public="false">
+                <argument type="service" id="redirect.after.login"/>
+                <argument type="collection">
+                  <argument key="default_target_path">/plateforme</argument>
+                  <argument key="always_use_default_target_path">false</argument>
+                  <argument key="login_path">/login</argument>
+                  <argument key="target_path_parameter">_target_path</argument>
+                  <argument key="use_referer">false</argument>
                 </argument>
-                <argument type="collection"/>
-                <call method="setOptions">
-                  <argument type="collection">
-                    <argument key="default_target_path">/admin/page</argument>
-                    <argument key="always_use_default_target_path">false</argument>
-                    <argument key="login_path">/login</argument>
-                    <argument key="target_path_parameter">_target_path</argument>
-                    <argument key="use_referer">false</argument>
-                  </argument>
-                </call>
-                <call method="setProviderKey">
-                  <argument>main</argument>
-                </call>
+                <argument>main</argument>
               </service>
             </argument>
             <argument type="service">
@@ -2222,7 +2566,7 @@
               </service>
             </argument>
             <argument type="collection">
-              <argument key="check_path">/login_check</argument>
+              <argument key="check_path">fos_user_security_check</argument>
               <argument key="use_forward">false</argument>
               <argument key="require_previous_session">true</argument>
               <argument key="username_parameter">_username</argument>
@@ -2239,7 +2583,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.token_storage"/>
-            <argument>58469e4d32f4e8.30966769</argument>
+            <argument>584990ceb808d4.38670417</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
             <argument type="service" id="security.authentication.manager"/>
           </service>
@@ -2288,6 +2632,17 @@
                   <argument type="service">
                     <service class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
                       <argument>^/admin</argument>
+                    </service>
+                  </argument>
+                  <argument type="collection">
+                    <argument>ROLE_ADMIN</argument>
+                  </argument>
+                  <argument>null</argument>
+                </call>
+                <call method="add">
+                  <argument type="service">
+                    <service class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
+                      <argument>^/user</argument>
                     </service>
                   </argument>
                   <argument type="collection">
@@ -3155,6 +3510,10 @@
           <argument>router</argument>
           <argument>@WebProfiler/Collector/router.html.twig</argument>
         </argument>
+        <argument key="data_collector.translation" type="collection">
+          <argument>translation</argument>
+          <argument>@WebProfiler/Collector/translation.html.twig</argument>
+        </argument>
         <argument key="data_collector.security" type="collection">
           <argument>security</argument>
           <argument>@Security/Collector/security.html.twig</argument>
@@ -3218,6 +3577,9 @@
       <call method="pushHandler">
         <argument type="service" id="monolog.handler.main"/>
       </call>
+      <call method="pushHandler">
+        <argument type="service" id="monolog.handler.debug"/>
+      </call>
     </service>
     <service id="monolog.logger.translation" class="Symfony\Bridge\Monolog\Logger">
       <argument>translation</argument>
@@ -3226,6 +3588,9 @@
       </call>
       <call method="pushHandler">
         <argument type="service" id="monolog.handler.main"/>
+      </call>
+      <call method="pushHandler">
+        <argument type="service" id="monolog.handler.debug"/>
       </call>
     </service>
     <service id="monolog.logger.templating" class="Symfony\Bridge\Monolog\Logger">
@@ -3236,6 +3601,9 @@
       <call method="pushHandler">
         <argument type="service" id="monolog.handler.main"/>
       </call>
+      <call method="pushHandler">
+        <argument type="service" id="monolog.handler.debug"/>
+      </call>
     </service>
     <service id="monolog.logger.profiler" class="Symfony\Bridge\Monolog\Logger">
       <argument>profiler</argument>
@@ -3244,6 +3612,9 @@
       </call>
       <call method="pushHandler">
         <argument type="service" id="monolog.handler.main"/>
+      </call>
+      <call method="pushHandler">
+        <argument type="service" id="monolog.handler.debug"/>
       </call>
     </service>
     <service id="monolog.logger.router" class="Symfony\Bridge\Monolog\Logger">
@@ -3254,6 +3625,9 @@
       <call method="pushHandler">
         <argument type="service" id="monolog.handler.main"/>
       </call>
+      <call method="pushHandler">
+        <argument type="service" id="monolog.handler.debug"/>
+      </call>
     </service>
     <service id="monolog.logger.php" class="Symfony\Bridge\Monolog\Logger">
       <argument>php</argument>
@@ -3263,11 +3637,14 @@
       <call method="pushHandler">
         <argument type="service" id="monolog.handler.main"/>
       </call>
+      <call method="pushHandler">
+        <argument type="service" id="monolog.handler.debug"/>
+      </call>
     </service>
     <service id="monolog.logger.event" class="Symfony\Bridge\Monolog\Logger">
       <argument>event</argument>
       <call method="pushHandler">
-        <argument type="service" id="monolog.handler.null_internal"/>
+        <argument type="service" id="monolog.handler.debug"/>
       </call>
     </service>
     <service id="monolog.logger.security" class="Symfony\Bridge\Monolog\Logger">
@@ -3278,12 +3655,22 @@
       <call method="pushHandler">
         <argument type="service" id="monolog.handler.main"/>
       </call>
+      <call method="pushHandler">
+        <argument type="service" id="monolog.handler.debug"/>
+      </call>
     </service>
     <service id="monolog.logger.doctrine" class="Symfony\Bridge\Monolog\Logger">
       <argument>doctrine</argument>
       <call method="pushHandler">
         <argument type="service" id="monolog.handler.main"/>
       </call>
+      <call method="pushHandler">
+        <argument type="service" id="monolog.handler.debug"/>
+      </call>
+    </service>
+    <service id="monolog.handler.debug" class="Symfony\Bridge\Monolog\Handler\DebugHandler">
+      <argument>100</argument>
+      <argument>true</argument>
     </service>
     <service id="monolog.handler.null_internal" class="Monolog\Handler\NullHandler"/>
     <service id="session.storage.filesystem" class="Symfony\Component\HttpFoundation\Session\Storage\MockFileSessionStorage">
@@ -3298,6 +3685,15 @@
       <argument type="service" id="twig"/>
       <argument type="service" id="templating.name_parser"/>
       <argument type="service" id="templating.locator"/>
+    </service>
+    <service id="translator" class="Symfony\Component\Translation\DataCollectorTranslator">
+      <argument type="service">
+        <service class="Symfony\Component\Translation\LoggingTranslator" public="false">
+          <tag name="monolog.logger" channel="translation"/>
+          <argument type="service" id="translator.default"/>
+          <argument type="service" id="monolog.logger.translation"/>
+        </service>
+      </argument>
     </service>
     <service id="router" class="Symfony\Bundle\FrameworkBundle\Routing\Router">
       <tag name="monolog.logger" channel="router"/>
@@ -3416,6 +3812,9 @@
       </call>
       <call method="pushHandler">
         <argument type="service" id="monolog.handler.main"/>
+      </call>
+      <call method="pushHandler">
+        <argument type="service" id="monolog.handler.debug"/>
       </call>
       <autowiring-type>Psr\Log\LoggerInterface</autowiring-type>
     </service>
