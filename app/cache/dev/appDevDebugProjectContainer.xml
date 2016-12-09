@@ -21,6 +21,7 @@
       <parameter key="PlateFormeBundle">PlateFormeBundle\PlateFormeBundle</parameter>
       <parameter key="UserBundle">UserBundle\UserBundle</parameter>
       <parameter key="FOSJsRoutingBundle">FOS\JsRoutingBundle\FOSJsRoutingBundle</parameter>
+      <parameter key="IvoryCKEditorBundle">Ivory\CKEditorBundle\IvoryCKEditorBundle</parameter>
       <parameter key="DebugBundle">Symfony\Bundle\DebugBundle\DebugBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
       <parameter key="SensioDistributionBundle">Sensio\Bundle\DistributionBundle\SensioDistributionBundle</parameter>
@@ -110,7 +111,7 @@
     <parameter key="session_listener.class">Symfony\Bundle\FrameworkBundle\EventListener\SessionListener</parameter>
     <parameter key="session.storage.options" type="collection">
       <parameter key="cookie_httponly">true</parameter>
-      <parameter key="gc_probability">1</parameter>
+      <parameter key="gc_probability">0</parameter>
     </parameter>
     <parameter key="session.save_path">/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/app/cache/dev/sessions</parameter>
     <parameter key="session.metadata.update_threshold">0</parameter>
@@ -237,12 +238,16 @@
     <parameter key="security.validator.user_password.class">Symfony\Component\Security\Core\Validator\Constraints\UserPasswordValidator</parameter>
     <parameter key="security.expression_language.class">Symfony\Component\Security\Core\Authorization\ExpressionLanguage</parameter>
     <parameter key="security.role_hierarchy.roles" type="collection">
+      <parameter key="ROLE_USER" type="collection">
+        <parameter>ROLE_USER</parameter>
+      </parameter>
       <parameter key="ROLE_MODERATEUR" type="collection">
         <parameter>ROLE_USER</parameter>
       </parameter>
       <parameter key="ROLE_ADMIN" type="collection">
-        <parameter>ROLE_USER</parameter>
         <parameter>ROLE_MODERATEUR</parameter>
+        <parameter>ROLE_USER</parameter>
+        <parameter>ROLE_ADMIN</parameter>
       </parameter>
     </parameter>
     <parameter key="security.authentication.retry_entry_point.class">Symfony\Component\Security\Http\EntryPoint\RetryAuthenticationEntryPoint</parameter>
@@ -311,6 +316,7 @@
     <parameter key="twig.controller.preview_error.class">Symfony\Bundle\TwigBundle\Controller\PreviewErrorController</parameter>
     <parameter key="twig.exception_listener.controller">twig.controller.exception:showAction</parameter>
     <parameter key="twig.form.resources" type="collection">
+      <parameter>IvoryCKEditorBundle:Form:ckeditor_widget.html.twig</parameter>
       <parameter>form_div_layout.html.twig</parameter>
     </parameter>
     <parameter key="monolog.logger.class">Symfony\Bridge\Monolog\Logger</parameter>
@@ -685,12 +691,16 @@
     </service>
     <service id="app_roles_helper" class="UserBundle\Services\RolesHelper">
       <argument type="collection">
+        <argument key="ROLE_USER" type="collection">
+          <argument>ROLE_USER</argument>
+        </argument>
         <argument key="ROLE_MODERATEUR" type="collection">
           <argument>ROLE_USER</argument>
         </argument>
         <argument key="ROLE_ADMIN" type="collection">
-          <argument>ROLE_USER</argument>
           <argument>ROLE_MODERATEUR</argument>
+          <argument>ROLE_USER</argument>
+          <argument>ROLE_ADMIN</argument>
         </argument>
       </argument>
     </service>
@@ -1462,7 +1472,7 @@
     <service id="session.storage.native" class="Symfony\Component\HttpFoundation\Session\Storage\NativeSessionStorage">
       <argument type="collection">
         <argument key="cookie_httponly">true</argument>
-        <argument key="gc_probability">1</argument>
+        <argument key="gc_probability">0</argument>
       </argument>
       <argument>null</argument>
       <argument type="service" id="session.storage.metadata_bag"/>
@@ -1569,6 +1579,8 @@
               <argument key="FOS\UserBundle\Form\Type\ChangePasswordFormType">fos_user.change_password.form.type</argument>
               <argument key="fos_user_resetting">fos_user.resetting.form.type</argument>
               <argument key="FOS\UserBundle\Form\Type\ResettingFormType">fos_user.resetting.form.type</argument>
+              <argument key="ckeditor">ivory_ck_editor.form.type</argument>
+              <argument key="Ivory\CKEditorBundle\Form\Type\CKEditorType">ivory_ck_editor.form.type</argument>
             </argument>
             <argument type="collection">
               <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="collection">
@@ -2302,7 +2314,7 @@
         </argument>
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>584a68b3823815.28493837</argument>
+            <argument>584a9156e25104.95502663</argument>
           </service>
         </argument>
       </argument>
@@ -2355,12 +2367,16 @@
     </service>
     <service id="security.role_hierarchy" class="Symfony\Component\Security\Core\Role\RoleHierarchy" public="false">
       <argument type="collection">
+        <argument key="ROLE_USER" type="collection">
+          <argument>ROLE_USER</argument>
+        </argument>
         <argument key="ROLE_MODERATEUR" type="collection">
           <argument>ROLE_USER</argument>
         </argument>
         <argument key="ROLE_ADMIN" type="collection">
-          <argument>ROLE_USER</argument>
           <argument>ROLE_MODERATEUR</argument>
+          <argument>ROLE_USER</argument>
+          <argument>ROLE_ADMIN</argument>
         </argument>
       </argument>
     </service>
@@ -2466,7 +2482,7 @@
                 <call method="add">
                   <argument type="service">
                     <service class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
-                      <argument>^/user</argument>
+                      <argument>^/plateforme/admin/user</argument>
                     </service>
                   </argument>
                   <argument type="collection">
@@ -2583,7 +2599,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.token_storage"/>
-            <argument>584a68b3823815.28493837</argument>
+            <argument>584a9156e25104.95502663</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
             <argument type="service" id="security.authentication.manager"/>
           </service>
@@ -2642,7 +2658,7 @@
                 <call method="add">
                   <argument type="service">
                     <service class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
-                      <argument>^/user</argument>
+                      <argument>^/plateforme/admin/user</argument>
                     </service>
                   </argument>
                   <argument type="collection">
@@ -2834,6 +2850,7 @@
                 <argument type="service">
                   <service class="Symfony\Bridge\Twig\Form\TwigRendererEngine" public="false">
                     <argument type="collection">
+                      <argument>IvoryCKEditorBundle:Form:ckeditor_widget.html.twig</argument>
                       <argument>form_div_layout.html.twig</argument>
                     </argument>
                   </service>
@@ -2860,6 +2877,9 @@
       </call>
       <call method="addExtension">
         <argument type="service" id="mobile_detect.twig.extension"/>
+      </call>
+      <call method="addExtension">
+        <argument type="service" id="ivory_ck_editor.twig_extension"/>
       </call>
       <call method="addExtension">
         <argument type="service">
@@ -3418,6 +3438,7 @@
         <argument key="PlateFormeBundle">PlateFormeBundle\PlateFormeBundle</argument>
         <argument key="UserBundle">UserBundle\UserBundle</argument>
         <argument key="FOSJsRoutingBundle">FOS\JsRoutingBundle\FOSJsRoutingBundle</argument>
+        <argument key="IvoryCKEditorBundle">Ivory\CKEditorBundle\IvoryCKEditorBundle</argument>
         <argument key="DebugBundle">Symfony\Bundle\DebugBundle\DebugBundle</argument>
         <argument key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</argument>
         <argument key="SensioDistributionBundle">Sensio\Bundle\DistributionBundle\SensioDistributionBundle</argument>
@@ -3443,6 +3464,114 @@
           <service class="Symfony\Component\Serializer\Encoder\JsonEncoder" public="false"/>
         </argument>
       </argument>
+    </service>
+    <service id="ivory_ck_editor.form.type" class="Ivory\CKEditorBundle\Form\Type\CKEditorType">
+      <tag name="form.type" alias="ckeditor"/>
+      <argument type="service" id="ivory_ck_editor.config_manager"/>
+      <argument type="service" id="ivory_ck_editor.plugin_manager"/>
+      <argument type="service" id="ivory_ck_editor.styles_set_manager"/>
+      <argument type="service" id="ivory_ck_editor.template_manager"/>
+    </service>
+    <service id="ivory_ck_editor.config_manager" class="Ivory\CKEditorBundle\Model\ConfigManager">
+      <call method="setConfig">
+        <argument>my_config</argument>
+        <argument type="collection">
+          <argument key="toolbar" type="collection">
+            <argument type="collection">
+              <argument>Preview</argument>
+            </argument>
+            <argument type="collection">
+              <argument>Cut</argument>
+              <argument>Copy</argument>
+              <argument>Paste</argument>
+              <argument>PasteText</argument>
+              <argument>PasteFromWord</argument>
+              <argument>-</argument>
+              <argument>Undo</argument>
+              <argument>Redo</argument>
+            </argument>
+            <argument type="collection">
+              <argument>Find</argument>
+              <argument>Replace</argument>
+              <argument>-</argument>
+              <argument>SelectAll</argument>
+              <argument>-</argument>
+              <argument>SpellChecker</argument>
+              <argument>Scayt</argument>
+            </argument>
+            <argument>/</argument>
+            <argument type="collection">
+              <argument>Bold</argument>
+              <argument>Italic</argument>
+              <argument>Underline</argument>
+              <argument>Strike</argument>
+              <argument>Blockquote</argument>
+              <argument>Subscript</argument>
+              <argument>Superscript</argument>
+              <argument>-</argument>
+              <argument>RemoveFormat</argument>
+            </argument>
+            <argument type="collection">
+              <argument>NumberedList</argument>
+              <argument>BulletedList</argument>
+              <argument>-</argument>
+              <argument>Outdent</argument>
+              <argument>Indent</argument>
+              <argument>-</argument>
+              <argument>-</argument>
+              <argument>JustifyLeft</argument>
+              <argument>JustifyCenter</argument>
+              <argument>JustifyRight</argument>
+              <argument>JustifyBlock</argument>
+            </argument>
+            <argument type="collection">
+              <argument>Link</argument>
+              <argument>Unlink</argument>
+              <argument>Anchor</argument>
+            </argument>
+            <argument type="collection">
+              <argument>pbckcode</argument>
+              <argument>Image</argument>
+              <argument>Video</argument>
+              <argument>Table</argument>
+              <argument>SpecialChar</argument>
+              <argument>Iframe</argument>
+            </argument>
+            <argument>/</argument>
+            <argument type="collection">
+              <argument>Styles</argument>
+              <argument>Format</argument>
+              <argument>Font</argument>
+              <argument>FontSize</argument>
+            </argument>
+            <argument type="collection">
+              <argument>TextColor</argument>
+              <argument>BGColor</argument>
+            </argument>
+            <argument type="collection">
+              <argument>RemoveFormat</argument>
+            </argument>
+            <argument type="collection">
+              <argument>Maximize</argument>
+            </argument>
+          </argument>
+          <argument key="language">fr</argument>
+          <argument key="uiColor">null</argument>
+        </argument>
+      </call>
+      <call method="setDefaultConfig">
+        <argument>my_config</argument>
+      </call>
+    </service>
+    <service id="ivory_ck_editor.plugin_manager" class="Ivory\CKEditorBundle\Model\PluginManager"/>
+    <service id="ivory_ck_editor.styles_set_manager" class="Ivory\CKEditorBundle\Model\StylesSetManager"/>
+    <service id="ivory_ck_editor.template_manager" class="Ivory\CKEditorBundle\Model\TemplateManager"/>
+    <service id="ivory_ck_editor.renderer" class="Ivory\CKEditorBundle\Renderer\CKEditorRenderer">
+      <argument type="service" id="service_container"/>
+    </service>
+    <service id="ivory_ck_editor.twig_extension" class="Ivory\CKEditorBundle\Twig\CKEditorExtension">
+      <tag name="twig.extension"/>
+      <argument type="service" id="ivory_ck_editor.renderer"/>
     </service>
     <service id="data_collector.dump" class="Symfony\Component\HttpKernel\DataCollector\DumpDataCollector">
       <tag name="data_collector" id="dump" template="@Debug/Profiler/dump.html.twig" priority="240"/>
@@ -3758,6 +3887,10 @@
       <call method="addPath">
         <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/src/UserBundle/Resources/views</argument>
         <argument>User</argument>
+      </call>
+      <call method="addPath">
+        <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/egeloen/ckeditor-bundle/Resources/views</argument>
+        <argument>IvoryCKEditor</argument>
       </call>
       <call method="addPath">
         <argument>/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle/Resources/views</argument>
