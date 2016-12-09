@@ -8,7 +8,9 @@ services:
 #   User Service
     app.form.registration:
         class: UserBundle\Form\RegistrationType
+
         arguments: [%fos_user.model.user.class%, @app_roles_helper]
+
         tags:
             - { name: form.type, alias: app_user_registration }
     app_roles_helper:
@@ -19,7 +21,7 @@ services:
     language.change:
         class: HarasBundle\Services\languageChange
     app.exception_controller:
-        class: HarasBundle\Controller\CustomExceptionController
+        class: HarasBundle\Controller\ExceptionController
         arguments: ['@twig', '%kernel.debug%']
     media.interface:
         class: HarasBundle\Services\mediaInterface

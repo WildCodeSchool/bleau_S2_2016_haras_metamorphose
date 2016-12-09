@@ -3,10 +3,10 @@
 // ********************************************************************
 jQuery(document).ready(function($) {
 
-    console.log('jQuery de main.js a démarré le test est bon');
+    console.log('jQuery de main.js a démarré : ligne 6');
     init_plateforme();
-    gestionSlider();
-    autoplay();
+    //gestionSlider();
+    //autoplay();
     /*click_droit_off();*/
 
     // RETOUR VERS LE HAUT
@@ -24,6 +24,9 @@ jQuery(document).ready(function($) {
     // initialisation des listbox (select)
     selecteur();
 
+    // FONCTION BOITE MODALE
+    // modal();
+
 });
 
 // ********************************************************************
@@ -32,8 +35,9 @@ jQuery(document).ready(function($) {
 
 function init_plateforme()
 {
+    console.log('APP.JS - FONCTION INIT_PLATEFORME a démarré : ligne 38');
     // pour le menu hamburger
-    $(".button-collapse").sideNav();
+    $('.button-collapse').sideNav();
     $('#contact-body').hide();
 
 
@@ -41,11 +45,6 @@ function init_plateforme()
     $("#access-body").hide().show(2000).css("display" ,"block");
 
     $('#textarea1').trigger('autoresize');
-
-    $('.modal-trigger').leanModal();
-    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-    // $('.modal').leanModal();
-
 
     $(".dropdown-button").dropdown();
 
@@ -56,11 +55,16 @@ function init_plateforme()
 // ********************************************************************
 
 function autoplay() {
+
+    console.log('APP.JS - FONCTION AUTOPLAY a démarré : ligne 38');
+
     $('.carousel').carousel('next');
     setTimeout(autoplay, 4500);
 }
 
 function gestionSlider() {
+
+    console.log('APP.JS - FONCTION GESTIONSLIDER a démarré : ligne 67');
 
     $('.carousel.carousel-slider').carousel({full_width: true, indicators: true});
     $('.carousel').carousel({
@@ -73,6 +77,9 @@ function gestionSlider() {
 // ********************************************************************
 
 function retour_haut() {
+
+    console.log('APP.JS - FONCTION RETOUR_HAUT a démarré : ligne 81');
+
     $('body').prepend('<a href="#" class="back-to-top">Back to Top</a>');
 
     var amountScrolled = 300;
@@ -99,6 +106,8 @@ function retour_haut() {
 
 function gere_facebook() {
 
+    console.log('APP.JS - FONCTION GERE_FACEBOOK a démarré : ligne 109');
+
     (function(d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) return;
@@ -115,17 +124,25 @@ function gere_facebook() {
 
 function selecteur() {
 
-    // console.log('ma fonction')
-    $('select').material_select();
+    console.log('APP.JS - FONCTION SELECTEUR a démarré : ligne 127');
+    $(document).ready(function () {
+        // Materialize.updateTextFields();
+        $('select').material_select();
+    });
 
 }
 
 // ********************************************************************
-// *                    material select
+// *                    CALENDAR MODAL NEW
 // ********************************************************************
 
-
-$(document).ready(function () {
-    Materialize.updateTextFields();
-    $('select').material_select();
-});
+// function modal() {
+//
+//     console.log('APP.JS - FONCTION MODAL a démarré : ligne 140');
+//
+//     $(document).ready(function(){
+//         $('#modal1').modal();
+//
+//         $('#modal2').modal();
+//     });
+// }

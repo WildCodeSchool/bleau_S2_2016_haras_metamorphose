@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Agendas list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Start</th>
+                <th>End</th>
+                <th>Titre</th>
+                <th>Texte</th>
+                <th>Lieu</th>
+                <th>Couleur</th>
+                <th>Slider</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for agenda in agendas %}
+            <tr>
+                <td><a href="{{ path('agenda_show', { 'id': agenda.id }) }}">{{ agenda.id }}</a></td>
+                <td>{% if agenda.start %}{{ agenda.start|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if agenda.end %}{{ agenda.end|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ agenda.titre }}</td>
+                <td>{{ agenda.texte }}</td>
+                <td>{{ agenda.lieu }}</td>
+                <td>{{ agenda.couleur }}</td>
+                <td>{% if agenda.slider %}Yes{% else %}No{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('agenda_show', { 'id': agenda.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('agenda_edit', { 'id': agenda.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('agenda_new') }}">Create a new agenda</a>
+        </li>
+    </ul>
+{% endblock %}

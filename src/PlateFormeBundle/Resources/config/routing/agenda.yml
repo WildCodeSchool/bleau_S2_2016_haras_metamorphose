@@ -1,0 +1,30 @@
+agenda_index:
+    path:     /events_json
+    defaults: { _controller: "PlateFormeBundle:Calendar:index" }
+    methods:  GET
+    options:
+        expose: true
+
+agenda:
+    path: /
+    defaults: { _controller: "PlateFormeBundle:Default:calendar_index" }
+
+agenda_show:
+    path:     /{id}/show
+    defaults: { _controller: "PlateFormeBundle:Agenda:show" }
+    methods:  GET
+
+agenda_new:
+    path:     /{start}/new
+    defaults: { _controller: "PlateFormeBundle:Agenda:new", start: 0 }
+    methods:  [GET, POST]
+
+agenda_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "PlateFormeBundle:Agenda:edit" }
+    methods:  [GET, POST]
+
+agenda_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "PlateFormeBundle:Agenda:delete" }
+    methods:  DELETE
