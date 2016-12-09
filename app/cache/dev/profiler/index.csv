@@ -944,3 +944,14 @@ bc98e2,::1,GET,http://localhost/bleau_S2_2016_haras_metamorphose/web/app_dev.php
 c855bc,::1,GET,http://localhost/bleau_S2_2016_haras_metamorphose/web/app_dev.php/plateforme/register/,1481216289,,200
 1f19e5,::1,GET,http://localhost/bleau_S2_2016_haras_metamorphose/web/app_dev.php/plateforme/login/,1481216294,,200
 fa74b7,::1,GET,http://localhost/bleau_S2_2016_haras_metamorphose/web/app_dev.php/plateforme/js/routing?callback=fos.Router.setData,1481216295,,200
+17a4d8,::1,GET,http://localhost/bleau_S2_2016_haras_metamorphose/web/app_dev.php/plateforme/,1481216712,,200
+53b107,::1,GET,http://localhost/bleau_S2_2016_haras_metamorphose/web/app_dev.php/plateforme/js/routing?callback=fos.Router.setData,1481216714,,200
+b01c71,::1,GET,http://localhost/bleau_S2_2016_haras_metamorphose/web/app_dev.php/plateforme/agenda/,1481216728,,200
+603640,::1,GET,http://localhost/bleau_S2_2016_haras_metamorphose/web/app_dev.php/plateforme/js/routing?callback=fos.Router.setData,1481216729,,200
+90a350,::1,GET,http://localhost/bleau_S2_2016_haras_metamorphose/web/app_dev.php/plateforme/agenda/events_json?_=1481216729570&end=2017-01-09&start=2016-11-28,1481216730,,200
+102fa1,::1,GET,http://localhost/bleau_S2_2016_haras_metamorphose/web/app_dev.php/plateforme/agenda/2/edit,1481216735,,200
+d38860,::1,GET,http://localhost/bleau_S2_2016_haras_metamorphose/web/app_dev.php/plateforme/agenda/2016-12-16/new,1481216736,,200
+151833,::1,GET,http://localhost/bleau_S2_2016_haras_metamorphose/web/app_dev.php/plateforme/agenda/events_json?_=1481216739754&end=2017-01-09&start=2016-11-28,1481216740,,200
+2f41c1,::1,GET,http://localhost/bleau_S2_2016_haras_metamorphose/web/app_dev.php/plateforme/agenda/2/edit,1481216742,,200
+fea5fe,::1,GET,http://localhost/bleau_S2_2016_haras_metamorphose/web/app_dev.php/plateforme/agenda/events_json?_=1481216745289&end=2017-01-09&start=2016-11-28,1481216746,,200
+c45734,::1,GET,http://localhost/bleau_S2_2016_haras_metamorphose/web/app_dev.php/plateforme/agenda/2/edit,1481216748,,200

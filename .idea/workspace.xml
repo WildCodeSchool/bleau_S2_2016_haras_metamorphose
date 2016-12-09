@@ -2,56 +2,69 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bcfb5011-fc73-4e58-b3e0-b6f7d6a053bd" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/PlateFormeBundle/Resources/views/fullcalendar/lib/cupertino/images/ui-bg_diagonals-thick_90_eeeeee_40x40.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/PlateFormeBundle/Resources/views/fullcalendar/lib/cupertino/images/ui-bg_glass_100_e4f1fb_1x400.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/PlateFormeBundle/Resources/views/fullcalendar/lib/cupertino/images/ui-bg_glass_50_3baae3_1x400.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/PlateFormeBundle/Resources/views/fullcalendar/lib/cupertino/images/ui-bg_glass_80_d7ebf9_1x400.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/PlateFormeBundle/Resources/views/fullcalendar/lib/cupertino/images/ui-bg_highlight-hard_100_f2f5f7_1x100.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/PlateFormeBundle/Resources/views/fullcalendar/lib/cupertino/images/ui-bg_highlight-hard_70_000000_1x100.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/PlateFormeBundle/Resources/views/fullcalendar/lib/cupertino/images/ui-bg_highlight-soft_100_deedf7_1x100.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/PlateFormeBundle/Resources/views/fullcalendar/lib/cupertino/images/ui-bg_highlight-soft_25_ffef8f_1x100.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/PlateFormeBundle/Resources/views/fullcalendar/lib/cupertino/images/ui-icons_2694e8_256x240.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/PlateFormeBundle/Resources/views/fullcalendar/lib/cupertino/images/ui-icons_2e83ff_256x240.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/PlateFormeBundle/Resources/views/fullcalendar/lib/cupertino/images/ui-icons_3d80b3_256x240.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/PlateFormeBundle/Resources/views/fullcalendar/lib/cupertino/images/ui-icons_72a7cf_256x240.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/PlateFormeBundle/Resources/views/fullcalendar/lib/cupertino/images/ui-icons_ffffff_256x240.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/HarasBundle/Resources/public/scripts/calendar/calendar-events.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/HarasBundle/Resources/public/scripts/calendar/fullcalendar.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/HarasBundle/Resources/public/scripts/calendar/fullcalendar.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/HarasBundle/Resources/public/scripts/calendar/jquery-ui.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/HarasBundle/Resources/public/scripts/calendar/jquery.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/HarasBundle/Resources/public/scripts/calendar/moment.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/HarasBundle/Resources/public/scripts/materialize.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/HarasBundle/Resources/public/styles/stylesheets/calendar/calendar_main.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/HarasBundle/Resources/public/styles/stylesheets/calendar/fullcalendar.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/HarasBundle/Resources/public/styles/stylesheets/calendar/fullcalendar.print.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/PlateFormeBundle/Controller/AgendaController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/PlateFormeBundle/Controller/CalendarController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/PlateFormeBundle/Form/AgendaType.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/PlateFormeBundle/Resources/config/routing/agenda.yml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/PlateFormeBundle/Resources/config/services.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/PlateFormeBundle/Resources/views/agenda/edit.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/PlateFormeBundle/Resources/views/agenda/index.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/PlateFormeBundle/Resources/views/agenda/new.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/PlateFormeBundle/Resources/views/agenda/show.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/PlateFormeBundle/Resources/views/fullcalendar/views/agenda-views.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/PlateFormeBundle/Resources/views/fullcalendar/views/background-events.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/PlateFormeBundle/Resources/views/fullcalendar/views/php/get-events.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/PlateFormeBundle/Resources/views/fullcalendar/views/php/get-timezones.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/PlateFormeBundle/Resources/views/fullcalendar/views/php/utils.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/PlateFormeBundle/Tests/Controller/AgendaControllerTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/AppKernel.php" afterPath="$PROJECT_DIR$/app/AppKernel.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/config.yml" afterPath="$PROJECT_DIR$/app/config/config.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/services.yml" afterPath="$PROJECT_DIR$/app/config/services.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.json" afterPath="$PROJECT_DIR$/composer.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.lock" afterPath="$PROJECT_DIR$/composer.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/HarasBundle/Resources/public/scripts/main.js" afterPath="$PROJECT_DIR$/src/HarasBundle/Resources/public/scripts/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PlateFormeBundle/Controller/DefaultController.php" afterPath="$PROJECT_DIR$/src/PlateFormeBundle/Controller/DefaultController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PlateFormeBundle/Entity/Agenda.php" afterPath="$PROJECT_DIR$/src/PlateFormeBundle/Entity/Agenda.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PlateFormeBundle/Resources/config/doctrine/Agenda.orm.yml" afterPath="$PROJECT_DIR$/src/PlateFormeBundle/Resources/config/doctrine/Agenda.orm.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PlateFormeBundle/Resources/config/routing.yml" afterPath="$PROJECT_DIR$/src/PlateFormeBundle/Resources/config/routing.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PlateFormeBundle/Resources/views/Default/basePlateforme.html.twig" afterPath="$PROJECT_DIR$/src/PlateFormeBundle/Resources/views/Default/basePlateforme.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PlateFormeBundle/Resources/views/Default/index.html.twig" afterPath="$PROJECT_DIR$/src/PlateFormeBundle/Resources/views/Default/index.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/cache/dev/annotations/0f/5b5b435d506c617465466f726d6542756e646c655c436f6e74726f6c6c65725c4167656e6461436f6e74726f6c6c65722365646974416374696f6e5d5b315d.doctrinecache.data" afterPath="$PROJECT_DIR$/app/cache/dev/annotations/0f/5b5b435d506c617465466f726d6542756e646c655c436f6e74726f6c6c65725c4167656e6461436f6e74726f6c6c65722365646974416374696f6e5d5b315d.doctrinecache.data" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/cache/dev/annotations/39/5b5b435d53796d666f6e795c42756e646c655c57656250726f66696c657242756e646c655c436f6e74726f6c6c65725c50726f66696c6572436f6e74726f6c6c657223746f6f6c626172416374696f6e5d5b315d.doctrinecache.data" afterPath="$PROJECT_DIR$/app/cache/dev/annotations/39/5b5b435d53796d666f6e795c42756e646c655c57656250726f66696c657242756e646c655c436f6e74726f6c6c65725c50726f66696c6572436f6e74726f6c6c657223746f6f6c626172416374696f6e5d5b315d.doctrinecache.data" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/cache/dev/annotations/49/5b5b435d506c617465466f726d6542756e646c655c436f6e74726f6c6c65725c43616c656e646172436f6e74726f6c6c65725d5b315d.doctrinecache.data" afterPath="$PROJECT_DIR$/app/cache/dev/annotations/49/5b5b435d506c617465466f726d6542756e646c655c436f6e74726f6c6c65725c43616c656e646172436f6e74726f6c6c65725d5b315d.doctrinecache.data" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/cache/dev/annotations/66/5b5b435d506c617465466f726d6542756e646c655c436f6e74726f6c6c65725c43616c656e646172436f6e74726f6c6c657223696e646578416374696f6e5d5b315d.doctrinecache.data" afterPath="$PROJECT_DIR$/app/cache/dev/annotations/66/5b5b435d506c617465466f726d6542756e646c655c436f6e74726f6c6c65725c43616c656e646172436f6e74726f6c6c657223696e646578416374696f6e5d5b315d.doctrinecache.data" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/cache/dev/annotations/68/5b5b435d506c617465466f726d6542756e646c655c436f6e74726f6c6c65725c44656661756c74436f6e74726f6c6c657223696e646578416374696f6e5d5b315d.doctrinecache.data" afterPath="$PROJECT_DIR$/app/cache/dev/annotations/68/5b5b435d506c617465466f726d6542756e646c655c436f6e74726f6c6c65725c44656661756c74436f6e74726f6c6c657223696e646578416374696f6e5d5b315d.doctrinecache.data" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/cache/dev/annotations/78/5b5b435d53796d666f6e795c42756e646c655c57656250726f66696c657242756e646c655c436f6e74726f6c6c65725c50726f66696c6572436f6e74726f6c6c65725d5b315d.doctrinecache.data" afterPath="$PROJECT_DIR$/app/cache/dev/annotations/78/5b5b435d53796d666f6e795c42756e646c655c57656250726f66696c657242756e646c655c436f6e74726f6c6c65725c50726f66696c6572436f6e74726f6c6c65725d5b315d.doctrinecache.data" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/cache/dev/annotations/7a/5b5b435d506c617465466f726d6542756e646c655c436f6e74726f6c6c65725c4167656e6461436f6e74726f6c6c65725d5b315d.doctrinecache.data" afterPath="$PROJECT_DIR$/app/cache/dev/annotations/7a/5b5b435d506c617465466f726d6542756e646c655c436f6e74726f6c6c65725c4167656e6461436f6e74726f6c6c65725d5b315d.doctrinecache.data" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/cache/dev/annotations/8c/5b5b435d464f535c4a73526f7574696e6742756e646c655c436f6e74726f6c6c65725c436f6e74726f6c6c65725d5b315d.doctrinecache.data" afterPath="$PROJECT_DIR$/app/cache/dev/annotations/8c/5b5b435d464f535c4a73526f7574696e6742756e646c655c436f6e74726f6c6c65725c436f6e74726f6c6c65725d5b315d.doctrinecache.data" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/cache/dev/annotations/a4/5b5b435d506c617465466f726d6542756e646c655c436f6e74726f6c6c65725c44656661756c74436f6e74726f6c6c65725d5b315d.doctrinecache.data" afterPath="$PROJECT_DIR$/app/cache/dev/annotations/a4/5b5b435d506c617465466f726d6542756e646c655c436f6e74726f6c6c65725c44656661756c74436f6e74726f6c6c65725d5b315d.doctrinecache.data" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/cache/dev/annotations/bc/5b5b435d506c617465466f726d6542756e646c655c436f6e74726f6c6c65725c44656661756c74436f6e74726f6c6c65722363616c656e6461725f696e646578416374696f6e5d5b315d.doctrinecache.data" afterPath="$PROJECT_DIR$/app/cache/dev/annotations/bc/5b5b435d506c617465466f726d6542756e646c655c436f6e74726f6c6c65725c44656661756c74436f6e74726f6c6c65722363616c656e6461725f696e646578416374696f6e5d5b315d.doctrinecache.data" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/cache/dev/annotations/ff/5b5b435d464f535c4a73526f7574696e6742756e646c655c436f6e74726f6c6c65725c436f6e74726f6c6c657223696e646578416374696f6e5d5b315d.doctrinecache.data" afterPath="$PROJECT_DIR$/app/cache/dev/annotations/ff/5b5b435d464f535c4a73526f7574696e6742756e646c655c436f6e74726f6c6c65725c436f6e74726f6c6c657223696e646578416374696f6e5d5b315d.doctrinecache.data" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/cache/dev/annotations/ff/5b5b435d506c617465466f726d6542756e646c655c436f6e74726f6c6c65725c4167656e6461436f6e74726f6c6c6572236e6577416374696f6e5d5b315d.doctrinecache.data" afterPath="$PROJECT_DIR$/app/cache/dev/annotations/ff/5b5b435d506c617465466f726d6542756e646c655c436f6e74726f6c6c65725c4167656e6461436f6e74726f6c6c6572236e6577416374696f6e5d5b315d.doctrinecache.data" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/cache/dev/appDevDebugProjectContainer.php" afterPath="$PROJECT_DIR$/app/cache/dev/appDevDebugProjectContainer.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/cache/dev/appDevDebugProjectContainer.xml" afterPath="$PROJECT_DIR$/app/cache/dev/appDevDebugProjectContainer.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/cache/dev/classes.php" afterPath="$PROJECT_DIR$/app/cache/dev/classes.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/cache/dev/classes.php.meta" afterPath="$PROJECT_DIR$/app/cache/dev/classes.php.meta" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/cache/dev/profiler/index.csv" afterPath="$PROJECT_DIR$/app/cache/dev/profiler/index.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/cache/dev/twig/03/03474456e47b54476fc95bfae57b1c0008e07399903f7f2eed850cd364a3ed2d.php" afterPath="$PROJECT_DIR$/app/cache/dev/twig/03/03474456e47b54476fc95bfae57b1c0008e07399903f7f2eed850cd364a3ed2d.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/cache/dev/twig/0b/0b907322075d4f8d8ef9fd575cb6847fbf4af701c8a7753bf36db2d591df750f.php" afterPath="$PROJECT_DIR$/app/cache/dev/twig/0b/0b907322075d4f8d8ef9fd575cb6847fbf4af701c8a7753bf36db2d591df750f.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/cache/dev/twig/0e/0ec27ed342fdc1274e6a2b21330664f454d1d7ebaa2b6d70891b6c2e1c867879.php" afterPath="$PROJECT_DIR$/app/cache/dev/twig/0e/0ec27ed342fdc1274e6a2b21330664f454d1d7ebaa2b6d70891b6c2e1c867879.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/cache/dev/twig/1e/1e833f8eec1ae9ba02b2888dbb191e070cf334db0c0e0743ce38fa061c27d217.php" afterPath="$PROJECT_DIR$/app/cache/dev/twig/1e/1e833f8eec1ae9ba02b2888dbb191e070cf334db0c0e0743ce38fa061c27d217.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/cache/dev/twig/25/2519f6ff92125448d805b539a2a5c765a09268d4fbfbe2d89847f1df3601aa80.php" afterPath="$PROJECT_DIR$/app/cache/dev/twig/25/2519f6ff92125448d805b539a2a5c765a09268d4fbfbe2d89847f1df3601aa80.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/cache/dev/twig/25/25a74af2f0d8baf7aae94978f270c452584d11ec9575d0bbff7d90a430b3b3ca.php" afterPath="$PROJECT_DIR$/app/cache/dev/twig/25/25a74af2f0d8baf7aae94978f270c452584d11ec9575d0bbff7d90a430b3b3ca.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/cache/dev/twig/26/2649c3d43e58954522529526c886c7a6a183d9a71b2e686f2908928d64771d39.php" afterPath="$PROJECT_DIR$/app/cache/dev/twig/26/2649c3d43e58954522529526c886c7a6a183d9a71b2e686f2908928d64771d39.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/cache/dev/twig/2b/2b5d394f560ab1617d71eded3ebf880d27ac27740185c918506c54a98b247e88.php" afterPath="$PROJECT_DIR$/app/cache/dev/twig/2b/2b5d394f560ab1617d71eded3ebf880d27ac27740185c918506c54a98b247e88.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/cache/dev/twig/3d/3dfea9753b5fdde6b8280d04e49a8bf42566798298211f1ccc62dcc8db53a918.php" afterPath="$PROJECT_DIR$/app/cache/dev/twig/3d/3dfea9753b5fdde6b8280d04e49a8bf42566798298211f1ccc62dcc8db53a918.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/cache/dev/twig/3e/3efc02e4aa731467b696387011acc25544446281a86d5676f72fff0d675e774b.php" afterPath="$PROJECT_DIR$/app/cache/dev/twig/3e/3efc02e4aa731467b696387011acc25544446281a86d5676f72fff0d675e774b.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/cache/dev/twig/44/449efd4dcb48234e7fccf257a9af55d1e2334f905eaccb6713f9283458fc1638.php" afterPath="$PROJECT_DIR$/app/cache/dev/twig/44/449efd4dcb48234e7fccf257a9af55d1e2334f905eaccb6713f9283458fc1638.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/cache/dev/twig/47/4710cad2189e232cc96dd404f374e9224117b4d589237048c2a87038ae5062bc.php" afterPath="$PROJECT_DIR$/app/cache/dev/twig/47/4710cad2189e232cc96dd404f374e9224117b4d589237048c2a87038ae5062bc.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/cache/dev/twig/5d/5da002ff8fa4195136442f0f57af41d58d4bb4c76448db6213ca7d4cbb7ed299.php" afterPath="$PROJECT_DIR$/app/cache/dev/twig/5d/5da002ff8fa4195136442f0f57af41d58d4bb4c76448db6213ca7d4cbb7ed299.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/cache/dev/twig/62/627b92214bc3e29d740e292215a43c2a7ff2db1328686c774eba94e03debf276.php" afterPath="$PROJECT_DIR$/app/cache/dev/twig/62/627b92214bc3e29d740e292215a43c2a7ff2db1328686c774eba94e03debf276.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/cache/dev/twig/64/64864e155f9620840832cc7a4ec0533f908659c238eed7004a64a1ab74a02f5d.php" afterPath="$PROJECT_DIR$/app/cache/dev/twig/64/64864e155f9620840832cc7a4ec0533f908659c238eed7004a64a1ab74a02f5d.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/cache/dev/twig/68/682adfc4f2a7428cdb1ceadac26261be05ec34b208ccaab6a3b2b746f74af9af.php" afterPath="$PROJECT_DIR$/app/cache/dev/twig/68/682adfc4f2a7428cdb1ceadac26261be05ec34b208ccaab6a3b2b746f74af9af.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/cache/dev/twig/69/69f4235cc0ba40ea320f26670f8bc09a1651eb4917b6aa56b178849ec3423f9c.php" afterPath="$PROJECT_DIR$/app/cache/dev/twig/69/69f4235cc0ba40ea320f26670f8bc09a1651eb4917b6aa56b178849ec3423f9c.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/cache/dev/twig/6a/6a06f8325c18519e101e31222f3f0e736dfda0f58c34cc10b9098ccc23ca27f1.php" afterPath="$PROJECT_DIR$/app/cache/dev/twig/6a/6a06f8325c18519e101e31222f3f0e736dfda0f58c34cc10b9098ccc23ca27f1.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/cache/dev/twig/7a/7a9248a4d193d2830378b10f7fd363b4d2d9a3ad9cc7b2c2d00854bbc7a4c0cc.php" afterPath="$PROJECT_DIR$/app/cache/dev/twig/7a/7a9248a4d193d2830378b10f7fd363b4d2d9a3ad9cc7b2c2d00854bbc7a4c0cc.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/cache/dev/twig/7b/7b218f477a1563ad73f48a65902bf99d73e6d2f19e3d1b8f7e4a302c0775f54f.php" afterPath="$PROJECT_DIR$/app/cache/dev/twig/7b/7b218f477a1563ad73f48a65902bf99d73e6d2f19e3d1b8f7e4a302c0775f54f.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/cache/dev/twig/84/8443688e8832fbfaf6f3c2c9c1fa7646fba00801419f7dc0671ca8478cf8e921.php" afterPath="$PROJECT_DIR$/app/cache/dev/twig/84/8443688e8832fbfaf6f3c2c9c1fa7646fba00801419f7dc0671ca8478cf8e921.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/cache/dev/twig/87/87c672ddcfcc58f06d5c70beb68f3c53b9c431652fdaa0e478e99fe675a74220.php" afterPath="$PROJECT_DIR$/app/cache/dev/twig/87/87c672ddcfcc58f06d5c70beb68f3c53b9c431652fdaa0e478e99fe675a74220.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/cache/dev/twig/8f/8f47ab9959950da25c0bc5f833f4f86ac5ef3ec047043558706537f3adafbd12.php" afterPath="$PROJECT_DIR$/app/cache/dev/twig/8f/8f47ab9959950da25c0bc5f833f4f86ac5ef3ec047043558706537f3adafbd12.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/cache/dev/twig/91/91dcdf356bd7f4255392b943d7fcd3958ec821b1d18041433e9e39f72e16a1e0.php" afterPath="$PROJECT_DIR$/app/cache/dev/twig/91/91dcdf356bd7f4255392b943d7fcd3958ec821b1d18041433e9e39f72e16a1e0.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/cache/dev/twig/92/92ab28a4cc9d707680babad759dbe34b162f2bfd205c75de30ed2db3da14b2f8.php" afterPath="$PROJECT_DIR$/app/cache/dev/twig/92/92ab28a4cc9d707680babad759dbe34b162f2bfd205c75de30ed2db3da14b2f8.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/cache/dev/twig/a1/a1912e86d1de52c071c2678a2896564e0762b78cccee340485e3ad404e7dbfa7.php" afterPath="$PROJECT_DIR$/app/cache/dev/twig/a1/a1912e86d1de52c071c2678a2896564e0762b78cccee340485e3ad404e7dbfa7.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/cache/dev/twig/a6/a676628aa3824f53a030bb29081001451887092d73caafcf525b5754badf4d54.php" afterPath="$PROJECT_DIR$/app/cache/dev/twig/a6/a676628aa3824f53a030bb29081001451887092d73caafcf525b5754badf4d54.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/cache/dev/twig/ba/ba0d83aef683a8dcaeba6e03c563c0b6ca6fc8d10d7c8cf8fd7bd97b9d523032.php" afterPath="$PROJECT_DIR$/app/cache/dev/twig/ba/ba0d83aef683a8dcaeba6e03c563c0b6ca6fc8d10d7c8cf8fd7bd97b9d523032.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/cache/dev/twig/be/bec4cbd9a080537f2fe096d59016e6fd27f053e3db739d5171a40d9ea6c0eea6.php" afterPath="$PROJECT_DIR$/app/cache/dev/twig/be/bec4cbd9a080537f2fe096d59016e6fd27f053e3db739d5171a40d9ea6c0eea6.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/cache/dev/twig/c9/c9ea62be4ec14db57699eab0f7bd13e4bf08695e9e39757a4beffb7a3acc0b22.php" afterPath="$PROJECT_DIR$/app/cache/dev/twig/c9/c9ea62be4ec14db57699eab0f7bd13e4bf08695e9e39757a4beffb7a3acc0b22.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/cache/dev/twig/ce/cefc3d58bc48ed7a415087a913edbfda7c64964eceefd0b533e2186630434f23.php" afterPath="$PROJECT_DIR$/app/cache/dev/twig/ce/cefc3d58bc48ed7a415087a913edbfda7c64964eceefd0b533e2186630434f23.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/cache/dev/twig/cf/cfc47272da33744f6f44b3e0ffe1d7d9b89bc6a84533f2699dcdcb36b78102fa.php" afterPath="$PROJECT_DIR$/app/cache/dev/twig/cf/cfc47272da33744f6f44b3e0ffe1d7d9b89bc6a84533f2699dcdcb36b78102fa.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/cache/dev/twig/d2/d2b77ed1b33e682363bf1529f76815c4409794e95210e0bbbea687ec870d0a70.php" afterPath="$PROJECT_DIR$/app/cache/dev/twig/d2/d2b77ed1b33e682363bf1529f76815c4409794e95210e0bbbea687ec870d0a70.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/cache/dev/twig/d8/d881e15a5f88c7dced405a4b389e5eda76f6342c76e1c2744be077b96494863f.php" afterPath="$PROJECT_DIR$/app/cache/dev/twig/d8/d881e15a5f88c7dced405a4b389e5eda76f6342c76e1c2744be077b96494863f.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/cache/dev/twig/d8/d8a8d25630793167c0a28037ff5cc5d1bf1c561625e9c2a927ef355aa97dc11e.php" afterPath="$PROJECT_DIR$/app/cache/dev/twig/d8/d8a8d25630793167c0a28037ff5cc5d1bf1c561625e9c2a927ef355aa97dc11e.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/cache/dev/twig/dc/dcddb2a3f45353cd43cb8695d66729068997841069fb249af3bfa02c6fb46cbb.php" afterPath="$PROJECT_DIR$/app/cache/dev/twig/dc/dcddb2a3f45353cd43cb8695d66729068997841069fb249af3bfa02c6fb46cbb.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/cache/dev/twig/e3/e3d3bafb29c5c4298c79f5b0b682cbe0e4e1b3644c86ed39a131e1797aa8f0da.php" afterPath="$PROJECT_DIR$/app/cache/dev/twig/e3/e3d3bafb29c5c4298c79f5b0b682cbe0e4e1b3644c86ed39a131e1797aa8f0da.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/cache/dev/twig/ee/ee0037753755b42c9bb678cfc9dafef59fe2513b6003e35a63cb8c275edeacf9.php" afterPath="$PROJECT_DIR$/app/cache/dev/twig/ee/ee0037753755b42c9bb678cfc9dafef59fe2513b6003e35a63cb8c275edeacf9.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/cache/dev/twig/ef/eff130ad9a431c5bf6b0f3062c8f81368fd95f7d302a2fcd2ff22e7aea4aa395.php" afterPath="$PROJECT_DIR$/app/cache/dev/twig/ef/eff130ad9a431c5bf6b0f3062c8f81368fd95f7d302a2fcd2ff22e7aea4aa395.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/cache/dev/twig/f2/f20d83dd058867142411d6e70f8446dec8492f9914dbcd72c1aa4499e843608b.php" afterPath="$PROJECT_DIR$/app/cache/dev/twig/f2/f20d83dd058867142411d6e70f8446dec8492f9914dbcd72c1aa4499e843608b.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/cache/dev/twig/f9/f9ba6bee48a27e00f72b017a09f481c98fb7edd2534a21e6921933ea0e7e8526.php" afterPath="$PROJECT_DIR$/app/cache/dev/twig/f9/f9ba6bee48a27e00f72b017a09f481c98fb7edd2534a21e6921933ea0e7e8526.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/cache/dev/twig/fc/fcce3b60edbd0794b191ded21284b86eaaf57fd89bdc1deca84ecd24a9d75620.php" afterPath="$PROJECT_DIR$/app/cache/dev/twig/fc/fcce3b60edbd0794b191ded21284b86eaaf57fd89bdc1deca84ecd24a9d75620.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/cache/dev/twig/fd/fde602ae656e802b5d6e17f5cc4ef1b443b40e7a4a7b3171c43e7850c8e073af.php" afterPath="$PROJECT_DIR$/app/cache/dev/twig/fd/fde602ae656e802b5d6e17f5cc4ef1b443b40e7a4a7b3171c43e7850c8e073af.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/logs/dev.log" afterPath="$PROJECT_DIR$/app/logs/dev.log" />
     </list>
     <ignored path="bleau_S2_2016_haras_metamorphose.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -85,11 +98,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="services.yml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="services.yml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/config/services.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+            <state relative-caret-position="195">
+              <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="197">
+              <caret line="20" column="14" lean-forward="false" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -98,10 +121,11 @@
       <file leaf-file-name="basePlateforme.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/PlateFormeBundle/Resources/views/Default/basePlateforme.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
+            <state relative-caret-position="273">
               <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
               <folding>
-                <element signature="e#1551#1568#0#Twig" expanded="true" />
+                <marker date="1481216679000" expanded="true" signature="1551:1568" ph="/js/routing.{_format}" />
+                <marker date="1481216679000" expanded="true" signature="1951:1988" ph="{% block javascripts ...%}" />
               </folding>
             </state>
           </provider>
@@ -132,11 +156,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="423">
               <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-              <folding>
-                <element signature="e#418#460#0#PHP" expanded="true" />
-                <element signature="e#590#627#1#PHP" expanded="true" />
-                <element signature="e#715#770#1#PHP" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -185,7 +205,6 @@
         <option value="$PROJECT_DIR$/src/HarasBundle/Resources/public/styles/sass/style.scss" />
         <option value="$PROJECT_DIR$/src/PlateFormeBundle/Resources/Public/sass/_style.scss" />
         <option value="$PROJECT_DIR$/src/PlateFormeBundle/Resources/Public/sass/_homepage.css" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/HarasBundle/Resources/public/styles/sass/_homepage_header.scss" />
         <option value="$PROJECT_DIR$/src/PlateFormeBundle/Resources/views/agenda/calendar.html.twig" />
         <option value="$PROJECT_DIR$/vendor/adesigns/calendar-bundle/ADesigns/CalendarBundle/Resources/config/routing.yml" />
@@ -219,6 +238,7 @@
         <option value="$PROJECT_DIR$/src/PlateFormeBundle/Controller/DefaultController.php" />
         <option value="$PROJECT_DIR$/src/HarasBundle/Resources/public/scripts/main.js" />
         <option value="$PROJECT_DIR$/app/config/services.yml" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -611,11 +631,11 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="89719000" />
+    <option name="totallyTimeSpent" value="89878000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23319027" sideWeight="0.49518073" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -624,7 +644,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27710843" sideWeight="0.4635193" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30120483" sideWeight="0.4599428" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30120483" sideWeight="0.4599428" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22174536" sideWeight="0.5048193" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -671,13 +691,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/PlateFormeBundle/Resources/views/fullcalendar/locale-all.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PlateFormeBundle/Resources/views/fullcalendar/locale-all.js" />
     <entry file="file://$PROJECT_DIR$/src/PlateFormeBundle/Resources/views/fullcalendar/lib/cupertino/images/ui-bg_highlight-hard_100_f2f5f7_1x100.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -710,32 +724,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/PlateFormeBundle/Resources/views/fullcalendar/fullcalendar.print.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PlateFormeBundle/Resources/views/fullcalendar/fullcalendar.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PlateFormeBundle/Resources/views/fullcalendar/fullcalendar.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PlateFormeBundle/Resources/views/fullcalendar/fullcalendar.print.css" />
+    <entry file="file://$PROJECT_DIR$/src/PlateFormeBundle/Resources/views/fullcalendar/fullcalendar.min.js" />
+    <entry file="file://$PROJECT_DIR$/src/PlateFormeBundle/Resources/views/fullcalendar/fullcalendar.js" />
     <entry file="file://$PROJECT_DIR$/src/HarasBundle/Resources/public/styles/stylesheets/calendar/calendar_main.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="16" column="1" lean-forward="true" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -743,7 +738,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-367">
           <caret line="1343" column="24" lean-forward="false" selection-start-line="1343" selection-start-column="21" selection-end-line="1343" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -751,7 +745,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -759,23 +752,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/PlateFormeBundle/Resources/views/fullcalendar/views/json.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1215">
-          <caret line="81" column="29" lean-forward="false" selection-start-line="81" selection-start-column="4" selection-end-line="81" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PlateFormeBundle/Resources/views/fullcalendar/views/json.html" />
     <entry file="file://$PROJECT_DIR$/web/bundles/haras/styles/stylesheets/calendar/calendar_main.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="15" column="11" lean-forward="false" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -783,7 +767,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1440">
           <caret line="7" column="33" lean-forward="false" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -791,7 +774,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="433">
           <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="33" selection-end-column="41" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -799,31 +781,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/PlateFormeBundle/Resources/views/fullcalendar/views/json/events.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="1" lean-forward="false" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/HarasBundle/Resources/public/json/events.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PlateFormeBundle/Resources/views/fullcalendar/views/json/events.json" />
+    <entry file="file://$PROJECT_DIR$/src/HarasBundle/Resources/public/json/events.json" />
     <entry file="file://$PROJECT_DIR$/src/PlateFormeBundle/Form/AgendaType.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -831,7 +797,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-659">
           <caret line="7989" column="62" lean-forward="false" selection-start-line="7989" selection-start-column="57" selection-end-line="7989" selection-end-column="62" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -839,7 +804,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="172">
           <caret line="34" column="434" lean-forward="false" selection-start-line="34" selection-start-column="429" selection-end-line="34" selection-end-column="434" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -847,7 +811,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="13815">
           <caret line="921" column="26" lean-forward="false" selection-start-line="921" selection-start-column="21" selection-end-line="921" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -855,7 +818,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="173">
           <caret line="80" column="13" lean-forward="false" selection-start-line="80" selection-start-column="8" selection-end-line="80" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -863,7 +825,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="600">
           <caret line="65" column="0" lean-forward="false" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -871,7 +832,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -879,7 +839,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -887,7 +846,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="15" column="14" lean-forward="false" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -895,7 +853,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="123">
           <caret line="9" column="20" lean-forward="false" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -903,31 +860,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="8" lean-forward="false" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/PlateFormeBundle/Resources/views/hello.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PlateFormeBundle/Resources/views/hello.html.twig" />
     <entry file="file://$PROJECT_DIR$/src/PlateFormeBundle/Controller/AgendaController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="13" column="1" lean-forward="false" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
-          <folding>
-            <element signature="e#47#82#0#PHP" expanded="false" />
-            <element signature="e#1239#1252#0#PHP" expanded="false" />
-            <element signature="e#1328#1362#0#PHP" expanded="false" />
-            <element signature="e#1671#1706#0#PHP" expanded="false" />
-            <element signature="e#2324#2337#0#PHP" expanded="false" />
-            <element signature="e#2413#2448#0#PHP" expanded="false" />
-            <element signature="e#3410#3425#0#PHP" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -935,11 +875,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-27">
           <caret line="25" column="7" lean-forward="false" selection-start-line="25" selection-start-column="7" selection-end-line="25" selection-end-column="7" />
-          <folding>
-            <element signature="e#6#93#0#PHP" expanded="false" />
-            <element signature="e#135#170#0#PHP" expanded="false" />
-            <element signature="e#747#772#1#PHP" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -947,7 +882,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-86">
           <caret line="93" column="0" lean-forward="false" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -961,10 +895,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/PlateFormeBundle/Resources/views/Default/basePlateforme.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
+        <state relative-caret-position="273">
           <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
           <folding>
-            <element signature="e#1551#1568#0#Twig" expanded="true" />
+            <marker date="1481216679000" expanded="true" signature="1551:1568" ph="/js/routing.{_format}" />
+            <marker date="1481216679000" expanded="true" signature="1951:1988" ph="{% block javascripts ...%}" />
           </folding>
         </state>
       </provider>
@@ -989,11 +924,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="423">
           <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-          <folding>
-            <element signature="e#418#460#0#PHP" expanded="true" />
-            <element signature="e#590#627#1#PHP" expanded="true" />
-            <element signature="e#715#770#1#PHP" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1007,8 +938,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/config/services.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+        <state relative-caret-position="195">
+          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
           <folding />
         </state>
       </provider>
