@@ -8,4 +8,8 @@
 *.css.map
 /composer.lock
 .DS_Store
+vendor/
+.idea/*
+.idea/workspace.xml
 
+app/cache/*
