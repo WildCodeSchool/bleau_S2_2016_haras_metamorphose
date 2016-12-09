@@ -1,7 +1,6 @@
 /web/bundles/
 .sass-cache/
 .idea
-/web/bundles/
 /app/bootstrap.php.cache
 /app/cache/*
 /app/config/parameters.yml
@@ -15,7 +14,7 @@
 /composer.phar
 #*#
 *~
-*.scssc
+*.scss
 *.css.map
 .DS_Store
 composer.lock
