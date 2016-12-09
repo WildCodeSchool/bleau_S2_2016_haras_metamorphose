@@ -1,11 +1,5 @@
 /web/bundles/
-
 .sass-cache/
-.nbproject
-#*#
-*~
-*.scssc
-*.css.map
 .idea
 /web/bundles/
 /app/bootstrap.php.cache
@@ -19,8 +13,10 @@
 /vendor/
 /bin/
 /composer.phar
-nbproject
-uploads
+#*#
+*~
+*.scssc
+*.css.map
 .DS_Store
 composer.lock
 
