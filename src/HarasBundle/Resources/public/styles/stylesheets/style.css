@@ -884,5 +884,56 @@ body, html {
   margin: 2em;
 }
 
+/* line 1, ../sass/_post.scss */
+.postAdmin {
+  background-color: RGBA(255, 255, 255, 0.8);
+  margin-top: 15px;
+  padding: 20px;
+  border-radius: 15px;
+}
+
+/* line 8, ../sass/_post.scss */
+.postContainer, .PostMain {
+  flex: 1 0 auto;
+}
+
+/* line 17, ../sass/_post.scss */
+.postSectionIndex {
+  margin-left: 70px !important;
+  margin-right: 70px !important;
+}
+
+/* line 22, ../sass/_post.scss */
+.postListTitleCat {
+  background-color: #ffb84d !important;
+}
+
+/* line 26, ../sass/_post.scss */
+.postListTitleSousCat {
+  background-color: #dfb4cd !important;
+}
+
+/* line 30, ../sass/_post.scss */
+.postListTitlePost {
+  background-color: #00bcd4 !important;
+}
+
+/* line 34, ../sass/_post.scss */
+.postDivPrincipale {
+  padding-bottom: 0px !important;
+}
+
+/* line 42, ../sass/_post.scss */
+.bigtxt {
+  max-height: 150px;
+  overflow: auto;
+}
+
+/* line 51, ../sass/_post.scss */
+.filDeDiscussion {
+  margin-left: 10% !important;
+  margin-right: 10% !important;
+}
+
 /*
 @import '';*/
