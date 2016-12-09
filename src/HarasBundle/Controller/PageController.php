@@ -23,6 +23,9 @@ class PageController extends Controller
         // appel du service de traduction, si defaultLocale != fr ou en -> _locale = en,$em = $this->getDoctrine()->getManager();
         // suite à la modification des render en include, on doit récup le header et le footer
         // en même temps que la page appelée
+
+        $em = $this->getDoctrine()->getEntityManager();
+
         $pages = $em->getRepository('HarasBundle:Page')->findById([14, 15, $page->getId()]);
         // sinon _locale = defaultLocale. Si langChoice n'et pas null, fixe la _locale 
         // de la session à la langue choisis dans le header
