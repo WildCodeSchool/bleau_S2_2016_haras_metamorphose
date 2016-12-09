@@ -87,14 +87,14 @@ function calendar() {
             /* ------------------------ FONCTION DU RENDU DE L'EVENEMENT ------------------------------*/
             eventRender: function(event, element) {
 
-                if (event.id != null && role == 'ROLE_ADMIN'){
-                    // lors du click sur la case il renvoie l'ide vers la page edit
-                    window.location = Routing.generate('agenda') + event.id + '/edit';
-                }
-
-                //var editEvent = Routing.generate('agenda') + event.id + '/edit';
-
                 console.log('CALENDAR-EVENTS.JS - FONCTION EVENTRENDER a démarré : ligne 89');
+
+                // if (event.id != null && role == 'ROLE_ADMIN'){
+                //     // lors du click sur la case il renvoie l'ID vers la page edit
+                //     window.location = Routing.generate('agenda') + event.id + '/edit';
+                // }
+
+                var editEvent = Routing.generate('agenda') + event.id + '/edit';
 
                 element.each(function() {
                     element.append(
@@ -103,8 +103,8 @@ function calendar() {
                         '</h6>'
                     );
                 })
-            }/*,*/
-            /*eventClick:  function(calEvent){
+            },
+            eventClick:  function(calEvent){
                 var day = moment(calEvent.start._d).format("dddd Do MMMM YYYY");
                 // .format();
                 // dddd = jour en character
@@ -123,21 +123,24 @@ function calendar() {
 
                 console.log('CALENDAR-EVENTS.JS - FONCTION EVENTCLICK a démarré : ligne 110');
 
-                // $('#modalTime').html(Time);
+                $('#modalTime').html(Time);
                 // $('#modalTitle').html( calEvent.titre );
                 // if (calEvent.images.url != null){
                 //     $('#imgevent').html( '<img src="' + asset + calEvent.images.webPath + '" alt="' + calEvent.images.alt +'"/>' );
                 // }
-                // $('#fullCalModal').modal();
-                // $('#modalNew').show();
-                // $('#modalNew').attr('href', newEvent);
+                $('#fullCalModal').modal();
+
+                $('#modalNew').show();
+                $('#modalNew').attr('href', newEvent);
+
+                $('#modalEdit').show();
+                $('#modalEdit').attr('href', editEvent);
+
                 // $('#delete_event').show();
                 // $('#delete_event').attr('href', deleteEvent);
-                // $('#modalEdit').show();
-                // $('#modalEdit').attr('href', editEvent);
 
 
-            }*/
+            }
 
         });
 

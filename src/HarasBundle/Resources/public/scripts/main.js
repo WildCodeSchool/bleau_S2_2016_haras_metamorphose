@@ -126,7 +126,7 @@ function selecteur() {
 
     console.log('APP.JS - FONCTION SELECTEUR a démarré : ligne 127');
     $(document).ready(function () {
-        Materialize.updateTextFields();
+        // Materialize.updateTextFields();
         $('select').material_select();
     });
 
@@ -136,13 +136,13 @@ function selecteur() {
 // *                    CALENDAR MODAL NEW
 // ********************************************************************
 
-function modal() {
-
-    console.log('APP.JS - FONCTION MODAL a démarré : ligne 140');
-
-    $(document).ready(function(){
-        // $('#modal1').modal();
-
-        // $('#modal2').modal();
-    });
-}
+// function modal() {
+//
+//     console.log('APP.JS - FONCTION MODAL a démarré : ligne 140');
+//
+//     $(document).ready(function(){
+//         $('#modal1').modal();
+//
+//         $('#modal2').modal();
+//     });
+// }
