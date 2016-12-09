@@ -18,3 +18,5 @@
 *.scssc
 *.css.map
 /composer.lock
+.DS_Store
+
