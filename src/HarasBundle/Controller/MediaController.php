@@ -31,15 +31,17 @@ class MediaController extends Controller
 		$editForm->handleRequest($request);
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             if($media->getFile() != null)	// Si le fichier du media a été changé
+
             {
-                $exp = explode('/', $media->getPath());
+                /*$exp = explode('/', $media->getPath());
                 $filename = end($exp);
               	// On récupère le nom du fichier ({{media.name}}.extension)
 				// On supprime ce fichier de la mémoire
                 unlink($this->get('kernel')->getRootDir().'/../src/HarasBundle/Resources/public/media/'.$filename);
-				// Puis on upload le nouveau fichier
+				// Puis on upload le nouveau fichier*/
+
                 $this->get('media.interface')->mediaUpload($media);
-            }
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($media);
             $em->flush();

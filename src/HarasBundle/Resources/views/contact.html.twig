@@ -5,7 +5,7 @@
 {% endblock materialize %}
 
 {% block body %}
-    <div id="_contact">
+    <body id="_contact">
         <header id='_template_header'>
             {% include 'HarasBundle::header.html.twig' %}
         </header>
@@ -60,7 +60,7 @@
                         '</div>' +
                         '<h4 id="firstHeading" class="firstHeading">{{ contactName }}</h4>' +
                         '<div id="bodyContent">' +
-                            '<p><b>{{ contactAddress }}</b></p>' +
+                            '<p><b>{{ contactAddressTitle }}</b></p>' +
                             '<p>{{ contactAddressLocation}}<br>{{ contactAddressPostalCode }}</p>' +
                             '<p><b>Tel:</b><p>{{ contactTel }}</p></p>' +
                         '</div>' +
@@ -82,5 +82,4 @@
         </script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAr10cIoZKJLUnRzAcZQmd9rFNSjRmWLCk&callback=initMap"
                 async defer></script>
-    </div>
 {% endblock body %}
