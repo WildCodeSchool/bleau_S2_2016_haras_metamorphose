@@ -1,0 +1,24 @@
+categorieplateforme_index:
+    path:     /
+    defaults: { _controller: "PlateFormeBundle:CategoriePlateforme:index" }
+    methods:  GET
+
+categorieplateforme_show:
+    path:     /{id}/show
+    defaults: { _controller: "PlateFormeBundle:CategoriePlateforme:show" }
+    methods:  GET
+
+categorieplateforme_new:
+    path:     /new
+    defaults: { _controller: "PlateFormeBundle:CategoriePlateforme:new" }
+    methods:  [GET, POST]
+
+categorieplateforme_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "PlateFormeBundle:CategoriePlateforme:edit" }
+    methods:  [GET, POST]
+
+categorieplateforme_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "PlateFormeBundle:CategoriePlateforme:delete" }
+    methods:  DELETE

@@ -4,7 +4,7 @@ plate_forme:
 
 fos_user:
     resource: "@UserBundle/Resources/config/routing/user.yml"
-    prefix:   /plateforme/user
+    prefix:   /plateforme/admin/user
 
 haras:
     resource: "@HarasBundle/Resources/config/routing.yml"

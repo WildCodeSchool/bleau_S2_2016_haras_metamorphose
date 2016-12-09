@@ -23,6 +23,6 @@ class ArticleRepository extends EntityRepository
             ->orderBy('a.createdAt', 'DESC')
             ->setFirstResult( $offset )
             ->setMaxResults( $limit );
-   	return $qb->getQuery()->getResult();
+   	    return $qb->getQuery()->getResult();
 	}
 }

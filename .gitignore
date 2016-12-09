@@ -16,6 +16,6 @@
 *~
 *.scss
 *.css.map
+<<<<<<< HEAD
 .DS_Store
 composer.lock
-

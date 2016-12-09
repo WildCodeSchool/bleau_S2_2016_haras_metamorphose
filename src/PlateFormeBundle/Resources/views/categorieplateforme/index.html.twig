@@ -1,0 +1,41 @@
+{% extends '@PlateForme/layout.html.twig' %}
+
+{% block body %}
+    <h1>Categorieplateformes list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Actif</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for categoriePlateforme in categoriePlateformes %}
+            <tr>
+                <td><a href="{{ path('categorieplateforme_show', { 'id': categoriePlateforme.id }) }}">{{ categoriePlateforme.id }}</a></td>
+                <td>{{ categoriePlateforme.nom }}</td>
+                <td>{% if categoriePlateforme.actif %}Yes{% else %}No{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('categorieplateforme_show', { 'id': categoriePlateforme.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('categorieplateforme_edit', { 'id': categoriePlateforme.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('categorieplateforme_new') }}">Create a new categoriePlateforme</a>
+        </li>
+    </ul>
+{% endblock %}

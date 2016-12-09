@@ -1,0 +1,54 @@
+.postAdmin {
+  background-color: RGBA(255, 255, 255, 0.8);
+  margin-top: 15px;
+  padding: 20px;
+  border-radius: 15px;
+}
+
+.postContainer, .PostMain {
+  flex: 1 0 auto;
+}
+
+//************************
+// Page index post
+//************************
+// accordeon
+//************************
+.postSectionIndex {
+  margin-left: 70px !important;
+  margin-right: 70px !important;
+}
+
+.postListTitleCat {
+  background-color: #ffb84d !important;
+}
+
+.postListTitleSousCat {
+  background-color: #dfb4cd !important;
+}
+
+.postListTitlePost {
+  background-color: #00bcd4 !important;
+}
+
+.postDivPrincipale {
+  padding-bottom: 0px !important;
+}
+//**********************************
+// index post
+//**********************************
+// réduit visuel contenu des posts
+//**********************************
+.bigtxt{
+	max-height: 150px;
+	overflow: auto;
+}
+//**********************************
+// Page show all post
+//**********************************
+// réduit visuel contenu des posts
+//**********************************
+.filDeDiscussion {
+  margin-left: 10% !important;
+  margin-right: 10% !important;
+}

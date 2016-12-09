@@ -5,20 +5,10 @@ namespace UserBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use UserBundle\Services\RolesHelper;
 
 class UserType extends AbstractType
 {
-    private $roles;
 
-    /**
-     * @param string $class The User class name
-     * @param RolesHelper $roles Array or roles.
-     */
-    public function __construct(RolesHelper $roles)
-    {
-        $this->roles = $roles;
-    }
     /**
      * {@inheritdoc}
      */
@@ -30,10 +20,15 @@ class UserType extends AbstractType
             ->add('profession')
             ->add('nbPost')
             ->add('photo')
-            ->add('roles', 'choice', array(
-                'choices' => $this->roles->getRoles(),
-                'required' => false,
-                'multiple'=>true
+            ->add('roles','collection', array(
+                'type' => 'choice',
+                'options' => array(
+                    'choices' => array(
+                        'ROLE_ADMIN' => 'Admin',
+                        'ROLE_MODERATEUR' => 'Moderateur',
+                        'ROLE_USER'=> 'User'
+                    )
+                )
             ));
         ;
     }
