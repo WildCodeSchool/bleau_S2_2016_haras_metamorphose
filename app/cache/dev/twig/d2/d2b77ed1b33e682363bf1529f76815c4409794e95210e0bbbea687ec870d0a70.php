@@ -21,26 +21,28 @@ class __TwigTemplate_6d325469830ce03093e8ade9294182be12e35e224d3c1bd9b1783cdc69a
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_31b69e362246b1ccdb5ff2a4d94abc33e2a2585ac74bf2924b439595652a9935 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_31b69e362246b1ccdb5ff2a4d94abc33e2a2585ac74bf2924b439595652a9935->enter($__internal_31b69e362246b1ccdb5ff2a4d94abc33e2a2585ac74bf2924b439595652a9935_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@PlateForme/agenda/edit.html.twig"));
+        $__internal_b52b91c04e04d8f44b2db139ba24a0937c37ab9cc3e7a85740b876b757c9c011 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_b52b91c04e04d8f44b2db139ba24a0937c37ab9cc3e7a85740b876b757c9c011->enter($__internal_b52b91c04e04d8f44b2db139ba24a0937c37ab9cc3e7a85740b876b757c9c011_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@PlateForme/agenda/edit.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_31b69e362246b1ccdb5ff2a4d94abc33e2a2585ac74bf2924b439595652a9935->leave($__internal_31b69e362246b1ccdb5ff2a4d94abc33e2a2585ac74bf2924b439595652a9935_prof);
+        $__internal_b52b91c04e04d8f44b2db139ba24a0937c37ab9cc3e7a85740b876b757c9c011->leave($__internal_b52b91c04e04d8f44b2db139ba24a0937c37ab9cc3e7a85740b876b757c9c011_prof);
 
     }
 
     // line 3
     public function block_body($context, array $blocks = array())
     {
-        $__internal_1edfd9841a2d532c001fc31c00a7b0a92861cdb2217291e24236011c85f79392 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_1edfd9841a2d532c001fc31c00a7b0a92861cdb2217291e24236011c85f79392->enter($__internal_1edfd9841a2d532c001fc31c00a7b0a92861cdb2217291e24236011c85f79392_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_d308ea293755e0963ee9159af6e3ebd494d10a3fa5ac9e1e4bf1727150e873e6 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_d308ea293755e0963ee9159af6e3ebd494d10a3fa5ac9e1e4bf1727150e873e6->enter($__internal_d308ea293755e0963ee9159af6e3ebd494d10a3fa5ac9e1e4bf1727150e873e6_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         // line 4
         echo "
-<div id=\"modalEdit\" class=\"modal bottom-sheet\">
-    <div class=\"modal-content\">
-
+";
+        // line 6
+        echo "    ";
+        // line 7
+        echo "
     <h1>Agenda edit</h1>
 
     ";
@@ -77,15 +79,12 @@ class __TwigTemplate_6d325469830ce03093e8ade9294182be12e35e224d3c1bd9b1783cdc69a
         </li>
     </ul>
 
-        <div class=\"modal-footer\">
-            <a href=\"#!\" class=\" modal-action modal-close waves-effect waves-green btn-flat\">Agree</a>
-        </div>
-    </div>
-</div>
-
+";
+        // line 31
+        echo "
 ";
         
-        $__internal_1edfd9841a2d532c001fc31c00a7b0a92861cdb2217291e24236011c85f79392->leave($__internal_1edfd9841a2d532c001fc31c00a7b0a92861cdb2217291e24236011c85f79392_prof);
+        $__internal_d308ea293755e0963ee9159af6e3ebd494d10a3fa5ac9e1e4bf1727150e873e6->leave($__internal_d308ea293755e0963ee9159af6e3ebd494d10a3fa5ac9e1e4bf1727150e873e6_prof);
 
     }
 
@@ -101,7 +100,7 @@ class __TwigTemplate_6d325469830ce03093e8ade9294182be12e35e224d3c1bd9b1783cdc69a
 
     public function getDebugInfo()
     {
-        return array (  75 => 22,  70 => 20,  64 => 17,  57 => 13,  52 => 11,  48 => 10,  40 => 4,  34 => 3,  11 => 1,);
+        return array (  84 => 31,  77 => 22,  72 => 20,  66 => 17,  59 => 13,  54 => 11,  50 => 10,  45 => 7,  43 => 6,  40 => 4,  34 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -118,8 +117,8 @@ class __TwigTemplate_6d325469830ce03093e8ade9294182be12e35e224d3c1bd9b1783cdc69a
 
 {% block body %}
 
-<div id=\"modalEdit\" class=\"modal bottom-sheet\">
-    <div class=\"modal-content\">
+{#<div id=\"modalEdit\" class=\"modal bottom-sheet\">#}
+    {#<div class=\"modal-content\">#}
 
     <h1>Agenda edit</h1>
 
@@ -139,11 +138,11 @@ class __TwigTemplate_6d325469830ce03093e8ade9294182be12e35e224d3c1bd9b1783cdc69a
         </li>
     </ul>
 
-        <div class=\"modal-footer\">
+{#        <div class=\"modal-footer\">
             <a href=\"#!\" class=\" modal-action modal-close waves-effect waves-green btn-flat\">Agree</a>
         </div>
     </div>
-</div>
+</div>#}
 
 {% endblock %}
 ", "@PlateForme/agenda/edit.html.twig", "/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/src/PlateFormeBundle/Resources/views/agenda/edit.html.twig");

@@ -103,8 +103,8 @@ function calendar() {
                         '</h6>'
                     );
                 })
-            },
-            eventClick:  function(calEvent){
+            }/*,*/
+            /*eventClick:  function(calEvent){
                 var day = moment(calEvent.start._d).format("dddd Do MMMM YYYY");
                 // .format();
                 // dddd = jour en character
@@ -137,7 +137,7 @@ function calendar() {
                 // $('#modalEdit').attr('href', editEvent);
 
 
-            }
+            }*/
 
         });
 
