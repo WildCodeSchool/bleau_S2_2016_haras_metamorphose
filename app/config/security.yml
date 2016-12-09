@@ -5,9 +5,9 @@ security:
         FOS\UserBundle\Model\UserInterface: bcrypt
 
     role_hierarchy:
-#        ROLE_USER:        ROLE_USER
+        ROLE_USER:        ROLE_USER
         ROLE_MODERATEUR:  ROLE_USER
-        ROLE_ADMIN:       [ROLE_USER, ROLE_MODERATEUR]
+        ROLE_ADMIN:       [ROLE_MODERATEUR, ROLE_USER, ROLE_ADMIN]
 
     # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
     providers:
@@ -49,5 +49,5 @@ security:
           # PAGES ACCESSIBLES AUX ADMINISTRATEURS
 #        - { path: ^/, role: ROLE_MODERATEUR }
         - { path: ^/admin, role: ROLE_ADMIN }
-        - { path: ^/user, role: ROLE_ADMIN }
+        - { path: ^/plateforme/admin/user, role: ROLE_ADMIN }
 
