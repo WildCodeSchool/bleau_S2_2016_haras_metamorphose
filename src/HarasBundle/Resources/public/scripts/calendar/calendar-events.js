@@ -117,22 +117,25 @@ function calendar() {
                 var startTime = moment(calEvent.start._i).format('HH:mm à ');
                 var endTime = moment(calEvent.end._i).format("HH:mm");
                 var Time = 'Le ' + day + ponctuation1 + startTime + ponctuation2 + endTime;
+                var newEvent = Routing.generate('agenda') + date.format() + '/new';
                 var editEvent = Routing.generate('agenda') + calEvent.id + '/edit';
-                var deleteEvent = Routing.generate('agenda') + calEvent.id + '/delete';
+                // var deleteEvent = Routing.generate('agenda') + calEvent.id + '/delete';
 
                 console.log('CALENDAR-EVENTS.JS - FONCTION EVENTCLICK a démarré : ligne 110');
 
-                $('#modalTime').html(Time);
-                $('#modalTitle').html( calEvent.titre );
+                // $('#modalTime').html(Time);
+                // $('#modalTitle').html( calEvent.titre );
                 // if (calEvent.images.url != null){
                 //     $('#imgevent').html( '<img src="' + asset + calEvent.images.webPath + '" alt="' + calEvent.images.alt +'"/>' );
                 // }
-                $('#fullCalModal').modal();
+                // $('#fullCalModal').modal();
+                // $('#modalNew').show();
+                // $('#modalNew').attr('href', newEvent);
+                // $('#delete_event').show();
+                // $('#delete_event').attr('href', deleteEvent);
+                // $('#modalEdit').show();
+                // $('#modalEdit').attr('href', editEvent);
 
-                $('#delete_event').show();
-                $('#delete_event').attr('href', deleteEvent);
-                $('#edit_event').show();
-                $('#edit_event').attr('href', editEvent);
 
             }
 

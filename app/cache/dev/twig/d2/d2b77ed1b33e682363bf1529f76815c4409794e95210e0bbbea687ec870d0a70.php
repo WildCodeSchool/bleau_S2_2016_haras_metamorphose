@@ -21,60 +21,71 @@ class __TwigTemplate_6d325469830ce03093e8ade9294182be12e35e224d3c1bd9b1783cdc69a
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_6d3d1c6afc739f5d9fcf84712ec115bc74eb598798438e36a752825d650a7439 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_6d3d1c6afc739f5d9fcf84712ec115bc74eb598798438e36a752825d650a7439->enter($__internal_6d3d1c6afc739f5d9fcf84712ec115bc74eb598798438e36a752825d650a7439_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@PlateForme/agenda/edit.html.twig"));
+        $__internal_31b69e362246b1ccdb5ff2a4d94abc33e2a2585ac74bf2924b439595652a9935 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_31b69e362246b1ccdb5ff2a4d94abc33e2a2585ac74bf2924b439595652a9935->enter($__internal_31b69e362246b1ccdb5ff2a4d94abc33e2a2585ac74bf2924b439595652a9935_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@PlateForme/agenda/edit.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_6d3d1c6afc739f5d9fcf84712ec115bc74eb598798438e36a752825d650a7439->leave($__internal_6d3d1c6afc739f5d9fcf84712ec115bc74eb598798438e36a752825d650a7439_prof);
+        $__internal_31b69e362246b1ccdb5ff2a4d94abc33e2a2585ac74bf2924b439595652a9935->leave($__internal_31b69e362246b1ccdb5ff2a4d94abc33e2a2585ac74bf2924b439595652a9935_prof);
 
     }
 
     // line 3
     public function block_body($context, array $blocks = array())
     {
-        $__internal_39cee087bfca70e6a4cf8df4a83383ccb8da9c186ad3a89609ee7f2a85359944 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_39cee087bfca70e6a4cf8df4a83383ccb8da9c186ad3a89609ee7f2a85359944->enter($__internal_39cee087bfca70e6a4cf8df4a83383ccb8da9c186ad3a89609ee7f2a85359944_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_1edfd9841a2d532c001fc31c00a7b0a92861cdb2217291e24236011c85f79392 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_1edfd9841a2d532c001fc31c00a7b0a92861cdb2217291e24236011c85f79392->enter($__internal_1edfd9841a2d532c001fc31c00a7b0a92861cdb2217291e24236011c85f79392_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         // line 4
-        echo "    <h1>Agenda edit</h1>
+        echo "
+<div id=\"modalEdit\" class=\"modal bottom-sheet\">
+    <div class=\"modal-content\">
+
+    <h1>Agenda edit</h1>
 
     ";
-        // line 6
+        // line 10
         echo         $this->env->getExtension('Symfony\Bridge\Twig\Extension\FormExtension')->renderer->renderBlock(($context["edit_form"] ?? $this->getContext($context, "edit_form")), 'form_start');
         echo "
         ";
-        // line 7
+        // line 11
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\FormExtension')->renderer->searchAndRenderBlock(($context["edit_form"] ?? $this->getContext($context, "edit_form")), 'widget');
         echo "
         <input type=\"submit\" value=\"Edit\" />
     ";
-        // line 9
+        // line 13
         echo         $this->env->getExtension('Symfony\Bridge\Twig\Extension\FormExtension')->renderer->renderBlock(($context["edit_form"] ?? $this->getContext($context, "edit_form")), 'form_end');
         echo "
 
     <ul>
         <li>
             <a href=\"";
-        // line 13
+        // line 17
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("agenda_index");
         echo "\">Back to the list</a>
         </li>
         <li>
             ";
-        // line 16
+        // line 20
         echo         $this->env->getExtension('Symfony\Bridge\Twig\Extension\FormExtension')->renderer->renderBlock(($context["delete_form"] ?? $this->getContext($context, "delete_form")), 'form_start');
         echo "
                 <input type=\"submit\" value=\"Delete\">
             ";
-        // line 18
+        // line 22
         echo         $this->env->getExtension('Symfony\Bridge\Twig\Extension\FormExtension')->renderer->renderBlock(($context["delete_form"] ?? $this->getContext($context, "delete_form")), 'form_end');
         echo "
         </li>
     </ul>
+
+        <div class=\"modal-footer\">
+            <a href=\"#!\" class=\" modal-action modal-close waves-effect waves-green btn-flat\">Agree</a>
+        </div>
+    </div>
+</div>
+
 ";
         
-        $__internal_39cee087bfca70e6a4cf8df4a83383ccb8da9c186ad3a89609ee7f2a85359944->leave($__internal_39cee087bfca70e6a4cf8df4a83383ccb8da9c186ad3a89609ee7f2a85359944_prof);
+        $__internal_1edfd9841a2d532c001fc31c00a7b0a92861cdb2217291e24236011c85f79392->leave($__internal_1edfd9841a2d532c001fc31c00a7b0a92861cdb2217291e24236011c85f79392_prof);
 
     }
 
@@ -90,7 +101,7 @@ class __TwigTemplate_6d325469830ce03093e8ade9294182be12e35e224d3c1bd9b1783cdc69a
 
     public function getDebugInfo()
     {
-        return array (  71 => 18,  66 => 16,  60 => 13,  53 => 9,  48 => 7,  44 => 6,  40 => 4,  34 => 3,  11 => 1,);
+        return array (  75 => 22,  70 => 20,  64 => 17,  57 => 13,  52 => 11,  48 => 10,  40 => 4,  34 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -106,6 +117,10 @@ class __TwigTemplate_6d325469830ce03093e8ade9294182be12e35e224d3c1bd9b1783cdc69a
         return new Twig_Source("{% extends 'base.html.twig' %}
 
 {% block body %}
+
+<div id=\"modalEdit\" class=\"modal bottom-sheet\">
+    <div class=\"modal-content\">
+
     <h1>Agenda edit</h1>
 
     {{ form_start(edit_form) }}
@@ -123,6 +138,13 @@ class __TwigTemplate_6d325469830ce03093e8ade9294182be12e35e224d3c1bd9b1783cdc69a
             {{ form_end(delete_form) }}
         </li>
     </ul>
+
+        <div class=\"modal-footer\">
+            <a href=\"#!\" class=\" modal-action modal-close waves-effect waves-green btn-flat\">Agree</a>
+        </div>
+    </div>
+</div>
+
 {% endblock %}
 ", "@PlateForme/agenda/edit.html.twig", "/Users/juliengrima/Sites/bleau_S2_2016_haras_metamorphose/src/PlateFormeBundle/Resources/views/agenda/edit.html.twig");
     }

@@ -1,6 +1,10 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+
+<div id="modalEdit" class="modal bottom-sheet">
+    <div class="modal-content">
+
     <h1>Agenda edit</h1>
 
     {{ form_start(edit_form) }}
@@ -18,4 +22,11 @@
             {{ form_end(delete_form) }}
         </li>
     </ul>
+
+        <div class="modal-footer">
+            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+        </div>
+    </div>
+</div>
+
 {% endblock %}

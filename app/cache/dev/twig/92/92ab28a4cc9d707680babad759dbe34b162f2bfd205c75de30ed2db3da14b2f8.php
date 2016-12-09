@@ -21,20 +21,20 @@ class __TwigTemplate_1ce7dd5c2c9a467e7a5137fcc73c13155caee70501a9b8e4bf875494976
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_d349b0bc4530973b8eb923ad652ebe174c2f2fe51e4040db786052ba4a6dec5e = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_d349b0bc4530973b8eb923ad652ebe174c2f2fe51e4040db786052ba4a6dec5e->enter($__internal_d349b0bc4530973b8eb923ad652ebe174c2f2fe51e4040db786052ba4a6dec5e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "MobileDetectBundle:Collector:device.html.twig"));
+        $__internal_743a4dfd1418ee2602cfa958b6ef588d69c7517f955becce50474d91fdb60492 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_743a4dfd1418ee2602cfa958b6ef588d69c7517f955becce50474d91fdb60492->enter($__internal_743a4dfd1418ee2602cfa958b6ef588d69c7517f955becce50474d91fdb60492_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "MobileDetectBundle:Collector:device.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_d349b0bc4530973b8eb923ad652ebe174c2f2fe51e4040db786052ba4a6dec5e->leave($__internal_d349b0bc4530973b8eb923ad652ebe174c2f2fe51e4040db786052ba4a6dec5e_prof);
+        $__internal_743a4dfd1418ee2602cfa958b6ef588d69c7517f955becce50474d91fdb60492->leave($__internal_743a4dfd1418ee2602cfa958b6ef588d69c7517f955becce50474d91fdb60492_prof);
 
     }
 
     // line 3
     public function block_toolbar($context, array $blocks = array())
     {
-        $__internal_63e79ddd3cc0db2b3ae9ff830369c9c0ab300f9368e7d9e1b9f1495ef7824b2a = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_63e79ddd3cc0db2b3ae9ff830369c9c0ab300f9368e7d9e1b9f1495ef7824b2a->enter($__internal_63e79ddd3cc0db2b3ae9ff830369c9c0ab300f9368e7d9e1b9f1495ef7824b2a_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "toolbar"));
+        $__internal_4c5e31297ff51e33a72e9a537fd2bab11bd574d5b5eb2bd6cbfde47770ed4c10 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_4c5e31297ff51e33a72e9a537fd2bab11bd574d5b5eb2bd6cbfde47770ed4c10->enter($__internal_4c5e31297ff51e33a72e9a537fd2bab11bd574d5b5eb2bd6cbfde47770ed4c10_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "toolbar"));
 
         // line 4
         echo "
@@ -188,7 +188,7 @@ class __TwigTemplate_1ce7dd5c2c9a467e7a5137fcc73c13155caee70501a9b8e4bf875494976
         echo "    ";
         $this->loadTemplate("@WebProfiler/Profiler/toolbar_item.html.twig", "MobileDetectBundle:Collector:device.html.twig", 84)->display(array_merge($context, array("link" => false)));
         
-        $__internal_63e79ddd3cc0db2b3ae9ff830369c9c0ab300f9368e7d9e1b9f1495ef7824b2a->leave($__internal_63e79ddd3cc0db2b3ae9ff830369c9c0ab300f9368e7d9e1b9f1495ef7824b2a_prof);
+        $__internal_4c5e31297ff51e33a72e9a537fd2bab11bd574d5b5eb2bd6cbfde47770ed4c10->leave($__internal_4c5e31297ff51e33a72e9a537fd2bab11bd574d5b5eb2bd6cbfde47770ed4c10_prof);
 
     }
 
