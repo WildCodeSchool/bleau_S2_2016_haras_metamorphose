@@ -3,8 +3,8 @@ plate_forme_post:
     prefix:   /post
 
 plate_forme_categorieplateforme:
-        resource: "@PlateFormeBundle/Resources/config/routing/categorieplateforme.yml"
-        prefix:   /categorieplateforme
+    resource: "@PlateFormeBundle/Resources/config/routing/categorieplateforme.yml"
+    prefix:   /categorieplateforme
 
 plate_forme_homepage:
     path:     /

@@ -17,3 +17,4 @@
 *~
 *.scssc
 *.css.map
+/composer.lock
