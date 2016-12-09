@@ -160,4 +160,22 @@ class User extends BaseUser
     {
         return $this->photo;
     }
+
+//    /**
+//     * Get roles
+//     *
+//     * @return string
+//     */
+//    public function getRoles() {
+//        return explode(',', $this->roles);
+//    }
+//
+//    /**
+//     * Set roles
+//     *
+//     * @param array $roles
+//     */
+//    public function setRoles(Array $roles) {
+//        $this->roles = implode(',', $roles);
+//    }
 }

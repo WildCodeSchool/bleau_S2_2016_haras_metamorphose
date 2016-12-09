@@ -19,6 +19,7 @@ UserBundle\Entity\User:
               length: 255
           nbPost:
               type: integer
+              nullable: true
 
       oneToOne:
           photo:

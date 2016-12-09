@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html>
+<<<<<<< HEAD
     <head>
         <meta charset="UTF-8" />
         <title>{% block title %}PLateforme du Haras de la métamorphose{% endblock %}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
             <link rel="stylesheet" href="{{ asset('bundles/haras/styles/stylesheets/style.css') }}">
-            <!-- Compiled and minified CSS -->
+            <link rel="stylesheet" href="{{ asset('bundles/haras/styles/stylesheets/style.css') }}">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
-            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
             <link rel="icon" type="image/x-icon" href="{{ asset('bundles/plateforme/images/icone-cheval.png') }}" />
-    </head>
-    <body>
+            <!-- Icons -->
+            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+            <link rel="stylesheet" href="https://opensource.keycdn.com/fontawesome/4.6.3/font-awesome.min.css" integrity="sha384-Wrgq82RsEean5tP3NK3zWAemiNEXofJsTwTyHmNb/iL3dP/sZJ4+7sOld1uqYJtE" crossorigin="anonymous">
+</head>
+<body>
+
 
         {% block header %}{% endblock %}
         {% block body %}{% endblock %}
@@ -18,11 +22,15 @@
 
         {% block javascripts %}{% endblock %}
 
+
+
+    {% block javascripts %}
     <script src="{{ asset('bundles/haras/scripts/jquery-3.1.1.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
     <script src="{{ asset('bundles/haras/scripts/main.js') }}"></script>
     <script src="{{ asset('bundles/haras/scripts/plateforme.js') }}"></script>
 
     </body>
+    {% endblock %}
 </html>
 

@@ -10,7 +10,7 @@ jQuery(document).ready(function($) {
     /*click_droit_off();*/
 
     // RETOUR VERS LE HAUT
-    retour_haut();
+    // retour_haut();
 
     // ZOOM SUR LES IMAGES
     /*zoom_images();*/
@@ -119,3 +119,13 @@ function selecteur() {
     $('select').material_select();
 
 }
+
+// ********************************************************************
+// *                    material select
+// ********************************************************************
+
+
+$(document).ready(function () {
+    Materialize.updateTextFields();
+    $('select').material_select();
+});

@@ -9,3 +9,11 @@ plate_forme_categorieplateforme:
 plate_forme_homepage:
     path:     /
     defaults: { _controller: PlateFormeBundle:Default:index }
+
+plate_forme_register:
+    resource: "@UserBundle/Resources/config/routing/all.xml"
+
+
+plate_forme_admin:
+    path:     /admin
+    defaults: { _controller: PlateFormeBundle:Default:admin }
