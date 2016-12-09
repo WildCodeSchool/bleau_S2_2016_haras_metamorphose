@@ -14,7 +14,7 @@
 /composer.phar
 #*#
 *~
-*.scss
-*.css.map
+#*.scss
+#*.css.map
 .DS_Store
 composer.lock
