@@ -43,7 +43,7 @@ class AgendaController extends Controller
             return $this->redirectToRoute('agenda_show', array('id' => $agenda->getId()));
         }
 
-        return $this->render('@PlateForme/agenda/new.html.twig', array(
+        return $this->render('@PlateForme/adminPlateforme/agenda/new.html.twig', array(
             'agenda' => $agenda,
             'form' => $form->createView(),
         ));
@@ -57,7 +57,7 @@ class AgendaController extends Controller
     {
         $deleteForm = $this->createDeleteForm($agenda);
 
-        return $this->render('@PlateForme/agenda/show.html.twig', array(
+        return $this->render('@PlateForme/adminPlateforme/agenda/show.html.twig', array(
             'agenda' => $agenda,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -79,7 +79,7 @@ class AgendaController extends Controller
             return $this->redirectToRoute('agenda_edit', array('id' => $agenda->getId()));
         }
 
-        return $this->render('@PlateForme/agenda/edit.html.twig', array(
+        return $this->render('@PlateForme/adminPlateforme/agenda/edit.html.twig', array(
             'agenda' => $agenda,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

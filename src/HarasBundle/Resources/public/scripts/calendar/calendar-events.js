@@ -80,7 +80,10 @@ function calendar() {
                 /* VERIFICATION QUE LA DATE SOIT PAS INFERIRIEUR  A LA SELECTION ET LA DEFINITION DES ROLES */
                 if (date._d >= current_date_time && role == 'ROLE_ADMIN'){
                     // lors du click sur la case il renvoie la date vers la page new
-                    window.location = Routing.generate('agenda') + date.format() + '/new';
+                    // window.location = Routing.generate('agenda') + date.format() + '/new';
+
+                    $('#modalNew').show();
+                    $('#modalNew').attr('href', window.location = Routing.generate('agenda') + date.format() + '/new');
                 }
             },
 
@@ -89,12 +92,13 @@ function calendar() {
 
                 console.log('CALENDAR-EVENTS.JS - FONCTION EVENTRENDER a démarré : ligne 89');
 
-                // if (event.id != null && role == 'ROLE_ADMIN'){
-                //     // lors du click sur la case il renvoie l'ID vers la page edit
-                //     window.location = Routing.generate('agenda') + event.id + '/edit';
-                // }
+                if (event.id != null && role == 'ROLE_ADMIN'){
+                    // lors du click sur la case il renvoie l'ID vers la page edit
+                    var editEvent = Routing.generate('agenda') + event.id + '/edit';
+                    // window.location = Routing.generate('agenda') + event.id + '/edit';
+                }
 
-                var editEvent = Routing.generate('agenda') + event.id + '/edit';
+                // window.location = Routing.generate('agenda') + event.id + '/edit';
 
                 element.each(function() {
                     element.append(
@@ -130,16 +134,14 @@ function calendar() {
                 // }
                 $('#fullCalModal').modal();
 
-                $('#modalNew').show();
-                $('#modalNew').attr('href', newEvent);
+                // $('#modalNew').show();
+                // $('#modalNew').attr('href', newEvent);
 
                 $('#modalEdit').show();
                 $('#modalEdit').attr('href', editEvent);
 
                 // $('#delete_event').show();
                 // $('#delete_event').attr('href', deleteEvent);
-
-
             }
 
         });
