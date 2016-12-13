@@ -1,6 +1,6 @@
 <?php
 
-namespace PlateFormeBundle\Entity;
+namespace ForumBundle\Entity;
 
 /**
  * Post
@@ -14,6 +14,7 @@ class Post
     }
 
     // GENERATED CODE //
+
 
     /**
      * @var integer
@@ -41,12 +42,12 @@ class Post
     private $enfant;
 
     /**
-     * @var \PlateFormeBundle\Entity\Post
+     * @var \ForumBundle\Entity\Post
      */
     private $parent;
 
     /**
-     * @var \PlateFormeBundle\Entity\CategoriePlateforme
+     * @var \ForumBundle\Entity\CategoriePlateforme
      */
     private $categorie;
 
@@ -148,11 +149,11 @@ class Post
     /**
      * Add enfant
      *
-     * @param \PlateFormeBundle\Entity\Post $enfant
+     * @param \ForumBundle\Entity\Post $enfant
      *
      * @return Post
      */
-    public function addEnfant(\PlateFormeBundle\Entity\Post $enfant)
+    public function addEnfant(\ForumBundle\Entity\Post $enfant)
     {
         $this->enfant[] = $enfant;
 
@@ -162,9 +163,9 @@ class Post
     /**
      * Remove enfant
      *
-     * @param \PlateFormeBundle\Entity\Post $enfant
+     * @param \ForumBundle\Entity\Post $enfant
      */
-    public function removeEnfant(\PlateFormeBundle\Entity\Post $enfant)
+    public function removeEnfant(\ForumBundle\Entity\Post $enfant)
     {
         $this->enfant->removeElement($enfant);
     }
@@ -182,11 +183,11 @@ class Post
     /**
      * Set parent
      *
-     * @param \PlateFormeBundle\Entity\Post $parent
+     * @param \ForumBundle\Entity\Post $parent
      *
      * @return Post
      */
-    public function setParent(\PlateFormeBundle\Entity\Post $parent = null)
+    public function setParent(\ForumBundle\Entity\Post $parent = null)
     {
         $this->parent = $parent;
 
@@ -196,7 +197,7 @@ class Post
     /**
      * Get parent
      *
-     * @return \PlateFormeBundle\Entity\Post
+     * @return \ForumBundle\Entity\Post
      */
     public function getParent()
     {
@@ -206,11 +207,11 @@ class Post
     /**
      * Set categorie
      *
-     * @param \PlateFormeBundle\Entity\CategoriePlateforme $categorie
+     * @param \ForumBundle\Entity\CategoriePlateforme $categorie
      *
      * @return Post
      */
-    public function setCategorie(\PlateFormeBundle\Entity\CategoriePlateforme $categorie = null)
+    public function setCategorie(\ForumBundle\Entity\CategoriePlateforme $categorie = null)
     {
         $this->categorie = $categorie;
 
@@ -220,7 +221,7 @@ class Post
     /**
      * Get categorie
      *
-     * @return \PlateFormeBundle\Entity\CategoriePlateforme
+     * @return \ForumBundle\Entity\CategoriePlateforme
      */
     public function getCategorie()
     {

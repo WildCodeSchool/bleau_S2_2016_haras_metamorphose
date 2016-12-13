@@ -1,8 +1,8 @@
 <?php
 
-namespace PlateFormeBundle\Controller;
+namespace ForumBundle\Controller;
 
-use PlateFormeBundle\Entity\CategoriePlateforme;
+use ForumBundle\Entity\CategoriePlateforme;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -20,9 +20,9 @@ class CategoriePlateformeController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $categoriePlateformes = $em->getRepository('PlateFormeBundle:CategoriePlateforme')->findAll();
+        $categoriePlateformes = $em->getRepository('ForumBundle:CategoriePlateforme')->findAll();
 
-        return $this->render('@PlateForme/categorieplateforme/index.html.twig', array(
+        return $this->render('@Forum/categorieplateforme/index.html.twig', array(
             'categoriePlateformes' => $categoriePlateformes,
         ));
     }
@@ -34,7 +34,7 @@ class CategoriePlateformeController extends Controller
     public function newAction(Request $request)
     {
         $categoriePlateforme = new Categorieplateforme();
-        $form = $this->createForm('PlateFormeBundle\Form\CategoriePlateformeType', $categoriePlateforme);
+        $form = $this->createForm('ForumBundle\Form\CategoriePlateformeType', $categoriePlateforme);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -45,7 +45,7 @@ class CategoriePlateformeController extends Controller
             return $this->redirectToRoute('categorieplateforme_show', array('id' => $categoriePlateforme->getId()));
         }
 
-        return $this->render('@PlateForme/categorieplateforme/new.html.twig', array(
+        return $this->render('@Forum/categorieplateforme/new.html.twig', array(
             'categoriePlateforme' => $categoriePlateforme,
             'form' => $form->createView(),
         ));
@@ -59,7 +59,7 @@ class CategoriePlateformeController extends Controller
     {
         $deleteForm = $this->createDeleteForm($categoriePlateforme);
 
-        return $this->render('@PlateForme/categorieplateforme/show.html.twig', array(
+        return $this->render('@Forum/categorieplateforme/show.html.twig', array(
             'categoriePlateforme' => $categoriePlateforme,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -81,7 +81,7 @@ class CategoriePlateformeController extends Controller
             return $this->redirectToRoute('categorieplateforme_edit', array('id' => $categoriePlateforme->getId()));
         }
 
-        return $this->render('@PlateForme/categorieplateforme/edit.html.twig', array(
+        return $this->render('@Forum/categorieplateforme/edit.html.twig', array(
             'categoriePlateforme' => $categoriePlateforme,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

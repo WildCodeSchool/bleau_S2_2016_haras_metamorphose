@@ -1,7 +1,7 @@
-PlateFormeBundle\Entity\Post:
+ForumBundle\Entity\Post:
     type: entity
     table: null
-    repositoryClass: PlateFormeBundle\Repository\PostRepository
+    repositoryClass: ForumBundle\Repository\PostRepository
     id:
         id:
             type: integer
@@ -19,15 +19,15 @@ PlateFormeBundle\Entity\Post:
 
     oneToMany:
         enfant:
-            targetEntity: PlateFormeBundle\Entity\Post
+            targetEntity: ForumBundle\Entity\Post
             mappedBy: parent
     manyToOne:
         parent:
-            targetEntity: PlateFormeBundle\Entity\Post
+            targetEntity: ForumBundle\Entity\Post
             cascade: ["persist", "remove"]
             inversedBy: enfant
         categorie:
-            targetEntity: PlateFormeBundle\Entity\CategoriePlateforme
+            targetEntity: ForumBundle\Entity\CategoriePlateforme
             cascade: ["persist", "remove"]
         user:
             targetEntity: UserBundle\Entity\User

@@ -1,6 +1,6 @@
 <?php
 
-namespace PlateFormeBundle\Form;
+namespace ForumBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -13,7 +13,11 @@ class CategoriePlateformeType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('nom')->add('actif')->add('parent')        ;
+        $builder
+            ->add('nom')
+            ->add('actif')
+            ->add('parent')
+        ;
     }
     
     /**
@@ -22,7 +26,7 @@ class CategoriePlateformeType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'PlateFormeBundle\Entity\CategoriePlateforme'
+            'data_class' => 'ForumBundle\Entity\CategoriePlateforme'
         ));
     }
 
@@ -31,7 +35,7 @@ class CategoriePlateformeType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'plateformebundle_categorieplateforme';
+        return 'forumbundle_categorieplateforme';
     }
 
 

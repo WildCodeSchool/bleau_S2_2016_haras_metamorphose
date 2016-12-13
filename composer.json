@@ -21,8 +21,10 @@
         "friendsofsymfony/user-bundle": "~2.0@dev",
         "suncat/mobile-detect-bundle": "0.10.*",
         "friendsofsymfony/jsrouting-bundle": "^1.6",
-        "egeloen/ckeditor-bundle": "^4.0"
-
+        "egeloen/ckeditor-bundle": "^4.0",
+        "symfony/monolog-bundle": "~2.4",
+        "sensio/distribution-bundle": "~5.0",
+        "sensio/framework-extra-bundle": "^3.0.2"
     },
     "require-dev": {
         "sensio/generator-bundle": "~3.0",

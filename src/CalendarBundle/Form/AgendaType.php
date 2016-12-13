@@ -29,7 +29,7 @@ class AgendaType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'PlateFormeBundle\Entity\Agenda'
+            'data_class' => 'CalendarBundle\Entity\Agenda'
         ));
     }
 

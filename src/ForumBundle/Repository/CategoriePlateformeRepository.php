@@ -1,6 +1,6 @@
 <?php
 
-namespace PlateFormeBundle\Repository;
+namespace ForumBundle\Repository;
 
 /**
  * CategoriePlateformeRepository

@@ -1,9 +1,9 @@
 <?php
 
-namespace PlateFormeBundle\Controller;
+namespace ForumBundle\Controller;
 
-use PlateFormeBundle\Entity\Post;
-use PlateFormeBundle\Entity\CategoriePlateforme;
+use ForumBundle\Entity\Post;
+use ForumBundle\Entity\CategoriePlateforme;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -22,17 +22,17 @@ class PostController extends Controller
         // Connexion à la BdD
         $em = $this->getDoctrine()->getManager();
         // Ramene le Fil de discussion parent et actif
-        $postParents = $em->getRepository('PlateFormeBundle:Post')->findBy(array('actif'=> 1, 'parent' => null));
+        $postParents = $em->getRepository('ForumBundle:Post')->findBy(array('actif'=> 1, 'parent' => null));
         // Ramene les catégories  (actif = oui)
-        $categories = $em->getRepository('PlateFormeBundle:CategoriePlateforme')->findBy(array('actif'=> 1, 'parent' => null));
-//        $allCategories = $em->getRepository('PlateFormeBundle:CategoriePlateforme')->findBy(array('actif'=> 1,'parent' => null));
+        $categories = $em->getRepository('ForumBundle:CategoriePlateforme')->findBy(array('actif'=> 1, 'parent' => null));
+//        $allCategories = $em->getRepository('ForumBundle:CategoriePlateforme')->findBy(array('actif'=> 1,'parent' => null));
         // Ramene les catégories (out sous catégorie = parent = null) actives
-//        $sousCategories = $em->getRepository('PlateFormeBundle:CategoriePlateforme')->findBy(array('actif'=> 1 ));
+//        $sousCategories = $em->getRepository('ForumBundle:CategoriePlateforme')->findBy(array('actif'=> 1 ));
         // Ramene sous catégorie
         // SELECT * FROM `categorie_plateforme` WHERE `parent_id` is NOT null and actif = 1
-        $repository = $em->getRepository('PlateFormeBundle:CategoriePlateforme');
+        $repository = $em->getRepository('ForumBundle:CategoriePlateforme');
         $sousCategories = $repository->getSousCategorie();
-        return $this->render('@PlateForme/post/index.html.twig', array(
+        return $this->render('@Forum/post/index.html.twig', array(
             'postParents' => $postParents,
             'categories' => $categories,
             'sousCategories' => $sousCategories,
@@ -46,7 +46,7 @@ class PostController extends Controller
     public function newAction(Request $request, CategoriePlateforme $cat, Post $id)
     {
         $post = new Post();
-        $form = $this->createForm('PlateFormeBundle\Form\PostType', $post);
+        $form = $this->createForm('ForumBundle\Form\PostType', $post);
 
         $form->handleRequest($request);
 
@@ -76,7 +76,7 @@ class PostController extends Controller
             return $this->redirectToRoute('post_index');
         }
 
-        return $this->render('@PlateForme/post/new.html.twig', array(
+        return $this->render('@Forum/post/new.html.twig', array(
             'post' => $post,
             'form' => $form->createView(),
             'cat' => $request->get('cat'),
@@ -92,7 +92,7 @@ class PostController extends Controller
     {
         $deleteForm = $this->createDeleteForm($post);
 
-        return $this->render('@PlateForme/post/show.html.twig', array(
+        return $this->render('@Forum/post/show.html.twig', array(
             'post' => $post,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -111,10 +111,10 @@ class PostController extends Controller
 
         // Récupération du numéro du post fil de discussion
         $idPostFirst = $request->get('id');
-        $postParents = $em->getRepository('PlateFormeBundle:Post')->findBy(array( 'id' => $idPostFirst, 'actif'=> 1));
-        $postEnfants = $em->getRepository('PlateFormeBundle:Post')->findBy(array( 'parent' => $idPostFirst, 'actif'=> 1));
+        $postParents = $em->getRepository('ForumBundle:Post')->findBy(array( 'id' => $idPostFirst, 'actif'=> 1));
+        $postEnfants = $em->getRepository('ForumBundle:Post')->findBy(array( 'parent' => $idPostFirst, 'actif'=> 1));
 
-        return $this->render('@PlateForme/post/showAllPost.html.twig', array(
+        return $this->render('@Forum/post/showAllPost.html.twig', array(
             'postParents' => $postParents,
             'postEnfants' => $postEnfants,
         ));
@@ -128,7 +128,7 @@ class PostController extends Controller
     public function editAction(Request $request, Post $post)
     {
         $deleteForm = $this->createDeleteForm($post);
-        $editForm = $this->createForm('PlateFormeBundle\Form\PostType', $post);
+        $editForm = $this->createForm('ForumBundle\Form\PostType', $post);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
@@ -138,7 +138,7 @@ class PostController extends Controller
             return $this->redirectToRoute('post_showAllPost', array('id' => $post->getParent()->getId()));
         }
 
-        return $this->render('@PlateForme/post/edit.html.twig', array(
+        return $this->render('@Forum/post/edit.html.twig', array(
             'post' => $post,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

@@ -1,7 +1,7 @@
-PlateFormeBundle\Entity\CategoriePlateforme:
+ForumBundle\Entity\CategoriePlateforme:
     type: entity
     table: null
-    repositoryClass: PlateFormeBundle\Repository\CategoriePlateformeRepository
+    repositoryClass: ForumBundle\Repository\CategoriePlateformeRepository
     id:
         id:
             type: integer
@@ -18,11 +18,11 @@ PlateFormeBundle\Entity\CategoriePlateforme:
 
     oneToMany:
         enfant:
-          targetEntity: PlateFormeBundle\Entity\CategoriePlateforme
+          targetEntity: ForumBundle\Entity\CategoriePlateforme
           mappedBy: parent
     manyToOne:
         parent:
-          targetEntity: PlateFormeBundle\Entity\CategoriePlateforme
+          targetEntity: ForumBundle\Entity\CategoriePlateforme
           inversedBy: enfant
 
     lifecycleCallbacks: {  }

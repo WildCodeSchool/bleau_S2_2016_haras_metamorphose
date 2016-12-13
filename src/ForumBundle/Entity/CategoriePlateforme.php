@@ -1,6 +1,6 @@
 <?php
 
-namespace PlateFormeBundle\Entity;
+namespace ForumBundle\Entity;
 
 /**
  * CategoriePlateforme
@@ -14,6 +14,7 @@ class CategoriePlateforme
     }
 
     // GENERATED CODE //
+
 
     /**
      * @var integer
@@ -36,7 +37,7 @@ class CategoriePlateforme
     private $enfant;
 
     /**
-     * @var \PlateFormeBundle\Entity\CategoriePlateforme
+     * @var \ForumBundle\Entity\CategoriePlateforme
      */
     private $parent;
 
@@ -109,11 +110,11 @@ class CategoriePlateforme
     /**
      * Add enfant
      *
-     * @param \PlateFormeBundle\Entity\CategoriePlateforme $enfant
+     * @param \ForumBundle\Entity\CategoriePlateforme $enfant
      *
      * @return CategoriePlateforme
      */
-    public function addEnfant(\PlateFormeBundle\Entity\CategoriePlateforme $enfant)
+    public function addEnfant(\ForumBundle\Entity\CategoriePlateforme $enfant)
     {
         $this->enfant[] = $enfant;
 
@@ -123,9 +124,9 @@ class CategoriePlateforme
     /**
      * Remove enfant
      *
-     * @param \PlateFormeBundle\Entity\CategoriePlateforme $enfant
+     * @param \ForumBundle\Entity\CategoriePlateforme $enfant
      */
-    public function removeEnfant(\PlateFormeBundle\Entity\CategoriePlateforme $enfant)
+    public function removeEnfant(\ForumBundle\Entity\CategoriePlateforme $enfant)
     {
         $this->enfant->removeElement($enfant);
     }
@@ -143,11 +144,11 @@ class CategoriePlateforme
     /**
      * Set parent
      *
-     * @param \PlateFormeBundle\Entity\CategoriePlateforme $parent
+     * @param \ForumBundle\Entity\CategoriePlateforme $parent
      *
      * @return CategoriePlateforme
      */
-    public function setParent(\PlateFormeBundle\Entity\CategoriePlateforme $parent = null)
+    public function setParent(\ForumBundle\Entity\CategoriePlateforme $parent = null)
     {
         $this->parent = $parent;
 
@@ -157,7 +158,7 @@ class CategoriePlateforme
     /**
      * Get parent
      *
-     * @return \PlateFormeBundle\Entity\CategoriePlateforme
+     * @return \ForumBundle\Entity\CategoriePlateforme
      */
     public function getParent()
     {

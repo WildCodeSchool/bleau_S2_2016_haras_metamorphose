@@ -1,0 +1,28 @@
+##########################################
+#######  Routes Categorie CRUD  ##########
+##########################################
+
+categorieplateforme_index:
+    path:     /
+    defaults: { _controller: "ForumBundle:CategoriePlateforme:index" }
+    methods:  GET
+
+categorieplateforme_show:
+    path:     /{id}/show
+    defaults: { _controller: "ForumBundle:CategoriePlateforme:show" }
+    methods:  GET
+
+categorieplateforme_new:
+    path:     /new
+    defaults: { _controller: "ForumBundle:CategoriePlateforme:new" }
+    methods:  [GET, POST]
+
+categorieplateforme_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "ForumBundle:CategoriePlateforme:edit" }
+    methods:  [GET, POST]
+
+categorieplateforme_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "ForumBundle:CategoriePlateforme:delete" }
+    methods:  DELETE

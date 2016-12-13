@@ -23,6 +23,7 @@ class AppKernel extends Kernel
             new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
             new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
             new CalendarBundle\CalendarBundle(),
+            new ForumBundle\ForumBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {

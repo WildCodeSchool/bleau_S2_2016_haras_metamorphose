@@ -6,14 +6,6 @@ plate_forme_admin:
     path:     /admin
     defaults: { _controller: PlateFormeBundle:Default:admin }
 
-plate_forme_post:
-    resource: "@PlateFormeBundle/Resources/config/routing/post.yml"
-    prefix:   /post
-
-plate_forme_categorieplateforme:
-    resource: "@PlateFormeBundle/Resources/config/routing/categorieplateforme.yml"
-    prefix:   /categorieplateforme
-
 plate_forme_register:
     resource: "@UserBundle/Resources/config/routing/all.xml"
 

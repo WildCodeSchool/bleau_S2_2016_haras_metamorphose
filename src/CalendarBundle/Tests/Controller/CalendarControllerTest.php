@@ -1,10 +1,10 @@
 <?php
 
-namespace PlateFormeBundle\Tests\Controller;
+namespace ForumBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class CategoriePlateformeControllerTest extends WebTestCase
+class CalendarControllerTest extends WebTestCase
 {
     /*
     public function testCompleteScenario()
@@ -13,13 +13,13 @@ class CategoriePlateformeControllerTest extends WebTestCase
         $client = static::createClient();
 
         // Create a new entry in the database
-        $crawler = $client->request('GET', '/categorieplateforme/');
-        $this->assertEquals(200, $client->getResponse()->getStatusCode(), "Unexpected HTTP status code for GET /categorieplateforme/");
+        $crawler = $client->request('GET', '/agenda/');
+        $this->assertEquals(200, $client->getResponse()->getStatusCode(), "Unexpected HTTP status code for GET /agenda/");
         $crawler = $client->click($crawler->selectLink('Create a new entry')->link());
 
         // Fill in the form and submit it
         $form = $crawler->selectButton('Create')->form(array(
-            'plateformebundle_categorieplateforme[field_name]'  => 'Test',
+            'plateformebundle_agenda[field_name]'  => 'Test',
             // ... other fields to fill
         ));
 
@@ -33,7 +33,7 @@ class CategoriePlateformeControllerTest extends WebTestCase
         $crawler = $client->click($crawler->selectLink('Edit')->link());
 
         $form = $crawler->selectButton('Update')->form(array(
-            'plateformebundle_categorieplateforme[field_name]'  => 'Foo',
+            'plateformebundle_agenda[field_name]'  => 'Foo',
             // ... other fields to fill
         ));
 

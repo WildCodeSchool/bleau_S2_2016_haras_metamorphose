@@ -1,7 +1,7 @@
-PlateFormeBundle\Entity\Agenda:
+CalendarBundle\Entity\Agenda:
     type: entity
     table: null
-    repositoryClass: PlateFormeBundle\Repository\AgendaRepository
+    repositoryClass: CalendarBundle\Repository\AgendaRepository
     id:
         id:
             type: integer
