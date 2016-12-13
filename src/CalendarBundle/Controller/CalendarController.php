@@ -1,17 +1,65 @@
 <?php
 
-namespace PlateFormeBundle\Controller;
+namespace CalendarBundle\Controller;
 
-use PlateFormeBundle\Entity\Agenda;
+use CalendarBundle\Entity\Agenda;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+
+use Symfony\Component\HttpFoundation\Response;
+
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Serializer;
 
 /**
  * Agenda controller.
  *
  */
-class AgendaController extends Controller
+class CalendarController extends Controller
 {
+
+    /**
+     * Render Calendar View for Users
+     *
+     */
+    public function calendar_indexAction()
+    {
+        return $this->render('@Calendar/fullcalendar/views/agenda-views.html.twig');
+    }
+
+    /**
+     * Get all Events from BDD and convert us to Json Object for Calendar
+     *
+     */
+    public function getEventsJsonObjectAction()
+    {
+        $em = $this->getDoctrine()->getManager(); //appel doctrine methode BDD
+
+        $agenda = $em->getRepository('CalendarBundle:Agenda')->findAll(); // appel de la table
+
+        $normalizer = new ObjectNormalizer(); //Normalisation des données pour passer en JSON
+
+        $encoder = new JsonEncoder(); // Encodage des données en JSON
+
+        /* ENCODAGE DE DATE POUR RECUP */
+        $dateCallback = function ($dateTime) {
+            return $dateTime instanceof \DateTime
+                ? $dateTime->format(\DateTime::ISO8601)
+                : '';
+        };
+
+        /* CREATION TABLEAU POUR ENVOI AU JSON */
+        $normalizer->setCallbacks(array('start' => $dateCallback, 'end' => $dateCallback));
+
+        $serializer = new Serializer(array($normalizer), array($encoder));
+        $jsonObject = $serializer->serialize($agenda, 'json');
+
+        $response = new Response();
+        $response->setContent($jsonObject);
+
+        return $response;
+    }
 
     /**
      * Creates a new agenda entity.
@@ -32,7 +80,7 @@ class AgendaController extends Controller
             $agenda->setStart(new \DateTime($start));
             $agenda->setEnd(new \DateTime($start));
         }
-        $form = $this->createForm('PlateFormeBundle\Form\AgendaType', $agenda);
+        $form = $this->createForm('CalendarBundle\Form\AgendaType', $agenda);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -43,7 +91,7 @@ class AgendaController extends Controller
             return $this->redirectToRoute('agenda_show', array('id' => $agenda->getId()));
         }
 
-        return $this->render('@PlateForme/adminPlateforme/agenda/new.html.twig', array(
+        return $this->render('@Calendar/agenda/new.html.twig', array(
             'agenda' => $agenda,
             'form' => $form->createView(),
         ));
@@ -57,7 +105,7 @@ class AgendaController extends Controller
     {
         $deleteForm = $this->createDeleteForm($agenda);
 
-        return $this->render('@PlateForme/adminPlateforme/agenda/show.html.twig', array(
+        return $this->render('@Calendar/agenda/show.html.twig', array(
             'agenda' => $agenda,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -70,7 +118,7 @@ class AgendaController extends Controller
     public function editAction(Request $request, Agenda $agenda)
     {
         $deleteForm = $this->createDeleteForm($agenda);
-        $editForm = $this->createForm('PlateFormeBundle\Form\AgendaType', $agenda);
+        $editForm = $this->createForm('CalendarBundle\Form\AgendaType', $agenda);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
@@ -79,7 +127,7 @@ class AgendaController extends Controller
             return $this->redirectToRoute('agenda_edit', array('id' => $agenda->getId()));
         }
 
-        return $this->render('@PlateForme/adminPlateforme/agenda/edit.html.twig', array(
+        return $this->render('@Calendar/agenda/edit.html.twig', array(
             'agenda' => $agenda,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

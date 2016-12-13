@@ -1,6 +1,6 @@
 <?php
 
-namespace PlateFormeBundle\Entity;
+namespace CalendarBundle\Entity;
 
 
 /**

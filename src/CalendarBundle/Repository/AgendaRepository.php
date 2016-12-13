@@ -1,6 +1,6 @@
 <?php
 
-namespace PlateFormeBundle\Repository;
+namespace CalendarBundle\Repository;
 
 /**
  * AgendaRepository

@@ -23,11 +23,5 @@ class DefaultController extends Controller
     {
         return $this->render('@PlateForme/Default/index.html.twig');
     }
-
-    public function calendar_indexAction()
-    {
-        return $this->render('@PlateForme/fullcalendar/views/agenda-views.html.twig');
-    }
-
 }
 

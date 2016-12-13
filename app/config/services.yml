@@ -8,11 +8,10 @@ services:
 #   User Service
     app.form.registration:
         class: UserBundle\Form\RegistrationType
-
         arguments: [%fos_user.model.user.class%, @app_roles_helper]
-
         tags:
             - { name: form.type, alias: app_user_registration }
+
     app_roles_helper:
        class: UserBundle\Services\RolesHelper
        arguments: ['%security.role_hierarchy.roles%']

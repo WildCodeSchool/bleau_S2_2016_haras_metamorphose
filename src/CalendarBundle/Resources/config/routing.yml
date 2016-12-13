@@ -1,0 +1,16 @@
+##########################################
+############   Routes Agenda   ###########
+##########################################
+
+plate_forme_agenda:
+      resource: "@CalendarBundle/Resources/config/routing/agenda.yml"
+      prefix:   /agenda
+
+##########################################
+########   Routes Agenda Json  ###########
+## Permet de convertir route php en js ###
+##########################################
+
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
+    prefix:   /

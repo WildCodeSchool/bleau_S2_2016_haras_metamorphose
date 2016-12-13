@@ -1,6 +1,6 @@
 <?php
 
-namespace PlateFormeBundle\Form;
+namespace CalendarBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -13,7 +13,14 @@ class AgendaType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('start')->add('end')->add('titre')->add('texte')->add('lieu')->add('couleur')->add('slider')        ;
+        $builder
+            ->add('start')
+            ->add('end')
+            ->add('titre')
+            ->add('texte')
+            ->add('lieu')
+            ->add('couleur')
+            ->add('slider')        ;
     }
     
     /**
