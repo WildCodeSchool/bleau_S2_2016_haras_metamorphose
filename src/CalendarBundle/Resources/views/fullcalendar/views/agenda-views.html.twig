@@ -1,8 +1,10 @@
-{% extends '@PlateForme/layout.html.twig' %}
+{% extends '@Calendar/layout.html.twig' %}
 
-{% block head %}
-    <link rel="stylesheet" href="{{ asset('bundles/haras/styles/stylesheets/calendar/fullcalendar.print.css') }}">
-    <link rel="stylesheet" href="{{ asset('bundles/haras/styles/stylesheets/calendar/calendar_main.css') }}">
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('bundles/calendar/css/fullcalendar.print.css') }}">
+    <link rel="stylesheet" href="{{ asset('bundles/calendar/css/fullcalendar.css') }}">
+    <link rel="stylesheet" href="{{ asset('bundles/calendar/css/calendar_main.css') }}">
 {% endblock %}
 
 {% block body %}
@@ -34,8 +36,10 @@
         var role = null;
         {% endif %}
     </script>
-    <script src="{{ asset('bundles/haras/scripts/calendar/moment.min.js') }}"></script>
-    <script src="{{ asset('bundles/haras/scripts/calendar/fullcalendar.min.js') }}"></script>
-    <script src="{{ asset('bundles/haras/scripts/calendar/calendar-events.js') }}"></script>
+    <script src="{{ asset('bundles/calendar/js/calendar/jquery-ui.min.js') }}"></script>
+    <script src="{{ asset('bundles/calendar/js/calendar/moment.min.js') }}"></script>
+    <script src="{{ asset('bundles/calendar/js/calendar/fullcalendar.js') }}"></script>
+    <script src="{{ asset('bundles/calendar/js/calendar/calendar-events.js') }}"></script>
+    <script src="{{ asset('bundles/calendar/js/main_calendar.js') }}"></script>
 {% endblock %}
 

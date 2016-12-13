@@ -9,8 +9,6 @@
             {% endif %}
         </div>
 
-
-
         {% if app.request.hasPreviousSession %}
             {% for type, messages in app.session.flashbag.all() %}
                 {% for message in messages %}
@@ -26,5 +24,6 @@
             {% endblock fos_user_content %}
         </div>
     </body>
+
 {% endblock %}
 

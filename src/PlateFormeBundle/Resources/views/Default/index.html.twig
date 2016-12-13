@@ -1,4 +1,4 @@
-{% extends '@PlateForme/layout.html.twig' %}
+{% extends '@PlateForme/Default/basePlateforme.html.twig' %}
 
 {% block body %}
 
@@ -6,13 +6,12 @@
 
 
     <div class="profil">
-
-            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
             {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
-                <a href="{{ path('fos_user_profile_show') }}">Voir mon profil</a>
-            {% else %}
-                <a href="{{ path('fos_user_registration_register') }}">Créer un compte</a><br>
-            {% endif %}
+            <a href="{{ path('fos_user_profile_show') }}">Voir mon profil</a>
+        {% else %}
+            <a href="{{ path('fos_user_registration_register') }}">Créer un compte</a><br>
+        {% endif %}
 
         {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
             {#{{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |#}
@@ -20,7 +19,9 @@
         {% else %}
             <a href="{{ path('fos_user_security_login') }}">Se connecter</a>
         {% endif %}
-    </div><br>
+    </div>
+
+    <br>
 
     <a href="{{ path('agenda') }}">MON CALENDRIER</a>
     {#<a href="{{ path('post') }}">post</a>#}

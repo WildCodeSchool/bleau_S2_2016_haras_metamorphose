@@ -3,12 +3,8 @@ plate_forme_homepage:
     defaults: { _controller: PlateFormeBundle:Default:index }
 
 plate_forme_admin:
-    path:     /admin
+    path:     /admin/
     defaults: { _controller: PlateFormeBundle:Default:admin }
 
 plate_forme_register:
     resource: "@UserBundle/Resources/config/routing/all.xml"
-
-
-
-

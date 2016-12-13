@@ -1,12 +1,4 @@
 ##########################################
-########   Route Homepage  ###############
-##########################################
-
-haras:
-    resource: "@HarasBundle/Resources/config/routing.yml"
-    prefix:   /
-
-##########################################
 ########   Routes User   #################
 ##########################################
 
@@ -38,5 +30,10 @@ plate_forme:
     resource: "@PlateFormeBundle/Resources/config/routing.yml"
     prefix:   /plateforme
 
+##########################################
+########   Route Homepage  ###############
+##########################################
 
-
+haras:
+    resource: "@HarasBundle/Resources/config/routing.yml"
+    prefix:   /
