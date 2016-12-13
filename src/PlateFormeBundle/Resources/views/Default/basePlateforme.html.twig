@@ -15,13 +15,11 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="https://opensource.keycdn.com/fontawesome/4.6.3/font-awesome.min.css" integrity="sha384-Wrgq82RsEean5tP3NK3zWAemiNEXofJsTwTyHmNb/iL3dP/sZJ4+7sOld1uqYJtE" crossorigin="anonymous">
 
-       <style>
-        {% block head %}
-        {% endblock %}
+        <style>
+            {% block head %}  {% endblock %}
         </style>
     </head>
     <body>
-
 
         {% block header %}{% endblock %}
 
@@ -29,20 +27,18 @@
 
         {% block footer %}{% endblock %}
 
-
-        {# FOS JS ROUTING SCRIPT #}
-        <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
-        <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
-
         {# APPEL DES SCRIPTS JS ORDRE Jquery/Materialize/Calendar/Main(en surcharge) #}
         <script src="{{ asset('bundles/haras/scripts/jquery-3.1.1.js') }}"></script>
         <script src="{{ asset('bundles/haras/scripts/materialize.min.js') }}"></script>
 
-        {# APPEL DES JS DE FULLCALENDAR ET AUTRES PAGES #}
-        {% block javascripts %}{% endblock %}
+        <script src="{{ asset('bundles/haras/scripts/main.js') }}"></script>
 
         {#SCRIPTS DE SURCHARGE#}
         <script src="{{ asset('bundles/haras/scripts/main.js') }}"></script>
+        <script src="{{ asset('bundles/haras/scripts/plateforme.js') }}"></script>
+
+        {# APPEL DES JS DE FULLCALENDAR ET AUTRES PAGES #}
+        {% block javascripts %}{% endblock %}
 
     </body>
 </html>

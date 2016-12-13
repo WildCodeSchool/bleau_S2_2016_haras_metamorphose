@@ -1,10 +1,14 @@
+###################
+### Git Ignore ####
+###################
+
+####  Symfony
 /web/bundles/
-.sass-cache/
-.idea
 /app/bootstrap.php.cache
 /app/cache/*
 /app/config/parameters.yml
-/app/logs/*
+app/logs/
+app/phpunit.xml.dist
 !app/cache/.gitkeep
 !app/logs/.gitkeep
 /app/phpunit.xml
@@ -12,9 +16,16 @@
 /vendor/
 /bin/
 /composer.phar
-#*#
-*~
-#*.scss
-#*.css.map
-.DS_Store
 composer.lock
+
+#### Fichiers temporaires
+*~
+
+#### Sass Files
+.sass-cache/
+
+#### Mac Files
+.DS_Store
+
+#### Php Storm Files
+.idea

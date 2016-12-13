@@ -19,6 +19,12 @@
 {% endblock %}
 
 {% block javascripts %}
+
+    {{ parent() }}
+
+    {# FOS JS ROUTING SCRIPT #}
+    <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
     <script>
         {% if is_granted('ROLE_ADMIN') %}
         var role = 'admin';
