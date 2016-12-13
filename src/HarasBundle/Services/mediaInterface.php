@@ -20,6 +20,13 @@ class mediaInterface extends Controller
 	public function mediaUpload(Media $media)
 	{
 		$file = $media->getFile();
+		if ($media->getPath() != null) {	// Si le média contenait déjà un fichier uploadé
+			$tmp = explode('/', $media->getPath());
+			$filename = end($tmp);    // On récupère le nom du fichier ({{media.name}}.extension
+			// On supprime ce fichier de la mémoire
+			unlink($this->container->getParameter('medias_directory') . '/' . $filename);
+		}
+		// Puis on upload le nouveau fichier
 		$extension = $file->guessExtension();
 		$file->move($this->container->getParameter('medias_directory'), $media->getName().'.'.$extension);
 		$media->setPath('bundles/haras/media/'.$media->getName().'.'.$extension);

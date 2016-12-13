@@ -1,0 +1,98 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    {{ form_start(edit_form) }}
+
+{#<div id="modalEdit" class="modal bottom-sheet">#}
+    {#<div class="modal-content">#}
+
+    <h1>Agenda edit</h1>
+
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m6 l6"></div>
+            <p class="">Titre de l'évènement</p>
+            {{ form_widget(edit_form.titre) }}
+            {{ form_errors(edit_form.titre) }}
+        </div>
+        <div class="col s12 m6 l6">
+            <p class="">Lieu</p>
+            {{ form_widget(edit_form.lieu) }}
+            {{ form_errors(edit_form.lieu) }}
+        </div>
+
+        <div class="row">
+            <p class="">Description de l'évènement</p>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+                {{ form_widget(edit_form.texte) }}
+                {{ form_errors(edit_form.texte) }}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col s12 m6 l6">
+                <p class="">Date de début d'évènement</p>
+                <div class="input-group">
+                    {{ form_widget(edit_form.start) }}
+                    {{ form_errors(edit_form.start) }}
+                </div>
+            </div>
+            <div class="col s12 m6 l6">
+                <p class="">Date de fin d'évènement</p>
+                <div class="input-group">
+                    {{ form_widget(edit_form.end) }}
+                    {{ form_errors(edit_form.end) }}
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col s12 m6 l6">
+                <p class="">Couleur</p>
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+                    {{ form_widget(edit_form.couleur , {'attr': {'placeholder': 'Cliquez'}}) }}
+                    {{ form_errors(edit_form.couleur) }}
+                </div>
+            </div>
+
+            <div class="col s12 m6 l6">
+                <div class="checkbox">
+                    <label>
+                        {{ form_widget(edit_form.slider) }} Afficher dans le slider "Home page"
+                    </label>
+                    {{ form_errors(edit_form.slider) }}
+                </div>
+            </div>
+        </div>
+
+        <div class="center">
+            <input class="btn btn-default edit_admin"  type="submit" value="modifier" />
+            {{ form_start(delete_form) }}
+            <input class="btn btn-default edit_admin" type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+            <a class="btn btn-default edit_admin"  href="{{ path('agenda_index') }}">Retour au calendrier</a>
+        </div>
+    </div>
+
+    {{ form_end(edit_form) }}
+
+    {#{{ form_start(edit_form) }}#}
+        {#{{ form_widget(edit_form) }}#}
+        {#<input type="submit" value="Edit" />#}
+    {#{{ form_end(edit_form) }}#}
+
+    <ul>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+
+  {#</div>#}
+{#</div>#}
+
+{% endblock %}

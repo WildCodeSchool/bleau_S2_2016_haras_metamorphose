@@ -1,0 +1,40 @@
+{% extends '@Forum/layout.html.twig' %}
+
+{% block body %}
+<div class="postContainer postAdmin">
+    <h1>Nouveau Post</h1>
+
+    {{ form_start(form) }}
+        <div style="background-color: #9ccc65"></div>
+        {#id parent : {{ idParent }} <br>#}
+        {#catégorie parent : {{ catParent }}#}
+        <div class="row input-field">
+            {{ form_label(form.titre) }}
+            {{ form_widget(form.titre) }}
+            {{ form_errors(form.titre) }}
+        </div>
+        <div class="row input-field">
+            {{ form_label(form.contenu) }}
+            {{ form_widget(form.contenu|raw) }}
+            {{ form_errors(form.contenu) }}
+        </div>
+        {# Bouton de validation #}
+        <div class="row center">
+        <button class="btn-small waves-effect waves-light grey darken-1"
+                type="submit"
+                title="Valider"
+                value="Create">
+            <i class="material-icons">check</i>
+        </button>
+        </div>
+    {{ form_end(form) }}
+
+    <div class="row center">
+
+        <a class="btn-floating btn-large waves-effect waves-light blue darken-1"
+           href="{{ path('post_index') }}">
+            <i class="small material-icons">home</i>
+        </a>
+    </div>
+</div>
+{% endblock %}

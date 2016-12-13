@@ -1,0 +1,36 @@
+ForumBundle\Entity\Post:
+    type: entity
+    table: null
+    repositoryClass: ForumBundle\Repository\PostRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        titre:
+            type: string
+            length: 255
+        contenu:
+            type: text
+        actif:
+            type: boolean
+
+    oneToMany:
+        enfant:
+            targetEntity: ForumBundle\Entity\Post
+            mappedBy: parent
+    manyToOne:
+        parent:
+            targetEntity: ForumBundle\Entity\Post
+            cascade: ["persist", "remove"]
+            inversedBy: enfant
+        categorie:
+            targetEntity: ForumBundle\Entity\CategoriePlateforme
+            cascade: ["persist", "remove"]
+        user:
+            targetEntity: UserBundle\Entity\User
+
+
+    lifecycleCallbacks: {  }

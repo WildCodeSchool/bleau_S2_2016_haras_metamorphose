@@ -1,31 +1,10 @@
-plate_forme_post:
-    resource: "@PlateFormeBundle/Resources/config/routing/post.yml"
-    prefix:   /post
-
-plate_forme_categorieplateforme:
-    resource: "@PlateFormeBundle/Resources/config/routing/categorieplateforme.yml"
-    prefix:   /categorieplateforme
-
 plate_forme_homepage:
     path:     /
     defaults: { _controller: PlateFormeBundle:Default:index }
 
-plate_forme_register:
-    resource: "@UserBundle/Resources/config/routing/all.xml"
-
-
 plate_forme_admin:
-    path:     /admin
+    path:     /admin/
     defaults: { _controller: PlateFormeBundle:Default:admin }
 
-# ------------------------ plate_forme_agenda: ------------------------------
-plate_forme_agenda:
-      resource: "@PlateFormeBundle/Resources/config/routing/agenda.yml"
-      prefix:   /agenda
-      options:
-          expose: true
-
-#FOS JS Routing ==> permet de convertir route php en js
-fos_js_routing:
-    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
-    prefix:   /
+plate_forme_register:
+    resource: "@UserBundle/Resources/config/routing/all.xml"

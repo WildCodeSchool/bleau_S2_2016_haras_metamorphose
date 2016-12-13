@@ -1,0 +1,45 @@
+{% extends '@Calendar/layout.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('bundles/calendar/css/fullcalendar.print.css') }}">
+    <link rel="stylesheet" href="{{ asset('bundles/calendar/css/fullcalendar.css') }}">
+    <link rel="stylesheet" href="{{ asset('bundles/calendar/css/calendar_main.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="">
+            <a href="{{ path('agenda_new') }}">Nouvelle évènement</a>
+        </div>
+        <div class="row">
+            <div class="col s12"></div>
+                <div id='calendar'></div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+
+    {{ parent() }}
+
+    {# FOS JS ROUTING SCRIPT #}
+    <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
+    <script>
+        {% if is_granted('ROLE_ADMIN') %}
+        var role = 'admin';
+        {% elseif is_granted('ROLE_USER') %}
+        var role = 'user';
+        {% else %}
+        var role = null;
+        {% endif %}
+    </script>
+    <script src="{{ asset('bundles/calendar/js/calendar/jquery-ui.min.js') }}"></script>
+    <script src="{{ asset('bundles/calendar/js/calendar/moment.min.js') }}"></script>
+    <script src="{{ asset('bundles/calendar/js/calendar/fullcalendar.js') }}"></script>
+    <script src="{{ asset('bundles/calendar/js/calendar/calendar-events.js') }}"></script>
+    <script src="{{ asset('bundles/calendar/js/main_calendar.js') }}"></script>
+{% endblock %}
+

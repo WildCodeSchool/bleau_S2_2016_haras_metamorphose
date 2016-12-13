@@ -1,0 +1,28 @@
+ForumBundle\Entity\CategoriePlateforme:
+    type: entity
+    table: null
+    repositoryClass: ForumBundle\Repository\CategoriePlateformeRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nom:
+            type: string
+            length: 255
+            unique: true
+        actif:
+            type: boolean
+
+    oneToMany:
+        enfant:
+          targetEntity: ForumBundle\Entity\CategoriePlateforme
+          mappedBy: parent
+    manyToOne:
+        parent:
+          targetEntity: ForumBundle\Entity\CategoriePlateforme
+          inversedBy: enfant
+
+    lifecycleCallbacks: {  }

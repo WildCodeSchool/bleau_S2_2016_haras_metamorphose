@@ -1,0 +1,29 @@
+CalendarBundle\Entity\Agenda:
+    type: entity
+    table: null
+    repositoryClass: CalendarBundle\Repository\AgendaRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        start:
+            type: datetime
+        end:
+            type: datetime
+        titre:
+            type: string
+            length: 255
+        texte:
+            type: text
+        lieu:
+            type: string
+            length: 255
+        couleur:
+            type: string
+            length: 255
+        slider:
+            type: boolean
+    lifecycleCallbacks: {  }

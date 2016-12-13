@@ -23,6 +23,9 @@ class PageController extends Controller
         // appel du service de traduction, si defaultLocale != fr ou en -> _locale = en,$em = $this->getDoctrine()->getManager();
         // suite à la modification des render en include, on doit récup le header et le footer
         // en même temps que la page appelée
+
+        $em = $this->getDoctrine()->getEntityManager();
+
         $pages = $em->getRepository('HarasBundle:Page')->findById([14, 15, $page->getId()]);
         // sinon _locale = defaultLocale. Si langChoice n'et pas null, fixe la _locale 
         // de la session à la langue choisis dans le header
@@ -60,7 +63,7 @@ class PageController extends Controller
             $device->isMobile() || $device->isTablet() ? $table['mobile'] = true : $table['mobile'] = false;
         }
         // page template
-        if($name == 'section1' || $name == 'section2' || $name == 'section3' || $name == 'section4')
+        if(preg_match('/section\d/', $name))
         {
             // définition des paramètres de la requête sur le repository
             $pageNb = $request->query->get('pageNb');
@@ -161,7 +164,10 @@ class PageController extends Controller
         // renvoi true si une occurence de la chaîne 'video' est présente dans $type
         // strpos renvoie la première position de la chaîne si  second argument trouvée
         return strpos($type, 'video') === 0;
+        // Peut-être un preg_match('/\Avideo/i', $type) si plus clair ?
     }
+
+
 
     /**
      * Lists all Page entities.

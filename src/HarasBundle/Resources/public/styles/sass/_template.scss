@@ -1,0 +1,86 @@
+/*//////////////////////////////////////////////
+//////////////// _template.scss ////////////////
+//////////////////////////////////////////////*/
+
+/* footer/header colour */
+//@each $section in ('section1', 'section2', 'section3', 'section4') {
+//	#_template.#{$section} {
+//		header, footer {
+//			background-color: unquote("$#{$section}-color")
+//		}
+//	}
+//}
+
+/* footer/header colour */
+#_template.section1 {
+	footer, header {
+		background-color: $section1-color;
+	}
+	.paginationNav{
+		border-top: 0.1em solid $section1-color;
+		color: $section1-color;
+	}
+}
+#_template.section2 {
+	footer, header {
+		background-color: $section2-color;
+	}
+	.paginationNav{
+		border-top: 0.1em solid $section2-color;
+		color: $section2-color;
+	}
+}
+#_template.section3 {
+	footer, header {
+		background-color: $section3-color;
+	}
+	.paginationNav{
+		border-top: 0.1em solid $section3-color;
+		color: $section3-color;
+	}
+}
+#_template.section4 {
+	footer, header {
+		background-color: $section4-color;
+	}
+	.paginationNav{
+		border-top: 0.1em solid $section4-color;
+		color: $section4-color;
+	}
+}
+
+#_template {
+	.page-content {
+		margin: 0 !important;
+	}
+	.paginationNav{
+		padding-top: 10px !important;
+		* {
+			color: inherit;
+		}
+	}
+	.paginationNav li{
+		 display: inline;
+		 margin-right: 0.5em;
+		 font-weight: bold;
+	 }
+
+	.article {
+
+		.media.image {
+			margin: 0 2em;
+			max-width: 50%;
+		}
+		.content {
+			text-align: justify;
+		}
+		.text-left {
+			margin: 0 2em;
+		}
+	}
+	.article-block{
+		margin-top: 100px !important;
+	}
+}
+
+

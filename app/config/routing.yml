@@ -1,12 +1,39 @@
-plate_forme:
-    resource: "@PlateFormeBundle/Resources/config/routing.yml"
-    prefix:   /plateforme
+##########################################
+########   Routes User   #################
+##########################################
 
 fos_user:
     resource: "@UserBundle/Resources/config/routing/user.yml"
     prefix:   /plateforme/admin/user
 
+##########################################
+###########   Routes Forum   #############
+##########################################
+
+forum:
+    resource: "@ForumBundle/Resources/config/routing.yml"
+    prefix:   /plateforme
+
+##########################################
+########   Routes Calendrier   ###########
+##########################################
+
+calendar:
+    resource: "@CalendarBundle/Resources/config/routing.yml"
+    prefix:   /plateforme
+
+##########################################
+########   Routes Plateforme   ###########
+##########################################
+
+plate_forme:
+    resource: "@PlateFormeBundle/Resources/config/routing.yml"
+    prefix:   /plateforme
+
+##########################################
+########   Route Homepage  ###############
+##########################################
+
 haras:
     resource: "@HarasBundle/Resources/config/routing.yml"
     prefix:   /
-

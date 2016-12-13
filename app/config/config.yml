@@ -4,8 +4,9 @@ imports:
     - { resource: services.yml }
     - { resource: "@HarasBundle/Resources/config/services.yml" }
     - { resource: "@PlateFormeBundle/Resources/config/services.yml" }
-    - { resource: "@PlateFormeBundle/Resources/config/services.xml" }
     - { resource: "@UserBundle/Resources/config/services.yml" }
+    - { resource: "@CalendarBundle/Resources/config/services.yml" }
+    - { resource: "@ForumBundle/Resources/config/services.yml" }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
@@ -13,7 +14,7 @@ parameters:
     locale: fr
     medias_directory: '%kernel.root_dir%/../src/HarasBundle/Resources/public/media'
     web_directory: '%kernel.root_dir%/../web/'
-    articles_per_page: 5
+    articles_per_page: 4
 
 framework:
     #esi:             ~
