@@ -818,28 +818,18 @@ html {
 }
 
 /* line 40, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
-.bouge {
-  -moz-transition: all 1s linear;
-  -webkit-transition: all 1s linear;
-  transition: all 1s linear;
+.pointer {
+  cursor: pointer;
+  font-weight: bold;
 }
 
-/* line 46, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
-.bouge.down:active {
-  -ms-transform: rotate(180deg);
-  -moz-transform: rotate(180deg);
-  -webkit-transform: rotate(180deg);
-  transform: rotate(180deg);
-  color: #FFF;
-}
-
-/* line 60, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 52, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .bigtxt {
   max-height: 150px;
   overflow: auto;
 }
 
-/* line 69, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 61, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .filDeDiscussion {
   margin-left: 10% !important;
   margin-right: 10% !important;

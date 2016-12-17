@@ -23,6 +23,9 @@ class PostController extends Controller
         $em = $this->getDoctrine()->getManager();
         // Ramene le Fil de discussion parent et actif
         $postParents = $em->getRepository('ForumBundle:Post')->findBy(array('actif'=> 1, 'parent' => null));
+
+
+
         // Ramene les catégories  (actif = oui)
         $categories = $em->getRepository('ForumBundle:CategoriePlateforme')->findBy(array('actif'=> 1, 'parent' => null));
         // Ramene sous catégorie
@@ -150,7 +153,12 @@ class PostController extends Controller
         $idPostFirst = $request->get('id');
         // Récupération des post en BdD
         $postParents = $em->getRepository('ForumBundle:Post')->findBy(array( 'id' => $idPostFirst, 'actif'=> 1));
-        $postEnfants = $em->getRepository('ForumBundle:Post')->findBy(array( 'parent' => $idPostFirst, 'actif'=> 1));
+        $findPostEnfants = $em->getRepository('ForumBundle:Post')->findBy(array( 'parent' => $idPostFirst, 'actif'=> 1));
+
+        $paginator  = $this->get('knp_paginator');
+
+        $postEnfants = $paginator->paginate($findPostEnfants, $request->query->getInt('page', 1), 2);
+
 
         return $this->render('@Forum/post/showAllPost.html.twig', array(
             'postParents' => $postParents,
