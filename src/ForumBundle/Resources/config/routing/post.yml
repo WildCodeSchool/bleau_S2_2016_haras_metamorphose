@@ -32,6 +32,12 @@ post_edit:
     defaults: { _controller: "ForumBundle:Post:edit" }
     methods:  [GET, POST]
 
+post_desactive:
+    path:     /{id}/desactive
+    defaults: { _controller: "ForumBundle:Post:desactive" }
+    methods:  [GET, POST]
+
+
 post_delete:
     path:     /{id}/delete
     defaults: { _controller: "ForumBundle:Post:delete" }

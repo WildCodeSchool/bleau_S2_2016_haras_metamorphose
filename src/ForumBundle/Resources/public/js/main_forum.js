@@ -14,8 +14,6 @@ $(document).ready(function(){
 //***************************************************//
 //    Materialize js pour select                     //
 //*****************************************************
-
-//
 $(document).ready(function() {
     $('select').material_select();
   });
@@ -34,3 +32,37 @@ $('#expand').click(function(){
 //***************************************************//
 //    Materialize js pagination                      //
 //*****************************************************
+
+//***************************************************//
+//    rotation icone barre index                    //
+//****************************************************
+// Niveau catégorie
+var rotated = false;
+$(".pointer").click(function() {
+  if (!rotated) {
+    $(this).find(".fa-superpowers").css({
+      "-moz-transform": "rotate(45deg)",
+       "-webkit-transform": "rotate(45deg)",
+        "-o-transform": "rotate(45deg)",
+         "-ms-transform": "rotate(45deg)",
+          "transform": "rotate(45deg)",
+        "color" : "#FFF",
+      "font-weight": "bold"
+    });
+    $(this).find(".fa-superpowers").css({
+
+    });
+  } else {
+    $(this).find(".fa-superpowers").css({
+      "-moz-transform": "rotate(0deg)",
+       "-webkit-transform": "rotate(0deg)",
+        "-o-transform": "rotate(0deg)",
+         "-ms-transform": "rotate(0deg)",
+          "transform": "rotate(0deg)",
+      "color" : "#DEDEDE"
+    });
+  }
+  // Toggle the flag
+  rotated = !rotated;
+});
+

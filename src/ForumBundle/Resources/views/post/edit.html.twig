@@ -11,7 +11,7 @@
                     {#{{ dump(post) }}#}
                     {#{{ dump(edit_form.enfant) }}#}
                     {{ form_label(edit_form.titre) }}
-                    {{ form_widget(edit_form.titre|title) }}
+                    {{ form_widget(edit_form.titre) }}
                     {{ form_errors(edit_form.titre) }}
                 </div>
             </div>
@@ -52,7 +52,9 @@
         {#</div>#}
 
 
-
+    {# **********************************#}
+    {# Boutons fin de Form               #}
+    {# **********************************#}
     <div class="row center">
         <button class="btn-floating btn-large waves-effect waves-light green darken-1"
         type="submit"
@@ -61,20 +63,30 @@
         </button>
     </div>
     <div class="row center">
-        {#index#}
-        <a class="btn-floating btn-large waves-effect waves-light blue darken-1"
-           href="{{ path('post_index') }}">
-            <i class="small material-icons">home</i>
-        </a>
+        {# Retour vers page de tous les commentaires#}
+        {%  if post.parent.id is not defined %}
+            {# Gestion postParent, si post parent l'id de retour = id du post #}
+            <a class="btn-floating btn-large waves-effect waves-light blue darken-1"
+               href="{{ path('post_showAllPost', { 'id': post.id}) }}">
+                <i class="small material-icons">home</i>
+            </a>
+
+        {% else %}
+            {# Gestion postEnfant, si post enfant l'id de retour = id du post du parent #}
+            <a class="btn-floating btn-large waves-effect waves-light blue darken-1"
+               href="{{ path('post_showAllPost', { 'id': post.parent.id}) }}">
+                <i class="small material-icons">home</i>
+            </a>
+        {% endif %}
+
         {#Supprimer#}
         {#{{ form_start(delete_form) }}#}
         {#<input type="submit" value="Delete">#}
         <a class="btn-floating btn-large waves-effect waves-light blue darken-1"
-           href="{{ path('post_delete', { 'id': post.id }) }}"
+           href="{{ path('post_desactive', { 'id': post.id }) }}"
            value="Delete">
             <i class="small material-icons">delete</i>
         </a>
-        {#{{ form_end(delete_form) }}#}
     </div>
         {{ form_end(edit_form) }}
     </div>

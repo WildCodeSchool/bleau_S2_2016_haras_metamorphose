@@ -12,9 +12,10 @@
       {#***********************#}
       {% for categorie in categories %}
       <li>
-          <div class="collapsible-header postListTitleCat">
+          <div class="collapsible-header postListTitleCat pointer">
             {{ categorie.nom }}
-            <i class="material-icons">play_arrow</i>
+            {#<i class="material-icons " style="rotate(-45deg);">dialpad</i>#}
+            <i class="fa fa-superpowers" aria-hidden="true"></i>
             {# Stockage de l'ID de la CATEGORIE #}
             {% set categorieEnLecture = categorie.id %}
           </div>
@@ -27,7 +28,8 @@
             {# Selectionne sous catégorie  parentId not null #}
             {% if sousCategorie.parent.id == categorieEnLecture %}
                 <li>
-                   <div class="collapsible-header postListTitleSousCat">
+                   <div class="collapsible-header postListTitleSousCat ">
+                       <i class="fa fa-bars" aria-hidden="true"></i>
                        {{ sousCategorie.nom }}
                        {# Stockage de l'ID de la SOUS CATEGORIE #}
                        {% set sousCategorieEnLecture = sousCategorie.id %}
@@ -42,7 +44,7 @@
                        {% if (postParent.categorie.id == sousCategorieEnLecture)
                             and (postParent.categorie.parent.id == categorieEnLecture) %}
                             <li>
-                                  <div class="collapsible-header postListTitlePost id="table_id"">
+                                  <div class="collapsible-header postListTitlePost" id="table_id"">
                                       <i class="material-icons">place</i>
                                       {{ postParent.titre }}
                                   </div>

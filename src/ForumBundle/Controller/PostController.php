@@ -25,9 +25,6 @@ class PostController extends Controller
         $postParents = $em->getRepository('ForumBundle:Post')->findBy(array('actif'=> 1, 'parent' => null));
         // Ramene les catégories  (actif = oui)
         $categories = $em->getRepository('ForumBundle:CategoriePlateforme')->findBy(array('actif'=> 1, 'parent' => null));
-//        $allCategories = $em->getRepository('ForumBundle:CategoriePlateforme')->findBy(array('actif'=> 1,'parent' => null));
-        // Ramene les catégories (out sous catégorie = parent = null) actives
-//        $sousCategories = $em->getRepository('ForumBundle:CategoriePlateforme')->findBy(array('actif'=> 1 ));
         // Ramene sous catégorie
         // SELECT * FROM `categorie_plateforme` WHERE `parent_id` is NOT null and actif = 1
         $repository = $em->getRepository('ForumBundle:CategoriePlateforme');
@@ -115,7 +112,6 @@ class PostController extends Controller
             $em->flush($post);
             return $this->redirectToRoute('post_showAllPost', array('id' => $post->getId()) );
 
-//            return $this->redirectToRoute('post_index');
         }
 
         return $this->render('@Forum/post/newParent.html.twig', array(
@@ -152,6 +148,7 @@ class PostController extends Controller
 
         // Récupération du numéro du post fil de discussion
         $idPostFirst = $request->get('id');
+        // Récupération des post en BdD
         $postParents = $em->getRepository('ForumBundle:Post')->findBy(array( 'id' => $idPostFirst, 'actif'=> 1));
         $postEnfants = $em->getRepository('ForumBundle:Post')->findBy(array( 'parent' => $idPostFirst, 'actif'=> 1));
 
@@ -179,11 +176,58 @@ class PostController extends Controller
             return $this->redirectToRoute('post_showAllPost', array('id' => $post->getParent()->getId()));
         }
 
-        return $this->render('@Forum/post/edit.html.twig', array(
-            'post' => $post,
-            'edit_form' => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
-        ));
+        // Direction pour post parent
+        if($post->getParent() == null) {
+            return $this->render('@Forum/post/edit.html.twig', array(
+                'id' => $post->getId(),
+                'post' => $post,
+                'edit_form' => $editForm->createView(),
+                'delete_form' => $deleteForm->createView()
+            ));
+        // Direction pour post enfant
+        } else {
+            return $this->render('@Forum/post/edit.html.twig', array(
+                'post' => $post,
+                'edit_form' => $editForm->createView(),
+                'delete_form' => $deleteForm->createView()
+            ));
+        }
+    }
+
+    /**
+     * Deletes a post entity.
+     *
+     */
+    public function desactiveAction(Post $post) {
+        // Si post Parent, désactive également les post enfant, actif = false
+        if ($post->getParent() == null) {
+            $em = $this->getDoctrine()->getManager();
+            // Récupération des post enfant dans BdD
+            $postEnfants = $em->getRepository('ForumBundle:Post')->findBy(array( 'parent' => $post->getId(), 'actif'=> 1));
+
+            // Enregistrement en BdD
+            // Enfant : actif = false
+            foreach ($postEnfants as $postEnfant) {
+                $postEnfant->setActif(false);
+                $em->persist($postEnfant);
+                $em->flush($postEnfant);
+            }
+            // Enfant : actif = false
+            $post->setActif(false);
+            $em->persist($post);
+            $em->flush($post);
+
+            return $this->redirectToRoute('post_index');
+
+        // Si post Enfant, desactive que le post selectionné
+        } else {
+            $em = $this->getDoctrine()->getManager();
+            $post->setActif(false);
+            $em->persist($post);
+            $em->flush($post);
+
+            return $this->redirectToRoute('post_showAllPost', array('id' => $post->getParent()->getId()) );
+        }
     }
 
     /**
