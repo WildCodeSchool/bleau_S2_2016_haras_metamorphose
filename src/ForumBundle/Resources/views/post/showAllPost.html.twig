@@ -46,6 +46,13 @@
            href="{{ path('post_new', {'cat' : postParent.categorie.id,  'id' : postParent.id }) }}">
             <i class="material-icons">add</i>
         </a>
+        <div class="row center">
+
+        <a class="btn-floating btn-large waves-effect waves-light blue darken-1"
+           href="{{ path('post_index') }}">
+            <i class="small material-icons">home</i>
+        </a>
+    </div>
     </div>
 
     {% endfor %} {# Fin For POST ENFANTS #}

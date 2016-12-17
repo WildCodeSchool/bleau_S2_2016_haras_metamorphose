@@ -63,9 +63,9 @@
                        {% endfor %} {# for for POST PARENT #}
                        </ul>
                    <div class="row center">
-                       {#Ajout nouveau post sur cat & ssCat selectionnées (CAT)#}
+                       {#Ajout nouveau post parent sur cat & ssCat selectionnées (CAT)#}
                        <a class="btn btn-small waves-effect waves-light grey darken-3"
-                           href="{{ path('post_new' , {'cat' : sousCategorieEnLecture, 'id' : 'NULL' }) }}">
+                           href="{{ path('post_newParent' , {'cat' : sousCategorieEnLecture}) }}">
                             <i class="material-icons">add</i>
                        </a>
                        {#<div id="pagination ">#}

@@ -73,7 +73,7 @@ class PostController extends Controller
             $em->persist($post);
             $em->flush($post);
 
-            return $this->redirectToRoute('post_index');
+            return $this->redirectToRoute('post_showAllPost', array('id' => $post->getParent()->getId()) );
         }
 
         return $this->render('@Forum/post/new.html.twig', array(
@@ -81,6 +81,47 @@ class PostController extends Controller
             'form' => $form->createView(),
             'cat' => $request->get('cat'),
             'id' => $request->get('id'),
+        ));
+    }
+
+        /**
+     * Creates a new post entity.
+     *
+     */
+    public function newParentAction(Request $request, CategoriePlateforme $cat)
+    {
+        $post = new Post();
+        $form = $this->createForm('ForumBundle\Form\PostType', $post);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            // Enregistrement en BdD
+            // Ajout de la catégorie au post
+            $post->setCategorie($cat);
+            // Ajout actif
+            $post->setActif(true);
+
+            // Ajout Enfant
+//            $post->addEnfant($post->getEnfant());
+
+            // Ajout user null pour le moment
+//            $post->setUser(null);
+
+            // Ajout +1 sur nbPost sur User
+
+            $em->persist($post);
+            $em->flush($post);
+            return $this->redirectToRoute('post_showAllPost', array('id' => $post->getId()) );
+
+//            return $this->redirectToRoute('post_index');
+        }
+
+        return $this->render('@Forum/post/newParent.html.twig', array(
+            'post' => $post,
+            'form' => $form->createView(),
+            'cat' => $request->get('cat'),
         ));
     }
 

@@ -22,6 +22,11 @@ post_new:
     defaults: { _controller: "ForumBundle:Post:new" }
     methods:  [GET, POST]
 
+post_newParent:
+    path:     /{cat}/new
+    defaults: { _controller: "ForumBundle:Post:newParent" }
+    methods:  [GET, POST]
+
 post_edit:
     path:     /{id}/edit
     defaults: { _controller: "ForumBundle:Post:edit" }
