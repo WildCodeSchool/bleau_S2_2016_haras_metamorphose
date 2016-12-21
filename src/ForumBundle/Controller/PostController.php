@@ -17,13 +17,17 @@ class PostController extends Controller
      * Lists all post entities.
      *
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         // Connexion à la BdD
         $em = $this->getDoctrine()->getManager();
         // Ramene le Fil de discussion parent et actif
         $postParents = $em->getRepository('ForumBundle:Post')->findBy(array('actif'=> 1, 'parent' => null));
-
+//
+//        $findPostParents = $em->getRepository('ForumBundle:Post')->findBy(array('actif'=> 1, 'parent' => null));
+//
+//        $paginator  = $this->get('knp_paginator');
+//        $postParents = $paginator->paginate($findPostParents, $request->query->getInt('page', 1), 5);
 
 
         // Ramene les catégories  (actif = oui)
@@ -152,11 +156,11 @@ class PostController extends Controller
         // Récupération du numéro du post fil de discussion
         $idPostFirst = $request->get('id');
         // Récupération des post en BdD
+        // Post parent
         $postParents = $em->getRepository('ForumBundle:Post')->findBy(array( 'id' => $idPostFirst, 'actif'=> 1));
+        // Post enfant + mise en place pagination
         $findPostEnfants = $em->getRepository('ForumBundle:Post')->findBy(array( 'parent' => $idPostFirst, 'actif'=> 1));
-
         $paginator  = $this->get('knp_paginator');
-
         $postEnfants = $paginator->paginate($findPostEnfants, $request->query->getInt('page', 1), 2);
 
 
@@ -203,7 +207,7 @@ class PostController extends Controller
     }
 
     /**
-     * Deletes a post entity.
+     * Desactives a post entity.
      *
      */
     public function desactiveAction(Post $post) {

@@ -93,6 +93,7 @@ mobile_detect:
         tablet: ~
     switch_device_view: ~
 
+# Gestion BBCode
 # CKeditor configuration
 ivory_ck_editor:
 #    base_path: "ckeditor"
@@ -109,6 +110,7 @@ ivory_ck_editor:
             uiColor: #FFA500
 
 # Gestion de la pagination
+# Knp paginator configuration
 knp_paginator:
     page_range: 5                      # default page range used in pagination control
     default_options:

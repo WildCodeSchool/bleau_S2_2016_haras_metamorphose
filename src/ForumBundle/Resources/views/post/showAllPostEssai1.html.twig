@@ -2,12 +2,6 @@
 
 {% block body %}
 <section class="sectionAllPost">
-    {#-------------------------------------------------------------#}
-{# NavBar Lateral  #}
-{{ include("@Forum/post/postNavBar.html.twig") }}
-{# fin rating user #}
-{#-------------------------------------------------------------#}
-
     {% for postParent in postParents %}
        {# Affichage du post parent #}
           <div class="header">
@@ -18,7 +12,7 @@
             </div>
 
             <div class="valign-wrapper">
-                <a class="aPost" href="{{ path('post_edit', { 'id': postParent.id }) }}" style="margin: 0 auto;">
+                <a class="valign" href="{{ path('post_edit', { 'id': postParent.id }) }}" style="margin: 0 auto;">
                     <i class="fa fa-pencil-square-o fa-3x" style="color: #FFFFFF;" aria-hidden="true"></i>
                 </a>
 
@@ -29,7 +23,7 @@
                     {# rating user #}
                     {#<p>{{ postParent.user.nbPost }}</p>#}
                     {% set nb = 100 %}
-                    <div class="pCartoucheUserShowAll">{{ include("@Forum/post/rating.html.twig") }}</div>
+                    <div class="pCartoucheUserIndexPost">{{ include("@Forum/post/rating.html.twig") }}</div>
                     {# fin rating user #}
                     {#-------------------------------------------------------------#}
                 </div>
@@ -63,21 +57,21 @@
                         <div class="card-content">
                           <p>{{ postEnfant.contenu|raw }}</p>
                         </div>
-                        <div class="card-action">
-                            <div>
+                        <div class="card-action valign-wrapper">
+                            <div class="valign">
                           <a href="{{ path('post_edit', { 'id': postParent.id }) }}">
                               <i class="fa fa-pencil-square-o fa-3x" style="color: #444;" aria-hidden="true"></i>
                           </a>
                             </div>
-                          <div class="pCartoucheUserShowAll">message de : {{ postEnfant.user }}</div>
-                          <div style="float: right;">
+                          <div class="valign pCartoucheUserShowAll">message de : {{ postEnfant.user }}</div>
+                          <div class="valign" style="float: right;">
                               <img src="{{ asset('bundles/haras/images/test3.jpeg') }}" style="width: 50px;">
                           </div>
                           {#-------------------------------------------------------------#}
                           {# rating user #}
                           {#<p>{{ postEnfant.user.nbPost }}</p>#}
                           {% set nb = 70 %}
-                          <div>{{ include("@Forum/post/rating.html.twig") }}</div>
+                          <div  class="valign">{{ include("@Forum/post/rating.html.twig") }}</div>
                           {# fin rating user #}
                           {#-------------------------------------------------------------#}
                         </div>
@@ -107,3 +101,4 @@
     </div>  {# fin div id content #}
 </section>
 {% endblock %}
+
