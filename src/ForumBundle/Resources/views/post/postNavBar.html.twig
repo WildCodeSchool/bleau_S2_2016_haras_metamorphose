@@ -46,7 +46,18 @@ aside {
     transform: translate(0px);
 }
 
+#dropdown1 {
+    top: 317px !important;
+    left: 15px !important;
+}
 
+.userLogout {
+    background: #DEDEDE;
+}
+
+.userLogout a {
+    color: red !important;
+}
 
 @media (min-width: 991px) {
     main {
@@ -61,8 +72,20 @@ aside {
         <br />
 
     <div style="text-align:center;" id="profilepic">
-      <img src="{{ asset('bundles/haras/media/section2Image.png') }}" alt="" class="circle responsive-img" width="200"> <br />
+      <img src="{{ asset('bundles/haras/media/section2Image.png') }}" alt="" class="circle responsive-img" width="200">     <br />
       Robert Soriano
+         {# Accès modif fiche user #}
+         <!-- Dropdown Trigger -->
+          <a class='dropdown-button btn' href='#' data-activates='dropdown1'>
+              <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+          </a>
+          <!-- Dropdown Structure -->
+          <ul id='dropdown1' class='dropdown-content'>
+            <li><a href="#!">one</a></li>
+            <li><a href="#!">two</a></li>
+            <li class="divider"></li>
+            <li class="userLogout"><a href="#!">Déconnection</a></li>
+          </ul>
     </div>
         <br /> <br />
         <li>

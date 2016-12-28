@@ -2,7 +2,8 @@
 
 {% block body %}
 <section class="sectionAllPost">
-    {#-------------------------------------------------------------#}
+
+{#-------------------------------------------------------------#}
 {# NavBar Lateral  #}
 {{ include("@Forum/post/postNavBar.html.twig") }}
 {# fin rating user #}
@@ -15,6 +16,7 @@
             <h1> {{ postParent.titre|capitalize }} </h1>
             <div class="contextHeader">
                 {{ postParent.contenu|raw }}
+                <p class="dateMessage">Message posté le {{ postParent.dateCreate|date("d/m/Y") }}</p>
             </div>
 
             <div class="valign-wrapper">
@@ -52,7 +54,7 @@
 
         <div id="content">
             <div class="object">
-                <div class="date"></div>
+                <div class="date">{{ postEnfant.dateCreate|date("d") }}</div>
                 <div class="circle"></div>
                 <div class="context">
 
@@ -61,7 +63,8 @@
                     <div class="card horizontal">
                       <div class="card-stacked">
                         <div class="card-content">
-                          <p>{{ postEnfant.contenu|raw }}</p>
+                          {{ postEnfant.contenu|raw }}
+                          <p class="dateMessage">Message posté le {{ postEnfant.dateCreate|date("d/m/Y") }}</p>
                         </div>
                         <div class="card-action">
                             <div>
@@ -77,7 +80,7 @@
                           {# rating user #}
                           {#<p>{{ postEnfant.user.nbPost }}</p>#}
                           {% set nb = 70 %}
-                          <div>{{ include("@Forum/post/rating.html.twig") }}</div>
+                          <div  class="valign">{{ include("@Forum/post/rating.html.twig") }}</div>
                           {# fin rating user #}
                           {#-------------------------------------------------------------#}
                         </div>
@@ -106,4 +109,5 @@
     {% endfor %} {# Fin For POST Parent #}
     </div>  {# fin div id content #}
 </section>
+
 {% endblock %}

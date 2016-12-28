@@ -54,9 +54,6 @@
   margin-right: 70px !important;
 }
 
-
-
-
 //**********************************
 // index post
 //**********************************
@@ -233,7 +230,8 @@ bigtxt {
   width: 40px;
   height: 40px;
   margin: 20px;
-  background-color: #FFF;
+  margin-top: 64px;
+  background-color: #f1c40f;
   color: #fff;
   border-radius: 10px;
   text-align: center;
@@ -333,7 +331,7 @@ bigtxt {
     background-color: unset !important;
     border: none !important;
     border-left-color: unset !important;
-  border-right-color: unset !important;
+    border-right-color: unset !important;
     border-bottom-color: unset !important;
     border-radius: unset !important;
     box-shadow: unset !important;
@@ -344,3 +342,31 @@ bigtxt {
     left: 35px;
   }
 }
+
+
+//*************************************************************************
+// include lastPost
+//*************************************************************************
+//
+//**********************************
+
+.lastPost {
+  width: 96% !important;
+}
+
+.pDernierPost {
+  bottom:15px !important;
+}
+/****************************/
+/*        row  & col        */
+/****************************/
+
+//.rowCustom {
+//    padding: 0px !important;
+//    margin: 0px !important;
+//}
+//
+//.colCustom {
+//    padding:0px !important;
+//    margin:0px;
+//}

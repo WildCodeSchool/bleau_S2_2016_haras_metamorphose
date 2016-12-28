@@ -36,10 +36,46 @@ class PostController extends Controller
         // SELECT * FROM `categorie_plateforme` WHERE `parent_id` is NOT null and actif = 1
         $repository = $em->getRepository('ForumBundle:CategoriePlateforme');
         $sousCategories = $repository->getSousCategorie();
+
+
+        $lastPostByCat1 = array();
+        $lastPostByCat2 = array();
+        $lastPostByCat3 = array();
+        $lastPostByCat4 = array();
+//        foreach ($categories as $categorie) {
+            foreach ($postParents as $postParent) {
+                if ($postParent->getCategorie()->getParent()->getId() == 1) {
+                  $arrayProvisoire = array();
+                  $arrayProvisoire[] = $postParent;
+                  $lastPostByCat1 = array_slice($arrayProvisoire, -1, 1, true);
+                }
+                elseif ($postParent->getCategorie()->getParent()->getId() == 2) {
+                    $arrayProvisoire = array();
+                  $arrayProvisoire[] = $postParent;
+                  $lastPostByCat2 = array_slice($arrayProvisoire, -1, 1, true);
+                }
+                elseif ($postParent->getCategorie()->getParent()->getId() == 3) {
+                    $arrayProvisoire = array();
+                  $arrayProvisoire[] = $postParent;
+                  $lastPostByCat3 = array_slice($arrayProvisoire, -1, 1, true);
+                }
+                elseif ($postParent->getCategorie()->getParent()->getId() == 4) {
+                    $arrayProvisoire = array();
+                  $arrayProvisoire[] = $postParent;
+                  $lastPostByCat4 = array_slice($arrayProvisoire, -1, 1, true);
+                }
+            }
+
+
+
         return $this->render('@Forum/post/index.html.twig', array(
             'postParents' => $postParents,
             'categories' => $categories,
             'sousCategories' => $sousCategories,
+            'lastPostCat1' => $lastPostByCat1,
+            'lastPostCat2' => $lastPostByCat2,
+            'lastPostCat3' => $lastPostByCat3,
+            'lastPostCat4' => $lastPostByCat4,
         ));
     }
 
@@ -65,6 +101,9 @@ class PostController extends Controller
 
             // Ajout actif
             $post->setActif(true);
+
+            // Ajout date de la saisie
+            $post->setDateCreate(new \DateTime());
 
             // Ajout Enfant
 //            $post->addEnfant($post->getEnfant());
@@ -106,6 +145,10 @@ class PostController extends Controller
             $post->setCategorie($cat);
             // Ajout actif
             $post->setActif(true);
+
+            // Ajout date de la saisie
+            $post->setDateCreate(new \DateTime());
+
 
             // Ajout Enfant
 //            $post->addEnfant($post->getEnfant());

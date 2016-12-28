@@ -35,3 +35,25 @@ $(document).ready(function() {
   Materialize.fadeInImage('#profilepic');
   Materialize.showStaggeredList('#staggered-list');
 });
+
+//***************************************************//
+//    ShowDernierPost                                //
+//****************************************************
+$(document).ready(function() {
+    if ($(window).width() > 739) {
+    var heightDiv = $('.colCustom').css('width');
+    $('.colCustom').css("height", heightDiv);
+        $(window).resize(function() {
+            var heightDiv = $('.colCustom').css('width');
+            $('.colCustom').css("height", heightDiv);
+        });
+    }
+    else {
+        var heightDiv = $('.colCustom').css('width');
+        $('.colCustom').css("height", heightDiv/2);
+            $(window).resize(function() {
+                var heightDiv = $('.colCustom').css('width');
+                $('.colCustom').css("height", heightDiv/2);
+            });
+    }
+});

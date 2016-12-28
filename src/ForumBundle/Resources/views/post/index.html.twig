@@ -1,28 +1,22 @@
 {% extends '@Forum/layout.html.twig' %}
 
 {% block body %}
+    {#-------------------------------------------------------------#}
+    {# NavBar Lateral  #}
+    {{ include("@Forum/post/postNavBar.html.twig") }}
+    {# fin navBar lateral #}
+    {#-------------------------------------------------------------#}
 
 
-
-
-<section class="postSectionIndex">
-
-{#-------------------------------------------------------------#}
-{# NavBar Lateral  #}
-{{ include("@Forum/post/postNavBar.html.twig") }}
-{# fin rating user #}
-{#-------------------------------------------------------------#}
-
-
+  <section class="postSectionIndex">
   {# DEBUT CODE #}
   <article class="postArticleIndex">
     <h1 class="center">Discussions par catégorie</h1>
-
     <ul class="collapsible popout postDivPrincipale" data-collapsible="popout">
       {#***********************#}
       {# Niveau 1 : Catégories #}
       {#***********************#}
-        {% set img = 1 %}
+      {% set img = 1 %}
       {% for categorie in categories %}
       <li>
           <div class="collapsible-header postListTitleCat">
@@ -30,7 +24,7 @@
             {# Stockage de l'ID de la CATEGORIE #}
             {% set categorieEnLecture = categorie.id %}
               {# Reprise image categorie du harasBundle #}
-              <div><img class="indexImageCat" src="{{ asset('bundles/haras/media/section' ~ img ~ 'Image.png') }}"></div>
+              {#<div><img class="indexImageCat" src="{{ asset('bundles/haras/media/section' ~ img ~ 'Image.png') }}"></div>#}
           </div>
           <div class="collapsible-body">
             <ul class="collapsible popout postDivPrincipale" data-collapsible="accordion">
@@ -63,7 +57,9 @@
                                   </div>
                                   <div class="collapsible-body divCorpsPostParent">
                                       <div class="bigtxt">
-                                        <p>{{ postParent.contenu|raw }}</p>
+                                        {{ postParent.contenu|raw }}
+                                          <p>Message posté le {{ postParent.dateCreate|date("d/m/Y") }}</p>
+
                                       </div>
                                       <div class="cartoucheUserIndexPost center">
                                         <p class="pCartoucheUserIndexPost">Message de : {{ postParent.user }}</p>
@@ -118,5 +114,10 @@
         {#</a>#}
     {#</div>#}
    </article>
+    {#-------------------------------------------------------------#}
+    {# Derniers post  #}
+    {{ include("@Forum/post/showDerniersPost.html.twig") }}
+    {# fin Derniers post #}
+    {#-------------------------------------------------------------#}
 </section>
 {% endblock %}
