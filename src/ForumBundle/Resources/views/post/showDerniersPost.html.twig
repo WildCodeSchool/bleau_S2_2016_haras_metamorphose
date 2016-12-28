@@ -1,13 +1,13 @@
   {# Dernier post de chaque catégorie #}
   <div class="container lastPost">
-     <h2>Dernières discussions</h2>
+     <h2 class="center">Dernières discussions</h2>
         {# Ligne 1 #}
         <div class="row">
             {% if  lastPostCat1 is not empty %}
             <div class="col s12 m6">
               <div class="card blue-grey darken-1">
                 <div class="card-content white-text colCustom">
-                  <span class="card-title">{{ lastPostCat1[0].titre|capitalize }}</span>
+                  <span class="card-title titreDerPost">{{ lastPostCat1[0].titre|capitalize }}</span>
                   <div class="bigtxt">{{ lastPostCat1[0].contenu|raw }}</div>
 
                 </div>
@@ -17,7 +17,7 @@
                         <i class="material-icons">input</i>
                   </a>
                   <p class="pDernierPost white-text">Message de : {{ lastPostCat1[0].user }} <br />
-                  Message posté le {{ lastPostCat1[0].dateCreate|date("d/m/Y") }}</p>
+                  Posté le {{ lastPostCat1[0].dateCreate|date("d/m/Y") }}</p>
                 </div>
               </div>
             </div>
@@ -26,7 +26,7 @@
             <div class="col s12 m6">
               <div class="card blue-grey darken-1">
                 <div class="card-content white-text colCustom">
-                  <span class="card-title">{{ lastPostCat2[0].titre|capitalize }}</span>
+                  <span class="card-title titreDerPost">{{ lastPostCat2[0].titre|capitalize }}</span>
                   <div class="bigtxt">{{ lastPostCat2[0].contenu|raw }}</div>
                 </div>
                 <div class="card-action">
@@ -35,7 +35,7 @@
                         <i class="material-icons">input</i>
                   </a>
                   <p class="pDernierPost white-text">Message de : {{ lastPostCat2[0].user }}<br />
-                  Message posté le {{ lastPostCat2[0].dateCreate|date("d/m/Y") }}</p>
+                  Posté le {{ lastPostCat2[0].dateCreate|date("d/m/Y") }}</p>
                 </div>
               </div>
             </div>
@@ -47,7 +47,7 @@
             <div class="col s12 m6">
               <div class="card blue-grey darken-1">
                 <div class="card-content white-text colCustom">
-                  <span class="card-title">{{ lastPostCat3[0].titre|capitalize }}</span>
+                  <span class="card-title titreDerPost">{{ lastPostCat3[0].titre|capitalize }}</span>
                   <div class="bigtxt">{{ lastPostCat3[0].contenu|raw }}</div>
                 </div>
                 <div class="card-action">
@@ -56,7 +56,7 @@
                         <i class="material-icons">input</i>
                   </a>
                   <p class="pDernierPost white-text">Message de : {{ lastPostCat3[0].user }}<br />
-                  Message posté le {{ lastPostCat3[0].dateCreate|date("d/m/Y") }}</p>
+                  Posté le {{ lastPostCat3[0].dateCreate|date("d/m/Y") }}</p>
                 </div>
               </div>
             </div>
@@ -65,7 +65,7 @@
             <div class="col s12 m6 ">
               <div class="card blue-grey darken-1">
                 <div class="card-content white-text colCustom">
-                  <span class="card-title">{{ lastPostCat4[0].titre|capitalize }}</span>
+                  <span class="card-title titreDerPost">{{ lastPostCat4[0].titre|capitalize }}</span>
                   <div class="bigtxt">{{ lastPostCat4[0].contenu|raw }}</div>
                 </div>
                 <div class="card-action">
@@ -74,7 +74,7 @@
                         <i class="material-icons">input</i>
                   </a>
                   <p class="pDernierPost white-text">Message de : {{ lastPostCat4[0].user }}<br />
-                  Message posté le {{ lastPostCat4[0].dateCreate|date("d/m/Y") }}</p>
+                  Posté le {{ lastPostCat4[0].dateCreate|date("d/m/Y") }}</p>
                 </div>
               </div>
             </div>

@@ -50,7 +50,7 @@
   padding-bottom: 0px !important;
 }
 .liPostSousCat {
-  margin-left: 115px !important;
+  margin-left: 70px !important;
   margin-right: 70px !important;
 }
 
@@ -92,7 +92,7 @@ bigtxt {
 }
 
 .divCorpsSousCat {
-  background: rgba(248, 247, 216, 0.7)
+  background: rgba(222, 222, 222, 0.7)
 }
 
 //**********************************
@@ -357,16 +357,134 @@ bigtxt {
 .pDernierPost {
   bottom:15px !important;
 }
-/****************************/
-/*        row  & col        */
-/****************************/
 
-//.rowCustom {
-//    padding: 0px !important;
-//    margin: 0px !important;
-//}
-//
-//.colCustom {
-//    padding:0px !important;
-//    margin:0px;
-//}
+.titreDerPost {
+  font-size: 30px !important;
+  text-align: center !important;
+  margin-bottom: 3%;
+}
+
+//*****************************************************************************
+// PAGINATION
+//*****************************************************************************
+.pagination {
+    margin: 20px 0;
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+}
+.pagination ul {
+    float: left;
+    left: 50%;
+    position: relative;
+}
+.pagination ul > li {
+    left: -50%;
+    position: relative;
+}
+.pagination li a {
+    transition: all 100ms ease-in-out 0s;
+    background-color: #F7F7F8;
+    border-radius: 5px 5px 5px 5px;
+    color: #69696E;
+    display: block;
+    font: 12px/30px Arial, sans-serif;
+    height: 30px;
+    margin: 0 3px;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    width: 30px;
+}
+.pagination li a:hover {
+    background-color: #FF8C00;
+    color: #FFFFFF;
+}
+.pagination li.active a {
+    background-color: #FF8C00;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+.pagination li.active a:hover {
+    color: #FFFFFF;
+}
+
+.pagination li.current a {
+  background-color: #FF8C00;
+  color: #FFFFFF;
+}
+
+.pagination li i {
+    font-size: 1rem !important;
+}
+
+//********************************************************
+// POST NAV BAR
+//********************************************************
+body {
+    //background: linear-gradient(rgba(248, 247, 216, 0.7), rgba(0,0,0,0)),
+    //url('{{ asset('bundles/haras/media/foret.jpeg') }}');#}
+    //background: linear-gradient(to top, rgba(255,255,255,0), rgba(255,255,255,1)), url({{ asset('bundles/haras/media/foret.jpeg') }});
+    //background-image: url("{{ asset('bundles/haras/media/foret.jpeg') }}");
+    background-color: #cccccc;
+}
+
+aside {
+  opacity: 0.85;
+}
+
+.go a:before,
+.go a:after {
+    display: inline-block;
+    opacity: 0;
+    -webkit-transition: -webkit-transform 0.3s, opacity 0.2s;
+    -moz-transition: -moz-transform 0.3s, opacity 0.2s;
+    transition: transform 0.3s, opacity 0.2s;
+}
+
+.go a:before {
+    margin-right: 10px;
+    content: '[';
+    -webkit-transform: translate(20px);
+    -moz-transform: translate(20px);
+    transform: translate(20px);
+}
+
+.go a:after {
+    margin-left: 10px;
+    content: ']';
+    -webkit-transform: translate(-20px);
+    -moz-transform: translate(-20px);
+    transform: translate(-20px);
+}
+
+.go a:hover:before,
+.go a:hover:after,
+.go a:focus:before,
+.go a:focus:after {
+    opacity: 1;
+    -webkit-transform: translate(0px);
+    -moz-transform: translate(0px);
+    transform: translate(0px);
+}
+
+#dropdown1 {
+    top: 317px !important;
+    left: 15px !important;
+}
+
+.userLogout {
+    background: #DEDEDE;
+}
+
+.userLogout a {
+    color: red !important;
+}
+
+@media (min-width: 991px) {
+    main {
+        padding-left: 20px;
+    }
+}

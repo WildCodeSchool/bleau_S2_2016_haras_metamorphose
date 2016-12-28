@@ -228,7 +228,14 @@ class PostController extends Controller
             $this->getDoctrine()->getManager()->flush();
 
             // Redirection sur le fil de discussion initial
+            // pour post parent
+            if($post->getParent() == null) {
+                return $this->redirectToRoute('post_showAllPost', array('id' => $post->getId()));
+            }
+            // pour post enfant
+            else {
             return $this->redirectToRoute('post_showAllPost', array('id' => $post->getParent()->getId()));
+            }
         }
 
         // Direction pour post parent
@@ -278,6 +285,42 @@ class PostController extends Controller
         } else {
             $em = $this->getDoctrine()->getManager();
             $post->setActif(false);
+            $em->persist($post);
+            $em->flush($post);
+
+            return $this->redirectToRoute('post_showAllPost', array('id' => $post->getParent()->getId()) );
+        }
+    }
+
+    /**
+     * Reactives a post entity.
+     *
+     */
+    public function reactiveAction(Post $post) {
+        // Si post Parent, réactive également les post enfant, actif = true
+        if ($post->getParent() == null and $post->getActif() == true) {
+            $em = $this->getDoctrine()->getManager();
+            // Récupération des post enfant dans BdD
+            $postEnfants = $em->getRepository('ForumBundle:Post')->findBy(array( 'parent' => $post->getId(), 'actif'=> 0));
+
+            // Enregistrement en BdD
+            // Enfant : actif = true
+            foreach ($postEnfants as $postEnfant) {
+                $postEnfant->setActif(true);
+                $em->persist($postEnfant);
+                $em->flush($postEnfant);
+            }
+            // Parent : actif = true
+            $post->setActif(true);
+            $em->persist($post);
+            $em->flush($post);
+
+            return $this->redirectToRoute('post_index');
+
+        // Si post Enfant, réactive que le post selectionné
+        } else {
+            $em = $this->getDoctrine()->getManager();
+            $post->setActif(true);
             $em->persist($post);
             $em->flush($post);
 
