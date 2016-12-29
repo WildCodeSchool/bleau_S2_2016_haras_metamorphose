@@ -1,41 +1,87 @@
 {% extends '@Forum/layout.html.twig' %}
 
 {% block body %}
-    <h1>Categorieplateformes list</h1>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nom</th>
-                <th>Actif</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
+    <div class="container">
+    <h1 class="center">Liste des catégories du forum</h1>
+
+    <table class="responsive-table bordered tabIndexCat">
+        {#-------------------------------------------------------------#}
+        {# Mise en place pagination #}
+        {#<div class="row center">#}
+            {#{{ knp_pagination_render(categoriePlateformes) }}#}
+        {#</div>#}
+        {#-------------------------------------------------------------#}
         <tbody>
         {% for categoriePlateforme in categoriePlateformes %}
-            <tr>
-                <td><a href="{{ path('categorieplateforme_show', { 'id': categoriePlateforme.id }) }}">{{ categoriePlateforme.id }}</a></td>
-                <td>{{ categoriePlateforme.nom }}</td>
-                <td>{% if categoriePlateforme.actif %}Yes{% else %}No{% endif %}</td>
+            <tr class="trCat">
                 <td>
-                    <ul>
+                    {{ categoriePlateforme.nom }}
+                    {% set categorieEnLecture = categoriePlateforme.id %}
+                </td>
+                <td>
+                    <ul class="inline">
                         <li>
-                            <a href="{{ path('categorieplateforme_show', { 'id': categoriePlateforme.id }) }}">show</a>
+                            <a class="waves-effect waves-teal btn-flat center indexEntrerFil"
+                               href="{{ path('categorieplateforme_show', { 'id': categoriePlateforme.id }) }}">
+                                <i class="material-icons">input</i>
+                            </a>
                         </li>
                         <li>
-                            <a href="{{ path('categorieplateforme_edit', { 'id': categoriePlateforme.id }) }}">edit</a>
+                            <a class="waves-effect waves-teal btn-flat center indexEntrerFil"
+                               href="{{ path('categorieplateforme_edit', { 'id': categoriePlateforme.id }) }}">
+                                <i class="fa fa-pencil-square-o fa-3x" style="color: #444;" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="waves-effect waves-teal btn-flat tooltipped center indexEntrerFil"
+                               data-position="top" data-delay="50"
+                               data-tooltip="Ajouter une sous-catégorie"
+                               href="{{ path('categorieplateforme_new', {'cat' : categorieEnLecture}) }}">
+                                <i class="material-icons">add</i>
+                            </a>
                         </li>
                     </ul>
                 </td>
             </tr>
-        {% endfor %}
+            {##}
+            {% for sousCategorie in sousCategories %} 
+            {% if sousCategorie.parent.id == categorieEnLecture %} 
+            <tr class="trSousCat">
+                <td class="tdSousCat">{{ sousCategorie.nom }}</td>
+                <td>
+                    <ul class="inline">
+                        <li> 
+                            <a class="waves-effect waves-teal btn-flat center indexEntrerFil" 
+                               href="{{ path('categorieplateforme_show', { 'id': sousCategorie.id }) }}"> 
+                                <i class="material-icons">input</i> 
+                            </a> 
+                        </li> 
+                        <li> 
+                            <a class="waves-effect waves-teal btn-flat center indexEntrerFil" 
+                               href="{{ path('categorieplateforme_edit', { 'id': sousCategorie.id }) }}"> 
+                                <i class="fa fa-pencil-square-o fa-3x" style="color: #444;" aria-hidden="true"></i> 
+                            </a> 
+                        </li>  
+                    </ul>
+                </td>
+            </tr>
+            {% endif %} 
+            {% endfor %} {# Fin FOR Sous-categorie #} 
+            {##}
+        {% endfor %} {# Fin FOR Categorie #}
         </tbody>
     </table>
 
     <ul>
         <li>
-            <a href="{{ path('categorieplateforme_new') }}">Create a new categoriePlateforme</a>
+            {#<a class="waves-effect waves-teal btn-flat tooltipped center indexEntrerFil"#}
+               {#data-position="top" data-delay="50"#}
+               {#data-tooltip="Ajouter une catégorie"#}
+               {#href="{{ path('categorieplateforme_new') }}">#}
+               {#<i class="material-icons">add</i>#}
+            {#</a>#}
         </li>
     </ul>
 {% endblock %}
+

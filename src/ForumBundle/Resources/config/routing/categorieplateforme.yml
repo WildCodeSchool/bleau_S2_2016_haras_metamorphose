@@ -13,7 +13,7 @@ categorieplateforme_show:
     methods:  GET
 
 categorieplateforme_new:
-    path:     /new
+    path:     /{cat}/new
     defaults: { _controller: "ForumBundle:CategoriePlateforme:new" }
     methods:  [GET, POST]
 

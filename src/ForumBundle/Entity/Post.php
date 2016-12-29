@@ -7,7 +7,6 @@ namespace ForumBundle\Entity;
  */
 class Post
 {
-    // Permet de convertir l'objet CHAINE DE CARACTERE
     public function __toString()
     {
         return $this->titre;

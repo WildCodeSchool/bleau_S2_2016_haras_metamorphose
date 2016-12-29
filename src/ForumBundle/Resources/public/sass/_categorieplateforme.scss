@@ -1,0 +1,49 @@
+// *******************************************
+// index
+// *******************************************
+// Liste à puce en ligne
+// ************************
+.inline {
+  display: flex;
+}
+
+li:not(:last-child):after {
+  margin: 0 5px;
+}
+
+.tabIndexCat {
+  width: 55%;
+  margin-left: 20%;
+}
+
+.trCat {
+	background-color: #dedede;
+	padding-left: 5px;
+}
+
+.trSousCat {
+	margin-left: 25%;
+	width: 70%;
+}
+
+.tdSousCat {
+	width: 22%;
+	padding-left: 5%;
+}
+
+.trSousCat:nth-child(odd) {
+    //background-color: #000000;
+}
+
+.trSousCat:nth-child(even) {
+    //background-color: #b71586;
+}
+
+.flash-notice {
+	color: green !important;
+	font-size: 20px;
+	background: RGBA(255,255,255,0.6) !important;
+	padding: 15px 0px 15px 0px;
+	margin: 20px 0px;
+	border: 1px solid;
+}

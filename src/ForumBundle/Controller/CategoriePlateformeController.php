@@ -16,14 +16,23 @@ class CategoriePlateformeController extends Controller
      * Lists all categoriePlateforme entities.
      *
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $categoriePlateformes = $em->getRepository('ForumBundle:CategoriePlateforme')->findAll();
+        // Ramene les catégories  (actif = oui) et mise en place du paginator
+        $findCategoriePlateformes = $em->getRepository('ForumBundle:CategoriePlateforme')->findBy(array('actif'=> 1, 'parent' => null));
+        $paginator  = $this->get('knp_paginator');
+        $categoriePlateformes = $paginator->paginate($findCategoriePlateformes, $request->query->getInt('page', 1), 5);
+
+        // Ramene sous catégorie
+        // SELECT * FROM `categorie_plateforme` WHERE `parent_id` is NOT null and actif = 1
+        $repository = $em->getRepository('ForumBundle:CategoriePlateforme');
+        $sousCategories = $repository->getSousCategorie();
 
         return $this->render('@Forum/categorieplateforme/index.html.twig', array(
             'categoriePlateformes' => $categoriePlateformes,
+            'sousCategories' => $sousCategories,
         ));
     }
 
@@ -31,7 +40,7 @@ class CategoriePlateformeController extends Controller
      * Creates a new categoriePlateforme entity.
      *
      */
-    public function newAction(Request $request)
+    public function newAction(Request $request, CategoriePlateforme $cat)
     {
         $categoriePlateforme = new Categorieplateforme();
         $form = $this->createForm('ForumBundle\Form\CategoriePlateformeType', $categoriePlateforme);
@@ -39,8 +48,20 @@ class CategoriePlateformeController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+
+            // Ajout de la catégorie du parent au post
+            $categoriePlateforme->setParent($cat);
+
+            // Ajout actif
+            $categoriePlateforme->setActif(true);
+
             $em->persist($categoriePlateforme);
             $em->flush($categoriePlateforme);
+
+            $this->addFlash(
+                'notice',
+                'Votre catégorie a bien été enregistrée'
+            );
 
             return $this->redirectToRoute('categorieplateforme_show', array('id' => $categoriePlateforme->getId()));
         }
@@ -48,6 +69,7 @@ class CategoriePlateformeController extends Controller
         return $this->render('@Forum/categorieplateforme/new.html.twig', array(
             'categoriePlateforme' => $categoriePlateforme,
             'form' => $form->createView(),
+            'cat' => $request->get('cat'),
         ));
     }
 
@@ -73,10 +95,17 @@ class CategoriePlateformeController extends Controller
     {
         $deleteForm = $this->createDeleteForm($categoriePlateforme);
         $editForm = $this->createForm('PlateFormeBundle\Form\CategoriePlateformeType', $categoriePlateforme);
+
+
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+
+            $this->addFlash(
+                'notice',
+                'Cette catégorie a été modifiée'
+            );
 
             return $this->redirectToRoute('categorieplateforme_edit', array('id' => $categoriePlateforme->getId()));
         }

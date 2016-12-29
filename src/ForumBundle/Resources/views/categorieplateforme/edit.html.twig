@@ -1,10 +1,14 @@
 {% extends '@Forum/layout.html.twig' %}
 
 {% block body %}
-    <h1>Categorieplateforme edit</h1>
+    <h1 class="center">Modifier la catégorie</h1>
 
     {{ form_start(edit_form) }}
-        {{ form_widget(edit_form) }}
+        <div class="col l6 m6 s12">
+            {{ form_label(edit_form.nom) }}
+            {{ form_widget(edit_form.nom) }}
+            {{ form_errors(edit_form.nom) }}
+        </div>
         <input type="submit" value="Edit" />
     {{ form_end(edit_form) }}
 
@@ -13,9 +17,9 @@
             <a href="{{ path('categorieplateforme_index') }}">Back to the list</a>
         </li>
         <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
+            {#{{ form_start(delete_form) }}#}
+                {#<input type="submit" value="Delete">#}
+            {#{{ form_end(delete_form) }}#}
         </li>
     </ul>
 {% endblock %}

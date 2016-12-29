@@ -116,6 +116,11 @@ class PostController extends Controller
             $em->persist($post);
             $em->flush($post);
 
+            $this->addFlash(
+                'notice',
+                'Votre message a été enregistré'
+            );
+
             return $this->redirectToRoute('post_showAllPost', array('id' => $post->getParent()->getId()) );
         }
 

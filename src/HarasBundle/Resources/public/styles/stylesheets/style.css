@@ -1311,3 +1311,46 @@ aside {
     padding-left: 20px;
   }
 }
+/* line 6, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
+.inline {
+  display: flex;
+}
+
+/* line 10, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
+li:not(:last-child):after {
+  margin: 0 5px;
+}
+
+/* line 14, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
+.tabIndexCat {
+  width: 55%;
+  margin-left: 20%;
+}
+
+/* line 19, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
+.trCat {
+  background-color: #dedede;
+  padding-left: 5px;
+}
+
+/* line 24, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
+.trSousCat {
+  margin-left: 25%;
+  width: 70%;
+}
+
+/* line 29, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
+.tdSousCat {
+  width: 22%;
+  padding-left: 5%;
+}
+
+/* line 42, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
+.flash-notice {
+  color: green !important;
+  font-size: 20px;
+  background: RGBA(255, 255, 255, 0.6) !important;
+  padding: 15px 0px 15px 0px;
+  margin: 20px 0px;
+  border: 1px solid;
+}

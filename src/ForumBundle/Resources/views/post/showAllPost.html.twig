@@ -6,9 +6,8 @@
 {#-------------------------------------------------------------#}
 {# NavBar Lateral  #}
 {{ include("@Forum/post/postNavBar.html.twig") }}
-{# fin rating user #}
+{# fin NavBar lateral #}
 {#-------------------------------------------------------------#}
-
     {% for postParent in postParents %}
        {# Affichage du post parent #}
           <div class="header">
@@ -23,7 +22,6 @@
                 <a class="aPost" href="{{ path('post_edit', { 'id': postParent.id }) }}" style="margin: 0 auto;">
                     <i class="fa fa-pencil-square-o fa-3x" style="color: #FFFFFF;" aria-hidden="true"></i>
                 </a>
-
                 <div class="cartoucheUserShowAll valign">
                     <div class="pCartoucheUserShowAll">Message de : {{ postParent.user }}</div>
                     <div class="avatarUserIndex"><img src="{{ asset('bundles/haras/images/test2.jpeg') }}"></div>
@@ -35,12 +33,8 @@
                     {# fin rating user #}
                     {#-------------------------------------------------------------#}
                 </div>
-
             </div>
-
           </div> {# fin header #}
-
-
 
         {#-------------------------------------------------------------#}
         {# Mise en place pagination #}
@@ -48,6 +42,18 @@
             {{ knp_pagination_render(postEnfants) }}
         </div>
         {#-------------------------------------------------------------#}
+
+        {#-------------------------------------------------------------#}
+        {# Mise message flash #}
+        {% for flash_message in app.session.flashBag.get('notice') %}
+            <div class="row container">
+                <div class="flash-notice center">
+                    {{ flash_message }}
+                </div>
+            </div>
+          {% endfor %}
+        {#-------------------------------------------------------------#}
+
         {# Affichage des posts enfants #}
         {% for postEnfant in postEnfants %}
         <div class="line"></div>
