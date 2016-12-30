@@ -7,11 +7,10 @@
     {# fin navBar lateral #}
     {#-------------------------------------------------------------#}
 
-
   <section class="postSectionIndex">
   {# DEBUT CODE #}
   <article class="postArticleIndex">
-    <h1 class="center">Discussions par catégorie</h1>
+    <h1 class=" soustitrePage center">Discussions par catégorie</h1>
     <ul class="collapsible popout postDivPrincipale" data-collapsible="popout">
       {#***********************#}
       {# Niveau 1 : Catégories #}
@@ -54,6 +53,14 @@
                                   <div class="collapsible-header postListTitlePost" id="table_id">
                                       <i class="material-icons">place</i>
                                       {{ postParent.titre }}
+                                      <span class="badge" data-badge-caption=
+                                      {% if nbPostEnfants[postParent.id] == 0 or  nbPostEnfants[postParent.id] == 1 %}"réponse"
+                                        {% else %} "réponses"
+                                      {% endif %}>
+                                          {{ nbPostEnfants[postParent.id] }}
+                                      </span>
+
+
                                   </div>
                                   <div class="collapsible-body divCorpsPostParent">
                                       <div class="bigtxt">
