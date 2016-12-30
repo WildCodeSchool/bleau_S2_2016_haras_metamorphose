@@ -57,3 +57,31 @@ $(document).ready(function() {
             });
     }
 });
+
+//***************************************************//
+//    Modal                                         //
+//****************************************************
+// $(document).ready(function () {
+//     $('.trCat').click(function () {
+//         $(".trSousCat").fadeIn("low").next().fadeOut;
+//     });
+// });
+
+// $(document).ready(function () {
+//     $('.trCat').click(function () {
+//         $(".trSousCat").fadeOut("low");
+//     });
+// });
+
+$(function () {
+    if ($('#toggleLink').attr('rel') == 'hidden') {
+        $('.trSousCat').hide();
+    }
+    else {
+        $('.trSousCat').show();
+    }
+    $('.tdCat a').on('click', function (evt) {
+        evt.preventDefault();
+        $('.trSousCat').toggle();
+    });
+});

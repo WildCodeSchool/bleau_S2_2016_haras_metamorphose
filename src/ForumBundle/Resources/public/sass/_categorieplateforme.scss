@@ -5,6 +5,12 @@
 // ************************
 .inline {
   display: flex;
+	width: 30px;
+	margin-left: 13%;
+}
+
+.inline2 {
+	display: flex;
 }
 
 li:not(:last-child):after {
@@ -21,13 +27,31 @@ li:not(:last-child):after {
 	padding-left: 5px;
 }
 
+.tdCat {
+	width: 30%;
+}
+
+//CSS for tooltip
+.backdrop{
+    background-color: #888888;
+	//background-color: deeppink;
+	opacity: 1;
+	border-radius: 5%;
+}
+
+a {
+	color: #4c4c4c;
+	padding-right: 5px;
+}
 .trSousCat {
 	margin-left: 25%;
 	width: 70%;
+	padding: 0px;
+	display: none;
 }
 
 .tdSousCat {
-	width: 22%;
+	width: 50%;
 	padding-left: 5%;
 }
 
@@ -39,11 +63,26 @@ li:not(:last-child):after {
     //background-color: #b71586;
 }
 
+.aSousCat {
+	overflow: visible;
+	margin-left: 30%;
+}
 .flash-notice {
 	color: green !important;
 	font-size: 20px;
-	background: RGBA(255,255,255,0.6) !important;
-	padding: 15px 0px 15px 0px;
-	margin: 20px 0px;
-	border: 1px solid;
+	text-align: center;
+	background: RGBA(255,255,255,0.5) !important;
+	padding: 25px 0px 25px 0px;
+	//margin: 20px 0px;
+	margin-left: 40%;
+	border: 1px solid #4d9200;
+	border-radius: 5px;
+}
+
+
+
+.catContainer {
+	flex: 1 0 auto;
+	width: 70%;
+	margin-left: 15%;
 }

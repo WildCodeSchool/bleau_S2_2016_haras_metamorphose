@@ -12,9 +12,14 @@ categorieplateforme_show:
     defaults: { _controller: "ForumBundle:CategoriePlateforme:show" }
     methods:  GET
 
-categorieplateforme_new:
+categorieplateforme_newSousCat:
     path:     /{cat}/new
-    defaults: { _controller: "ForumBundle:CategoriePlateforme:new" }
+    defaults: { _controller: "ForumBundle:CategoriePlateforme:newSousCat" }
+    methods:  [GET, POST]
+
+categorieplateforme_newCat:
+    path:     /new
+    defaults: { _controller: "ForumBundle:CategoriePlateforme:newCat" }
     methods:  [GET, POST]
 
 categorieplateforme_edit:

@@ -26,7 +26,6 @@ class CategoriePlateformeController extends Controller
         $categoriePlateformes = $paginator->paginate($findCategoriePlateformes, $request->query->getInt('page', 1), 5);
 
         // Ramene sous catégorie
-        // SELECT * FROM `categorie_plateforme` WHERE `parent_id` is NOT null and actif = 1
         $repository = $em->getRepository('ForumBundle:CategoriePlateforme');
         $sousCategories = $repository->getSousCategorie();
 
@@ -40,7 +39,7 @@ class CategoriePlateformeController extends Controller
      * Creates a new categoriePlateforme entity.
      *
      */
-    public function newAction(Request $request, CategoriePlateforme $cat)
+    public function newSousCatAction(Request $request, CategoriePlateforme $cat)
     {
         $categoriePlateforme = new Categorieplateforme();
         $form = $this->createForm('ForumBundle\Form\CategoriePlateformeType', $categoriePlateforme);
@@ -49,8 +48,42 @@ class CategoriePlateformeController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
 
-            // Ajout de la catégorie du parent au post
+            // Ajout de la catégorie
             $categoriePlateforme->setParent($cat);
+
+            // Ajout actif
+            $categoriePlateforme->setActif(true);
+
+            $em->persist($categoriePlateforme);
+            $em->flush($categoriePlateforme);
+
+            $this->addFlash(
+                'notice',
+                'Votre sous-catégorie a bien été enregistrée'
+            );
+
+            return $this->redirectToRoute('categorieplateforme_index');
+        }
+
+        return $this->render('@Forum/categorieplateforme/newSousCategorie.html.twig', array(
+            'categoriePlateforme' => $categoriePlateforme,
+            'form' => $form->createView(),
+            'cat' => $request->get('cat'),
+        ));
+    }
+
+    /**
+     * Creates a new categoriePlateforme entity.
+     *
+     */
+    public function newCatAction(Request $request)
+    {
+        $categoriePlateforme = new Categorieplateforme();
+        $form = $this->createForm('ForumBundle\Form\CategoriePlateformeType', $categoriePlateforme);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
 
             // Ajout actif
             $categoriePlateforme->setActif(true);
@@ -63,13 +96,12 @@ class CategoriePlateformeController extends Controller
                 'Votre catégorie a bien été enregistrée'
             );
 
-            return $this->redirectToRoute('categorieplateforme_show', array('id' => $categoriePlateforme->getId()));
+            return $this->redirectToRoute('categorieplateforme_index');
         }
 
-        return $this->render('@Forum/categorieplateforme/new.html.twig', array(
+        return $this->render('@Forum/categorieplateforme/newCategorie.html.twig', array(
             'categoriePlateforme' => $categoriePlateforme,
             'form' => $form->createView(),
-            'cat' => $request->get('cat'),
         ));
     }
 
@@ -94,20 +126,26 @@ class CategoriePlateformeController extends Controller
     public function editAction(Request $request, CategoriePlateforme $categoriePlateforme)
     {
         $deleteForm = $this->createDeleteForm($categoriePlateforme);
-        $editForm = $this->createForm('PlateFormeBundle\Form\CategoriePlateformeType', $categoriePlateforme);
-
+        $editForm = $this->createForm('ForumBundle\Form\CategoriePlateformeType', $categoriePlateforme);
 
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-
-            $this->addFlash(
-                'notice',
-                'Cette catégorie a été modifiée'
-            );
-
-            return $this->redirectToRoute('categorieplateforme_edit', array('id' => $categoriePlateforme->getId()));
+                // Message flash pour catégorie
+                if($categoriePlateforme->getParent() == null)
+                $this->addFlash(
+                    'notice',
+                    $categoriePlateforme->getNom() . ' a été modifiée'
+                );
+                // Message flash pour sous-catégorie
+                else {
+                    $this->addFlash(
+                    'notice',
+                    $categoriePlateforme->getNom() . ' a été modifiée'
+                );
+            }
+            return $this->redirectToRoute('categorieplateforme_index');
         }
 
         return $this->render('@Forum/categorieplateforme/edit.html.twig', array(

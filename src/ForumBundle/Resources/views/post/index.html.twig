@@ -61,16 +61,10 @@
                                           <p>Message posté le {{ postParent.dateCreate|date("d/m/Y") }}</p>
 
                                       </div>
-                                      <div class="cartoucheUserIndexPost center">
-                                        <p class="pCartoucheUserIndexPost">Message de : {{ postParent.user }}</p>
-                                        <p class="avatarUserIndex"><img src="{{ asset('bundles/haras/images/test2.jpeg') }}"></p>
-                                        {#-------------------------------------------------------------#}
-                                        {# rating user #}
-                                        {#<p>{{ postParent.user.nbPost }}</p>#}
-                                        {% set nb = 100 %}
-                                        <p class="pCartoucheUserIndexPost">{{ include("@Forum/post/rating.html.twig") }}</p>
-                                        {# fin rating user #}
-                                        {#-------------------------------------------------------------#}
+
+                                      <div class="chip">
+                                        <img src="{{ asset('bundles/haras/images/test2.jpeg')}}" alt="Contact Person">
+                                        Message de : {{ postParent.user }}
                                       </div>
                                       <a class="waves-effect waves-teal btn-flat center indexEntrerFil"
                                            href="{{ path('post_showAllPost', { 'id': postParent.id }) }}">
