@@ -16,10 +16,10 @@
 
     </head>
     <body>
-    {# ******************************** #}
-    {#  GESTION BARRE DE NAVIGATION     #}
-    {# ******************************** #}
-    {% if (app.request.get('_route') == 'post_index') or (app.request.get('_route') == 'post_showAllPost')  %}
+    {# *********************************************************************** #}
+    {#  GESTION BARRE DE NAVIGATION                                            #}
+    {# *********************************************************************** #}
+    {% if (app.request.get('_route') == 'post_index') or (app.request.get('_route') == 'post_showAllPost') or (app.request.get('_route') == 'categorieplateforme_index')  %}
         {#
         Si controleur envoi vers les pages post index et show all post,
         la barre de navigation est différente

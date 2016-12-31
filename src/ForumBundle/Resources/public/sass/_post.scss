@@ -30,7 +30,6 @@
   .soustitrePage {font-size: 21px}
 }
 
-
 //************************
 // accordeon
 //************************
@@ -78,10 +77,12 @@
 //**********************************
 // cartouche infos user
 //**********************************
-bigtxt {
+.bigtxt {
   max-height: 150px;
+  max-width: inherit;
   overflow: auto;
 }
+
 
 .chip {
   margin-left: 2% !important;

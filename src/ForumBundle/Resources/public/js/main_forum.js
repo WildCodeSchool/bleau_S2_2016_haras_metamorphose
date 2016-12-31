@@ -59,20 +59,8 @@ $(document).ready(function() {
 });
 
 //***************************************************//
-//    Modal                                         //
+//    index categorie                                //
 //****************************************************
-// $(document).ready(function () {
-//     $('.trCat').click(function () {
-//         $(".trSousCat").fadeIn("low").next().fadeOut;
-//     });
-// });
-
-// $(document).ready(function () {
-//     $('.trCat').click(function () {
-//         $(".trSousCat").fadeOut("low");
-//     });
-// });
-
 $(function () {
     if ($('#toggleLink').attr('rel') == 'hidden') {
         $('.trSousCat').hide();

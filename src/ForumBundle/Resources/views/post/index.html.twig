@@ -1,12 +1,11 @@
 {% extends '@Forum/layout.html.twig' %}
 
 {% block body %}
-    {#-------------------------------------------------------------#}
-    {# NavBar Lateral  #}
-    {{ include("@Forum/post/postNavBar.html.twig") }}
-    {# fin navBar lateral #}
-    {#-------------------------------------------------------------#}
-
+{#-------------------------------------------------------------#}
+{# NavBar Lateral  #}
+{{ include("@Forum/post/postNavBar.html.twig") }}
+{# fin navBar lateral #}
+{#-------------------------------------------------------------#}
   <section class="postSectionIndex">
   {# DEBUT CODE #}
   <article class="postArticleIndex">
@@ -59,8 +58,6 @@
                                       {% endif %}>
                                           {{ nbPostEnfants[postParent.id] }}
                                       </span>
-
-
                                   </div>
                                   <div class="collapsible-body divCorpsPostParent">
                                       <div class="bigtxt">
