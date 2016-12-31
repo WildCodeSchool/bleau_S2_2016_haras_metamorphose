@@ -388,7 +388,29 @@
   font-size: 30px !important;
   text-align: center !important;
   margin-bottom: 3%;
+
 }
+
+.lastPostContenu {
+  max-width: inherit;
+  max-height: inherit;
+  overflow: auto;
+}
+
+//.lastPostContenu > p > img {
+//  max-width: 100%;
+//  max-height: 100%;
+//}
+
+//// Media query
+//@media screen and (max-width: 1000px) {
+//  .lastPostContenu p img {
+//    //display: none;
+//    max-width: 25%;
+//    max-height: 25%;
+//    overflow: auto;
+//  }
+//}
 
 //*****************************************************************************
 // PAGINATION
@@ -454,7 +476,7 @@ body {
     //url('{{ asset('bundles/haras/media/foret.jpeg') }}');#}
     //background: linear-gradient(to top, rgba(255,255,255,0), rgba(255,255,255,1)), url({{ asset('bundles/haras/media/foret.jpeg') }});
     //background-image: url("{{ asset('bundles/haras/media/foret.jpeg') }}");
-    background-color: #cccccc;
+    background-image: url("https://dl.dropboxusercontent.com/s/v9qpub7hk3jggy6/background.png")
 }
 
 aside {

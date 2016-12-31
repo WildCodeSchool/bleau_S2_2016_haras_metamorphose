@@ -39,6 +39,8 @@ $(document).ready(function() {
 //***************************************************//
 //    ShowDernierPost                                //
 //****************************************************
+//   Div de meme taille
+//****************************************************
 $(document).ready(function() {
     if ($(window).width() > 739) {
     var heightDiv = $('.colCustom').css('width');
@@ -57,6 +59,26 @@ $(document).ready(function() {
             });
     }
 });
+
+// Taille image dans div
+//****************************************************
+$(document).ready( function () { 
+
+    // $('.lastPostContenu > p > img').css('display','none'); 
+
+    // Nb d'image dans le contenu :
+    var nbImg = $('.lastPostContenu > p > img').length;
+    console.log(nbImg);
+
+    var heightImg = $('.lastPostContenu > p > img').css('height');
+    var widthImg = $('.lastPostContenu > p > img').css('width');
+    console.log(heightImg);
+    console.log(widthImg);
+    $('.lastPostContenu > p > img').each(function(){
+      $(this).css('height', '25%').css('width', '25%');
+    }); 
+});
+
 
 //***************************************************//
 //    index categorie                                //
