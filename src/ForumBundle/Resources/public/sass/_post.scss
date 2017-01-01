@@ -471,13 +471,6 @@
 //********************************************************
 // POST NAV BAR
 //********************************************************
-body {
-    //background: linear-gradient(rgba(248, 247, 216, 0.7), rgba(0,0,0,0)),
-    //url('{{ asset('bundles/haras/media/foret.jpeg') }}');#}
-    //background: linear-gradient(to top, rgba(255,255,255,0), rgba(255,255,255,1)), url({{ asset('bundles/haras/media/foret.jpeg') }});
-    //background-image: url("{{ asset('bundles/haras/media/foret.jpeg') }}");
-    background-image: url("https://dl.dropboxusercontent.com/s/v9qpub7hk3jggy6/background.png")
-}
 
 aside {
   opacity: 0.85;

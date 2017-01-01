@@ -1,9 +1,20 @@
+<style>
+    body {
+    {#background: linear-gradient(rgba(248, 247, 216, 0.7), rgba(0,0,0,0)),#}
+    {#url('{{ asset('bundles/haras/media/foret.jpeg') }}');#}
+    {#background: linear-gradient(to top, rgba(255,255,255,0), rgba(255,255,255,1)), url({{ asset('bundles/haras/media/foret.jpeg') }});#}
+    {#background-image: url("{{ asset('bundles/haras/media/foret.jpeg') }}");#}
+    background-image: url("https://dl.dropboxusercontent.com/s/v9qpub7hk3jggy6/background.png")
+}
+</style>
+
 <aside>
     <ul id="staggered-list" class="side-nav fixed grey darken-4 blue-grey-text text-lighten-4 go">
         <br />
 
     <div style="text-align:center;" id="profilepic">
-      <img src="{{ asset('bundles/haras/media/section2Image.png') }}" alt="" class="circle responsive-img" width="200">     <br />
+      <img src="{{ asset('bundles/haras/media/section2Image.png') }}" alt="" class="circle responsive-img" width="200">
+        <br />
       Robert Soriano
          {# Accès modif fiche user #}
          <!-- Dropdown Trigger -->
@@ -18,7 +29,8 @@
             <li class="userLogout"><a href="#!">Déconnection</a></li>
           </ul>
     </div>
-        <br /> <br />
+        <br />
+        <br />
         <li>
             <a  class="grey-text text-lighten-2" href="#">
                 <i class="fa fa-user fa-2x fa-fw"></i>Accueil

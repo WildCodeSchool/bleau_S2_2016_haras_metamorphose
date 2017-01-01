@@ -18,9 +18,6 @@ $(document).ready(function() {
 
 $('select').material_select('destroy');
 
-// Materialize js pour bouton radio
-$('#mySwitch').prop('checked');
-
 //***************************************************//
 // Gestion aside post index
 //***************************************************//
@@ -60,7 +57,7 @@ $(document).ready(function() {
     }
 });
 
-// Taille image dans div
+// Taille image dans div lastPostContenu
 //****************************************************
 $(document).ready( function () { 
 
