@@ -4,6 +4,17 @@
 <div class="catContainer postAdmin">
     <h1 class="center">Nouvelle sous-catégorie</h1>
 
+    {#-------------------------------------------------------------#}
+    {# Mise en place message flash #}
+    {% for flash_message in app.session.flashBag.get('notice') %}
+        <div class="row container">
+            <div class="flash-notice center">
+                {{ flash_message }}
+            </div>
+        </div>
+      {% endfor %}
+    {#-------------------------------------------------------------#}
+
     {{ form_start(form) }}
         <div class="row input-field">
             {{ form_label(form.nom) }}
