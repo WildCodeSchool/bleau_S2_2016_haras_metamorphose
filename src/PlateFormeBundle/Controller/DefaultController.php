@@ -8,13 +8,13 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('PlateFormeBundle:Default:index.html.twig');
+        return $this->render('@PlateForme/Default/index.html.twig');
     }
 
     public function adminAction()
     {
         $user = $this->get('security.token_storage')->getToken()->getUser();
-        return $this->render('PlateFormeBundle:Default:index.html.twig', array(
+        return $this->render('@PlateForme/Default/index.html.twig', array(
             'user' => $user
         ));
     }
