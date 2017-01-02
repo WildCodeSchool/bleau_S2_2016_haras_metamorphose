@@ -3,6 +3,11 @@
 // *******************************************
 // Liste à puce en ligne
 // ************************
+
+.wrapperCat {
+	padding-left: 10%;
+}
+
 .inline {
   display: flex;
 	width: 30px;
@@ -13,24 +18,6 @@
 	display: flex;
 }
 
-li:not(:last-child):after {
-  margin: 0 5px;
-}
-
-.tabIndexCat {
-  width: 55%;
-  margin-left: 20%;
-}
-
-.trCat {
-	background-color: #dedede;
-	padding-left: 5px;
-}
-
-.tdCat {
-	width: 30%;
-}
-
 //CSS for tooltip
 .backdrop{
     background-color: #888888;
@@ -39,34 +26,66 @@ li:not(:last-child):after {
 	border-radius: 5%;
 }
 
-a {
-	color: #4c4c4c;
-	padding-right: 5px;
-}
-.trSousCat {
-	margin-left: 25%;
-	width: 70%;
-	padding: 0px;
-	display: none;
-}
-
-.tdSousCat {
-	width: 50%;
-	padding-left: 5%;
-}
-
-.trSousCat:nth-child(odd) {
-    //background-color: #000000;
+//CSS for accordion
+.accordionButton {
+	width: 800px;
+	height: 30px;
+	box-sizing: unset !important;
+	//border-radius: 5px;
+	float: left;
+	cursor: pointer;
+	border: 1px solid #AAA;
+    background-color: #DEDEDE;
+    padding: 3%;
+	//margin-left: 9%;
+    margin-bottom: 5px;
+    -moz-box-shadow: 4px 4px 10px #AAA;
+    -webkit-box-shadow: 4px 4px 10px #AAA;
+    box-shadow: 4px 4px 6px #AAA;
 }
 
-.trSousCat:nth-child(even) {
-    //background-color: #b71586;
+.accordionContent {
+	width: 90%;
+	float: left;
+	_float: none; /* Float works in all browsers but IE6 */
+	background: #A2A2A2 !important;
+	margin-left: 3%;
+	margin-bottom: 1%;
+	-moz-box-shadow: 4px 4px 10px #AAA;
+    -webkit-box-shadow: 4px 4px 10px #AAA;
+    box-shadow: 4px 4px 6px #AAA;
 }
 
+.accordionContent ul li {
+	height: 45px;
+}
 .aSousCat {
-	overflow: visible;
-	margin-left: 30%;
+	float: right;
 }
+
+.spanCat {
+	margin-left: 2%;
+	margin-right: 70%;
+}
+
+.spanSousCat {
+	padding-left: 7%;
+	padding-right: 60%;
+	font-weight: bold;
+	color: #DEDEDE;
+}
+
+/***********************************************************************************************************************
+ EXTRA STYLES ADDED FOR MOUSEOVER / ACTIVE EVENTS
+************************************************************************************************************************/
+.on {
+	background: #b3b3b3;
+	}
+
+.over {
+	background: #888888;
+	}
+
 .flash-notice {
 	color: green !important;
 	font-size: 20px;
@@ -77,12 +96,4 @@ a {
 	//margin-left: 40%;
 	border: 1px solid #4d9200;
 	border-radius: 5px;
-}
-
-
-
-.catContainer {
-	flex: 1 0 auto;
-	width: 70%;
-	margin-left: 15%;
 }
