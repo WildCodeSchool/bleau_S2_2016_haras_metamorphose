@@ -3,11 +3,6 @@
 // *******************************************
 // Liste à puce en ligne
 // ************************
-
-.wrapperCat {
-	padding-left: 10%;
-}
-
 .inline {
   display: flex;
 	width: 30px;
@@ -27,9 +22,18 @@
 }
 
 //CSS for accordion
+.wrapperCat {
+	display: flex;
+	flex-direction: column;
+}
+
+.wrapperCat > div {
+ 	margin: auto;
+	align-items: center;
+}
+
 .accordionButton {
 	width: 800px;
-	height: 30px;
 	box-sizing: unset !important;
 	//border-radius: 5px;
 	float: left;
@@ -44,8 +48,12 @@
     box-shadow: 4px 4px 6px #AAA;
 }
 
+.accordionButton > a {
+	float: right;
+}
+
 .accordionContent {
-	width: 90%;
+	width: 85%;
 	float: left;
 	_float: none; /* Float works in all browsers but IE6 */
 	background: #A2A2A2 !important;
@@ -59,8 +67,13 @@
 .accordionContent ul li {
 	height: 45px;
 }
+
+.aCat {
+	//float: right;
+}
+
 .aSousCat {
-	float: right;
+	//float: right;
 }
 
 .spanCat {

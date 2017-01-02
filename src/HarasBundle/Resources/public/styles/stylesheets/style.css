@@ -1347,38 +1347,42 @@ aside {
     padding-left: 20px;
   }
 }
-/* line 7, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
-.wrapperCat {
-  padding-left: 10%;
-}
-
-/* line 11, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
+/* line 6, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
 .inline {
   display: flex;
   width: 30px;
   margin-left: 13%;
 }
 
-/* line 17, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
+/* line 12, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
 .inline2 {
   display: flex;
 }
 
-/* line 22, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
+/* line 17, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
 .backdrop {
   background-color: #888888;
   opacity: 1;
   border-radius: 5%;
 }
 
+/* line 25, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
+.wrapperCat {
+  display: flex;
+  flex-direction: column;
+}
+
 /* line 30, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
+.wrapperCat > div {
+  margin: auto;
+  align-items: center;
+}
+
+/* line 35, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
 .accordionButton {
   width: 800px;
-  height: 30px;
   box-sizing: unset !important;
   float: left;
-  _float: none;
-  /* Float works in all browsers but IE6 */
   cursor: pointer;
   border: 1px solid #AAA;
   background-color: #DEDEDE;
@@ -1389,9 +1393,14 @@ aside {
   box-shadow: 4px 4px 6px #AAA;
 }
 
-/* line 50, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
+/* line 51, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
+.accordionButton > a {
+  float: right;
+}
+
+/* line 55, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
 .accordionContent {
-  width: 90%;
+  width: 85%;
   float: left;
   _float: none;
   /* Float works in all browsers but IE6 */
@@ -1403,23 +1412,18 @@ aside {
   box-shadow: 4px 4px 6px #AAA;
 }
 
-/* line 62, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
+/* line 67, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
 .accordionContent ul li {
   height: 45px;
 }
 
-/* line 65, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
-.aSousCat {
-  float: right;
-}
-
-/* line 69, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
+/* line 79, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
 .spanCat {
   margin-left: 2%;
   margin-right: 70%;
 }
 
-/* line 74, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
+/* line 84, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
 .spanSousCat {
   padding-left: 7%;
   padding-right: 60%;
@@ -1430,17 +1434,17 @@ aside {
 /***********************************************************************************************************************
  EXTRA STYLES ADDED FOR MOUSEOVER / ACTIVE EVENTS
 ************************************************************************************************************************/
-/* line 84, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
+/* line 94, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
 .on {
   background: #b3b3b3;
 }
 
-/* line 88, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
+/* line 98, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
 .over {
   background: #888888;
 }
 
-/* line 92, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
+/* line 102, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
 .flash-notice {
   color: green !important;
   font-size: 20px;
