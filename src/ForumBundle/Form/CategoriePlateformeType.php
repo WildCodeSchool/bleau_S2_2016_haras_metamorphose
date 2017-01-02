@@ -16,7 +16,7 @@ class CategoriePlateformeType extends AbstractType
     {
         $builder
             ->add('nom')
-//            ->add('actif')
+            ->add('actif')
 //            ->add('parent')
         ;
     }

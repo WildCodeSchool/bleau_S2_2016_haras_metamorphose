@@ -21,11 +21,11 @@
             {{ form_widget(form.nom) }}
             {{ form_errors(form.nom) }}
         </div>
-        {#<div class="row input-field" style="background-color: #00bcd4;">#}
-            {#{{ form_widget(form.actif) }}#}
-            {#<label for="categorieplateforme_actif">actif</label>#}
-            {#{{ form_errors(form.actif) }}#}
-        {#</div>#}
+        <div class="row input-field">
+            {{ form_widget(form.actif) }}
+            <label for="forumbundle_categorieplateforme_actif">actif</label>
+            {{ form_errors(form.actif) }}
+        </div>
          {#Bouton de validation#}
         <div class="row center">
             <button class="btn-floating btn-large waves-effect waves-light green darken-1"

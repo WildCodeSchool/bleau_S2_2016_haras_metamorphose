@@ -17,28 +17,28 @@ class PostController extends Controller
      * Lists all post entities.
      *
      */
-    public function indexAction(Request $request)
+    public function indexAction()
     {
         // Connexion à la BdD
         $em = $this->getDoctrine()->getManager();
         // Ramene le Fil de discussion parent et actif
-        $postParents = $em->getRepository('ForumBundle:Post')->findBy(array('actif'=> 1, 'parent' => null));
-        // Compter le nombre de post enfant par fil de discussion
+        $postParents = $em->getRepository('ForumBundle:Post')->findBy(array('actif' => 1, 'parent' => null), array('dateCreate' => 'DESC'));
+        // Compte le nombre de post enfant par fil de discussion
         $nbPostEnfants = array();
         foreach ($postParents as $postParent) {
-            $nbPostEnfants[$postParent->getId()] = count($em->getRepository('ForumBundle:Post')->findBy(array( 'parent' => $postParent->getId(), 'actif'=> 1)));
+            $nbPostEnfants[$postParent->getId()] = count($em->getRepository('ForumBundle:Post')->findBy(array('parent' => $postParent->getId(), 'actif' => 1)));
         }
 
         // Ramene les catégories  (actif = oui)
-        $categories = $em->getRepository('ForumBundle:CategoriePlateforme')->findBy(array('actif'=> 1, 'parent' => null));
+        $categories = $em->getRepository('ForumBundle:CategoriePlateforme')->findBy(array('actif' => 1, 'parent' => null));
 
         // -----------------------------------------------------------------------------------------------------
         // Test si la base de données est suffisament remplie
         // si pas de catégorie redirection vers création
         // nouvelle catégorie
         // -----------------------------------------------------------------------------------------------------
-        if(empty($categories)) {
-        // Ajout message pour inviter l'admin à completer sa base de données
+        if (empty($categories)) {
+            // Ajout message pour inviter l'admin à completer sa base de données
             $this->addFlash('notice', 'Il faut remplir au minimum 1 catégorie');
             return $this->redirectToRoute('categorieplateforme_newCat');
         }
@@ -53,9 +53,8 @@ class PostController extends Controller
         // si pas de sous-catégorie redirection vers création
         // nouvelle sous-catégorie
         // -----------------------------------------------------------------------------------------------------
-        // Cas 1 : Sous catégorie completement vide => redirection sur page index
-        if(empty($sousCategories)) {
-        // Ajout message pour inviter l'admin à completer sa base de données
+        // Cas 1 : Sous catégorie completement vide => redirection sur page index catégorie
+        if (empty($sousCategories)) {
             $this->addFlash('notice', 'Il faut remplir au minimum 1 sous-catégorie par catégorie');
             return $this->redirectToRoute('categorieplateforme_index');
         }
@@ -63,58 +62,36 @@ class PostController extends Controller
         // Cas 2 : Pas de sous catégorie dans toutes les categories
         $nbSousCat = 0;
         foreach ($categories as $categorie) {
-                foreach ($sousCategories as $sousCategorie) {
-                    if ($sousCategorie->getParent()->getId() == $categorie->getId()) {
-                        $nbSousCat++;
-                    }
+            foreach ($sousCategories as $sousCategorie) {
+                if ($sousCategorie->getParent()->getId() == $categorie->getId()) {
+                    $nbSousCat++;
                 }
+            }
             if ($nbSousCat < 1) {
-                    // Ajout message pour inviter l'admin à completer sa base de données
-                    $this->addFlash('notice', 'Ajouter une sous-catégorie à ' .$categorie->getNom());
-                    return $this->redirectToRoute('categorieplateforme_newSousCat',
-                        array('cat' => $sousCategorie->getParent()->getId()));
+                $this->addFlash('notice', 'Ajouter une sous-catégorie à ' . $categorie->getNom());
+                return $this->redirectToRoute('categorieplateforme_newSousCat',
+                    array('cat' => $sousCategorie->getParent()->getId()));
             }
         }
 
         // -----------------------------------------------------------------------------------------------------
         // Selection des derniers fils de discussion enregistré (1 par catégorie) Ici seulement 4 catégories
         // -----------------------------------------------------------------------------------------------------
-        $lastPostByCat1 = array();
-        $lastPostByCat2 = array();
-        $lastPostByCat3 = array();
-        $lastPostByCat4 = array();
-            foreach ($postParents as $postParent) {
-                if ($postParent->getCategorie()->getParent()->getId() == 1) {
-                  $arrayProvisoire = array();
-                  $arrayProvisoire[] = $postParent;
-                  $lastPostByCat1 = array_slice($arrayProvisoire, -1, 1, true);
-                }
-                elseif ($postParent->getCategorie()->getParent()->getId() == 2) {
-                  $arrayProvisoire = array();
-                  $arrayProvisoire[] = $postParent;
-                  $lastPostByCat2 = array_slice($arrayProvisoire, -1, 1, true);
-                }
-                elseif ($postParent->getCategorie()->getParent()->getId() == 3) {
-                  $arrayProvisoire = array();
-                  $arrayProvisoire[] = $postParent;
-                  $lastPostByCat3 = array_slice($arrayProvisoire, -1, 1, true);
-                }
-                elseif ($postParent->getCategorie()->getParent()->getId() == 4) {
-                  $arrayProvisoire = array();
-                  $arrayProvisoire[] = $postParent;
-                  $lastPostByCat4 = array_slice($arrayProvisoire, -1, 1, true);
-                }
+        $lastPostByCats = array();
+        $categs = array();
+        foreach ($postParents as $postParent) {
+            if (!in_array($postParent->getCategorie()->getParent(), $categs)) {
+                $categs[] = $postParent->getCategorie()->getParent();
+                $lastPostByCats[] = $postParent;
             }
+        }
 
         return $this->render('@Forum/post/index.html.twig', array(
             'postParents' => $postParents,
+            'nbPostEnfants' => $nbPostEnfants,
             'categories' => $categories,
             'sousCategories' => $sousCategories,
-            'lastPostCat1' => $lastPostByCat1,
-            'lastPostCat2' => $lastPostByCat2,
-            'lastPostCat3' => $lastPostByCat3,
-            'lastPostCat4' => $lastPostByCat4,
-            'nbPostEnfants' => $nbPostEnfants,
+            'lastPostCats' => $lastPostByCats,
         ));
     }
 
@@ -244,11 +221,11 @@ class PostController extends Controller
         $idPostFirst = $request->get('id');
         // Récupération des post en BdD
         // Post parent
-        $postParents = $em->getRepository('ForumBundle:Post')->findBy(array( 'id' => $idPostFirst, 'actif'=> 1));
+        $postParents = $em->getRepository('ForumBundle:Post')->findBy(array( 'id' => $idPostFirst, 'actif'=> 1), array('dateCreate' => 'DESC'));
         // Post enfant + mise en place pagination
         $findPostEnfants = $em->getRepository('ForumBundle:Post')->findBy(array( 'parent' => $idPostFirst, 'actif'=> 1));
         $paginator  = $this->get('knp_paginator');
-        $postEnfants = $paginator->paginate($findPostEnfants, $request->query->getInt('page', 1), 2);
+        $postEnfants = $paginator->paginate($findPostEnfants, $request->query->getInt('page', 1), 5);
 
 
         return $this->render('@Forum/post/showAllPost.html.twig', array(
@@ -318,7 +295,7 @@ class PostController extends Controller
                 $em->persist($postEnfant);
                 $em->flush($postEnfant);
             }
-            // Enfant : actif = false
+            // parent : actif = false
             $post->setActif(false);
             $em->persist($post);
             $em->flush($post);
@@ -335,6 +312,29 @@ class PostController extends Controller
             return $this->redirectToRoute('post_showAllPost', array('id' => $post->getParent()->getId()) );
         }
     }
+
+    public function showInactivePostAction(Request $request) {
+        // Connexion à la BdD
+        $em = $this->getDoctrine()->getManager();
+        // Ramene le Fil de discussion parent et actif
+
+        // Récupération du numéro du post fil de discussion
+        $idPostFirst = $request->get('id');
+        // Récupération des post en BdD
+        // Post parent
+        $postParents = $em->getRepository('ForumBundle:Post')->findBy(array( 'id' => $idPostFirst, 'actif'=> 0));
+        // Post enfant + mise en place pagination
+        $findPostEnfants = $em->getRepository('ForumBundle:Post')->findBy(array( 'parent' => $idPostFirst, 'actif'=> 0));
+        $paginator  = $this->get('knp_paginator');
+        $postEnfants = $paginator->paginate($findPostEnfants, $request->query->getInt('page', 1), 2);
+
+        return $this->render('@Forum/post/reactivePost.html.twig', array(
+            'postParents' => $postParents,
+            'postEnfants' => $postEnfants,
+        ));
+    }
+
+
 
     /**
      * Reactives a post entity.

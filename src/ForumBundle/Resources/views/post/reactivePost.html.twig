@@ -11,39 +11,7 @@
   <article class="postArticleIndex">
     <h1 class=" soustitrePage center">Discussions par catégorie</h1>
     <ul class="collapsible popout postDivPrincipale" data-collapsible="popout">
-      {#***********************#}
-      {# Niveau 1 : Catégories #}
-      {#***********************#}
-      {% set img = 1 %}
-      {% for categorie in categories %}
-      <li>
-          <div class="collapsible-header postListTitleCat">
-            {{ categorie.nom }}
-            {# Stockage de l'ID de la CATEGORIE #}
-            {% set categorieEnLecture = categorie.id %}
-              {# Reprise image categorie du harasBundle #}
-              {#<div><img class="indexImageCat" src="{{ asset('bundles/haras/media/section' ~ img ~ 'Image.png') }}"></div>#}
-          </div>
-          <div class="collapsible-body">
-            <ul class="collapsible popout postDivPrincipale" data-collapsible="accordion">
-            {#****************************#}
-            {# Niveau 2 : SOUS CATEGORIES #}
-            {#****************************#}
-            {% for sousCategorie in sousCategories %}
-            {# Selectionne sous catégorie  parentId not null #}
-            {% if sousCategorie.parent.id == categorieEnLecture %}
-                <li class="liPostSousCat">
-                   <div class="collapsible-header postListTitleSousCat ">
-                       <i class="fa fa-bars" aria-hidden="true"></i>
-                       {{ sousCategorie.nom }}
-                       {# Stockage de l'ID de la SOUS CATEGORIE #}
-                       {% set sousCategorieEnLecture = sousCategorie.id %}
-                   </div>
-                   <div class="collapsible-body divCorpsSousCat">
-                       <ul class="collapsible popout col offset-l2 l8 s12 m6 postDivPrincipale" data-collapsible="accordion">
-                       {#**************************}
-                       {# Niveau 3 : Post Parents #}
-                       {#*************************#}
+
                        {% for postParent in postParents %}
                        {# Selectionne sous categorieId du postParent #}
                        {% if (postParent.categorie.id == sousCategorieEnLecture)
@@ -85,29 +53,8 @@
                            href="{{ path('post_newParent' , {'cat' : sousCategorieEnLecture}) }}">
                             <i class="material-icons">add</i>
                        </a>
-                       {#-------------------------------------------------------------#}
-                        {# Mise en place pagination #}
-                        {#<div class="row center">#}
-                            {#{{ knp_pagination_render(postParents) }}#}
-                        {#</div>#}
-                        {#-------------------------------------------------------------#}
                    </div>
-            {% endif %} {# fin if SOUS CATEGORIE #}
-            {% endfor %} {# fin for SOUS CATEGORIE #}
-                   </div> {# Fin Div  class="collapsible-body" niveau POST PARENTS #}
-                </li>
-            </ul>
-          </div> {# fin class="collapsible-body" SOUS CATEGORIES #}
-      </li>
-      {% set img = img + 1 %}
-      {% endfor %} {# fin for CATEGORIE #}
-    </ul>
-
+      </ul>
    </article>
-    {#-------------------------------------------------------------#}
-    {# Derniers post  #}
-    {{ include("@Forum/post/showDerniersPost.html.twig") }}
-    {# fin Derniers post #}
-    {#-------------------------------------------------------------#}
 </section>
 {% endblock %}
