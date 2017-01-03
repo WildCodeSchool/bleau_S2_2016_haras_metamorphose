@@ -33,7 +33,7 @@
 }
 
 .accordionButton {
-	width: 800px;
+	width: 100%;
 	box-sizing: unset !important;
 	//border-radius: 5px;
 	float: left;
@@ -87,7 +87,18 @@
 	font-weight: bold;
 	color: #DEDEDE;
 }
-
+// Media query
+@media screen and (max-width: 780px) {
+	.spanCat {
+		margin-left: 2%;
+	}
+	.spanSousCat {
+	padding-right: 40%;
+	}
+	.wrapperCat > div {
+	align-items: center;
+	}
+}
 /***********************************************************************************************************************
  EXTRA STYLES ADDED FOR MOUSEOVER / ACTIVE EVENTS
 ************************************************************************************************************************/

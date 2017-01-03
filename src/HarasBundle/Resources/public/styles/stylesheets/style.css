@@ -1380,7 +1380,7 @@ aside {
 
 /* line 35, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
 .accordionButton {
-  width: 800px;
+  width: 100%;
   box-sizing: unset !important;
   float: left;
   cursor: pointer;
@@ -1431,20 +1431,36 @@ aside {
   color: #DEDEDE;
 }
 
+@media screen and (max-width: 780px) {
+  /* line 92, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
+  .spanCat {
+    margin-left: 2%;
+  }
+
+  /* line 95, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
+  .spanSousCat {
+    padding-right: 40%;
+  }
+
+  /* line 98, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
+  .wrapperCat > div {
+    align-items: center;
+  }
+}
 /***********************************************************************************************************************
  EXTRA STYLES ADDED FOR MOUSEOVER / ACTIVE EVENTS
 ************************************************************************************************************************/
-/* line 94, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
+/* line 105, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
 .on {
   background: #b3b3b3;
 }
 
-/* line 98, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
+/* line 109, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
 .over {
   background: #888888;
 }
 
-/* line 102, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
+/* line 113, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
 .flash-notice {
   color: green !important;
   font-size: 20px;

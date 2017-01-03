@@ -17,7 +17,8 @@
                 {{ flash_message }}
             </div>
         </div>
-      {% endfor %}
+    {% endfor %}
+    {#-------------------------------------------------------------#}
 
         {#-------------------------------------------------------------#}
          {#Mise en place pagination #}
@@ -30,11 +31,12 @@
             <div class="accordionButton waves-effect waves-grey btn-flat">
                 <i class="fa fa-list" style="color:#f06292;" aria-hidden="true"></i>
                 <span class="spanCat">{{ categoriePlateforme.nom }}</span>
-                <a class="waves-effect waves-teal btn-flat center aSousCat"
-                   data-position="top" data-delay="50"
-                       data-tooltip="Ajouter une sous-catégorie"
+                <a class="waves-effect waves-teal btn-flat tooltipped center aSousCat"
+                   data-position="top"
+                   data-delay="50"
+                   data-tooltip="Ajouter une sous-catégorie"
                    href="{{ path('categorieplateforme_newSousCat', { 'cat': categoriePlateforme.id }) }}">
-                    <i class="fa fa-plus-square-o fa-5x" style="color: #558b2f;" aria-hidden="true"></i>
+                   <i class="fa fa-plus-square-o fa-5x" style="color: #558b2f;" aria-hidden="true"></i>
                 </a>
                 {% set categorieEnLecture = categoriePlateforme.id %}
             </div>
@@ -51,21 +53,23 @@
                         </a>
                     </li>
                     {% endif %}
-                {% endfor %} {# Fin FOR Sous-categorie #}
+                {% endfor %}
+                {# Fin FOR Sous-categorie #}
                     </ul>
                 </div>
-            {% endfor %} {# Fin FOR Categorie #}
-            <ul>
-                <li>
-                    <a class="btn-floating btn-large waves-effect waves-light teal lighten-2 tooltipped center indexEntrerFil"
-                       data-position="bottom" data-delay="50"
-                       data-tooltip="Ajouter une catégorie"
-                       href="{{ path('categorieplateforme_newCat') }}">
+            {% endfor %}
+            {# Fin FOR Categorie #}
+            {#<ul>#}
+                {#<li>#}
+                    {#<a class="btn-floating btn-large waves-effect waves-light teal lighten-2 tooltipped center indexEntrerFil"#}
+                       {#data-position="bottom" data-delay="50"#}
+                       {#data-tooltip="Ajouter une catégorie"#}
+                       {#href="{{ path('categorieplateforme_newCat') }}">#}
                        {#<i class="fa fa-plus-square-o fa-2x" aria-hidden="true"></i>#}
-                       <i class="material-icons">add</i>
-                    </a>
-                </li>
-            </ul>
+                       {#<i class="material-icons">add</i>#}
+                    {#</a>#}
+                {#</li>#}
+            {#</ul>#}
         </div>
   </article>
 </section>
