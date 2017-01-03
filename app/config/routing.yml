@@ -2,9 +2,9 @@
 ########   Routes User   #################
 ##########################################
 
-fos_user:
-    resource: "@UserBundle/Resources/config/routing/user.yml"
-    prefix:   /plateforme/admin/user
+user:
+    resource: "@UserBundle/Resources/config/routing.yml"
+    prefix:   /plateforme
 
 ##########################################
 ###########   Routes Forum   #############

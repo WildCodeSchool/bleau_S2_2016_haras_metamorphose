@@ -5,6 +5,3 @@ plate_forme_homepage:
 plate_forme_admin:
     path:     /admin/
     defaults: { _controller: PlateFormeBundle:Default:admin }
-
-plate_forme_register:
-    resource: "@UserBundle/Resources/config/routing/all.xml"
