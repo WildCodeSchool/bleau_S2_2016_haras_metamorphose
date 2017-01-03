@@ -52,20 +52,34 @@
             <div class="col s12 m6 l6">
                 <p class="">Couleur</p>
                 <div class="input-group">
-                    <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
-                    {{ form_widget(edit_form.couleur , {'attr': {'placeholder': 'Cliquez'}}) }}
-                    {{ form_errors(edit_form.couleur) }}
+                    {#<span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>#}
+                    {#{{ form_widget(edit_form.couleur , {'attr': {'placeholder': 'Cliquez'}}) }}#}
+                    {#{{ form_errors(edit_form.couleur) }}#}
+                    <select name="couleur">
+                        <option value="#7bd148" class="vert">Green</option>
+                        <option value="#5484ed" class="bleu-fonce">Bold blue</option>
+                        <option value="#a4bdfc" class="bleu">Blue</option>
+                        <option value="#46d6db" class="turquoise">Turquoise</option>
+                        <option value="#7ae7bf" class="vert-claire">Light green</option>
+                        <option value="#51b749" class="vert-fonce">Bold green</option>
+                        <option value="#fbd75b" class="jaune">Yellow</option>
+                        <option value="#ffb878" class="orange">Orange</option>
+                        <option value="#ff887c" class="rouge">Red</option>
+                        <option value="#dc2127" class="rouge-fonce">Bold red</option>
+                        <option value="#dbadff" class="pourpre">Purple</option>
+                        <option value="#e1e1e1" class="gris">Gray</option>
+                    </select>
                 </div>
             </div>
 
-            <div class="col s12 m6 l6">
-                <div class="checkbox">
-                    <label>
-                        {{ form_widget(edit_form.slider) }} Afficher dans le slider "Home page"
-                    </label>
-                    {{ form_errors(edit_form.slider) }}
-                </div>
-            </div>
+            {#<div class="col s12 m6 l6">#}
+                {#<div class="checkbox">#}
+                    {#<label>#}
+                        {#{{ form_widget(edit_form.slider) }} Afficher dans le slider "Home page"#}
+                    {#</label>#}
+                    {#{{ form_errors(edit_form.slider) }}#}
+                {#</div>#}
+            {#</div>#}
         </div>
 
         <div class="center">

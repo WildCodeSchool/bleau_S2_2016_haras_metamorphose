@@ -18,9 +18,11 @@ class AgendaType extends AbstractType
             ->add('end')
             ->add('titre')
             ->add('texte')
-            ->add('lieu')
-            ->add('couleur')
-            ->add('slider')        ;
+            ->add('lieu');
+//            ->add('couleur', ChoiceType::class, array(
+//                'choices' => array('vert' => '#7bd148', 'Bleu foncé' => '#5484ed'),
+//            ))
+//            ->add('slider')        ;
     }
     
     /**
