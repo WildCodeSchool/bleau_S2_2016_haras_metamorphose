@@ -92,7 +92,7 @@ class RegistrationController extends Controller
             }
         }
 
-        return $this->render('UserBundle:Registration:register.html.twig', array(
+        return $this->render('FOSUserBundle:Registration:register.html.twig', array(
             'form' => $form->createView(),
         ));
     }
@@ -115,7 +115,7 @@ class RegistrationController extends Controller
             throw new NotFoundHttpException(sprintf('The user with email "%s" does not exist', $email));
         }
 
-        return $this->render('@User/Registration/check_email.html.twig', array(
+        return $this->render('FOSUser/Registration/check_email.html.twig', array(
             'user' => $user,
         ));
     }
