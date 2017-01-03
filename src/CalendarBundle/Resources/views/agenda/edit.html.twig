@@ -70,9 +70,9 @@
 
         <div class="center">
             <input class="btn btn-default edit_admin"  type="submit" value="modifier" />
-            {{ form_start(delete_form) }}
-            <input class="btn btn-default edit_admin" type="submit" value="Delete">
-            {{ form_end(delete_form) }}
+            {#{{ form_start(delete_form) }}#}
+            {#<input class="btn btn-default edit_admin" type="submit" value="Delete">#}
+            {#{{ form_end(delete_form) }}#}
             <a class="btn btn-default edit_admin"  href="{{ path('agenda_index') }}">Retour au calendrier</a>
         </div>
     </div>
@@ -84,13 +84,13 @@
         {#<input type="submit" value="Edit" />#}
     {#{{ form_end(edit_form) }}#}
 
-    <ul>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+    {#<ul>#}
+        {#<li>#}
+            {#{{ form_start(delete_form) }}#}
+                {#<input type="submit" value="Delete">#}
+            {#{{ form_end(delete_form) }}#}
+        {#</li>#}
+    {#</ul>#}
 
   {#</div>#}
 {#</div>#}
