@@ -41,49 +41,49 @@ $
 ************************************************/
 
 .vert{
-    color: #7bd148;
+    background-color: #7bd148 !important;
 }
 
 .bleu-fonce{
-    background-color: #5484ed;
+    background-color: #5484ed !important;
 }
 
 .bleu{
-    background-color: #a4bdfc;
+    background-color: #a4bdfc !important;
 }
 
 .turquoise{
-    background-color: #46d6db;
+    background-color: #46d6db !important;
 }
 
 .vert-claire{
-    background-color: #7ae7bf;
+    background-color: #7ae7bf !important;
 }
 
 .vert-fonce{
-    background-color: #51b749;
+    background-color: #51b749 !important;
 }
 
 .jaune{
-    background-color: #fbd75b;
+    background-color: #fbd75b !important;
 }
 
 .orange{
-    background-color: #ffb878;
+    background-color: #ffb878 !important;
 }
 
 .rouge{
-    background-color: #ff887c;
+    background-color: #ff887c !important;
 }
 
 .rouge-fonce{
-    background-color: #dc2127;
+    background-color: #dc2127 !important;
 }
 
 .pourpre{
-    background-color: #dbadff;
+    background-color: #dbadff !important;
 }
 
 .gris{
-    background-color: #e1e1e1;
+    background-color: #e1e1e1 !important;
 }

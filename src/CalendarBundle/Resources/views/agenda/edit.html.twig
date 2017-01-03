@@ -51,12 +51,12 @@
         <div class="row">
             <div class="col s12 m6 l6">
                 <p class="">Couleur</p>
-                <div class="input-group">
+                {#<div class="input-group">#}
                     {#<span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>#}
                     {#{{ form_widget(edit_form.couleur , {'attr': {'placeholder': 'Cliquez'}}) }}#}
                     {#{{ form_errors(edit_form.couleur) }}#}
-                    <select name="couleur">
-                        <option value="#7bd148" class="vert">vert</option>
+                    <select name="couleur" class="selectcouleur">
+                        <option value="#7bd148" class="vert" style="background-color: #7bd148">vert</option>
                         <option value="#5484ed" class="bleu-fonce">bleu foncé</option>
                         <option value="#a4bdfc" class="bleu">Bleu</option>
                         <option value="#46d6db" class="turquoise">Turquoise</option>
@@ -69,7 +69,7 @@
                         <option value="#dbadff" class="pourpre">pourpre</option>
                         <option value="#e1e1e1" class="gris">gris</option>
                     </select>
-                </div>
+                {#</div>#}
             </div>
 
             {#<div class="col s12 m6 l6">#}
