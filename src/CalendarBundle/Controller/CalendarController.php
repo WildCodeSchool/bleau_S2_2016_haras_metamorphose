@@ -5,9 +5,7 @@ namespace CalendarBundle\Controller;
 use CalendarBundle\Entity\Agenda;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-
 use Symfony\Component\HttpFoundation\Response;
-
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
@@ -140,11 +138,10 @@ class CalendarController extends Controller
     public function deleteAction($id)
     {
         $em = $this->getDoctrine()->getManager();
-        $agenda = $em->getRepository('CalendarBundle:Agenda')->findOneById($id); // findoneby ?? findBy
+        $agenda = $em->getRepository('CalendarBundle:Agenda')->findOneById($id); // findoneby ?? findBy ?? Différence??
 
         if (!empty($agenda))
         {
-//            $em->remove($img_evenement);
             $em->remove($agenda);
             $em->flush();
         }
@@ -152,33 +149,4 @@ class CalendarController extends Controller
         return $this->redirectToRoute('agenda');
     }
 
-//    public function deleteAction(Request $request, Agenda $agenda)
-//    {
-//        $form = $this->createDeleteForm($agenda);
-//        $form->handleRequest($request);
-//
-//        if ($form->isSubmitted() && $form->isValid()) {
-//            $em = $this->getDoctrine()->getManager();
-//            $em->remove($agenda);
-//            $em->flush($agenda);
-//        }
-//
-//        return $this->redirectToRoute('agenda_index');
-//    }
-//
-//    /**
-//     * Creates a form to delete a agenda entity.
-//     *
-//     * @param Agenda $agenda The agenda entity
-//     *
-//     * @return \Symfony\Component\Form\Form The form
-//     */
-//    private function createDeleteForm(Agenda $agenda)
-//    {
-//        return $this->createFormBuilder()
-//            ->setAction($this->generateUrl('agenda_delete', array('id' => $agenda->getId())))
-//            ->setMethod('DELETE')
-//            ->getForm()
-//        ;
-//    }
 }
