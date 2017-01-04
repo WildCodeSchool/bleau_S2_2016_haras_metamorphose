@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends '@Calendar/layout.html.twig' %}
 
 {% block body %}
 
@@ -54,7 +54,7 @@
 
                     {#{{ form_widget(edit_form.couleur , {'attr': {'placeholder': 'Cliquez'}}) }}#}
                     {#{{ form_errors(edit_form.couleur) }}#}
-                    <select name="couleur" class="selectcouleur">
+                    <select name="couleur" id="couleur" class="selectcouleur">
                         <option value="#7bd148" class="vert">vert</option>
                         <option value="#5484ed" class="bleu-fonce">bleu foncé</option>
                         <option value="#a4bdfc" class="bleu">Bleu</option>
@@ -83,7 +83,7 @@
 
         <div class="center">
             <input class="btn btn-default edit_admin"  type="submit" value="modifier" />
-            <a class="btn btn-default edit_admin"  href="{{ path('agenda_index') }}">Retour au calendrier</a>
+            <a class="btn btn-default edit_admin"  href="{{ path('agenda') }}">Retour au calendrier</a>
         </div>
     </div>
 

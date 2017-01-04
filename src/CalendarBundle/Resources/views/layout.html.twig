@@ -1,10 +1,10 @@
 {% extends '@PlateForme/Default/basePlateforme.html.twig' %}
 
     {% block stylesheets %}
-    {% endblock %}}
-
-    {% block body %}
     {% endblock %}
 
+
     {% block javascripts %}
+        {{ parent() }}
+        <script src="{{ asset('bundles/calendar/js/main_calendar.js') }}"></script>
     {% endblock %}
