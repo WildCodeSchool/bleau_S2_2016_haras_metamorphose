@@ -28,56 +28,54 @@ class SearchEngineController extends Controller
             $requete = htmlspecialchars($_POST['requete']);
 
             // la requête, que vous devez maintenant comprendre et modifier;)
-            $query = $bdd->prepare("SELECT * FROM post, categorie_plateforme WHERE post.titre, post.contenu, categorie_plateforme.nom  LIKE '%$requete%' ORDER BY id DESC") or die ();
+            $query = $bdd->prepare("SELECT post.titre, post.contenu, categorie_plateforme.nom 
+                                    FROM post, categorie_plateforme
+                                    WHERE post.titre, post.contenu, categorie_plateforme.nom  
+                                    LIKE '%$requete%' 
+                                    ORDER BY id DESC") or die ();
 
-            // on utilise la fonction mysql_num_rows pour compter les résultats pour vérifier par après
+            //on execute la requete
+            $query->execute(array(
+                'requete' => $requete
+            ));
+
+            //$donnees = $reponse->fetch();
+
+            // on utilise la fonction mysql_num_rows pour compter les résultats pour vérifier
             $nb_resultats = mysql_num_rows($query);
 
             // si le nombre de résultats est supérieur à 0, on continue
             if($nb_resultats != 0)
 
             {
-
                 // maintenant, on va afficher les résultats et la page qui les donne ainsi que
                 // leur nombre, avec un peu de code HTML pour faciliter la tâche.
-
                 return $this->render('@Search/Default/index.html.twig', array(
                     'query' => $query,
                 ));
-
             }
-            // Fini d'afficher les résultats ! Maintenant, nous allons afficher
-            // l'éventuelle erreur en cas d'échec de recherche et le formulaire.
-
+            // sinon on retourne à la page d'accueil avec un message
             else
 
-            { // de nouveau, un peu de HTML
-
+            {
                 return $this->render('@PLateForme/Default/index.html.twig');
 
-                $this->addFlash(
-                    'success',
-                    'La recherche ne donne aucun résultats'
-                );
-
-            }// Fini d'afficher l'erreur ^^
-
-
+//                $this->addFlash(
+//                    'success',
+//                    'La recherche ne donne aucun résultats'
+//                );
+            }
         }
-
+        // Si le post est vide on retourne à la page d'accueil
         else
-
-        { // et voilà le formulaire, en HTML de nouveau !
-
+        {
             return $this->render('@PLateForme/Default/index.html.twig');
 
-            $this->addFlash(
-                'success',
-                'La recherche ne donne aucun résultats'
-            );
-
+//            $this->addFlash(
+//                'success',
+//                'Le champ de recherche est vide'
+//            );
         }
 
-// et voilà, c'est fini !
     }
 }
