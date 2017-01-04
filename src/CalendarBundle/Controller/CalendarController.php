@@ -116,8 +116,12 @@ class CalendarController extends Controller
         $editForm = $this->createForm('CalendarBundle\Form\AgendaType', $agenda);
         $editForm->handleRequest($request);
 
+        $couleur=$request->get('couleur');
+
         if ($editForm->isSubmitted() && $editForm->isValid()) {
+
             $em = $this->getDoctrine()->getManager();
+//            var_dump($couleur); die;
             $em->persist($agenda);
             $em->flush();
 
