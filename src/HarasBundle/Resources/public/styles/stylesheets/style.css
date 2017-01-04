@@ -829,13 +829,50 @@ html {
   margin-right: 10% !important;
 }
 
-/* line 1, ../../../../../PlateFormeBundle/Resources/public/sass/_homepage_plateforme.scss */
+/* line 1, ../../../../../PlateFormeBundle/Resources/public/sass/_layout_plateforme.scss */
 .nav-wrapper {
   font-size: 16px;
-  background-color: #8e8e8e;
+  background-color: #515e69;
 }
 
-/* line 6, ../../../../../PlateFormeBundle/Resources/public/sass/_homepage_plateforme.scss */
+/* line 6, ../../../../../PlateFormeBundle/Resources/public/sass/_layout_plateforme.scss */
+.decouverte:hover {
+  background-color: rgba(10, 112, 14, 0.6) !important;
+}
+
+/* line 10, ../../../../../PlateFormeBundle/Resources/public/sass/_layout_plateforme.scss */
+.harras:hover {
+  background-color: rgba(84, 39, 20, 0.6) !important;
+}
+
+/* line 14, ../../../../../PlateFormeBundle/Resources/public/sass/_layout_plateforme.scss */
+.detente:hover {
+  background-color: rgba(62, 62, 129, 0.6) !important;
+}
+
+/* line 18, ../../../../../PlateFormeBundle/Resources/public/sass/_layout_plateforme.scss */
+.coworking:hover {
+  background-color: rgba(183, 21, 134, 0.6) !important;
+}
+
+/* line 22, ../../../../../PlateFormeBundle/Resources/public/sass/_layout_plateforme.scss */
 #logo {
   height: 58px;
+}
+
+/* line 26, ../../../../../PlateFormeBundle/Resources/public/sass/_layout_plateforme.scss */
+.navbar2 {
+  border-top: solid 2px black;
+  border-bottom: solid 2px black;
+}
+
+/* line 31, ../../../../../PlateFormeBundle/Resources/public/sass/_layout_plateforme.scss */
+#logo {
+  background-color: #78ab4e;
+  height: 64px;
+}
+
+/* line 36, ../../../../../PlateFormeBundle/Resources/public/sass/_layout_plateforme.scss */
+#logo:hover {
+  background-color: #496b35;
 }
