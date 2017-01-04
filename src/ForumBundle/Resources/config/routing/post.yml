@@ -38,8 +38,13 @@ post_desactive:
     methods:  [GET, POST]
 
 post_resactive:
-    path:     /resactive
+    path:     /{id}/resactive
     defaults: { _controller: "ForumBundle:Post:reactive" }
+    methods:  [GET, POST]
+
+post_showAllPostDesactive:
+    path:     /showAllPostDesactive
+    defaults: { _controller: "ForumBundle:Post:showInactivePost" }
     methods:  [GET, POST]
 
 post_delete:

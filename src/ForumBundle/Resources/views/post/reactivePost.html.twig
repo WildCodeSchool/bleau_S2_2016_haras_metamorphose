@@ -9,52 +9,83 @@
   <section class="postSectionIndex">
   {# DEBUT CODE #}
   <article class="postArticleIndex">
-    <h1 class=" soustitrePage center">Discussions par catégorie</h1>
-    <ul class="collapsible popout postDivPrincipale" data-collapsible="popout">
 
-                       {% for postParent in postParents %}
-                       {# Selectionne sous categorieId du postParent #}
-                       {% if (postParent.categorie.id == sousCategorieEnLecture)
-                            and (postParent.categorie.parent.id == categorieEnLecture) %}
-                            <li>
-                                  <div class="collapsible-header postListTitlePost" id="table_id">
-                                      <i class="material-icons">place</i>
-                                      {{ postParent.titre }}
-                                      <span class="badge" data-badge-caption=
-                                      {% if nbPostEnfants[postParent.id] == 0 or  nbPostEnfants[postParent.id] == 1 %}"réponse"
-                                        {% else %} "réponses"
-                                      {% endif %}>
-                                          {{ nbPostEnfants[postParent.id] }}
-                                      </span>
-                                  </div>
-                                  <div class="collapsible-body divCorpsPostParent">
-                                      <div class="bigtxt">
-                                        {{ postParent.contenu|raw }}
-                                          <p>Message posté le {{ postParent.dateCreate|date("d/m/Y") }}</p>
+    {#-------------------------------------------------------------#}
+    {# Mise en place message flash #}
+    {% for flash_message in app.session.flashBag.get('notice') %}
+        <div class="row container">
+            <div class="flash-notice center">
+                {{ flash_message }}
+            </div>
+        </div>
+    {% endfor %}
+    {#-------------------------------------------------------------#}
 
-                                      </div>
+    {# Gestion des Fils de discussion #}
+    <h1 class=" soustitrePage center">Fils de discussion désactivées</h1>
+      <div class="divParent" style="width: 80%; background-color: #f1f1e3">
+      {% for post in posts %}
+            {% if  post.parent.id is not defined %}
+            {% set idParent = post.id %}
+            {# Fil de discussion #}
+                <h4>Fil de discussion : {{ post.titre|capitalize }}</h4>
+                <div class="divParentContenu">{{ post.contenu|raw }}</div>
+                <div> Message de : {{ post.user }}</div>
+                <div> Crée le : {{ post.dateCreate|date("d/m/Y") }}</div>
+                {# Résactiver #}
+                <div class="row center">
+                    <a class="btn-floating btn-large waves-effect waves-light green darken-1"
+                       href="{{ path('post_resactive', { 'id': post.id }) }}"
+                       value="Delete">
+                        <i class="small material-icons">check</i>
+                    </a>
+                </div>
+                <hr>
+            {# Post enfant du fil de discussion #}
+            {#{% elseif post.parent.id == idParent and post.parent.id in tabIdParents %}#}
+                {#<div class="divEnfant"style="width: 80%; background-color: #DEDEDE">#}
+                    {#<h4>{{ post.titre|capitalize }}</h4>#}
+                    {#<div class="divEnfantContenu">{{ post.contenu|raw }}</div>#}
+                    {#<div> Message de : {{ post.user }}</div>#}
+                    {#<div> Crée le : {{ post.dateCreate|date("d/m/Y") }}</div>#}
+                {#</div>#}
+            {% endif %}
+      {% endfor %}
+      </div>
 
-                                      <div class="chip">
-                                        <img src="{{ asset('bundles/haras/images/test2.jpeg')}}" alt="Contact Person">
-                                        Message de : {{ postParent.user }}
-                                      </div>
-                                      <a class="waves-effect waves-teal btn-flat center indexEntrerFil"
-                                           href="{{ path('post_showAllPost', { 'id': postParent.id }) }}">
-                                            <i class="material-icons">input</i>
-                                      </a>
-                                  </div> {# fin class="collapsible-body" POSTPARENT #}
-                            </li>
-                       {% endif %}  {# fin if POST PARENT #}
-                       {% endfor %} {# for for POST PARENT #}
-                       </ul>
-                   <div class="row center">
-                       {#Ajout nouveau post parent sur cat & ssCat selectionnées (CAT)#}
-                       <a class="btn btn-small waves-effect waves-light grey darken-3"
-                           href="{{ path('post_newParent' , {'cat' : sousCategorieEnLecture}) }}">
-                            <i class="material-icons">add</i>
-                       </a>
-                   </div>
-      </ul>
-   </article>
+    {# Gestion des Posts isolés #}
+    <h1 class=" soustitrePage center">Commentaires isolés désactivées</h1>
+    <div>
+        {% for post in posts %}
+            {% if post.parent.id is defined and post.parent.id not in tabIdParents %}
+                <h4>
+                    Posté sur la discussion : {{ post.parent.titre }}
+                    <a class="waves-effect waves-teal btn-flat"
+                       href="{{ path('post_showAllPost', { 'id': post.parent.id }) }}">
+                        <i class="material-icons">input</i>
+                    </a>
+                </h4>
+                <div class="divParent" style="width: 80%; background-color: #f1f1e3">
+                    <h4>{{ post.titre|capitalize }}</h4>
+                    <div class="divEnfantContenu">{{ post.contenu|raw }}</div>
+                    <div> Message de : {{ post.user }}</div>
+                    <div> Crée le : {{ post.dateCreate|date("d/m/Y") }}</div>
+                    {# Résactiver #}
+                    <div class="row center">
+                        <a class="btn-floating btn-large waves-effect waves-light green darken-1 tooltipped"
+                            data-position="top"
+                            data-delay="50"
+                            data-tooltip="Voir la discussion"
+                            href="{{ path('post_resactive', { 'id': post.id }) }}"
+                            value="Delete">
+                            <i class="small material-icons">check</i>
+                        </a>
+                    </div>
+                    <hr>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+  </article>
 </section>
 {% endblock %}

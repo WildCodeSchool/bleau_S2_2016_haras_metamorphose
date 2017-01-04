@@ -8,6 +8,18 @@
 {#-------------------------------------------------------------#}
   <section class="postSectionIndex">
   {# DEBUT CODE #}
+
+  {#-------------------------------------------------------------#}
+    {# Mise en place message flash #}
+    {% for flash_message in app.session.flashBag.get('notice') %}
+        <div class="row container">
+            <div class="flash-notice center">
+                {{ flash_message }}
+            </div>
+        </div>
+    {% endfor %}
+    {#-------------------------------------------------------------#}
+
   <article class="postArticleIndex">
     <h1 class=" soustitrePage center">Discussions par catégorie</h1>
     <ul class="collapsible popout postDivPrincipale" data-collapsible="popout">

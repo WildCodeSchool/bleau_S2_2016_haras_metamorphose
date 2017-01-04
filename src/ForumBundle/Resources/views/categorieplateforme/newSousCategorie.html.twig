@@ -1,28 +1,11 @@
 <div class="catContainer postAdmin">
     <h1 class="center">Nouvelle sous-catégorie</h1>
-
-    {#-------------------------------------------------------------#}
-    {# Mise en place message flash #}
-    {#{% for flash_message in app.session.flashBag.get('notice') %}#}
-        {#<div class="row container">#}
-            {#<div class="flash-notice center">#}
-                {#{{ flash_message }}#}
-            {#</div>#}
-        {#</div>#}
-      {#{% endfor %}#}
-    {#-------------------------------------------------------------#}
-
     {{ form_start(form) }}
         <div class="row input-field">
             {{ form_label(form.nom) }}
             {{ form_widget(form.nom) }}
             {{ form_errors(form.nom) }}
         </div>
-        {#<div class="row input-field">#}
-            {#{{ form_widget(form.actif) }}#}
-            {#<label for="forumbundle_categorieplateforme_actif">actif</label>#}
-            {#{{ form_errors(form.actif) }}#}
-        {#</div>#}
          {#Bouton de validation#}
         <div class="row center">
             <button class="btn-floating btn-large waves-effect waves-light green darken-1 modal-action modal-close"

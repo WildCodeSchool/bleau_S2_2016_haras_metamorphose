@@ -300,6 +300,11 @@ class PostController extends Controller
             $em->persist($post);
             $em->flush($post);
 
+            $this->addFlash(
+                'notice',
+                'Discussion réactivée'
+            );
+
             return $this->redirectToRoute('post_index');
 
         // Si post Enfant, desactive que le post selectionné
@@ -308,6 +313,11 @@ class PostController extends Controller
             $post->setActif(false);
             $em->persist($post);
             $em->flush($post);
+
+            $this->addFlash(
+                'notice',
+                'Commentaire réactivée'
+            );
 
             return $this->redirectToRoute('post_showAllPost', array('id' => $post->getParent()->getId()) );
         }
@@ -318,23 +328,22 @@ class PostController extends Controller
         $em = $this->getDoctrine()->getManager();
         // Ramene le Fil de discussion parent et actif
 
-        // Récupération du numéro du post fil de discussion
-        $idPostFirst = $request->get('id');
         // Récupération des post en BdD
-        // Post parent
-        $postParents = $em->getRepository('ForumBundle:Post')->findBy(array( 'id' => $idPostFirst, 'actif'=> 0));
-        // Post enfant + mise en place pagination
-        $findPostEnfants = $em->getRepository('ForumBundle:Post')->findBy(array( 'parent' => $idPostFirst, 'actif'=> 0));
-        $paginator  = $this->get('knp_paginator');
-        $postEnfants = $paginator->paginate($findPostEnfants, $request->query->getInt('page', 1), 2);
+        // Post
+        $posts = $em->getRepository('ForumBundle:Post')->findBy(array('actif'=> 0));
+
+        $tabIdParents = array();
+        foreach ($posts as $post) {
+            if ($post->getParent() == null) {
+                $tabIdParents[] = $post->getId();
+            }
+        }
 
         return $this->render('@Forum/post/reactivePost.html.twig', array(
-            'postParents' => $postParents,
-            'postEnfants' => $postEnfants,
+            'posts' => $posts,
+            'tabIdParents' => $tabIdParents,
         ));
     }
-
-
 
     /**
      * Reactives a post entity.
@@ -342,7 +351,7 @@ class PostController extends Controller
      */
     public function reactiveAction(Post $post) {
         // Si post Parent, réactive également les post enfant, actif = true
-        if ($post->getParent() == null and $post->getActif() == true) {
+        if ($post->getParent() == null and $post->getActif() == false) {
             $em = $this->getDoctrine()->getManager();
             // Récupération des post enfant dans BdD
             $postEnfants = $em->getRepository('ForumBundle:Post')->findBy(array( 'parent' => $post->getId(), 'actif'=> 0));
@@ -359,16 +368,13 @@ class PostController extends Controller
             $em->persist($post);
             $em->flush($post);
 
-            return $this->redirectToRoute('post_index');
+            return $this->redirectToRoute('post_showAllPostDesactive');
+//            return $this->redirectToRoute('post_index');
 
         // Si post Enfant, réactive que le post selectionné
-        } else {
-            $em = $this->getDoctrine()->getManager();
-            $post->setActif(true);
-            $em->persist($post);
-            $em->flush($post);
-
-            return $this->redirectToRoute('post_showAllPost', array('id' => $post->getParent()->getId()) );
+        }
+        else {
+            return $this->redirectToRoute('post_showAllPostDesactive');
         }
     }
 
