@@ -48,11 +48,11 @@
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col s12 m6 l6">
-                <p class="">Couleur</p>
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+            {#<div class="row">#}
+                {#<div class="col s12 m6 l6">#}
+                {#<p class="">Couleur</p>#}
+                    {#<div class="input-group">#}
+                        {#<span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>#}
                         {#{{ form_widget(form.couleur , {'attr': {'placeholder': 'Cliquez'}}) }}#}
                         {#{{ form_errors(form.couleur) }}#}
                         {#<select name="couleur" id="couleur" class="selectcouleur">#}
@@ -69,22 +69,22 @@
                             {#<option value="#dbadff" class="pourpre">pourpre</option>#}
                             {#<option value="#e1e1e1" class="gris">gris</option>#}
                         {#</select>#}
-                    </div>
-                </div>
+                    {#</div>#}
+                {#</div>#}
 
-                <div class="col s12 m6 l6">
-                    <div class="checkbox">
-                        <label>
+                {#<div class="col s12 m6 l6">#}
+                    {#<div class="checkbox">#}
+                        {#<label>#}
                             {#{{ form_widget(form.slider) }} Afficher dans le slider "Home page"#}
-                        </label>
+                        {#</label>#}
                         {#{{ form_errors(form.slider) }}#}
-                    </div>
-                </div>
-            </div>
+                    {#</div>#}
+                {#</div>#}
+            {#</div>#}
 
             <div class="center">
                 <input class="btn btn-default edit_admin"  type="submit" value="Créer" />
-                <a class="btn btn-default edit_admin"  href="{{ path('agenda_index') }}">Retour au calendrier</a>
+                <a class="btn btn-default edit_admin"  href="{{ path('agenda') }}">Retour au calendrier</a>
             </div>
         </div>
 

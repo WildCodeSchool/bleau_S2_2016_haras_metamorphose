@@ -48,9 +48,9 @@
             </div>
         </div>
 
-        <div class="row">
-            <div class="col s12 m6 l6">
-                <p class="">Couleur</p>
+        {#<div class="row">#}
+            {#<div class="col s12 m6 l6">#}
+                {#<p class="">Couleur</p>#}
 
                     {#{{ form_widget(edit_form.couleur , {'attr': {'placeholder': 'Cliquez'}}) }}#}
                     {#{{ form_errors(edit_form.couleur) }}#}
@@ -69,7 +69,7 @@
                         {#<option value="#e1e1e1" class="gris">gris</option>#}
                     {#</select>#}
 
-            </div>
+            {#</div>#}
 
             {#<div class="col s12 m6 l6">#}
                 {#<div class="checkbox">#}
@@ -79,7 +79,7 @@
                     {#{{ form_errors(edit_form.slider) }}#}
                 {#</div>#}
             {#</div>#}
-        </div>
+        {#</div>#}
 
         <div class="center">
             <input class="btn btn-default edit_admin"  type="submit" value="modifier" />
