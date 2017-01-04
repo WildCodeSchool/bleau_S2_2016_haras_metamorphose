@@ -81,6 +81,8 @@ class CalendarController extends Controller
         $form = $this->createForm('CalendarBundle\Form\AgendaType', $agenda);
         $form->handleRequest($request);
 
+        $request->query->get('couleur'); // recup valeur de select couleur
+
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($agenda);
