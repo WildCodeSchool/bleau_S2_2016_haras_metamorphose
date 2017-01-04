@@ -1,6 +1,6 @@
 search:
     resource: "@SearchBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /plateforme
 
 ##########################################
 ########   Routes User   #################

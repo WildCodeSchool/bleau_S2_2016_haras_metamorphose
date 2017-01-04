@@ -1,3 +1,7 @@
-search_homepage:
-    path:     /
+##########################################
+############   Routes Search   ###########
+##########################################
+
+plate_forme_search:
+    path:     /plateforme/search
     defaults: { _controller: SearchBundle:Default:index }
