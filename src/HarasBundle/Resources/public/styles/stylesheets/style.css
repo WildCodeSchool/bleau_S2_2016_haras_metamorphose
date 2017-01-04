@@ -828,3 +828,14 @@ html {
   margin-left: 10% !important;
   margin-right: 10% !important;
 }
+
+/* line 1, ../../../../../PlateFormeBundle/Resources/public/sass/_homepage_plateforme.scss */
+.nav-wrapper {
+  font-size: 16px;
+  background-color: #8e8e8e;
+}
+
+/* line 6, ../../../../../PlateFormeBundle/Resources/public/sass/_homepage_plateforme.scss */
+#logo {
+  height: 58px;
+}

@@ -36,7 +36,7 @@ class UserController extends Controller
             $em->flush($user);
             return $this->redirectToRoute('user_show', array('id' => $user->getId()));
         }
-        return $this->render('@User/user/new.html.twig', array(
+        return $this->render('@User/user/new.html.twi', array(
             'user' => $user,
             'form' => $form->createView(),
         ));

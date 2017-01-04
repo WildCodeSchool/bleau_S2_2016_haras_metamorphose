@@ -6,11 +6,13 @@
         <nav>
             <div class="nav-wrapper">
                 <a class="header-logo" href="{{ path('plate_forme_homepage') }}"><img id="logo" src="{{ asset('bundles/haras/images/logo.png') }}" alt="logo"></a>
-                <ul class="right hide-on-med-and-down">
-                    <li><a href="sass.html">Sass</a></li>
-                    <li><a href="badges.html">Components</a></li>
+                    <ul class="right hide-on-med-and-down">
+                    <li><a class="brand-logo center" href="sass.html"><i class="fa fa-search fa-2x" aria-hidden="true"></i></a></li>
+                    <li><a href="sass.html"><i class="fa fa-bell-o fa-3x" aria-hidden="true"></i></a></li>
+                    <li><a href="sass.html"><i class="fa fa-pencil fa-3x" aria-hidden="true"></i></a></li>
+                    <li><a href="badges.html"><i class="fa fa-calendar fa-3x" aria-hidden="true"></i></a></li>
                     <!-- Dropdown Trigger -->
-                    <li><a class="dropdown-button" href="{{ path('fos_user_profile_show') }}" data-activates="dropdown1"><i class="fa fa-user fa-2x"></i></a></li>
+                    <li><a class="dropdown-button" href="{{ path('fos_user_profile_show') }}" data-activates="dropdown1"><i class="fa fa-user fa-3x"></i></a></li>
                     <ul id="dropdown1" class="dropdown-content">
                         {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                             {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
@@ -24,15 +26,34 @@
                 </ul>
             </div>
         </nav>
+
+
+        <nav class="navbar2">
+            <div class="nav-wrapper">
+                <a href="#!" class="brand-logo center">Logo</a>
+                <ul class="left hide-on-med-and-down">
+                    <li><a href="sass.html">Sass</a></li>
+                    <li><a href="badges.html">Components</a></li>
+                    <li class="active"><a href="collapsible.html">JavaScript</a></li>
+                </ul>
+            </div>
+        </nav>
+
     </header>
 {% endblock %}
 
 {% block body %}
 {% endblock %}
 
-{% block javascripts %}
-
-
-{% endblock %}
 
 {% block footer %}{% endblock %}
+
+{% block javascripts %}
+
+    {{ parent() }}
+
+    <script>
+
+    </script>
+
+{% endblock %}

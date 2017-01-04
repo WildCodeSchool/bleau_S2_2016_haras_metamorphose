@@ -6,15 +6,18 @@
         {% block materialize %}
         {% endblock materialize %}
         {% block stylesheets %}
+            <meta name="viewport" content="width=device-width, initial-scale=1">
             <link rel="stylesheet" href="{{ asset('bundles/haras/styles/stylesheets/style.css') }}">
+            <link rel="stylesheet" href="https://opensource.keycdn.com/fontawesome/4.6.3/font-awesome.min.css" integrity="sha384-Wrgq82RsEean5tP3NK3zWAemiNEXofJsTwTyHmNb/iL3dP/sZJ4+7sOld1uqYJtE" crossorigin="anonymous">
         {% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('licos.ico') }}" />
+            <link rel="icon" type="image/x-icon" href="{{ asset('licos.ico') }}" />
     </head>
         {% block body %}{% endblock %}
         {% block javascripts %}
             <script src="{{ asset('bundles/haras/scripts/jquery-3.1.1.js') }}"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
             <script src="{{ asset('bundles/haras/scripts/haras_script.js') }}"></script>
+            <script src="{{ asset('') }}">
         {% endblock %}
     </body>
 </html>
