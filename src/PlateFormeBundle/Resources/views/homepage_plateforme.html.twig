@@ -1,0 +1,49 @@
+{% extends '@PlateForme/Default/basePlateforme.html.twig' %}
+
+{% block header %}
+    {% include '@PlateForme/layout.html.twig' %}
+{% endblock %}
+
+{% block body %}
+
+    <div class="slider">
+        <ul class="slides">
+            <li>
+                <img src="http://lorempixel.com/580/250/nature/1"> <!-- random image -->
+                <div class="caption center-align">
+                    <h3>Nature dans le haras</h3>
+                    <h5 class="light grey-text text-lighten-3">Haras de la metamorphose</h5>
+                </div>
+            </li>
+            <li>
+                <img src="http://lorempixel.com/580/250/nature/2"> <!-- random image -->
+                <div class="caption left-align">
+                    <h3>Partez à la découverte des cabanes enchantées</h3>
+                    <h5 class="light grey-text text-lighten-3">Reservez dès maintenant !</h5>
+                </div>
+            </li>
+            <li>
+                <img src="http://lorempixel.com/580/250/nature/3"> <!-- random image -->
+                <div class="caption center-align">
+                    <h3>Se détendre au travail</h3>
+                    <h5 class="light grey-text text-lighten-3">Espaces de co-working à louer</h5>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+{% endblock %}
+
+{% block footer %}{% endblock %}
+
+{% block javascripts %}
+
+    {{ parent() }}
+
+    <script>
+        $(document).ready(function(){
+            $('.slider').slider({full_width: true});
+        });
+    </script>
+
+{% endblock %}

@@ -1,7 +1,39 @@
+
+/*-----------------------------------------------------*\
+                          NAVBAR
+\*-----------------------------------------------------*/
+
 .nav-wrapper{
   font-size: 16px;
   background-color: #515e69;
+
+  //z-index: 1000;
+  //position: fixed;
+  //transition-duration: .3s;
 }
+
+.navbar2{
+  height: 48px;
+}
+
+nav{
+  background-color:#515e69;
+  line-height: 50px;
+}
+
+#nav-wrapper2{
+  font-size: 16px;
+  background-color: #515e69;
+
+  //z-index: 1000;
+  //position: fixed;
+  //transition-duration: .3s;
+}
+
+ul.right.hide-on-med-and-down{
+  padding-top: 2px;
+}
+
 
 .decouverte:hover{
   background-color: rgba(10, 112, 14, 0.6)!important;
@@ -24,8 +56,7 @@
 }
 
 .navbar2{
-  border-top: solid 2px black;
-  border-bottom: solid 2px black;
+  border-top: solid 2px #424242;
 }
 
 #logo{
@@ -37,5 +68,35 @@
   background-color: #496b35;
 }
 
+input[type=text] {
+  width: 10px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white;
+  background-image: url('searchicon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  padding: 12px 20px 12px 40px;
+  -webkit-transition: width 0.4s ease-in-out !important;
+  transition: width 0.4s ease-in-out !important;
+}
+
+input[type=text]:focus {
+  width: 20% !important;
+}
 
 
+/*-----------------------------------------------------*\
+                          BODY
+\*-----------------------------------------------------*/
+
+
+body {
+  min-height: 100vh;
+}
+
+/*-----------------------------------------------------*\
+                          FOOTER
+\*-----------------------------------------------------*/

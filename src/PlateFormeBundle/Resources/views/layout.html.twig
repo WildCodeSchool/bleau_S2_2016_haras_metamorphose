@@ -4,11 +4,12 @@
     <header>
         <!-- Dropdown Structure -->
         <nav>
-
             <div class="nav-wrapper">
                 <a class="header-logo" href="{{ path('plate_forme_homepage') }}"><img id="logo" src="{{ asset('bundles/haras/images/logo.png') }}" alt="logo"></a>
-                    <ul class="right hide-on-med-and-down">
-                    <li><a class="brand-logo center" href="sass.html"><i class="fa fa-search fa-2x" aria-hidden="true"></i></a></li>
+
+
+                <ul class="right hide-on-med-and-down">
+
                     <li><a href="sass.html"><i class="fa fa-bell-o fa-3x" aria-hidden="true"></i></a></li>
                     <li><a href="sass.html"><i class="fa fa-pencil fa-3x" aria-hidden="true"></i></a></li>
                     <li><a href="{{ path('agenda') }}"><i class="fa fa-calendar fa-3x" aria-hidden="true"></i></a></li>
@@ -29,15 +30,19 @@
         </nav>
 
         <nav class="navbar2">
-            <div class="nav-wrapper">
+            <id class="nav-wrapper">
                 <ul class="left hide-on-med-and-down">
                     <li class="active"><a href="sass.html">Notre philosophie</a></li>
                     <li class="decouverte"><a href="badges.html">Découverte</a></li>
-                    <li class="harras"><a href="badges.html">Le harras</a></li>
+                    <li class="harras"><a href="badges.html">Le haras</a></li>
                     <li class="detente"><a href="badges.html">Détente</a></li>
                     <li class="coworking"><a href="badges.html">Espace de co-working</a></li>
                 </ul>
-            </div>
+
+                <ul class="right hide-on-med-and-down">
+                    <input id="search" type="text" name="search" placeholder="rechercher">
+                </ul>
+            </id>
         </nav>
 
     </header>

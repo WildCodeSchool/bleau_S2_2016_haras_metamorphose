@@ -8,7 +8,7 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('@PlateForme/Default/index.html.twig');
+        return $this->render('@PlateForme/homepage_plateforme.html.twig');
     }
 
     public function adminAction()
