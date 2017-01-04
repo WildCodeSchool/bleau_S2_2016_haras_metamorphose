@@ -3,5 +3,5 @@
 ##########################################
 
 plate_forme_search:
-    path:     /plateforme/search
+    path:     /search
     defaults: { _controller: SearchBundle:Default:index }
