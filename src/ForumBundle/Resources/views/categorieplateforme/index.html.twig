@@ -27,51 +27,51 @@
         {#</div>#}
 
         <div class="wrapperCat">
+            {#<script>#}
+                {#sessionStorage.setItem('id', 10);#}
+            {#</script>#}
+            {#{{ dump(app.request.cookies) }}#}
             {% for categoriePlateforme in categoriePlateformes %}
+            {% set categorieEnLecture = categoriePlateforme.id %}
             <div class="accordionButton waves-effect waves-grey btn-flat">
                 <i class="fa fa-list" style="color:#f06292;" aria-hidden="true"></i>
                 <span class="spanCat">{{ categoriePlateforme.nom }}</span>
-                <a class="waves-effect waves-teal btn-flat tooltipped center aSousCat"
+                <a data-cat="categorieEnLecture" class="waves-effect waves-teal btn-flat tooltipped"
                    data-position="top"
                    data-delay="50"
                    data-tooltip="Ajouter une sous-catégorie"
-                   href="{{ path('categorieplateforme_newSousCat', { 'cat': categoriePlateforme.id }) }}">
-                   <i class="fa fa-plus-square-o fa-5x" style="color: #558b2f;" aria-hidden="true"></i>
+                   href="#modal{{ categorieEnLecture }}">
+                    <i class="fa fa-plus-square-o fa-5x" style="color: #558b2f;" aria-hidden="true"></i>
                 </a>
-                {% set categorieEnLecture = categoriePlateforme.id %}
             </div>
-
-                <div class="accordionContent">
-                    <ul>
-                    {% for sousCategorie in sousCategories %}
-                    {% if sousCategorie.parent.id == categorieEnLecture %}
-                    <li>
-                        <span class="spanSousCat">{{ sousCategorie.nom }}</span>
-                        <a class="waves-effect waves-teal btn-flat center aSousCat"
-                           href="{{ path('categorieplateforme_edit', { 'id': sousCategorie.id }) }}">
-                            <i class="fa fa-pencil-square-o fa-3x" aria-hidden="true"></i>
-                        </a>
-                    </li>
-                    {% endif %}
+            <div class="accordionContent">
+                <ul>
+                {% for sousCategorie in sousCategories %}
+                {% if sousCategorie.parent.id == categorieEnLecture %}
+                <li>
+                    <span class="spanSousCat">{{ sousCategorie.nom }}</span>
+                    <a class="waves-effect waves-teal btn-flat center aSousCat"
+                       href="{{ path('categorieplateforme_edit', { 'id': sousCategorie.id }) }}">
+                        <i class="fa fa-pencil-square-o fa-3x" aria-hidden="true"></i>
+                    </a>
+                </li>
+                {% endif %}
                 {% endfor %}
                 {# Fin FOR Sous-categorie #}
-                    </ul>
-                </div>
+                </ul>
+            </div>
             {% endfor %}
-            {# Fin FOR Categorie #}
-            {#<ul>#}
-                {#<li>#}
-                    {#<a class="btn-floating btn-large waves-effect waves-light teal lighten-2 tooltipped center indexEntrerFil"#}
-                       {#data-position="bottom" data-delay="50"#}
-                       {#data-tooltip="Ajouter une catégorie"#}
-                       {#href="{{ path('categorieplateforme_newCat') }}">#}
-                       {#<i class="fa fa-plus-square-o fa-2x" aria-hidden="true"></i>#}
-                       {#<i class="material-icons">add</i>#}
-                    {#</a>#}
-                {#</li>#}
-            {#</ul>#}
+
+            {# Fin FOR categorie #}
         </div>
   </article>
+    {# Gestion des modal sous-categorie #}
+    {% for categoriePlateforme in categoriePlateformes %}
+        <div id="modal{{ categoriePlateforme.id }}" class="modal">
+            <div class="modal-content {{ categoriePlateforme.id }}" style="background-color: #FFF">
+                {{ render(controller('ForumBundle:CategoriePlateforme:newSousCatShowForm', { 'cat': categoriePlateforme.id } )) }}
+            </div>
+        </div>
+    {% endfor %}
 </section>
 {% endblock %}
-

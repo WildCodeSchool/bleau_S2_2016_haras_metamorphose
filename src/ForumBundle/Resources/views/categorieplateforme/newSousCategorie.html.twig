@@ -1,18 +1,15 @@
-{% extends '@Forum/layout.html.twig' %}
-
-{% block body %}
 <div class="catContainer postAdmin">
     <h1 class="center">Nouvelle sous-catégorie</h1>
 
     {#-------------------------------------------------------------#}
     {# Mise en place message flash #}
-    {% for flash_message in app.session.flashBag.get('notice') %}
-        <div class="row container">
-            <div class="flash-notice center">
-                {{ flash_message }}
-            </div>
-        </div>
-      {% endfor %}
+    {#{% for flash_message in app.session.flashBag.get('notice') %}#}
+        {#<div class="row container">#}
+            {#<div class="flash-notice center">#}
+                {#{{ flash_message }}#}
+            {#</div>#}
+        {#</div>#}
+      {#{% endfor %}#}
     {#-------------------------------------------------------------#}
 
     {{ form_start(form) }}
@@ -21,27 +18,21 @@
             {{ form_widget(form.nom) }}
             {{ form_errors(form.nom) }}
         </div>
-        <div class="row input-field">
-            {{ form_widget(form.actif) }}
-            <label for="forumbundle_categorieplateforme_actif">actif</label>
-            {{ form_errors(form.actif) }}
-        </div>
+        {#<div class="row input-field">#}
+            {#{{ form_widget(form.actif) }}#}
+            {#<label for="forumbundle_categorieplateforme_actif">actif</label>#}
+            {#{{ form_errors(form.actif) }}#}
+        {#</div>#}
          {#Bouton de validation#}
         <div class="row center">
-            <button class="btn-floating btn-large waves-effect waves-light green darken-1"
-                    type="submit"
-                    title="Valider"
-                    value="Create">
+            <button class="btn-floating btn-large waves-effect waves-light green darken-1 modal-action modal-close"
+                    type="submit">
                 <i class="material-icons">check</i>
             </button>
+            <a class="btn-floating btn-large waves-effect waves-light blue darken-1 modal-action modal-close"
+               href="{{ path('categorieplateforme_index') }}">
+               <i class="small material-icons">home</i>
+            </a>
         </div>
     {{ form_end(form) }}
-
-    <div class="row center">
-        <a class="btn-floating btn-large waves-effect waves-light blue darken-1"
-           href="{{ path('categorieplateforme_index') }}">
-            <i class="small material-icons">home</i>
-        </a>
-    </div>
 </div>
-{% endblock %}

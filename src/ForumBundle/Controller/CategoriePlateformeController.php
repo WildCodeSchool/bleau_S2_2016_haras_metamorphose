@@ -4,6 +4,7 @@ namespace ForumBundle\Controller;
 
 use ForumBundle\Entity\CategoriePlateforme;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
@@ -29,47 +30,54 @@ class CategoriePlateformeController extends Controller
         $repository = $em->getRepository('ForumBundle:CategoriePlateforme');
         $sousCategories = $repository->getSousCategorie();
 
+        $cat =1;
         return $this->render('@Forum/categorieplateforme/index.html.twig', array(
             'categoriePlateformes' => $categoriePlateformes,
             'sousCategories' => $sousCategories,
+            'cat' => $cat,
         ));
     }
 
     /**
-     * Creates a new categoriePlateforme entity.
-     *
+     * Affichage du formulaire de création de sous categorie
+     * Call dans index.html.twig
      */
-    public function newSousCatAction(Request $request, CategoriePlateforme $cat)
-    {
+    public function newSousCatShowFormAction(CategoriePlateforme $cat){
         $categoriePlateforme = new Categorieplateforme();
-        $form = $this->createForm('ForumBundle\Form\CategoriePlateformeType', $categoriePlateforme);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-
-            // Ajout de la catégorie
-            $categoriePlateforme->setParent($cat);
-
-            // Ajout actif
-            $categoriePlateforme->setActif(true);
-
-            $em->persist($categoriePlateforme);
-            $em->flush($categoriePlateforme);
-
-            $this->addFlash(
-                'notice',
-                'Votre sous-catégorie a bien été enregistrée'
-            );
-
-            return $this->redirectToRoute('categorieplateforme_index');
-        }
+        $form = $this->createForm('ForumBundle\Form\CategoriePlateformeType', $categoriePlateforme, array('action' => $this->generateUrl('categorieplateforme_newSousCat', array('cat' => $cat->getId()))));
 
         return $this->render('@Forum/categorieplateforme/newSousCategorie.html.twig', array(
             'categoriePlateforme' => $categoriePlateforme,
             'form' => $form->createView(),
-            'cat' => $request->get('cat'),
+            'cat' => $cat,
         ));
+       }
+
+    /**
+     * Creates a new categoriePlateforme entity.
+     * Enregistrement du formulaire en base
+     *
+     */
+    public function newSousCatAction(CategoriePlateforme $cat)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $categoriePlateforme = new Categorieplateforme();
+
+        // Ajout de la catégorie
+        $categoriePlateforme->setParent($cat);
+        $categoriePlateforme->setNom($_POST['forumbundle_categorieplateforme']['nom']);
+        // Ajout actif
+        $categoriePlateforme->setActif(true);
+
+        $em->persist($categoriePlateforme);
+        $em->flush($categoriePlateforme);
+
+        $this->addFlash(
+            'notice',
+            'Votre sous-catégorie a bien été enregistrée'
+        );
+
+        return $this->redirectToRoute('categorieplateforme_index');
     }
 
     /**
