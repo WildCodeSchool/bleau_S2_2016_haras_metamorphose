@@ -1,3 +1,45 @@
 {% extends '@Calendar/layout.html.twig' %}
 
+{% block body %}
 
+
+<h3>Résultats de votre recherche.</h3>
+
+    {#// on affiche le nombre de résultats#}
+<p>Nous avons trouvé {% $nb_resultats; %}
+
+   {# CONDITION EN TWIG #}
+
+    if($nb_resultats > 1) {
+        echo 'résultats';
+    }
+    else {
+        echo 'résultat';
+    } // on vérifie le nombre de résultats pour orthographier correctement.
+    {# FIN DE CONDITION #}
+
+
+    dans notre base de données. Voici les fonctions que nous avons trouvées :<br/>
+
+    <br/>
+
+
+{#BOUCLE EN TWIG FOR IN#}
+    while($donnees = mysql_fetch_array($query)) // on fait un while pour afficher la liste des fonctions trouvées, ainsi que l'id qui permettra de faire le lien vers la page de la fonction
+
+    {
+
+
+
+
+    <a href="fonction.php?id=<? echo $donnees['id']; ?>"><? echo $donnees['nom_fonction']; ?></a><br/>
+
+
+
+    }
+    {# fin de la boucle TWIG ENDFOR#}
+
+
+    <a href="rechercher.php">Faire une nouvelle recherche</a></p>
+
+{% endblock %}

@@ -3,6 +3,33 @@
     {% block stylesheets %}
     {% endblock %}
 
+    {% block search %}
+
+        {% if app.session.flashBag.has('error') %}
+            <div class="alert alert-success">
+                {% for msg in app.session.flashBag.get('error') %}
+                    {{ msg }}
+                {% endfor %}
+            </div>
+        {% endif %}
+        {% if app.session.flashBag.has('success') %}
+            <div class="alert alert-success">
+                {% for msg in app.session.flashBag.get('success') %}
+                    {{ msg }}
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        <p>Vous allez faire une recherche dans notre base de données concernant les fonctions PHP. Tapez une requête pour réaliser une recherche.</p>
+
+        <form action="{{ path('in') }}" method="Post">
+
+            <input type="text" name="requete" size="30">
+
+            <input type="submit" value="Rechercher">
+
+        </form>
+    {% endblock %}
 
     {% block javascripts %}
         {{ parent() }}
