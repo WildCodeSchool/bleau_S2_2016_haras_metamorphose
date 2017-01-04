@@ -1,9 +1,10 @@
-{% extends 'base.html.twig' %}
+{% extends '@Calendar/layout.html.twig' %}
 
 {% block body %}
     <h1>Agenda</h1>
+    <div class="container">
 
-    <table>
+    <table class="center">
         <tbody>
             <tr>
                 <th>Id</th>
@@ -42,10 +43,10 @@
 
     <ul>
         <li>
-            <a href="{{ path('agenda') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('agenda_edit', { 'id': agenda.id }) }}">Edit</a>
+            <div class="center">
+                <a class="btn btn-default edit_admin"  href="{{ path('agenda') }}">Retour au calendrier</a>
+                <a class="btn btn-default edit_admin" href="{{ path('agenda_edit', { 'id': agenda.id }) }}">Edit</a>
+            </div>
         </li>
         {#<li>#}
             {#{{ form_start(delete_form) }}#}
@@ -53,4 +54,6 @@
             {#{{ form_end(delete_form) }}#}
         {#</li>#}
     </ul>
+
+    </div>
 {% endblock %}
