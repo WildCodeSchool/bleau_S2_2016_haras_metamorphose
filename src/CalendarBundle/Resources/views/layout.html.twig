@@ -24,7 +24,7 @@
         {# ---------------------- Champ pour recherche par mot ------------------------ #}
         {# ---------------------- faire l'appel a csearch controller ------------------ #}
 
-        <form action="{{ path('SearchController') }}" method="Post">
+        <form action="{{ render(controller('SearchBundle:SearchEngine:search')) }}" method="Post">
 
             <input type="text" name="requete" size="30">
 

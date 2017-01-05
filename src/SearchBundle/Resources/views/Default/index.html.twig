@@ -4,43 +4,54 @@
 
     {# ---------------------- !FAIRE LA RECUP DES DONNEES DU SEARCH CONTROLLER ET LES AFFICHER! -------------------- #}
 
-<h3>Résultats de votre recherche.</h3>
+    <div class="container">
+        <div class="row">
+            <div class="col s12">
+                <h3 class="center">Résultats de votre recherche.</h3>
+                {#on affiche le nombre de résultats#}
+                <p>Nous avons trouvé : {% nb_resultats %}
+                    {# CONDITION EN TWIG #}
+                    {% if nb_resultats > 1 %}
+                        résultats.
+                    {% elseif nb_resultats == 1 %}
+                        résultat.
+                    {% endif %}
+                </p>
+            </div>
+        </div>
+    </div>
 
-    {#// on affiche le nombre de résultats#}
-<p>Nous avons trouvé {% $nb_resultats; %}
+    <div class="container">
+        <div class="row">
+            <div class="col s12">
 
-   {# CONDITION EN TWIG #}
+                <table>
+                    <theader>
+                        <tr>
+                            <td>Catégorie</td>
+                            <td>Titre du post</td>
+                            <td>Contenu du post</td>
+                        </tr>
+                    </theader>
+                    <tbody>
+                    {% for query in query %}
+                        <tr>
+                            <td><a href="{{ path('') }}"> {{ query.categorie_plateforme }}</a></td>
+                            <td><a href="{{ path('') }}">{{ query.titre }}</a></td>
+                            <td><a href="{{ path('') }}">{{ query.contenu }}</a></td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
 
-    if($nb_resultats > 1) {
-        echo 'résultats';
-    }
-    else {
-        echo 'résultat';
-    } // on vérifie le nombre de résultats pour orthographier correctement.
-    {# FIN DE CONDITION #}
-
-
-    dans notre base de données. Voici les fonctions que nous avons trouvées :<br/>
-
-    <br/>
-
-
-{#BOUCLE EN TWIG FOR IN#}
-    while($donnees = mysql_fetch_array($query)) // on fait un while pour afficher la liste des fonctions trouvées, ainsi que l'id qui permettra de faire le lien vers la page de la fonction
-
-    {
-
-
-
-
-    <a href="fonction.php?id=<? echo $donnees['id']; ?>"><? echo $donnees['nom_fonction']; ?></a><br/>
+            </div>
+        </div>
+    </div>
 
 
 
-    }
-    {# fin de la boucle TWIG ENDFOR#}
 
 
-    <a href="rechercher.php">Faire une nouvelle recherche</a></p>
+    <a href="rechercher.php">Faire une nouvelle recherche</a></>
 
 {% endblock %}

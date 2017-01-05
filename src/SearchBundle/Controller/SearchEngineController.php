@@ -52,6 +52,7 @@ class SearchEngineController extends Controller
                 // leur nombre, avec un peu de code HTML pour faciliter la tâche.
                 return $this->render('@Search/Default/index.html.twig', array(
                     'query' => $query,
+                    'nb_resultats' => $nb_resultats,
                 ));
             }
             // sinon on retourne à la page d'accueil avec un message
