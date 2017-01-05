@@ -16,6 +16,9 @@ jQuery(document).ready(function($) {
     // FONCTION BOITE MODALE
     modal();
 
+    // FONCTION COLORPICKER
+    colorpicker();
+
 });
 
 // ********************************************************************
@@ -88,7 +91,7 @@ function selecteur() {
 
 function modal() {
 
-    console.log('APP.JS - FONCTION MODAL a démarré : ligne 140');
+    console.log('APP.JS - FONCTION MODAL a démarré : ligne 91');
 
     $(document).ready(function(){
 
@@ -97,3 +100,17 @@ function modal() {
     });
 }
 
+// ********************************************************************
+// *                    COLOR PICKER
+// ********************************************************************
+function colorpicker() {
+
+    console.log('APP.JS - FONCTION COLORPICKER a démarré : ligne 105');
+
+    // $(function() {
+        $('#picker').colorpicker({
+            format: 'hex',
+            color: 'transparent'
+        });
+    // });
+}

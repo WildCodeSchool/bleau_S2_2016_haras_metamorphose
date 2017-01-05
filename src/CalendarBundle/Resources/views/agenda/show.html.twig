@@ -1,54 +1,59 @@
 {% extends '@Calendar/layout.html.twig' %}
 
 {% block body %}
-    <h1>Agenda</h1>
+
     <div class="container">
     <div class="row">
         <div class="col s12 center">
-            <table>
-                <tbody>
-                    <tr>
-                        <th>Id</th>
-                        <td>{{ agenda.id }}</td>
-                    </tr>
-                    <tr>
-                        <th>Start</th>
-                        <td>{% if agenda.start %}{{ agenda.start|date('Y-m-d H:i:s') }}{% endif %}</td>
-                    </tr>
-                    <tr>
-                        <th>End</th>
-                        <td>{% if agenda.end %}{{ agenda.end|date('Y-m-d H:i:s') }}{% endif %}</td>
-                    </tr>
-                    <tr>
-                        <th>Titre</th>
-                        <td>{{ agenda.titre }}</td>
-                    </tr>
-                    <tr>
-                        <th>Texte</th>
-                        <td>{{ agenda.texte }}</td>
-                    </tr>
-                    <tr>
-                        <th>Lieu</th>
-                        <td>{{ agenda.lieu }}</td>
-                    </tr>
-                    <tr>
-                        <th>Couleur</th>
-                        <td>{{ agenda.couleur }}</td>
-                    </tr>
-                    <tr>
-                        <th>Slider</th>
-                        <td>{% if agenda.slider %}Yes{% else %}No{% endif %}</td>
-                    </tr>
-                </tbody>
-            </table>
+
+            <h1>Agenda</h1>
+
+            <div id="table">
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>Id</th>
+                            <td>{{ agenda.id }}</td>
+                        </tr>
+                        <tr>
+                            <th>Start</th>
+                            <td>{% if agenda.start %}{{ agenda.start|date('Y-m-d H:i:s') }}{% endif %}</td>
+                        </tr>
+                        <tr>
+                            <th>End</th>
+                            <td>{% if agenda.end %}{{ agenda.end|date('Y-m-d H:i:s') }}{% endif %}</td>
+                        </tr>
+                        <tr>
+                            <th>Titre</th>
+                            <td>{{ agenda.titre }}</td>
+                        </tr>
+                        <tr>
+                            <th>Texte</th>
+                            <td>{{ agenda.texte }}</td>
+                        </tr>
+                        <tr>
+                            <th>Lieu</th>
+                            <td>{{ agenda.lieu }}</td>
+                        </tr>
+                        <tr>
+                            <th>Couleur</th>
+                            <td>{{ agenda.couleur }}</td>
+                        </tr>
+                        <tr>
+                            <th>Slider</th>
+                            <td>{% if agenda.slider %}Yes{% else %}No{% endif %}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 
     <ul>
         <li>
             <div class="center">
-                <a class="btn btn-default edit_admin"  href="{{ path('agenda') }}">Retour au calendrier</a>
                 <a class="btn btn-default edit_admin" href="{{ path('agenda_edit', { 'id': agenda.id }) }}">Edit</a>
+                <a class="btn btn-default edit_admin"  href="{{ path('agenda') }}">Retour au calendrier</a>
             </div>
         </li>
         {#<li>#}

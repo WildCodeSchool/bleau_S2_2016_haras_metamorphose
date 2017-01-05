@@ -87,3 +87,9 @@ $
 .gris{
     background-color: #e1e1e1 !important;
 }
+
+
+#table{
+    padding-right: auto !important;
+    padding-left: 30% !important;
+}

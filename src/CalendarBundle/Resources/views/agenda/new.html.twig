@@ -2,125 +2,81 @@
 
 {% block body %}
 
-{#<div id="modalNew" class="modal bottom-sheet">#}
-    {#<div class="modal-content">#}
-
-    <h1>Création d'un évènement</h1>
-
-    {{ form_start(form) }}
-
-        <div class="container">
-            <div class="row">
-                <div class="col s12 m6 l6"></div>
-                    <p class="">Titre de l'évènement</p>
-                    {{ form_widget(form.titre) }}
-                    {{ form_errors(form.titre) }}
-                </div>
-                <div class="col s12 m6 l6">
-                    <p class="">Lieu</p>
-                    {{ form_widget(form.lieu) }}
-                    {{ form_errors(form.lieu) }}
-                </div>
-
-            <div class="row">
-                <p class="">Description de l'évènement</p>
-                <div class="input-group">
-                    <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
-                    {{ form_widget(form.texte) }}
-                    {{ form_errors(form.texte) }}
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col s12 m6 l6">
-                    <p class="">Date de début d'évènement</p>
-                    <div class="input-group">
-                        {{ form_widget(form.start) }}
-                        {{ form_errors(form.start) }}
-                    </div>
-                </div>
-                <div class="col s12 m6 l6">
-                    <p class="">Date de fin d'évènement</p>
-                    <div class="input-group">
-                        {{ form_widget(form.end) }}
-                        {{ form_errors(form.end) }}
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col s12 m6 l6">
-                <p class="">Couleur</p>
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
-                        {#{{ form_widget(form.couleur , {'attr': {'placeholder': 'Cliquez'}}) }}#}
-                        {#{{ form_errors(form.couleur) }}#}
-                            <div>
-                                <ul class="tabs">
-                                    <li class="tab col s3"><a class="active" href="#demo3-example">Demo</a></li>
-                                    <li class="tab col s3"><a href="#demo3-html">HTML</a></li>
-                                    <li class="tab col s3"><a href="#demo3-js">JavaScript</a></li>
-                                </ul>
-                            </div>
-                            <div id="demo3-example" class="col s12">
-                                <div class="card">
-                                    <div class="card-content">
-                                        <div class="col s6">
-                                            <input type="text" data-format="hex" class="demo-auto colorpicker-element" id="demo3" value="transparent">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="demo3-html" class="col s12">
-                                <div class="card">
-                                    <div class="card-content">
-                                      <pre>
-                                        <code class="language-markup">
-                                        <input type="text" id="demo3" >
-                                        </code>
-                                      </pre>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="demo3-js" class="col s12">
-                                <div class="card">
-                                    <div class="card-content">
-                                      <pre>
-                                        <code class="language-markup">
-                                            <script>
-                                                $(function() {
-                                                    $('#demo3').colorpicker({
-                                                        format: 'hex',
-                                                        color: 'transparent'
-                                                    });
-                                                });
-                                            </script>
-                                        </code>
-                                      </pre>
-                                    </div>
-                                </div>
-                            </div>
-
-                {#<div class="col s12 m6 l6">#}
-                    {#<div class="checkbox">#}
-                        {#<label>#}
-                            {#{{ form_widget(form.slider) }} Afficher dans le slider "Home page"#}
-                        {#</label>#}
-                        {#{{ form_errors(form.slider) }}#}
-                    {#</div>#}
-                </div>
-            </div>
-
-            <div class="center">
-                <input class="btn btn-default edit_admin"  type="submit" value="Créer" />
-                <a class="btn btn-default edit_admin"  href="{{ path('agenda') }}">Retour au calendrier</a>
+    <div class="container">
+        <div class="row">
+            <div class="col s12 center">
+                <h1>Création d'un évènement</h1>
             </div>
         </div>
 
-        {{ form_end(form) }}
+    {{ form_start(form) }}
 
-    {#</div>#}
-{#</div>#}
+
+        <div class="row">
+            <div class="col s12 m6 l6"></div>
+                <p class="">Titre de l'évènement</p>
+                {{ form_widget(form.titre) }}
+                {{ form_errors(form.titre) }}
+            </div>
+            <div class="col s12 m6 l6">
+                <p class="">Lieu</p>
+                {{ form_widget(form.lieu) }}
+                {{ form_errors(form.lieu) }}
+            </div>
+
+        <div class="row">
+            <p class="">Description de l'évènement</p>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+                {{ form_widget(form.texte) }}
+                {{ form_errors(form.texte) }}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col s12 m6 l6">
+                <p class="">Date de début d'évènement</p>
+                <div class="input-group">
+                    {{ form_widget(form.start) }}
+                    {{ form_errors(form.start) }}
+                </div>
+            </div>
+            <div class="col s12 m6 l6">
+                <p class="">Date de fin d'évènement</p>
+                <div class="input-group">
+                    {{ form_widget(form.end) }}
+                    {{ form_errors(form.end) }}
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col s12 m6 l6">
+                <p class="">Couleur</p>
+                    <div class="taille-piker">
+                        {{ form_widget(form.couleur , { 'id': 'picker' }) }}
+                        {{ form_errors(form.couleur) }}
+                    </div>
+
+{#--------------------------------------------------------------------------------------------------------------------#}
+            {#<div class="col s12 m6 l6">#}
+                {#<div class="checkbox">#}
+                    {#<label>#}
+                        {#{{ form_widget(form.slider) }} Afficher dans le slider "Home page"#}
+                    {#</label>#}
+                    {#{{ form_errors(form.slider) }}#}
+                {#</div>#}
+{#--------------------------------------------------------------------------------------------------------------------#}
+            </div>
+        </div>
+
+        <div class="center">
+            <input class="btn btn-default edit_admin"  type="submit" value="Créer" />
+            <a class="btn btn-default edit_admin"  href="{{ path('agenda') }}">Retour au calendrier</a>
+        </div>
+    </div>
+
+        {{ form_end(form) }}
 
 {% endblock %}
 
