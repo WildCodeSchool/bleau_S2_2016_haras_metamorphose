@@ -7,6 +7,7 @@
     {# fin navBar lateral #}
     {#-------------------------------------------------------------#}
     <section class="postSectionIndex">
+        <div class="container">
         <article class="postArticleIndex">
             <h1 class="soustitrePage center">Liste des catégories du forum</h1>
             {#-------------------------------------------------------------#}
@@ -33,24 +34,26 @@
                 {#{{ dump(app.request.cookies) }}#}
                 {% for categoriePlateforme in categoriePlateformes %}
                 {% set categorieEnLecture = categoriePlateforme.id %}
-                {% if categoriePlateforme.id == 1 %}
                 {# Gestion couleur par catégories #}
-                <div id="accordionButtonCat_1" class="btn-flat">
+                {% if categoriePlateforme.id == 1 %}
+                <div id="accordionButtonCat_{{ categoriePlateforme.id }}" class="btn-flat">
                     {%  elseif categoriePlateforme.id == 2%}
-                    <div id="accordionButtonCat_2" class="btn-flat">
+                    <div id="accordionButtonCat_{{ categoriePlateforme.id }}" class="btn-flat">
                         {%  elseif categoriePlateforme.id == 3 %}
-                        <div id="accordionButtonCat_3" class="btn-flat">
+                        <div id="accordionButtonCat_{{ categoriePlateforme.id }}" class="btn-flat">
                             {%  elseif categoriePlateforme.id == 4 %}
-                            <div id="accordionButtonCat_4" class="btn-flat">
+                            <div id="accordionButtonCat_{{ categoriePlateforme.id }}" class="btn-flat">
                                 {% endif %}
                                 {# FIN Gestion couleur par catégories #}
                                 <i class="fa fa-list fa-5x" style="color:#DEDEDE;" aria-hidden="true"></i>
                                 <span class="spanCat">{{ categoriePlateforme.nom }}</span>
-                                <a data-cat="categorieEnLecture" class="waves-effect waves-teal btn-flat tooltipped"
+                                {#{{app.request.cookies.set('cat' , categoriePlateforme.id)}}#}
+                                <a class="waves-effect waves-teal btn-flat tooltipped"
                                    data-position="top"
                                    data-delay="50"
                                    data-tooltip="Ajouter une sous-catégorie"
-                                   href="#modal{{ categorieEnLecture }}" style="position: absolute;right: 50px;">
+                                   data-cat="categorieEnLecture"
+                                   href="#modal{{ categorieEnLecture }}" style="position: absolute;right: 200px;">
                                     <i class="fa fa-plus-square-o fa-5x" style="color: #FFF;" aria-hidden="true"></i>
                                 </a>
                             </div>
@@ -61,7 +64,7 @@
                                             <li>
                                                 <span class="spanSousCat">{{ sousCategorie.nom }}</span>
                                                 <a class="waves-effect waves-teal btn-flat center aSousCat"
-                                                   href="{{ path('categorieplateforme_edit', { 'id': sousCategorie.id }) }}" style="position: absolute;right: 150px;">
+                                                   href="{{ path('categorieplateforme_edit', { 'id': sousCategorie.id }) }}" style="position: absolute;right: 250px;">
                                                     <i class="fa fa-pencil-square-o fa-3x" aria-hidden="true"></i>
                                                 </a>
                                             </li>
@@ -71,11 +74,12 @@
                                 </ul>
                             </div>
                             {% endfor %}
-
+                            {#{{ dump(app.request.cookies.get('cat')) }}#}
                             {# Fin FOR categorie #}
                         </div>
         </article>
-        {# Gestion des modal sous-categorie #}
+            </div>
+         {#Gestion des modal sous-categorie #}
         {% for categoriePlateforme in categoriePlateformes %}
             <div id="modal{{ categoriePlateforme.id }}" class="modal">
                 <div class="modal-content {{ categoriePlateforme.id }}" style="background-color: #FFF">

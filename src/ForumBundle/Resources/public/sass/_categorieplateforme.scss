@@ -13,12 +13,18 @@
 	display: flex;
 }
 
+// ************************
 //CSS for tooltip
+// ************************
 .backdrop{
     background-color: #888888;
 	//background-color: deeppink;
 	opacity: 1;
 	border-radius: 5%;
+}
+
+.material-tooltip {
+	//
 }
 
 //CSS for accordion

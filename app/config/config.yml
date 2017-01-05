@@ -99,9 +99,6 @@ ivory_ck_editor:
 #    base_path: "ckeditor"
 #    js_path:   "/bundles/mediaproject/ivoryckeditor/ckeditor.js"
     plugins:
-#        youtube:
-#            path:                       '/ivoryckeditor/plugins/youtube/'
-#            filename:                   'plugin.js'
     default_config: my_config
     configs:
         my_config:

@@ -22,9 +22,7 @@ class CategoriePlateformeController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         // Ramene les catégories  (actif = oui) et mise en place du paginator
-        $findCategoriePlateformes = $em->getRepository('ForumBundle:CategoriePlateforme')->findBy(array('actif'=> 1, 'parent' => null));
-        $paginator  = $this->get('knp_paginator');
-        $categoriePlateformes = $paginator->paginate($findCategoriePlateformes, $request->query->getInt('page', 1), 5);
+        $categoriePlateformes = $em->getRepository('ForumBundle:CategoriePlateforme')->findBy(array('actif'=> 1, 'parent' => null));
 
         // Ramene sous catégorie
         $repository = $em->getRepository('ForumBundle:CategoriePlateforme');
