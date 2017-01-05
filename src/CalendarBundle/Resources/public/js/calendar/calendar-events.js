@@ -49,7 +49,7 @@ function calendar() {
             slotLabelFormat: 'HH:mm', // format de l'heure sur les slots
             timeFormat: 'HH:mm',
             minTime: "08:00:00", // heure de début du calendar
-            slotEventOverlap: false, // Les évènements ne se chevauchent pas
+            slotEventOverlap: true, // Les évènements ne se chevauchent pas
 
             editable: true,
             eventLimit: true, // allow "more" link when too many events
