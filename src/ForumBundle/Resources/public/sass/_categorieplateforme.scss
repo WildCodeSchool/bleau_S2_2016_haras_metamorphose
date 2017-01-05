@@ -32,14 +32,14 @@
 	align-items: center;
 }
 
-.accordionButton {
+#accordionButtonCat_1 {
 	width: 100%;
 	box-sizing: unset !important;
 	//border-radius: 5px;
 	float: left;
 	cursor: pointer;
 	border: 1px solid #AAA;
-    background-color: #DEDEDE;
+    background-color: rgba(7,64,10, 0.6);
     padding: 3%;
 	//margin-left: 9%;
     margin-bottom: 5px;
@@ -48,9 +48,73 @@
     box-shadow: 4px 4px 6px #AAA;
 }
 
-.accordionButton > a {
-	float: right;
+#accordionButtonCat_1:hover {
+	background-color: #07400a;
 }
+
+#accordionButtonCat_2 {
+	width: 100%;
+	box-sizing: unset !important;
+	//border-radius: 5px;
+	float: left;
+	cursor: pointer;
+	border: 1px solid #AAA;
+    background-color: rgba(140, 104, 34, 0.6);
+    padding: 3%;
+	//margin-left: 9%;
+    margin-bottom: 5px;
+    -moz-box-shadow: 4px 4px 10px #AAA;
+    -webkit-box-shadow: 4px 4px 10px #AAA;
+    box-shadow: 4px 4px 6px #AAA;
+}
+
+#accordionButtonCat_2:hover {
+	background-color: #8c6822;
+}
+
+#accordionButtonCat_3 {
+	width: 100%;
+	box-sizing: unset !important;
+	//border-radius: 5px;
+	float: left;
+	cursor: pointer;
+	border: 1px solid #AAA;
+    background-color: rgba(39, 34, 140, 0.6);
+    padding: 3%;
+	//margin-left: 9%;
+    margin-bottom: 5px;
+    -moz-box-shadow: 4px 4px 10px #AAA;
+    -webkit-box-shadow: 4px 4px 10px #AAA;
+    box-shadow: 4px 4px 6px #AAA;
+}
+
+#accordionButtonCat_3:hover {
+	background-color: #27228C;
+}
+
+#accordionButtonCat_4 {
+	width: 100%;
+	box-sizing: unset !important;
+	//border-radius: 5px;
+	float: left;
+	cursor: pointer;
+	border: 1px solid #AAA;
+    background-color: rgba(183, 21, 134, 0.6);
+    padding: 3%;
+	//margin-left: 9%;
+    margin-bottom: 5px;
+    -moz-box-shadow: 4px 4px 10px #AAA;
+    -webkit-box-shadow: 4px 4px 10px #AAA;
+    box-shadow: 4px 4px 6px #AAA;
+}
+
+#accordionButtonCat_4:hover {
+	background-color: #b71586;
+}
+
+//.accordionButton > a {
+//	float: right;
+//}
 
 .accordionContent {
 	width: 85%;
@@ -79,6 +143,7 @@
 .spanCat {
 	margin-left: 2%;
 	margin-right: 70%;
+	color: #FFF;
 }
 
 .spanSousCat {

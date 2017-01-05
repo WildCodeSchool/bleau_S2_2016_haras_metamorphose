@@ -1,91 +1,93 @@
 {% extends '@Forum/layout.html.twig' %}
 
 {% block body %}
-{#-------------------------------------------------------------#}
-{# NavBar Lateral  #}
-{{ include("@Forum/post/postNavBar.html.twig") }}
-{# fin navBar lateral #}
-{#-------------------------------------------------------------#}
-  <section class="postSectionIndex">
-  {# DEBUT CODE #}
-  <article class="postArticleIndex">
-
     {#-------------------------------------------------------------#}
-    {# Mise en place message flash #}
-    {% for flash_message in app.session.flashBag.get('notice') %}
-        <div class="row container">
-            <div class="flash-notice center">
-                {{ flash_message }}
-            </div>
-        </div>
-    {% endfor %}
+    {# NavBar Lateral  #}
+    {{ include("@Forum/post/postNavBar.html.twig") }}
+    {# fin navBar lateral #}
     {#-------------------------------------------------------------#}
+    <section class="postSectionIndex">
+        {# DEBUT CODE #}
+        <article class="postArticleIndex">
 
-    {# Gestion des Fils de discussion #}
-    <h1 class=" soustitrePage center">Fils de discussion désactivées</h1>
-      <div class="divParent" style="width: 80%; background-color: #f1f1e3">
-      {% for post in posts %}
-            {% if  post.parent.id is not defined %}
-            {% set idParent = post.id %}
-            {# Fil de discussion #}
-                <h4>Fil de discussion : {{ post.titre|capitalize }}</h4>
-                <div class="divParentContenu">{{ post.contenu|raw }}</div>
-                <div> Message de : {{ post.user }}</div>
-                <div> Crée le : {{ post.dateCreate|date("d/m/Y") }}</div>
-                {# Résactiver #}
-                <div class="row center">
-                    <a class="btn-floating btn-large waves-effect waves-light green darken-1"
-                       href="{{ path('post_resactive', { 'id': post.id }) }}"
-                       value="Delete">
-                        <i class="small material-icons">check</i>
-                    </a>
-                </div>
-                <hr>
-            {# Post enfant du fil de discussion #}
-            {#{% elseif post.parent.id == idParent and post.parent.id in tabIdParents %}#}
-                {#<div class="divEnfant"style="width: 80%; background-color: #DEDEDE">#}
-                    {#<h4>{{ post.titre|capitalize }}</h4>#}
-                    {#<div class="divEnfantContenu">{{ post.contenu|raw }}</div>#}
-                    {#<div> Message de : {{ post.user }}</div>#}
-                    {#<div> Crée le : {{ post.dateCreate|date("d/m/Y") }}</div>#}
-                {#</div>#}
-            {% endif %}
-      {% endfor %}
-      </div>
-
-    {# Gestion des Posts isolés #}
-    <h1 class=" soustitrePage center">Commentaires isolés désactivées</h1>
-    <div>
-        {% for post in posts %}
-            {% if post.parent.id is defined and post.parent.id not in tabIdParents %}
-                <h4>
-                    Posté sur la discussion : {{ post.parent.titre }}
-                    <a class="waves-effect waves-teal btn-flat"
-                       href="{{ path('post_showAllPost', { 'id': post.parent.id }) }}">
-                        <i class="material-icons">input</i>
-                    </a>
-                </h4>
-                <div class="divParent" style="width: 80%; background-color: #f1f1e3">
-                    <h4>{{ post.titre|capitalize }}</h4>
-                    <div class="divEnfantContenu">{{ post.contenu|raw }}</div>
-                    <div> Message de : {{ post.user }}</div>
-                    <div> Crée le : {{ post.dateCreate|date("d/m/Y") }}</div>
-                    {# Résactiver #}
-                    <div class="row center">
-                        <a class="btn-floating btn-large waves-effect waves-light green darken-1 tooltipped"
-                            data-position="top"
-                            data-delay="50"
-                            data-tooltip="Voir la discussion"
-                            href="{{ path('post_resactive', { 'id': post.id }) }}"
-                            value="Delete">
-                            <i class="small material-icons">check</i>
-                        </a>
+            {#-------------------------------------------------------------#}
+            {# Mise en place message flash #}
+            {% for flash_message in app.session.flashBag.get('notice') %}
+                <div class="row container">
+                    <div class="flash-notice center">
+                        {{ flash_message }}
                     </div>
-                    <hr>
                 </div>
-            {% endif %}
-        {% endfor %}
-    </div>
-  </article>
-</section>
+            {% endfor %}
+            {#-------------------------------------------------------------#}
+
+            {# Gestion des Fils de discussion #}
+            <h1 class=" soustitrePage center">Fils de discussion désactivés</h1>
+            <div class="reactDivParent" style="width: 80%; background-color: #f1f1e3">
+                {% for post in posts %}
+                    {% if  post.parent.id is not defined %}
+                        {% set idParent = post.id %}
+                        {# Fil de discussion #}
+                        <h4>Fil de discussion : {{ post.titre|capitalize }}</h4>
+                        <div class="divParentContenu">{{ post.contenu|raw }}</div>
+                        <div> Message de : {{ post.user }}</div>
+                        <div> Crée le : {{ post.dateCreate|date("d/m/Y") }}</div>
+                        {# Résactiver #}
+                        <div class="row center">
+                            <a class="waves-effect waves-light btn green darken-1"
+                               href="{{ path('post_resactive', { 'id': post.id }) }}"
+                               value="Delete">
+                                <i class="small material-icons">check</i>
+                                Réactiver
+                            </a>
+                        </div>
+                        <hr>
+                        {# Post enfant du fil de discussion #}
+                        {#{% elseif post.parent.id == idParent and post.parent.id in tabIdParents %}#}
+                        {#<div class="divEnfant"style="width: 80%; background-color: #DEDEDE">#}
+                        {#<h4>{{ post.titre|capitalize }}</h4>#}
+                        {#<div class="divEnfantContenu">{{ post.contenu|raw }}</div>#}
+                        {#<div> Message de : {{ post.user }}</div>#}
+                        {#<div> Crée le : {{ post.dateCreate|date("d/m/Y") }}</div>#}
+                        {#</div>#}
+                    {% endif %}
+                {% endfor %}
+            </div>
+
+            {# Gestion des Posts isolés #}
+            <h1 class=" soustitrePage center">Commentaires isolés désactivés</h1>
+            <div>
+                {% for post in posts %}
+                    {% if post.parent.id is defined and post.parent.id not in tabIdParents %}
+                        <div class="center">
+                            <h4>
+                                Posté sur la discussion : <br>
+                                {{ post.parent.titre }}
+                            </h4>
+                            <a class="waves-effect waves-teal btn-flat"
+                               href="{{ path('post_showAllPost', { 'id': post.parent.id }) }}">
+                                <i class="material-icons center">input</i>
+                            </a>
+                        </div>
+                        <div class="reactDivParent">
+                            <h4>{{ post.titre|capitalize }}</h4>
+                            <div class="divEnfantContenu">{{ post.contenu|raw }}</div>
+                            <div> Message de : {{ post.user }}</div>
+                            <div> Crée le : {{ post.dateCreate|date("d/m/Y") }}</div>
+                            {# Résactiver #}
+                            <div class="row center">
+                                <a class="waves-effect waves-light btn green darken-1"
+                                   href="{{ path('post_resactive', { 'id': post.id }) }}"
+                                   value="Delete">
+                                    <i class="small material-icons">check</i>
+                                    Réactiver
+                                </a>
+                            </div>
+                            <hr>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </article>
+    </section>
 {% endblock %}

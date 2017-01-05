@@ -1,77 +1,87 @@
 {% extends '@Forum/layout.html.twig' %}
 
 {% block body %}
-{#-------------------------------------------------------------#}
-{# NavBar Lateral  #}
-{{ include("@Forum/post/postNavBar.html.twig") }}
-{# fin navBar lateral #}
-{#-------------------------------------------------------------#}
-<section class="postSectionIndex">
-  <article class="postArticleIndex">
-    <h1 class="center">Liste des catégories du forum</h1>
     {#-------------------------------------------------------------#}
-    {# Mise en place message flash #}
-    {% for flash_message in app.session.flashBag.get('notice') %}
-        <div class="row container">
-            <div class="flash-notice center">
-                {{ flash_message }}
-            </div>
-        </div>
-    {% endfor %}
+    {# NavBar Lateral  #}
+    {{ include("@Forum/post/postNavBar.html.twig") }}
+    {# fin navBar lateral #}
     {#-------------------------------------------------------------#}
-
-        {#-------------------------------------------------------------#}
-         {#Mise en place pagination #}
-        {#<div class="row center">#}
-            {#{{ knp_pagination_render(categoriePlateformes) }}#}
-        {#</div>#}
-
-        <div class="wrapperCat">
-            {#<script>#}
-                {#sessionStorage.setItem('id', 10);#}
-            {#</script>#}
-            {#{{ dump(app.request.cookies) }}#}
-            {% for categoriePlateforme in categoriePlateformes %}
-            {% set categorieEnLecture = categoriePlateforme.id %}
-            <div class="accordionButton waves-effect waves-grey btn-flat">
-                <i class="fa fa-list" style="color:#f06292;" aria-hidden="true"></i>
-                <span class="spanCat">{{ categoriePlateforme.nom }}</span>
-                <a data-cat="categorieEnLecture" class="waves-effect waves-teal btn-flat tooltipped"
-                   data-position="top"
-                   data-delay="50"
-                   data-tooltip="Ajouter une sous-catégorie"
-                   href="#modal{{ categorieEnLecture }}">
-                    <i class="fa fa-plus-square-o fa-5x" style="color: #558b2f;" aria-hidden="true"></i>
-                </a>
-            </div>
-            <div class="accordionContent">
-                <ul>
-                {% for sousCategorie in sousCategories %}
-                {% if sousCategorie.parent.id == categorieEnLecture %}
-                <li>
-                    <span class="spanSousCat">{{ sousCategorie.nom }}</span>
-                    <a class="waves-effect waves-teal btn-flat center aSousCat"
-                       href="{{ path('categorieplateforme_edit', { 'id': sousCategorie.id }) }}">
-                        <i class="fa fa-pencil-square-o fa-3x" aria-hidden="true"></i>
-                    </a>
-                </li>
-                {% endif %}
-                {% endfor %}
-                {# Fin FOR Sous-categorie #}
-                </ul>
-            </div>
+    <section class="postSectionIndex">
+        <article class="postArticleIndex">
+            <h1 class="soustitrePage center">Liste des catégories du forum</h1>
+            {#-------------------------------------------------------------#}
+            {# Mise en place message flash #}
+            {% for flash_message in app.session.flashBag.get('notice') %}
+                <div class="row container">
+                    <div class="flash-notice center">
+                        {{ flash_message }}
+                    </div>
+                </div>
             {% endfor %}
+            {#-------------------------------------------------------------#}
 
-            {# Fin FOR categorie #}
-        </div>
-  </article>
-    {# Gestion des modal sous-categorie #}
-    {% for categoriePlateforme in categoriePlateformes %}
-        <div id="modal{{ categoriePlateforme.id }}" class="modal">
-            <div class="modal-content {{ categoriePlateforme.id }}" style="background-color: #FFF">
-                {{ render(controller('ForumBundle:CategoriePlateforme:newSousCatShowForm', { 'cat': categoriePlateforme.id } )) }}
+            {#-------------------------------------------------------------#}
+            {#Mise en place pagination #}
+            {#<div class="row center">#}
+            {#{{ knp_pagination_render(categoriePlateformes) }}#}
+            {#</div>#}
+
+            <div class="wrapperCat">
+                {#<script>#}
+                {#sessionStorage.setItem('id', 10);#}
+                {#</script>#}
+                {#{{ dump(app.request.cookies) }}#}
+                {% for categoriePlateforme in categoriePlateformes %}
+                {% set categorieEnLecture = categoriePlateforme.id %}
+                {% if categoriePlateforme.id == 1 %}
+                {# Gestion couleur par catégories #}
+                <div id="accordionButtonCat_1" class="btn-flat">
+                    {%  elseif categoriePlateforme.id == 2%}
+                    <div id="accordionButtonCat_2" class="btn-flat">
+                        {%  elseif categoriePlateforme.id == 3 %}
+                        <div id="accordionButtonCat_3" class="btn-flat">
+                            {%  elseif categoriePlateforme.id == 4 %}
+                            <div id="accordionButtonCat_4" class="btn-flat">
+                                {% endif %}
+                                {# FIN Gestion couleur par catégories #}
+                                <i class="fa fa-list fa-5x" style="color:#DEDEDE;" aria-hidden="true"></i>
+                                <span class="spanCat">{{ categoriePlateforme.nom }}</span>
+                                <a data-cat="categorieEnLecture" class="waves-effect waves-teal btn-flat tooltipped"
+                                   data-position="top"
+                                   data-delay="50"
+                                   data-tooltip="Ajouter une sous-catégorie"
+                                   href="#modal{{ categorieEnLecture }}" style="position: absolute;right: 50px;">
+                                    <i class="fa fa-plus-square-o fa-5x" style="color: #FFF;" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                            <div class="accordionContent">
+                                <ul>
+                                    {% for sousCategorie in sousCategories %}
+                                        {% if sousCategorie.parent.id == categorieEnLecture %}
+                                            <li>
+                                                <span class="spanSousCat">{{ sousCategorie.nom }}</span>
+                                                <a class="waves-effect waves-teal btn-flat center aSousCat"
+                                                   href="{{ path('categorieplateforme_edit', { 'id': sousCategorie.id }) }}" style="position: absolute;right: 150px;">
+                                                    <i class="fa fa-pencil-square-o fa-3x" aria-hidden="true"></i>
+                                                </a>
+                                            </li>
+                                        {% endif %}
+                                    {% endfor %}
+                                    {# Fin FOR Sous-categorie #}
+                                </ul>
+                            </div>
+                            {% endfor %}
+
+                            {# Fin FOR categorie #}
+                        </div>
+        </article>
+        {# Gestion des modal sous-categorie #}
+        {% for categoriePlateforme in categoriePlateformes %}
+            <div id="modal{{ categoriePlateforme.id }}" class="modal">
+                <div class="modal-content {{ categoriePlateforme.id }}" style="background-color: #FFF">
+                    {{ render(controller('ForumBundle:CategoriePlateforme:newSousCatShowForm', { 'cat': categoriePlateforme.id } )) }}
+                </div>
             </div>
-        </div>
-    {% endfor %}
-</section>
+        {% endfor %}
+    </section>
 {% endblock %}

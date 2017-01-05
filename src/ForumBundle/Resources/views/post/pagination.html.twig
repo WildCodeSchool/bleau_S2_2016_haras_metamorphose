@@ -1,11 +1,11 @@
 {% if pageCount > 1 %}
     <ul class="pagination">
         {% if previous is defined %}
-                 <li class="arrow">
-                     <a href="{{ path(route, query|merge({(pageParameterName): previous})) }}">
-                         <i class="fa fa-step-backward fa-lg " aria-hidden="true"></i>
-                     </a>
-                 </li>
+            <li class="arrow">
+                <a href="{{ path(route, query|merge({(pageParameterName): previous})) }}">
+                    <i class="fa fa-step-backward fa-lg " aria-hidden="true"></i>
+                </a>
+            </li>
         {% else %}
             <li class="arrow unavailable">
                 <a>

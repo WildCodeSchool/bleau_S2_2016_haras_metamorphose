@@ -1,9 +1,9 @@
 {% extends '@Forum/layout.html.twig' %}
 
 {% block body %}
-<div class="postContainer postAdmin col s12 m6">
-    <h1>Edition des messages</h1>
-    {{ form_start(edit_form) }}
+    <div class="postContainer postAdmin col s12 m6">
+        <h1>Edition des messages</h1>
+        {{ form_start(edit_form) }}
         <div class="col l6 m6 s12">
             <div class="row input-field">
                 {{ form_label(edit_form.titre) }}
@@ -21,9 +21,9 @@
         {# **********************************#}
         <div class="row center">
             <button class="btn-floating btn-large waves-effect waves-light green darken-1"
-            type="submit"
-            title="Valider">
-            <i class="material-icons">check</i>
+                    type="submit"
+                    title="Valider">
+                <i class="material-icons">check</i>
             </button>
         </div>
         <div class="row center">
@@ -50,6 +50,6 @@
                 <i class="small material-icons">delete</i>
             </a>
         </div>
-    {{ form_end(edit_form) }}
-</div>
+        {{ form_end(edit_form) }}
+    </div>
 {% endblock %}

@@ -82,6 +82,7 @@
   max-height: 150px;
   max-width: inherit;
   overflow: auto;
+  text-overflow: ellipsis;
 }
 
 .chip {
@@ -145,8 +146,8 @@
   height: 100%;
   width: auto;
   -webkit-transform: translate(-50%,-50%);
-      -ms-transform: translate(-50%,-50%);
-          transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
 }
 
 //*************************************************************************
@@ -307,7 +308,7 @@
 }
 
 .container {
-	flex: 1 0 auto;
+  flex: 1 0 auto;
 }
 
 .cartoucheUserShowAll {
@@ -394,7 +395,14 @@
 .lastPostContenu {
   max-width: inherit;
   max-height: inherit;
-  overflow: auto;
+  overflow: scroll;
+}
+
+.lastPostContenu > p {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
 }
 
 //.lastPostContenu > p > img {
@@ -416,47 +424,47 @@
 // PAGINATION
 //*****************************************************************************
 .pagination {
-    margin: 20px 0;
-    overflow: hidden;
-    position: relative;
-    display: inline-block;
-    vertical-align: middle;
+  margin: 20px 0;
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
 }
 .pagination ul {
-    float: left;
-    left: 50%;
-    position: relative;
+  float: left;
+  left: 50%;
+  position: relative;
 }
 .pagination ul > li {
-    left: -50%;
-    position: relative;
+  left: -50%;
+  position: relative;
 }
 .pagination li a {
-    transition: all 100ms ease-in-out 0s;
-    background-color: #F7F7F8;
-    border-radius: 5px 5px 5px 5px;
-    color: #69696E;
-    display: block;
-    font: 12px/30px Arial, sans-serif;
-    height: 30px;
-    margin: 0 3px;
-    overflow: hidden;
-    position: relative;
-    text-align: center;
-    text-decoration: none;
-    width: 30px;
+  transition: all 100ms ease-in-out 0s;
+  background-color: #F7F7F8;
+  border-radius: 5px 5px 5px 5px;
+  color: #69696E;
+  display: block;
+  font: 12px/30px Arial, sans-serif;
+  height: 30px;
+  margin: 0 3px;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  width: 30px;
 }
 .pagination li a:hover {
-    background-color: #FF8C00;
-    color: #FFFFFF;
+  background-color: #FF8C00;
+  color: #FFFFFF;
 }
 .pagination li.active a {
-    background-color: #FF8C00;
-    color: #FFFFFF;
-    font-weight: bold;
+  background-color: #FF8C00;
+  color: #FFFFFF;
+  font-weight: bold;
 }
 .pagination li.active a:hover {
-    color: #FFFFFF;
+  color: #FFFFFF;
 }
 
 .pagination li.current a {
@@ -465,7 +473,7 @@
 }
 
 .pagination li i {
-    font-size: 1rem !important;
+  font-size: 1rem !important;
 }
 
 //********************************************************
@@ -478,54 +486,70 @@ aside {
 
 .go a:before,
 .go a:after {
-    display: inline-block;
-    opacity: 0;
-    -webkit-transition: -webkit-transform 0.3s, opacity 0.2s;
-    -moz-transition: -moz-transform 0.3s, opacity 0.2s;
-    transition: transform 0.3s, opacity 0.2s;
+  display: inline-block;
+  opacity: 0;
+  -webkit-transition: -webkit-transform 0.3s, opacity 0.2s;
+  -moz-transition: -moz-transform 0.3s, opacity 0.2s;
+  transition: transform 0.3s, opacity 0.2s;
 }
 
 .go a:before {
-    margin-right: 10px;
-    content: '[';
-    -webkit-transform: translate(20px);
-    -moz-transform: translate(20px);
-    transform: translate(20px);
+  margin-right: 10px;
+  content: '[';
+  -webkit-transform: translate(20px);
+  -moz-transform: translate(20px);
+  transform: translate(20px);
 }
 
 .go a:after {
-    margin-left: 10px;
-    content: ']';
-    -webkit-transform: translate(-20px);
-    -moz-transform: translate(-20px);
-    transform: translate(-20px);
+  margin-left: 10px;
+  content: ']';
+  -webkit-transform: translate(-20px);
+  -moz-transform: translate(-20px);
+  transform: translate(-20px);
 }
 
 .go a:hover:before,
 .go a:hover:after,
 .go a:focus:before,
 .go a:focus:after {
-    opacity: 1;
-    -webkit-transform: translate(0px);
-    -moz-transform: translate(0px);
-    transform: translate(0px);
+  opacity: 1;
+  -webkit-transform: translate(0px);
+  -moz-transform: translate(0px);
+  transform: translate(0px);
 }
 
 #dropdown1 {
-    top: 317px !important;
-    left: 15px !important;
+  top: 317px !important;
+  left: 15px !important;
 }
 
 .userLogout {
-    background: #DEDEDE;
+  background: #DEDEDE;
 }
 
 .userLogout a {
-    color: red !important;
+  color: red !important;
 }
 
 @media (min-width: 991px) {
-    main {
-        padding-left: 20px;
-    }
+  main {
+    padding-left: 20px;
+  }
+}
+
+//********************************************************
+// show Reactive post
+//********************************************************
+
+.reactDivParent {
+  width: 80%;
+  background-color: #f1f1e3;
+  margin-left: 11%;
+  padding: 2%;
+  text-align: justify;
+}
+
+.reactH4WrapIsole > a {
+  float: right;
 }

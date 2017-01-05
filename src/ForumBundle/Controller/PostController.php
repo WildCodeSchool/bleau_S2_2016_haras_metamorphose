@@ -30,7 +30,7 @@ class PostController extends Controller
         }
 
         // Ramene les catégories  (actif = oui)
-        $categories = $em->getRepository('ForumBundle:CategoriePlateforme')->findBy(array('actif' => 1, 'parent' => null));
+        $categories = $em->getRepository('ForumBundle:CategoriePlateforme')->findBy(array('actif' => 1, 'parent' => null), array('id' => 'ASC'));
 
         // -----------------------------------------------------------------------------------------------------
         // Test si la base de données est suffisament remplie
@@ -226,7 +226,6 @@ class PostController extends Controller
         $findPostEnfants = $em->getRepository('ForumBundle:Post')->findBy(array( 'parent' => $idPostFirst, 'actif'=> 1));
         $paginator  = $this->get('knp_paginator');
         $postEnfants = $paginator->paginate($findPostEnfants, $request->query->getInt('page', 1), 5);
-
 
         return $this->render('@Forum/post/showAllPost.html.twig', array(
             'postParents' => $postParents,
