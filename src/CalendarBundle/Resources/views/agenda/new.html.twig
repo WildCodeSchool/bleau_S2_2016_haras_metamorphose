@@ -48,29 +48,58 @@
                 </div>
             </div>
 
-            {#<div class="row">#}
-                {#<div class="col s12 m6 l6">#}
-                {#<p class="">Couleur</p>#}
-                    {#<div class="input-group">#}
-                        {#<span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>#}
+            <div class="row">
+                <div class="col s12 m6 l6">
+                <p class="">Couleur</p>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
                         {#{{ form_widget(form.couleur , {'attr': {'placeholder': 'Cliquez'}}) }}#}
                         {#{{ form_errors(form.couleur) }}#}
-                        {#<select name="couleur" id="couleur" class="selectcouleur">#}
-                            {#<option value="#7bd148" class="vert">vert</option>#}
-                            {#<option value="#5484ed" class="bleu-fonce">bleu foncé</option>#}
-                            {#<option value="#a4bdfc" class="bleu">Bleu</option>#}
-                            {#<option value="#46d6db" class="turquoise">Turquoise</option>#}
-                            {#<option value="#7ae7bf" class="vert-claire">vert clair</option>#}
-                            {#<option value="#51b749" class="vert-fonce">vert foncé</option>#}
-                            {#<option value="#fbd75b" class="jaune">jaune</option>#}
-                            {#<option value="#ffb878" class="orange">orange</option>#}
-                            {#<option value="#ff887c" class="rouge">rouge</option>#}
-                            {#<option value="#dc2127" class="rouge-fonce">rouge foncé</option>#}
-                            {#<option value="#dbadff" class="pourpre">pourpre</option>#}
-                            {#<option value="#e1e1e1" class="gris">gris</option>#}
-                        {#</select>#}
-                    {#</div>#}
-                {#</div>#}
+                            <div>
+                                <ul class="tabs">
+                                    <li class="tab col s3"><a class="active" href="#demo3-example">Demo</a></li>
+                                    <li class="tab col s3"><a href="#demo3-html">HTML</a></li>
+                                    <li class="tab col s3"><a href="#demo3-js">JavaScript</a></li>
+                                </ul>
+                            </div>
+                            <div id="demo3-example" class="col s12">
+                                <div class="card">
+                                    <div class="card-content">
+                                        <div class="col s6">
+                                            <input type="text" data-format="hex" class="demo-auto colorpicker-element" id="demo3" value="transparent">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="demo3-html" class="col s12">
+                                <div class="card">
+                                    <div class="card-content">
+                                      <pre>
+                                        <code class="language-markup">
+                                        <input type="text" id="demo3" >
+                                        </code>
+                                      </pre>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="demo3-js" class="col s12">
+                                <div class="card">
+                                    <div class="card-content">
+                                      <pre>
+                                        <code class="language-markup">
+                                            <script>
+                                                $(function() {
+                                                    $('#demo3').colorpicker({
+                                                        format: 'hex',
+                                                        color: 'transparent'
+                                                    });
+                                                });
+                                            </script>
+                                        </code>
+                                      </pre>
+                                    </div>
+                                </div>
+                            </div>
 
                 {#<div class="col s12 m6 l6">#}
                     {#<div class="checkbox">#}
@@ -79,8 +108,8 @@
                         {#</label>#}
                         {#{{ form_errors(form.slider) }}#}
                     {#</div>#}
-                {#</div>#}
-            {#</div>#}
+                </div>
+            </div>
 
             <div class="center">
                 <input class="btn btn-default edit_admin"  type="submit" value="Créer" />

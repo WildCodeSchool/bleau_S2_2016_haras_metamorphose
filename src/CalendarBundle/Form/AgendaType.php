@@ -3,6 +3,7 @@
 namespace CalendarBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -18,10 +19,8 @@ class AgendaType extends AbstractType
             ->add('end')
             ->add('titre')
             ->add('texte')
-            ->add('lieu');
-//            ->add('couleur', ChoiceType::class, array(
-//                'choices' => array('vert' => '#7bd148', 'Bleu foncé' => '#5484ed'),
-//                ));
+            ->add('lieu')
+            ->add('couleur');
 //            ->add('slider')
 //        ;
     }
