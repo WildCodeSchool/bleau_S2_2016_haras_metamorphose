@@ -37,8 +37,47 @@
             </nav>
         </header>
 
-        {% block search %}{% endblock %}
+        {% block search %}
+            {# ---------------------- Message flash  ------------------------ #}
+            {% if app.session.flashBag.has('error') %}
+                <div class="alert alert-success">
+                    {% for msg in app.session.flashBag.get('error') %}
+                        {{ msg }}
+                    {% endfor %}
+                </div>
+            {% endif %}
+            {% if app.session.flashBag.has('success') %}
+                <div class="alert alert-success">
+                    {% for msg in app.session.flashBag.get('success') %}
+                        {{ msg }}
+                    {% endfor %}
+                </div>
+            {% endif %}
 
+            {# ---------------------- Champ pour recherche par mot ------------------------ #}
+            {# ---------------------- faire l'appel a search controller ------------------ #}
+
+
+           <div class="container">
+               <div class="row">
+                   <div class="col s3">
+                       <form action="{#{{ render(controller('SearchBundle:SearchEngine:search')) }}#}" method="Post">
+                       <form action="{{ path('plate_forme_searchController') }}" method="Post">
+
+                           <div class="input-field">
+                               <input name="requete" id="search" type="search" required>
+                               <label for="search"><i class="material-icons">search</i></label>
+                               <i class="material-icons">close</i>
+                           </div>
+                           <div>
+                               <input type="submit" value="Rechercher">
+                           </div>
+
+                       </form>
+                   </div>
+               </div>
+           </div>
+        {% endblock %}
         {% block body %}{% endblock %}
 
         {% block footer %}{% endblock %}

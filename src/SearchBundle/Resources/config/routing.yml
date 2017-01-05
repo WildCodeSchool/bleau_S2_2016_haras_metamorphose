@@ -5,3 +5,8 @@
 plate_forme_search:
     path:     /search
     defaults: { _controller: SearchBundle:Default:index }
+
+plate_forme_searchController:
+    path:     /search
+    defaults: { _controller: SearchBundle:SearchEngine:search }
+    methods:  [GET, POST]

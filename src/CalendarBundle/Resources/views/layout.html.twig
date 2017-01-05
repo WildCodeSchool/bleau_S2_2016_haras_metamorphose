@@ -3,36 +3,6 @@
     {% block stylesheets %}
     {% endblock %}
 
-    {# ----------------------LE BLOCK SEARCH SERA DEPLACER SUR LA NAVBARRE QUAND FONCTIONNEL ------------------------ #}
-    {% block search %}
-        {# ---------------------- Message flash  ------------------------ #}
-        {% if app.session.flashBag.has('error') %}
-            <div class="alert alert-success">
-                {% for msg in app.session.flashBag.get('error') %}
-                    {{ msg }}
-                {% endfor %}
-            </div>
-        {% endif %}
-        {% if app.session.flashBag.has('success') %}
-            <div class="alert alert-success">
-                {% for msg in app.session.flashBag.get('success') %}
-                    {{ msg }}
-                {% endfor %}
-            </div>
-        {% endif %}
-
-        {# ---------------------- Champ pour recherche par mot ------------------------ #}
-        {# ---------------------- faire l'appel a csearch controller ------------------ #}
-
-        <form action="{{ render(controller('SearchBundle:SearchEngine:search')) }}" method="Post">
-
-            <input type="text" name="requete" size="30">
-
-            <input type="submit" value="Rechercher">
-
-        </form>
-    {% endblock %}
-
     {% block javascripts %}
         {{ parent() }}
         <script src="{{ asset('bundles/calendar/js/main_calendar.js') }}"></script>
