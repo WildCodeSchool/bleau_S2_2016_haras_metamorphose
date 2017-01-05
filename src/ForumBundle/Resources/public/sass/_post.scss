@@ -38,12 +38,6 @@
   margin-right: 70px !important;
 }
 
-//.postListTitleCat {
-//  //background-color: #ffb84d !important;
-//  background-color: rgba(0, 0, 0, 0.1);
-//  border-bottom: 0px solid #ddd;
-//}
-
 .postListTitleCat_1 {
   background-color: rgba(7,64,10, 0.6);
   border-bottom: 0px solid #ddd;
@@ -100,8 +94,6 @@
   border-bottom: 0px solid #ddd;
 }
 
-//
-//
 .indexEntrerFil {
   margin-left: 43%;
   margin-top: 15px;
@@ -167,7 +159,6 @@
 //**********************************
 // Avatar Profil
 //**********************************
-//.avatarUserIndex {
 .avatarUserIndex {
   position: relative;
   width: 100px;
@@ -192,6 +183,12 @@
   transform: translate(-50%,-50%);
 }
 
+//**********************************
+// Affichage nombre de réponses
+//**********************************
+span.badge {
+  color: #5a5959 !important;
+}
 //*************************************************************************
 // Page show all post
 //*************************************************************************
