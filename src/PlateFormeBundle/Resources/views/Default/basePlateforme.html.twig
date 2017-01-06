@@ -9,33 +9,94 @@
 
         <!-- Icons -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link rel="stylesheet" href="https://opensource.keycdn.com/fontawesome/4.6.3/font-awesome.min.css" integrity="sha384-Wrgq82RsEean5tP3NK3zWAemiNEXofJsTwTyHmNb/iL3dP/sZJ4+7sOld1uqYJtE" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 
         {% block stylesheets %}{% endblock %}
 
     </head>
     <body>
+        {% block header %}
+        {% endblock %}
 
-        <header>
-            <!-- Dropdown Structure -->
-            <ul id="dropdown1" class="dropdown-content">
-                <li><a href="#!">one</a></li>
-                <li><a href="#!">two</a></li>
-                <li class="divider"></li>
-                <li><a href="#!">three</a></li>
-            </ul>
-            <nav>
-                <div class="nav-wrapper">
-                    <a href="#!" class="brand-logo">Logo</a>
-                    <ul class="right hide-on-med-and-down">
-                        <li><a href="sass.html">Sass</a></li>
-                        <li><a href="badges.html">Components</a></li>
-                        <!-- Dropdown Trigger -->
-                        <li><a class="dropdown-button" href="{{ path('fos_user_profile_show') }}" data-activates="dropdown1"><i class="fa fa-user fa-2x"></i></a></li>
-                    </ul>
+    {# *********************************************************************** #}
+    {#  GESTION BARRE DE NAVIGATION                                            #}
+    {# *********************************************************************** #}
+    {#{% if (app.request.get('_route') == 'post_index') or (app.request.get('_route') == 'post_showAllPost') or (app.request.get('_route') == 'categorieplateforme_index')  %}#}
+        {##}
+            {#Si controleur envoi vers les pages post index, show all post et categorie plateforme#}
+            {#la barre de navigation est différente cf postNavBar#}
+        {##}
+    {#{% else %}#}
+        {#<header>#}
+            {#<!-- Dropdown Structure -->#}
+            {#<ul id="dropdown1" class="dropdown-content">#}
+                {#<li><a href="#!">one</a></li>#}
+                {#<li><a href="#!">two</a></li>#}
+                {#<li class="divider"></li>#}
+                {#<li><a href="#!">three</a></li>#}
+            {#</ul>#}
+            {#<nav>#}
+                {#<div class="nav-wrapper">#}
+                    {#<a href="#!" class="brand-logo">Logo</a>#}
+                    {#<ul class="right hide-on-med-and-down">#}
+                        {#<li><a href="sass.html">Sass</a></li>#}
+                        {#<li><a href="badges.html">Components</a></li>#}
+                        {#<!-- Dropdown Trigger -->#}
+                        {#<li><a class="dropdown-button" href="{{ path('fos_user_profile_show') }}" data-activates="dropdown1"><i class="fa fa-user fa-2x"></i></a></li>#}
+                    {#</ul>#}
+                {#</div>#}
+            {#</nav>#}
+        {#</header>#}
+    {#{% endif %}#}
+
+    {# ************************************ #}
+    {#  FIN GESTION BARRE DE NAVIGATION     #}
+    {# ************************************ #}
+
+
+        {# ---------------------- ---------------------------- ------------------------ #}
+        {# ---------------------- Champ pour recherche par mot ------------------------ #}
+        {# ---------------------- à replacer dans la navbarre  ------------------------ #}
+        {# ---------------------- ---------------------------- ------------------------ #}
+        {% block search %}
+            {# ---------------------- Message flash  ------------------------ #}
+            {% if app.session.flashBag.has('error') %}
+                <div class="alert alert-success">
+                    {% for msg in app.session.flashBag.get('error') %}
+                        {{ msg }}
+                    {% endfor %}
                 </div>
-            </nav>
-        </header>
+            {% endif %}
+            {% if app.session.flashBag.has('success') %}
+                <div class="alert alert-success">
+                    {% for msg in app.session.flashBag.get('success') %}
+                        {{ msg }}
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            {# ---------------------- Champ pour recherche par mot ------------------------ #}
+            {# ---------------------- faire l'appel a search controller ------------------ #}
+           <div class="container">
+               <div class="row">
+                   <div class="col s3">
+                       <form action="{{ path('plate_forme_searchController') }}" method="Post">
+                           <div class="input-field">
+                               <input name="requete" id="search" type="search" required>
+                               <label for="search"><i class="material-icons">search</i></label>
+                               <i class="material-icons">close</i>
+                           </div>
+                           <div>
+                               <input type="submit" value="Rechercher">
+                           </div>
+
+                       </form>
+                   </div>
+               </div>
+           </div>
+        {% endblock %}
+        {# ---------------------- ---------------------------- ------------------------ #}
 
         {% block body %}{% endblock %}
 

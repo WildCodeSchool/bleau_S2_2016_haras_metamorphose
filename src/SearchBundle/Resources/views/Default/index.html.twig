@@ -1,0 +1,57 @@
+{% extends '@Calendar/layout.html.twig' %}
+
+{% block body %}
+
+    {# ---------------------- !FAIRE LA RECUP DES DONNEES DU SEARCH CONTROLLER ET LES AFFICHER! -------------------- #}
+
+    <div class="container">
+        <div class="row">
+            <div class="col s12">
+                <h3 class="center">Résultats de votre recherche.</h3>
+                on affiche le nombre de résultats
+                <p>Nous avons trouvé : {{ query.nb_resultats }}
+                     {#CONDITION EN TWIG#}
+                    {% if nb_resultats > 1 %}
+                        résultats.
+                    {% elseif nb_resultats == 1 %}
+                        résultat.
+                    {% endif %}
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col s12">
+
+                <table>
+                    <theader>
+                        <tr>
+                            <td>Catégorie</td>
+                            <td>Titre du post</td>
+                            <td>Contenu du post</td>
+                        </tr>
+                    </theader>
+                    <tbody>
+                    {% for query in query %}
+                        <tr>
+                            <td><a href="{{ path('#') }}"> {{ query.categorie_plateforme }}</a></td>
+                            <td><a href="{{ path('#') }}">{{ query.titre }}</a></td>
+                            <td><a href="{{ path('#') }}">{{ query.contenu }}</a></td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <a href="rechercher.php">Faire une nouvelle recherche</a></>
+
+{% endblock %}

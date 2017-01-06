@@ -1,11 +1,10 @@
 /************************************************
 *
 *   1. Taille du Calendar
-
+$
 ************************************************/
 
 body {
-    margin: 40px 10px;
     padding: 0;
     font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
     font-size: 14px;
@@ -14,4 +13,32 @@ body {
 #calendar {
     max-width: 900px;
     margin: 0 auto;
+}
+
+/************************************************
+*
+*   2. Boite modal
+$
+************************************************/
+
+.modal-header{
+
+}
+
+.modal-body{
+
+}
+
+.modal-footer{
+
+}
+
+/************************************************
+*
+*   3. Color Picker
+$
+************************************************/
+
+.color-form{
+    padding-top: 15px !important;
 }

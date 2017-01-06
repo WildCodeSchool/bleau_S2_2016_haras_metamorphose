@@ -1,3 +1,17 @@
+
+##########################################
+########   Routes Search   ###############
+##########################################
+search:
+    resource: "@SearchBundle/Resources/config/routing.yml"
+    prefix:   /plateforme
+    methods:  [GET, POST]
+
+plate_forme_searchController:
+    path:     /plateforme/search
+    defaults: { _controller: SearchBundle:SearchEngine:search }
+    methods:  [GET, POST]
+
 ##########################################
 ########   Routes User   #################
 ##########################################
@@ -5,6 +19,14 @@
 fos_user:
     resource: "@UserBundle/Resources/config/routing/user.yml"
     prefix:   /plateforme/admin/user
+
+##########################################
+###########   Routes Forum   #############
+##########################################
+
+user:
+    resource: "@UserBundle/Resources/config/routing.yml"
+    prefix:   /plateforme
 
 ##########################################
 ###########   Routes Forum   #############

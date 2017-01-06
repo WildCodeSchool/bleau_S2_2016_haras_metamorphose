@@ -1,0 +1,194 @@
+// *******************************************
+// index
+// *******************************************
+// Liste à puce en ligne
+// ************************
+.inline {
+  display: flex;
+	width: 30px;
+	margin-left: 13%;
+}
+
+.inline2 {
+	display: flex;
+}
+
+// ************************
+//CSS for tooltip
+// ************************
+.backdrop{
+    background-color: #888888;
+	//background-color: deeppink;
+	opacity: 1;
+	border-radius: 5%;
+}
+
+.material-tooltip {
+	//
+}
+
+//CSS for accordion
+.wrapperCat {
+	display: flex;
+	flex-direction: column;
+}
+
+.wrapperCat > div {
+ 	margin: auto;
+	align-items: center;
+}
+
+#accordionButtonCat_1 {
+	width: 100%;
+	box-sizing: unset !important;
+	//border-radius: 5px;
+	float: left;
+	cursor: pointer;
+	border: 1px solid #AAA;
+    background-color: rgba(7,64,10, 0.6);
+    padding: 3%;
+	//margin-left: 9%;
+    margin-bottom: 5px;
+    -moz-box-shadow: 4px 4px 10px #AAA;
+    -webkit-box-shadow: 4px 4px 10px #AAA;
+    box-shadow: 4px 4px 6px #AAA;
+}
+
+#accordionButtonCat_1:hover {
+	background-color: #07400a;
+}
+
+#accordionButtonCat_2 {
+	width: 100%;
+	box-sizing: unset !important;
+	//border-radius: 5px;
+	float: left;
+	cursor: pointer;
+	border: 1px solid #AAA;
+    background-color: rgba(140, 104, 34, 0.6);
+    padding: 3%;
+	//margin-left: 9%;
+    margin-bottom: 5px;
+    -moz-box-shadow: 4px 4px 10px #AAA;
+    -webkit-box-shadow: 4px 4px 10px #AAA;
+    box-shadow: 4px 4px 6px #AAA;
+}
+
+#accordionButtonCat_2:hover {
+	background-color: #8c6822;
+}
+
+#accordionButtonCat_3 {
+	width: 100%;
+	box-sizing: unset !important;
+	//border-radius: 5px;
+	float: left;
+	cursor: pointer;
+	border: 1px solid #AAA;
+    background-color: rgba(39, 34, 140, 0.6);
+    padding: 3%;
+	//margin-left: 9%;
+    margin-bottom: 5px;
+    -moz-box-shadow: 4px 4px 10px #AAA;
+    -webkit-box-shadow: 4px 4px 10px #AAA;
+    box-shadow: 4px 4px 6px #AAA;
+}
+
+#accordionButtonCat_3:hover {
+	background-color: #27228C;
+}
+
+#accordionButtonCat_4 {
+	width: 100%;
+	box-sizing: unset !important;
+	//border-radius: 5px;
+	float: left;
+	cursor: pointer;
+	border: 1px solid #AAA;
+    background-color: rgba(183, 21, 134, 0.6);
+    padding: 3%;
+	//margin-left: 9%;
+    margin-bottom: 5px;
+    -moz-box-shadow: 4px 4px 10px #AAA;
+    -webkit-box-shadow: 4px 4px 10px #AAA;
+    box-shadow: 4px 4px 6px #AAA;
+}
+
+#accordionButtonCat_4:hover {
+	background-color: #b71586;
+}
+
+//.accordionButton > a {
+//	float: right;
+//}
+
+.accordionContent {
+	width: 85%;
+	float: left;
+	_float: none; /* Float works in all browsers but IE6 */
+	background: #A2A2A2 !important;
+	margin-left: 3%;
+	margin-bottom: 1%;
+	-moz-box-shadow: 4px 4px 10px #AAA;
+    -webkit-box-shadow: 4px 4px 10px #AAA;
+    box-shadow: 4px 4px 6px #AAA;
+}
+
+.accordionContent ul li {
+	height: 45px;
+}
+
+.aCat {
+	//float: right;
+}
+
+.aSousCat {
+	//float: right;
+}
+
+.spanCat {
+	margin-left: 2%;
+	margin-right: 70%;
+	color: #FFF;
+}
+
+.spanSousCat {
+	padding-left: 7%;
+	padding-right: 60%;
+	font-weight: bold;
+	color: #DEDEDE;
+}
+// Media query
+@media screen and (max-width: 780px) {
+	.spanCat {
+		margin-left: 2%;
+	}
+	.spanSousCat {
+	padding-right: 40%;
+	}
+	.wrapperCat > div {
+	align-items: center;
+	}
+}
+/***********************************************************************************************************************
+ EXTRA STYLES ADDED FOR MOUSEOVER / ACTIVE EVENTS
+************************************************************************************************************************/
+.on {
+	background: #b3b3b3;
+	}
+
+.over {
+	background: #888888;
+	}
+
+.flash-notice {
+	color: green !important;
+	font-size: 20px;
+	text-align: center;
+	background: RGBA(255,255,255,0.5) !important;
+	padding: 25px 0px 25px 0px;
+	//margin: 20px 0px;
+	//margin-left: 40%;
+	border: 1px solid #4d9200;
+	border-radius: 5px;
+}

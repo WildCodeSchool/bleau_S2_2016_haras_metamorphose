@@ -1,21 +1,37 @@
 {% extends '@Forum/layout.html.twig' %}
 
 {% block body %}
-    <h1>Categorieplateforme edit</h1>
+    <div class="catContainer postAdmin">
+        <h1 class="center">Modifier la catégorie</h1>
 
-    {{ form_start(edit_form) }}
-        {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
-    {{ form_end(edit_form) }}
+        {{ form_start(edit_form) }}
+        <div class="row input-field">
+            {{ form_label(edit_form.nom) }}
+            {{ form_widget(edit_form.nom) }}
+            {{ form_errors(edit_form.nom) }}
+        </div>
+        {# Actif O/N #}
+        {#<div class="row input-field">#}
+        {#{{ form_widget(edit_form.actif) }}#}
+        {#<label for="categorieplateforme_actif">Actif ?</label>#}
+        {#{{ form_errors(edit_form.actif) }}#}
+        {#</div>#}
+        {# Bouton de validation #}
+        <div class="row center">
+            <button class="btn-floating btn-large waves-effect waves-light green darken-1"
+                    type="submit"
+                    title="Valider"
+                    value="Create">
+                <i class="material-icons">check</i>
+            </button>
+        </div>
+        {{ form_end(edit_form) }}
 
-    <ul>
-        <li>
-            <a href="{{ path('categorieplateforme_index') }}">Back to the list</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+        <div class="row center">
+            <a class="btn-floating btn-large waves-effect waves-light blue darken-1"
+               href="{{ path('categorieplateforme_index') }}">
+                <i class="small material-icons">home</i>
+            </a>
+        </div>
+    </div>
 {% endblock %}

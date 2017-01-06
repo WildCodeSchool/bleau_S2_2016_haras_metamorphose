@@ -1,0 +1,139 @@
+
+/*-----------------------------------------------------*\
+                          NAVBAR
+\*-----------------------------------------------------*/
+
+.nav-wrapper{
+  font-size: 16px;
+  background-color: #515e69;
+  z-index: 1000;
+  position: fixed;
+  transition-duration: .3s;
+}
+
+.navbar2{
+  height: 48px;
+}
+
+nav{
+  background-color: #5a6b77;
+  line-height: 50px;
+}
+
+#nav-wrapper2{
+  font-size: 16px;
+  background-color: rgba(91, 104, 115, 0.9);
+  z-index: 1000;
+  position: fixed;
+  transition-duration: .3s;
+}
+
+.decouverte:hover{
+  background-color: rgba(10, 112, 14, 0.6)!important;
+  height: 44px;
+}
+
+.harras:hover{
+  background-color: rgba(84, 39, 20, 0.6)!important;
+  height: 44px;
+}
+
+.detente:hover{
+  background-color: rgba(62, 62, 129, 0.6)!important;
+  height: 44px;
+}
+
+.coworking:hover{
+  background-color:rgba(183, 21, 134, 0.6)!important;
+  height: 44px;
+}
+
+
+.navbar2{
+  border-top: solid 2px #424242;
+}
+
+
+
+input[type=text] {
+  width: 10px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white;
+  background-image: url('searchicon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  padding: 12px 20px 12px 40px;
+  -webkit-transition: width 0.4s ease-in-out !important;
+  transition: width 0.4s ease-in-out !important;
+}
+
+input[type=text]:focus {
+  width: 20% !important;
+}
+
+
+/*-----------------------------------------------------*\
+                          LOGO - ICON
+\*-----------------------------------------------------*/
+
+
+ul.right.hide-on-med-and-down{
+  padding-top: 1px;
+}
+
+nav ul a:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  //height: 63px;
+}
+
+#logo{
+  background-color: #577a37;
+  height:64px;
+}
+
+
+#logo:hover{
+  background-color: #496b35;
+}
+
+.icon-background1 {
+  color: rgba(10, 112, 14, 0.6);
+}
+
+.icon-background2 {
+  color: rgba(84, 39, 20, 0.6);
+}
+
+.icon-background3 {
+  color: rgba(62, 62, 129, 0.6);
+}
+
+.icon-background4 {
+  color: rgba(183, 21, 134, 0.6);
+}
+
+
+  /*-----------------------------------------------------*\
+                            BODY
+  \*-----------------------------------------------------*/
+
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.main {
+  flex: 1 0 auto;
+}
+
+
+/*-----------------------------------------------------*\
+                          FOOTER
+\*-----------------------------------------------------*/
+
+

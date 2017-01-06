@@ -1,30 +1,30 @@
-{% extends 'base.html.twig' %}
+{% extends '@PlateForme/layout.html.twig' %}
 
 {% block body %}
     <h1>User</h1>
 
     <table>
         <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ user.id }}</td>
-            </tr>
-            <tr>
-                <th>Nom</th>
-                <td>{{ user.nom }}</td>
-            </tr>
-            <tr>
-                <th>Prenom</th>
-                <td>{{ user.prenom }}</td>
-            </tr>
-            <tr>
-                <th>Profession</th>
-                <td>{{ user.profession }}</td>
-            </tr>
-            <tr>
-                <th>Nbpost</th>
-                <td>{{ user.nbPost }}</td>
-            </tr>
+        <tr>
+            <th>Id</th>
+            <td>{{ user.id }}</td>
+        </tr>
+        <tr>
+            <th>Nom</th>
+            <td>{{ user.nom }}</td>
+        </tr>
+        <tr>
+            <th>Prenom</th>
+            <td>{{ user.prenom }}</td>
+        </tr>
+        <tr>
+            <th>Profession</th>
+            <td>{{ user.profession }}</td>
+        </tr>
+        <tr>
+            <th>Nbpost</th>
+            <td>{{ user.nbPost }}</td>
+        </tr>
         </tbody>
     </table>
 
@@ -37,7 +37,7 @@
         </li>
         <li>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+            <input type="submit" value="Delete">
             {{ form_end(delete_form) }}
         </li>
     </ul>
