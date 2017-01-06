@@ -24,6 +24,7 @@ class AppKernel extends Kernel
             new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
             new CalendarBundle\CalendarBundle(),
             new ForumBundle\ForumBundle(),
+            new SearchBundle\SearchBundle(),
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
         );
 
