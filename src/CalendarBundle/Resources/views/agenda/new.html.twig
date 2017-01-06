@@ -8,28 +8,28 @@
                 <h1>Création d'un évènement</h1>
             </div>
         </div>
-
+    </div>
     {{ form_start(form) }}
 
-
+    <div class="container center">
         <div class="row">
-            <div class="col s12 m6 l6"></div>
+            <div class="col s12 m4 l4">
                 <p class="">Titre de l'évènement</p>
                 {{ form_widget(form.titre) }}
                 {{ form_errors(form.titre) }}
             </div>
-            <div class="col s12 m6 l6">
+            <div class="col s12 m4 l4">
                 <p class="">Lieu</p>
                 {{ form_widget(form.lieu) }}
                 {{ form_errors(form.lieu) }}
             </div>
-
-        <div class="row">
-            <p class="">Description de l'évènement</p>
-            <div class="input-group">
-                <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
-                {{ form_widget(form.texte) }}
-                {{ form_errors(form.texte) }}
+            <div class="col s12 m4 l4">
+                <p class="">Description de l'évènement</p>
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+                    {{ form_widget(form.texte) }}
+                    {{ form_errors(form.texte) }}
+                </div>
             </div>
         </div>
 
@@ -37,26 +37,44 @@
             <div class="col s12 m3 l3">
                 <p class="">Date de début d'évènement</p>
                 <div class="">
-                    {{ form_widget(form.start) }}
+                    {{ form_widget(form.start, { 'id': 'datepicker' }) }}
                     {{ form_errors(form.start) }}
+
+
+                    {#<input type="date" class="datepicker">#}
+
                 </div>
             </div>
             <div class="col s12 m3 l3">
                 <p class="">Date de fin d'évènement</p>
                 <div class="">
-                    {{ form_widget(form.end) }}
+                    {{ form_widget(form.end, {'attr': { 'class': 'datepicker' }}) }}
                     {{ form_errors(form.end) }}
                 </div>
             </div>
         </div>
 
         <div class="row">
-            <div class="col s12 m3 l2">
-                <p class="">Couleur</p>
-                    <div class="taille-piker">
-                        {{ form_widget(form.color , { 'id': 'picker' }) }}
-                        {{ form_errors(form.color) }}
-                    </div>
+            <div class="col s12 center">
+                <div class="col s12 m6 l6">
+                    <table>
+                        <tr>
+                            <td>Couleur de l'évènement :</td>
+                            <td>
+                                <div class="col s12 m5 s5">
+                                {{ form_widget(form.color , { 'id': 'colorpicker' }) }}
+                                {{ form_errors(form.color) }}
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+
+                    {#<p class="left color-form">Couleur de l'évènement :</p>#}
+                        {#<div class="col s12 m4 s4 taille-piker right">#}
+                            {#{{ form_widget(form.color , { 'id': 'colorpicker' }) }}#}
+                            {#{{ form_errors(form.color) }}#}
+                        {#</div>#}
+                </div>
             </div>
 {#--------------------------------------------------------------------------------------------------------------------#}
 {#-------------------------------- RESERVE POUR PLUS TARD QUAND LE SLIDE SERA ACTIF ----------------------------------#}
@@ -68,8 +86,8 @@
                     {#</label>#}
                     {#{{ form_errors(form.slider) }}#}
                 {#</div>#}
+            {#</div>#}
 {#--------------------------------------------------------------------------------------------------------------------#}
-            </div>
         </div>
 
         <div class="center">
@@ -77,6 +95,7 @@
             <a class="btn btn-default edit_admin"  href="{{ path('agenda') }}">Retour au calendrier</a>
         </div>
     </div>
+
 
         {{ form_end(form) }}
 

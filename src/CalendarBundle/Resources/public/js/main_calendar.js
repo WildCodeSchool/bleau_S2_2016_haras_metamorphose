@@ -111,7 +111,7 @@ function colorpicker() {
     console.log('APP.JS - FONCTION COLORPICKER a démarré : ligne 105');
 
     // $(function() {
-        $('#picker').colorpicker({
+        $('#colorpicker').colorpicker({
             format: 'hex',
             color: 'transparent'
         });
