@@ -1,5 +1,8 @@
 user_user:
     resource: "@UserBundle/Resources/config/routing/user.yml"
-    prefix:   /user
+    prefix:   admin/user
 
+#FOS USER route
+plate_forme_register:
+    resource: "@UserBundle/Resources/config/routing/all.xml"
 
