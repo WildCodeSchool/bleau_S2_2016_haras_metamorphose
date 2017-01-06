@@ -23,5 +23,10 @@ class DefaultController extends Controller
     {
         return $this->render('@PlateForme/Default/index.html.twig');
     }
+
+    public function philosophieAction()
+    {
+        return $this->render('@PlateForme/philosophie.html.twig');
+    }
 }
 

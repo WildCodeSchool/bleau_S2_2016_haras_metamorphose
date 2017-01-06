@@ -39,8 +39,14 @@ plate_forme:
     prefix:   /plateforme
 
 ##########################################
-########   Route Homepage  ###############
+########   Route philosophie  ###############
 ##########################################
+
+
+plate_forme:
+    resource: "@PlateFormeBundle/Resources/config/routing.yml"
+    prefix:   /plateforme/philosophie
+
 
 haras:
     resource: "@HarasBundle/Resources/config/routing.yml"

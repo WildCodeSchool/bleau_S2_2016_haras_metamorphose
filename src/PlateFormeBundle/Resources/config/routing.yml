@@ -6,6 +6,11 @@ plate_forme_admin:
     path:     /admin/
     defaults: { _controller: PlateFormeBundle:Default:admin }
 
+plate_forme_philosophie:
+    path:     /philosophie/
+    defaults: { _controller: PlateFormeBundle:Default:philosophie }
+
+
 plate_forme_register:
     resource: "@UserBundle/Resources/config/routing/all.xml"
 
