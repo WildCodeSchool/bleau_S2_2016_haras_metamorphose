@@ -922,7 +922,6 @@ ul.right.hide-on-med-and-down {
 /* line 87, ../../../../../PlateFormeBundle/Resources/public/sass/_layout_plateforme.scss */
 nav ul a:hover {
   background-color: rgba(0, 0, 0, 0.1);
-  height: 63px;
 }
 
 /* line 92, ../../../../../PlateFormeBundle/Resources/public/sass/_layout_plateforme.scss */
@@ -970,4 +969,38 @@ body {
 /* line 1, ../../../../../PlateFormeBundle/Resources/public/sass/_homepage_plateforme.scss */
 footer.page-footer {
   background-color: rgba(118, 135, 146, 0.9);
+}
+
+/********************  PROFIL   ************************/
+/* line 3, ../../../../../PlateFormeBundle/Resources/public/sass/_FosUser.scss */
+.img-circle {
+  width: 10vw;
+}
+
+/* line 8, ../../../../../PlateFormeBundle/Resources/public/sass/_FosUser.scss */
+.profile_center {
+  text-align: center;
+}
+
+/* line 14, ../../../../../PlateFormeBundle/Resources/public/sass/_FosUser.scss */
+.btn-primary {
+  background-color: #1f7b88;
+  border-color: #17505b;
+}
+
+/* line 19, ../../../../../PlateFormeBundle/Resources/public/sass/_FosUser.scss */
+.container_profile {
+  padding-top: 3%;
+}
+
+/* line 24, ../../../../../PlateFormeBundle/Resources/public/sass/_FosUser.scss */
+input {
+  margin: 6px;
+  position: center;
+}
+
+/* line 29, ../../../../../PlateFormeBundle/Resources/public/sass/_FosUser.scss */
+.button {
+  margin-left: 36%;
+  padding: 24px;
 }

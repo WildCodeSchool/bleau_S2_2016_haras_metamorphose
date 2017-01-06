@@ -14,7 +14,7 @@ class DefaultController extends Controller
     public function adminAction()
     {
         $user = $this->get('security.token_storage')->getToken()->getUser();
-        return $this->render('@PlateForme/Default/index.html.twig', array(
+        return $this->render('@PlateForme/homepage_plateforme.html.twig', array(
             'user' => $user
         ));
     }

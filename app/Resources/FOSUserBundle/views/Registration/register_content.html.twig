@@ -1,8 +1,77 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
-{{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
-    {{ form_widget(form) }}
-    <div>
-        <input type="submit" value="{{ 'registration.submit'|trans }}" />
+<div class="container register">
+    <div class="col m8 offset-m2">
+        <h1 class="compte">Créer un compte</h1>
+        <div class="row">
+
+            {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+
+
+            <div class="row input-field">
+                {{ form_label(form.email, 'E-mail') }}
+                {{ form_widget(form.email, {'attr':{'class':'email form'}}) }}
+                {{ form_errors(form.email) }}
+            </div>
+
+            <div class="row input-field">
+                {{ form_label(form.username, 'pseudo') }}
+                {{ form_widget(form.username, {'attr':{'class':'username form'}}) }}
+                {{ form_errors(form.username) }}
+            </div>
+
+            <div class="row input-field">
+                {{ form_label(form.plainPassword.first, 'Password') }}
+                {{ form_widget(form.plainPassword.first, {'attr':{'class':'password form'}}) }}
+                {{ form_errors(form.plainPassword.first) }}
+            </div>
+
+            <div class="row input-field">
+                {{ form_label(form.plainPassword.first, 'Confirm Password') }}
+                {{ form_widget(form.plainPassword.second, {'attr':{'class':'confirm form'}}) }}
+                {{ form_errors(form.plainPassword.second) }}
+            </div>
+
+            <div class="row input-field">
+                {{ form_label(form.nom, 'Nom') }}
+                {{ form_widget(form.nom, {'attr':{'class':'nom form'}}) }}
+                {{ form_errors(form.nom) }}
+            </div>
+
+            <div class="row input-field">
+                {{ form_label(form.prenom, 'Prénom') }}
+                {{ form_widget(form.prenom, {'attr':{'class':'prenom form'}}) }}
+                {{ form_errors(form.prenom) }}
+            </div>
+
+            <div class="row input-field">
+                {{ form_label(form.profession, 'Profession') }}
+                {{ form_widget(form.profession, {'attr':{'class':'profession form'}}) }}
+                {{ form_errors(form.profession) }}
+            </div>
+        </div>
+        <div class="button">
+            <button type="submit" class="btn btn-warning button_contact send">Send</button>
+            <a id="retour" href="{{ path('fos_user_security_login') }}">retour</a>
+        </div>
+        {{ form_end(form) }}
+
     </div>
-{{ form_end(form) }}
+</div>
+</div>
+
+{#{% trans_default_domain 'FOSUserBundle' %}#}
+
+{#{{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}#}
+    {#{{ form_widget(form) }}#}
+
+    {#<div class="row input-field">#}
+        {#{{ form_label(form.nom) }}#}
+        {#{{ form_widget(form.nom) }}#}
+        {#{{ form_errors(form.nom) }}#}
+    {#</div>#}
+
+    {#<div>#}
+        {#<input type="submit" value="{{ 'registration.submit'|trans }}" />#}
+    {#</div>#}
+{#{{ form_end(form) }}#}
