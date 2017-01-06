@@ -1463,12 +1463,12 @@ aside {
   box-shadow: 4px 4px 6px #AAA;
 }
 
-/* line 57, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
+/* line 55, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
 #accordionButtonCat_1:hover {
   background-color: #07400a;
 }
 
-/* line 61, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
+/* line 59, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
 #accordionButtonCat_2 {
   width: 100%;
   box-sizing: unset !important;
@@ -1483,12 +1483,12 @@ aside {
   box-shadow: 4px 4px 6px #AAA;
 }
 
-/* line 77, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
+/* line 73, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
 #accordionButtonCat_2:hover {
   background-color: #8c6822;
 }
 
-/* line 81, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
+/* line 77, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
 #accordionButtonCat_3 {
   width: 100%;
   box-sizing: unset !important;
@@ -1503,12 +1503,12 @@ aside {
   box-shadow: 4px 4px 6px #AAA;
 }
 
-/* line 97, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
+/* line 92, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
 #accordionButtonCat_3:hover {
   background-color: #27228C;
 }
 
-/* line 101, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
+/* line 96, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
 #accordionButtonCat_4 {
   width: 100%;
   box-sizing: unset !important;
@@ -1523,12 +1523,12 @@ aside {
   box-shadow: 4px 4px 6px #AAA;
 }
 
-/* line 117, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
+/* line 110, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
 #accordionButtonCat_4:hover {
   background-color: #b71586;
 }
 
-/* line 125, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
+/* line 118, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
 .accordionContent {
   width: 85%;
   float: left;
@@ -1542,19 +1542,19 @@ aside {
   box-shadow: 4px 4px 6px #AAA;
 }
 
-/* line 137, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
+/* line 130, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
 .accordionContent ul li {
   height: 45px;
 }
 
-/* line 149, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
+/* line 142, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
 .spanCat {
   margin-left: 2%;
   margin-right: 70%;
   color: #FFF;
 }
 
-/* line 155, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
+/* line 148, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
 .spanSousCat {
   padding-left: 7%;
   padding-right: 60%;
@@ -1563,17 +1563,17 @@ aside {
 }
 
 @media screen and (max-width: 780px) {
-  /* line 163, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
+  /* line 156, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
   .spanCat {
     margin-left: 2%;
   }
 
-  /* line 166, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
+  /* line 159, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
   .spanSousCat {
     padding-right: 40%;
   }
 
-  /* line 169, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
+  /* line 162, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
   .wrapperCat > div {
     align-items: center;
   }
@@ -1581,17 +1581,17 @@ aside {
 /***********************************************************************************************************************
  EXTRA STYLES ADDED FOR MOUSEOVER / ACTIVE EVENTS
 ************************************************************************************************************************/
-/* line 176, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
+/* line 169, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
 .on {
   background: #b3b3b3;
 }
 
-/* line 180, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
+/* line 173, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
 .over {
   background: #888888;
 }
 
-/* line 184, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
+/* line 177, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
 .flash-notice {
   color: green !important;
   font-size: 20px;
