@@ -78,21 +78,19 @@
 
             {# ---------------------- Champ pour recherche par mot ------------------------ #}
             {# ---------------------- faire l'appel a search controller ------------------ #}
-           <div class="container">
-               <div class="row">
-                   <div class="col s3">
-                       <form action="{{ path('plate_forme_searchController') }}" method="Post">
-                           <div class="input-field">
-                               <input name="requete" id="search" type="search" required>
-                               <label for="search"><i class="material-icons">search</i></label>
-                               <i class="material-icons">close</i>
-                           </div>
-                           <div>
-                               <input type="submit" value="Rechercher">
-                           </div>
+           <div class="row">
+               <div class="col s3">
+                   <form action="{{ path('plate_forme_searchController') }}" method="Post">
+                       <div class="input-field">
+                           <input name="requete" id="search" type="search" required>
+                           <label for="search"><i class="material-icons">search</i></label>
+                           <i class="material-icons">close</i>
+                       </div>
+                       <div>
+                           <input type="submit" value="Rechercher">
+                       </div>
 
-                       </form>
-                   </div>
+                   </form>
                </div>
            </div>
         {% endblock %}
