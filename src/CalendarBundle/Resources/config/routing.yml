@@ -3,8 +3,10 @@
 ##########################################
 
 plate_forme_agenda:
-      resource: "@CalendarBundle/Resources/config/routing/agenda.yml"
-      prefix:   /agenda
+    resource: "@CalendarBundle/Resources/config/routing/agenda.yml"
+    prefix:   /agenda
+    options:
+        expose: true
 
 ##########################################
 ########   Routes Agenda Json  ###########

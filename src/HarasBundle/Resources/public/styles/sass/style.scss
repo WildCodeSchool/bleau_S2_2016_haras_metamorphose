@@ -40,6 +40,8 @@ html {
 @import 'template';
 @import '../../../../../ForumBundle/Resources/public/sass/_post.scss';
 @import '../../../../../CalendarBundle/Resources/public/sass/_calendar.scss';
-@import '../../../../../PlateFormeBundle/Resources/public/sass/layout_plateforme';
-@import '../../../../../PlateFormeBundle/Resources/public/sass/homepage_plateforme';
-@import '../../../../../PlateFormeBundle/Resources/public/sass/FosUser';
+@import '../../../../../PlateFormeBundle/Resources/public/sass/_layout_plateforme';
+@import '../../../../../PlateFormeBundle/Resources/public/sass/_homepage_plateforme';
+@import '../../../../../PlateFormeBundle/Resources/public/sass/_FosUser';
+@import '../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss';
+@import '../../../../../CalendarBundle/Resources/public/sass/_calendar.scss';

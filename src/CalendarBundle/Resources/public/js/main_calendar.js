@@ -5,27 +5,22 @@ jQuery(document).ready(function($) {
 
     console.log('jQuery de main.js a démarré : ligne 6');
     init_plateforme();
-    //gestionSlider();
-    //autoplay();
-    /*click_droit_off();*/
 
     // RETOUR VERS LE HAUT
     // retour_haut();
-
-    // ZOOM SUR LES IMAGES
-    /*zoom_images();*/
-
-    // Fontion fonction
-    gere_facebook();
-
-    // deroulement_card();
 
     //FONTION CASE A COCHER
     // initialisation des listbox (select)
     selecteur();
 
     // FONCTION BOITE MODALE
-    // modal();
+    modal();
+
+    // FONCTION COLORPICKER
+    colorpicker();
+
+    // FONCTION DATEPICKER
+    datepicker();
 
 });
 
@@ -48,28 +43,6 @@ function init_plateforme()
 
     $(".dropdown-button").dropdown();
 
-}
-
-// ********************************************************************
-// *                       Sliders
-// ********************************************************************
-
-function autoplay() {
-
-    console.log('APP.JS - FONCTION AUTOPLAY a démarré : ligne 38');
-
-    $('.carousel').carousel('next');
-    setTimeout(autoplay, 4500);
-}
-
-function gestionSlider() {
-
-    console.log('APP.JS - FONCTION GESTIONSLIDER a démarré : ligne 67');
-
-    $('.carousel.carousel-slider').carousel({full_width: true, indicators: true});
-    $('.carousel').carousel({
-        indicators: true
-    });
 }
 
 // ********************************************************************
@@ -101,23 +74,6 @@ function retour_haut() {
 }
 
 // ********************************************************************
-// *                       Facebook
-// ********************************************************************
-
-function gere_facebook() {
-
-    console.log('APP.JS - FONCTION GERE_FACEBOOK a démarré : ligne 109');
-
-    (function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = "//connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v2.8";
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-}
-
-// ********************************************************************
 // *                    material select
 // ********************************************************************
 
@@ -133,16 +89,45 @@ function selecteur() {
 }
 
 // ********************************************************************
-// *                    CALENDAR MODAL NEW
+// *                    CALENDAR MODAL
 // ********************************************************************
 
-// function modal() {
-//
-//     console.log('APP.JS - FONCTION MODAL a démarré : ligne 140');
-//
-//     $(document).ready(function(){
-//         $('#modal1').modal();
-//
-//         $('#modal2').modal();
-//     });
-// }
+function modal() {
+
+    console.log('APP.JS - FONCTION MODAL a démarré : ligne 91');
+
+    $(document).ready(function(){
+
+        $('.modal').modal();
+
+    });
+}
+
+// ********************************************************************
+// *                    COLOR PICKER
+// ********************************************************************
+function colorpicker() {
+
+    console.log('APP.JS - FONCTION COLORPICKER a démarré : ligne 105');
+
+    // $(function() {
+        $('#colorpicker').colorpicker({
+            format: 'hex',
+            color: 'transparent'
+        });
+    // });
+}
+
+// ********************************************************************
+// *                    DATE PICKER
+// ********************************************************************
+
+function datepicker() {
+
+    console.log('APP.JS - FONCTION DATEPICKER a démarré : ligne 127');
+
+    $('.datepicker').pickadate({
+        selectMonths: true, // Creates a dropdown to control month
+        selectYears: 15 // Creates a dropdown of 15 years to control year
+    });
+}

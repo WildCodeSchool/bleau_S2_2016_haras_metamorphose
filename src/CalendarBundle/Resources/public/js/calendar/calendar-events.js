@@ -37,22 +37,6 @@ function calendar() {
             selectable: true, // Permet de cliquer sur la case pour envoyer au new
             selectHelper: true,
 
-    /* ---------------------------- GENERATION D'UN POP UP JS ---------------------------- */
-            /*select: function(start, end) {
-             var title = prompt('Event Title:');
-             var eventData;
-             if (title) {
-             eventData = {
-             title: title,
-             start: start,
-             end: end
-             };
-             $('#calendar').fullCalendar('renderEvent', eventData, true); // stick? = true
-             }
-             $('#calendar').fullCalendar('unselect');
-             },*/
-    /* ----------------------------------------------------------------------------------- */
-
             firstDay: 1, // jour ou l'agenda commentce 1 = lundi, 2 = mardi , etc...
             weekNumbers: true, // affichage du numéro de la semaine en cour
             businessHours: { // heure de travail
@@ -65,7 +49,7 @@ function calendar() {
             slotLabelFormat: 'HH:mm', // format de l'heure sur les slots
             timeFormat: 'HH:mm',
             minTime: "08:00:00", // heure de début du calendar
-            slotEventOverlap: false, // Les évènements ne se chevauchent pas
+            slotEventOverlap: true, // Les évènements ne se chevauchent pas
 
             editable: true,
             eventLimit: true, // allow "more" link when too many events
@@ -80,25 +64,16 @@ function calendar() {
                 /* VERIFICATION QUE LA DATE SOIT PAS INFERIRIEUR  A LA SELECTION ET LA DEFINITION DES ROLES */
                 if (date._d >= current_date_time && role == 'ROLE_ADMIN'){
                     // lors du click sur la case il renvoie la date vers la page new
-                    // window.location = Routing.generate('agenda') + date.format() + '/new';
-
-                    $('#modalNew').show();
-                    $('#modalNew').attr('href', window.location = Routing.generate('agenda') + date.format() + '/new');
+                    window.location = Routing.generate('agenda') + date.format() + '/new';
                 }
             },
 
             /* ------------------------ FONCTION DU RENDU DE L'EVENEMENT ------------------------------*/
             eventRender: function(event, element) {
 
-                console.log('CALENDAR-EVENTS.JS - FONCTION EVENTRENDER a démarré : ligne 89');
+                console.log('CALENDAR-EVENTS.JS - FONCTION EVENTRENDER a démarré : ligne 93');
 
-                if (event.id != null && role == 'ROLE_ADMIN'){
-                    // lors du click sur la case il renvoie l'ID vers la page edit
-                    var editEvent = Routing.generate('agenda') + event.id + '/edit';
-                    // window.location = Routing.generate('agenda') + event.id + '/edit';
-                }
-
-                // window.location = Routing.generate('agenda') + event.id + '/edit';
+                var editEvent = Routing.generate('agenda') + event.id + '/edit';
 
                 element.each(function() {
                     element.append(
@@ -108,40 +83,39 @@ function calendar() {
                     );
                 })
             },
-            eventClick:  function(calEvent){
-                var day = moment(calEvent.start._d).format("dddd Do MMMM YYYY");
-                // .format();
-                // dddd = jour en character
-                // Do = date du jour en chiffre (fontionne uniquement apres dddd)
-                // MMMMM = mois en character
-                // YYYY = année en chiffre
 
-                var ponctuation1 = "de";
-                var ponctuation2 = "à";
-                var startTime = moment(calEvent.start._i).format('HH:mm à ');
-                var endTime = moment(calEvent.end._i).format("HH:mm");
-                var Time = 'Le ' + day + ponctuation1 + startTime + ponctuation2 + endTime;
-                var newEvent = Routing.generate('agenda') + date.format() + '/new';
-                var editEvent = Routing.generate('agenda') + calEvent.id + '/edit';
-                // var deleteEvent = Routing.generate('agenda') + calEvent.id + '/delete';
+            /* ------------------------- FONCTION DU CLICK SUR EVENT ------------------------------*/
+            eventClick: function(calEvent){
 
-                console.log('CALENDAR-EVENTS.JS - FONCTION EVENTCLICK a démarré : ligne 110');
+                    console.log('CALENDAR-EVENT.JS - FONCTION EVENTCLICK a démarré :ligne 108');
 
-                $('#modalTime').html(Time);
-                // $('#modalTitle').html( calEvent.titre );
-                // if (calEvent.images.url != null){
-                //     $('#imgevent').html( '<img src="' + asset + calEvent.images.webPath + '" alt="' + calEvent.images.alt +'"/>' );
-                // }
-                $('#fullCalModal').modal();
+                    var day = moment(calEvent.start._d).format("dddd Do MMMM YYYY");
+                    // .format();
+                    // dddd = jour en character
+                    // Do = date du jour en chiffre (fontionne uniquement apres dddd)
+                    // MMMMM = mois en character
+                    // YYYY = année en chiffre
 
-                // $('#modalNew').show();
-                // $('#modalNew').attr('href', newEvent);
+                    var ponctuation1 = "de";
+                    var ponctuation2 = "à";
+                    var startTime = moment(calEvent.start._i).format('HH:mm à ');
+                    var endTime = moment(calEvent.end._i).format("HH:mm");
+                    var Time = 'Le ' + day + ponctuation1 + startTime + ponctuation2 + endTime;
+                    var editEvent = Routing.generate('agenda') + calEvent.id + '/edit';
+                    var deleteEvent = Routing.generate('agenda') + calEvent.id + '/delete';
 
-                $('#modalEdit').show();
-                $('#modalEdit').attr('href', editEvent);
+                    $('#modalTime').html(Time);
+                    $('#modalTitle').html(calEvent.titre);
+                    $('#modalTexte').html(calEvent.texte);
 
-                // $('#delete_event').show();
-                // $('#delete_event').attr('href', deleteEvent);
+                    // $('#fullCalModal').modal();
+                    $('#fullCalModal').modal('open');
+
+                    $('#edit_event').show();
+                    $('#edit_event').attr('href', editEvent);
+
+                    $('#delete_event').show();
+                    $('#delete_event').attr('href', deleteEvent);
             }
 
         });

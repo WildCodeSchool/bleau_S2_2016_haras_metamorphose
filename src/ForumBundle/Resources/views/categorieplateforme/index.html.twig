@@ -1,41 +1,91 @@
 {% extends '@Forum/layout.html.twig' %}
 
 {% block body %}
-    <h1>Categorieplateformes list</h1>
+    {#-------------------------------------------------------------#}
+    {# NavBar Lateral  #}
+    {{ include("@Forum/post/postNavBar.html.twig") }}
+    {# fin navBar lateral #}
+    {#-------------------------------------------------------------#}
+    <section class="postSectionIndex">
+        <div class="container">
+        <article class="postArticleIndex">
+            <h1 class="soustitrePage center">Liste des catégories du forum</h1>
+            {#-------------------------------------------------------------#}
+            {# Mise en place message flash #}
+            {% for flash_message in app.session.flashBag.get('notice') %}
+                <div class="row container">
+                    <div class="flash-notice center">
+                        {{ flash_message }}
+                    </div>
+                </div>
+            {% endfor %}
+            {#-------------------------------------------------------------#}
 
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nom</th>
-                <th>Actif</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
+            {#-------------------------------------------------------------#}
+            {#Mise en place pagination #}
+            {#<div class="row center">#}
+            {#{{ knp_pagination_render(categoriePlateformes) }}#}
+            {#</div>#}
+
+            <div class="wrapperCat">
+                {#<script>#}
+                {#sessionStorage.setItem('id', 10);#}
+                {#</script>#}
+                {#{{ dump(app.request.cookies) }}#}
+                {% for categoriePlateforme in categoriePlateformes %}
+                {% set categorieEnLecture = categoriePlateforme.id %}
+                {# Gestion couleur par catégories #}
+                {% if categoriePlateforme.id == 1 %}
+                <div id="accordionButtonCat_{{ categoriePlateforme.id }}" class="btn-flat">
+                    {%  elseif categoriePlateforme.id == 2%}
+                    <div id="accordionButtonCat_{{ categoriePlateforme.id }}" class="btn-flat">
+                        {%  elseif categoriePlateforme.id == 3 %}
+                        <div id="accordionButtonCat_{{ categoriePlateforme.id }}" class="btn-flat">
+                            {%  elseif categoriePlateforme.id == 4 %}
+                            <div id="accordionButtonCat_{{ categoriePlateforme.id }}" class="btn-flat">
+                                {% endif %}
+                                {# FIN Gestion couleur par catégories #}
+                                <i class="fa fa-list fa-5x" style="color:#DEDEDE;" aria-hidden="true"></i>
+                                <span class="spanCat">{{ categoriePlateforme.nom }}</span>
+                                {#{{app.request.cookies.set('cat' , categoriePlateforme.id)}}#}
+                                <a class="waves-effect waves-teal btn-flat tooltipped"
+                                   data-position="top"
+                                   data-delay="50"
+                                   data-tooltip="Ajouter une sous-catégorie"
+                                   data-cat="categorieEnLecture"
+                                   href="#modal{{ categorieEnLecture }}" style="position: absolute;right: 200px;">
+                                    <i class="fa fa-plus-square-o fa-5x" style="color: #FFF;" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                            <div class="accordionContent">
+                                <ul>
+                                    {% for sousCategorie in sousCategories %}
+                                        {% if sousCategorie.parent.id == categorieEnLecture %}
+                                            <li>
+                                                <span class="spanSousCat">{{ sousCategorie.nom }}</span>
+                                                <a class="waves-effect waves-teal btn-flat center aSousCat"
+                                                   href="{{ path('categorieplateforme_edit', { 'id': sousCategorie.id }) }}" style="position: absolute;right: 250px;">
+                                                    <i class="fa fa-pencil-square-o fa-3x" aria-hidden="true"></i>
+                                                </a>
+                                            </li>
+                                        {% endif %}
+                                    {% endfor %}
+                                    {# Fin FOR Sous-categorie #}
+                                </ul>
+                            </div>
+                            {% endfor %}
+                            {#{{ dump(app.request.cookies.get('cat')) }}#}
+                            {# Fin FOR categorie #}
+                        </div>
+        </article>
+            </div>
+         {#Gestion des modal sous-categorie #}
         {% for categoriePlateforme in categoriePlateformes %}
-            <tr>
-                <td><a href="{{ path('categorieplateforme_show', { 'id': categoriePlateforme.id }) }}">{{ categoriePlateforme.id }}</a></td>
-                <td>{{ categoriePlateforme.nom }}</td>
-                <td>{% if categoriePlateforme.actif %}Yes{% else %}No{% endif %}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('categorieplateforme_show', { 'id': categoriePlateforme.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('categorieplateforme_edit', { 'id': categoriePlateforme.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
+            <div id="modal{{ categoriePlateforme.id }}" class="modal">
+                <div class="modal-content {{ categoriePlateforme.id }}" style="background-color: #FFF">
+                    {{ render(controller('ForumBundle:CategoriePlateforme:newSousCatShowForm', { 'cat': categoriePlateforme.id } )) }}
+                </div>
+            </div>
         {% endfor %}
-        </tbody>
-    </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('categorieplateforme_new') }}">Create a new categoriePlateforme</a>
-        </li>
-    </ul>
+    </section>
 {% endblock %}

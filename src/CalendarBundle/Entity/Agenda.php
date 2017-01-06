@@ -153,7 +153,7 @@ class Agenda
     /**
      * @var string
      */
-    private $couleur;
+    private $color;
 
     /**
      * @var boolean
@@ -216,9 +216,9 @@ class Agenda
      *
      * @return Agenda
      */
-    public function setCouleur($couleur)
+    public function setColor($color)
     {
-        $this->couleur = $couleur;
+        $this->color = $color;
 
         return $this;
     }
@@ -228,9 +228,9 @@ class Agenda
      *
      * @return string
      */
-    public function getCouleur()
+    public function getColor()
     {
-        return $this->couleur;
+        return $this->color;
     }
 
     /**

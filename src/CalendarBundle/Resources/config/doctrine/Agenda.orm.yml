@@ -21,9 +21,11 @@ CalendarBundle\Entity\Agenda:
         lieu:
             type: string
             length: 255
-        couleur:
+        color:
             type: string
             length: 255
+            nullable: true
         slider:
             type: boolean
+            nullable: true
     lifecycleCallbacks: {  }

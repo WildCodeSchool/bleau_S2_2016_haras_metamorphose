@@ -6,8 +6,6 @@ agenda_index:
     path:     /events_json
     defaults: { _controller: "CalendarBundle:Calendar:getEventsJsonObject" }
     methods:  GET
-    options:
-        expose: true
 
 ##########################################
 ########   Routes Agenda CRUD  ###########
@@ -35,4 +33,4 @@ agenda_edit:
 agenda_delete:
     path:     /{id}/delete
     defaults: { _controller: "CalendarBundle:Calendar:delete" }
-    methods:  DELETE
+    methods:  [GET, POST]

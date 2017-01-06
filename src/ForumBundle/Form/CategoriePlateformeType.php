@@ -3,8 +3,10 @@
 namespace ForumBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 
 class CategoriePlateformeType extends AbstractType
 {
@@ -15,11 +17,13 @@ class CategoriePlateformeType extends AbstractType
     {
         $builder
             ->add('nom')
-            ->add('actif')
-            ->add('parent')
+//            ->add('actif')
+//            ->add('parent')
         ;
     }
-    
+
+
+
     /**
      * {@inheritdoc}
      */
