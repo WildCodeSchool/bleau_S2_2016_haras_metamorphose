@@ -2,7 +2,7 @@
 
 namespace SearchBundle\Repository;
 
-use
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 /**
  * AgendaRepository
@@ -18,12 +18,11 @@ class SearchRepository /*extends \Doctrine\ORM\EntityRepository*/
     public function Search($bdd, $requete)
     {
         // la requête, que vous devez maintenant comprendre et modifier;)
-        $em = $this->getDoctrine()->getManager();
-        $query = $bdd->prepare("SELECT post.titre, post.contenu, categorie_plateforme.nom
+        $query = $bdd->prepare("SELECT post.titre, post.contenu,post.date_create, categorie_plateforme.nom
                             FROM post, categorie_plateforme
-                            WHERE post.titre, post.contenu, categorie_plateforme.nom
+                            WHERE post.titre, post.contenu, post.date_create, categorie_plateforme.nom
                             LIKE '%$requete%'
-                            ORDER BY id DESC") or die ();
+                            ORDER BY id DESC") or die ('La requète ne se fait pas correctement');
 
         //on execute la requete
         $query->execute(array(

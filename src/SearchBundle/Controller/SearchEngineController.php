@@ -10,7 +10,6 @@ namespace SearchBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-use PDO;
 
 class SearchEngineController extends Controller
 {
@@ -28,10 +27,7 @@ class SearchEngineController extends Controller
             // avec la fonction htmlspecialchars().
             $requete = htmlspecialchars($_POST['requete']);
 
-            $this->get('');
             $result = $em->getRepository('SearchBundle:Search')->findByRequete($query);
-
-
 
             //$donnees = $reponse->fetch();
 
