@@ -5,3 +5,4 @@ plate_forme_post:
 plate_forme_categorieplateforme:
     resource: "@ForumBundle/Resources/config/routing/categorieplateforme.yml"
     prefix:   /categorieplateforme
+    methods:  [GET, POST]

@@ -12,7 +12,6 @@ ForumBundle\Entity\CategoriePlateforme:
         nom:
             type: string
             length: 255
-            unique: true
         actif:
             type: boolean
 
