@@ -8,14 +8,17 @@
 
 namespace SearchBundle\Controller;
 
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-use FOS\JsRoutingBundle\Controller\Controller;
 use PDO;
 
 class SearchEngineController extends Controller
 {
 
     public function searchAction(){
+
+        $em = $this->getDoctrine()->getManager();
+
         // on vérifie d'abord l'existence du POST et aussi si la requete n'est pas vide.
         if(isset($_POST['requete']) && $_POST['requete'] != NULL)
 
@@ -26,6 +29,8 @@ class SearchEngineController extends Controller
             // mais aussi pour empêcher les éventuels malins qui utiliseraient du PHP ou du JS,
             // avec la fonction htmlspecialchars().
             $requete = htmlspecialchars($_POST['requete']);
+
+            $result = $em->getRepository('SearchBundle:Search')->findByRequete($champs_recherche);
 
             // la requête, que vous devez maintenant comprendre et modifier;)
             $query = $bdd->prepare("SELECT post.titre, post.contenu, categorie_plateforme.nom 
@@ -42,7 +47,7 @@ class SearchEngineController extends Controller
             //$donnees = $reponse->fetch();
 
             // on utilise la fonction mysql_num_rows pour compter les résultats pour vérifier
-            $nb_resultats = mysql_num_rows($query);
+            $nb_resultats = $query->rowCount();
 
             // si le nombre de résultats est supérieur à 0, on continue
             if($nb_resultats != 0)
@@ -59,7 +64,7 @@ class SearchEngineController extends Controller
             else
 
             {
-                return $this->render('@PLateForme/Default/index.html.twig');
+                return $this->render('@PlateForme/Default/index.html.twig');
 
 //                $this->addFlash(
 //                    'success',
@@ -70,7 +75,9 @@ class SearchEngineController extends Controller
         // Si le post est vide on retourne à la page d'accueil
         else
         {
-            return $this->render('@PLateForme/Default/index.html.twig');
+            return $this->render('@PlateForme/Default/index.html.twig', array(
+                'query' => $post
+            ));
 
 //            $this->addFlash(
 //                'success',
