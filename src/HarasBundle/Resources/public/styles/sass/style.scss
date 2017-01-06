@@ -39,5 +39,9 @@ html {
 @import 'template_footer';
 @import 'template';
 @import '../../../../../ForumBundle/Resources/public/sass/_post.scss';
+@import '../../../../../CalendarBundle/Resources/public/sass/_calendar.scss';
+@import '../../../../../PlateFormeBundle/Resources/public/sass/_layout_plateforme.scss';
+@import '../../../../../PlateFormeBundle/Resources/public/sass/_homepage_plateforme.scss';
+@import '../../../../../PlateFormeBundle/Resources/public/sass/_FosUser.scss';
 @import '../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss';
 @import '../../../../../CalendarBundle/Resources/public/sass/_calendar.scss';

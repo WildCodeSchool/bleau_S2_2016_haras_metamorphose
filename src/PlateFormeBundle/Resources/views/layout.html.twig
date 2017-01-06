@@ -1,11 +1,119 @@
 {% extends '@PlateForme/Default/basePlateforme.html.twig' %}
 
-{% block body %}
+{% block header %}
+    <header>
+        <!-- Dropdown Structure -->
+        <nav>
+            <div class="nav-wrapper">
+                <a class="header-logo" href="{{ path('plate_forme_homepage') }}"><img id="logo" src="{{ asset('bundles/haras/images/logo.png') }}" alt="logo"></a>
 
+
+                <ul class="right hide-on-med-and-down">
+
+                    <li><a href="sass.html">
+                        <span class="fa-stack fa-2x">
+                          <i class="fa fa-circle fa-stack-2x icon-background1"></i>
+                          <i class="fa fa-bell-o fa-stack-1x"></i>
+                        </span>
+                        </a>
+                    </li>
+                    <li><a href="{{ path('post_index') }}">
+                        <span class="fa-stack fa-2x">
+                          <i class="fa fa-circle fa-stack-2x icon-background2"></i>
+                          <i class="fa fa-pencil fa-stack-1x"></i>
+                        </span>
+                        </a>
+                    </li>
+
+                    </li>
+                    <li><a href="{{ path('agenda') }}">
+                        <span class="fa-stack fa-2x">
+                          <i class="fa fa-circle fa-stack-2x icon-background3"></i>
+                          <i class="fa fa-calendar fa-stack-1x"></i>
+                        </span>
+                        </a>
+                    </li>
+
+                    <li><a class="dropdown-button" href="{{ path('fos_user_profile_show') }}" data-activates="dropdown1">
+                        <span class="fa-stack fa-2x">
+                          <i class="fa fa-circle fa-stack-2x icon-background4"></i>
+                          <i class="fa fa-user fa-stack-1x"></i>
+                        </span>
+                        </a>
+                    </li>
+                    <ul id="dropdown1" class="dropdown-content">
+                        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                            {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
+                            <li><a href="{{ path('fos_user_profile_show') }}">Voir mon profil</a></li>
+                            <li><a href="{{ path('fos_user_security_logout') }}">Se deconnecter</a></li>
+                        {% else %}
+                            <li><a href="{{ path('fos_user_registration_register') }}">Créer un compte</a></li>
+                            <li><a href="{{ path('fos_user_security_login') }}">Se connecter</a></li>
+                        {% endif %}
+                    </ul>
+                </ul>
+            </div>
+        </nav>
+
+        <nav class="navbar2">
+            <id class="nav-wrapper">
+                <ul class="left hide-on-med-and-down">
+                    <li class="active philosophie"><a href="{{ path('plate_forme_philosophie') }}">Notre philosophie</a></li>
+                    <li class="decouverte"><a href="{{ path('post_index') }}">Découverte</a></li>
+                    <li class="harras"><a href="{{ path('post_index') }}">Le haras</a></li>
+                    <li class="detente"><a href="{{ path('post_index') }}">Détente</a></li>
+                    <li class="coworking"><a href="{{ path('post_index') }}">Espace de co-working</a></li>
+                </ul>
+
+                {#<ul class="right hide-on-med-and-down">#}
+                    {#<input id="search" type="text" name="search" placeholder="rechercher">#}
+                {#</ul>#}
+            </id>
+        </nav>
+
+    </header>
+{% endblock %}
+
+{% block body %}
+{% endblock %}
+
+
+{% block footer %}
+    <footer class="page-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">A propos</h5>
+                    <p class="grey-text text-lighten-4">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus assumenda est molestiae repellat sequi tempore, temporibus. Amet facilis laborum molestias officiis recusandae ut voluptates. Ducimus molestias, nemo? Blanditiis, excepturi unde!
+                    </p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">Contacter la plateforme</h5>
+                    <ul>
+                        <li><a class="grey-text text-lighten-3" href="#!">Mail</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">Téléphone</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                © 2017 Haras de la metamorphose
+                {#<a class="grey-text text-lighten-4 right" href="#!">More Links</a>#}
+            </div>
+        </div>
+    </footer>
 {% endblock %}
 
 {% block javascripts %}
 
     {{ parent() }}
+
+    <script>
+
+    </script>
 
 {% endblock %}

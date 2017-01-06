@@ -1,19 +1,17 @@
-{% extends 'base.html.twig' %}
-
+{% extends '@PlateForme/layout.html.twig' %}
 {% block body %}
     <h1>Users list</h1>
-
     <table>
         <thead>
-            <tr>
-                <th>Id</th>
-                <th>username</th>
-                <th>Nom</th>
-                <th>Prenom</th>
-                <th>Profession</th>
-                <th>Nbpost</th>
-                <th>Actions</th>
-            </tr>
+        <tr>
+            <th>Id</th>
+            <th>username</th>
+            <th>Nom</th>
+            <th>Prenom</th>
+            <th>Profession</th>
+            <th>Nbpost</th>
+            <th>Actions</th>
+        </tr>
         </thead>
         <tbody>
         {% for user in users %}
@@ -38,7 +36,6 @@
         {% endfor %}
         </tbody>
     </table>
-
     <ul>
         <li>
             <a href="{{ path('user_new') }}">Create a new user</a>

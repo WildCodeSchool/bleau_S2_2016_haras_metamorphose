@@ -24,6 +24,14 @@ fos_user:
 ###########   Routes Forum   #############
 ##########################################
 
+user:
+    resource: "@UserBundle/Resources/config/routing.yml"
+    prefix:   /plateforme
+
+##########################################
+###########   Routes Forum   #############
+##########################################
+
 forum:
     resource: "@ForumBundle/Resources/config/routing.yml"
     prefix:   /plateforme
