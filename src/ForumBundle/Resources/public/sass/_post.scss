@@ -9,46 +9,586 @@
   flex: 1 0 auto;
 }
 
-//************************
+//*****************************************************************************
 // Page index post
+//*****************************************************************************
+.titrePage {
+  color: #8A4B08;
+  font-family: Times;
+  text-align: center;
+  text-shadow: 1px 1px 2px rgba(150, 105, 45, 1);
+}
+
+.soustitrePage {
+  color: #8e8e8e;
+  font-style: italic;
+  text-align: center;
+}
+
+@media screen and (max-width: 600px) {
+  .titrePage {font-size: 42px}
+  .soustitrePage {font-size: 21px}
+}
+
 //************************
 // accordeon
 //************************
 .postSectionIndex {
-  margin-left: 70px !important;
+  margin-left: 415px !important;
   margin-right: 70px !important;
 }
 
-.postListTitleCat {
-  background-color: #ffb84d !important;
+.postListTitleCat_1 {
+  background-color: rgba(7,64,10, 0.6);
+  border-bottom: 0px solid #ddd;
+  color: #FFFFFF;
+}
+
+.postListTitleCat_1:hover {
+  background-color: #07400a;
+}
+
+.postListTitleCat_2 {
+  background-color: rgba(140, 104, 34, 0.6);
+  border-bottom: 0px solid #ddd;
+  color: #FFFFFF;
+}
+
+.postListTitleCat_2:hover {
+  background-color: #8c6822;
+}
+
+.postListTitleCat_3 {
+  background-color: rgba(39, 34, 140, 0.6);
+  border-bottom: 0px solid #ddd;
+  color: #FFFFFF;
+}
+
+.postListTitleCat_3:hover {
+  background-color: #27228C;
+}
+
+.postListTitleCat_4 {
+  background-color: rgba(183, 21, 134, 0.6);
+  border-bottom: 0px solid #ddd;
+  color: #FFFFFF;
+}
+
+.postListTitleCat_4:hover {
+  background-color: #b71586;
+}
+
+.indexImageCat {
+  margin-left: 42%;
+  max-width: 150px;
+  max-height: 150px;
 }
 
 .postListTitleSousCat {
-  background-color: #dfb4cd !important;
+  background-color: #B71586 !important;
+  border-bottom: 0px solid #ddd;
 }
 
 .postListTitlePost {
   background-color: #00bcd4 !important;
+  border-bottom: 0px solid #ddd;
+}
+
+.indexEntrerFil {
+  margin-left: 43%;
+  margin-top: 15px;
 }
 
 .postDivPrincipale {
   padding-bottom: 0px !important;
 }
+.liPostSousCat {
+  margin-left: 70px !important;
+  margin-right: 70px !important;
+}
+
 //**********************************
 // index post
 //**********************************
-// réduit visuel contenu des posts
+// cartouche infos user
 //**********************************
-.bigtxt{
-	max-height: 150px;
-	overflow: auto;
+.bigtxt {
+  max-height: 150px;
+  max-width: inherit;
+  overflow: auto;
+  text-overflow: ellipsis;
 }
+
+.chip {
+  margin-left: 2% !important;
+  margin-bottom: 3% !important;
+}
+
+.cartoucheUserIndexPost {
+  width: 45% !important;
+  margin:20px !important;
+  background: #fff !important;
+  color: #7c7c7c !important;
+  font-size: 11px !important;
+  //font-family: Verdana !important;
+  font-weight: bold !important;
+  line-height: 130% !important;
+  padding: 13px !important;
+  left: 100px;
+  border: 1px solid #e6e6e6 !important;
+  border-left-color: #dadada !important;
+  border-right-color: #dadada !important;
+  border-bottom-color: #b4b4b4 !important;
+  border-radius: 1px !important;
+  box-shadow: 0px 1px 1px #dadada, 0 2px 2px #d3d3d3 !important;
+}
+
+.pCartoucheUserIndexPost {
+  padding: 1px !important;
+  margin-left: 120px;
+}
+
+.divCorpsPostParent {
+  background-color: #FFF;
+}
+
+.divCorpsSousCat {
+  background: rgba(222, 222, 222, 0.7)
+}
+
 //**********************************
+// Avatar Profil
+//**********************************
+.avatarUserIndex {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  -moz-box-shadow: 0 0 20px #202020;
+  -webkit-box-shadow: 0 0 20px #202020;
+  box-shadow: 0 0 20px #202020;
+  border-radius: 250px;
+  margin-left: 5% !important;
+}
+
+
+.avatarUserIndex img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 100%;
+  width: auto;
+  -webkit-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+}
+
+//**********************************
+// Affichage nombre de réponses
+//**********************************
+span.badge {
+  color: #5a5959 !important;
+}
+//*************************************************************************
 // Page show all post
-//**********************************
+//*************************************************************************
 // réduit visuel contenu des posts
 //**********************************
 .filDeDiscussion {
   margin-left: 10% !important;
   margin-right: 10% !important;
+}
+
+.sectionAllPost {
+  position: relative;
+  width: 75%;
+  background-color: #fff;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  margin-top: 20px;
+  margin-left: 20%;
+  margin-right: 3%;
+  border-radius: 2px;
+}
+
+.header {
+  width: 100%;
+  height: auto;
+  background-color: #3498db;
+  overflow: hidden;
+}
+.titreEnfant {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+
+.header .circle {
+  position: relative;
+  top: 20px;
+  left: 60px;
+  width: 50px;
+  height: 50px;
+  background-color: #f1c40f;
+  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  z-index: 10;
+}
+
+.header h1 {
+  position: relative;
+  top: 10px;
+  left: 110px;
+  font-size: 2.5em;
+  color: #fff;
+  border-bottom: 3px solid #f1c40f;
+}
+
+.contextHeader {
+  position: relative;
+  top: 20px;
+  left: 110px;
+  width: 95%;
+  padding-right: 10%;
+  font-size: 1em;
+  text-align: justify;
+  color: #DEDEDE;
+  //border-bottom: 1px solid #f1c40f;
+}
+
+.line {
+  position: absolute;
+  z-index: 0;
+  top: 50px;
+  left: 85px;
+  height: calc(100% + 200px);
+  width: 0px;
+  border-right: 1px solid #f1c40f;
+}
+
+#content {
+  width: 100%;
+  height: 700px;
+  overflow: hidden;
+  padding-top: 20px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+#content::-webkit-scrollbar {
+  width: 6px;
+  background-color: #EBEBEB;
+}
+#content::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+}
+
+#content .object {
+  width: 100%;
+}
+#content .object:after {
+  content: "";
+  display: block;
+  height: 0;
+  clear: both;
+}
+#content .object .date {
+  float: left;
+  width: 40px;
+  height: 40px;
+  margin: 20px;
+  margin-top: 64px;
+  background-color: #f1c40f;
+  color: #fff;
+  border-radius: 10px;
+  text-align: center;
+  line-height: 1.9em;
+  font-size: 1.4em;
+}
+#content .object .circle {
+  position: relative;
+  float: left;
+  z-index: 10;
+  margin: 75px 0 0 -5px;
+  width: 20px;
+  height: 20px;
+  background-color: #3498db;
+  border-radius: 50%;
+}
+
+#content .object h1 {
+  position: relative;
+  top: 20px;
+  left: 110px;
+  width: 95%;
+  //padding-right: 10%;
+  margin-left: -95px;
+  font-size: 1.5em;
+  text-align: justify;
+  color: #444;
+  border-bottom: 1.5px solid #f1c40f;
+}
+#content .object .context {
+  float: left;
+  color: #666;
+  width: 80%;
+  left: 110px;
+  min-height: 40px;
+  margin: 10px 0 10px 0px;
+  padding: 20px;
+  line-height: 1.5em;
+  //box-sizing: inherit;
+}
+
+.ombreCard {
+  z-index: 30;
+  -webkit-box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.19), 0 6px 6px 0 rgba(0, 0, 0, 0.23);  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+  -moz-box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.19), 0 6px 6px 0 rgba(0, 0, 0, 0.23);  /* Firefox 3.5 - 3.6 */
+  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.19), 0 6px 6px 0 rgba(0, 0, 0, 0.23);  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+}
+
+.container {
+  flex: 1 0 auto;
+}
+
+.cartoucheUserShowAll {
+  width: 30% !important;
+  margin:2% !important;
+  float: right;
+  color: #7c7c7c !important;
+  font-size: 11px !important;
+  font-weight: bold !important;
+  line-height: 130% !important;
+  padding: 13px !important;
+  left: 100px;
+}
+
+.pCartoucheUserShowAll {
+  padding: 1px !important;
+  margin-left: 165px;
+  color: #DEDEDE;
+}
+
+// Media query
+@media screen and (max-width: 1000px) {
+  .header .circle {
+    top: 20px;
+    left:10px;
+  }
+  .header h1 {
+    top: 10px;
+    left:42px;
+  }
+  .contextHeader {
+    position: relative;
+    top: 20px;
+    left:44px;
+  }
+  // ajout class pour le a
+  .aPost {
+    margin:0 auto;
+    position: relative;
+    top: 75px;
+    left: 50px;
+  }
+  .cartoucheUserShowAll {
+    width: unset !important;
+    margin: unset !important;
+    float: right;
+    background-color: unset !important;
+    border: none !important;
+    border-left-color: unset !important;
+    border-right-color: unset !important;
+    border-bottom-color: unset !important;
+    border-radius: unset !important;
+    box-shadow: unset !important;
+  }
+  .line {
+    position: absolute;
+    top: 50px;
+    left: 35px;
+  }
+}
+
+
+//*************************************************************************
+// include lastPost
+//*************************************************************************
+//
+//**********************************
+
+.lastPost {
+  width: 96% !important;
+}
+
+.pDernierPost {
+  bottom:15px !important;
+}
+
+.titreDerPost {
+  font-size: 30px !important;
+  text-align: center !important;
+  margin-bottom: 3%;
+
+}
+
+.lastPostContenu {
+  max-width: inherit;
+  max-height: inherit;
+  overflow: scroll;
+}
+
+.lastPostContenu > p {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+//.lastPostContenu > p > img {
+//  max-width: 100%;
+//  max-height: 100%;
+//}
+
+//// Media query
+//@media screen and (max-width: 1000px) {
+//  .lastPostContenu p img {
+//    //display: none;
+//    max-width: 25%;
+//    max-height: 25%;
+//    overflow: auto;
+//  }
+//}
+
+//*****************************************************************************
+// PAGINATION
+//*****************************************************************************
+.pagination {
+  margin: 20px 0;
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+}
+.pagination ul {
+  float: left;
+  left: 50%;
+  position: relative;
+}
+.pagination ul > li {
+  left: -50%;
+  position: relative;
+}
+.pagination li a {
+  transition: all 100ms ease-in-out 0s;
+  background-color: #F7F7F8;
+  border-radius: 5px 5px 5px 5px;
+  color: #69696E;
+  display: block;
+  font: 12px/30px Arial, sans-serif;
+  height: 30px;
+  margin: 0 3px;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  width: 30px;
+}
+.pagination li a:hover {
+  background-color: #FF8C00;
+  color: #FFFFFF;
+}
+.pagination li.active a {
+  background-color: #FF8C00;
+  color: #FFFFFF;
+  font-weight: bold;
+}
+.pagination li.active a:hover {
+  color: #FFFFFF;
+}
+
+.pagination li.current a {
+  background-color: #FF8C00;
+  color: #FFFFFF;
+}
+
+.pagination li i {
+  font-size: 1rem !important;
+}
+
+//********************************************************
+// POST NAV BAR
+//********************************************************
+
+aside {
+  opacity: 0.85;
+}
+
+.go a:before,
+.go a:after {
+  display: inline-block;
+  opacity: 0;
+  -webkit-transition: -webkit-transform 0.3s, opacity 0.2s;
+  -moz-transition: -moz-transform 0.3s, opacity 0.2s;
+  transition: transform 0.3s, opacity 0.2s;
+}
+
+.go a:before {
+  margin-right: 10px;
+  content: '[';
+  -webkit-transform: translate(20px);
+  -moz-transform: translate(20px);
+  transform: translate(20px);
+}
+
+.go a:after {
+  margin-left: 10px;
+  content: ']';
+  -webkit-transform: translate(-20px);
+  -moz-transform: translate(-20px);
+  transform: translate(-20px);
+}
+
+.go a:hover:before,
+.go a:hover:after,
+.go a:focus:before,
+.go a:focus:after {
+  opacity: 1;
+  -webkit-transform: translate(0px);
+  -moz-transform: translate(0px);
+  transform: translate(0px);
+}
+
+#dropdown1 {
+  top: 317px !important;
+  left: 15px !important;
+}
+
+.userLogout {
+  background: #DEDEDE;
+}
+
+.userLogout a {
+  color: red !important;
+}
+
+@media (min-width: 991px) {
+  main {
+    padding-left: 20px;
+  }
+}
+
+//********************************************************
+// show Reactive post
+//********************************************************
+
+.reactDivParent {
+  width: 80%;
+  background-color: #f1f1e3;
+  margin-left: 11%;
+  padding: 2%;
+  text-align: justify;
+}
+
+.reactH4WrapIsole > a {
+  float: right;
 }

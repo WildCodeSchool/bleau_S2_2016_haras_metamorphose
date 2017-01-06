@@ -22,9 +22,29 @@ post_new:
     defaults: { _controller: "ForumBundle:Post:new" }
     methods:  [GET, POST]
 
+post_newParent:
+    path:     /{cat}/new
+    defaults: { _controller: "ForumBundle:Post:newParent" }
+    methods:  [GET, POST]
+
 post_edit:
     path:     /{id}/edit
     defaults: { _controller: "ForumBundle:Post:edit" }
+    methods:  [GET, POST]
+
+post_desactive:
+    path:     /{id}/desactive
+    defaults: { _controller: "ForumBundle:Post:desactive" }
+    methods:  [GET, POST]
+
+post_resactive:
+    path:     /{id}/resactive
+    defaults: { _controller: "ForumBundle:Post:reactive" }
+    methods:  [GET, POST]
+
+post_showAllPostDesactive:
+    path:     /showAllPostDesactive
+    defaults: { _controller: "ForumBundle:Post:showInactivePost" }
     methods:  [GET, POST]
 
 post_delete:

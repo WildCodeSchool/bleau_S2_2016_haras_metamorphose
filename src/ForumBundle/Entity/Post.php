@@ -7,7 +7,6 @@ namespace ForumBundle\Entity;
  */
 class Post
 {
-    // Permet de convertir l'objet CHAINE DE CARACTERE
     public function __toString()
     {
         return $this->titre;
@@ -250,5 +249,34 @@ class Post
     public function getUser()
     {
         return $this->user;
+    }
+    /**
+     * @var \DateTime
+     */
+    private $dateCreate;
+
+
+    /**
+     * Set dateCreate
+     *
+     * @param \DateTime $dateCreate
+     *
+     * @return Post
+     */
+    public function setDateCreate($dateCreate)
+    {
+        $this->dateCreate = $dateCreate;
+
+        return $this;
+    }
+
+    /**
+     * Get dateCreate
+     *
+     * @return \DateTime
+     */
+    public function getDateCreate()
+    {
+        return $this->dateCreate;
     }
 }
