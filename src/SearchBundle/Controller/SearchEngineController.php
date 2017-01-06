@@ -23,26 +23,15 @@ class SearchEngineController extends Controller
         if(isset($_POST['requete']) && $_POST['requete'] != NULL)
 
         {
-            $bdd= new PDO('mysql:host=localhost;dbname=haras;charset=utf8', 'root', 'root');
-
             // on crée une variable $requete pour faciliter l'écriture de la requête SQL,
             // mais aussi pour empêcher les éventuels malins qui utiliseraient du PHP ou du JS,
             // avec la fonction htmlspecialchars().
             $requete = htmlspecialchars($_POST['requete']);
 
-            $result = $em->getRepository('SearchBundle:Search')->findByRequete($champs_recherche);
+            $this->get('');
+            $result = $em->getRepository('SearchBundle:Search')->findByRequete($query);
 
-            // la requête, que vous devez maintenant comprendre et modifier;)
-            $query = $bdd->prepare("SELECT post.titre, post.contenu, categorie_plateforme.nom 
-                                    FROM post, categorie_plateforme
-                                    WHERE post.titre, post.contenu, categorie_plateforme.nom  
-                                    LIKE '%$requete%' 
-                                    ORDER BY id DESC") or die ();
 
-            //on execute la requete
-            $query->execute(array(
-                'requete' => $requete
-            ));
 
             //$donnees = $reponse->fetch();
 
@@ -64,25 +53,26 @@ class SearchEngineController extends Controller
             else
 
             {
-                return $this->render('@PlateForme/Default/index.html.twig');
-
 //                $this->addFlash(
 //                    'success',
 //                    'La recherche ne donne aucun résultats'
 //                );
+
+                return $this->render('@PlateForme/Default/index.html.twig');
+
             }
         }
         // Si le post est vide on retourne à la page d'accueil
         else
         {
-            return $this->render('@PlateForme/Default/index.html.twig', array(
-                'query' => $post
-            ));
-
 //            $this->addFlash(
 //                'success',
 //                'Le champ de recherche est vide'
 //            );
+
+            return $this->render('@PlateForme/Default/index.html.twig', array(
+                'query' => $post
+            ));
         }
 
     }
