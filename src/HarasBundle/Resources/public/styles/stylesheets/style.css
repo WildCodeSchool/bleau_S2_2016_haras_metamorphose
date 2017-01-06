@@ -960,12 +960,19 @@ nav ul a:hover {
 \*-----------------------------------------------------*/
 /* line 124, ../../../../../PlateFormeBundle/Resources/public/sass/_layout_plateforme.scss */
 body {
+  display: flex;
   min-height: 100vh;
+  flex-direction: column;
 }
 
 /*-----------------------------------------------------*\
                           FOOTER
 \*-----------------------------------------------------*/
+/* line 136, ../../../../../PlateFormeBundle/Resources/public/sass/_layout_plateforme.scss */
+.main {
+  flex: 1 0 auto;
+}
+
 /* line 1, ../../../../../PlateFormeBundle/Resources/public/sass/_homepage_plateforme.scss */
 footer.page-footer {
   background-color: rgba(118, 135, 146, 0.9);

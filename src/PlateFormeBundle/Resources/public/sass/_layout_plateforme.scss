@@ -122,10 +122,17 @@ nav ul a:hover {
 
 
 body {
+  display: flex;
   min-height: 100vh;
+  flex-direction: column;
 }
 
 
 /*-----------------------------------------------------*\
                           FOOTER
 \*-----------------------------------------------------*/
+
+
+.main {
+  flex: 1 0 auto;
+}

@@ -3,7 +3,7 @@
 
 {% block body %}
 
-    <div class="slider">
+    <div class="slider main">
         <ul class="slides">
             <li>
                 <img src="http://s1.lprs1.fr/images/2016/04/21/5734339_dbcf1aa4-07c9-11e6-ae1b-485357199b15-1_1000x625.jpg"> <!-- random image -->
@@ -27,6 +27,18 @@
                 </div>
             </li>
         </ul>
+
+        <li class="slider admin">
+            {% if is_granted('ROLE_ADMIN') %}
+                {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
+                <a href="{{ path('plate_forme_homepage') }}">
+                    <span class="fa-stack fa-2x">
+                      <i class="fa fa-circle fa-stack-2x icon-background2"></i>
+                      <i class="fa fa-pencil fa-stack-1x"></i>
+                    </span>
+                </a>
+            {% endif %}
+        </li>
     </div>
 
 
