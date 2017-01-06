@@ -9,8 +9,8 @@
             <div class="col s12">
                 <h3 class="center">Résultats de votre recherche.</h3>
                 on affiche le nombre de résultats
-                <p>Nous avons trouvé : {% nb_resultats %}
-                     CONDITION EN TWIG
+                <p>Nous avons trouvé : {{ query.nb_resultats }}
+                     {#CONDITION EN TWIG#}
                     {% if nb_resultats > 1 %}
                         résultats.
                     {% elseif nb_resultats == 1 %}
@@ -36,9 +36,9 @@
                     <tbody>
                     {% for query in query %}
                         <tr>
-                            <td><a href="{{ path('') }}"> {{ query.categorie_plateforme }}</a></td>
-                            <td><a href="{{ path('') }}">{{ query.titre }}</a></td>
-                            <td><a href="{{ path('') }}">{{ query.contenu }}</a></td>
+                            <td><a href="{{ path('#') }}"> {{ query.categorie_plateforme }}</a></td>
+                            <td><a href="{{ path('#') }}">{{ query.titre }}</a></td>
+                            <td><a href="{{ path('#') }}">{{ query.contenu }}</a></td>
                         </tr>
                     {% endfor %}
                     </tbody>

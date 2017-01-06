@@ -63,9 +63,7 @@
            <div class="container">
                <div class="row">
                    <div class="col s3">
-                       <form action="{#{{ render(controller('SearchBundle:SearchEngine:search')) }}#}" method="Post">
                        <form action="{{ path('plate_forme_searchController') }}" method="Post">
-
                            <div class="input-field">
                                <input name="requete" id="search" type="search" required>
                                <label for="search"><i class="material-icons">search</i></label>
