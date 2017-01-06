@@ -3,7 +3,7 @@
 namespace CalendarBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -15,8 +15,13 @@ class AgendaType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('start')
-            ->add('end')
+            ->add('start', 'datetime' , array(
+        'minutes' => range(0, 30, 30),
+            ))
+              //  'model_timezone' => 'Europe/Paris')
+            ->add('end', 'datetime' , array(
+                  'minutes' => range(0, 30, 30)
+            ))
             ->add('titre')
             ->add('texte')
             ->add('lieu')

@@ -19,6 +19,9 @@ jQuery(document).ready(function($) {
     // FONCTION COLORPICKER
     colorpicker();
 
+    // FONCTION DATEPICKER
+    datepicker();
+
 });
 
 // ********************************************************************
@@ -113,4 +116,18 @@ function colorpicker() {
             color: 'transparent'
         });
     // });
+}
+
+// ********************************************************************
+// *                    DATE PICKER
+// ********************************************************************
+
+function datepicker() {
+
+    console.log('APP.JS - FONCTION DATEPICKER a démarré : ligne 127');
+
+    $('.datepicker').pickadate({
+        selectMonths: true, // Creates a dropdown to control month
+        selectYears: 15 // Creates a dropdown of 15 years to control year
+    });
 }
