@@ -1,11 +1,11 @@
 @charset "UTF-8";
-/* line 22, ../sass/style.scss */
+/* line 22, ../../../../../../HarasBundle/Resources/public/styles/sass/style.scss */
 * {
   margin: 0;
   padding: 0;
 }
 
-/* line 28, ../sass/style.scss */
+/* line 28, ../../../../../../HarasBundle/Resources/public/styles/sass/style.scss */
 html {
   height: 100%;
   font-family: sans-serif;
@@ -15,7 +15,7 @@ html {
 /*//////////////////////////////////////////////
 ////////////////// _homepage.scss /////////////////
 //////////////////////////////////////////////*/
-/* line 9, ../sass/_homepage.scss */
+/* line 9, ../../../../../../HarasBundle/Resources/public/styles/sass/_homepage.scss */
 #_homepage {
   height: 100%;
   font-family: sans-serif;
@@ -26,36 +26,36 @@ html {
   //////////////////////////////*/
   /* Mise en page de l'accroche et des rubriques */
 }
-/* line 15, ../sass/_homepage.scss */
+/* line 15, ../../../../../../HarasBundle/Resources/public/styles/sass/_homepage.scss */
 #_homepage #homepage_video {
   position: fixed;
   min-width: 100%;
   min-height: 100%;
   z-index: -100;
 }
-/* line 22, ../sass/_homepage.scss */
+/* line 22, ../../../../../../HarasBundle/Resources/public/styles/sass/_homepage.scss */
 #_homepage #homepage_wrapper {
   display: table;
   height: 100%;
   width: 100%;
 }
-/* line 31, ../sass/_homepage.scss */
+/* line 31, ../../../../../../HarasBundle/Resources/public/styles/sass/_homepage.scss */
 #_homepage #homepage_corps {
   text-align: center;
 }
-/* line 37, ../sass/_homepage.scss */
+/* line 37, ../../../../../../HarasBundle/Resources/public/styles/sass/_homepage.scss */
 #_homepage #homepage_catchPhrase {
   color: white;
   font-size: 2.5em;
   font-weight: bold;
   text-shadow: 3px 3px rgba(0, 0, 0, 0.7);
 }
-/* line 44, ../sass/_homepage.scss */
+/* line 44, ../../../../../../HarasBundle/Resources/public/styles/sass/_homepage.scss */
 #_homepage #homepage_focus {
   text-align: center;
   margin-bottom: 40px;
 }
-/* line 49, ../sass/_homepage.scss */
+/* line 49, ../../../../../../HarasBundle/Resources/public/styles/sass/_homepage.scss */
 #_homepage .homepage_rubrique {
   display: inline-block;
   border-radius: 10px;
@@ -68,43 +68,43 @@ html {
   -ms-transition: all 1s ease;
   transition: all 1s ease;
 }
-/* line 56, ../sass/_homepage.scss */
+/* line 56, ../../../../../../HarasBundle/Resources/public/styles/sass/_homepage.scss */
 #_homepage .homepage_rubrique .homepage_rubrique_title {
   font-size: 1.2em;
   margin-top: 5px;
   font-weight: bold;
 }
-/* line 61, ../sass/_homepage.scss */
+/* line 61, ../../../../../../HarasBundle/Resources/public/styles/sass/_homepage.scss */
 #_homepage .homepage_rubrique .homepage_rubrique_text {
   font-size: 0.9em;
   text-align: justify;
 }
-/* line 66, ../sass/_homepage.scss */
+/* line 66, ../../../../../../HarasBundle/Resources/public/styles/sass/_homepage.scss */
 #_homepage .homepage_rubrique .homepage_rubrique_img {
   margin-top: 10px;
 }
 @media all and (min-width: 901px) {
-  /* line 72, ../sass/_homepage.scss */
+  /* line 72, ../../../../../../HarasBundle/Resources/public/styles/sass/_homepage.scss */
   #_homepage #homepage_video {
     position: fixed;
     min-width: 100%;
     min-height: 100%;
     z-index: -100;
   }
-  /* line 78, ../sass/_homepage.scss */
+  /* line 78, ../../../../../../HarasBundle/Resources/public/styles/sass/_homepage.scss */
   #_homepage #homepage_wrapper {
     display: table;
     height: 100%;
     width: 100%;
   }
-  /* line 83, ../sass/_homepage.scss */
+  /* line 83, ../../../../../../HarasBundle/Resources/public/styles/sass/_homepage.scss */
   #_homepage #homepage_corps {
     position: relative;
     display: table-row;
     width: 100%;
     height: 100%;
   }
-  /* line 90, ../sass/_homepage.scss */
+  /* line 90, ../../../../../../HarasBundle/Resources/public/styles/sass/_homepage.scss */
   #_homepage #homepage_focus {
     position: absolute;
     bottom: 30px;
@@ -112,11 +112,11 @@ html {
     right: 0;
     margin: auto;
   }
-  /* line 97, ../sass/_homepage.scss */
+  /* line 97, ../../../../../../HarasBundle/Resources/public/styles/sass/_homepage.scss */
   #_homepage #homepage_catchPhrase {
     margin-top: 10%;
   }
-  /* line 100, ../sass/_homepage.scss */
+  /* line 100, ../../../../../../HarasBundle/Resources/public/styles/sass/_homepage.scss */
   #_homepage .homepage_rubrique {
     width: 180px;
     height: 190px;
@@ -128,29 +128,29 @@ html {
     -ms-transition: all 1s ease;
     transition: all 1s ease;
   }
-  /* line 106, ../sass/_homepage.scss */
+  /* line 106, ../../../../../../HarasBundle/Resources/public/styles/sass/_homepage.scss */
   #_homepage .homepage_rubrique .homepage_rubrique_text {
     margin: 10px;
     width: 270px;
     text-align: justify;
   }
-  /* line 112, ../sass/_homepage.scss */
+  /* line 112, ../../../../../../HarasBundle/Resources/public/styles/sass/_homepage.scss */
   #_homepage .homepage_rubrique .homepage_rubrique_img {
     max-width: 90%;
     max-height: 90%;
   }
-  /* line 117, ../sass/_homepage.scss */
+  /* line 117, ../../../../../../HarasBundle/Resources/public/styles/sass/_homepage.scss */
   #_homepage .homepage_rubrique .focus-text-wrapper {
     overflow: auto;
     height: 110px;
     margin-top: 10px;
   }
-  /* line 122, ../sass/_homepage.scss */
+  /* line 122, ../../../../../../HarasBundle/Resources/public/styles/sass/_homepage.scss */
   #_homepage .homepage_rubrique .focus-img-wrapper {
     margin: 10px;
     height: 140px;
   }
-  /* line 127, ../sass/_homepage.scss */
+  /* line 127, ../../../../../../HarasBundle/Resources/public/styles/sass/_homepage.scss */
   #_homepage .homepage_rubrique.hover {
     height: 300px;
     width: 300px;
@@ -159,66 +159,66 @@ html {
   }
 }
 @media all and (max-width: 900px) {
-  /* line 136, ../sass/_homepage.scss */
+  /* line 136, ../../../../../../HarasBundle/Resources/public/styles/sass/_homepage.scss */
   #_homepage #homepage_focus {
     margin-top: 40px;
   }
-  /* line 139, ../sass/_homepage.scss */
+  /* line 139, ../../../../../../HarasBundle/Resources/public/styles/sass/_homepage.scss */
   #_homepage #homepage_catchPhrase {
     margin-top: 120px;
   }
-  /* line 142, ../sass/_homepage.scss */
+  /* line 142, ../../../../../../HarasBundle/Resources/public/styles/sass/_homepage.scss */
   #_homepage .homepage_rubrique {
     overflow: auto;
     text-align: center;
     height: 400px;
     width: 40%;
   }
-  /* line 147, ../sass/_homepage.scss */
+  /* line 147, ../../../../../../HarasBundle/Resources/public/styles/sass/_homepage.scss */
   #_homepage .homepage_rubrique .homepage_rubrique_text {
     margin: 10px;
     max-width: 90%;
     min-height: 60%;
   }
-  /* line 152, ../sass/_homepage.scss */
+  /* line 152, ../../../../../../HarasBundle/Resources/public/styles/sass/_homepage.scss */
   #_homepage .homepage_rubrique .homepage_rubrique_img {
     max-width: 90%;
     max-height: 40%;
   }
 }
-/* line 160, ../sass/_homepage.scss */
+/* line 160, ../../../../../../HarasBundle/Resources/public/styles/sass/_homepage.scss */
 #_homepage .typed-cursor {
   display: none;
 }
-/* line 164, ../sass/_homepage.scss */
+/* line 164, ../../../../../../HarasBundle/Resources/public/styles/sass/_homepage.scss */
 #_homepage .homepage_rubrique.section1Link {
   background-color: rgba(7, 64, 10, 0.6);
 }
-/* line 167, ../sass/_homepage.scss */
+/* line 167, ../../../../../../HarasBundle/Resources/public/styles/sass/_homepage.scss */
 #_homepage .section1Link.hover {
   background-color: #07400a;
 }
-/* line 171, ../sass/_homepage.scss */
+/* line 171, ../../../../../../HarasBundle/Resources/public/styles/sass/_homepage.scss */
 #_homepage .homepage_rubrique.section2Link {
   background-color: rgba(140, 104, 34, 0.6);
 }
-/* line 174, ../sass/_homepage.scss */
+/* line 174, ../../../../../../HarasBundle/Resources/public/styles/sass/_homepage.scss */
 #_homepage .section2Link.hover {
   background-color: #8c6822;
 }
-/* line 178, ../sass/_homepage.scss */
+/* line 178, ../../../../../../HarasBundle/Resources/public/styles/sass/_homepage.scss */
 #_homepage .homepage_rubrique.section3Link {
   background-color: rgba(39, 34, 140, 0.6);
 }
-/* line 181, ../sass/_homepage.scss */
+/* line 181, ../../../../../../HarasBundle/Resources/public/styles/sass/_homepage.scss */
 #_homepage .section3Link.hover {
   background-color: #27228c;
 }
-/* line 185, ../sass/_homepage.scss */
+/* line 185, ../../../../../../HarasBundle/Resources/public/styles/sass/_homepage.scss */
 #_homepage .homepage_rubrique.section4Link {
   background-color: rgba(183, 21, 134, 0.6);
 }
-/* line 188, ../sass/_homepage.scss */
+/* line 188, ../../../../../../HarasBundle/Resources/public/styles/sass/_homepage.scss */
 #_homepage .section4Link.hover {
   background-color: #b71586;
 }
@@ -226,56 +226,56 @@ html {
 /*//////////////////////////////////////////////
 /////////////// _index_footer.scss /////////////
 //////////////////////////////////////////////*/
-/* line 5, ../sass/_homepage_footer.scss */
+/* line 5, ../../../../../../HarasBundle/Resources/public/styles/sass/_homepage_footer.scss */
 #_homepage_footer {
   text-align: center;
   overflow: hidden;
   /* Footer partie basse -> Copyright */
 }
-/* line 9, ../sass/_homepage_footer.scss */
+/* line 9, ../../../../../../HarasBundle/Resources/public/styles/sass/_homepage_footer.scss */
 #_homepage_footer p {
   font-size: 1em;
 }
-/* line 13, ../sass/_homepage_footer.scss */
+/* line 13, ../../../../../../HarasBundle/Resources/public/styles/sass/_homepage_footer.scss */
 #_homepage_footer h1 {
   font-size: 1.5em;
   margin-bottom: 10px;
   text-align: center;
 }
-/* line 19, ../sass/_homepage_footer.scss */
+/* line 19, ../../../../../../HarasBundle/Resources/public/styles/sass/_homepage_footer.scss */
 #_homepage_footer * {
   text-decoration: none;
   color: white;
 }
-/* line 24, ../sass/_homepage_footer.scss */
+/* line 24, ../../../../../../HarasBundle/Resources/public/styles/sass/_homepage_footer.scss */
 #_homepage_footer .footer-top {
   height: 210px;
   /* Colonnes footer */
 }
-/* line 27, ../sass/_homepage_footer.scss */
+/* line 27, ../../../../../../HarasBundle/Resources/public/styles/sass/_homepage_footer.scss */
 #_homepage_footer .footer-top .footer-left, #_homepage_footer .footer-top .footer-right {
   display: inline-block;
   width: 40%;
   vertical-align: top;
   text-align: left;
 }
-/* line 33, ../sass/_homepage_footer.scss */
+/* line 33, ../../../../../../HarasBundle/Resources/public/styles/sass/_homepage_footer.scss */
 #_homepage_footer .footer-top .footer-left {
   margin-right: 30px;
 }
-/* line 36, ../sass/_homepage_footer.scss */
+/* line 36, ../../../../../../HarasBundle/Resources/public/styles/sass/_homepage_footer.scss */
 #_homepage_footer .footer-top .footer-scroll {
   width: 100%;
   text-align: justify;
   overflow: auto;
   height: 160px;
 }
-/* line 42, ../sass/_homepage_footer.scss */
+/* line 42, ../../../../../../HarasBundle/Resources/public/styles/sass/_homepage_footer.scss */
 #_homepage_footer .footer-top .footer-scroll p {
   margin-right: 15px;
   margin-left: 15px;
 }
-/* line 49, ../sass/_homepage_footer.scss */
+/* line 49, ../../../../../../HarasBundle/Resources/public/styles/sass/_homepage_footer.scss */
 #_homepage_footer #footer-bottom {
   background-color: #003f40;
   text-align: left;
@@ -283,13 +283,13 @@ html {
   padding-top: 1em;
   padding-bottom: 1em;
 }
-/* line 57, ../sass/_homepage_footer.scss */
+/* line 57, ../../../../../../HarasBundle/Resources/public/styles/sass/_homepage_footer.scss */
 #_homepage_footer #copyright {
   padding-left: 5%;
 }
 
 @media all and (min-width: 901px) {
-  /* line 63, ../sass/_homepage_footer.scss */
+  /* line 63, ../../../../../../HarasBundle/Resources/public/styles/sass/_homepage_footer.scss */
   #_homepage_footer {
     position: fixed;
     bottom: 0;
@@ -303,7 +303,7 @@ html {
     transition: all 1s;
   }
 
-  /* line 72, ../sass/_homepage_footer.scss */
+  /* line 72, ../../../../../../HarasBundle/Resources/public/styles/sass/_homepage_footer.scss */
   #_homepage_footer:hover {
     height: 255px;
     margin-top: -255px;
@@ -311,7 +311,7 @@ html {
   }
 }
 @media all and (max-width: 900px) {
-  /* line 80, ../sass/_homepage_footer.scss */
+  /* line 80, ../../../../../../HarasBundle/Resources/public/styles/sass/_homepage_footer.scss */
   #_homepage_footer {
     height: 255px;
     background-color: #00787a;
@@ -320,7 +320,7 @@ html {
 /*//////////////////////////////////////////////
 /////////////// _index_header.scss /////////////
 //////////////////////////////////////////////*/
-/* line 5, ../sass/_homepage_header.scss */
+/* line 5, ../../../../../../HarasBundle/Resources/public/styles/sass/_homepage_header.scss */
 #_homepage_header {
   height: 80px;
   text-shadow: 2px 2px rgba(0, 0, 0, 0.7);
@@ -328,28 +328,28 @@ html {
   font-weight: bold;
   /* Mise en page de l'aside avec les icones des réseaux sociaux */
 }
-/* line 11, ../sass/_homepage_header.scss */
+/* line 11, ../../../../../../HarasBundle/Resources/public/styles/sass/_homepage_header.scss */
 #_homepage_header #logo {
   width: 70px;
   margin: 5px;
   margin-right: 60px;
 }
-/* line 16, ../sass/_homepage_header.scss */
+/* line 16, ../../../../../../HarasBundle/Resources/public/styles/sass/_homepage_header.scss */
 #_homepage_header #menu {
   margin-right: 10px;
   margin-top: 10px !important;
 }
-/* line 21, ../sass/_homepage_header.scss */
+/* line 21, ../../../../../../HarasBundle/Resources/public/styles/sass/_homepage_header.scss */
 #_homepage_header #menu ul {
   list-style-type: none;
   overflow: hidden;
 }
-/* line 26, ../sass/_homepage_header.scss */
+/* line 26, ../../../../../../HarasBundle/Resources/public/styles/sass/_homepage_header.scss */
 #_homepage_header #menu li {
   display: inline;
   margin-right: 10px;
 }
-/* line 31, ../sass/_homepage_header.scss */
+/* line 31, ../../../../../../HarasBundle/Resources/public/styles/sass/_homepage_header.scss */
 #_homepage_header #menu a {
   text-decoration: none;
   display: inline-block;
@@ -357,16 +357,16 @@ html {
   border-radius: 10px;
   color: white;
 }
-/* line 39, ../sass/_homepage_header.scss */
+/* line 39, ../../../../../../HarasBundle/Resources/public/styles/sass/_homepage_header.scss */
 #_homepage_header #langues {
   float: left;
   margin-top: 10px !important;
 }
-/* line 44, ../sass/_homepage_header.scss */
+/* line 44, ../../../../../../HarasBundle/Resources/public/styles/sass/_homepage_header.scss */
 #_homepage_header #langues li {
   display: inline;
 }
-/* line 48, ../sass/_homepage_header.scss */
+/* line 48, ../../../../../../HarasBundle/Resources/public/styles/sass/_homepage_header.scss */
 #_homepage_header #langues a {
   margin: 3px;
   border-radius: 10px;
@@ -374,46 +374,46 @@ html {
   padding: 5px;
   color: white;
 }
-/* line 55, ../sass/_homepage_header.scss */
+/* line 55, ../../../../../../HarasBundle/Resources/public/styles/sass/_homepage_header.scss */
 #_homepage_header #langues p {
   display: inline;
   color: white;
 }
-/* line 59, ../sass/_homepage_header.scss */
+/* line 59, ../../../../../../HarasBundle/Resources/public/styles/sass/_homepage_header.scss */
 #_homepage_header .accueil:hover, #_homepage_header #langues a:hover, #_homepage_header .contact:hover {
   background-color: blue;
 }
-/* line 65, ../sass/_homepage_header.scss */
+/* line 65, ../../../../../../HarasBundle/Resources/public/styles/sass/_homepage_header.scss */
 #_homepage_header #social {
   margin-top: 10px;
 }
-/* line 69, ../sass/_homepage_header.scss */
+/* line 69, ../../../../../../HarasBundle/Resources/public/styles/sass/_homepage_header.scss */
 #_homepage_header .icone-social {
   width: 40px;
 }
 @media all and (min-width: 901px) {
-  /* line 74, ../sass/_homepage_header.scss */
+  /* line 74, ../../../../../../HarasBundle/Resources/public/styles/sass/_homepage_header.scss */
   #_homepage_header #_homepage_header {
     display: table-row;
   }
-  /* line 77, ../sass/_homepage_header.scss */
+  /* line 77, ../../../../../../HarasBundle/Resources/public/styles/sass/_homepage_header.scss */
   #_homepage_header #logo {
     float: left;
   }
-  /* line 80, ../sass/_homepage_header.scss */
+  /* line 80, ../../../../../../HarasBundle/Resources/public/styles/sass/_homepage_header.scss */
   #_homepage_header #menu {
     float: right;
   }
-  /* line 83, ../sass/_homepage_header.scss */
+  /* line 83, ../../../../../../HarasBundle/Resources/public/styles/sass/_homepage_header.scss */
   #_homepage_header #langues {
     float: left;
   }
-  /* line 86, ../sass/_homepage_header.scss */
+  /* line 86, ../../../../../../HarasBundle/Resources/public/styles/sass/_homepage_header.scss */
   #_homepage_header #social {
     float: left;
     margin-left: 50px;
   }
-  /* line 90, ../sass/_homepage_header.scss */
+  /* line 90, ../../../../../../HarasBundle/Resources/public/styles/sass/_homepage_header.scss */
   #_homepage_header .icone-social {
     -webkit-transition: all 0.6s;
     -moz-transition: all 0.6s;
@@ -421,17 +421,17 @@ html {
     -ms-transition: all 0.6s;
     transition: all 0.6s;
   }
-  /* line 97, ../sass/_homepage_header.scss */
+  /* line 97, ../../../../../../HarasBundle/Resources/public/styles/sass/_homepage_header.scss */
   #_homepage_header .icone-social:hover {
     transform: scale(1.3) rotateZ(360deg);
   }
 }
 @media all and (max-width: 900px) {
-  /* line 103, ../sass/_homepage_header.scss */
+  /* line 103, ../../../../../../HarasBundle/Resources/public/styles/sass/_homepage_header.scss */
   #_homepage_header #langues {
     float: right;
   }
-  /* line 106, ../sass/_homepage_header.scss */
+  /* line 106, ../../../../../../HarasBundle/Resources/public/styles/sass/_homepage_header.scss */
   #_homepage_header #social {
     float: right;
     margin-right: 30px;
@@ -442,7 +442,7 @@ html {
 /*//////////////////////////////////////////////
 ///////////// _template_header.scss ////////////
 //////////////////////////////////////////////*/
-/* line 5, ../sass/_template_header.scss */
+/* line 5, ../../../../../../HarasBundle/Resources/public/styles/sass/_template_header.scss */
 #_template_header {
   color: white;
   height: 100px;
@@ -451,29 +451,29 @@ html {
   padding-top: 10px;
   /* Mise en page de l'aside avec les icones des réseaux sociaux */
 }
-/* line 12, ../sass/_template_header.scss */
+/* line 12, ../../../../../../HarasBundle/Resources/public/styles/sass/_template_header.scss */
 #_template_header #logo {
   width: 70px;
   float: left;
   margin: 5px;
   margin-right: 60px;
 }
-/* line 19, ../sass/_template_header.scss */
+/* line 19, ../../../../../../HarasBundle/Resources/public/styles/sass/_template_header.scss */
 #_template_header #menu {
   float: right;
   margin-right: 10px;
 }
-/* line 24, ../sass/_template_header.scss */
+/* line 24, ../../../../../../HarasBundle/Resources/public/styles/sass/_template_header.scss */
 #_template_header #menu ul {
   list-style-type: none;
   overflow: hidden;
 }
-/* line 29, ../sass/_template_header.scss */
+/* line 29, ../../../../../../HarasBundle/Resources/public/styles/sass/_template_header.scss */
 #_template_header #menu li {
   display: inline;
   margin-right: 10px;
 }
-/* line 34, ../sass/_template_header.scss */
+/* line 34, ../../../../../../HarasBundle/Resources/public/styles/sass/_template_header.scss */
 #_template_header #menu a {
   text-decoration: none;
   display: inline-block;
@@ -481,20 +481,20 @@ html {
   border-radius: 10px;
   color: white;
 }
-/* line 42, ../sass/_template_header.scss */
+/* line 42, ../../../../../../HarasBundle/Resources/public/styles/sass/_template_header.scss */
 #_template_header #langues {
   float: left;
 }
-/* line 46, ../sass/_template_header.scss */
+/* line 46, ../../../../../../HarasBundle/Resources/public/styles/sass/_template_header.scss */
 #_template_header #langues ul {
   list-style-type: none;
   overflow: hidden;
 }
-/* line 51, ../sass/_template_header.scss */
+/* line 51, ../../../../../../HarasBundle/Resources/public/styles/sass/_template_header.scss */
 #_template_header #langues li {
   display: inline;
 }
-/* line 56, ../sass/_template_header.scss */
+/* line 56, ../../../../../../HarasBundle/Resources/public/styles/sass/_template_header.scss */
 #_template_header #langues a {
   margin: 3px;
   display: inline-block;
@@ -503,40 +503,40 @@ html {
   padding: 5px;
   color: white;
 }
-/* line 64, ../sass/_template_header.scss */
+/* line 64, ../../../../../../HarasBundle/Resources/public/styles/sass/_template_header.scss */
 #_template_header #langues p {
   display: inline;
 }
-/* line 68, ../sass/_template_header.scss */
+/* line 68, ../../../../../../HarasBundle/Resources/public/styles/sass/_template_header.scss */
 #_template_header #langues a:hover {
   background-color: blue;
 }
-/* line 72, ../sass/_template_header.scss */
+/* line 72, ../../../../../../HarasBundle/Resources/public/styles/sass/_template_header.scss */
 #_template_header .section1Link.hover {
   background-color: #07400a;
 }
-/* line 75, ../sass/_template_header.scss */
+/* line 75, ../../../../../../HarasBundle/Resources/public/styles/sass/_template_header.scss */
 #_template_header .section2Link.hover {
   background-color: #8c6822;
 }
-/* line 78, ../sass/_template_header.scss */
+/* line 78, ../../../../../../HarasBundle/Resources/public/styles/sass/_template_header.scss */
 #_template_header .section3Link.hover {
   background-color: #27228c;
 }
-/* line 81, ../sass/_template_header.scss */
+/* line 81, ../../../../../../HarasBundle/Resources/public/styles/sass/_template_header.scss */
 #_template_header .section4Link.hover {
   background-color: #b71586;
 }
-/* line 85, ../sass/_template_header.scss */
+/* line 85, ../../../../../../HarasBundle/Resources/public/styles/sass/_template_header.scss */
 #_template_header .accueil:hover, #_template_header #langues a:hover, #_template_header .contact:hover {
   background-color: blue;
 }
-/* line 91, ../sass/_template_header.scss */
+/* line 91, ../../../../../../HarasBundle/Resources/public/styles/sass/_template_header.scss */
 #_template_header #social {
   float: left;
   margin-left: 100px;
 }
-/* line 96, ../sass/_template_header.scss */
+/* line 96, ../../../../../../HarasBundle/Resources/public/styles/sass/_template_header.scss */
 #_template_header .icone-social {
   width: 40px;
   -webkit-transition: all 0.6s;
@@ -545,7 +545,7 @@ html {
   -ms-transition: all 0.6s;
   transition: all 0.6s;
 }
-/* line 105, ../sass/_template_header.scss */
+/* line 105, ../../../../../../HarasBundle/Resources/public/styles/sass/_template_header.scss */
 #_template_header .icone-social:hover {
   transform: scale(1.3) rotateZ(360deg);
 }
@@ -553,7 +553,7 @@ html {
 /*//////////////////////////////////////////////
 //////////// _template_footer.scss /////////////
 //////////////////////////////////////////////*/
-/* line 6, ../sass/_template_footer.scss */
+/* line 6, ../../../../../../HarasBundle/Resources/public/styles/sass/_template_footer.scss */
 #_template_footer {
   margin-top: 0px;
   background-color: #d82679;
@@ -565,34 +565,34 @@ html {
   /*  Footer button*/
   /* form input*/
 }
-/* line 13, ../sass/_template_footer.scss */
+/* line 13, ../../../../../../HarasBundle/Resources/public/styles/sass/_template_footer.scss */
 #_template_footer * {
   text-decoration: none;
   color: white;
 }
-/* line 18, ../sass/_template_footer.scss */
+/* line 18, ../../../../../../HarasBundle/Resources/public/styles/sass/_template_footer.scss */
 #_template_footer .p-titre {
   font-size: 1.4em;
   font-weight: bold;
 }
-/* line 23, ../sass/_template_footer.scss */
+/* line 23, ../../../../../../HarasBundle/Resources/public/styles/sass/_template_footer.scss */
 #_template_footer p {
   font-size: 16px;
 }
-/* line 27, ../sass/_template_footer.scss */
+/* line 27, ../../../../../../HarasBundle/Resources/public/styles/sass/_template_footer.scss */
 #_template_footer h1 {
   font-size: 2em;
   text-align: left;
 }
-/* line 32, ../sass/_template_footer.scss */
+/* line 32, ../../../../../../HarasBundle/Resources/public/styles/sass/_template_footer.scss */
 #_template_footer h2 {
   font-size: 1.5em;
 }
-/* line 36, ../sass/_template_footer.scss */
+/* line 36, ../../../../../../HarasBundle/Resources/public/styles/sass/_template_footer.scss */
 #_template_footer h3 {
   font-size: 1em;
 }
-/* line 45, ../sass/_template_footer.scss */
+/* line 45, ../../../../../../HarasBundle/Resources/public/styles/sass/_template_footer.scss */
 #_template_footer .footer-left,
 #_template_footer .footer-center,
 #_template_footer .footer-right {
@@ -601,33 +601,33 @@ html {
   width: 30%;
   text-align: left;
 }
-/* line 56, ../sass/_template_footer.scss */
+/* line 56, ../../../../../../HarasBundle/Resources/public/styles/sass/_template_footer.scss */
 #_template_footer #footer-bottom {
   background-color: #003f40;
   text-align: left;
   padding: 0.5em;
   margin-top: 1em;
 }
-/* line 63, ../sass/_template_footer.scss */
+/* line 63, ../../../../../../HarasBundle/Resources/public/styles/sass/_template_footer.scss */
 #_template_footer #copyright {
   padding-left: 5%;
 }
-/* line 68, ../sass/_template_footer.scss */
+/* line 68, ../../../../../../HarasBundle/Resources/public/styles/sass/_template_footer.scss */
 #_template_footer #footer-bottom a:link, #_template_footer a:visited {
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 15px;
 }
-/* line 75, ../sass/_template_footer.scss */
+/* line 75, ../../../../../../HarasBundle/Resources/public/styles/sass/_template_footer.scss */
 #_template_footer #footer-bottom a:hover, #_template_footer a:active {
   text-decoration: underline;
 }
-/* line 79, ../sass/_template_footer.scss */
+/* line 79, ../../../../../../HarasBundle/Resources/public/styles/sass/_template_footer.scss */
 #_template_footer #mentions {
   padding-left: 2%;
 }
-/* line 87, ../sass/_template_footer.scss */
+/* line 87, ../../../../../../HarasBundle/Resources/public/styles/sass/_template_footer.scss */
 #_template_footer button {
   background-color: #4CAF50;
   /* Green */
@@ -644,17 +644,17 @@ html {
   width: 181px;
   margin-left: 1em;
 }
-/* line 104, ../sass/_template_footer.scss */
+/* line 104, ../../../../../../HarasBundle/Resources/public/styles/sass/_template_footer.scss */
 #_template_footer .button1 {
   background-color: #4CAF50;
   border: 2px solid #4CAF50;
 }
-/* line 109, ../sass/_template_footer.scss */
+/* line 109, ../../../../../../HarasBundle/Resources/public/styles/sass/_template_footer.scss */
 #_template_footer .button1:hover {
   background-color: white;
   color: #4CAF50;
 }
-/* line 116, ../sass/_template_footer.scss */
+/* line 116, ../../../../../../HarasBundle/Resources/public/styles/sass/_template_footer.scss */
 #_template_footer .footer-right form input,
 #_template_footer .footer-right form textarea {
   display: block;
@@ -672,26 +672,26 @@ html {
   margin-left: 1em;
   padding-left: 1em;
 }
-/* line 135, ../sass/_template_footer.scss */
+/* line 135, ../../../../../../HarasBundle/Resources/public/styles/sass/_template_footer.scss */
 #_template_footer .footer-right ::-webkit-input-placeholder {
   color: #5c666b;
 }
-/* line 139, ../sass/_template_footer.scss */
+/* line 139, ../../../../../../HarasBundle/Resources/public/styles/sass/_template_footer.scss */
 #_template_footer .footer-right ::-moz-placeholder {
   color: #5c666b;
   opacity: 1;
 }
-/* line 144, ../sass/_template_footer.scss */
+/* line 144, ../../../../../../HarasBundle/Resources/public/styles/sass/_template_footer.scss */
 #_template_footer .footer-right :-ms-input-placeholder {
   color: #5c666b;
 }
-/* line 148, ../sass/_template_footer.scss */
+/* line 148, ../../../../../../HarasBundle/Resources/public/styles/sass/_template_footer.scss */
 #_template_footer .footer-right form input {
   height: 55px;
   margin-bottom: 15px;
   width: 181px;
 }
-/* line 154, ../sass/_template_footer.scss */
+/* line 154, ../../../../../../HarasBundle/Resources/public/styles/sass/_template_footer.scss */
 #_template_footer .footer-right form textarea {
   height: 100px;
   margin-bottom: 20px;
@@ -702,83 +702,83 @@ html {
 //////////////////////////////////////////////*/
 /* footer/header colour */
 /* footer/header colour */
-/* line 16, ../sass/_template.scss */
+/* line 16, ../../../../../../HarasBundle/Resources/public/styles/sass/_template.scss */
 #_template.section1 footer, #_template.section1 header {
   background-color: #07400a;
 }
-/* line 19, ../sass/_template.scss */
+/* line 19, ../../../../../../HarasBundle/Resources/public/styles/sass/_template.scss */
 #_template.section1 .paginationNav {
   border-top: 0.1em solid #07400a;
   color: #07400a;
 }
 
-/* line 25, ../sass/_template.scss */
+/* line 25, ../../../../../../HarasBundle/Resources/public/styles/sass/_template.scss */
 #_template.section2 footer, #_template.section2 header {
   background-color: #8c6822;
 }
-/* line 28, ../sass/_template.scss */
+/* line 28, ../../../../../../HarasBundle/Resources/public/styles/sass/_template.scss */
 #_template.section2 .paginationNav {
   border-top: 0.1em solid #8c6822;
   color: #8c6822;
 }
 
-/* line 34, ../sass/_template.scss */
+/* line 34, ../../../../../../HarasBundle/Resources/public/styles/sass/_template.scss */
 #_template.section3 footer, #_template.section3 header {
   background-color: #27228c;
 }
-/* line 37, ../sass/_template.scss */
+/* line 37, ../../../../../../HarasBundle/Resources/public/styles/sass/_template.scss */
 #_template.section3 .paginationNav {
   border-top: 0.1em solid #27228c;
   color: #27228c;
 }
 
-/* line 43, ../sass/_template.scss */
+/* line 43, ../../../../../../HarasBundle/Resources/public/styles/sass/_template.scss */
 #_template.section4 footer, #_template.section4 header {
   background-color: #b71586;
 }
-/* line 46, ../sass/_template.scss */
+/* line 46, ../../../../../../HarasBundle/Resources/public/styles/sass/_template.scss */
 #_template.section4 .paginationNav {
   border-top: 0.1em solid #b71586;
   color: #b71586;
 }
 
-/* line 53, ../sass/_template.scss */
+/* line 53, ../../../../../../HarasBundle/Resources/public/styles/sass/_template.scss */
 #_template .page-content {
   margin: 0 !important;
 }
-/* line 56, ../sass/_template.scss */
+/* line 56, ../../../../../../HarasBundle/Resources/public/styles/sass/_template.scss */
 #_template .paginationNav {
   padding-top: 10px !important;
 }
-/* line 58, ../sass/_template.scss */
+/* line 58, ../../../../../../HarasBundle/Resources/public/styles/sass/_template.scss */
 #_template .paginationNav * {
   color: inherit;
 }
-/* line 62, ../sass/_template.scss */
+/* line 62, ../../../../../../HarasBundle/Resources/public/styles/sass/_template.scss */
 #_template .paginationNav li {
   display: inline;
   margin-right: 0.5em;
   font-weight: bold;
 }
-/* line 70, ../sass/_template.scss */
+/* line 70, ../../../../../../HarasBundle/Resources/public/styles/sass/_template.scss */
 #_template .article .media.image {
   margin: 0 2em;
   max-width: 50%;
 }
-/* line 74, ../sass/_template.scss */
+/* line 74, ../../../../../../HarasBundle/Resources/public/styles/sass/_template.scss */
 #_template .article .content {
   text-align: justify;
 }
-/* line 77, ../sass/_template.scss */
+/* line 77, ../../../../../../HarasBundle/Resources/public/styles/sass/_template.scss */
 #_template .article .text-left {
   margin: 0 2em;
 }
-/* line 81, ../sass/_template.scss */
+/* line 81, ../../../../../../HarasBundle/Resources/public/styles/sass/_template.scss */
 #_template .article-block {
   margin-top: 100px !important;
 }
 
-/* line 1, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 1, ../../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .postAdmin {
   background-color: RGBA(255, 255, 255, 0.8);
   margin-top: 15px;
@@ -786,12 +786,12 @@ html {
   border-radius: 15px;
 }
 
-/* line 8, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 8, ../../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .postContainer, .PostMain {
   flex: 1 0 auto;
 }
 
-/* line 15, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 15, ../../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .titrePage {
   color: #8A4B08;
   font-family: Times;
@@ -799,7 +799,7 @@ html {
   text-shadow: 1px 1px 2px #96692d;
 }
 
-/* line 22, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 22, ../../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .soustitrePage {
   color: #8e8e8e;
   font-style: italic;
@@ -807,107 +807,107 @@ html {
 }
 
 @media screen and (max-width: 600px) {
-  /* line 29, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+  /* line 29, ../../../../../../ForumBundle/Resources/public/sass/_post.scss */
   .titrePage {
     font-size: 42px;
   }
 
-  /* line 30, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+  /* line 30, ../../../../../../ForumBundle/Resources/public/sass/_post.scss */
   .soustitrePage {
     font-size: 21px;
   }
 }
-/* line 36, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 36, ../../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .postSectionIndex {
   margin-left: 415px !important;
   margin-right: 70px !important;
 }
 
-/* line 41, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 41, ../../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .postListTitleCat_1 {
   background-color: rgba(7, 64, 10, 0.6);
   border-bottom: 0px solid #ddd;
   color: #FFFFFF;
 }
 
-/* line 47, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 47, ../../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .postListTitleCat_1:hover {
   background-color: #07400a;
 }
 
-/* line 51, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 51, ../../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .postListTitleCat_2 {
   background-color: rgba(140, 104, 34, 0.6);
   border-bottom: 0px solid #ddd;
   color: #FFFFFF;
 }
 
-/* line 57, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 57, ../../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .postListTitleCat_2:hover {
   background-color: #8c6822;
 }
 
-/* line 61, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 61, ../../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .postListTitleCat_3 {
   background-color: rgba(39, 34, 140, 0.6);
   border-bottom: 0px solid #ddd;
   color: #FFFFFF;
 }
 
-/* line 67, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 67, ../../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .postListTitleCat_3:hover {
   background-color: #27228C;
 }
 
-/* line 71, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 71, ../../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .postListTitleCat_4 {
   background-color: rgba(183, 21, 134, 0.6);
   border-bottom: 0px solid #ddd;
   color: #FFFFFF;
 }
 
-/* line 77, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 77, ../../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .postListTitleCat_4:hover {
   background-color: #b71586;
 }
 
-/* line 81, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 81, ../../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .indexImageCat {
   margin-left: 42%;
   max-width: 150px;
   max-height: 150px;
 }
 
-/* line 87, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 87, ../../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .postListTitleSousCat {
   background-color: #B71586 !important;
   border-bottom: 0px solid #ddd;
 }
 
-/* line 92, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 92, ../../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .postListTitlePost {
   background-color: #00bcd4 !important;
   border-bottom: 0px solid #ddd;
 }
 
-/* line 97, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 97, ../../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .indexEntrerFil {
   margin-left: 43%;
   margin-top: 15px;
 }
 
-/* line 102, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 102, ../../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .postDivPrincipale {
   padding-bottom: 0px !important;
 }
 
-/* line 105, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 105, ../../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .liPostSousCat {
   margin-left: 70px !important;
   margin-right: 70px !important;
 }
 
-/* line 115, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 115, ../../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .bigtxt {
   max-height: 150px;
   max-width: inherit;
@@ -915,13 +915,13 @@ html {
   text-overflow: ellipsis;
 }
 
-/* line 122, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 122, ../../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .chip {
   margin-left: 2% !important;
   margin-bottom: 3% !important;
 }
 
-/* line 127, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 127, ../../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .cartoucheUserIndexPost {
   width: 45% !important;
   margin: 20px !important;
@@ -940,23 +940,23 @@ html {
   box-shadow: 0px 1px 1px #dadada, 0 2px 2px #d3d3d3 !important;
 }
 
-/* line 146, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 146, ../../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .pCartoucheUserIndexPost {
   padding: 1px !important;
   margin-left: 120px;
 }
 
-/* line 151, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 151, ../../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .divCorpsPostParent {
   background-color: #FFF;
 }
 
-/* line 155, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 155, ../../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .divCorpsSousCat {
   background: rgba(222, 222, 222, 0.7);
 }
 
-/* line 162, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 162, ../../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .avatarUserIndex {
   position: relative;
   width: 100px;
@@ -969,7 +969,7 @@ html {
   margin-left: 5% !important;
 }
 
-/* line 175, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 175, ../../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .avatarUserIndex img {
   position: absolute;
   left: 50%;
@@ -981,18 +981,18 @@ html {
   transform: translate(-50%, -50%);
 }
 
-/* line 189, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 189, ../../../../../../ForumBundle/Resources/public/sass/_post.scss */
 span.badge {
   color: #5a5959 !important;
 }
 
-/* line 197, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 197, ../../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .filDeDiscussion {
   margin-left: 10% !important;
   margin-right: 10% !important;
 }
 
-/* line 202, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 202, ../../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .sectionAllPost {
   position: relative;
   width: 75%;
@@ -1005,7 +1005,7 @@ span.badge {
   border-radius: 2px;
 }
 
-/* line 214, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 214, ../../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .header {
   width: 100%;
   height: auto;
@@ -1013,14 +1013,14 @@ span.badge {
   overflow: hidden;
 }
 
-/* line 220, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 220, ../../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .titreEnfant {
   width: 100%;
   height: auto;
   overflow: hidden;
 }
 
-/* line 226, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 226, ../../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .header .circle {
   position: relative;
   top: 20px;
@@ -1033,7 +1033,7 @@ span.badge {
   z-index: 10;
 }
 
-/* line 238, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 238, ../../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .header h1 {
   position: relative;
   top: 10px;
@@ -1043,7 +1043,7 @@ span.badge {
   border-bottom: 3px solid #f1c40f;
 }
 
-/* line 247, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 247, ../../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .contextHeader {
   position: relative;
   top: 20px;
@@ -1055,7 +1055,7 @@ span.badge {
   color: #DEDEDE;
 }
 
-/* line 259, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 259, ../../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .line {
   position: absolute;
   z-index: 0;
@@ -1066,7 +1066,7 @@ span.badge {
   border-right: 1px solid #f1c40f;
 }
 
-/* line 269, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 269, ../../../../../../ForumBundle/Resources/public/sass/_post.scss */
 #content {
   width: 100%;
   height: 700px;
@@ -1076,23 +1076,23 @@ span.badge {
   overflow-x: hidden;
 }
 
-/* line 277, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 277, ../../../../../../ForumBundle/Resources/public/sass/_post.scss */
 #content::-webkit-scrollbar {
   width: 6px;
   background-color: #EBEBEB;
 }
 
-/* line 281, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 281, ../../../../../../ForumBundle/Resources/public/sass/_post.scss */
 #content::-webkit-scrollbar-thumb {
   background-color: #ccc;
 }
 
-/* line 285, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 285, ../../../../../../ForumBundle/Resources/public/sass/_post.scss */
 #content .object {
   width: 100%;
 }
 
-/* line 288, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 288, ../../../../../../ForumBundle/Resources/public/sass/_post.scss */
 #content .object:after {
   content: "";
   display: block;
@@ -1100,7 +1100,7 @@ span.badge {
   clear: both;
 }
 
-/* line 294, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 294, ../../../../../../ForumBundle/Resources/public/sass/_post.scss */
 #content .object .date {
   float: left;
   width: 40px;
@@ -1115,7 +1115,7 @@ span.badge {
   font-size: 1.4em;
 }
 
-/* line 307, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 307, ../../../../../../ForumBundle/Resources/public/sass/_post.scss */
 #content .object .circle {
   position: relative;
   float: left;
@@ -1127,7 +1127,7 @@ span.badge {
   border-radius: 50%;
 }
 
-/* line 318, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 318, ../../../../../../ForumBundle/Resources/public/sass/_post.scss */
 #content .object h1 {
   position: relative;
   top: 20px;
@@ -1140,7 +1140,7 @@ span.badge {
   border-bottom: 1.5px solid #f1c40f;
 }
 
-/* line 330, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 330, ../../../../../../ForumBundle/Resources/public/sass/_post.scss */
 #content .object .context {
   float: left;
   color: #666;
@@ -1152,7 +1152,7 @@ span.badge {
   line-height: 1.5em;
 }
 
-/* line 342, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 342, ../../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .ombreCard {
   z-index: 30;
   -webkit-box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.19), 0 6px 6px 0 rgba(0, 0, 0, 0.23);
@@ -1163,12 +1163,12 @@ span.badge {
   /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
 }
 
-/* line 349, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 349, ../../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .container {
   flex: 1 0 auto;
 }
 
-/* line 353, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 353, ../../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .cartoucheUserShowAll {
   width: 30% !important;
   margin: 2% !important;
@@ -1181,7 +1181,7 @@ span.badge {
   left: 100px;
 }
 
-/* line 365, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 365, ../../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .pCartoucheUserShowAll {
   padding: 1px !important;
   margin-left: 165px;
@@ -1189,26 +1189,26 @@ span.badge {
 }
 
 @media screen and (max-width: 1000px) {
-  /* line 373, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+  /* line 373, ../../../../../../ForumBundle/Resources/public/sass/_post.scss */
   .header .circle {
     top: 20px;
     left: 10px;
   }
 
-  /* line 377, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+  /* line 377, ../../../../../../ForumBundle/Resources/public/sass/_post.scss */
   .header h1 {
     top: 10px;
     left: 42px;
   }
 
-  /* line 381, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+  /* line 381, ../../../../../../ForumBundle/Resources/public/sass/_post.scss */
   .contextHeader {
     position: relative;
     top: 20px;
     left: 44px;
   }
 
-  /* line 387, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+  /* line 387, ../../../../../../ForumBundle/Resources/public/sass/_post.scss */
   .aPost {
     margin: 0 auto;
     position: relative;
@@ -1216,7 +1216,7 @@ span.badge {
     left: 50px;
   }
 
-  /* line 393, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+  /* line 393, ../../../../../../ForumBundle/Resources/public/sass/_post.scss */
   .cartoucheUserShowAll {
     width: unset !important;
     margin: unset !important;
@@ -1230,38 +1230,38 @@ span.badge {
     box-shadow: unset !important;
   }
 
-  /* line 405, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+  /* line 405, ../../../../../../ForumBundle/Resources/public/sass/_post.scss */
   .line {
     position: absolute;
     top: 50px;
     left: 35px;
   }
 }
-/* line 419, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 419, ../../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .lastPost {
   width: 96% !important;
 }
 
-/* line 423, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 423, ../../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .pDernierPost {
   bottom: 15px !important;
 }
 
-/* line 427, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 427, ../../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .titreDerPost {
   font-size: 30px !important;
   text-align: center !important;
   margin-bottom: 3%;
 }
 
-/* line 434, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 434, ../../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .lastPostContenu {
   max-width: inherit;
   max-height: inherit;
   overflow: scroll;
 }
 
-/* line 440, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 440, ../../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .lastPostContenu > p {
   overflow: hidden;
   display: -webkit-box;
@@ -1269,7 +1269,7 @@ span.badge {
   -webkit-box-orient: vertical;
 }
 
-/* line 465, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 465, ../../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .pagination {
   margin: 20px 0;
   overflow: hidden;
@@ -1278,20 +1278,20 @@ span.badge {
   vertical-align: middle;
 }
 
-/* line 472, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 472, ../../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .pagination ul {
   float: left;
   left: 50%;
   position: relative;
 }
 
-/* line 477, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 477, ../../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .pagination ul > li {
   left: -50%;
   position: relative;
 }
 
-/* line 481, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 481, ../../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .pagination li a {
   transition: all 100ms ease-in-out 0s;
   background-color: #F7F7F8;
@@ -1308,41 +1308,41 @@ span.badge {
   width: 30px;
 }
 
-/* line 496, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 496, ../../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .pagination li a:hover {
   background-color: #FF8C00;
   color: #FFFFFF;
 }
 
-/* line 500, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 500, ../../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .pagination li.active a {
   background-color: #FF8C00;
   color: #FFFFFF;
   font-weight: bold;
 }
 
-/* line 505, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 505, ../../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .pagination li.active a:hover {
   color: #FFFFFF;
 }
 
-/* line 509, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 509, ../../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .pagination li.current a {
   background-color: #FF8C00;
   color: #FFFFFF;
 }
 
-/* line 514, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 514, ../../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .pagination li i {
   font-size: 1rem !important;
 }
 
-/* line 522, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 522, ../../../../../../ForumBundle/Resources/public/sass/_post.scss */
 aside {
   opacity: 0.85;
 }
 
-/* line 526, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 526, ../../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .go a:before,
 .go a:after {
   display: inline-block;
@@ -1352,7 +1352,7 @@ aside {
   transition: transform 0.3s, opacity 0.2s;
 }
 
-/* line 535, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 535, ../../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .go a:before {
   margin-right: 10px;
   content: '[';
@@ -1361,7 +1361,7 @@ aside {
   transform: translate(20px);
 }
 
-/* line 543, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 543, ../../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .go a:after {
   margin-left: 10px;
   content: ']';
@@ -1370,7 +1370,7 @@ aside {
   transform: translate(-20px);
 }
 
-/* line 551, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 551, ../../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .go a:hover:before,
 .go a:hover:after,
 .go a:focus:before,
@@ -1381,29 +1381,29 @@ aside {
   transform: translate(0px);
 }
 
-/* line 561, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 561, ../../../../../../ForumBundle/Resources/public/sass/_post.scss */
 #dropdown1 {
   top: 317px !important;
   left: 15px !important;
 }
 
-/* line 566, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 566, ../../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .userLogout {
   background: #DEDEDE;
 }
 
-/* line 570, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 570, ../../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .userLogout a {
   color: red !important;
 }
 
 @media (min-width: 991px) {
-  /* line 575, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+  /* line 575, ../../../../../../ForumBundle/Resources/public/sass/_post.scss */
   main {
     padding-left: 20px;
   }
 }
-/* line 584, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 584, ../../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .reactDivParent {
   width: 80%;
   background-color: #f1f1e3;
@@ -1412,7 +1412,7 @@ aside {
   text-align: justify;
 }
 
-/* line 592, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 592, ../../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .reactH4WrapIsole > a {
   float: right;
 }
@@ -1420,7 +1420,7 @@ aside {
 /*-----------------------------------------------------*\
                           NAVBAR
 \*-----------------------------------------------------*/
-/* line 6, ../../../../../PlateFormeBundle/Resources/public/sass/_layout_plateforme.scss */
+/* line 6, ../../../../../../PlateFormeBundle/Resources/public/sass/_layout_plateforme.scss */
 .nav-wrapper {
   font-size: 16px;
   background-color: #515e69;
@@ -1429,18 +1429,18 @@ aside {
   transition-duration: .3s;
 }
 
-/* line 14, ../../../../../PlateFormeBundle/Resources/public/sass/_layout_plateforme.scss */
+/* line 14, ../../../../../../PlateFormeBundle/Resources/public/sass/_layout_plateforme.scss */
 .navbar2 {
   height: 48px;
 }
 
-/* line 18, ../../../../../PlateFormeBundle/Resources/public/sass/_layout_plateforme.scss */
+/* line 18, ../../../../../../PlateFormeBundle/Resources/public/sass/_layout_plateforme.scss */
 nav {
   background-color: #5a6b77;
   line-height: 50px;
 }
 
-/* line 23, ../../../../../PlateFormeBundle/Resources/public/sass/_layout_plateforme.scss */
+/* line 23, ../../../../../../PlateFormeBundle/Resources/public/sass/_layout_plateforme.scss */
 #nav-wrapper2 {
   font-size: 16px;
   background-color: rgba(91, 104, 115, 0.9);
@@ -1449,36 +1449,36 @@ nav {
   transition-duration: .3s;
 }
 
-/* line 31, ../../../../../PlateFormeBundle/Resources/public/sass/_layout_plateforme.scss */
+/* line 31, ../../../../../../PlateFormeBundle/Resources/public/sass/_layout_plateforme.scss */
 .decouverte:hover {
   background-color: rgba(10, 112, 14, 0.6) !important;
   height: 44px;
 }
 
-/* line 36, ../../../../../PlateFormeBundle/Resources/public/sass/_layout_plateforme.scss */
+/* line 36, ../../../../../../PlateFormeBundle/Resources/public/sass/_layout_plateforme.scss */
 .harras:hover {
   background-color: rgba(84, 39, 20, 0.6) !important;
   height: 44px;
 }
 
-/* line 41, ../../../../../PlateFormeBundle/Resources/public/sass/_layout_plateforme.scss */
+/* line 41, ../../../../../../PlateFormeBundle/Resources/public/sass/_layout_plateforme.scss */
 .detente:hover {
   background-color: rgba(62, 62, 129, 0.6) !important;
   height: 44px;
 }
 
-/* line 46, ../../../../../PlateFormeBundle/Resources/public/sass/_layout_plateforme.scss */
+/* line 46, ../../../../../../PlateFormeBundle/Resources/public/sass/_layout_plateforme.scss */
 .coworking:hover {
   background-color: rgba(183, 21, 134, 0.6) !important;
   height: 44px;
 }
 
-/* line 52, ../../../../../PlateFormeBundle/Resources/public/sass/_layout_plateforme.scss */
+/* line 52, ../../../../../../PlateFormeBundle/Resources/public/sass/_layout_plateforme.scss */
 .navbar2 {
   border-top: solid 2px #424242;
 }
 
-/* line 58, ../../../../../PlateFormeBundle/Resources/public/sass/_layout_plateforme.scss */
+/* line 58, ../../../../../../PlateFormeBundle/Resources/public/sass/_layout_plateforme.scss */
 input[type=text] {
   width: 10px;
   box-sizing: border-box;
@@ -1494,7 +1494,7 @@ input[type=text] {
   transition: width 0.4s ease-in-out !important;
 }
 
-/* line 73, ../../../../../PlateFormeBundle/Resources/public/sass/_layout_plateforme.scss */
+/* line 73, ../../../../../../PlateFormeBundle/Resources/public/sass/_layout_plateforme.scss */
 input[type=text]:focus {
   width: 20% !important;
 }
@@ -1502,43 +1502,43 @@ input[type=text]:focus {
 /*-----------------------------------------------------*\
                           LOGO - ICON
 \*-----------------------------------------------------*/
-/* line 83, ../../../../../PlateFormeBundle/Resources/public/sass/_layout_plateforme.scss */
+/* line 83, ../../../../../../PlateFormeBundle/Resources/public/sass/_layout_plateforme.scss */
 ul.right.hide-on-med-and-down {
   padding-top: 1px;
 }
 
-/* line 87, ../../../../../PlateFormeBundle/Resources/public/sass/_layout_plateforme.scss */
+/* line 87, ../../../../../../PlateFormeBundle/Resources/public/sass/_layout_plateforme.scss */
 nav ul a:hover {
   background-color: rgba(0, 0, 0, 0.1);
 }
 
-/* line 92, ../../../../../PlateFormeBundle/Resources/public/sass/_layout_plateforme.scss */
+/* line 92, ../../../../../../PlateFormeBundle/Resources/public/sass/_layout_plateforme.scss */
 #logo {
   background-color: #577a37;
   height: 64px;
 }
 
-/* line 98, ../../../../../PlateFormeBundle/Resources/public/sass/_layout_plateforme.scss */
+/* line 98, ../../../../../../PlateFormeBundle/Resources/public/sass/_layout_plateforme.scss */
 #logo:hover {
   background-color: #496b35;
 }
 
-/* line 102, ../../../../../PlateFormeBundle/Resources/public/sass/_layout_plateforme.scss */
+/* line 102, ../../../../../../PlateFormeBundle/Resources/public/sass/_layout_plateforme.scss */
 .icon-background1 {
   color: rgba(10, 112, 14, 0.6);
 }
 
-/* line 106, ../../../../../PlateFormeBundle/Resources/public/sass/_layout_plateforme.scss */
+/* line 106, ../../../../../../PlateFormeBundle/Resources/public/sass/_layout_plateforme.scss */
 .icon-background2 {
   color: rgba(84, 39, 20, 0.6);
 }
 
-/* line 110, ../../../../../PlateFormeBundle/Resources/public/sass/_layout_plateforme.scss */
+/* line 110, ../../../../../../PlateFormeBundle/Resources/public/sass/_layout_plateforme.scss */
 .icon-background3 {
   color: rgba(62, 62, 129, 0.6);
 }
 
-/* line 114, ../../../../../PlateFormeBundle/Resources/public/sass/_layout_plateforme.scss */
+/* line 114, ../../../../../../PlateFormeBundle/Resources/public/sass/_layout_plateforme.scss */
 .icon-background4 {
   color: rgba(183, 21, 134, 0.6);
 }
@@ -1546,14 +1546,14 @@ nav ul a:hover {
 /*-----------------------------------------------------*\
                           BODY
 \*-----------------------------------------------------*/
-/* line 124, ../../../../../PlateFormeBundle/Resources/public/sass/_layout_plateforme.scss */
+/* line 124, ../../../../../../PlateFormeBundle/Resources/public/sass/_layout_plateforme.scss */
 body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
 }
 
-/* line 130, ../../../../../PlateFormeBundle/Resources/public/sass/_layout_plateforme.scss */
+/* line 130, ../../../../../../PlateFormeBundle/Resources/public/sass/_layout_plateforme.scss */
 .main {
   flex: 1 0 auto;
 }
@@ -1561,82 +1561,82 @@ body {
 /*-----------------------------------------------------*\
                           FOOTER
 \*-----------------------------------------------------*/
-/* line 1, ../../../../../PlateFormeBundle/Resources/public/sass/_homepage_plateforme.scss */
+/* line 1, ../../../../../../PlateFormeBundle/Resources/public/sass/_homepage_plateforme.scss */
 footer.page-footer {
   background-color: rgba(118, 135, 146, 0.9);
 }
 
-/* line 5, ../../../../../PlateFormeBundle/Resources/public/sass/_homepage_plateforme.scss */
+/* line 5, ../../../../../../PlateFormeBundle/Resources/public/sass/_homepage_plateforme.scss */
 .slider {
   height: initial !important;
 }
 
 /********************  PROFIL   ************************/
-/* line 3, ../../../../../PlateFormeBundle/Resources/public/sass/_FosUser.scss */
+/* line 3, ../../../../../../PlateFormeBundle/Resources/public/sass/_FosUser.scss */
 .img-circle {
   width: 10vw;
 }
 
-/* line 8, ../../../../../PlateFormeBundle/Resources/public/sass/_FosUser.scss */
+/* line 8, ../../../../../../PlateFormeBundle/Resources/public/sass/_FosUser.scss */
 .profile_center {
   text-align: center;
 }
 
-/* line 14, ../../../../../PlateFormeBundle/Resources/public/sass/_FosUser.scss */
+/* line 14, ../../../../../../PlateFormeBundle/Resources/public/sass/_FosUser.scss */
 .btn-primary {
   background-color: #1f7b88;
   border-color: #17505b;
 }
 
-/* line 19, ../../../../../PlateFormeBundle/Resources/public/sass/_FosUser.scss */
+/* line 19, ../../../../../../PlateFormeBundle/Resources/public/sass/_FosUser.scss */
 .container_profile {
   padding-top: 3%;
 }
 
-/* line 24, ../../../../../PlateFormeBundle/Resources/public/sass/_FosUser.scss */
+/* line 24, ../../../../../../PlateFormeBundle/Resources/public/sass/_FosUser.scss */
 input {
   margin: 6px;
   position: center;
 }
 
-/* line 29, ../../../../../PlateFormeBundle/Resources/public/sass/_FosUser.scss */
+/* line 29, ../../../../../../PlateFormeBundle/Resources/public/sass/_FosUser.scss */
 .button {
   margin-left: 36%;
   padding: 24px;
 }
 
-/* line 6, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
+/* line 6, ../../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
 .inline {
   display: flex;
   width: 30px;
   margin-left: 13%;
 }
 
-/* line 12, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
+/* line 12, ../../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
 .inline2 {
   display: flex;
 }
 
-/* line 19, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
+/* line 19, ../../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
 .backdrop {
   background-color: #888888;
   opacity: 1;
   border-radius: 5%;
 }
 
-/* line 31, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
+/* line 31, ../../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
 .wrapperCat {
   display: flex;
   flex-direction: column;
 }
 
-/* line 36, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
+/* line 36, ../../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
 .wrapperCat > div {
   margin: auto;
   align-items: center;
 }
 
-/* line 41, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
+/* line 41, ../../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
 #accordionButtonCat_1 {
   width: 100%;
   box-sizing: unset !important;
@@ -1651,12 +1651,12 @@ input {
   box-shadow: 4px 4px 6px #AAA;
 }
 
-/* line 57, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
+/* line 57, ../../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
 #accordionButtonCat_1:hover {
   background-color: #07400a;
 }
 
-/* line 61, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
+/* line 61, ../../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
 #accordionButtonCat_2 {
   width: 100%;
   box-sizing: unset !important;
@@ -1671,12 +1671,12 @@ input {
   box-shadow: 4px 4px 6px #AAA;
 }
 
-/* line 77, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
+/* line 77, ../../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
 #accordionButtonCat_2:hover {
   background-color: #8c6822;
 }
 
-/* line 81, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
+/* line 81, ../../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
 #accordionButtonCat_3 {
   width: 100%;
   box-sizing: unset !important;
@@ -1691,12 +1691,12 @@ input {
   box-shadow: 4px 4px 6px #AAA;
 }
 
-/* line 97, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
+/* line 97, ../../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
 #accordionButtonCat_3:hover {
   background-color: #27228C;
 }
 
-/* line 101, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
+/* line 101, ../../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
 #accordionButtonCat_4 {
   width: 100%;
   box-sizing: unset !important;
@@ -1711,12 +1711,12 @@ input {
   box-shadow: 4px 4px 6px #AAA;
 }
 
-/* line 117, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
+/* line 117, ../../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
 #accordionButtonCat_4:hover {
   background-color: #b71586;
 }
 
-/* line 125, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
+/* line 125, ../../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
 .accordionContent {
   width: 85%;
   float: left;
@@ -1730,19 +1730,19 @@ input {
   box-shadow: 4px 4px 6px #AAA;
 }
 
-/* line 137, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
+/* line 137, ../../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
 .accordionContent ul li {
   height: 45px;
 }
 
-/* line 149, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
+/* line 149, ../../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
 .spanCat {
   margin-left: 2%;
   margin-right: 70%;
   color: #FFF;
 }
 
-/* line 155, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
+/* line 155, ../../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
 .spanSousCat {
   padding-left: 7%;
   padding-right: 60%;
@@ -1751,17 +1751,17 @@ input {
 }
 
 @media screen and (max-width: 780px) {
-  /* line 163, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
+  /* line 163, ../../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
   .spanCat {
     margin-left: 2%;
   }
 
-  /* line 166, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
+  /* line 166, ../../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
   .spanSousCat {
     padding-right: 40%;
   }
 
-  /* line 169, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
+  /* line 169, ../../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
   .wrapperCat > div {
     align-items: center;
   }
@@ -1769,17 +1769,17 @@ input {
 /***********************************************************************************************************************
  EXTRA STYLES ADDED FOR MOUSEOVER / ACTIVE EVENTS
 ************************************************************************************************************************/
-/* line 176, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
+/* line 176, ../../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
 .on {
   background: #b3b3b3;
 }
 
-/* line 180, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
+/* line 180, ../../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
 .over {
   background: #888888;
 }
 
-/* line 184, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
+/* line 184, ../../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
 .flash-notice {
   color: green !important;
   font-size: 20px;
