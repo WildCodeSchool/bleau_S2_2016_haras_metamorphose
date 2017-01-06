@@ -2,22 +2,79 @@
 
 {% block stylesheets %}
     {{ parent() }}
-    <link rel="stylesheet" href="{{ asset('bundles/calendar/css/fullcalendar.print.css') }}">
+    {#<link rel="stylesheet" href="{{ asset('bundles/calendar/css/fullcalendar.print.css') }}">#}
     <link rel="stylesheet" href="{{ asset('bundles/calendar/css/fullcalendar.css') }}">
     <link rel="stylesheet" href="{{ asset('bundles/calendar/css/calendar_main.css') }}">
 {% endblock %}
 
 {% block body %}
+
+
     <div class="container">
-        <div class="">
-            <a href="{{ path('agenda_new') }}">Nouvelle évènement</a>
+        <div class="row center">
+            <div class="col s12 center">
+                {% if is_granted('ROLE_SUPER_ADMIN') %}
+
+                    <a href="{{ path('agenda_new') }}" class="waves-effect waves-light btn">Nouvelle évènement</a>
+
+                {% elseif is_granted('ROLE_ADMIN') %}
+
+                    <a href="{{ path('agenda_new') }}" class="waves-effect waves-light btn">Nouvelle évènement</a>
+
+                {% else %}
+
+                {% endif %}
+            </div>
         </div>
+
         <div class="row">
             <div class="col s12"></div>
                 <div id='calendar'></div>
             </div>
         </div>
     </div>
+
+    <!------------------------------- --------------- ------------------------------------->
+    <!------------------------------- --------------- ------------------------------------->
+    <!------------------------------- MODAL STRUCTURE ------------------------------------->
+    <!------------------------------- --------------- ------------------------------------->
+    <!------------------------------- --------------- ------------------------------------->
+    <div id="fullCalModal" class="modal modal-fixed-footer">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="center">
+                    <h5 id="modalTitle" class="modal-title"></h5>
+                </div>
+            </div>
+
+            <div class="modal-body">
+
+                <div class="card horizontal">
+                    <div class="card-image">
+                        <h5 id="modalTitle" class="modal-title"></h5>
+                        <h6 id="modalTime" class="modal-title"></h6>
+                    </div>
+                    <div class="card-stacked">
+                        <div class="card-content">
+                            <p><span id="modalTexte"></span></p>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="modal-footer">
+            <div class="col s12 center">
+                {% if is_granted("ROLE_SUPER_ADMIN") %}
+                    <a href="#" id="delete_event" class="waves-effect waves-green btn">Supprimer</a>
+                    <a href="#" id="edit_event" class=" waves-effect waves-green btn">Modifier</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <!------------------------------- ---------------- ------------------------------------->
+
 {% endblock %}
 
 {% block javascripts %}
@@ -27,6 +84,7 @@
     {# FOS JS ROUTING SCRIPT #}
     <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
     <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
+
     <script>
         {% if is_granted('ROLE_ADMIN') %}
         var role = 'admin';
@@ -36,10 +94,12 @@
         var role = null;
         {% endif %}
     </script>
+
     <script src="{{ asset('bundles/calendar/js/calendar/jquery-ui.min.js') }}"></script>
     <script src="{{ asset('bundles/calendar/js/calendar/moment.min.js') }}"></script>
     <script src="{{ asset('bundles/calendar/js/calendar/fullcalendar.js') }}"></script>
+
     <script src="{{ asset('bundles/calendar/js/calendar/calendar-events.js') }}"></script>
-    <script src="{{ asset('bundles/calendar/js/main_calendar.js') }}"></script>
+
 {% endblock %}
 
