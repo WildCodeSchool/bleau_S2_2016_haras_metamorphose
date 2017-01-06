@@ -16,6 +16,9 @@ ForumBundle\Entity\Post:
             type: text
         actif:
             type: boolean
+        dateCreate:
+            type: date
+            column: date_create
 
     oneToMany:
         enfant:

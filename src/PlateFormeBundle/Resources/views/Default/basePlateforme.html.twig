@@ -6,16 +6,24 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('bundles/plateforme/images/icone-cheval.png') }}" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
         <link rel="stylesheet" href="{{ asset('bundles/haras/styles/stylesheets/style.css') }}">
-
         <!-- Icons -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link rel="stylesheet" href="https://opensource.keycdn.com/fontawesome/4.6.3/font-awesome.min.css" integrity="sha384-Wrgq82RsEean5tP3NK3zWAemiNEXofJsTwTyHmNb/iL3dP/sZJ4+7sOld1uqYJtE" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 
         {% block stylesheets %}{% endblock %}
 
     </head>
     <body>
-
+    {# *********************************************************************** #}
+    {#  GESTION BARRE DE NAVIGATION                                            #}
+    {# *********************************************************************** #}
+    {% if (app.request.get('_route') == 'post_index') or (app.request.get('_route') == 'post_showAllPost') or (app.request.get('_route') == 'categorieplateforme_index')  %}
+        {#
+            Si controleur envoi vers les pages post index, show all post et categorie plateforme
+            la barre de navigation est différente cf postNavBar
+        #}
+    {% else %}
         <header>
             <!-- Dropdown Structure -->
             <ul id="dropdown1" class="dropdown-content">
@@ -36,6 +44,11 @@
                 </div>
             </nav>
         </header>
+    {% endif %}
+    {# ************************************ #}
+    {#  FIN GESTION BARRE DE NAVIGATION     #}
+    {# ************************************ #}
+
 
         {# ---------------------- ---------------------------- ------------------------ #}
         {# ---------------------- Champ pour recherche par mot ------------------------ #}

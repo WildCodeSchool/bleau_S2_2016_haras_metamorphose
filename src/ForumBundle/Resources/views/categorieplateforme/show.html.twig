@@ -1,36 +1,30 @@
 {% extends '@Forum/layout.html.twig' %}
 
 {% block body %}
-    <h1>Categorieplateforme</h1>
+    <div class="catContainer postAdmin">
+        <h1 class="center">Détail de la catégorie {{ categoriePlateforme.nom }}</h1>
 
-    <table>
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ categoriePlateforme.id }}</td>
-            </tr>
+        <table>
+            <tbody>
             <tr>
                 <th>Nom</th>
                 <td>{{ categoriePlateforme.nom }}</td>
             </tr>
             <tr>
                 <th>Actif</th>
-                <td>{% if categoriePlateforme.actif %}Yes{% else %}No{% endif %}</td>
+                <td>{% if categoriePlateforme.actif %}Oui{% else %}Non{% endif %}</td>
             </tr>
-        </tbody>
-    </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('categorieplateforme_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('categorieplateforme_edit', { 'id': categoriePlateforme.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+            </tbody>
+        </table>
+        <div class="row center">
+            <a class="btn-floating btn-large waves-effect waves-light green darken-1"
+               href="{{ path('categorieplateforme_edit', { 'id': categoriePlateforme.id }) }}">
+                <i class="small material-icons">edit</i>
+            </a>
+            <a class="btn-floating btn-large waves-effect waves-light blue darken-1"
+               href="{{ path('categorieplateforme_index') }}">
+                <i class="small material-icons">home</i>
+            </a>
+        </div>
+    </div>
 {% endblock %}
