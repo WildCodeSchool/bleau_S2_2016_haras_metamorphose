@@ -66,9 +66,7 @@ class SearchEngineController extends Controller
 //                'Le champ de recherche est vide'
 //            );
 
-            return $this->render('@PlateForme/Default/index.html.twig', array(
-                'query' => $post
-            ));
+            return $this->render('@PlateForme/Default/index.html.twig');
         }
 
     }
