@@ -1584,11 +1584,6 @@ input {
   padding: 24px;
 }
 
-/* line 34, ../sass/PlateformeCSS/_FosUser.scss */
-.input-field.col label {
-  transform: none;
-}
-
 /* line 6, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
 .inline {
   display: flex;
