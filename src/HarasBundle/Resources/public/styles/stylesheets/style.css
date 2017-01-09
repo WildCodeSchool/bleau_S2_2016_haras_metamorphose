@@ -1420,7 +1420,7 @@ aside {
 /*-----------------------------------------------------*\
                           NAVBAR
 \*-----------------------------------------------------*/
-/* line 6, ../../../../../PlateFormeBundle/Resources/public/sass/_layout_plateforme.scss */
+/* line 6, ../sass/PlateformeCSS/_layout_plateforme.scss */
 .nav-wrapper {
   font-size: 16px;
   background-color: #515e69;
@@ -1429,18 +1429,18 @@ aside {
   transition-duration: .3s;
 }
 
-/* line 14, ../../../../../PlateFormeBundle/Resources/public/sass/_layout_plateforme.scss */
+/* line 14, ../sass/PlateformeCSS/_layout_plateforme.scss */
 .navbar2 {
   height: 48px;
 }
 
-/* line 18, ../../../../../PlateFormeBundle/Resources/public/sass/_layout_plateforme.scss */
+/* line 18, ../sass/PlateformeCSS/_layout_plateforme.scss */
 nav {
   background-color: #5a6b77;
   line-height: 50px;
 }
 
-/* line 23, ../../../../../PlateFormeBundle/Resources/public/sass/_layout_plateforme.scss */
+/* line 23, ../sass/PlateformeCSS/_layout_plateforme.scss */
 #nav-wrapper2 {
   font-size: 16px;
   background-color: rgba(91, 104, 115, 0.9);
@@ -1449,36 +1449,36 @@ nav {
   transition-duration: .3s;
 }
 
-/* line 31, ../../../../../PlateFormeBundle/Resources/public/sass/_layout_plateforme.scss */
+/* line 31, ../sass/PlateformeCSS/_layout_plateforme.scss */
 .decouverte:hover {
   background-color: rgba(10, 112, 14, 0.6) !important;
   height: 44px;
 }
 
-/* line 36, ../../../../../PlateFormeBundle/Resources/public/sass/_layout_plateforme.scss */
+/* line 36, ../sass/PlateformeCSS/_layout_plateforme.scss */
 .harras:hover {
   background-color: rgba(84, 39, 20, 0.6) !important;
   height: 44px;
 }
 
-/* line 41, ../../../../../PlateFormeBundle/Resources/public/sass/_layout_plateforme.scss */
+/* line 41, ../sass/PlateformeCSS/_layout_plateforme.scss */
 .detente:hover {
   background-color: rgba(62, 62, 129, 0.6) !important;
   height: 44px;
 }
 
-/* line 46, ../../../../../PlateFormeBundle/Resources/public/sass/_layout_plateforme.scss */
+/* line 46, ../sass/PlateformeCSS/_layout_plateforme.scss */
 .coworking:hover {
   background-color: rgba(183, 21, 134, 0.6) !important;
   height: 44px;
 }
 
-/* line 52, ../../../../../PlateFormeBundle/Resources/public/sass/_layout_plateforme.scss */
+/* line 52, ../sass/PlateformeCSS/_layout_plateforme.scss */
 .navbar2 {
   border-top: solid 2px #424242;
 }
 
-/* line 58, ../../../../../PlateFormeBundle/Resources/public/sass/_layout_plateforme.scss */
+/* line 58, ../sass/PlateformeCSS/_layout_plateforme.scss */
 input[type=text] {
   width: 10px;
   box-sizing: border-box;
@@ -1494,7 +1494,7 @@ input[type=text] {
   transition: width 0.4s ease-in-out !important;
 }
 
-/* line 73, ../../../../../PlateFormeBundle/Resources/public/sass/_layout_plateforme.scss */
+/* line 73, ../sass/PlateformeCSS/_layout_plateforme.scss */
 input[type=text]:focus {
   width: 20% !important;
 }
@@ -1502,43 +1502,43 @@ input[type=text]:focus {
 /*-----------------------------------------------------*\
                           LOGO - ICON
 \*-----------------------------------------------------*/
-/* line 83, ../../../../../PlateFormeBundle/Resources/public/sass/_layout_plateforme.scss */
+/* line 83, ../sass/PlateformeCSS/_layout_plateforme.scss */
 ul.right.hide-on-med-and-down {
   padding-top: 1px;
 }
 
-/* line 87, ../../../../../PlateFormeBundle/Resources/public/sass/_layout_plateforme.scss */
+/* line 87, ../sass/PlateformeCSS/_layout_plateforme.scss */
 nav ul a:hover {
   background-color: rgba(0, 0, 0, 0.1);
 }
 
-/* line 92, ../../../../../PlateFormeBundle/Resources/public/sass/_layout_plateforme.scss */
+/* line 92, ../sass/PlateformeCSS/_layout_plateforme.scss */
 #logo {
   background-color: #577a37;
   height: 64px;
 }
 
-/* line 98, ../../../../../PlateFormeBundle/Resources/public/sass/_layout_plateforme.scss */
+/* line 98, ../sass/PlateformeCSS/_layout_plateforme.scss */
 #logo:hover {
   background-color: #496b35;
 }
 
-/* line 102, ../../../../../PlateFormeBundle/Resources/public/sass/_layout_plateforme.scss */
+/* line 102, ../sass/PlateformeCSS/_layout_plateforme.scss */
 .icon-background1 {
   color: rgba(10, 112, 14, 0.6);
 }
 
-/* line 106, ../../../../../PlateFormeBundle/Resources/public/sass/_layout_plateforme.scss */
+/* line 106, ../sass/PlateformeCSS/_layout_plateforme.scss */
 .icon-background2 {
   color: rgba(84, 39, 20, 0.6);
 }
 
-/* line 110, ../../../../../PlateFormeBundle/Resources/public/sass/_layout_plateforme.scss */
+/* line 110, ../sass/PlateformeCSS/_layout_plateforme.scss */
 .icon-background3 {
   color: rgba(62, 62, 129, 0.6);
 }
 
-/* line 114, ../../../../../PlateFormeBundle/Resources/public/sass/_layout_plateforme.scss */
+/* line 114, ../sass/PlateformeCSS/_layout_plateforme.scss */
 .icon-background4 {
   color: rgba(183, 21, 134, 0.6);
 }
@@ -1546,14 +1546,14 @@ nav ul a:hover {
 /*-----------------------------------------------------*\
                           BODY
 \*-----------------------------------------------------*/
-/* line 124, ../../../../../PlateFormeBundle/Resources/public/sass/_layout_plateforme.scss */
+/* line 124, ../sass/PlateformeCSS/_layout_plateforme.scss */
 body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
 }
 
-/* line 130, ../../../../../PlateFormeBundle/Resources/public/sass/_layout_plateforme.scss */
+/* line 130, ../sass/PlateformeCSS/_layout_plateforme.scss */
 .main {
   flex: 1 0 auto;
 }
@@ -1561,45 +1561,45 @@ body {
 /*-----------------------------------------------------*\
                           FOOTER
 \*-----------------------------------------------------*/
-/* line 1, ../../../../../PlateFormeBundle/Resources/public/sass/_homepage_plateforme.scss */
+/* line 1, ../sass/PlateformeCSS/_homepage_plateforme.scss */
 footer.page-footer {
   background-color: rgba(118, 135, 146, 0.9);
 }
 
-/* line 5, ../../../../../PlateFormeBundle/Resources/public/sass/_homepage_plateforme.scss */
+/* line 5, ../sass/PlateformeCSS/_homepage_plateforme.scss */
 .slider {
   height: initial !important;
 }
 
 /********************  PROFIL   ************************/
-/* line 3, ../../../../../PlateFormeBundle/Resources/public/sass/_FosUser.scss */
+/* line 3, ../sass/PlateformeCSS/_FosUser.scss */
 .img-circle {
   width: 10vw;
 }
 
-/* line 8, ../../../../../PlateFormeBundle/Resources/public/sass/_FosUser.scss */
+/* line 8, ../sass/PlateformeCSS/_FosUser.scss */
 .profile_center {
   text-align: center;
 }
 
-/* line 14, ../../../../../PlateFormeBundle/Resources/public/sass/_FosUser.scss */
+/* line 14, ../sass/PlateformeCSS/_FosUser.scss */
 .btn-primary {
   background-color: #1f7b88;
   border-color: #17505b;
 }
 
-/* line 19, ../../../../../PlateFormeBundle/Resources/public/sass/_FosUser.scss */
+/* line 19, ../sass/PlateformeCSS/_FosUser.scss */
 .container_profile {
   padding-top: 3%;
 }
 
-/* line 24, ../../../../../PlateFormeBundle/Resources/public/sass/_FosUser.scss */
+/* line 24, ../sass/PlateformeCSS/_FosUser.scss */
 input {
   margin: 6px;
   position: center;
 }
 
-/* line 29, ../../../../../PlateFormeBundle/Resources/public/sass/_FosUser.scss */
+/* line 29, ../sass/PlateformeCSS/_FosUser.scss */
 .button {
   margin-left: 36%;
   padding: 24px;
