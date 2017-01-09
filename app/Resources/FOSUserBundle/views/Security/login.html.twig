@@ -1,0 +1,51 @@
+{% extends "@PlateForme/layout.html.twig" %}
+
+
+{% block body %}
+
+    {% block fos_user_content %}
+        <div class="container admin">
+            <h2>Se connecter</h2>
+            <div class="row login">
+                {% if error %}
+                    <div class="center errorlog">{{ error|trim('.')|trans({}, 'FOSUserBundle') }}</div>
+                {% endif %}
+
+                <form class="formlog" action="{{ path("fos_user_security_check") }}" method="post">
+
+                    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+
+                    <div class="row">
+                        <div class="input-field col offset-l4 l4 s12">
+                            <i class="material-icons prefix contactme">account_circle</i>
+                            <label class="login" for="icon_prefix">{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}</label>
+                            <input type="text" id="icon_prefix" name="_username" value="{{ last_username }}" required="required" />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col offset-l4 l4 s12">
+                            <i class="material-icons prefix contactme">vpn_key</i>
+                            <label class="login" for="icon_prefix">{{ 'security.login.password'|trans({}, 'FOSUserBundle') }}</label>
+                            <input type="password" id="icon_prefix" name="_password" required="required" />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col offset-l5 l4 s12">
+                            <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+                            <label for="remember_me">{{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}</label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col offset-l5 l4 s12">
+                            <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}" class="waves-effect waves-light btn">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    {% endblock fos_user_content %}
+
+{% endblock %}

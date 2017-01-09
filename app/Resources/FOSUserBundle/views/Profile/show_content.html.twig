@@ -1,0 +1,14 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+{#<div class="fos_user_user_show">#}
+    {#<p>{{ 'profile.show.username'|trans }}: {{ user.username }}</p>#}
+    {#<p>{{ 'profile.show.email'|trans }}: {{ user.email }}</p>#}
+{#</div>#}
+
+<div class="fos_user_user_show">
+    <div class="profile_center">
+        <p class="profile"><img class="circle responsive-img" src="{{ asset('bundles/haras/images/travail.jpg') }}{{ user.photo }}"/></p>
+        <p>Pseudo: {{ user.username }}</p>
+        <p>Email: {{ user.email }}</p>
+    </div>
+</div>

@@ -1,0 +1,61 @@
+{% extends '@PlateForme/layout.html.twig' %}
+
+
+{% block body %}
+
+    <div class="slider">
+        <ul class="slides">
+            <li>
+                <img src="http://s1.lprs1.fr/images/2016/04/21/5734339_dbcf1aa4-07c9-11e6-ae1b-485357199b15-1_1000x625.jpg"> <!-- random image -->
+                <div class="caption center-align">
+                    <h3>Nature dans le haras</h3>
+                    <h5 class="light grey-text text-lighten-3">Haras de la metamorphose</h5>
+                </div>
+            </li>
+            <li>
+                <img src="http://www.sur-un-arbre-perche.com/wp-content/uploads/2015/04/tarifs-nuit-cabane-arbre.jpg"> <!-- random image -->
+                <div class="caption left-align">
+                    <h3>Partez à la découverte des cabanes enchantées</h3>
+                    <h5 class="light grey-text text-lighten-3">Reservez dès maintenant !</h5>
+                </div>
+            </li>
+            <li>
+                <img src="http://www.normandie-actu.fr/files/2015/07/10479036_882178291849864_8451521110053692250_o.jpg"> <!-- random image -->
+                <div class="caption center-align">
+                    <h3>Se détendre au travail</h3>
+                    <h5 class="light grey-text text-lighten-3">Espaces de co-working à louer</h5>
+                </div>
+            </li>
+        </ul>
+        <ul>
+            <li class="slider admin">
+                {% if is_granted('ROLE_ADMIN') %}
+                    {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
+                    <a href="{{ path('plate_forme_homepage') }}">
+                    <span class="fa-stack fa-2x">
+                      <i class="fa fa-circle fa-stack-2x icon-background2"></i>
+                      <i class="fa fa-pencil fa-stack-1x"></i>
+                    </span>
+                    </a>
+                {% endif %}
+            </li>
+        </ul>
+
+    </div>
+
+
+{% endblock %}
+
+
+
+{% block javascripts %}
+
+    {{ parent() }}
+
+    <script>
+        $(document).ready(function(){
+            $('.slider').slider({full_width: true});
+        });
+    </script>
+
+{% endblock %}
