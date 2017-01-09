@@ -31,3 +31,60 @@ input{
   padding: 24px;
 }
 
+
+/********************  REGISTER   ************************/
+
+//.btn{
+//  background-color: #00B82B;
+//}
+//
+//.btn:hover{
+//  background-color: #47d9bc;
+//}
+
+.adminmodel {
+  max-width: 90%;
+  background-color: #8597a7;
+  padding-bottom: 5px;
+  margin-bottom: 20px;
+  border-radius: 15px;
+}
+
+.container .row {
+  margin-left: 2.25rem;
+  margin-right: 2.25rem;
+}
+
+input[type="text"] {
+  //border-bottom-color: white;
+  border:1px solid black;
+  background-color: #515e69 !important;
+}
+
+input[type="password"] {
+  //border-bottom-color: white;
+  border:1px solid black;
+  background-color: #515e69 !important;
+}
+
+
+.input-field label {
+  color: white;
+  left: 4px;
+}
+
+label{
+  color:white;
+}
+
+.select-wrapper input.select-dropdown{
+  border-bottom-color:white;
+}
+
+.select-dropdown{
+  color: #ff7bfb;
+}
+
+.file-path {
+  color:white;
+}
