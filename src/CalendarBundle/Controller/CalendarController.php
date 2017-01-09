@@ -35,6 +35,7 @@ class CalendarController extends Controller
         $em = $this->getDoctrine()->getManager(); //appel doctrine methode BDD
 
         $agenda = $em->getRepository('CalendarBundle:Agenda')->findAll(); // appel de la table
+        $role = $em->getRepository('UserBundle:FosUser')->find(role); // appel de la table
 
         $normalizer = new ObjectNormalizer(); //Normalisation des données pour passer en JSON
 
@@ -51,7 +52,7 @@ class CalendarController extends Controller
         $normalizer->setCallbacks(array('start' => $dateCallback, 'end' => $dateCallback));
 
         $serializer = new Serializer(array($normalizer), array($encoder));
-        $jsonObject = $serializer->serialize($agenda, 'json');
+        $jsonObject = $serializer->serialize($agenda, $role, 'json');
 
         $response = new Response();
         $response->setContent($jsonObject);
