@@ -29,19 +29,8 @@ class PostController extends Controller
             $nbPostEnfants[$postParent->getId()] = count($em->getRepository('ForumBundle:Post')->findBy(array('parent' => $postParent->getId(), 'actif' => 1)));
         }
 
-        // Ramene les catégories  (actif = oui)
-        $categories = $em->getRepository('ForumBundle:CategoriePlateforme')->findBy(array('actif' => 1, 'parent' => null), array('id' => 'ASC'));
-
-        // -----------------------------------------------------------------------------------------------------
-        // Test si la base de données est suffisament remplie
-        // si pas de catégorie redirection vers création
-        // nouvelle catégorie
-        // -----------------------------------------------------------------------------------------------------
-        if (empty($categories)) {
-            // Ajout message pour inviter l'admin à completer sa base de données
-            $this->addFlash('notice', 'Il faut remplir au minimum 1 catégorie');
-            return $this->redirectToRoute('categorieplateforme_newCat');
-        }
+        // Ramene les catégories à partir du HarasBundle
+        $categories = $em->getRepository('HarasBundle:Category')->findAll(array('id' => 'ASC'));
 
         // Ramene sous catégorie
         // SELECT * FROM `categorie_plateforme` WHERE `parent_id` is NOT null and actif = 1
@@ -103,8 +92,13 @@ class PostController extends Controller
     {
         $post = new Post();
         $form = $this->createForm('ForumBundle\Form\PostType', $post);
-
         $form->handleRequest($request);
+
+        // Récupération titre du post parent
+        // Connexion à la BdD
+        $em = $this->getDoctrine()->getManager();
+        // Ramene le Fil de discussion parent
+        $postParents = $em->getRepository('ForumBundle:Post')->findOneBy(array('id' => $id));
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
@@ -141,6 +135,7 @@ class PostController extends Controller
         }
 
         return $this->render('@Forum/post/new.html.twig', array(
+            'postParentTitre' => $postParents->getTitre(),
             'post' => $post,
             'form' => $form->createView(),
             'cat' => $request->get('cat'),

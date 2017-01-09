@@ -1,13 +1,12 @@
 {% extends '@Forum/layout.html.twig' %}
 
 {% block body %}
+    {#-------------------------------------------------------------#}
+    {# NavBar Lateral  #}
+    {{ include("@Forum/post/postNavBar.html.twig") }}
+    {# fin NavBar lateral #}
+    {#-------------------------------------------------------------#}
     <section class="sectionAllPost">
-
-        {#-------------------------------------------------------------#}
-        {# NavBar Lateral  #}
-        {{ include("@Forum/post/postNavBar.html.twig") }}
-        {# fin NavBar lateral #}
-        {#-------------------------------------------------------------#}
         {% for postParent in postParents %}
         {# Affichage du post parent #}
         <div class="header">
@@ -60,12 +59,11 @@
 
         <div id="content">
             <div class="object">
-                <div class="date">{{ postEnfant.dateCreate|date("d") }}</div>
+                <div class="date">{# {{ postEnfant.dateCreate|date("d") }} #}</div>
                 <div class="circle"></div>
                 <div class="context">
-
                     <div class="col s12 m7">
-                        <h2 class="titreEnfant">{{ postEnfant.titre }}</h2>
+                        <h2 class="titreEnfant">{{ postEnfant.titre|capitalize }}</h2>
                         <div class="card horizontal">
                             <div class="card-stacked">
                                 <div class="card-content">
@@ -93,7 +91,6 @@
                             </div>
                         </div>
                     </div>
-
                 </div> {# fin div context #}
                 {% endfor %} {# Fin For POST ENFANTS #}
             </div> {# fin div object #}

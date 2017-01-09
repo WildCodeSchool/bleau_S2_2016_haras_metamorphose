@@ -494,11 +494,13 @@ span.badge {
   width: 30px;
 }
 .pagination li a:hover {
-  background-color: #FF8C00;
+  background-color: #f1c40f;
+  //background-color: #FF8C00;
   color: #FFFFFF;
 }
 .pagination li.active a {
-  background-color: #FF8C00;
+  background-color: #f1c40f;
+  //background-color: #FF8C00;
   color: #FFFFFF;
   font-weight: bold;
 }
@@ -507,7 +509,8 @@ span.badge {
 }
 
 .pagination li.current a {
-  background-color: #FF8C00;
+  background-color: #f1c40f;
+  //background-color: #FF8C00;
   color: #FFFFFF;
 }
 

@@ -22,7 +22,8 @@ class CategoriePlateformeController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         // Ramene les catégories  (actif = oui) et mise en place du paginator
-        $categoriePlateformes = $em->getRepository('ForumBundle:CategoriePlateforme')->findBy(array('actif'=> 1, 'parent' => null));
+        $categoriePlateformes = $em->getRepository('HarasBundle:Category')->findAll(array('id' => 'ASC'));
+//        $categoriePlateformes = $em->getRepository('ForumBundle:CategoriePlateforme')->findBy(array('actif'=> 1, 'parent' => null));
 
         // Ramene sous catégorie
         $repository = $em->getRepository('ForumBundle:CategoriePlateforme');

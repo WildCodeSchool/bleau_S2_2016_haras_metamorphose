@@ -1,8 +1,21 @@
 {% extends '@Forum/layout.html.twig' %}
 
 {% block body %}
+
+{#-------------------------------------------------------------#}
+{#                                                             #}
+{#               Nouveau FIL DE DISCUSSION                     #}
+{#                                                             #}
+{#-------------------------------------------------------------#}
+
+{#-------------------------------------------------------------#}
+{# NavBar Lateral  #}
+{{ include("@Forum/post/postNavBar.html.twig") }}
+{# fin navBar lateral #}
+{#-------------------------------------------------------------#}
+<section class="postSectionIndex">
     <div class="postContainer postAdmin">
-        <h1>Nouveau Post</h1>
+        <h1 class="soustitrePage">Nouveau fil de discussion</h1>
 
         {{ form_start(form) }}
         <div style="background-color: #9ccc65"></div>
@@ -14,7 +27,7 @@
             {{ form_errors(form.titre) }}
         </div>
         <div class="row input-field">
-            {{ form_label(form.contenu) }}
+            {#{{ form_label(form.contenu) }}#}
             {{ form_widget(form.contenu|raw) }}
             {{ form_errors(form.contenu) }}
         </div>
@@ -26,6 +39,10 @@
                     value="Create">
                 <i class="material-icons">check</i>
             </button>
+            <a class="btn-floating btn-large waves-effect waves-light blue darken-1"
+               href="{{ path('post_index') }}">
+                <i class="small material-icons">home</i>
+            </a>
         </div>
         {{ form_end(form) }}
 
@@ -33,4 +50,5 @@
 
         </div>
     </div>
+</section>
 {% endblock %}
