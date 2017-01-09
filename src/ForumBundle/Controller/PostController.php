@@ -296,7 +296,7 @@ class PostController extends Controller
 
             $this->addFlash(
                 'notice',
-                'Discussion réactivée'
+                'Discussion désactivée'
             );
 
             return $this->redirectToRoute('post_index');
