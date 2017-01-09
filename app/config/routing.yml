@@ -2,10 +2,10 @@
 ##########################################
 ########   Routes Search   ###############
 ##########################################
-search:
-    resource: "@SearchBundle/Resources/config/routing.yml"
-    prefix:   /plateforme
-    methods:  [GET, POST]
+#search:
+#    resource: "@SearchBundle/Resources/config/routing.yml"
+#    prefix:   /plateforme
+#    methods:  [GET, POST]
 
 plate_forme_searchController:
     path:     /plateforme/search

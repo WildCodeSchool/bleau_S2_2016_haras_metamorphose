@@ -23,7 +23,7 @@ function calendar() {
     $(document).ready(function() {
 
         var current_date_time = new Date();
-        // var role = "ROLE_ADMIN";
+        var role = "";
         console.log(role);
 
         $('#calendar').fullCalendar({
@@ -49,7 +49,7 @@ function calendar() {
             slotLabelFormat: 'HH:mm', // format de l'heure sur les slots
             timeFormat: 'HH:mm',
             minTime: "08:00:00", // heure de début du calendar
-            slotEventOverlap: true, // Les évènements ne se chevauchent pas
+            slotEventOverlap: false, // Les évènements ne se chevauchent pas
 
             editable: true,
             eventLimit: true, // allow "more" link when too many events

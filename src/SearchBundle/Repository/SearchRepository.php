@@ -12,17 +12,21 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
  */
 //use Doctrine\ORM\Mapping;
 
-class SearchRepository /*extends \Doctrine\ORM\EntityRepository*/
+class SearchRepository extends \Doctrine\ORM\EntityRepository
 {
 
     public function Search($bdd, $requete)
     {
+        $em = $this->getDoctrine()->getmanager();
+
         // la requête, que vous devez maintenant comprendre et modifier;)
-        $query = $bdd->prepare("SELECT post.titre, post.contenu,post.date_create, categorie_plateforme.nom
-                            FROM post, categorie_plateforme
-                            WHERE post.titre, post.contenu, post.date_create, categorie_plateforme.nom
-                            LIKE '%$requete%'
-                            ORDER BY id DESC") or die ('La requète ne se fait pas correctement');
+        $query = $bdd->prepare("SELECT titre, contenu, nom 
+                                FROM post, categorie_plateforme 
+                                WHERE post.parent_id = categorie_plateforme.parent_id 
+                                AND contenu = '$requete' 
+                                OR titre = '$requete' 
+                                OR nom = '$requete' 
+                                ORDER BY post.id DESC") or die ('La requète ne se fait pas correctement');
 
         //on execute la requete
         $query->execute(array(
