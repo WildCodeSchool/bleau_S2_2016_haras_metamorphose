@@ -23,7 +23,7 @@ function calendar() {
     $(document).ready(function() {
 
         var current_date_time = new Date();
-        var role = "ROLE_ADMIN";
+        // var role = "ROLE_ADMIN";
         console.log(role);
 
         $('#calendar').fullCalendar({
