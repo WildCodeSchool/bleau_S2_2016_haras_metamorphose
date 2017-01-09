@@ -1478,67 +1478,46 @@ nav {
   border-top: solid 2px #424242;
 }
 
-/* line 58, ../sass/PlateformeCSS/_layout_plateforme.scss */
-input[type=text] {
-  width: 10px;
-  box-sizing: border-box;
-  border: 2px solid #ccc;
-  border-radius: 4px;
-  font-size: 16px;
-  background-color: white;
-  background-image: url("searchicon.png");
-  background-position: 10px 10px;
-  background-repeat: no-repeat;
-  padding: 12px 20px 12px 40px;
-  -webkit-transition: width 0.4s ease-in-out !important;
-  transition: width 0.4s ease-in-out !important;
-}
-
-/* line 73, ../sass/PlateformeCSS/_layout_plateforme.scss */
-input[type=text]:focus {
-  width: 20% !important;
-}
-
 /*-----------------------------------------------------*\
                           LOGO - ICON
 \*-----------------------------------------------------*/
-/* line 83, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 64, ../sass/PlateformeCSS/_layout_plateforme.scss */
 ul.right.hide-on-med-and-down {
   padding-top: 1px;
 }
 
-/* line 87, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 68, ../sass/PlateformeCSS/_layout_plateforme.scss */
 nav ul a:hover {
   background-color: rgba(0, 0, 0, 0.1);
 }
 
-/* line 92, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 73, ../sass/PlateformeCSS/_layout_plateforme.scss */
 #logo {
   background-color: #577a37;
   height: 64px;
 }
 
-/* line 98, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 79, ../sass/PlateformeCSS/_layout_plateforme.scss */
 #logo:hover {
   background-color: #496b35;
 }
 
-/* line 102, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 83, ../sass/PlateformeCSS/_layout_plateforme.scss */
 .icon-background1 {
   color: rgba(10, 112, 14, 0.6);
 }
 
-/* line 106, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 87, ../sass/PlateformeCSS/_layout_plateforme.scss */
 .icon-background2 {
   color: rgba(84, 39, 20, 0.6);
 }
 
-/* line 110, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 91, ../sass/PlateformeCSS/_layout_plateforme.scss */
 .icon-background3 {
   color: rgba(62, 62, 129, 0.6);
 }
 
-/* line 114, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 95, ../sass/PlateformeCSS/_layout_plateforme.scss */
 .icon-background4 {
   color: rgba(183, 21, 134, 0.6);
 }
@@ -1546,14 +1525,14 @@ nav ul a:hover {
 /*-----------------------------------------------------*\
                           BODY
 \*-----------------------------------------------------*/
-/* line 124, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 105, ../sass/PlateformeCSS/_layout_plateforme.scss */
 body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
 }
 
-/* line 130, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 111, ../sass/PlateformeCSS/_layout_plateforme.scss */
 .main {
   flex: 1 0 auto;
 }
@@ -1603,6 +1582,11 @@ input {
 .button {
   margin-left: 36%;
   padding: 24px;
+}
+
+/* line 34, ../sass/PlateformeCSS/_FosUser.scss */
+.input-field.col label {
+  transform: none;
 }
 
 /* line 6, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
