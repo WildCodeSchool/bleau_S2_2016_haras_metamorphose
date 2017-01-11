@@ -7,9 +7,7 @@
 // ********************************************************************
 jQuery(document).ready(function($) {
 
-    console.log('CALENDAR-EVENTS.JS a démarré : ligne 10');
-
-    // FULL CALENDAR
+    // APPEL DE FULL CALENDAR
     calendar();
 
 });
@@ -19,12 +17,11 @@ jQuery(document).ready(function($) {
 // ********************************************************************
 
 function calendar() {
-    console.log('CALENDAR-EVENTS - FONCTION CALENDAR a démarré : ligne 22');
+
     $(document).ready(function() {
 
         var current_date_time = new Date();
-        var role = "";
-        console.log(role);
+        // var role = "";
 
         $('#calendar').fullCalendar({
             header: {
@@ -58,10 +55,7 @@ function calendar() {
 
             dayClick: function(date) {
 
-                console.log(role);
-                console.log('CALENDAR-EVENTS.JS - FONCTION DAYCLICK a démarré : ligne 76');
-
-                /* VERIFICATION QUE LA DATE SOIT PAS INFERIRIEUR  A LA SELECTION ET LA DEFINITION DES ROLES */
+                /* VERIFICATION QUE LA DATE NE SOIT PAS INFERIRIEUR A LA SELECTION / DEFINITION DES ROLES */
                 if (date._d >= current_date_time && role == 'ROLE_ADMIN'){
                     // lors du click sur la case il renvoie la date vers la page new
                     window.location = Routing.generate('agenda') + date.format() + '/new';
@@ -71,15 +65,13 @@ function calendar() {
             /* ------------------------ FONCTION DU RENDU DE L'EVENEMENT ------------------------------*/
             eventRender: function(event, element) {
 
-                console.log('CALENDAR-EVENTS.JS - FONCTION EVENTRENDER a démarré : ligne 93');
-
                 var editEvent = Routing.generate('agenda') + event.id + '/edit';
 
                 element.each(function() {
                     element.append(
-                        '<h6>' +
+                        '<p>' +
                         event.titre +
-                        '</h6>'
+                        '</p>'
                     );
                 })
             },
@@ -87,34 +79,32 @@ function calendar() {
             /* ------------------------- FONCTION DU CLICK SUR EVENT ------------------------------*/
             eventClick: function(calEvent){
 
-                    console.log('CALENDAR-EVENT.JS - FONCTION EVENTCLICK a démarré :ligne 108');
+                var day = moment(calEvent.start._d).format("dddd Do MMMM YYYY");
+                // .format();
+                // dddd = jour en character
+                // Do = date du jour en chiffre (fontionne uniquement apres dddd)
+                // MMMMM = mois en character
+                // YYYY = année en chiffre
 
-                    var day = moment(calEvent.start._d).format("dddd Do MMMM YYYY");
-                    // .format();
-                    // dddd = jour en character
-                    // Do = date du jour en chiffre (fontionne uniquement apres dddd)
-                    // MMMMM = mois en character
-                    // YYYY = année en chiffre
+                var ponctuation1 = "de";
+                var ponctuation2 = "à";
+                var startTime = moment(calEvent.start._i).format('HH:mm à ');
+                var endTime = moment(calEvent.end._i).format("HH:mm");
+                var Time = 'Le ' + day + ponctuation1 + startTime + ponctuation2 + endTime;
+                var editEvent = Routing.generate('agenda') + calEvent.id + '/edit';
+                var deleteEvent = Routing.generate('agenda') + calEvent.id + '/delete';
 
-                    var ponctuation1 = "de";
-                    var ponctuation2 = "à";
-                    var startTime = moment(calEvent.start._i).format('HH:mm à ');
-                    var endTime = moment(calEvent.end._i).format("HH:mm");
-                    var Time = 'Le ' + day + ponctuation1 + startTime + ponctuation2 + endTime;
-                    var editEvent = Routing.generate('agenda') + calEvent.id + '/edit';
-                    var deleteEvent = Routing.generate('agenda') + calEvent.id + '/delete';
+                $('#modalTime').html(Time);
+                $('#modalTitle').html(calEvent.titre);
+                $('#modalTexte').html(calEvent.texte);
 
-                    $('#modalTime').html(Time);
-                    $('#modalTitle').html(calEvent.titre);
-                    $('#modalTexte').html(calEvent.texte);
+                // $('#fullCalModal').modal();
+                $('#fullCalModal').modal('open');
 
-                    // $('#fullCalModal').modal();
-                    $('#fullCalModal').modal('open');
+                $('#edit_event').show();
+                $('#edit_event').attr('href', editEvent);
 
-                    $('#edit_event').show();
-                    $('#edit_event').attr('href', editEvent);
-
-                    $('#delete_event').show();
+                $('#delete_event').show();
                     $('#delete_event').attr('href', deleteEvent);
             }
 

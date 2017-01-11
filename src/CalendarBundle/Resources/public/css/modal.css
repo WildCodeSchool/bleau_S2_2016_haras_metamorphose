@@ -1,0 +1,38 @@
+
+/************************************************
+*
+*   1. Calendar psition
+$
+************************************************/
+
+.calendar-position{
+    margin-top: 100px;
+}
+
+/************************************************
+*
+*   2. Boite modal
+$
+************************************************/
+
+.modal-corps{
+    background-color: #004d40;
+    color: #dff1ff;
+}
+
+.modal-header{
+
+}
+
+.modal-body{
+
+}
+
+.modal-body-image{
+    background-color: #9F9F9F;
+    color: #3b3b1f;
+}
+
+.modal-footer{
+    background-color: #9F9F9F;
+}

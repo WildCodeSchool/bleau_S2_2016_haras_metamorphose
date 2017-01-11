@@ -43,10 +43,21 @@
 
     </div>
 
-    {#<div class="calendar-size">#}
-        {#{% include ('@Calendar/fullcalendar/views/agenda-views.html.twig') %}#}
-    {#</div>#}
+{#----------------------------------------------- INCLUDE DU CALENDAR ------------------------------------------------#}
 
+    <div class="container">
+        <div class="row">
+            <div class="col s6">
+                {# ACTUALITE DE L'ESPACE D'ECHANGE #}
+            </div>
+            <div class="col s6">
+                {# AFFICHAGE DU CALENDRIER #}
+                <div class="calendar-position">
+                    {% include '@Calendar/fullcalendar/views/agenda-views.html.twig' %}
+                </div>
+            </div>
+        </div>
+    </div>
 
 {% endblock %}
 
@@ -56,10 +67,29 @@
 
     {{ parent() }}
 
+    {# INITIALISATION DU SLIDER #}
     <script>
         $(document).ready(function(){
             $('.slider').slider({full_width: true});
         });
     </script>
 
+    {# FOS JS ROUTING SCRIPT #}
+    <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
+
+    {# SCRIPT DES ROLES POUR ADMINISTRATION #}
+    <script>
+        {% if is_granted('ROLE_ADMIN') %}
+        var role = 'admin';
+        {% else %}
+        var role = null;
+        {% endif %}
+    </script>
+
+    {# APPEL DES SCRIPTS CALENDAR #}
+    <script src="{{ asset('bundles/calendar/js/calendar/moment.min.js') }}"></script>
+    <script src="{{ asset('bundles/calendar/js/calendar/fullcalendar.js') }}"></script>
+    <script src="{{ asset('bundles/calendar/js/main_calendar.js') }}"></script>
+    <script src="{{ asset('bundles/calendar/js/calendar/calendar-events.js') }}"></script>
 {% endblock %}
