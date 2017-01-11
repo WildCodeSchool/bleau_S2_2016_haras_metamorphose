@@ -28,23 +28,33 @@ nav{
   transition-duration: .3s;
 }
 
+//#dropdownNavBar{
+//  opacity:1;
+//  display: block;
+//  margin-left: 11.7%;
+//}
+
+//.nav-wrapper-plateforme {
+//  z-index: auto;
+//}
+
 .decouverte:hover{
-  background-color: rgba(10, 112, 14, 0.6)!important;
+  background-color: rgba(7,64,10, 0.6);
   height: 44px;
 }
 
-.harras:hover{
-  background-color: rgba(84, 39, 20, 0.6)!important;
+.haras:hover{
+  background-color: rgba(140, 104, 34, 0.6);
   height: 44px;
 }
 
 .detente:hover{
-  background-color: rgba(62, 62, 129, 0.6)!important;
+  background-color: rgba(39, 34, 140, 0.6);
   height: 44px;
 }
 
 .coworking:hover{
-  background-color:rgba(183, 21, 134, 0.6)!important;
+  background-color:rgba(183, 21, 134, 0.6);
   height: 44px;
 }
 
@@ -70,26 +80,26 @@ nav ul a:hover {
   //height: 63px;
 }
 
-#logo{
+#plateforme-logo{
   background-color: #577a37;
   height:64px;
 }
 
 
-#logo:hover{
+#plateforme-logo:hover{
   background-color: #496b35;
 }
 
 .icon-background1 {
-  color: rgba(10, 112, 14, 0.6);
+  color: rgba(7,64,10, 0.6);
 }
 
 .icon-background2 {
-  color: rgba(84, 39, 20, 0.6);
+  color: rgba(140, 104, 34, 0.6);
 }
 
 .icon-background3 {
-  color: rgba(62, 62, 129, 0.6);
+  color: rgba(39, 34, 140, 0.6);
 }
 
 .icon-background4 {
@@ -117,4 +127,6 @@ body {
                           FOOTER
 \*-----------------------------------------------------*/
 
-
+footer.page-footer{
+  background-color: rgba(118, 135, 146, 0.9);
+}
