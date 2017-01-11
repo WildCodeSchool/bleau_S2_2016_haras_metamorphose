@@ -65,8 +65,6 @@ function calendar() {
             /* ------------------------ FONCTION DU RENDU DE L'EVENEMENT ------------------------------*/
             eventRender: function(event, element) {
 
-                // var editEvent = Routing.generate('agenda') + event.id + '/edit';
-
                 element.each(function() {
                     element.append(
                         '<p>' +
