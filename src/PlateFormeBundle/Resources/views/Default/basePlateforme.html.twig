@@ -70,7 +70,7 @@
         <script src="{{ asset('bundles/haras/scripts/materialize.min.js') }}"></script>
         <script src="{{ asset('bundles/forum/js/main_forum.js') }}"></script>
 
-        {% if (app.request.get('_route') == 'post_index') or (app.request.get('_route') == 'post_showAllPost') or (app.request.get('_route') == 'categorieplateforme_index') or (app.request.get('_route') == 'post_edit')  %}
+        {% if (app.request.get('_route') == 'post_index') or (app.request.get('_route') == 'post_showAllPost') or (app.request.get('_route') == 'categorieplateforme_index') or (app.request.get('_route') == 'post_edit') or (app.request.get('_route') == 'post_new') or (app.request.get('_route') == 'post_newParent') or (app.request.get('_route') == 'categorieplateforme_edit')  %}
             {#Si controleur envoi vers les pages post index, show all post et categorie plateforme#}
             {#la barre de navigation est différente cf postNavBar#}
             <script src="{{ asset('bundles/forum/js/aside_forum.js') }}"></script>

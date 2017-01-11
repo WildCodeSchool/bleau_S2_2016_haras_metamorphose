@@ -6,6 +6,7 @@ use ForumBundle\Entity\Post;
 use ForumBundle\Entity\CategoriePlateforme;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use UserBundle\Entity\User;
 
 /**
  * Post controller.
@@ -85,6 +86,36 @@ class PostController extends Controller
     }
 
     /**
+     * Show last post pour homepage plateforme.
+     *
+     */
+    public function showLastPostHomepageAction()
+    {
+        // Connexion à la BdD
+        $em = $this->getDoctrine()->getManager();
+        // Ramene le Fil de discussion parent et actif
+        $postParents = $em->getRepository('ForumBundle:Post')->findBy(array('actif' => 1, 'parent' => null), array('dateCreate' => 'DESC'));
+        // Ramene les catégories à partir du HarasBundle
+        $categories = $em->getRepository('HarasBundle:Category')->findAll(array('id' => 'ASC'));
+
+        // -----------------------------------------------------------------------------------------------------
+        // Selection des derniers fils de discussion enregistré (1 par catégorie) Ici seulement 4 catégories
+        // -----------------------------------------------------------------------------------------------------
+        $lastPostByCats = array();
+        $categs = array();
+        foreach ($postParents as $postParent) {
+            if (!in_array($postParent->getCategorie()->getParent(), $categs)) {
+                $categs[] = $postParent->getCategorie()->getParent();
+                $lastPostByCats[] = $postParent;
+            }
+        }
+
+        return $this->render('@Forum/post/showLastPost.html.twig', array(
+            'lastPostCats' => $lastPostByCats,
+            'categories' => $categories,
+        ));
+    }
+    /**
      * Creates a new post entity.
      *
      */
@@ -115,13 +146,12 @@ class PostController extends Controller
             // Ajout date de la saisie
             $post->setDateCreate(new \DateTime());
 
-            // Ajout Enfant
-//            $post->addEnfant($post->getEnfant());
+            // Ajout id user
+            $post->setUser($this->getUser());
 
-            // Ajout user null pour le moment
-//            $post->setUser(null);
 
             // Ajout +1 sur nbPost sur User
+//            $post->setUser()->setNbPost() + 1;
 
             $em->persist($post);
             $em->flush($post);
@@ -169,8 +199,8 @@ class PostController extends Controller
             // Ajout Enfant
 //            $post->addEnfant($post->getEnfant());
 
-            // Ajout user null pour le moment
-//            $post->setUser(null);
+            // Ajout user
+            $post->setUser($this->getUser());
 
             // Ajout +1 sur nbPost sur User
 
