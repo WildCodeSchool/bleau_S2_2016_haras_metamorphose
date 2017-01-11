@@ -13,7 +13,12 @@
 
                 {% elseif is_granted('ROLE_ADMIN') %}
 
-                    <a href="{{ path('agenda_new') }}" class="waves-effect waves-light btn">Nouvelle évènement</a>
+                    <a href="{{ path('agenda_new') }}">
+                        <span class="fa-stack fa-2x">
+                              <i class="fa fa-circle fa-stack-2x icon-background2"></i>
+                              <i class="fa fa-pencil fa-stack-1x"></i>
+                        </span>
+                    </a>
 
                 {% else %}
 
@@ -51,15 +56,24 @@
         </div>
     </div>
     <div class="modal-footer">
-        <div class="col s12 center">
+        <div class="col s12 right">
             {% if is_granted("ROLE_SUPER_ADMIN") %}
-                <a href="#" id="delete_event" class="waves-effect waves-green btn">
-                    <i class="fa fa-circle fa-stack-2x icon-background2"></i>
-                    <i class="fa fa-import_export fa-stack-1x"></i>
+                <a href="#" id="delete_event">
+                    <span class="fa-stack fa-2x">
+                        <i class="fa fa-circle fa-stack-2x icon-background2"></i>
+                        <i class="fa fa-pencil fa-stack-1x"></i>
+                    </span>
+                </a>
 
-                <a href="#" id="edit_event" class=" waves-effect waves-green btn">Modifier</a>
+                <a href="#" id="edit_event">
+                    <span class="fa-stack fa-2x">
+                        <i class="fa fa-circle fa-stack-2x icon-background2"></i>
+                        <i class="fa fa-pencil fa-stack-1x"></i>
+                    </span>
+                </a>
             {% endif %}
         </div>
     </div>
-    </div>
+</div>
+
 <!------------------------------- ---------------- ------------------------------------->
