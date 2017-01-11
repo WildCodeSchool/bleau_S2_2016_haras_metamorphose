@@ -63,12 +63,12 @@
                                         {% for sousCategorie in sousCategories %}
                                             {% if sousCategorie.parent.id == categorieEnLecture %}
                                                 <li>
-<span class="spanSousCat">{{ sousCategorie.nom|capitalize }}
-    <a class="right waves-effect waves-teal btn-flat center aSousCat"
-       href="{{ path('categorieplateforme_edit', { 'id': sousCategorie.id }) }}">
-<i class="fa fa-pencil-square-o fa-3x" aria-hidden="true"></i>
-</a>
-</span>
+                                                    <span class="spanSousCat">{{ sousCategorie.nom|capitalize }}
+                                                        <a class="right waves-effect waves-teal btn-flat center aSousCat"
+                                                               href="{{ path('categorieplateforme_edit', { 'id': sousCategorie.id }) }}">
+                                                        <i class="fa fa-pencil-square-o fa-3x" aria-hidden="true"></i>
+                                                        </a>
+                                                    </span>
                                                 </li>
                                             {% endif %}
                                         {% endfor %}

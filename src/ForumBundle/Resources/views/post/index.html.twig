@@ -1,4 +1,4 @@
-{% extends '@Forum/layout.html.twig' %}
+{% extends '@PlateForme/layout.html.twig' %}
 
 {% block body %}
     <style>
@@ -69,13 +69,15 @@
 
 
     </style>
-{#-------------------------------------------------------------#}
-{# NavBar Lateral  #}
-{{ include("@Forum/post/postNavBar.html.twig") }}
-{# fin navBar lateral #}
-{#-------------------------------------------------------------#}
+
   <section class="postSectionIndex">
   {# DEBUT CODE #}
+
+    {#-------------------------------------------------------------#}
+    {# NavBar Lateral  #}
+    {{ include("@Forum/post/postNavBar.html.twig") }}
+    {# fin navBar lateral #}
+    {#-------------------------------------------------------------#}
 
   {#-------------------------------------------------------------#}
     {# Mise en place message flash #}
@@ -108,7 +110,9 @@
                             <div class="collapsible-header postListTitleCat_{{ categorie.id }}">
                                 {% endif %}
                                 {# FIN Gestion couleur par catégories #}
-            {{ categorie.name|capitalize }}
+
+                                {{ categorie.name|capitalize }}
+
             {# Stockage de l'ID de la CATEGORIE #}
             {% set categorieEnLecture = categorie.id %}
               {# Reprise image categorie du harasBundle #}
@@ -203,3 +207,19 @@
     {#-------------------------------------------------------------#}
 </section>
 {% endblock %}
+
+{#{% block javascripts %}#}
+
+    {#{{ parent() }}#}
+
+    {#<script>#}
+{#$(document).ready(function() {#}
+   {#$('header').css('padding-left', '300px');#}
+   {#$('.header-logo').css('margin-left', '72px');#}
+   {#$('.hide-on-med-and-down').css('margin-left', '70px');#}
+   {#$('.page-footer').css( 'margin-left', '300px');#}
+   {#$('.page-footer.container').css('margin-left', '-152px');#}
+{#});#}
+    {#</script>#}
+
+{#{% endblock %}#}

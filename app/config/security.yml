@@ -50,5 +50,5 @@ security:
 #        - { path: ^/, role: ROLE_MODERATEUR }
         - { path: ^/admin, role: ROLE_ADMIN }
         - { path: ^/plateforme/admin/user, role: ROLE_ADMIN }
-        - { path: ^/plateforme/categorieplateforme, role: ROLE_ADMIN }
+#        - { path: ^/plateforme/categorieplateforme, role: ROLE_ADMIN }
 

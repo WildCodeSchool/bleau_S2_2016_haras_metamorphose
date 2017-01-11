@@ -1,6 +1,8 @@
-{% extends '@Forum/layout.html.twig' %}
+{% extends '@PlateForme/layout.html.twig' %}
 
 {% block body %}
+    <div class="wrapper">
+
     {#-------------------------------------------------------------#}
     {# NavBar Lateral  #}
     {{ include("@Forum/post/postNavBar.html.twig") }}
@@ -112,5 +114,6 @@
             {% endfor %} {# Fin For POST Parent #}
         </div>  {# fin div id content #}
     </section>
+    </div>
 
 {% endblock %}

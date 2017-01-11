@@ -19,41 +19,6 @@
         {% block header %}
         {% endblock %}
 
-    {# *********************************************************************** #}
-    {#  GESTION BARRE DE NAVIGATION                                            #}
-    {# *********************************************************************** #}
-    {#{% if (app.request.get('_route') == 'post_index') or (app.request.get('_route') == 'post_showAllPost') or (app.request.get('_route') == 'categorieplateforme_index')  %}#}
-        {##}
-            {#Si controleur envoi vers les pages post index, show all post et categorie plateforme#}
-            {#la barre de navigation est différente cf postNavBar#}
-        {##}
-    {#{% else %}#}
-        {#<header>#}
-            {#<!-- Dropdown Structure -->#}
-            {#<ul id="dropdown1" class="dropdown-content">#}
-                {#<li><a href="#!">one</a></li>#}
-                {#<li><a href="#!">two</a></li>#}
-                {#<li class="divider"></li>#}
-                {#<li><a href="#!">three</a></li>#}
-            {#</ul>#}
-            {#<nav>#}
-                {#<div class="nav-wrapper">#}
-                    {#<a href="#!" class="brand-logo">Logo</a>#}
-                    {#<ul class="right hide-on-med-and-down">#}
-                        {#<li><a href="sass.html">Sass</a></li>#}
-                        {#<li><a href="badges.html">Components</a></li>#}
-                        {#<!-- Dropdown Trigger -->#}
-                        {#<li><a class="dropdown-button" href="{{ path('fos_user_profile_show') }}" data-activates="dropdown1"><i class="fa fa-user fa-2x"></i></a></li>#}
-                    {#</ul>#}
-                {#</div>#}
-            {#</nav>#}
-        {#</header>#}
-    {#{% endif %}#}
-
-    {# ************************************ #}
-    {#  FIN GESTION BARRE DE NAVIGATION     #}
-    {# ************************************ #}
-
 
         {# ---------------------- ---------------------------- ------------------------ #}
         {# ---------------------- Champ pour recherche par mot ------------------------ #}
@@ -78,21 +43,21 @@
 
             {# ---------------------- Champ pour recherche par mot ------------------------ #}
             {# ---------------------- faire l'appel a search controller ------------------ #}
-           <div class="row">
-               <div class="col s7">
-                   <form action="{{ path('plate_forme_searchController') }}" method="Post">
-                       <div class="input-field">
-                           <input name="requete" id="search" type="search" required>
-                           <label for="search"><i class="material-icons">search</i></label>
-                           <i class="material-icons">close</i>
-                       </div>
-                       <div>
-                           <input type="submit" value="Rechercher">
-                       </div>
+           {#<div class="row barreRecherche">#}
+               {#<div class="col s7">#}
+                   {#<form action="{{ path('plate_forme_searchController') }}" method="Post">#}
+                       {#<div class="input-field">#}
+                           {#<input name="requete" id="search" type="search" required>#}
+                           {#<label for="search"><i class="material-icons">search</i></label>#}
+                           {#<i class="material-icons">close</i>#}
+                       {#</div>#}
+                       {#<div>#}
+                           {#<input type="submit" value="Rechercher">#}
+                       {#</div>#}
 
-                   </form>
-               </div>
-           </div>
+                   {#</form>#}
+               {#</div>#}
+           {#</div>#}
         {% endblock %}
         {# ---------------------- ---------------------------- ------------------------ #}
 
@@ -103,6 +68,14 @@
         {# APPEL DES SCRIPTS JS ORDRE Jquery/Materialize/Calendar/Main(en surcharge) #}
         <script src="{{ asset('bundles/haras/scripts/jquery-3.1.1.js') }}"></script>
         <script src="{{ asset('bundles/haras/scripts/materialize.min.js') }}"></script>
+        <script src="{{ asset('bundles/forum/js/main_forum.js') }}"></script>
+
+        {% if (app.request.get('_route') == 'post_index') or (app.request.get('_route') == 'post_showAllPost') or (app.request.get('_route') == 'categorieplateforme_index') or (app.request.get('_route') == 'post_edit')  %}
+            {#Si controleur envoi vers les pages post index, show all post et categorie plateforme#}
+            {#la barre de navigation est différente cf postNavBar#}
+            <script src="{{ asset('bundles/forum/js/aside_forum.js') }}"></script>
+        {% endif %}
+
 
         {# APPEL DES JS DE FULLCALENDAR ET AUTRES PAGES #}
         {% block javascripts %}{% endblock %}

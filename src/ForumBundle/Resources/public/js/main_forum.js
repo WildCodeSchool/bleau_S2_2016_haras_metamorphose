@@ -91,6 +91,7 @@ $(document).ready(function() {
 
     /*** REMOVE IF MOUSEOVER IS NOT REQUIRED ***/
     //ADDS THE .OVER CLASS FROM THE STYLESHEET ON MOUSEOVER
+    // pour toutes les catégories
     $('[id^="accordionButtonCat_"]').mouseover(function() {
         $(this).addClass('over');
 
@@ -116,10 +117,11 @@ $(document).ready(function(){
 //****************************
 // CKEditor remove element Tab
 //****************************
-$(document).ready(function(){
-    CKEDITOR.on('instanceReady', function() {
-            // this.disable('#cke_129_uiElement' );
-            $( "#cke_129_uiElement" ).prop( "disabled", false );
-    });
-});
+// $(document).ready(function(){
+//     CKEDITOR.on('instanceReady', function() {
+//             // this.disable('#cke_129_uiElement' );
+//             $( "#cke_129_uiElement" ).prop( "disabled", false );
+//     });
+// });
+
 

@@ -524,6 +524,7 @@ span.badge {
 
 aside {
   opacity: 0.85;
+  background-color: #515e69 !important;
 }
 
 .go a:before,
@@ -561,7 +562,7 @@ aside {
   transform: translate(0px);
 }
 
-#dropdown1 {
+#toto {
   top: 317px !important;
   left: 15px !important;
 }
@@ -574,11 +575,11 @@ aside {
   color: red !important;
 }
 
-@media (min-width: 991px) {
-  main {
-    padding-left: 20px;
-  }
-}
+//@media (min-width: 991px) {
+//  main {
+//    padding-left: 20px;
+//  }
+//}
 
 //********************************************************
 // show Reactive post
@@ -594,3 +595,7 @@ aside {
 .reactH4WrapIsole > a {
   float: right;
 }
+
+
+/////////
+
