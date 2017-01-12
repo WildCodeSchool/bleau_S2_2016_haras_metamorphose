@@ -149,12 +149,12 @@ class PostController extends Controller
             // Ajout id user
             $post->setUser($this->getUser());
 
-
             // Ajout +1 sur nbPost sur User
-//            $post->setUser()->setNbPost() + 1;
+            $count = $post->getUser()->getNbPost();
+            $post->getUser()->setNbPost(++$count);
 
             $em->persist($post);
-            $em->flush($post);
+            $em->flush();
 
             $this->addFlash(
                 'notice',
@@ -203,9 +203,12 @@ class PostController extends Controller
             $post->setUser($this->getUser());
 
             // Ajout +1 sur nbPost sur User
+            $count = $post->getUser()->getNbPost();
+            $post->getUser()->setNbPost(++$count);
+
 
             $em->persist($post);
-            $em->flush($post);
+            $em->flush();
             return $this->redirectToRoute('post_showAllPost', array('id' => $post->getId()) );
 
         }
@@ -237,7 +240,6 @@ class PostController extends Controller
      */
     public function showAllPostAction(Request $request)
     {
-
         // Connexion à la BdD
         $em = $this->getDoctrine()->getManager();
         // Ramene le Fil de discussion parent et actif
@@ -259,6 +261,33 @@ class PostController extends Controller
     }
 
 
+    /**
+     * Finds and displays a post entity by user.
+     *
+     */
+    public function showMesMessagesAction(Request $request)
+    {
+        // Connexion à la BdD
+        $em = $this->getDoctrine()->getManager();
+        // Ramene le Fil de discussion parent et actif
+
+        // Récupération des post en BdD
+        // Post
+        $posts = $em->getRepository('ForumBundle:Post')->findBy(array('actif'=> 1, 'user' =>$this->getUser()), array('dateCreate' => 'DESC'));
+
+        $tabIdParents = array();
+        foreach ($posts as $post) {
+            if ($post->getParent() == null) {
+                $tabIdParents[] = $post->getId();
+            }
+        }
+
+        return $this->render('@Forum/post/showMesMessages.html.twig', array(
+            'posts' => $posts,
+            'tabIdParents' => $tabIdParents,
+        ));
+
+    }
     /**
      * Displays a form to edit an existing post entity.
      *

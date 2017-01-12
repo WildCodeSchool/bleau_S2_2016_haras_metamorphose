@@ -94,7 +94,7 @@
 
                                       <div class="chip">
                                         <img src="{{ asset('bundles/haras/images/test2.jpeg')}}" alt="Contact Person">
-                                        Message de : {{ postParent.user }}
+                                        Message de : {{ postParent.user|capitalize }}
                                       </div>
                                       <a class="waves-effect waves-teal btn-flat center indexEntrerFil"
                                            href="{{ path('post_showAllPost', { 'id': postParent.id }) }}">

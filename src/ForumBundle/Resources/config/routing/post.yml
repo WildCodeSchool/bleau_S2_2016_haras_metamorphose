@@ -22,6 +22,11 @@ post_showAllPost:
     defaults: { _controller: "ForumBundle:Post:showAllPost" }
     methods:  GET
 
+post_showMesMessages:
+    path:     /showMesMessages
+    defaults: { _controller: "ForumBundle:Post:showMesMessages" }
+    methods:  [GET, POST]
+
 post_new:
     path:     /{cat}/{id}/new
     defaults: { _controller: "ForumBundle:Post:new" }
