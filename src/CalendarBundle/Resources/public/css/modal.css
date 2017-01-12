@@ -1,7 +1,7 @@
 
 /************************************************
 *
-*   1. Calendar psition
+*   1. Calendar position
 $
 ************************************************/
 
@@ -11,13 +11,25 @@ $
 
 /************************************************
 *
-*   2. Boite modal
+*   1. Calendar position
+$
+************************************************/
+
+.bouton-new {
+    color: #4d9200;
+    font-size: 36px !important;
+}
+
+/************************************************
+*
+*   3. Boite modal
 $
 ************************************************/
 
 .modal-corps{
-    background-color: #004d40;
+    background-color: #515e69;
     color: #dff1ff;
+    border-radius: 50px;
 }
 
 .modal-header{
@@ -28,11 +40,51 @@ $
 
 }
 
+.modal-body-text{
+    color: black;
+}
+
+.modal-horizontal{
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    border-bottom-left-radius: 0px;
+}
+
 .modal-body-image{
-    background-color: #9F9F9F;
-    color: #3b3b1f;
+    background-color: rgba(118, 135, 146, 0.9);
+    border-top-left-radius: 50px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 50px;
+    border-bottom-left-radius: 0px;
+    height: 150px;
+    width: 200px;
+}
+
+.modal-body-card{
+    margin-top: 40px;
+    margin-left: 10px;
+    margin-right: auto;
 }
 
 .modal-footer{
     background-color: #9F9F9F;
+}
+
+.modal-bouton {
+    width: 16% !important;
+    margin: auto !important;
+    position: relative;
+    left: 39%;
+    border-radius: 50px !important;
+}
+
+.bouton-edit {
+    color: #27228C;
+    font-size: 36px !important;
+}
+
+.bouton-delete {
+    color: #902b2b;
+    font-size: 36px !important;
 }

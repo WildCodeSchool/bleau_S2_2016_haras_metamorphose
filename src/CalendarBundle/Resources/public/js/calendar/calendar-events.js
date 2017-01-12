@@ -88,7 +88,7 @@ function calendar() {
                 var ponctuation2 = "à";
                 var startTime = moment(calEvent.start._i).format('HH:mm à ');
                 var endTime = moment(calEvent.end._i).format("HH:mm");
-                var Time = 'Le ' + day + ponctuation1 + startTime + ponctuation2 + endTime;
+                var Time = 'Le ' + day + '<br>' +ponctuation1 + ' ' + startTime + '<br>' + ponctuation2 + ' ' + endTime;
                 var editEvent = Routing.generate('agenda') + calEvent.id + '/edit';
                 var deleteEvent = Routing.generate('agenda') + calEvent.id + '/delete';
 
@@ -103,7 +103,7 @@ function calendar() {
                 $('#edit_event').attr('href', editEvent);
 
                 $('#delete_event').show();
-                    $('#delete_event').attr('href', deleteEvent);
+                $('#delete_event').attr('href', deleteEvent);
             }
 
         });

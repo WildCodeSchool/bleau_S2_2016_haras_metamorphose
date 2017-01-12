@@ -5,19 +5,13 @@
                 {% if is_granted('ROLE_SUPER_ADMIN') %}
 
                     <a href="{{ path('agenda_new') }}">
-                        <span class="fa-stack fa-2x">
-                              <i class="fa fa-circle fa-stack-2x icon-background1"></i>
-                              <i class="fa fa-pencil fa-stack-1x"></i>
-                        </span>
+                        <i class="material-icons md-48 bouton-new">add_circle</i>
                     </a>
 
                 {% elseif is_granted('ROLE_ADMIN') %}
 
                     <a href="{{ path('agenda_new') }}">
-                        <span class="fa-stack fa-2x">
-                              <i class="fa fa-circle fa-stack-2x icon-background1"></i>
-                              <i class="fa fa-pencil fa-stack-1x"></i>
-                        </span>
+                        <i class="material-icons md-48 bouton-new">add_circle</i>
                     </a>
 
                 {% else %}
@@ -31,7 +25,7 @@
 <!------------------------------- MODAL STRUCTURE ------------------------------------->
 <!------------------------------- --------------- ------------------------------------->
 <!------------------------------- --------------- ------------------------------------->
-<div id="fullCalModal" class="modal modal-corps"> <!-- modal-fixed-footer -->
+<div id="fullCalModal" class="modal modal-corps"> <!--- DEBUT DE LA MODAL --><!-- modal-fixed-footer -->
     <div class="modal-content">
         <div class="modal-header">
             <div class="center">
@@ -41,12 +35,12 @@
 
         <div class="modal-body">
 
-            <div class="card horizontal">
+            <div class="card horizontal modal-horizontal">
                 <div class="card-image modal-body-image">
                     <h6 id="modalTime" class="modal-body-card"></h6>
                 </div>
                 <div class="card-stacked">
-                    <div class="card-content">
+                    <div class="card-content modal-body-text">
                         <p><span id="modalTexte"></span></p>
                     </div>
 
@@ -55,25 +49,43 @@
 
         </div>
     </div>
-    <div class="modal-footer">
-        <div class="col s12 right">
-            {% if is_granted("ROLE_SUPER_ADMIN") %}
-                <a href="#" id="delete_event">
-                    <span class="fa-stack fa-2x">
-                        <i class="fa fa-circle fa-stack-2x icon-background2"></i>
-                        <i class="fa fa-pencil fa-stack-1x"></i>
-                    </span>
-                </a>
 
-                <a href="#" id="edit_event">
-                    <span class="fa-stack fa-2x">
-                        <i class="fa fa-circle fa-stack-2x icon-background2"></i>
-                        <i class="fa fa-pencil fa-stack-1x white"></i>
-                    </span>
-                </a>
-            {% endif %}
+    <div class="modal-footer modal-bouton">
+        <div class="row right">
+            <div class="">
+
+                {% if is_granted("ROLE_SUPER_ADMIN") %}
+
+                    <div class="col s4">
+                        <a href="#" id="edit_event">
+                            <i class="material-icons md-48 bouton-edit">create</i>
+                        </a>
+                    </div>
+                    <div class="col s4">
+                        <a href="#" id="delete_event">
+                            <i class="material-icons md-48 bouton-delete">delete_sweep</i>
+                        </a>
+                    </div>
+
+                {% elseif is_granted("ROLE_ADMIN") %}
+
+                    <div class="col s4">
+                        <a href="#" id="edit_event">
+                            <i class="material-icons md-48 bouton-edit">create</i>
+                        </a>
+                    </div>
+                    <div class="col s4">
+                        <a href="#" id="delete_event">
+                            <i class="material-icons md-48 bouton-delete">delete_sweep</i>
+                        </a>
+                    </div>
+
+                {% else %}
+
+                {% endif %}
+
+            </div>
         </div>
     </div>
-</div>
 
-<!------------------------------- ---------------- ------------------------------------->
+</div> {# ----- FIN DE LA MODAL ----- #}
