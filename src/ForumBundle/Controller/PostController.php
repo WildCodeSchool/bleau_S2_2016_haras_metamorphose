@@ -94,7 +94,7 @@ class PostController extends Controller
         // Connexion à la BdD
         $em = $this->getDoctrine()->getManager();
         // Ramene le Fil de discussion parent et actif
-        $postParents = $em->getRepository('ForumBundle:Post')->findBy(array('actif' => 1, 'parent' => null), array('dateCreate' => 'DESC'));
+        $posts = $em->getRepository('ForumBundle:Post')->findBy(array('actif' => 1), array('dateCreate' => 'DESC'));
         // Ramene les catégories à partir du HarasBundle
         $categories = $em->getRepository('HarasBundle:Category')->findAll(array('id' => 'ASC'));
 
@@ -103,10 +103,10 @@ class PostController extends Controller
         // -----------------------------------------------------------------------------------------------------
         $lastPostByCats = array();
         $categs = array();
-        foreach ($postParents as $postParent) {
-            if (!in_array($postParent->getCategorie()->getParent(), $categs)) {
-                $categs[] = $postParent->getCategorie()->getParent();
-                $lastPostByCats[] = $postParent;
+        foreach ($posts as $post) {
+            if (!in_array($post->getCategorie()->getParent(), $categs)) {
+                $categs[] = $post->getCategorie()->getParent();
+                $lastPostByCats[] = $post;
             }
         }
 
@@ -376,6 +376,10 @@ class PostController extends Controller
         }
     }
 
+    /**
+     * show desactives post.
+     *
+     */
     public function showInactivePostAction(Request $request) {
         // Connexion à la BdD
         $em = $this->getDoctrine()->getManager();

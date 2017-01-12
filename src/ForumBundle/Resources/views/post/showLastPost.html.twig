@@ -1,19 +1,28 @@
+{# Gestion des derniers post pour HOMEPAGE #}
 {% extends '@PlateForme/layout.html.twig' %}
 
 {% block body %}
-{# Gestion des derniers Posts  #}
 <h1 class=" soustitrePage center">Actualité</h1>
 <div>
     {%  for lastPostCat in lastPostCats %}
         <div class="center">
-            <h4>
-                Posté sur la discussion : <br>
-                {{ lastPostCat.titre|capitalize }}
-            </h4>
+            {# Gestion couleur par catégories #}
+            {% if lastPostCat.categorie.parent.id == 1 %}
+            <h4 class="cat1">{{ lastPostCat.titre|capitalize }}</h4>
+                {%  elseif lastPostCat.categorie.parent.id == 2%}
+                    <h4 class="cat2">{{ lastPostCat.titre|capitalize }}</h4>
+                    {%  elseif lastPostCat.categorie.parent.id == 3 %}
+                    <h4 class="cat3">{{ lastPostCat.titre|capitalize }}</h4>
+                        {%  elseif lastPostCat.categorie.parent.id == 4 %}
+                        <h4 class="cat4">{{ lastPostCat.titre|capitalize }}</h4>
+                            {% endif %}
+                            {# FIN Gestion couleur par catégories #}
+            {##}{#<h4 class="cat1">Posté sur la discussion : <br>{{ lastPostCat.titre|capitalize }}</h4>#}
             {#{% if (lastPostCat.categorie.p) %}#}
 
-            <h5 style="background-color: red;">{{ lastPostCat.categorie.parent.id }}</h5>
-
+            {% if lastPostCat.parent.id is not defined %}
+                {#<h5 style="background-color: greenyellow">{{ lastPostCat.parent.id }}</h5>#}
+                <h5 style="background-color: blueviolet">{{ lastPostCat.id }}</h5>
             <a class="waves-effect waves-teal btn-flat tooltipped"
                data-position="left"
                data-delay="50"
@@ -21,6 +30,17 @@
                href="{{ path('post_showAllPost', { 'id': lastPostCat.id }) }}">
                 <i class="material-icons center">input</i>
             </a>
+            {% elseif lastPostCat.parent.id is defined %}
+            <h5 style="background-color: red">{{ lastPostCat.parent.id }}</h5>
+            <h5 style="background-color: #00bcd4">{{ lastPostCat.id }}</h5>
+            <a class="waves-effect waves-teal btn-flat tooltipped"
+               data-position="left"
+               data-delay="50"
+               data-tooltip="Voir la discussion"
+               href="{{ path('post_showAllPost', { 'id': lastPostCat.parent.id }) }}">
+                <i class="material-icons center">input</i>
+            </a>
+            {% endif %}
             {#<h4>{{ post.titre|capitalize }}</h4>#}
             {#<div class="divEnfantContenu">{{ lastPostCat.contenu|raw }}</div>#}
             <div> Message de : {{ lastPostCat.user }}</div>

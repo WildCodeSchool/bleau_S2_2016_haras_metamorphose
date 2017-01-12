@@ -26,8 +26,27 @@
 .material-tooltip {
 	//
 }
+// ************************
+//CSS couleur par catégorie
+// ************************
+.cat1 {
+	background-color: rgba(7,64,10, 0.6) !important;
+}
 
+.cat2 {
+	background-color: rgba(140, 104, 34, 0.6) !important;
+}
+
+.cat3 {
+	background-color: rgba(39, 34, 140, 0.6) !important;
+}
+
+.cat4 {
+	background-color: rgba(183, 21, 134, 0.6) !important;
+}
+// ************************
 //CSS for accordion
+// ************************
 .wrapperCat {
 	display: flex;
 	flex-direction: column;
