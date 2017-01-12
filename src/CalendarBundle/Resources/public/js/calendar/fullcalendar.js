@@ -6057,7 +6057,8 @@ DayGrid.mixin({
 		var skinCss = cssToStr(this.getSegSkinCss(seg));
 		var timeHtml = '';
 		var timeText;
-		var titleHtml;
+		var titleHtml = '';
+		var titleText;
 
 		classes.unshift('fc-day-grid-event', 'fc-h-event');
 
