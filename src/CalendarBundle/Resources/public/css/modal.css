@@ -29,7 +29,10 @@ $
 .modal-corps{
     background-color: #515e69;
     color: #dff1ff;
-    border-radius: 50px;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    border-bottom-left-radius: 0px;
 }
 
 .modal-header{

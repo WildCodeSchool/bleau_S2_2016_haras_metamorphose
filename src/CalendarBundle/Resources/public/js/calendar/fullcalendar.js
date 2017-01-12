@@ -4,6 +4,15 @@
  * (c) 2016 Adam Shaw
  */
 
+///////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////
+
+// Modification ligne 6059
+// SUPPRESSION DE L'AFFICHACHE DE L'HEURE DE DEBUT D'EVENT DANS LE HEAD DE L'EVENT
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+
 (function(factory) {
 	if (typeof define === 'function' && define.amd) {
 		define([ 'jquery', 'moment' ], factory);
@@ -6056,7 +6065,7 @@ DayGrid.mixin({
 		if (seg.isStart) {
 			timeText = this.getEventTimeText(event);
 			if (timeText) {
-				timeHtml = '<span class="fc-time">' + htmlEscape(timeText) + '</span>';
+				timeHtml = ''; // Permet d'afficher l'heure dans le head de l'élément
 			}
 		}
 

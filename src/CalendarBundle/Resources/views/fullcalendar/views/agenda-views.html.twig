@@ -26,6 +26,7 @@
 <!------------------------------- --------------- ------------------------------------->
 <!------------------------------- --------------- ------------------------------------->
 <div id="fullCalModal" class="modal modal-corps"> <!--- DEBUT DE LA MODAL --><!-- modal-fixed-footer -->
+
     <div class="modal-content">
         <div class="modal-header">
             <div class="center">
@@ -34,7 +35,6 @@
         </div>
 
         <div class="modal-body">
-
             <div class="card horizontal modal-horizontal">
                 <div class="card-image modal-body-image">
                     <h6 id="modalTime" class="modal-body-card"></h6>
@@ -46,28 +46,15 @@
 
                 </div>
             </div>
-
         </div>
+
     </div>
 
-    <div class="modal-footer modal-bouton">
-        <div class="row right">
-            <div class="">
+    {% if is_granted("ROLE_SUPER_ADMIN") %}
+        <div class="modal-footer modal-bouton"> {#----- DEBUT MODAL FOOTER -----#}
+            <div class="row right">
 
-                {% if is_granted("ROLE_SUPER_ADMIN") %}
-
-                    <div class="col s4">
-                        <a href="#" id="edit_event">
-                            <i class="material-icons md-48 bouton-edit">create</i>
-                        </a>
-                    </div>
-                    <div class="col s4">
-                        <a href="#" id="delete_event">
-                            <i class="material-icons md-48 bouton-delete">delete_sweep</i>
-                        </a>
-                    </div>
-
-                {% elseif is_granted("ROLE_ADMIN") %}
+                {#{% if is_granted("ROLE_SUPER_ADMIN") %}#}
 
                     <div class="col s4">
                         <a href="#" id="edit_event">
@@ -80,12 +67,24 @@
                         </a>
                     </div>
 
-                {% else %}
+    {% elseif is_granted("ROLE_ADMIN") %}
 
-                {% endif %}
+                    <div class="col s4">
+                        <a href="#" id="edit_event">
+                            <i class="material-icons md-48 bouton-edit">create</i>
+                        </a>
+                    </div>
+                    <div class="col s4">
+                        <a href="#" id="delete_event">
+                            <i class="material-icons md-48 bouton-delete">delete_sweep</i>
+                        </a>
+                    </div>
+
+    {% else %}
+
+    {% endif %}
 
             </div>
-        </div>
-    </div>
+        </div> {#---- FIN DU MODAL FOOTER ----#}
 
 </div> {# ----- FIN DE LA MODAL ----- #}
