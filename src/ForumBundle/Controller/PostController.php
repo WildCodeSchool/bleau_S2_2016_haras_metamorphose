@@ -95,8 +95,6 @@ class PostController extends Controller
         $em = $this->getDoctrine()->getManager();
         // Ramene le Fil de discussion parent et actif
         $posts = $em->getRepository('ForumBundle:Post')->findBy(array('actif' => 1), array('dateCreate' => 'DESC'));
-        // Ramene les catégories à partir du HarasBundle
-        $categories = $em->getRepository('HarasBundle:Category')->findAll(array('id' => 'ASC'));
 
         // -----------------------------------------------------------------------------------------------------
         // Selection des derniers fils de discussion enregistré (1 par catégorie) Ici seulement 4 catégories
@@ -112,9 +110,9 @@ class PostController extends Controller
 
         return $this->render('@Forum/post/showLastPost.html.twig', array(
             'lastPostCats' => $lastPostByCats,
-            'categories' => $categories,
         ));
     }
+
     /**
      * Creates a new post entity.
      *

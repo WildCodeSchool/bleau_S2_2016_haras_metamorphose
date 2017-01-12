@@ -6,7 +6,7 @@
     <h2 class="soustitrePage center">Dernières discussions</h2>
     <div class="row">
         {# Gestion couleur card en fonction de la catégorie #}
-        {% for lastPostCat in lastPostCats|reverse %}
+        {% for lastPostCat in lastPostCats %}
         <div class="col s12 m6">
             {% if lastPostCat.categorie.parent.id == 1 %}
             <div class="card cat1">
@@ -20,7 +20,7 @@
                             {# Fin Gestion couleur card en fonction de la catégorie #}
                             <div class="card-content white-text colCustom">
                                 <span class="card-title titreDerPost">{{ lastPostCat.titre|capitalize }}</span>
-                                <div class="lastPostContenu">{{ lastPostCat.contenu|raw }}</div>
+                                <div class="lastPostContenu">{{ lastPostCat.contenu|striptags|truncate(1700, true, "...")|raw }}</div>
                             </div>
                             <div class="card-action">
                                 <a class="waves-effect waves-teal btn-flat center indexEntrerFil"
