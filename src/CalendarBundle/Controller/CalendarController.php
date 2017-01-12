@@ -148,7 +148,7 @@ class CalendarController extends Controller
             $em->flush();
         }
 
-        return $this->redirectToRoute('agenda');
+        return $this->redirectToRoute('plate_forme_homepage');
     }
 
 }
