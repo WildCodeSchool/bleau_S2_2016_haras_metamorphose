@@ -49,6 +49,11 @@
                 {{ form_widget(form.profession, {'attr':{'class':'profession form'}}) }}
                 {{ form_errors(form.profession) }}
             </div>
+
+            <div class="row input-field">
+                {{ form_widget(form.photo.file, {'attr':{'class':'photo form'}}) }}
+                {{ form_errors(form.photo.file) }}
+            </div>
         </div>
         <div class="button">
             <button type="submit" class="btn btn-warning button_contact send">Send</button>
@@ -59,19 +64,3 @@
     </div>
 </div>
 </div>
-
-{#{% trans_default_domain 'FOSUserBundle' %}#}
-
-{#{{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}#}
-    {#{{ form_widget(form) }}#}
-
-    {#<div class="row input-field">#}
-        {#{{ form_label(form.nom) }}#}
-        {#{{ form_widget(form.nom) }}#}
-        {#{{ form_errors(form.nom) }}#}
-    {#</div>#}
-
-    {#<div>#}
-        {#<input type="submit" value="{{ 'registration.submit'|trans }}" />#}
-    {#</div>#}
-{#{{ form_end(form) }}#}

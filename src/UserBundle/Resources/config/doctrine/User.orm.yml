@@ -24,5 +24,6 @@ UserBundle\Entity\User:
       oneToOne:
           photo:
               targetEntity: HarasBundle\Entity\Media
+              cascade: ['all']
 
       lifecycleCallbacks: {  }
