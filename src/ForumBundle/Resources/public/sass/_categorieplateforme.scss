@@ -26,8 +26,27 @@
 .material-tooltip {
 	//
 }
+// ************************
+//CSS couleur par catégorie
+// ************************
+.cat1 {
+	background-color: rgba(7,64,10, 0.6) !important;
+}
 
+.cat2 {
+	background-color: rgba(140, 104, 34, 0.6) !important;
+}
+
+.cat3 {
+	background-color: rgba(39, 34, 140, 0.6) !important;
+}
+
+.cat4 {
+	background-color: rgba(183, 21, 134, 0.6) !important;
+}
+// ************************
 //CSS for accordion
+// ************************
 .wrapperCat {
 	display: flex;
 	flex-direction: column;
@@ -41,13 +60,11 @@
 #accordionButtonCat_1 {
 	width: 100%;
 	box-sizing: unset !important;
-	//border-radius: 5px;
 	float: left;
 	cursor: pointer;
 	border: 1px solid #AAA;
     background-color: rgba(7,64,10, 0.6);
     padding: 3%;
-	//margin-left: 9%;
     margin-bottom: 5px;
     -moz-box-shadow: 4px 4px 10px #AAA;
     -webkit-box-shadow: 4px 4px 10px #AAA;
@@ -61,13 +78,11 @@
 #accordionButtonCat_2 {
 	width: 100%;
 	box-sizing: unset !important;
-	//border-radius: 5px;
 	float: left;
 	cursor: pointer;
 	border: 1px solid #AAA;
     background-color: rgba(140, 104, 34, 0.6);
     padding: 3%;
-	//margin-left: 9%;
     margin-bottom: 5px;
     -moz-box-shadow: 4px 4px 10px #AAA;
     -webkit-box-shadow: 4px 4px 10px #AAA;
@@ -87,7 +102,6 @@
 	border: 1px solid #AAA;
     background-color: rgba(39, 34, 140, 0.6);
     padding: 3%;
-	//margin-left: 9%;
     margin-bottom: 5px;
     -moz-box-shadow: 4px 4px 10px #AAA;
     -webkit-box-shadow: 4px 4px 10px #AAA;
@@ -100,14 +114,12 @@
 
 #accordionButtonCat_4 {
 	width: 100%;
-	box-sizing: unset !important;
-	//border-radius: 5px;
+	box-sizing: unset !important;;
 	float: left;
 	cursor: pointer;
 	border: 1px solid #AAA;
     background-color: rgba(183, 21, 134, 0.6);
     padding: 3%;
-	//margin-left: 9%;
     margin-bottom: 5px;
     -moz-box-shadow: 4px 4px 10px #AAA;
     -webkit-box-shadow: 4px 4px 10px #AAA;
@@ -153,7 +165,7 @@
 }
 
 .spanSousCat {
-	padding-left: 7%;
+	padding-left: 2%;
 	padding-right: 60%;
 	font-weight: bold;
 	color: #DEDEDE;

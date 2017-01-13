@@ -10,14 +10,22 @@ namespace ForumBundle\Repository;
  */
 class CategoriePlateformeRepository extends \Doctrine\ORM\EntityRepository
 {
-        public function getSousCategorie(){
+    public function getSousCategorie(){
 //        $sql = 'SELECT * FROM categorie_plateforme WHERE parent_id is NOT null and actif = 1';
 //        return $this->getEntityManager()->getConnection()->executeQuery($sql)->fetchAll();
-            $qb = $this->createQueryBuilder('a')
-            ->select('a')
-            ->where('a.parent IS NOT NULL')
-            ->andWhere('a.actif = 1')
-            ->add('orderBy', 'a.nom ASC');
+        $qb = $this->createQueryBuilder('a')
+        ->select('a')
+        ->where('a.parent IS NOT NULL')
+        ->andWhere('a.actif = 1')
+        ->add('orderBy', 'a.nom ASC');
    	    return $qb->getQuery()->getResult();
+    }
+
+    public function getNameCateg(){
+//      Récupération des noms des catégories du Haras Bundle
+        $nameSection = ['section1name', 'section2name', 'section3name', 'section4name'];
+        $sql = 'SELECT text_fr, text.name FROM text WHERE text.name IN (\'section1name\', \'section2name\', \'section3name\', \'section4name\')';
+
+        return $this->getEntityManager()->getConnection()->executeQuery($sql)->fetchAll();
     }
 }

@@ -4,47 +4,71 @@
 
     <div class="container">
     <div class="row">
-        <div class="col s12 center">
+        <div class="col s12">
 
-            <h1>Agenda</h1>
+            <h1 class="center">Agenda</h1>
 
             <div id="table">
-                <table>
-                    <tbody>
-                        <tr>
-                            <th>Id</th>
-                            <td>{{ agenda.id }}</td>
-                        </tr>
-                        <tr>
-                            <th>Start</th>
-                            <td>{% if agenda.start %}{{ agenda.start|date('Y-m-d H:i:s') }}{% endif %}</td>
-                        </tr>
-                        <tr>
-                            <th>End</th>
-                            <td>{% if agenda.end %}{{ agenda.end|date('Y-m-d H:i:s') }}{% endif %}</td>
-                        </tr>
-                        <tr>
-                            <th>Titre</th>
-                            <td>{{ agenda.titre }}</td>
-                        </tr>
-                        <tr>
-                            <th>Texte</th>
-                            <td>{{ agenda.texte }}</td>
-                        </tr>
-                        <tr>
-                            <th>Lieu</th>
-                            <td>{{ agenda.lieu }}</td>
-                        </tr>
-                        <tr>
-                            <th>Couleur</th>
-                            <td>{{ agenda.color }}</td>
-                        </tr>
-                        <tr>
-                            <th>Slider</th>
-                            <td>{% if agenda.slider %}Yes{% else %}No{% endif %}</td>
-                        </tr>
-                    </tbody>
+
+                <table class="calendar-table">
+                    <tr>
+                        <td class="calendar-td calendar-border-topleft">
+                            <p class="calendar-p">Titre de l'évènement :</p>
+                        </td>
+                        <td class="calendar-td-twig calendar-border-topright">
+                            <p>{{ agenda.titre }}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="calendar-td">
+                            <p class="calendar-p">Date et heure de commencement :</p>
+                        </td>
+                        <td class="calendar-td-twig">
+                            <p>{% if agenda.start %}{{ agenda.start|date('d-m-Y à H:i:s') }}{% endif %}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="calendar-td">
+                            <p class="calendar-p">Date et heure de fin :</p>
+                        </td>
+                        <td class="calendar-td-twig">
+                            <p>{% if agenda.end %}{{ agenda.end|date('d-m-Y à H:i:s') }}{% endif %}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="calendar-td">
+                            <p class="calendar-p">Description de l'évènement</p>
+                        </td>
+                        <td class="calendar-td-twig">
+                            <p>{{ agenda.texte }}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="calendar-td">
+                            <p class="calendar-p">Lieu de l'évènement</p>
+                        </td>
+                        <td class="calendar-td-twig">
+                            <p>{{ agenda.lieu }}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="calendar-td">
+                            <p class="calendar-p">Ajouter au slider</p>
+                        </td>
+                        <td class="calendar-td-twig">
+                            <p>{% if agenda.slider %}Evènement ajouté{% else %}Evènement non ajouté{% endif %}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="calendar-td">
+                            <p class="calendar-p">Couleur de l'évènement</p>
+                        </td>
+                        <td class="calendar-td-twig calendar-border-butomright" style="background-color: {{ agenda.color }};">
+                            <p class="color-show-p">{{ agenda.color }}</p>
+                        </td>
+                    </tr>
                 </table>
+
             </div>
         </div>
     </div>
@@ -52,15 +76,14 @@
     <ul>
         <li>
             <div class="center">
-                <a class="btn btn-default edit_admin" href="{{ path('agenda_edit', { 'id': agenda.id }) }}">Edit</a>
-                <a class="btn btn-default edit_admin"  href="{{ path('agenda') }}">Retour au calendrier</a>
+                <a href="{{ path('agenda_edit', { 'id': agenda.id }) }}">
+                    <i class="material-icons md-48 bouton-edit">create</i>
+                </a>
+                <a href="{{ path('plate_forme_homepage') }}">
+                    <i class="material-icons md-48 bouton-retour">fast_rewind</i>
+                </a>
             </div>
         </li>
-        {#<li>#}
-            {#{{ form_start(delete_form) }}#}
-                {#<input type="submit" value="Delete">#}
-            {#{{ form_end(delete_form) }}#}
-        {#</li>#}
     </ul>
 
     </div>

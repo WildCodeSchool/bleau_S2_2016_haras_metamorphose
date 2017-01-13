@@ -3,7 +3,6 @@
 // ********************************************************************
 jQuery(document).ready(function($) {
 
-    console.log('jQuery de main.js a démarré : ligne 6');
     init_plateforme();
 
     // RETOUR VERS LE HAUT
@@ -17,7 +16,7 @@ jQuery(document).ready(function($) {
     modal();
 
     // FONCTION COLORPICKER
-    colorpicker();
+    // colorpicker();
 
     // FONCTION DATEPICKER
     datepicker();
@@ -30,7 +29,6 @@ jQuery(document).ready(function($) {
 
 function init_plateforme()
 {
-    console.log('APP.JS - FONCTION INIT_PLATEFORME a démarré : ligne 38');
     // pour le menu hamburger
     $('.button-collapse').sideNav();
     $('#contact-body').hide();
@@ -50,8 +48,6 @@ function init_plateforme()
 // ********************************************************************
 
 function retour_haut() {
-
-    console.log('APP.JS - FONCTION RETOUR_HAUT a démarré : ligne 81');
 
     $('body').prepend('<a href="#" class="back-to-top">Back to Top</a>');
 
@@ -80,7 +76,6 @@ function retour_haut() {
 
 function selecteur() {
 
-    console.log('APP.JS - FONCTION SELECTEUR a démarré : ligne 127');
     $(document).ready(function () {
         // Materialize.updateTextFields();
         $('select').material_select();
@@ -94,8 +89,6 @@ function selecteur() {
 
 function modal() {
 
-    console.log('APP.JS - FONCTION MODAL a démarré : ligne 91');
-
     $(document).ready(function(){
 
         $('.modal').modal();
@@ -104,27 +97,10 @@ function modal() {
 }
 
 // ********************************************************************
-// *                    COLOR PICKER
-// ********************************************************************
-function colorpicker() {
-
-    console.log('APP.JS - FONCTION COLORPICKER a démarré : ligne 105');
-
-    // $(function() {
-        $('#colorpicker').colorpicker({
-            format: 'hex',
-            color: 'transparent'
-        });
-    // });
-}
-
-// ********************************************************************
 // *                    DATE PICKER
 // ********************************************************************
 
 function datepicker() {
-
-    console.log('APP.JS - FONCTION DATEPICKER a démarré : ligne 127');
 
     $('.datepicker').pickadate({
         selectMonths: true, // Creates a dropdown to control month

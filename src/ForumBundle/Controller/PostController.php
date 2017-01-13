@@ -6,6 +6,7 @@ use ForumBundle\Entity\Post;
 use ForumBundle\Entity\CategoriePlateforme;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use UserBundle\Entity\User;
 
 /**
  * Post controller.
@@ -29,18 +30,26 @@ class PostController extends Controller
             $nbPostEnfants[$postParent->getId()] = count($em->getRepository('ForumBundle:Post')->findBy(array('parent' => $postParent->getId(), 'actif' => 1)));
         }
 
-        // Ramene les catégories  (actif = oui)
-        $categories = $em->getRepository('ForumBundle:CategoriePlateforme')->findBy(array('actif' => 1, 'parent' => null), array('id' => 'ASC'));
+        // Ramene les catégories à partir du HarasBundle
+        $categories = $em->getRepository('HarasBundle:Category')->findAll(array('id' => 'ASC'));
 
-        // -----------------------------------------------------------------------------------------------------
-        // Test si la base de données est suffisament remplie
-        // si pas de catégorie redirection vers création
-        // nouvelle catégorie
-        // -----------------------------------------------------------------------------------------------------
-        if (empty($categories)) {
-            // Ajout message pour inviter l'admin à completer sa base de données
-            $this->addFlash('notice', 'Il faut remplir au minimum 1 catégorie');
-            return $this->redirectToRoute('categorieplateforme_newCat');
+        $categoriesName = $em->getRepository('ForumBundle:CategoriePlateforme')->getNameCateg();
+        $categoriesPlateforme = $em->getRepository('ForumBundle:CategoriePlateforme')->findBy(array('parent' => null));
+
+        foreach ($categoriesPlateforme as $categoriePlateforme)
+        {
+            foreach ($categories as $key => $category){
+                if ($category->getId() == $categoriePlateforme->getId()){
+                    foreach ($categoriesName as $categName){
+                        if (substr($categName['name'], 0, 8) == $category->getName()){
+                            $categoriePlateforme->setNom($categName['text_fr']);
+                            $em->persist($categoriePlateforme);
+                            unset($categories[$key]);
+                        }
+                    }
+
+                }
+            }
         }
 
         // Ramene sous catégorie
@@ -86,11 +95,41 @@ class PostController extends Controller
             }
         }
 
+        $em->flush();
+
         return $this->render('@Forum/post/index.html.twig', array(
             'postParents' => $postParents,
             'nbPostEnfants' => $nbPostEnfants,
-            'categories' => $categories,
+            'categories' => $categoriesPlateforme,
             'sousCategories' => $sousCategories,
+            'lastPostCats' => $lastPostByCats,
+        ));
+    }
+
+    /**
+     * Show last post pour homepage plateforme.
+     *
+     */
+    public function showLastPostHomepageAction()
+    {
+        // Connexion à la BdD
+        $em = $this->getDoctrine()->getManager();
+        // Ramene le Fil de discussion parent et actif
+        $posts = $em->getRepository('ForumBundle:Post')->findBy(array('actif' => 1), array('dateCreate' => 'DESC'));
+
+        // -----------------------------------------------------------------------------------------------------
+        // Selection des derniers fils de discussion enregistré (1 par catégorie) Ici seulement 4 catégories
+        // -----------------------------------------------------------------------------------------------------
+        $lastPostByCats = array();
+        $categs = array();
+        foreach ($posts as $post) {
+            if (!in_array($post->getCategorie()->getParent(), $categs)) {
+                $categs[] = $post->getCategorie()->getParent();
+                $lastPostByCats[] = $post;
+            }
+        }
+
+        return $this->render('@Forum/post/showLastPost.html.twig', array(
             'lastPostCats' => $lastPostByCats,
         ));
     }
@@ -103,8 +142,13 @@ class PostController extends Controller
     {
         $post = new Post();
         $form = $this->createForm('ForumBundle\Form\PostType', $post);
-
         $form->handleRequest($request);
+
+        // Récupération titre du post parent
+        // Connexion à la BdD
+        $em = $this->getDoctrine()->getManager();
+        // Ramene le Fil de discussion parent
+        $postParents = $em->getRepository('ForumBundle:Post')->findOneBy(array('id' => $id));
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
@@ -121,16 +165,15 @@ class PostController extends Controller
             // Ajout date de la saisie
             $post->setDateCreate(new \DateTime());
 
-            // Ajout Enfant
-//            $post->addEnfant($post->getEnfant());
-
-            // Ajout user null pour le moment
-//            $post->setUser(null);
+            // Ajout id user
+            $post->setUser($this->getUser());
 
             // Ajout +1 sur nbPost sur User
+            $count = $post->getUser()->getNbPost();
+            $post->getUser()->setNbPost(++$count);
 
             $em->persist($post);
-            $em->flush($post);
+            $em->flush();
 
             $this->addFlash(
                 'notice',
@@ -141,6 +184,7 @@ class PostController extends Controller
         }
 
         return $this->render('@Forum/post/new.html.twig', array(
+            'postParentTitre' => $postParents->getTitre(),
             'post' => $post,
             'form' => $form->createView(),
             'cat' => $request->get('cat'),
@@ -174,13 +218,16 @@ class PostController extends Controller
             // Ajout Enfant
 //            $post->addEnfant($post->getEnfant());
 
-            // Ajout user null pour le moment
-//            $post->setUser(null);
+            // Ajout user
+            $post->setUser($this->getUser());
 
             // Ajout +1 sur nbPost sur User
+            $count = $post->getUser()->getNbPost();
+            $post->getUser()->setNbPost(++$count);
+
 
             $em->persist($post);
-            $em->flush($post);
+            $em->flush();
             return $this->redirectToRoute('post_showAllPost', array('id' => $post->getId()) );
 
         }
@@ -212,7 +259,6 @@ class PostController extends Controller
      */
     public function showAllPostAction(Request $request)
     {
-
         // Connexion à la BdD
         $em = $this->getDoctrine()->getManager();
         // Ramene le Fil de discussion parent et actif
@@ -234,6 +280,33 @@ class PostController extends Controller
     }
 
 
+    /**
+     * Finds and displays a post entity by user.
+     *
+     */
+    public function showMesMessagesAction(Request $request)
+    {
+        // Connexion à la BdD
+        $em = $this->getDoctrine()->getManager();
+        // Ramene le Fil de discussion parent et actif
+
+        // Récupération des post en BdD
+        // Post
+        $posts = $em->getRepository('ForumBundle:Post')->findBy(array('actif'=> 1, 'user' =>$this->getUser()), array('dateCreate' => 'DESC'));
+
+        $tabIdParents = array();
+        foreach ($posts as $post) {
+            if ($post->getParent() == null) {
+                $tabIdParents[] = $post->getId();
+            }
+        }
+
+        return $this->render('@Forum/post/showMesMessages.html.twig', array(
+            'posts' => $posts,
+            'tabIdParents' => $tabIdParents,
+        ));
+
+    }
     /**
      * Displays a form to edit an existing post entity.
      *
@@ -301,7 +374,7 @@ class PostController extends Controller
 
             $this->addFlash(
                 'notice',
-                'Discussion réactivée'
+                'Discussion désactivée'
             );
 
             return $this->redirectToRoute('post_index');
@@ -322,6 +395,10 @@ class PostController extends Controller
         }
     }
 
+    /**
+     * show desactives post.
+     *
+     */
     public function showInactivePostAction(Request $request) {
         // Connexion à la BdD
         $em = $this->getDoctrine()->getManager();
@@ -368,7 +445,6 @@ class PostController extends Controller
             $em->flush($post);
 
             return $this->redirectToRoute('post_showAllPostDesactive');
-//            return $this->redirectToRoute('post_index');
 
         // Si post Enfant, réactive que le post selectionné
         }

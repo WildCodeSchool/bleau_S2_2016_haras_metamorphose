@@ -1,5 +1,13 @@
 
 /*-----------------------------------------------------*\
+                          BARRE RECHERCHE
+\*-----------------------------------------------------*/
+
+.barreRecherche {
+
+}
+
+/*-----------------------------------------------------*\
                           NAVBAR
 \*-----------------------------------------------------*/
 
@@ -28,23 +36,46 @@ nav{
   transition-duration: .3s;
 }
 
+//#dropdownNavBar{
+//  opacity:1;
+//  //display: block;
+//  margin-left: 11.7%;
+//}
+
+#dropdown1 {
+  top: 65px !important;
+  //left: 15px !important;
+}
+
+.dropdown-content {
+  margin-top: 65px;
+}
+
+//.dropdown-content{
+//  background-color: #aeb5b64d;
+//}
+
+.nav-wrapper-plateforme {
+  z-index: auto;
+}
+
 .decouverte:hover{
-  background-color: rgba(10, 112, 14, 0.6)!important;
+  background-color: rgba(7,64,10, 0.6);
   height: 44px;
 }
 
-.harras:hover{
-  background-color: rgba(84, 39, 20, 0.6)!important;
+.haras:hover{
+  background-color: rgba(140, 104, 34, 0.6);
   height: 44px;
 }
 
 .detente:hover{
-  background-color: rgba(62, 62, 129, 0.6)!important;
+  background-color: rgba(39, 34, 140, 0.6);
   height: 44px;
 }
 
 .coworking:hover{
-  background-color:rgba(183, 21, 134, 0.6)!important;
+  background-color:rgba(183, 21, 134, 0.6);
   height: 44px;
 }
 
@@ -54,25 +85,6 @@ nav{
 }
 
 
-
-input[type=text] {
-  width: 10px;
-  box-sizing: border-box;
-  border: 2px solid #ccc;
-  border-radius: 4px;
-  font-size: 16px;
-  background-color: white;
-  background-image: url('searchicon.png');
-  background-position: 10px 10px;
-  background-repeat: no-repeat;
-  padding: 12px 20px 12px 40px;
-  -webkit-transition: width 0.4s ease-in-out !important;
-  transition: width 0.4s ease-in-out !important;
-}
-
-input[type=text]:focus {
-  width: 20% !important;
-}
 
 
 /*-----------------------------------------------------*\
@@ -89,26 +101,26 @@ nav ul a:hover {
   //height: 63px;
 }
 
-#logo{
+#plateforme-logo{
   background-color: #577a37;
   height:64px;
 }
 
 
-#logo:hover{
+#plateforme-logo:hover{
   background-color: #496b35;
 }
 
 .icon-background1 {
-  color: rgba(10, 112, 14, 0.6);
+  color: rgba(7,64,10, 0.6);
 }
 
 .icon-background2 {
-  color: rgba(84, 39, 20, 0.6);
+  color: rgba(140, 104, 34, 0.6);
 }
 
 .icon-background3 {
-  color: rgba(62, 62, 129, 0.6);
+  color: rgba(39, 34, 140, 0.6);
 }
 
 .icon-background4 {
@@ -136,4 +148,6 @@ body {
                           FOOTER
 \*-----------------------------------------------------*/
 
-
+footer.page-footer{
+  background-color: rgba(118, 135, 146, 0.9);
+}

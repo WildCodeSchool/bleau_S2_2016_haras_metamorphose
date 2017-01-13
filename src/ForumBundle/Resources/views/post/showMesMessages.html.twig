@@ -1,0 +1,72 @@
+{% extends '@PlateForme/layout.html.twig' %}
+
+{% block body %}
+    {#-------------------------------------------------------------#}
+    {# NavBar Lateral  #}
+    {{ include("@Forum/post/postNavBar.html.twig") }}
+    {# fin navBar lateral #}
+    {#-------------------------------------------------------------#}
+    <section class="postSectionIndex">
+        <article class="postArticleIndex">
+            {# Gestion des Fils de discussion #}
+            <h1 class=" soustitrePage center">Vos fils de discussion</h1>
+            <div class="reactDivParent" style="width: 80%; background-color: #f1f1e3">
+                {% for post in posts %}
+                    {% if  post.parent.id is not defined %}
+                        {# Fil de discussion #}
+                        <h4>{{ post.titre|capitalize }}</h4>
+                        <div class="divParentContenu">{{ post.contenu|raw }}</div>
+                        <div> Crée le : {{ post.dateCreate|date("d/m/Y") }}</div>
+                        {# Voir la discussion #}
+                        <div class="row center">
+                            <a class="waves-effect waves-teal btn-flat tooltipped"
+                               data-position="left"
+                               data-delay="50"
+                               data-tooltip="Voir la discussion"
+                               href="{{ path('post_showAllPost', { 'id': post.id }) }}">
+                                <i class="material-icons center">input</i>
+                            </a>
+                        </div>
+                        <hr>
+                    {% endif %}
+                {% endfor %}
+            </div>
+
+            {# Gestion des Posts isolés #}
+            <h1 class=" soustitrePage center">Vos autres commentaires</h1>
+            <div>
+                {% for post in posts %}
+                    {% if post.parent.id is defined and post.parent.id not in tabIdParents %}
+                        <div class="center">
+                            <h4>
+                                Posté sur la discussion : <br>
+                                {{ post.parent.titre|capitalize }}
+                            </h4>
+                            <a class="waves-effect waves-teal btn-flat tooltipped"
+                               data-position="left"
+                               data-delay="50"
+                               data-tooltip="Voir la discussion"
+                               href="{{ path('post_showAllPost', { 'id': post.parent.id }) }}">
+                                <i class="material-icons center">input</i>
+                            </a>
+                            <a class="waves-effect waves-teal btn-flat tooltipped"
+                               data-position="right"
+                               data-delay="50"
+                               data-tooltip="Modifier"
+                               href="{{ path('post_edit', { 'id': post.id }) }}">
+                                <i class="material-icons center">edit</i>
+                            </a>
+                        </div>
+                        <div class="reactDivParent">
+                            <h4>{{ post.titre|capitalize }}</h4>
+                            <div class="divEnfantContenu">{{ post.contenu|raw }}</div>
+                            <div> Message de : {{ post.user|capitalize }}</div>
+                            <div> Crée le : {{ post.dateCreate|date("d/m/Y") }}</div>
+                            <hr>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </article>
+    </section>
+{% endblock %}

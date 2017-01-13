@@ -7,6 +7,11 @@ post_index:
     defaults: { _controller: "ForumBundle:Post:index" }
     methods:  GET
 
+post_showALastPost:
+    path:     /showLastPostHomepage
+    defaults: { _controller: "ForumBundle:Post:showLastPostHomepage" }
+    methods:  [GET, POST]
+
 post_show:
     path:     /{id}/show
     defaults: { _controller: "ForumBundle:Post:show" }
@@ -16,6 +21,11 @@ post_showAllPost:
     path:     /{id}/showAllPost
     defaults: { _controller: "ForumBundle:Post:showAllPost" }
     methods:  GET
+
+post_showMesMessages:
+    path:     /showMesMessages
+    defaults: { _controller: "ForumBundle:Post:showMesMessages" }
+    methods:  [GET, POST]
 
 post_new:
     path:     /{cat}/{id}/new

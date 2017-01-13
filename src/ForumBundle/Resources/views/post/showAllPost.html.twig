@@ -1,13 +1,13 @@
-{% extends '@Forum/layout.html.twig' %}
+{% extends '@PlateForme/layout.html.twig' %}
 
 {% block body %}
+    <div class="wrapper">
+    {#-------------------------------------------------------------#}
+    {# NavBar Lateral  #}
+    {{ include("@Forum/post/postNavBar.html.twig") }}
+    {# fin NavBar lateral #}
+    {#-------------------------------------------------------------#}
     <section class="sectionAllPost">
-
-        {#-------------------------------------------------------------#}
-        {# NavBar Lateral  #}
-        {{ include("@Forum/post/postNavBar.html.twig") }}
-        {# fin NavBar lateral #}
-        {#-------------------------------------------------------------#}
         {% for postParent in postParents %}
         {# Affichage du post parent #}
         <div class="header">
@@ -19,16 +19,17 @@
             </div>
 
             <div class="valign-wrapper">
+            {% if is_granted('ROLE_MODERATEUR') %}
                 <a class="aPost" href="{{ path('post_edit', { 'id': postParent.id }) }}" style="margin: 0 auto;">
                     <i class="fa fa-pencil-square-o fa-3x" style="color: #FFFFFF;" aria-hidden="true"></i>
                 </a>
+            {% endif %}
                 <div class="cartoucheUserShowAll valign">
-                    <div class="pCartoucheUserShowAll">Message de : {{ postParent.user }}</div>
+                    <div class="pCartoucheUserShowAll">Message de : {{ postParent.user|capitalize }}</div>
                     <div class="avatarUserIndex"><img src="{{ asset('bundles/haras/images/test2.jpeg') }}"></div>
                     {#-------------------------------------------------------------#}
                     {# rating user #}
-                    {#<p>{{ postParent.user.nbPost }}</p>#}
-                    {% set nb = 100 %}
+                    {% set nb = postParent.user.nbPost %}
                     <div class="pCartoucheUserShowAll">{{ include("@Forum/post/rating.html.twig") }}</div>
                     {# fin rating user #}
                     {#-------------------------------------------------------------#}
@@ -60,12 +61,11 @@
 
         <div id="content">
             <div class="object">
-                <div class="date">{{ postEnfant.dateCreate|date("d") }}</div>
+                <div class="date">{# {{ postEnfant.dateCreate|date("d") }} #}</div>
                 <div class="circle"></div>
                 <div class="context">
-
                     <div class="col s12 m7">
-                        <h2 class="titreEnfant">{{ postEnfant.titre }}</h2>
+                        <h2 class="titreEnfant">{{ postEnfant.titre|capitalize }}</h2>
                         <div class="card horizontal">
                             <div class="card-stacked">
                                 <div class="card-content">
@@ -73,19 +73,22 @@
                                     <p class="dateMessage">Message posté le {{ postEnfant.dateCreate|date("d/m/Y") }}</p>
                                 </div>
                                 <div class="card-action">
-                                    <div>
-                                        <a href="{{ path('post_edit', { 'id': postEnfant.id }) }}">
-                                            <i class="fa fa-pencil-square-o fa-3x" style="color: #444;" aria-hidden="true"></i>
-                                        </a>
-                                    </div>
+                                        {% if is_granted('ROLE_MODERATEUR') or postEnfant.user.id == app.user.id %}
+                                            <div>
+                                                <a href="{{ path('post_edit', { 'id': postEnfant.id }) }}">
+                                                    <i class="fa fa-pencil-square-o fa-3x" style="color: #444;" aria-hidden="true"></i>
+                                                </a>
+                                            </div>
+                                        {% else %}
+
+                                        {% endif %}
                                     <div class="pCartoucheUserShowAll">message de : {{ postEnfant.user }}</div>
                                     <div style="float: right;">
                                         <img src="{{ asset('bundles/haras/images/test3.jpeg') }}" style="width: 50px;">
                                     </div>
                                     {#-------------------------------------------------------------#}
                                     {# rating user #}
-                                    {#<p>{{ postEnfant.user.nbPost }}</p>#}
-                                    {% set nb = 70 %}
+                                    {% set nb = postEnfant.user.nbPost %}
                                     <div  class="valign">{{ include("@Forum/post/rating.html.twig") }}</div>
                                     {# fin rating user #}
                                     {#-------------------------------------------------------------#}
@@ -93,7 +96,6 @@
                             </div>
                         </div>
                     </div>
-
                 </div> {# fin div context #}
                 {% endfor %} {# Fin For POST ENFANTS #}
             </div> {# fin div object #}
@@ -115,5 +117,6 @@
             {% endfor %} {# Fin For POST Parent #}
         </div>  {# fin div id content #}
     </section>
+    </div>
 
 {% endblock %}
