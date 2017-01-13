@@ -86,7 +86,7 @@ function calendar() {
 
                 var ponctuation1 = "de";
                 var ponctuation2 = "à";
-                var startTime = moment(calEvent.start._i).format('HH:mm à ');
+                var startTime = moment(calEvent.start._i).format('HH:mm');
                 var endTime = moment(calEvent.end._i).format("HH:mm");
                 var Time = 'Le ' + day + '<br>' +ponctuation1 + ' ' + startTime + '<br>' + ponctuation2 + ' ' + endTime;
                 var editEvent = Routing.generate('agenda') + calEvent.id + '/edit';

@@ -33,7 +33,7 @@
                             </td>
                             <td class="calendar-td-twig">
                                 <div class="col s12 m4 l4">
-                                    {{ form_widget(form.start, { 'id': 'datepicker' }) }}
+                                    {{ form_widget(form.start) }}
                                     {{ form_errors(form.start) }}
                                 </div>
                             </td>
@@ -44,7 +44,7 @@
                             </td>
                             <td class="calendar-td-twig">
                                 <div class="col s12 m4 l4">
-                                    {{ form_widget(form.end, {'attr': { 'class': 'datepicker' }}) }}
+                                    {{ form_widget(form.end) }}
                                     {{ form_errors(form.end) }}
                                 </div>
                             </td>
