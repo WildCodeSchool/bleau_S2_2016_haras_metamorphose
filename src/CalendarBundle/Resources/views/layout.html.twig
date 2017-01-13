@@ -9,6 +9,7 @@
     {% block javascripts %}
         {{ parent() }}
         <script src="{{ asset('bundles/calendar/js/materialize-colorpicker.min.js') }}"></script>
+        <script src="{{ asset('bundles/calendar/js/main_calendar.js') }}"></script>
         <script>
             $('#colorpicker').colorpicker({
                 format: 'hex',

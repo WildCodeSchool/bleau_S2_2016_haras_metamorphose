@@ -14,85 +14,86 @@
     <div class="container center">
         <div class="row">
             <div class="col s12 m4 l4">
-                <p class="">Titre de l'évènement</p>
-                {{ form_widget(form.titre) }}
-                {{ form_errors(form.titre) }}
-            </div>
-            <div class="col s12 m4 l4">
-                <p class="">Lieu</p>
-                {{ form_widget(form.lieu) }}
-                {{ form_errors(form.lieu) }}
-            </div>
-            <div class="col s12 m4 l4">
-                <p class="">Description de l'évènement</p>
-                <div class="">
-                    <span class=""><i class=""></i></span>
-                    {{ form_widget(form.texte) }}
-                    {{ form_errors(form.texte) }}
-                </div>
-            </div>
-        </div>
 
-        <div class="row">
-            <div class="col s12 m3 l3">
-                <p class="">Date de début d'évènement</p>
-                <div class="">
-                    {{ form_widget(form.start, { 'id': 'datepicker' }) }}
-                    {{ form_errors(form.start) }}
-                    {#<input type="date" class="datepicker">#}
-                </div>
-            </div>
-            <div class="col s12 m3 l3">
-                <p class="">Date de fin d'évènement</p>
-                <div class="">
-                    {{ form_widget(form.end, {'attr': { 'class': 'datepicker' }}) }}
-                    {{ form_errors(form.end) }}
-                </div>
-            </div>
-        </div>
+                <div id="table">
 
-        <div class="row">
-            <div class="col s12 center">
-                <div class="col s12 m6 l6">
-                    <table>
+                    <table class="calendar-table">
                         <tr>
-                            <td>Couleur de l'évènement :</td>
-                            <td>
-                                <div class="col s12 m5 s5">
+                            <td class="calendar-td calendar-border-topleft">
+                                <p class="calendar-p">Titre de l'évènement :</p>
+                            </td>
+                            <td class="calendar-td-twig calendar-border-topright">
+                                {{ form_widget(form.titre) }}
+                                {{ form_errors(form.titre) }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="calendar-td">
+                                <p class="calendar-p">Date et heure de commencement :</p>
+                            </td>
+                            <td class="calendar-td-twig">
+                                {{ form_widget(form.start, { 'id': 'datepicker' }) }}
+                                {{ form_errors(form.start) }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="calendar-td">
+                                <p class="calendar-p">Date et heure de fin :</p>
+                            </td>
+                            <td class="calendar-td-twig">
+                                {{ form_widget(form.end, {'attr': { 'class': 'datepicker' }}) }}
+                                {{ form_errors(form.end) }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="calendar-td">
+                                <p class="calendar-p">Description de l'évènement</p>
+                            </td>
+                            <td class="calendar-td-twig">
+                                {{ form_widget(form.texte) }}
+                                {{ form_errors(form.texte) }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="calendar-td">
+                                <p class="calendar-p">Lieu de l'évènement</p>
+                            </td>
+                            <td class="calendar-td-twig">
+                                {{ form_widget(form.lieu) }}
+                                {{ form_errors(form.lieu) }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="calendar-td">
+                                <p class="calendar-p">Couleur de l'évènement</p>
+                            </td>
+                            <td class="calendar-td-twig calendar-border-butomright" style="background-color: {{ agenda.color }};">
                                 {{ form_widget(form.color , { 'id': 'colorpicker' }) }}
                                 {{ form_errors(form.color) }}
-                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p class="calendar-p">Ajouter au slider</p>
+                            </td>
+                            <td>
+                                {{ form_widget(form.slider) }}
                             </td>
                         </tr>
                     </table>
 
-                    {#<p class="left color-form">Couleur de l'évènement :</p>#}
-                        {#<div class="col s12 m4 s4 taille-piker right">#}
-                            {#{{ form_widget(form.color , { 'id': 'colorpicker' }) }}#}
-                            {#{{ form_errors(form.color) }}#}
-                        {#</div>#}
                 </div>
             </div>
-{#--------------------------------------------------------------------------------------------------------------------#}
-{#-------------------------------- RESERVE POUR PLUS TARD QUAND LE SLIDE SERA ACTIF ----------------------------------#}
-{#--------------------------------------------------------------------------------------------------------------------#}
-            {#<div class="col s12 m6 l6">#}
-                {#<div class="checkbox">#}
-                    {#<label>#}
-                        {#{{ form_widget(form.slider) }} Afficher dans le slider "Home page"#}
-                    {#</label>#}
-                    {#{{ form_errors(form.slider) }}#}
-                {#</div>#}
-            {#</div>#}
-{#--------------------------------------------------------------------------------------------------------------------#}
-        </div>
-
-        <div class="center">
-            <input class="btn btn-default edit_admin"  type="submit" value="Créer" />
-            <a class="btn btn-default edit_admin"  href="{{ path('plate_forme_homepage') }}">Retour au calendrier</a>
         </div>
     </div>
 
+    <div class="center">
+        <button class="material-icons md-48 bouton-new bouton-background" type="submit" value="Créer"><i class="material-icons md-48 bouton-retour">add_circle_outline</i></button>
+
+        <a href="{{ path('plate_forme_homepage') }}">
+            <i class="material-icons md-48 bouton-retour">fast_rewind</i>
+        </a>
+    </div>
 
         {{ form_end(form) }}
 

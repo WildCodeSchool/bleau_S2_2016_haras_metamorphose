@@ -26,9 +26,9 @@ class AgendaType extends AbstractType
             ->add('titre')
             ->add('texte')
             ->add('lieu')
-            ->add('color');
-//            ->add('slider')
-//        ;
+            ->add('color')
+            ->add('slider')
+        ;
     }
     
     /**

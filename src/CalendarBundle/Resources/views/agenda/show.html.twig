@@ -10,52 +10,52 @@
 
             <div id="table">
 
-                <table class="show-table">
+                <table class="calendar-table">
                     <tr>
-                        <td class="show-td show-border-topright">
-                            <p>Titre de l'évènement :</p>
+                        <td class="calendar-td calendar-border-topleft">
+                            <p class="calendar-p">Titre de l'évènement :</p>
                         </td>
-                        <td class="show-td-twig">
+                        <td class="calendar-td-twig calendar-border-topright">
                             <p>{{ agenda.titre }}</p>
                         </td>
                     </tr>
                     <tr>
-                        <td class="show-td">
-                            <p>Date et heure de commencement :</p>
+                        <td class="calendar-td">
+                            <p class="calendar-p">Date et heure de commencement :</p>
                         </td>
-                        <td class="show-td-twig">
+                        <td class="calendar-td-twig">
                             <p>{% if agenda.start %}{{ agenda.start|date('d-m-Y à H:i:s') }}{% endif %}</p>
                         </td>
                     </tr>
                     <tr>
-                        <td class="show-td">
-                            <p>Date et heure de fin :</p>
+                        <td class="calendar-td">
+                            <p class="calendar-p">Date et heure de fin :</p>
                         </td>
-                        <td class="show-td-twig">
+                        <td class="calendar-td-twig">
                             <p>{% if agenda.end %}{{ agenda.end|date('d-m-Y à H:i:s') }}{% endif %}</p>
                         </td>
                     </tr>
                     <tr>
-                        <td class="show-td">
-                            <p>Description de l'évènement</p>
+                        <td class="calendar-td">
+                            <p class="calendar-p">Description de l'évènement</p>
                         </td>
-                        <td class="show-td-twig">
+                        <td class="calendar-td-twig">
                             <p>{{ agenda.texte }}</p>
                         </td>
                     </tr>
                     <tr>
-                        <td class="show-td">
-                            <p>Lieu de l'évènement</p>
+                        <td class="calendar-td">
+                            <p class="calendar-p">Lieu de l'évènement</p>
                         </td>
-                        <td class="show-td-twig">
+                        <td class="calendar-td-twig">
                             <p>{{ agenda.lieu }}</p>
                         </td>
                     </tr>
                     <tr>
-                        <td class="show-td">
-                            <p>Couleur de l'évènement</p>
+                        <td class="calendar-td">
+                            <p class="calendar-p">Couleur de l'évènement</p>
                         </td>
-                        <td class="show-td-twig" style="background-color: {{ agenda.color }};">
+                        <td class="calendar-td-twig calendar-border-butomright" style="background-color: {{ agenda.color }};">
                             <p class="color-show-p">{{ agenda.color }}</p>
                         </td>
                     </tr>

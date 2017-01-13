@@ -4,6 +4,9 @@
 /*********************************************************/
 /*********************************************************/
 
+.bouton-background {
+   background: none;
+}
 /************************************************
 *
 *   1. Color Picker
@@ -25,54 +28,71 @@ $
 
 /*********************************************************/
 /*********************************************************/
-/*********************** PAGE SHOW ***********************/
+/******************* PAGE SHOW EDIT NEW ******************/
+/*******************    GLOBAL TABLE    ******************/
 /*********************************************************/
 /*********************************************************/
 
-.show-table {
+.calendar-table {
 
     -moz-box-shadow: 8px 8px 12px #aaa;
     -webkit-box-shadow: 8px 8px 12px #aaa;
     box-shadow: 8px 8px 12px #555;
 
-    border-width: 1px;
-    border-style: solid;
-    border-color: black;
-
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;
-    border-bottom-right-radius: 50px;
+    border-bottom-right-radius: 0px;
     border-bottom-left-radius: 0px;
 }
 
-.show-td{
+.calendar-td{
     margin : auto;
     padding-right: -100px;
-    border-width:1px;
-    border-style:solid;
-    border-color:black;
+
+    border-bottom: 1px;
+    border-bottom-style: groove;
+
     background-color: rgba(118, 135, 146, 0.9);
     color: #dff1ff;
 }
 
-.show-border-topright{
+.calendar-border-topright{
     border-top-right-radius: 50px;
 }
 
-.show-td-twig{
-    width: 600px;
-    border-width:1px;
-    border-style:solid;
-    border-color:black;
+.calendar-border-topleft{
+    border-top-left-radius: 50px;
 }
 
-.color-show-p{
-    color: #a0a6ad;
-    text-align: center;
+.calendar-border-topright{
+    border-bottom-right-radius: 50px;
+}
 
+.calendar-p{
+  margin-left: 10px;
+}
+
+.calendar-td-twig{
+    width: 600px;
+
+    border-bottom: 1px;
+    border-bottom-style: groove;
+    border-color: #515e69;
 }
 
 .bouton-retour {
     color: darkgreen;
     font-size: 36px !important;
+}
+
+/*********************************************************/
+/*********************************************************/
+/*********************** PAGE SHOW ***********************/
+/*********************************************************/
+/*********************************************************/
+
+.color-show-p{
+    color: #a0a6ad;
+    text-align: center;
+
 }
