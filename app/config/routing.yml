@@ -59,3 +59,4 @@ plate_forme:
 haras:
     resource: "@HarasBundle/Resources/config/routing.yml"
     prefix:   /
+

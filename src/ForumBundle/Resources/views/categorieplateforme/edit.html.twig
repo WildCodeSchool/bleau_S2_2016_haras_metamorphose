@@ -1,8 +1,21 @@
-{% extends '@Forum/layout.html.twig' %}
+{% extends '@PlateForme/layout.html.twig' %}
 
 {% block body %}
+
+{#-------------------------------------------------------------#}
+{#                                                             #}
+{#     Nouvelle sous-catégorie                                 #}
+{#                                                             #}
+{#-------------------------------------------------------------#}
+
+{#-------------------------------------------------------------#}
+{# NavBar Lateral  #}
+{{ include("@Forum/post/postNavBar.html.twig") }}
+{# fin navBar lateral #}
+{#-------------------------------------------------------------#}
+<section class="postSectionIndex">
     <div class="catContainer postAdmin">
-        <h1 class="center">Modifier la catégorie</h1>
+        <h1 class="center">Modifier la sous-catégorie</h1>
 
         {{ form_start(edit_form) }}
         <div class="row input-field">
@@ -10,13 +23,6 @@
             {{ form_widget(edit_form.nom) }}
             {{ form_errors(edit_form.nom) }}
         </div>
-        {# Actif O/N #}
-        {#<div class="row input-field">#}
-        {#{{ form_widget(edit_form.actif) }}#}
-        {#<label for="categorieplateforme_actif">Actif ?</label>#}
-        {#{{ form_errors(edit_form.actif) }}#}
-        {#</div>#}
-        {# Bouton de validation #}
         <div class="row center">
             <button class="btn-floating btn-large waves-effect waves-light green darken-1"
                     type="submit"
@@ -34,4 +40,5 @@
             </a>
         </div>
     </div>
+</section>
 {% endblock %}

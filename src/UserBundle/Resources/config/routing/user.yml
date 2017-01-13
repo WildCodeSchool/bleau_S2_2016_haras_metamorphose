@@ -14,6 +14,7 @@ user_edit:
     path:     /{id}/edit
     defaults: { _controller: "UserBundle:User:edit" }
     methods:  [GET, POST]
+
 user_delete:
     path:     /{id}/delete
     defaults: { _controller: "UserBundle:User:delete" }

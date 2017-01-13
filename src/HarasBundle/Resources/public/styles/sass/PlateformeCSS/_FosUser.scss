@@ -1,0 +1,129 @@
+/********************  PROFIL   ************************/
+
+.img-circle{
+  width: 10vw;
+}
+
+
+.profile_center{
+  text-align: center;
+}
+
+
+
+.btn-primary {
+  background-color: #1f7b88;
+  border-color: #17505b;
+}
+
+.container_profile{
+  padding-top:3%;
+}
+
+
+input{
+  margin:6px;
+  position: center;
+}
+
+.button{
+  margin-left: 36%;
+  padding: 24px;
+}
+
+
+/********************  REGISTER / LOGIN   ************************/
+
+.btn-login{
+  background-color: #9ed2cd;
+}
+
+.btn-login:hover{
+  background-color: rgba(71, 217, 188, 0.51);
+}
+
+#loginmodel {
+  max-width: 50%;
+  background-color: rgba(177, 176, 206, 0.3);
+  padding-bottom: 5px;
+  margin-bottom: 20px;
+  border-radius: 15px;
+}
+
+#loginmodel .row {
+  margin-left: 2.25rem;
+  margin-right: 2.25rem;
+}
+
+input[type="text"] {
+  color:bblack;
+  border:1px solid #c3b1b1;;
+  background-color: #aebac399;;
+}
+
+input[type="password"] {
+  color:black;
+  border:1px solid #c3b1b1;;
+  background-color: #aebac399;;
+}
+
+
+.input-field label {
+  color: black;
+  left: 4px;
+}
+
+label{
+  color:white;
+}
+
+.select-wrapper input.select-dropdown{
+  border-bottom-color:white;
+}
+
+.select-dropdown{
+  color: #ff7bfb;
+}
+
+.file-path {
+  color:white;
+}
+
+
+.login{
+  text-align: center;
+}
+
+.boutons{
+  margin-top: 5%;
+}
+
+label[for=password]{
+  text-align: left;
+}
+
+label[for=username]{
+  text-align: left;
+}
+
+#registermodel {
+  max-width: 100%;
+  background-color: rgba(177, 176, 206, 0.3);
+  padding-bottom: 5px;
+  margin-bottom: 20px;
+  border-radius: 15px;
+}
+
+#registermodel .row {
+  margin-left: 2.25rem;
+  margin-right: 2.25rem;
+}
+
+.btn-register{
+  background-color: #9ed2cd;
+}
+
+.btn-register:hover{
+  background-color: rgba(71, 217, 188, 0.51);
+}
+
