@@ -53,6 +53,14 @@
                     </tr>
                     <tr>
                         <td class="calendar-td">
+                            <p class="calendar-p">Ajouter au slider</p>
+                        </td>
+                        <td class="calendar-td-twig">
+                            <p>{% if agenda.slider %}Evènement ajouté{% else %}Evènement non ajouté{% endif %}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="calendar-td">
                             <p class="calendar-p">Couleur de l'évènement</p>
                         </td>
                         <td class="calendar-td-twig calendar-border-butomright" style="background-color: {{ agenda.color }};">
@@ -61,10 +69,6 @@
                     </tr>
                 </table>
 
-                {#<div>#}
-                    {#<th>Slider</th>#}
-                    {#<td>{% if agenda.slider %}Yes{% else %}No{% endif %}</td>#}
-                {#</div>#}
             </div>
         </div>
     </div>
@@ -80,11 +84,6 @@
                 </a>
             </div>
         </li>
-        {#<li>#}
-            {#{{ form_start(delete_form) }}#}
-                {#<input type="submit" value="Delete">#}
-            {#{{ form_end(delete_form) }}#}
-        {#</li>#}
     </ul>
 
     </div>
