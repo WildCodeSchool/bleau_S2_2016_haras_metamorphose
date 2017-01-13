@@ -51,10 +51,7 @@ security:
         - { path: ^/plateforme/admin/, role: ROLE_ADMIN }
         - { path: ^/plateforme/categorieplateforme, role: ROLE_ADMIN }
         - { path: ^/plateforme/.+, role: ROLE_USER }
-
-
-          # PAGES ACCESSIBLES AUX ADMINISTRATEURS
-#        - { path: ^/admin, role: ROLE_ADMIN }
-
-
+        - { path: ^/admin, role: ROLE_ADMIN }
+        - { path: ^/plateforme/admin/user, role: ROLE_ADMIN }
+#        - { path: ^/plateforme/categorieplateforme, role: ROLE_ADMIN }
 

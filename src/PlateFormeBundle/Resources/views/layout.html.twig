@@ -56,15 +56,30 @@
         </nav>
 
         <nav class="navbar2">
-            {#<div class="nav-wrapper">#}
-                <ul class="left hide-on-med-and-down">
-                    <li class="active philosophie"><a href="{{ path('plate_forme_philosophie') }}">Notre philosophie</a></li>
-                    <li class="decouverte"><a href="{{ path('post_index') }}">Découverte</a></li>
-                    <li class="haras"><a href="{{ path('post_index') }}">Le haras</a></li>
-                    <li class="detente"><a href="{{ path('post_index') }}">Détente</a></li>
-                    <li class="coworking"><a href="{{ path('post_index') }}">Espace de co-working</a></li>
-                </ul>
-            {#</div>#}
+
+            <ul class="left hide-on-med-and-down">
+                <li class="active philosophie"><a href="{{ path('plate_forme_philosophie') }}">Notre philosophie</a></li>
+                <li class="decouverte"><a href="{{ path('post_index') }}">Découverte</a></li>
+                <li class="haras"><a href="{{ path('post_index') }}">Le haras</a></li>
+                <li class="detente"><a href="{{ path('post_index') }}">Détente</a></li>
+                <li class="coworking"><a href="{{ path('post_index') }}">Espace de co-working</a></li>
+            </ul>
+
+            <ul class="right hide-on-med-and-dow">
+                <li>
+                    <form action="{{ path('plate_forme_searchController') }}" method="Post" class="">
+                        <div class="input-field">
+                            <input name="requete" id="search" type="search" required>
+                            <label for="search">
+                                <i class="material-icons">search</i>
+                            </label>
+                            {#<i class="material-icons">close</i>#}
+                            {#<input style="display: inline-block !important;" type="submit" value="Rechercher">#}
+                        </div>
+                    </form>
+                </li>
+            </ul>
+
         </nav>
 
     </header>
