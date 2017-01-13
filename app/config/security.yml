@@ -42,12 +42,15 @@ security:
             # form_login: ~
             # http://symfony.com/doc/current/cookbook/security/form_login_setup.html
     access_control:
-        - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
-
-          # PAGES ACCESSIBLES AUX ADMINISTRATEURS
-#        - { path: ^/, role: ROLE_MODERATEUR }
+#        - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+#        - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
+#        - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/plateforme/?$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/plateforme/(login|register), role: IS_AUTHENTICATED_ANONYMOUSLY }
+#        - { path: ^/plateforme/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/plateforme/admin/, role: ROLE_ADMIN }
+        - { path: ^/plateforme/categorieplateforme, role: ROLE_ADMIN }
+        - { path: ^/plateforme/.+, role: ROLE_USER }
         - { path: ^/admin, role: ROLE_ADMIN }
         - { path: ^/plateforme/admin/user, role: ROLE_ADMIN }
 #        - { path: ^/plateforme/categorieplateforme, role: ROLE_ADMIN }

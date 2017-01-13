@@ -4,23 +4,23 @@
     <header>
         <!-- Dropdown Structure -->
         <nav>
-            <div class="nav-wrapper">
-                <a class="header-logo" href="{{ path('plate_forme_homepage') }}"><img id="logo" src="{{ asset('bundles/haras/images/logo.png') }}" alt="logo"></a>
+            <div class="nav-wrapper-plateforme">
+                <a class="plateforme-logo" href="{{ path('plate_forme_homepage') }}"><img id="plateforme-logo" src="{{ asset('bundles/haras/images/logo.png') }}" alt="logo"></a>
 
 
                 <ul class="right hide-on-med-and-down">
 
                     <li><a href="sass.html">
                         <span class="fa-stack fa-2x">
-                          <i class="fa fa-circle fa-stack-2x icon-background1"></i>
-                          <i class="fa fa-bell-o fa-stack-1x"></i>
+                            <i class="fa fa-circle fa-stack-2x icon-background1"></i>
+                            <i class="fa fa-bell-o fa-stack-1x"></i>
                         </span>
                         </a>
                     </li>
                     <li><a href="{{ path('post_index') }}">
                         <span class="fa-stack fa-2x">
-                          <i class="fa fa-circle fa-stack-2x icon-background2"></i>
-                          <i class="fa fa-pencil fa-stack-1x"></i>
+                            <i class="fa fa-circle fa-stack-2x icon-background2"></i>
+                            <i class="fa fa-pencil fa-stack-1x"></i>
                         </span>
                         </a>
                     </li>
@@ -28,20 +28,20 @@
                     </li>
                     <li><a href="{{ path('agenda') }}">
                         <span class="fa-stack fa-2x">
-                          <i class="fa fa-circle fa-stack-2x icon-background3"></i>
-                          <i class="fa fa-calendar fa-stack-1x"></i>
+                            <i class="fa fa-circle fa-stack-2x icon-background3"></i>
+                            <i class="fa fa-calendar fa-stack-1x"></i>
                         </span>
                         </a>
                     </li>
 
-                    <li><a class="dropdown-button" href="{{ path('fos_user_profile_show') }}" data-activates="dropdown1">
+                    <li><a class="dropdown-button" href="{{ path('fos_user_profile_show') }}" data-activates="dropdown2">
                         <span class="fa-stack fa-2x">
-                          <i class="fa fa-circle fa-stack-2x icon-background4"></i>
-                          <i class="fa fa-user fa-stack-1x"></i>
+                            <i class="fa fa-circle fa-stack-2x icon-background4"></i>
+                            <i class="fa fa-user fa-stack-1x"></i>
                         </span>
                         </a>
                     </li>
-                    <ul id="dropdown1" class="dropdown-content">
+                    <ul id="dropdown2" class="dropdown-content">
                         {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                             {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
                             <li><a href="{{ path('fos_user_profile_show') }}">Voir mon profil</a></li>
@@ -56,33 +56,30 @@
         </nav>
 
         <nav class="navbar2">
-            <div class="nav-wrapper">
-                <ul class="left hide-on-med-and-down">
-                    <li class="active philosophie"><a href="{{ path('plate_forme_philosophie') }}">Notre philosophie</a></li>
-                    <li class="decouverte"><a href="{{ path('post_index') }}">Découverte</a></li>
-                    <li class="harras"><a href="{{ path('post_index') }}">Le haras</a></li>
-                    <li class="detente"><a href="{{ path('post_index') }}">Détente</a></li>
-                    <li class="coworking"><a href="{{ path('post_index') }}">Espace de co-working</a></li>
-                </ul>
-                <ul class="right hide-on-med-and-dow">
-                    <li>
-                        <form action="{{ path('plate_forme_searchController') }}" method="Post" class="">
-                            <div class="input-field">
-                                <input name="requete" id="search" type="search" required>
-                                <label for="search">
-                                    <i class="material-icons">search</i>
-                                </label>
-                                {#<i class="material-icons">close</i>#}
-                                {#<input style="display: inline-block !important;" type="submit" value="Rechercher">#}
-                            </div>
-                        </form>
-                    </li>
-                </ul>
 
-                {#<ul class="right hide-on-med-and-down">#}
-                    {#<input id="search" type="text" name="search" placeholder="rechercher">#}
-                {#</ul>#}
-            </div>
+            <ul class="left hide-on-med-and-down">
+                <li class="active philosophie"><a href="{{ path('plate_forme_philosophie') }}">Notre philosophie</a></li>
+                <li class="decouverte"><a href="{{ path('post_index') }}">Découverte</a></li>
+                <li class="haras"><a href="{{ path('post_index') }}">Le haras</a></li>
+                <li class="detente"><a href="{{ path('post_index') }}">Détente</a></li>
+                <li class="coworking"><a href="{{ path('post_index') }}">Espace de co-working</a></li>
+            </ul>
+
+            <ul class="right hide-on-med-and-dow">
+                <li>
+                    <form action="{{ path('plate_forme_searchController') }}" method="Post" class="">
+                        <div class="input-field">
+                            <input name="requete" id="search" type="search" required>
+                            <label for="search">
+                                <i class="material-icons">search</i>
+                            </label>
+                            {#<i class="material-icons">close</i>#}
+                            {#<input style="display: inline-block !important;" type="submit" value="Rechercher">#}
+                        </div>
+                    </form>
+                </li>
+            </ul>
+
         </nav>
 
     </header>
@@ -116,7 +113,6 @@
         <div class="footer-copyright">
             <div class="container">
                 © 2017 Haras de la metamorphose
-                {#<a class="grey-text text-lighten-4 right" href="#!">More Links</a>#}
             </div>
         </div>
     </footer>

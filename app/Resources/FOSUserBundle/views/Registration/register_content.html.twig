@@ -1,8 +1,8 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
-<div class="container register">
+<div class="container center" id="registermodel">
     <div class="col m8 offset-m2">
-        <h1 class="compte">Créer un compte</h1>
+        <h2 class="Compte">Créer un compte</h2>
         <div class="row">
 
             {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
@@ -49,29 +49,26 @@
                 {{ form_widget(form.profession, {'attr':{'class':'profession form'}}) }}
                 {{ form_errors(form.profession) }}
             </div>
+
+            <div class="row input-field">
+                {{ form_widget(form.photo.file, {'attr':{'class':'photo form'}}) }}
+                {{ form_errors(form.photo.file) }}
+            </div>
         </div>
-        <div class="button">
-            <button type="submit" class="btn btn-warning button_contact send">Send</button>
-            <a id="retour" href="{{ path('fos_user_security_login') }}">retour</a>
+        <div class="button-register">
+            <button class="btn waves-effect waves-light btn-admin" type="submit" name="action"
+                    value="{{ 'registration.submit'|trans }}">S'enregistrer
+                <i class="material-icons right">send</i>
+            </button>
+
+            <a href="{{ path('plate_forme_homepage') }}">
+                <button class="btn waves-effect waves-light btn-admin" type="submit" name="action">Retour
+                    <i class="material-icons right">send</i>
+                </button>
+            </a>
         </div>
         {{ form_end(form) }}
 
     </div>
 </div>
 </div>
-
-{#{% trans_default_domain 'FOSUserBundle' %}#}
-
-{#{{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}#}
-    {#{{ form_widget(form) }}#}
-
-    {#<div class="row input-field">#}
-        {#{{ form_label(form.nom) }}#}
-        {#{{ form_widget(form.nom) }}#}
-        {#{{ form_errors(form.nom) }}#}
-    {#</div>#}
-
-    {#<div>#}
-        {#<input type="submit" value="{{ 'registration.submit'|trans }}" />#}
-    {#</div>#}
-{#{{ form_end(form) }}#}

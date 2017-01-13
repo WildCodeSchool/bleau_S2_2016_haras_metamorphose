@@ -6,6 +6,10 @@ plate_forme_admin:
     path:     /admin/
     defaults: { _controller: PlateFormeBundle:Default:admin }
 
+plate_forme_moderateur:
+    path:     /moderateur/
+    defaults: { _controller: PlateFormeBundle:Default:moderateur }
+
 plate_forme_philosophie:
     path:     /philosophie/
     defaults: { _controller: PlateFormeBundle:Default:philosophie }
