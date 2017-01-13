@@ -19,7 +19,7 @@ class PostType extends AbstractType
             ->add('contenu', CKEditorType::class, array(
                 'config' => array(
                     'config_name' => 'my_config',
-                    'uiColor' => '#ffffff'
+                    'uiColor' => '#ffffff',
                 )
             ));
         ;

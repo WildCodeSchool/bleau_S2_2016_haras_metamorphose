@@ -4,6 +4,11 @@ parameters:
 #    parameter_name: value
 
 services:
+# Filtre truncate CKEditor contenu|raw
+    twig.extension.text:
+        class: Twig_Extensions_Extension_Text
+        tags:
+            - { name: twig.extension }
 
 #   User Service
     app.form.registration:
