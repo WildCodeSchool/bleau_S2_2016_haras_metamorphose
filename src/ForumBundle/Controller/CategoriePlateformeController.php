@@ -20,10 +20,29 @@ class CategoriePlateformeController extends Controller
     public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
+        // Ramene les catégories à partir du HarasBundle
+        $categories = $em->getRepository('HarasBundle:Category')->findAll(array('id' => 'ASC'));
+        // Récupération dans HarasBundle des noms associés aux catégories
+        $categoriesName = $em->getRepository('ForumBundle:CategoriePlateforme')->getNameCateg();
 
-        // Ramene les catégories  (actif = oui) et mise en place du paginator
-        $categoriePlateformes = $em->getRepository('HarasBundle:Category')->findAll(array('id' => 'ASC'));
-//        $categoriePlateformes = $em->getRepository('ForumBundle:CategoriePlateforme')->findBy(array('actif'=> 1, 'parent' => null));
+        // Ramene les catégories
+        $categoriesPlateforme = $em->getRepository('ForumBundle:CategoriePlateforme')->findBy(array('parent' => null));
+
+        foreach ($categoriesPlateforme as $categoriePlateforme)
+        {
+            foreach ($categories as $key => $category){
+                if ($category->getId() == $categoriePlateforme->getId()){
+                    foreach ($categoriesName as $categName){
+                        if (substr($categName['name'], 0, 8) == $category->getName()){
+                            $categoriePlateforme->setNom($categName['text_fr']);
+                            $em->persist($categoriePlateforme);
+                            unset($categories[$key]);
+                        }
+                    }
+
+                }
+            }
+        }
 
         // Ramene sous catégorie
         $repository = $em->getRepository('ForumBundle:CategoriePlateforme');
@@ -31,7 +50,7 @@ class CategoriePlateformeController extends Controller
 
         $cat =1;
         return $this->render('@Forum/categorieplateforme/index.html.twig', array(
-            'categoriePlateformes' => $categoriePlateformes,
+            'categoriePlateformes' => $categoriesPlateforme,
             'sousCategories' => $sousCategories,
             'cat' => $cat,
         ));

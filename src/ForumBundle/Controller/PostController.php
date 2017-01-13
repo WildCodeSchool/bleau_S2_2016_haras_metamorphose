@@ -33,6 +33,26 @@ class PostController extends Controller
         // Ramene les catégories à partir du HarasBundle
         $categories = $em->getRepository('HarasBundle:Category')->findAll(array('id' => 'ASC'));
 
+        $categoriesName = $em->getRepository('ForumBundle:CategoriePlateforme')->getNameCateg();
+        $categoriesPlateforme = $em->getRepository('ForumBundle:CategoriePlateforme')->findBy(array('parent' => null));
+
+        foreach ($categoriesPlateforme as $categoriePlateforme)
+        {
+            foreach ($categories as $key => $category){
+                if ($category->getId() == $categoriePlateforme->getId()){
+                    foreach ($categoriesName as $categName){
+                        if (substr($categName['name'], 0, 8) == $category->getName()){
+                            $categoriePlateforme->setNom($categName['text_fr']);
+                            $em->persist($categoriePlateforme);
+                            unset($categories[$key]);
+                        }
+                    }
+
+                }
+            }
+        }
+
+
         // Ramene sous catégorie
         // SELECT * FROM `categorie_plateforme` WHERE `parent_id` is NOT null and actif = 1
         $repository = $em->getRepository('ForumBundle:CategoriePlateforme');
@@ -76,10 +96,12 @@ class PostController extends Controller
             }
         }
 
+        $em->flush();
+
         return $this->render('@Forum/post/index.html.twig', array(
             'postParents' => $postParents,
             'nbPostEnfants' => $nbPostEnfants,
-            'categories' => $categories,
+            'categories' => $categoriesPlateforme,
             'sousCategories' => $sousCategories,
             'lastPostCats' => $lastPostByCats,
         ));
