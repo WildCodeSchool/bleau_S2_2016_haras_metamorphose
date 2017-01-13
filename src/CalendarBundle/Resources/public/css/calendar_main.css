@@ -4,8 +4,14 @@
 /*********************************************************/
 /*********************************************************/
 
-.bouton-background {
-   background: none;
+.caledar-new-table{
+    float: inherit;
+    center;
+}
+
+#bouton-background {
+    border: none;
+    background: none;
 }
 /************************************************
 *

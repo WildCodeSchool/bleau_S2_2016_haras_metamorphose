@@ -13,9 +13,9 @@
 
     <div class="container center">
         <div class="row">
-            <div class="col s12 m4 l4">
+            <div class="col s12">
 
-                <div id="table">
+                <div id="caledar-new-table">
 
                     <table class="calendar-table">
                         <tr>
@@ -32,8 +32,10 @@
                                 <p class="calendar-p">Date et heure de commencement :</p>
                             </td>
                             <td class="calendar-td-twig">
-                                {{ form_widget(form.start, { 'id': 'datepicker' }) }}
-                                {{ form_errors(form.start) }}
+                                <div class="col s12 m4 l4">
+                                    {{ form_widget(form.start, { 'id': 'datepicker' }) }}
+                                    {{ form_errors(form.start) }}
+                                </div>
                             </td>
                         </tr>
                         <tr>
@@ -41,8 +43,10 @@
                                 <p class="calendar-p">Date et heure de fin :</p>
                             </td>
                             <td class="calendar-td-twig">
-                                {{ form_widget(form.end, {'attr': { 'class': 'datepicker' }}) }}
-                                {{ form_errors(form.end) }}
+                                <div class="col s12 m4 l4">
+                                    {{ form_widget(form.end, {'attr': { 'class': 'datepicker' }}) }}
+                                    {{ form_errors(form.end) }}
+                                </div>
                             </td>
                         </tr>
                         <tr>
@@ -88,7 +92,7 @@
     </div>
 
     <div class="center">
-        <button class="material-icons md-48 bouton-new bouton-background" type="submit" value="Créer"><i class="material-icons md-48 bouton-retour">add_circle_outline</i></button>
+        <button id="bouton-background" type="submit" value=""><i class="material-icons md-48 bouton-new">add_circle_outline</i></button>
 
         <a href="{{ path('plate_forme_homepage') }}">
             <i class="material-icons md-48 bouton-retour">fast_rewind</i>
