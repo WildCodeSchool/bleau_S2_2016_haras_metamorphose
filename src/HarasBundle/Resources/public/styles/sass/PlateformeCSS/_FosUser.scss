@@ -32,44 +32,44 @@ input{
 }
 
 
-/********************  REGISTER   ************************/
+/********************  REGISTER / LOGIN   ************************/
 
-//.btn{
-//  background-color: #00B82B;
-//}
-//
-//.btn:hover{
-//  background-color: #47d9bc;
-//}
+.btn-login{
+  background-color: #9ed2cd;
+}
 
-.adminmodel {
-  max-width: 90%;
-  background-color: #8597a7;
+.btn-login:hover{
+  background-color: rgba(71, 217, 188, 0.51);
+}
+
+#loginmodel {
+  max-width: 50%;
+  background-color: rgba(177, 176, 206, 0.3);
   padding-bottom: 5px;
   margin-bottom: 20px;
   border-radius: 15px;
 }
 
-.container .row {
+#loginmodel .row {
   margin-left: 2.25rem;
   margin-right: 2.25rem;
 }
 
 input[type="text"] {
-  //border-bottom-color: white;
-  border:1px solid black;
-  background-color: #515e69 !important;
+  color:bblack;
+  border:1px solid #c3b1b1;;
+  background-color: #aebac399;;
 }
 
 input[type="password"] {
-  //border-bottom-color: white;
-  border:1px solid black;
-  background-color: #515e69 !important;
+  color:black;
+  border:1px solid #c3b1b1;;
+  background-color: #aebac399;;
 }
 
 
 .input-field label {
-  color: white;
+  color: black;
   left: 4px;
 }
 
@@ -88,3 +88,42 @@ label{
 .file-path {
   color:white;
 }
+
+
+.login{
+  text-align: center;
+}
+
+.boutons{
+  margin-top: 5%;
+}
+
+label[for=password]{
+  text-align: left;
+}
+
+label[for=username]{
+  text-align: left;
+}
+
+#registermodel {
+  max-width: 100%;
+  background-color: rgba(177, 176, 206, 0.3);
+  padding-bottom: 5px;
+  margin-bottom: 20px;
+  border-radius: 15px;
+}
+
+#registermodel .row {
+  margin-left: 2.25rem;
+  margin-right: 2.25rem;
+}
+
+.btn-register{
+  background-color: #9ed2cd;
+}
+
+.btn-register:hover{
+  background-color: rgba(71, 217, 188, 0.51);
+}
+

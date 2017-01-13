@@ -30,13 +30,26 @@ nav{
 
 //#dropdownNavBar{
 //  opacity:1;
-//  display: block;
+//  //display: block;
 //  margin-left: 11.7%;
 //}
 
-//.nav-wrapper-plateforme {
-//  z-index: auto;
+#dropdown1 {
+  top: 65px !important;
+  //left: 15px !important;
+}
+
+.dropdown-content {
+  margin-top: 65px;
+}
+
+//.dropdown-content{
+//  background-color: #aeb5b64d;
 //}
+
+.nav-wrapper-plateforme {
+  z-index: auto;
+}
 
 .decouverte:hover{
   background-color: rgba(7,64,10, 0.6);
