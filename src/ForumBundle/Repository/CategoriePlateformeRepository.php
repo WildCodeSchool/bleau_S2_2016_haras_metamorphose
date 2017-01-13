@@ -22,12 +22,10 @@ class CategoriePlateformeRepository extends \Doctrine\ORM\EntityRepository
     }
 
     public function getNameCateg(){
+//      Récupération des noms des catégories du Haras Bundle
         $nameSection = ['section1name', 'section2name', 'section3name', 'section4name'];
         $sql = 'SELECT text_fr, text.name FROM text WHERE text.name IN (\'section1name\', \'section2name\', \'section3name\', \'section4name\')';
 
         return $this->getEntityManager()->getConnection()->executeQuery($sql)->fetchAll();
     }
 }
-
-
-//in (section1name, section2name, section3name, section4name

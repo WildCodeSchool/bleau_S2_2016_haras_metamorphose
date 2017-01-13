@@ -8,16 +8,15 @@
             <div class="center">
                 {# Gestion couleur par catégories #}
                 {% if lastPostCat.categorie.parent.id == 1 %}
-                    <h4 class="cat1">{{ lastPostCat.categorie.parent.nom|capitalize }}</h4>
+                    <h4 class="cat1">{{ lastPostCat.titre|capitalize }}</h4>
                 {%  elseif lastPostCat.categorie.parent.id == 2%}
-                    <h4 class="cat2">{{ lastPostCat.categorie.parent.nom|capitalize }}</h4>
+                    <h4 class="cat2">{{ lastPostCat.titre|capitalize }}</h4>
                 {%  elseif lastPostCat.categorie.parent.id == 3 %}
-                    <h4 class="cat3">{{ lastPostCat.categorie.parent.nom|capitalize }}</h4>
+                    <h4 class="cat3">{{ lastPostCat.titre|capitalize }}</h4>
                 {%  elseif lastPostCat.categorie.parent.id == 4 %}
-                    <h4 class="cat4">{{ lastPostCat.categorie.parent.nom|capitalize }}</h4>
+                    <h4 class="cat4">{{ lastPostCat.titre|capitalize }}</h4>
                 {% endif %}
                 {# FIN Gestion couleur par catégories #}
-                <h4>{{ lastPostCat.titre|capitalize }}</h4>
                 {# Route pour post parent #}
                 {% if lastPostCat.parent.id is not defined %}
                     <a class="waves-effect waves-teal btn-flat tooltipped"
