@@ -35,6 +35,7 @@ class CalendarController extends Controller
         $em = $this->getDoctrine()->getManager(); //appel doctrine methode BDD
 
         $agenda = $em->getRepository('CalendarBundle:Agenda')->findAll(); // appel de la table
+//        $role = $em->getRepository('UserBundle:FosUser')->find(role); // appel de la table
 
         $normalizer = new ObjectNormalizer(); //Normalisation des données pour passer en JSON
 
@@ -147,7 +148,7 @@ class CalendarController extends Controller
             $em->flush();
         }
 
-        return $this->redirectToRoute('agenda');
+        return $this->redirectToRoute('plate_forme_homepage');
     }
 
 }

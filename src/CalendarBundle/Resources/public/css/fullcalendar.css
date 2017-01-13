@@ -14,10 +14,10 @@
 	text-align: right;
 }
 
+/* MODIFIE LA TAILLE DU CALENDAR */
 body .fc { /* extra precedence to overcome jqui */
-	font-size: 1em;
+	font-size: 0.8em;
 }
-
 
 /* Colors
 --------------------------------------------------------------------------------------------------*/
@@ -76,7 +76,7 @@ body .fc { /* extra precedence to overcome jqui */
 	display: inline-block;
 	height: 1em;
 	line-height: 1em;
-	font-size: 1em;
+	font-size: 0.8em;
 	text-align: center;
 	overflow: hidden;
 	font-family: "Courier New", Courier, monospace;

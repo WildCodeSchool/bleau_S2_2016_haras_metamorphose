@@ -5,12 +5,15 @@
         <title>{% block title %}PLateforme du Haras de la métamorphose{% endblock %}</title>
         <link rel="icon" type="image/x-icon" href="{{ asset('bundles/plateforme/images/icone-cheval.png') }}" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+
+        <!-- Surcharge -->
+        <link rel="stylesheet" href="{{ asset('bundles/calendar/css/fullcalendar.css') }}">
+        <link rel="stylesheet" href="{{ asset('bundles/calendar/css/modal.css') }}">
         <link rel="stylesheet" href="{{ asset('bundles/haras/styles/stylesheets/style.css') }}">
 
         <!-- Icons -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
 
         {% block stylesheets %}{% endblock %}
 

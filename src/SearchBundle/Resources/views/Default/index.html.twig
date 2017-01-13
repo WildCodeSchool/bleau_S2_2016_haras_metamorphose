@@ -8,8 +8,7 @@
         <div class="row">
             <div class="col s12">
                 <h3 class="center">Résultats de votre recherche.</h3>
-                on affiche le nombre de résultats
-                <p>Nous avons trouvé : {{ query.nb_resultats }}
+                <p>Nous avons trouvé : {{ nb_resultats }}
                      {#CONDITION EN TWIG#}
                     {% if nb_resultats > 1 %}
                         résultats.
@@ -28,7 +27,7 @@
                 <table>
                     <theader>
                         <tr>
-                            <td>Catégorie</td>
+                            <td>Catégorie du post</td>
                             <td>Titre du post</td>
                             <td>Contenu du post</td>
                         </tr>
@@ -36,9 +35,9 @@
                     <tbody>
                     {% for query in query %}
                         <tr>
-                            <td><a href="{{ path('#') }}"> {{ query.categorie_plateforme }}</a></td>
-                            <td><a href="{{ path('#') }}">{{ query.titre }}</a></td>
-                            <td><a href="{{ path('#') }}">{{ query.contenu }}</a></td>
+                            <td><a href="{{ path('#') }}"> {{ requete.nom }}</a></td>
+                            <td><a href="{{ path('#') }}">{{ requete.titre }}</a></td>
+                            <td><a href="{{ path('#') }}">{{ requete.contenu }}</a></td>
                         </tr>
                     {% endfor %}
                     </tbody>
@@ -48,10 +47,5 @@
         </div>
     </div>
 
-
-
-
-
-    <a href="rechercher.php">Faire une nouvelle recherche</a></>
 
 {% endblock %}
