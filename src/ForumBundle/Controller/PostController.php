@@ -52,7 +52,6 @@ class PostController extends Controller
             }
         }
 
-
         // Ramene sous catégorie
         // SELECT * FROM `categorie_plateforme` WHERE `parent_id` is NOT null and actif = 1
         $repository = $em->getRepository('ForumBundle:CategoriePlateforme');
@@ -446,7 +445,6 @@ class PostController extends Controller
             $em->flush($post);
 
             return $this->redirectToRoute('post_showAllPostDesactive');
-//            return $this->redirectToRoute('post_index');
 
         // Si post Enfant, réactive que le post selectionné
         }
