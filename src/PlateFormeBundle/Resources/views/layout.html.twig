@@ -5,8 +5,26 @@
         <!-- Dropdown Structure -->
         <nav>
             <div class="nav-wrapper-plateforme">
-                <a class="plateforme-logo" href="{{ path('plate_forme_homepage') }}"><img id="plateforme-logo" src="{{ asset('bundles/haras/images/logo.png') }}" alt="logo"></a>
 
+                <ul class="left hide-on-med-and-down">
+                    <li>
+                    <a class="plateforme-logo" href="{{ path('plate_forme_homepage') }}">
+                        <img id="plateforme-logo" src="{{ asset('bundles/haras/images/logo.png') }}" alt="logo">
+                    </a>
+                    </li>
+
+                    <li>
+                        {% if is_granted('ROLE_ADMIN') %}
+                        <a href="{{ path('user_index') }}">
+                        <span class="fa-stack fa-2x">
+                            <i class="fa fa-circle fa-stack-2x icon-background5"></i>
+                            <i class="fa fa-users fa-stack-1x"></i>
+                        </span>
+                            {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}
+                        </a>
+                        {% endif %}
+                    </li>
+                </ul>
 
                 <ul class="right hide-on-med-and-down">
 
@@ -57,7 +75,7 @@
 
         <nav class="navbar2">
 
-            <ul class="left hide-on-med-and-down">
+            <ul class="left hide-on-med-and-down-navbarleft">
                 <li class="active philosophie"><a href="{{ path('plate_forme_philosophie') }}">Notre philosophie</a></li>
                 <li class="decouverte"><a href="{{ path('post_index') }}">Découverte</a></li>
                 <li class="haras"><a href="{{ path('post_index') }}">Le haras</a></li>

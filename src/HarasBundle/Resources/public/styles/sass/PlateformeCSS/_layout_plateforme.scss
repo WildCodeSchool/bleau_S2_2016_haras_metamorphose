@@ -21,11 +21,16 @@
 
 .navbar2{
   height: 48px;
+  border-top: solid 2px #424242;
+}
+
+.hide-on-med-and-down-navbarleft{
+  //background-color: red;
 }
 
 nav{
   background-color: #5a6b77;
-  line-height: 50px;
+  line-height: 44px;
 }
 
 #nav-wrapper2{
@@ -36,11 +41,6 @@ nav{
   transition-duration: .3s;
 }
 
-//#dropdownNavBar{
-//  opacity:1;
-//  //display: block;
-//  margin-left: 11.7%;
-//}
 
 #dropdown1 {
   top: 65px !important;
@@ -80,9 +80,6 @@ nav{
 }
 
 
-.navbar2{
-  border-top: solid 2px #424242;
-}
 
 
 
@@ -96,9 +93,13 @@ ul.right.hide-on-med-and-down{
   padding-top: 1px;
 }
 
+nav ul a{
+  display: flex;
+}
+
 nav ul a:hover {
   background-color: rgba(0, 0, 0, 0.1);
-  //height: 63px;
+  padding-bottom: 5px;
 }
 
 #plateforme-logo{
@@ -109,6 +110,14 @@ nav ul a:hover {
 
 #plateforme-logo:hover{
   background-color: #496b35;
+}
+
+a.plateforme-logo{
+  padding: 0px;
+}
+
+a.plateforme-logo:hover{
+  background-color: transparent;
 }
 
 .icon-background1 {
@@ -125,6 +134,10 @@ nav ul a:hover {
 
 .icon-background4 {
   color: rgba(183, 21, 134, 0.6);
+}
+
+.icon-background5 {
+  color: rgba(24, 19, 239, 0.6);
 }
 
 

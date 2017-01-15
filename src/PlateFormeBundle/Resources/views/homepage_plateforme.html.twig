@@ -30,7 +30,6 @@
         <ul>
             <li class="slider admin">
                 {% if is_granted('ROLE_ADMIN') %}
-                    {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
                     <a href="{{ path('plate_forme_homepage') }}">
                     <span class="fa-stack fa-2x">
                       <i class="fa fa-circle fa-stack-2x icon-background2"></i>
