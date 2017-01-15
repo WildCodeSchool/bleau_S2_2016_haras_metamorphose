@@ -1729,6 +1729,11 @@ label[for=username] {
   background-color: rgba(71, 217, 188, 0.51);
 }
 
+/* line 1, ../sass/PlateformeCSS/_general.scss */
+select {
+  display: block;
+}
+
 /* line 6, ../../../../../ForumBundle/Resources/public/sass/_categorieplateforme.scss */
 .inline {
   display: flex;
