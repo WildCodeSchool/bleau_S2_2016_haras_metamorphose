@@ -38,8 +38,13 @@
         {{ form_end(form) }}
         {# Bouton retour page fil de discussion #}
         <div class="row center">
-            <a class="btn-floating btn-large waves-effect waves-light blue darken-1"
+            {#{{ dump(postParent.id) }}#}
+            {#<a class="btn-floating btn-large waves-effect waves-light blue darken-1"
                href="{{ path('post_showAllPost', { 'id': id }) }}">
+                <i class="small material-icons">home</i>
+            </a>#}
+            <a class="btn-floating btn-large waves-effect waves-light blue darken-1"
+               href="{{ path('post_showAllPost', { 'id': post.parent.id}) }}">
                 <i class="small material-icons">home</i>
             </a>
         </div>

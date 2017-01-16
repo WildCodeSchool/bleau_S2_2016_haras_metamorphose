@@ -1,0 +1,18 @@
+<div>
+    <a class='dropdown-button btn  blue darken-1' href='#' data-activates='dropdownList'>
+        <i class="fa fa-address-book-o" aria-hidden="true"></i>
+    </a>
+    <ul id='dropdownList' class='dropdown-content'>
+        {% for user in users %}
+            {% if app.user.id == user.id %}
+            {##}
+            {% else %}
+            <li>
+                <a href="{{ path('post_showMesMessages',{'id': user.id }) }}">
+                    {{ user.username|capitalize }}
+                </a>
+            </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+</div>

@@ -1,32 +1,36 @@
 {# Gestion des derniers post pour HOMEPAGE #}
 
-    <div>
-        <h1 class=" soustitrePage center">Actualité</h1>
-        {%  for lastPostCat in lastPostCats %}
-            <div class="center">
-                {# Gestion couleur par catégories #}
-                {% if lastPostCat.categorie.parent.id == 1 %}
-                    <h4 class="cat1">{{ lastPostCat.titre|capitalize }}</h4>
-                {%  elseif lastPostCat.categorie.parent.id == 2%}
-                    <h4 class="cat2">{{ lastPostCat.titre|capitalize }}</h4>
-                {%  elseif lastPostCat.categorie.parent.id == 3 %}
-                    <h4 class="cat3">{{ lastPostCat.titre|capitalize }}</h4>
-                {%  elseif lastPostCat.categorie.parent.id == 4 %}
-                    <h4 class="cat4">{{ lastPostCat.titre|capitalize }}</h4>
-                {% endif %}
-                {# FIN Gestion couleur par catégories #}
+    <h1 class=" soustitrePage center">Actualité</h1>
+    {%  for lastPostCat in lastPostCats %}
+        <div>
+            {# Gestion couleur par catégories #}
+            {% if lastPostCat.categorie.parent.id == 1 %}
+                <h4 class="h4cat cat1">{{ lastPostCat.titre|capitalize|striptags|truncate(25, true, "...") }}</h4>
+            {%  elseif lastPostCat.categorie.parent.id == 2%}
+                <h4 class="h4cat cat2">{{ lastPostCat.titre|capitalize|striptags|truncate(25, true, "...") }}</h4>
+            {%  elseif lastPostCat.categorie.parent.id == 3 %}
+                <h4 class="h4cat cat3">{{ lastPostCat.titre|capitalize|striptags|truncate(25, true, "...") }}</h4>
+            {%  elseif lastPostCat.categorie.parent.id == 4 %}
+                <h4 class="h4cat cat4">{{ lastPostCat.titre|capitalize|striptags|truncate(25, true, "...") }}</h4>
+            {% endif %}
+            {# FIN Gestion couleur par catégories #}
+            <div>{{ lastPostCat.contenu|capitalize|striptags|truncate(50, true, "...")|raw }}</div>
+            <span>{{ lastPostCat.dateCreate|date("d/m/Y") }} / {{ lastPostCat.user|capitalize }}</span>
+
+            {# Si user connecté => bouton pour aller voir discussion #}
+            {% if app.user %}
                 {# Route pour post parent #}
                 {% if lastPostCat.parent.id is not defined %}
-                    <a class="waves-effect waves-teal btn-flat tooltipped"
+                    <a class="waves-effect waves-teal btn-flat tooltipped right"
                        data-position="left"
                        data-delay="50"
                        data-tooltip="Voir la discussion"
                        href="{{ path('post_showAllPost', { 'id': lastPostCat.id }) }}">
                         <i class="material-icons center">input</i>
                     </a>
-                {# Route pour post enfant #}
+                    {# Route pour post enfant #}
                 {% elseif lastPostCat.parent.id is defined %}
-                    <a class="waves-effect waves-teal btn-flat tooltipped"
+                    <a class="waves-effect waves-teal btn-flat tooltipped right"
                        data-position="left"
                        data-delay="50"
                        data-tooltip="Voir la discussion"
@@ -34,9 +38,10 @@
                         <i class="material-icons center">input</i>
                     </a>
                 {% endif %}
-                <div> Message de : {{ lastPostCat.user }}</div>
-                <div> Crée le : {{ lastPostCat.dateCreate|date("d/m/Y") }}</div>
-                <hr>
-            </div>
-        {% endfor %}
-    </div>
+                {# Si user pas connecté pas de bouton pour aller voir discussion #}
+            {% else %}
+                {##}
+            {% endif %}
+        </div>
+    {% endfor %}
+

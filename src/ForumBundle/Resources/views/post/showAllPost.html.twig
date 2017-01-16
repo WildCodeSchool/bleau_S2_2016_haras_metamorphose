@@ -1,13 +1,13 @@
 {% extends '@PlateForme/layout.html.twig' %}
 
 {% block body %}
-    <div class="wrapper">
+    <div class="wrapper col s8 m5 l4">
     {#-------------------------------------------------------------#}
     {# NavBar Lateral  #}
     {{ include("@Forum/post/postNavBar.html.twig") }}
     {# fin NavBar lateral #}
     {#-------------------------------------------------------------#}
-    <section class="sectionAllPost">
+    <section class="sectionAllPost ">
         {% for postParent in postParents %}
         {# Affichage du post parent #}
         <div class="header">
@@ -43,7 +43,17 @@
             {{ knp_pagination_render(postEnfants) }}
         </div>
         {#-------------------------------------------------------------#}
-
+        {# Ajout d'un nouveau post sur ce fil de discussion #}
+        <div class="row center">
+            <a class="btn-floating btn-large waves-effect waves-light green darken-3"
+               href="{{ path('post_new', {'cat' : postParent.categorie.id,  'id' : postParent.id }) }}">
+                <i class="material-icons">add</i>
+            </a>
+            <a class="btn-floating btn-large waves-effect waves-light blue darken-1"
+               href="{{ path('post_index') }}">
+                <i class="small material-icons">home</i>
+            </a>
+        </div>
         {#-------------------------------------------------------------#}
         {# Mise message flash #}
         {% for flash_message in app.session.flashBag.get('notice') %}
@@ -99,21 +109,6 @@
                 </div> {# fin div context #}
                 {% endfor %} {# Fin For POST ENFANTS #}
             </div> {# fin div object #}
-
-            {# Ajout d'un nouveau post sur ce fil de discussion #}
-            <div class="row center">
-                <a class="btn-floating btn-large waves-effect waves-light green darken-3"
-                   href="{{ path('post_new', {'cat' : postParent.categorie.id,  'id' : postParent.id }) }}">
-                    <i class="material-icons">add</i>
-                </a>
-                <div class="row center">
-
-                    <a class="btn-floating btn-large waves-effect waves-light blue darken-1"
-                       href="{{ path('post_index') }}">
-                        <i class="small material-icons">home</i>
-                    </a>
-                </div>
-            </div>
             {% endfor %} {# Fin For POST Parent #}
         </div>  {# fin div id content #}
     </section>

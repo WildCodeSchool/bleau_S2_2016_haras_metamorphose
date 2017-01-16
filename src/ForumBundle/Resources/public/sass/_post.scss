@@ -194,6 +194,11 @@ span.badge {
 //*************************************************************************
 // réduit visuel contenu des posts
 //**********************************
+
+.wrapper {
+  margin-left: 6%;
+}
+
 .filDeDiscussion {
   margin-left: 10% !important;
   margin-right: 10% !important;
@@ -217,10 +222,10 @@ span.badge {
   background-color: #3498db;
   overflow: hidden;
 }
+
 .titreEnfant {
   width: 100%;
   height: auto;
-  overflow: hidden;
 }
 
 .header .circle {
@@ -269,7 +274,7 @@ span.badge {
 #content {
   width: 100%;
   height: 700px;
-  overflow: hidden;
+  //overflow: hidden;
   padding-top: 20px;
   overflow-y: auto;
   overflow-x: hidden;
@@ -562,7 +567,7 @@ aside {
   transform: translate(0px);
 }
 
-#toto {
+#dropdown1 {
   top: 317px !important;
   left: 15px !important;
 }
