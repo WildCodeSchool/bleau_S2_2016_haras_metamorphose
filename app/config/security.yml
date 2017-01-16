@@ -47,11 +47,9 @@ security:
 #        - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/plateforme/?$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/plateforme/(login|register), role: IS_AUTHENTICATED_ANONYMOUSLY }
-#        - { path: ^/plateforme/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/plateforme/admin/, role: ROLE_ADMIN }
         - { path: ^/plateforme/categorieplateforme, role: ROLE_ADMIN }
         - { path: ^/plateforme/post, role: ROLE_USER }
         - { path: ^/admin, role: ROLE_ADMIN }
         - { path: ^/plateforme/admin/user, role: ROLE_ADMIN }
-#        - { path: ^/plateforme/categorieplateforme, role: ROLE_ADMIN }
 

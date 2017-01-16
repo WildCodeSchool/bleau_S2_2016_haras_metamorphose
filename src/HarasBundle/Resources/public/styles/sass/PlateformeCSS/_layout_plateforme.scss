@@ -93,10 +93,6 @@ ul.right.hide-on-med-and-down{
   padding-top: 1px;
 }
 
-nav ul a{
-  display: flex;
-}
-
 nav ul a:hover {
   background-color: rgba(0, 0, 0, 0.1);
   padding-bottom: 5px;
@@ -118,8 +114,12 @@ a.plateforme-logo{
 
 a.plateforme-logo:hover{
   background-color: transparent;
+  height: 100%;
 }
 
+nav ul.left {
+  height: 56px;
+}
 .icon-background1 {
   color: rgba(7,64,10, 0.6);
 }
@@ -163,4 +163,5 @@ body {
 
 footer.page-footer{
   background-color: rgba(118, 135, 146, 0.9);
+  margin-top:0px;
 }

@@ -26,27 +26,31 @@
                     <input type="password" id="password" name="_password" required="required"/>
                 </div>
 
+                <div class="row input-field remember">
                 <input type="checkbox" id="remember_me" name="_remember_me" value="on"/>
                 <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
-
+                </div>
 
                 <div class="boutons">
+                    <div class="connecter">
                         <button class="btn waves-effect waves-light btn-login" type="submit" name="action"
                                 value="{{ 'security.login.submit'|trans }}">Se connecter
-                            <i class="material-icons right">send</i>
+                            <i class="material-icons">done</i>
                         </button>
+                    </div>
+                    <div class="inscription">
+                        <a href="{{ path('fos_user_registration_register') }}">
+                            <button class="btn waves-effect waves-light btn-login" type="submit" name="action">S'inscrire
+                                <i class="material-icons">perm_identity</i>
+                            </button>
+                        </a>
 
-                    <a href="{{ path('fos_user_registration_register') }}">
-                        <button class="btn waves-effect waves-light btn-login" type="submit" name="action">S'enregistrer
-                            <i class="material-icons right">send</i>
-                        </button>
-                    </a>
-
-                    <a href="{{ path('plate_forme_homepage') }}">
-                        <button class="btn waves-effect waves-light btn-login" type="submit" name="action">Retour
-                            <i class="material-icons right">send</i>
-                        </button>
-                    </a>
+                        <a href="{{ path('plate_forme_homepage') }}">
+                            <button class="btn waves-effect waves-light btn-login" type="submit" name="action">Retour
+                                <i class="material-icons right">send</i>
+                            </button>
+                        </a>
+                    </div>
                 </div>
             </form>
         </div>

@@ -10,12 +10,8 @@ plate_forme_moderateur:
     path:     /moderateur/
     defaults: { _controller: PlateFormeBundle:Default:moderateur }
 
-plate_forme_philosophie:
-    path:     /philosophie/
-    defaults: { _controller: PlateFormeBundle:Default:philosophie }
+
 
 
 plate_forme_register:
     resource: "@UserBundle/Resources/config/routing/all.xml"
-
-

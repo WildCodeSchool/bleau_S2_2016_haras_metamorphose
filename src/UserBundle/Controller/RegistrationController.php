@@ -51,6 +51,8 @@ class RegistrationController extends Controller
             return $event->getResponse();
         }
         $form = $formFactory->createForm();
+        $mediaForm = $form->get("photo");
+        $mediaForm->remove('alt');
         $form->setData($user);
         $form->handleRequest($request);
         if ($form->isSubmitted()) {

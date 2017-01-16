@@ -7,31 +7,6 @@
 
             {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
 
-
-            <div class="row input-field">
-                {{ form_label(form.email, 'E-mail') }}
-                {{ form_widget(form.email, {'attr':{'class':'email form'}}) }}
-                {{ form_errors(form.email) }}
-            </div>
-
-            <div class="row input-field">
-                {{ form_label(form.username, 'pseudo') }}
-                {{ form_widget(form.username, {'attr':{'class':'username form'}}) }}
-                {{ form_errors(form.username) }}
-            </div>
-
-            <div class="row input-field">
-                {{ form_label(form.plainPassword.first, 'Password') }}
-                {{ form_widget(form.plainPassword.first, {'attr':{'class':'password form'}}) }}
-                {{ form_errors(form.plainPassword.first) }}
-            </div>
-
-            <div class="row input-field">
-                {{ form_label(form.plainPassword.first, 'Confirm Password') }}
-                {{ form_widget(form.plainPassword.second, {'attr':{'class':'confirm form'}}) }}
-                {{ form_errors(form.plainPassword.second) }}
-            </div>
-
             <div class="row input-field">
                 {{ form_label(form.nom, 'Nom') }}
                 {{ form_widget(form.nom, {'attr':{'class':'nom form'}}) }}
@@ -45,24 +20,57 @@
             </div>
 
             <div class="row input-field">
+                {{ form_label(form.username, 'Pseudo') }}
+                {{ form_widget(form.username, {'attr':{'class':'username form'}}) }}
+                {{ form_errors(form.username) }}
+            </div>
+
+            <div class="row input-field">
                 {{ form_label(form.profession, 'Profession') }}
                 {{ form_widget(form.profession, {'attr':{'class':'profession form'}}) }}
                 {{ form_errors(form.profession) }}
             </div>
 
             <div class="row input-field">
-                {{ form_widget(form.photo.file, {'attr':{'class':'photo form'}}) }}
-                {{ form_errors(form.photo.file) }}
+                {{ form_label(form.email, 'E-mail') }}
+                {{ form_widget(form.email, {'attr':{'class':'email form'}}) }}
+                {{ form_errors(form.email) }}
+            </div>
+
+            <div class="row input-field">
+                {{ form_label(form.plainPassword.first, 'Mot de passe') }}
+                {{ form_widget(form.plainPassword.first, {'attr':{'class':'password form'}}) }}
+                {{ form_errors(form.plainPassword.first) }}
+            </div>
+
+            <div class="row input-field">
+                {{ form_label(form.plainPassword.first, 'Confirmation mot de passe') }}
+                {{ form_widget(form.plainPassword.second, {'attr':{'class':'confirm form'}}) }}
+                {{ form_errors(form.plainPassword.second) }}
+            </div>
+
+            <div class="row input-field">
+                <div class="file-field input-field">
+                    <div class="btn">
+                        <span>Photo</span>
+                        <input type="file">
+                        {{ form_widget(form.photo.file, {'attr':{'class':'photo form'}}) }}
+                        {{ form_errors(form.photo.file) }}
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input class="file-path validate" type="text">
+                    </div>
+                </div>
             </div>
         </div>
         <div class="button-register">
-            <button class="btn waves-effect waves-light btn-admin" type="submit" name="action"
+            <button class="btn waves-effect waves-light btn-login" type="submit" name="action"
                     value="{{ 'registration.submit'|trans }}">S'enregistrer
                 <i class="material-icons right">send</i>
             </button>
 
             <a href="{{ path('plate_forme_homepage') }}">
-                <button class="btn waves-effect waves-light btn-admin" type="submit" name="action">Retour
+                <button class="btn waves-effect waves-light btn-login" type="submit" name="action">Retour
                     <i class="material-icons right">send</i>
                 </button>
             </a>

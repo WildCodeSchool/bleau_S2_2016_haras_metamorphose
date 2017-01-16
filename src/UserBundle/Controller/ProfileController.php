@@ -76,6 +76,8 @@ class ProfileController extends Controller
         $formFactory = $this->get('fos_user.profile.form.factory');
 
         $form = $formFactory->createForm();
+        $mediaForm = $form->get("photo");
+        $mediaForm->remove('alt');
         $form->setData($user);
 
         $form->handleRequest($request);
