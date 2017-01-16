@@ -1,15 +1,15 @@
 {% extends '@PlateForme/layout.html.twig' %}
 {% block body %}
 
-<div class="container center" id="loginmodel">
+<div class="container center" id="usermodel">
 
     <h2>Liste des utilisateurs</h2>
     <div class="boutons-haut">
         <a href="{{ path('user_new') }}" title="Créer un nouveau compte utilisateur"><i class="material-icons contactme">add_circle</i></a>
-        <a href="{{ path('plate_forme_homepage') }}" title="Retourner à l'accueil de l'administration"><i class="material-icons contactme">dashboard</i></a>
+        <a href="{{ path('plate_forme_homepage') }}" title="Retourner à l'accueil de l'administration"><i class="material-icons">send</i></a>
     </div>
-    <table class="responsive-table bordered striped" id="table_id">
 
+    <table class="responsive-table bordered striped" id="table_id">
             <thead>
             <tr>
                 <th>Avatar</th>
@@ -25,7 +25,7 @@
             <tbody>
             {% for user in users %}
                 <tr>
-                    <td><img class="container" src="{{ asset('bundles/haras/media/') }}{{ user.photo }}"></td>
+                    <td><img class="container" src="{{ user.photo ? asset(user.photo.path) }}"></td>
                     <td><a href="{{ path('user_show', { 'id': user.id }) }}">{{ user.id }}</a></td>
                     <td>{{ user.username }}</td>
                     <td>{{ user.nom }}</td>
@@ -42,10 +42,11 @@
                             {#</li>#}
                         {#</ul>#}
                     {#</td>#}
-                    <td>
+                    <td class="boutons_user">
                         <div class="boutons">
-                            <a href="{{ path('user_show', { 'id': user.id }) }}" title="Afficher"><i class="fa fa-user fa-2x"></i></a>
-                            <a href="{{ path('user_edit', { 'id': user.id }) }}" title="Editer"><i class="fa fa-pencil fa-2x"></i> </a>
+                            <a href="{{ path('user_show', { 'id': user.id }) }}" title="Afficher"><i class="fa fa-eye fa-2x"></i></a>
+                            <a href="{{ path('user_edit', { 'id': user.id }) }}" title="Editer"><i class="fa fa-pencil fa-2x"></i></a>
+                            <a href="{{ path('user_delete', { 'id': user.id }) }}" title="Supprimer"><i class="fa fa-trash fa-2x"></i>
                         </div>
                     </td>
                 </tr>
@@ -93,11 +94,11 @@
 
     <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.js"></script>
 
-    <script>
-    $(document).ready(function() {
-        $('select').material_select();
-    });
-    </script>
+    {#<script>#}
+    {#$(document).ready(function() {#}
+        {#$('select').material_select();#}
+    {#});#}
+    {#</script>#}
 
 
 {% endblock %}

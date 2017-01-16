@@ -51,62 +51,34 @@ class Philosophie
     {
         return $this->texte;
     }
-    /**
-     * @var string
-     */
-    private $title1;
 
     /**
      * @var string
      */
-    private $title2;
+    private $name;
 
 
     /**
-     * Set title1
+     * Set name
      *
-     * @param string $title1
+     * @param string $name
      *
      * @return Philosophie
      */
-    public function setTitle1($title1)
+    public function setName($name)
     {
-        $this->title1 = $title1;
+        $this->name = $name;
 
         return $this;
     }
 
     /**
-     * Get title1
+     * Get name
      *
      * @return string
      */
-    public function getTitle1()
+    public function getName()
     {
-        return $this->title1;
-    }
-
-    /**
-     * Set title2
-     *
-     * @param string $title2
-     *
-     * @return Philosophie
-     */
-    public function setTitle2($title2)
-    {
-        $this->title2 = $title2;
-
-        return $this;
-    }
-
-    /**
-     * Get title2
-     *
-     * @return string
-     */
-    public function getTitle2()
-    {
-        return $this->title2;
+        return $this->name;
     }
 }

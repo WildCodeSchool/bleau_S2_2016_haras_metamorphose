@@ -23,6 +23,6 @@ class DefaultController extends Controller
     }
     public function philosophieAction()
     {
-        return $this->render('@PlateForme/philosophie.html.twig');
+        return $this->render('@PlateForme/philosophie/index.html.twig');
     }
 }

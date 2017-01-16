@@ -1681,7 +1681,7 @@ input[type="password"] {
 
 /* line 87, ../sass/PlateformeCSS/_FosUser.scss */
 label {
-  color: white;
+  color: black;
 }
 
 /* line 91, ../sass/PlateformeCSS/_FosUser.scss */
@@ -1758,6 +1758,37 @@ label[for=username] {
 /* line 152, ../sass/PlateformeCSS/_FosUser.scss */
 .btn-register:hover {
   background-color: rgba(71, 217, 188, 0.51);
+}
+
+/********************  LISTE USERS   ************************/
+/* line 3, ../sass/PlateformeCSS/_user_list.scss */
+#usermodel {
+  width: 60%;
+  background-color: rgba(177, 176, 206, 0.3);
+  padding: 10px 0px 15px 0px;
+  margin-bottom: 20px;
+  border-radius: 15px;
+}
+
+/* line 11, ../sass/PlateformeCSS/_user_list.scss */
+.dataTables_length {
+  margin-left: 5%;
+}
+
+/* line 15, ../sass/PlateformeCSS/_user_list.scss */
+.dataTables_filter {
+  margin-right: 5%;
+}
+
+/* line 19, ../sass/PlateformeCSS/_user_list.scss */
+#table_id {
+  padding-top: 20px;
+  margin-bottom: 20px;
+}
+
+/* line 24, ../sass/PlateformeCSS/_user_list.scss */
+.boutons_user {
+  width: 12%;
 }
 
 /* line 1, ../sass/PlateformeCSS/_general.scss */

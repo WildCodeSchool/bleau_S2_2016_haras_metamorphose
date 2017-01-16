@@ -9,6 +9,10 @@ PlateFormeBundle\Entity\Philosophie:
             generator:
                 strategy: AUTO
     fields:
+        name:
+            type: string
+            length: 255
+            unique: true
         texte:
-            type: text
+          type: text
     lifecycleCallbacks: {  }
