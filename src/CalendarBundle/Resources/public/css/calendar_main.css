@@ -13,6 +13,31 @@
     border: none;
     background: none;
 }
+
+.new-input{
+    width: 300px !important;
+}
+
+#plateformebundle_agenda_start_time{
+    position: absolute;
+    left: 70%;
+    top: 60%;
+}
+
+#plateformebundle_agenda_end_time{
+    position: absolute;
+    left: 70%;
+    top: 90%;
+}
+
+#test5{
+    left: 900px !important;
+    opacity: 1 !important;
+    width: 50px;
+    height: 50px;
+    top: 1110px;
+}
+
 /************************************************
 *
 *   1. Color Picker
@@ -21,6 +46,9 @@ $
 
 .color-form{
 
+}
+#colorpicker{
+    width: 300px;
 }
 
 /*********************************************************/

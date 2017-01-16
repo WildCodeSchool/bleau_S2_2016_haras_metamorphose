@@ -21,6 +21,12 @@ jQuery(document).ready(function($) {
     // FONCTION DATEPICKER
     datepicker();
 
+    //TEXTAREA AUTO RESIZE
+    textArea();
+
+    //COLLAPSIBLE
+    collapsible();
+
 });
 
 // ********************************************************************
@@ -77,10 +83,8 @@ function retour_haut() {
 function selecteur() {
 
     $(document).ready(function () {
-        // Materialize.updateTextFields();
         $('select').material_select();
     });
-
 }
 
 // ********************************************************************
@@ -105,5 +109,24 @@ function datepicker() {
     $('.datepicker').pickadate({
         selectMonths: true, // Creates a dropdown to control month
         selectYears: 15 // Creates a dropdown of 15 years to control year
+    });
+}
+
+// ********************************************************************
+// *                    TEXTE AREAR
+// ********************************************************************
+
+function textArea(){
+
+    $('#textarea').trigger('autoresize');
+}
+
+// ********************************************************************
+// *                    COLLAPSIBLE
+// ********************************************************************
+
+function collapsible() {
+    $(document).ready(function(){
+        $('.collapsible').collapsible();
     });
 }

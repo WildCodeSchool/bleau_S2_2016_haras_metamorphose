@@ -67,27 +67,34 @@ class CalendarController extends Controller
     public function newAction(Request $request, $start)
     {
         $agenda = new Agenda();
-        if ($start == 0) {
-            $newTime = new \DateTime();
-            $startEvent = $newTime->format('d-m-Y H:i:s');
-            $agenda->setStart(new \DateTime($startEvent));
-            $endtime = new \DateTime();
-            $endEvent = $endtime->format('d-m-Y H:i:s');
-            $agenda->setEnd(new \DateTime($endEvent));
-        }
-        else {
+
+        if ($start != 0) {
             $agenda->setStart(new \DateTime($start));
             $agenda->setEnd(new \DateTime($start));
         }
+
         $form = $this->createForm('CalendarBundle\Form\AgendaType', $agenda);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($agenda);
-            $em->flush($agenda);
 
-            return $this->redirectToRoute('agenda_show', array('id' => $agenda->getId()));
+            if($agenda->getStart() > $agenda->getEnd()) {
+                $this->addFlash (
+                    'success',
+                    'Attention l\'heure ou la date de fin est antérieur à la l\'heure de début'
+                );
+
+                return $this->render('@Calendar/agenda/new.html.twig', array(
+                    'agenda' => $agenda,
+                    'form' => $form->createView(),
+                ));
+            }
+            else{
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($agenda);
+                $em->flush($agenda);
+                return $this->redirectToRoute('agenda_show', array('id' => $agenda->getId()));
+            }
         }
 
         return $this->render('@Calendar/agenda/new.html.twig', array(

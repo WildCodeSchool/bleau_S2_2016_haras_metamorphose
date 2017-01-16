@@ -21,7 +21,8 @@ function calendar() {
     $(document).ready(function() {
 
         var current_date_time = new Date();
-        // var role = "";
+
+        console.log(roles);
 
         $('#calendar').fullCalendar({
             header: {
@@ -56,7 +57,7 @@ function calendar() {
             dayClick: function(date) {
 
                 /* VERIFICATION QUE LA DATE NE SOIT PAS INFERIRIEUR A LA SELECTION / DEFINITION DES ROLES */
-                if (date._d >= current_date_time && role == 'ROLE_ADMIN'){
+                if (date._d >= current_date_time && roles.indexOf("ROLE_SUPER_ADMIN")){
                     // lors du click sur la case il renvoie la date vers la page new
                     window.location = Routing.generate('agenda') + date.format() + '/new';
                 }

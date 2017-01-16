@@ -27,7 +27,11 @@ class AgendaType extends AbstractType
             ->add('texte')
             ->add('lieu')
             ->add('color')
-            ->add('slider')
+            ->add('slider', CheckboxType::class, array(
+                  'required' => false,))
+            ->add('file', 'file', array(
+                'data_class' => null,
+                'required' => false))
         ;
     }
     

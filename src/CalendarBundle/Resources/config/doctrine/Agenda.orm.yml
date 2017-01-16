@@ -28,4 +28,8 @@ CalendarBundle\Entity\Agenda:
         slider:
             type: boolean
             nullable: true
+        images:
+            type: string
+            length: 255
+            nullable: true
     lifecycleCallbacks: {  }

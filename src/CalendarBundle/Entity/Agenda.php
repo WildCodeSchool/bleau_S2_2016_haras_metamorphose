@@ -9,6 +9,77 @@ namespace CalendarBundle\Entity;
 
 class Agenda
 {
+
+    public function __construct ()
+    {
+        $newTime = new \DateTime();
+        $this->setStart($newTime);
+        $this->setEnd($newTime);
+    }
+
+    //  FONCTION DE METHOD UPLOAD
+    public $file;
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function preUpload()
+    {
+        if (null !== $this->file) {
+            // do whatever you want to generate a unique name
+            $this->images = uniqid().'.'.$this->file->guessExtension();
+        }
+    }
+
+    /**
+     * @ORM\PostPersist
+     */
+    public function upload()
+    {
+        if (null === $this->file) {
+            return;
+        }
+
+        // if there is an error when moving the file, an exception will
+        // be automatically thrown by move(). This will properly prevent
+        // the entity from being persisted to the database on error
+        $this->file->move($this->getUploadRootDir(), $this->images);
+
+        unset($this->file);
+    }
+
+    /**
+     * @ORM\PostRemove
+     */
+    public function removeUpload()
+    {
+        if ($file = $this->getAbsolutePath()) {
+            unlink($file);
+        }
+    }
+
+    //  FONCTION DE TEST DU DOSSIER UPLOAD
+    protected function getUploadDir()
+    {
+        return 'uploads/pictures';
+    }
+
+    protected function getUploadRootDir()
+    {
+        return __DIR__.'/../../../web/'.$this->getUploadDir();
+    }
+
+    public function getWebPath()
+    {
+        return null === $this->images ? null : $this->getUploadDir().'/'.$this->images;
+    }
+
+    public function getAbsolutePath()
+    {
+        return null === $this->images ? null : $this->getUploadRootDir().'/'.$this->images;
+    }
+
+//    GENERATED CODE
     /**
      * @var int
      */
@@ -34,6 +105,30 @@ class Agenda
      */
     private $lieu;
 
+    /**
+     * @var \DateTime
+     */
+    private $start;
+
+    /**
+     * @var \DateTime
+     */
+    private $end;
+
+    /**
+     * @var string
+     */
+    private $color;
+
+    /**
+     * @var boolean
+     */
+    private $slider;
+
+    /**
+     * @var string
+     */
+    private $images;
 
     /**
      * Get id
@@ -140,26 +235,6 @@ class Agenda
     {
         return $this->lieu;
     }
-    /**
-     * @var \DateTime
-     */
-    private $start;
-
-    /**
-     * @var \DateTime
-     */
-    private $end;
-
-    /**
-     * @var string
-     */
-    private $color;
-
-    /**
-     * @var boolean
-     */
-    private $slider;
-
 
     /**
      * Set start
@@ -255,5 +330,29 @@ class Agenda
     public function getSlider()
     {
         return $this->slider;
+    }
+
+    /**
+     * Set images
+     *
+     * @param string $images
+     *
+     * @return Agenda
+     */
+    public function setImages($images)
+    {
+        $this->images = $images;
+
+        return $this;
+    }
+
+    /**
+     * Get images
+     *
+     * @return string
+     */
+    public function getImages()
+    {
+        return $this->images;
     }
 }
