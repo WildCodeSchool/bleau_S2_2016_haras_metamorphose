@@ -3,9 +3,9 @@
 
 <div class="container center" id="loginmodel">
 
-    <h1>Liste des utilisateurs</h1>
+    <h2>Liste des utilisateurs</h2>
     <div class="boutons-haut">
-        <a href="{{ path('user_new') }}" title="Créer un nouveau modèle"><i class="material-icons contactme">add_circle</i></a>
+        <a href="{{ path('user_new') }}" title="Créer un nouveau compte utilisateur"><i class="material-icons contactme">add_circle</i></a>
         <a href="{{ path('plate_forme_homepage') }}" title="Retourner à l'accueil de l'administration"><i class="material-icons contactme">dashboard</i></a>
     </div>
     <table class="responsive-table bordered striped" id="table_id">
@@ -25,7 +25,7 @@
             <tbody>
             {% for user in users %}
                 <tr>
-                    <td><img class="thumbsindex" src="{{ asset('bundles/haras/media/') }}{{ user.photo }}"></td>
+                    <td><img class="container" src="{{ asset('bundles/haras/media/') }}{{ user.photo }}"></td>
                     <td><a href="{{ path('user_show', { 'id': user.id }) }}">{{ user.id }}</a></td>
                     <td>{{ user.username }}</td>
                     <td>{{ user.nom }}</td>
@@ -52,11 +52,6 @@
             {% endfor %}
             </tbody>
         </table>
-        <ul>
-            <li>
-                <a href="{{ path('user_new') }}">Create a new user</a>
-            </li>
-        </ul>
 </div>
 {% endblock %}
 
@@ -103,5 +98,6 @@
         $('select').material_select();
     });
     </script>
+
 
 {% endblock %}
