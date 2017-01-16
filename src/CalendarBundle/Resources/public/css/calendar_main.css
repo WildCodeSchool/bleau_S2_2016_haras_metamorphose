@@ -38,6 +38,11 @@
     top: 1110px;
 }
 
+.upload_file_event{
+    display: none;
+    transition: 1.5s;
+}
+
 /************************************************
 *
 *   1. Color Picker
@@ -117,6 +122,9 @@ $
 .bouton-retour {
     color: darkgreen;
     font-size: 36px !important;
+}
+
+.file{
 }
 
 /*********************************************************/

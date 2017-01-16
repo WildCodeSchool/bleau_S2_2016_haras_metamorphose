@@ -15,17 +15,11 @@ jQuery(document).ready(function($) {
     // FONCTION BOITE MODALE
     modal();
 
-    // FONCTION COLORPICKER
-    // colorpicker();
-
-    // FONCTION DATEPICKER
-    datepicker();
-
     //TEXTAREA AUTO RESIZE
     textArea();
 
     //COLLAPSIBLE
-    collapsible();
+    hide_Show();
 
 });
 
@@ -42,8 +36,6 @@ function init_plateforme()
 
     $("#contact-body").hide().show(1000).css("display", "block");
     $("#access-body").hide().show(2000).css("display" ,"block");
-
-    $('#textarea1').trigger('autoresize');
 
     $(".dropdown-button").dropdown();
 
@@ -101,18 +93,6 @@ function modal() {
 }
 
 // ********************************************************************
-// *                    DATE PICKER
-// ********************************************************************
-
-function datepicker() {
-
-    $('.datepicker').pickadate({
-        selectMonths: true, // Creates a dropdown to control month
-        selectYears: 15 // Creates a dropdown of 15 years to control year
-    });
-}
-
-// ********************************************************************
 // *                    TEXTE AREAR
 // ********************************************************************
 
@@ -122,11 +102,20 @@ function textArea(){
 }
 
 // ********************************************************************
-// *                    COLLAPSIBLE
+// *                    IMAGE DISPLAY
 // ********************************************************************
 
-function collapsible() {
-    $(document).ready(function(){
-        $('.collapsible').collapsible();
-    });
+function hide_Show() {
+    $('#test5').click(function () {
+        if (this.checked){
+            $('.upload_file_event').css('display', 'block')
+        }
+        else {
+            $('.upload_file_event').css('display', 'none')
+        }
+    })
 }
+
+
+
+

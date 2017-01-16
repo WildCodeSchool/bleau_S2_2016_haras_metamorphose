@@ -2,6 +2,10 @@
 
 namespace CalendarBundle\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
  * Agenda
@@ -27,7 +31,7 @@ class Agenda
     {
         if (null !== $this->file) {
             // do whatever you want to generate a unique name
-            $this->images = uniqid().'.'.$this->file->guessExtension();
+            $this->image = uniqid().'.'.$this->file->guessExtension();
         }
     }
 
@@ -43,7 +47,7 @@ class Agenda
         // if there is an error when moving the file, an exception will
         // be automatically thrown by move(). This will properly prevent
         // the entity from being persisted to the database on error
-        $this->file->move($this->getUploadRootDir(), $this->images);
+        $this->file->move($this->getUploadRootDir(), $this->image);
 
         unset($this->file);
     }
@@ -71,12 +75,12 @@ class Agenda
 
     public function getWebPath()
     {
-        return null === $this->images ? null : $this->getUploadDir().'/'.$this->images;
+        return null === $this->image ? null : $this->getUploadDir().'/'.$this->image;
     }
 
     public function getAbsolutePath()
     {
-        return null === $this->images ? null : $this->getUploadRootDir().'/'.$this->images;
+        return null === $this->image ? null : $this->getUploadRootDir().'/'.$this->image;
     }
 
 //    GENERATED CODE
@@ -128,7 +132,7 @@ class Agenda
     /**
      * @var string
      */
-    private $images;
+    private $image;
 
     /**
      * Get id
@@ -333,26 +337,26 @@ class Agenda
     }
 
     /**
-     * Set images
+     * Set image
      *
-     * @param string $images
+     * @param string $image
      *
      * @return Agenda
      */
-    public function setImages($images)
+    public function setImage($image)
     {
-        $this->images = $images;
+        $this->image = $image;
 
         return $this;
     }
 
     /**
-     * Get images
+     * Get image
      *
      * @return string
      */
-    public function getImages()
+    public function getImage()
     {
-        return $this->images;
+        return $this->image;
     }
 }

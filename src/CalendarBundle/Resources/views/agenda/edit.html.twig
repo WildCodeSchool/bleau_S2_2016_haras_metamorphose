@@ -81,20 +81,18 @@
                             <td class="calendar-td">
                                 <p class="calendar-p">Ajouter au slider</p>
                             </td>
-                            <td class="calendar-td-twig center">
-                                <ul class="collapsible" data-collapsible="accordion">
-                                    <li>
-                                        <div class="collapsible-header">
-                                            {{ form_widget(edit_form.slider, { 'id': 'test5' }) }}
-                                            {{ form_errors(edit_form.slider) }}
-                                        </div>
-                                        <div class="collapsible-body">
-                                            <label>Ajouter une image :</label>
-                                            {{ form_widget(edit_form.image) }}
-                                            {{ form_errors(edit_form.image) }}
-                                        </div>
-                                    </li>
-                                </div>
+                            <td class="calendar-td-twig">
+                                {{ form_widget(edit_form.slider, { 'id': 'test5' }) }}
+                                {{ form_errors(edit_form.slider) }}
+                            </td>
+                        </tr>
+                        <tr class="upload_file_event">
+                            <td class="calendar-td">
+                                <p class="calendar-p">Ajouter une image</p>
+                            </td>
+                            <td>
+                                {{ form_widget(edit_form.file) }}
+                                {{ form_errors(edit_form.file) }}
                             </td>
                         </tr>
                     </table>

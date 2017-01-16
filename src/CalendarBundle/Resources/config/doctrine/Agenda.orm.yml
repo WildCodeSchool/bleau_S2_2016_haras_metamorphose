@@ -28,7 +28,7 @@ CalendarBundle\Entity\Agenda:
         slider:
             type: boolean
             nullable: true
-        images:
+        image:
             type: string
             length: 255
             nullable: true

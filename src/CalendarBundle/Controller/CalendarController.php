@@ -90,6 +90,7 @@ class CalendarController extends Controller
                 ));
             }
             else{
+
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($agenda);
                 $em->flush($agenda);

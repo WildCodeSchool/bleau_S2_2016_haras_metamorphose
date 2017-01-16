@@ -80,9 +80,18 @@
                             <td class="calendar-td">
                                 <p class="calendar-p">Ajouter au slider</p>
                             </td>
-                            <td>
+                            <td class="calendar-td-twig">
                                 {{ form_widget(form.slider, { 'id': 'test5' }) }}
                                 {{ form_errors(form.slider) }}
+                            </td>
+                        </tr>
+                        <tr class="upload_file_event">
+                            <td class="calendar-td">
+                                <p class="calendar-p">Ajouter une image</p>
+                            </td>
+                            <td class="calendar-td-twig file">
+                                {{ form_widget(form.file) }}
+                                {{ form_errors(form.file) }}
                             </td>
                         </tr>
                     </table>
@@ -103,4 +112,22 @@
         {{ form_end(form) }}
 
 {% endblock %}
+
+{#
+{% block javascripts %}
+
+    {{ parent() }}
+    <script>
+        $('#test5').click(function () {
+            if (this.checked){
+                $('.upload_file_event').css('display', 'block')
+            }
+            else {
+                $('.upload_file_event').css('display', 'none')
+            }
+
+        })
+    </script>
+{% endblock %}
+#}
 
