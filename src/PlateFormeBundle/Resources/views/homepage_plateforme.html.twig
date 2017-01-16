@@ -5,6 +5,16 @@
 
     <div class="slider">
         <ul class="slides">
+
+            <li>
+                {% for agenda in agenda %}
+                    <img src="{{ asset('/uploads/pictures/')}}{{ agenda.image }}" alt="{{ agenda.titre }}"/></a>
+                <div class="caption center-align">
+                    <h3>{{ agenda.titre }}</h3>
+                    <h5 class="light grey-text text-lighten-3">{{ agenda.titre }}</h5>
+                </div>
+                {% endfor %}
+            </li>
             <li>
                 <img src="http://s1.lprs1.fr/images/2016/04/21/5734339_dbcf1aa4-07c9-11e6-ae1b-485357199b15-1_1000x625.jpg"> <!-- random image -->
                 <div class="caption center-align">
