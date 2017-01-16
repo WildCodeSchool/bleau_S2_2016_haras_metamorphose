@@ -44,20 +44,24 @@
                 <i class="fa fa-user fa-2x fa-fw"></i>Forum
             </a>
         </li>
-        <li>
-            <a id="links" class="pink-text lighten-2" href="{{ path('categorieplateforme_index') }}">
-                <i class="fa fa-terminal fa-2x fa-fw"></i>Categories
-            </a>
-        </li>
+
         <li>
             <a id="links" class="blue-text lighten-2" href="{{ path('post_showMesMessages', {'id': app.user.id}) }}">
                 <i class="fa fa-clipboard fa-2x fa-fw"></i>Vos messages
             </a>
         </li>
+        {% if is_granted('ROLE_MODERATEUR') %}
         <li>
             <a id="links" class="green-text text-lighten-2" href="{{ path('post_showAllPostDesactive') }}">
                 <i class="fa fa-bar-chart fa-2x fa-fw"></i>Réactiver Post
             </a>
         </li>
+        <li>
+            <a id="links" class="pink-text lighten-2" href="{{ path('categorieplateforme_index') }}">
+                <i class="fa fa-terminal fa-2x fa-fw"></i>Categories
+            </a>
+        </li>
+        {% endif %}
+
     </ul>
 </aside>
