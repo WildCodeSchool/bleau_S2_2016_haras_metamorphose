@@ -6,6 +6,7 @@ use CalendarBundle\Entity\Agenda;
 use HarasBundle\Entity\Media;
 use CalendarBundle\Form\AgendaType;
 
+use HarasBundle\Entity\Text;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -52,6 +53,10 @@ class CalendarController extends Controller
 
         /* CREATION TABLEAU POUR ENVOI AU JSON */
         $normalizer->setCallbacks(array('start' => $dateCallback, 'end' => $dateCallback));
+        /* SUPPRESSION D'UN APPEL DE L'ENTITE POUR LE TABLEAU */
+        $normalizer->setCircularReferenceHandler(function ($agenda) {
+            return $agenda->getName('image');
+        });
 
         $serializer = new Serializer(array($normalizer), array($encoder));
         $jsonObject = $serializer->serialize($agenda, 'json');
@@ -77,22 +82,30 @@ class CalendarController extends Controller
 
         $form = $this->createForm('CalendarBundle\Form\AgendaType', $agenda);
 
-        $mediaform = ;
+        /* COMME ON RECUP LE MEDIATYPE DU HARAS, ON DOIT SUPPRIMER LA DEFINITION IMAGE 'ALT' CAR NON UTILE DANS CE CAS */
+        $mediaform = $form->get('image');
+        $mediaform
+            ->remove('alt')
+        ;
+        $form->setData($agenda);
 
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
 
+            /* ON RECUP LE FICHIER IMAGE */
             $imageForm = $form->get('image');
             $image = $imageForm->getData();
             $agenda->setImage($image);
 
-            // Chaque médium définit son propre nom en fonction de celui de l'article, preg_replace permet ici de remplacer
-            // tous les caractères interdits dans les noms de fichier par '_' (car le media s'upload dans un fichier portant son propre nom)
-            $image->setName(preg_replace('/\W/', '_', "Event_" . $agenda->getName() . uniqid()) );
+            /* ON DEFINI UN NOM UNIQUE AU FICHIER UPLOAD : LE PREG_REPLACE PERMET LA SUPPRESSION DES ESPACES ET AUTRES CARACTERES INDESIRABLES*/
+            $image->setName(preg_replace('/\W/', '_', "Event_" . $agenda->getTitre() . uniqid()) );
 
-            // L'alt définit son nom selon celui de son médium et prend un '_' juste pour rester dans l'ambiance \(o°v°o)/
-            $image->getAlt()->setName($agenda->getTitre() . " - " . $agenda->getLieu());
+            /* ON DEFINI UN ALT CORRESPONDANT A L'IMAGE (TITRE ET LIEU DE L'EVENT) */
+            $alt = new Text();
+            $altText = $agenda->getTitre() . " - " . $agenda->getLieu();
+            $alt->setTextFr($altText)->setTextEn($altText)->setName($image->getName().'_alt');
+            $image->setAlt($alt);
             // On appelle le service d'upload de média (HarasBundle/Services/mediaInterface)
             $this->get('media.interface')->mediaUpload($image);
 

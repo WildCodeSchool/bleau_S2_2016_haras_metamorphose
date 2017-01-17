@@ -72,7 +72,7 @@
                             <p class="calendar-p">Image du slider</p>
                         </td>
                         <td class="calendar-td-twig calendar-border-butomright">
-                            <img src="{{ asset('uploads/pictures/') }}{{ agenda.image }}"  alt="{{ agenda.titre }}">
+                            <img class="show-image" src="{{ asset(agenda.image.path) }}"  alt="{{ agenda.image.alt.translation('fr') }}">
                         </td>
                     </tr>
                 </table>
