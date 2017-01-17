@@ -88,11 +88,11 @@
                         </tr>
                         <tr class="upload_file_event">
                             <td class="calendar-td">
-                                <p class="calendar-p">Ajouter une image</p>
+                                <p class="calendar-p">Ajouter une image (Max : 2Mo)</p>
                             </td>
-                            <td>
-                                {{ form_widget(edit_form.file) }}
-                                {{ form_errors(edit_form.file) }}
+                            <td class="calendar-td-twig calendar-border-butomright">
+                                {{ form_widget(edit_form.image) }}
+                                {{ form_errors(edit_form.image) }}
                             </td>
                         </tr>
                     </table>

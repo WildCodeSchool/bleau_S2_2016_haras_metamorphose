@@ -3,6 +3,7 @@
 namespace CalendarBundle\Controller;
 
 use CalendarBundle\Entity\Agenda;
+use HarasBundle\Entity\Media;
 use CalendarBundle\Form\AgendaType;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -37,7 +38,6 @@ class CalendarController extends Controller
         $em = $this->getDoctrine()->getManager(); //appel doctrine methode BDD
 
         $agenda = $em->getRepository('CalendarBundle:Agenda')->findAll(); // appel de la table
-//        $role = $em->getRepository('UserBundle:FosUser')->find(role); // appel de la table
 
         $normalizer = new ObjectNormalizer(); //Normalisation des données pour passer en JSON
 
@@ -76,9 +76,25 @@ class CalendarController extends Controller
         }
 
         $form = $this->createForm('CalendarBundle\Form\AgendaType', $agenda);
+
+        $mediaform = ;
+
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $imageForm = $form->get('image');
+            $image = $imageForm->getData();
+            $agenda->setImage($image);
+
+            // Chaque médium définit son propre nom en fonction de celui de l'article, preg_replace permet ici de remplacer
+            // tous les caractères interdits dans les noms de fichier par '_' (car le media s'upload dans un fichier portant son propre nom)
+            $image->setName(preg_replace('/\W/', '_', "Event_" . $agenda->getName() . uniqid()) );
+
+            // L'alt définit son nom selon celui de son médium et prend un '_' juste pour rester dans l'ambiance \(o°v°o)/
+            $image->getAlt()->setName($agenda->getTitre() . " - " . $agenda->getLieu());
+            // On appelle le service d'upload de média (HarasBundle/Services/mediaInterface)
+            $this->get('media.interface')->mediaUpload($image);
 
             if($agenda->getStart() > $agenda->getEnd()) {
                 $this->addFlash (
@@ -93,11 +109,9 @@ class CalendarController extends Controller
             }
             else{
 
-//                var_dump($agenda); die;
-
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($agenda);
-                $em->flush($agenda);
+                $em->flush();
                 return $this->redirectToRoute('agenda_show', array('id' => $agenda->getId()));
             }
         }
@@ -130,8 +144,6 @@ class CalendarController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
-
-//            var_dump($editForm); die;
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($agenda);

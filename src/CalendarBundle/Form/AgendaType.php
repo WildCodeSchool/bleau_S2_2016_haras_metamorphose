@@ -2,6 +2,7 @@
 
 namespace CalendarBundle\Form;
 
+use HarasBundle\Form\MediaType;
 use CalendarBundle\Entity\Agenda;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -25,8 +26,10 @@ class AgendaType extends AbstractType
             ->add('texte')
             ->add('lieu')
             ->add('color')
-            ->add('slider', CheckboxType::class, array('required' => false,))
-            ->add('file', FileType::class, array('label' => 'Image (fichier JPG)', 'data_class' => null, 'required' => false))
+            ->add('slider', CheckboxType::class, array(
+                'required' => false,
+            ))
+            ->add('image', MediaType::class)
         ;
     }
     

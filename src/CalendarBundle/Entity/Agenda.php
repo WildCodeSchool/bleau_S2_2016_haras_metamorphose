@@ -13,70 +13,6 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class Agenda
 {
-    //  FONCTION DE METHOD UPLOAD
-    public $file;
-
-    /**
-     * @ORM\PrePersist
-     */
-    public function preUpload()
-    {
-        if (null !== $this->file) {
-            // do whatever you want to generate a unique name
-            $this->image = uniqid().'.'.$this->file->guessExtension();
-        }
-    }
-
-
-    /**
-     * @ORM\PostPersist
-     */
-    public function upload()
-    {
-        if (null === $this->file) {
-            return;
-        }
-
-        // if there is an error when moving the file, an exception will
-        // be automatically thrown by move(). This will properly prevent
-        // the entity from being persisted to the database on error
-        $this->file->move($this->getUploadRootDir(), $this->image);
-
-        unset($this->file);
-    }
-
-    /**
-     * @ORM\PostRemove
-     */
-    public function removeUpload()
-    {
-        if ($file = $this->getAbsolutePath()) {
-            unlink($file);
-        }
-    }
-
-    //  FONCTION DE TEST DU DOSSIER UPLOAD
-    public function getUploadDir()
-    {
-        return 'uploads/pictures';
-    }
-
-    public function getUploadRootDir()
-    {
-        return __DIR__.'/../../../web/'.$this->getUploadDir();
-    }
-
-    public function getWebPath()
-    {
-        return null === $this->image ? null : $this->getUploadDir().'/'.$this->image;
-    }
-
-    public function getAbsolutePath()
-    {
-        return null === $this->image ? null : $this->getUploadRootDir().'/'.$this->image;
-    }
-
-
 //    Set dateTime pour new event calendar
     public function __construct ()
     {
@@ -132,7 +68,7 @@ class Agenda
     private $slider;
 
     /**
-     * @var string
+     * @var \HarasBundle\Entity\Media
      */
     private $image;
 
@@ -341,11 +277,11 @@ class Agenda
     /**
      * Set image
      *
-     * @param string $image
+     * @param \HarasBundle\Entity\Media $image
      *
      * @return Agenda
      */
-    public function setImage($image)
+    public function setImage(\HarasBundle\Entity\Media $image = null)
     {
         $this->image = $image;
 
@@ -355,7 +291,7 @@ class Agenda
     /**
      * Get image
      *
-     * @return string
+     * @return \HarasBundle\Entity\Media
      */
     public function getImage()
     {

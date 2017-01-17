@@ -67,6 +67,14 @@
                             <p class="color-show-p">{{ agenda.color }}</p>
                         </td>
                     </tr>
+                    <tr>
+                        <td class="calendar-td">
+                            <p class="calendar-p">Image du slider</p>
+                        </td>
+                        <td class="calendar-td-twig calendar-border-butomright">
+                            <img src="{{ asset('uploads/pictures/') }}{{ agenda.image }}"  alt="{{ agenda.titre }}">
+                        </td>
+                    </tr>
                 </table>
 
             </div>

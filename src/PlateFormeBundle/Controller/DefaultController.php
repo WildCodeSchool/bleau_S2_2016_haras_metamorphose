@@ -8,12 +8,16 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
+        $limit = 5;
+
         $em = $this->getDoctrine()->getManager();
 
         $agenda = $em->getRepository('CalendarBundle:Agenda')->findBy( array('slider' => 1) );
-
+        $articles = $em->getRepository('HarasBundle:Article')->findLatestArticles($limit);
+//var_dump($agenda); die;
         return $this->render('@PlateForme/homepage_plateforme.html.twig', array(
-            'agenda' => $agenda
+            'agenda' => $agenda,
+            'articles' => $articles
         ));
     }
 
