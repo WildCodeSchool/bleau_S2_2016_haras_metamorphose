@@ -109,6 +109,7 @@ class CalendarController extends Controller
             // On appelle le service d'upload de média (HarasBundle/Services/mediaInterface)
             $this->get('media.interface')->mediaUpload($image);
 
+            /* SI L'HEURE ET/OU LA DATE DE FIN EST INFERIEUR A CELLE DE DEBUT ON REVIENT A LA PAGE NEW*/
             if($agenda->getStart() > $agenda->getEnd()) {
                 $this->addFlash (
                     'success',
