@@ -32,6 +32,7 @@ class Agenda
         }
     }
 
+
     /**
      * @ORM\PostPersist
      */

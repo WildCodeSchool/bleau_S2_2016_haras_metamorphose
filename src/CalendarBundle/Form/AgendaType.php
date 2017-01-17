@@ -2,10 +2,12 @@
 
 namespace CalendarBundle\Form;
 
+use CalendarBundle\Entity\Agenda;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 
 class AgendaType extends AbstractType
 {
@@ -16,10 +18,6 @@ class AgendaType extends AbstractType
     {
         $builder
             ->add('start')
-//            ->add('start', 'datetime' , array(
-//        'minutes' => range(0, 30, 30),
-//            ))
-              //  'model_timezone' => 'Europe/Paris')
             ->add('end', 'datetime' , array(
                   'minutes' => range(0, 30, 30)
             ))
@@ -27,12 +25,8 @@ class AgendaType extends AbstractType
             ->add('texte')
             ->add('lieu')
             ->add('color')
-            ->add('slider', CheckboxType::class, array(
-                  'required' => false,))
-            ->add('file', 'file', array(
-                'label' => 'Image (fichier JPG)',
-                'data_class' => null,
-                'required' => false))
+            ->add('slider', CheckboxType::class, array('required' => false,))
+            ->add('file', FileType::class, array('label' => 'Image (fichier JPG)', 'data_class' => null, 'required' => false))
         ;
     }
     

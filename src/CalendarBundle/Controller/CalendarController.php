@@ -3,6 +3,8 @@
 namespace CalendarBundle\Controller;
 
 use CalendarBundle\Entity\Agenda;
+use CalendarBundle\Form\AgendaType;
+
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
