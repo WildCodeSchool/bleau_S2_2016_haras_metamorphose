@@ -13,11 +13,6 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class Agenda
 {
-//    public function __toString()
-//    {
-//        return strval($this->id);
-//    }
-
     //  FONCTION DE METHOD UPLOAD
     public $file;
 
