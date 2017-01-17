@@ -8,8 +8,6 @@
     {#-------------------------------------------------------------#}
   <section class="postSectionIndex">
   {# DEBUT CODE #}
-
-
   {#-------------------------------------------------------------#}
     {# Mise en place message flash #}
     {% for flash_message in app.session.flashBag.get('notice') %}
@@ -96,6 +94,7 @@
                                         <img src="{{ asset('bundles/haras/images/test2.jpeg')}}" alt="Contact Person">
                                         Message de : {{ postParent.user|capitalize }}
                                       </div>
+                                      {# Bouton voir la discussion #}
                                       <a class="waves-effect waves-teal btn-flat center indexEntrerFil"
                                            href="{{ path('post_showAllPost', { 'id': postParent.id }) }}">
                                             <i class="material-icons">input</i>
@@ -105,6 +104,7 @@
                        {% endif %}  {# fin if POST PARENT #}
                        {% endfor %} {# for for POST PARENT #}
                        </ul>
+                   {# Bouton pour ajouter nouvelle discussion #}
                    <div class="row center">
                        {#Ajout nouveau post parent sur cat & ssCat selectionnées (CAT)#}
                        <a class="waves-effect waves-light btn"

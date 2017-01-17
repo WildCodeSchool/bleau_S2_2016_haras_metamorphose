@@ -48,7 +48,15 @@
 .h4cat {
 	padding-top: 2%;
 	padding-bottom: 2%;
-	padding-left: 2%;
+	padding-left: 10%;
+	width: inherit;
+	//border-radius: 10px;
+	box-shadow: 2px 2px 14px rgba(0, 0, 0, 0.25);
+}
+
+// Media query
+@media screen and (max-width: 1000px) {
+
 }
 // ************************
 //CSS for accordion
