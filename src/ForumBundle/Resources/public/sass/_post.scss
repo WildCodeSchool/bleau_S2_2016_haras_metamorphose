@@ -19,6 +19,16 @@
   text-shadow: 1px 1px 2px rgba(150, 105, 45, 1);
 }
 
+.soustitrePage {
+  color: #8e8e8e;
+  font-style: italic;
+  text-align: center;
+}
+
+@media screen and (max-width: 600px) {
+  .titrePage {font-size: 42px}
+  .soustitrePage {font-size: 21px}
+}
 
 //************************
 // accordeon
@@ -670,6 +680,7 @@ aside {
     font-size: 21px !important;
   }
 }
+
 a
 {
   text-decoration: none;
@@ -701,6 +712,55 @@ a:hover
   position: relative;
   width: auto;
   height: 350px;
+}
+
+@media screen and (max-width: 600px) {
+  .soustitreHome {
+    font-size: 21px !important;
+  }
+
+  #sliderPost {
+    margin-top: 5px;
+  }
+
+  .divContenuHome {
+    width: 500px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .divContenuHome {
+    width: 300px;
+  }
+
+  #sliderPost {
+    margin-top: 5px;
+  }
+}
+
+@media screen and (max-width: 990px) {
+  .divContenuHome {
+    width: 300px;
+  }
+
+  #sliderPost {
+    margin-top: 5px;
+  }
+}
+
+@media only screen and (min-width : 1200px) {
+  #sliderPost {
+    margin-top: 43px;
+    width: 440px;
+    height: 315px;
+  }
+  .soustitrePage {
+    margin-top: 85px;
+  }
+
+  .divBoutonHome {
+    margin-top: -4%;
+  }
 }
 
 #sliderPost li
