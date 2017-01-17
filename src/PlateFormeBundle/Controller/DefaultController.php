@@ -8,7 +8,13 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('@PlateForme/homepage_plateforme.html.twig');
+        $em = $this->getDoctrine()->getManager();
+
+        $agenda = $em->getRepository('CalendarBundle:Agenda')->findBy( array('slider' => 1) );
+
+        return $this->render('@PlateForme/homepage_plateforme.html.twig', array(
+            'agenda' => $agenda
+        ));
     }
 
     public function adminAction()

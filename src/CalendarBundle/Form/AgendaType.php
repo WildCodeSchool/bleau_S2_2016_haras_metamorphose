@@ -30,6 +30,7 @@ class AgendaType extends AbstractType
             ->add('slider', CheckboxType::class, array(
                   'required' => false,))
             ->add('file', 'file', array(
+                'label' => 'Image (fichier JPG)',
                 'data_class' => null,
                 'required' => false))
         ;

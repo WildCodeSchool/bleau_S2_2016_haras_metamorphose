@@ -13,13 +13,10 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class Agenda
 {
-
-    public function __construct ()
-    {
-        $newTime = new \DateTime();
-        $this->setStart($newTime);
-        $this->setEnd($newTime);
-    }
+//    public function __toString()
+//    {
+//        return strval($this->id);
+//    }
 
     //  FONCTION DE METHOD UPLOAD
     public $file;
@@ -63,12 +60,12 @@ class Agenda
     }
 
     //  FONCTION DE TEST DU DOSSIER UPLOAD
-    protected function getUploadDir()
+    public function getUploadDir()
     {
         return 'uploads/pictures';
     }
 
-    protected function getUploadRootDir()
+    public function getUploadRootDir()
     {
         return __DIR__.'/../../../web/'.$this->getUploadDir();
     }
@@ -81,6 +78,15 @@ class Agenda
     public function getAbsolutePath()
     {
         return null === $this->image ? null : $this->getUploadRootDir().'/'.$this->image;
+    }
+
+
+//    Set dateTime pour new event calendar
+    public function __construct ()
+    {
+        $newTime = new \DateTime();
+        $this->setStart($newTime);
+        $this->setEnd($newTime);
     }
 
 //    GENERATED CODE

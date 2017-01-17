@@ -91,6 +91,8 @@ class CalendarController extends Controller
             }
             else{
 
+//                var_dump($agenda); die;
+
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($agenda);
                 $em->flush($agenda);
@@ -126,6 +128,8 @@ class CalendarController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
+
+//            var_dump($editForm); die;
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($agenda);
