@@ -53,16 +53,21 @@ class RegistrationController extends Controller
         if (null !== $event->getResponse()) {
             return $event->getResponse();
         }
+
+//        creation formulaire photo and data
         $form = $formFactory->createForm();
         $mediaForm = $form->get("photo");
         $mediaForm->remove('alt');
         $form->setData($user);
         $form->handleRequest($request);
+
+
         if ($form->isSubmitted()) {
             if ($form->isValid()) {
                 $event = new FormEvent($form, $request);
                 $dispatcher->dispatch(FOSUserEvents::REGISTRATION_SUCCESS, $event);
 
+                //récuperation du service upload image
                 $mediaForm = $form->get('photo');
                 $media = $mediaForm->getData();
 

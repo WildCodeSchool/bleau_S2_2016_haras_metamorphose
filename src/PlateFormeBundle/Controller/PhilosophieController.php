@@ -12,44 +12,44 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class PhilosophieController extends Controller
 {
-    /**
-     * Lists all philosophie entities.
-     *
-     */
-    public function indexAction()
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $philosophies = $em->getRepository('PlateFormeBundle:Philosophie')->findAll();
-
-        return $this->render('@PlateForme/Default/index.html.twig', array(
-            'philosophies' => $philosophies,
-        ));
-    }
-
-    /**
-     * Creates a new philosophie entity.
-     *
-     */
-    public function newAction(Request $request)
-    {
-        $philosophie = new Philosophie();
-        $form = $this->createForm('PlateFormeBundle\Form\PhilosophieType', $philosophie);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($philosophie);
-            $em->flush($philosophie);
-
-            return $this->redirectToRoute('philosophie_show', array('id' => $philosophie->getId()));
-        }
-
-        return $this->render('@PlateForme/philosophie/new.html.twig', array(
-            'philosophie' => $philosophie,
-            'form' => $form->createView(),
-        ));
-    }
+//    /**
+//     * Lists all philosophie entities.
+//     *
+//     */
+//    public function indexAction()
+//    {
+//        $em = $this->getDoctrine()->getManager();
+//
+//        $philosophies = $em->getRepository('PlateFormeBundle:Philosophie')->findAll();
+//
+//            return $this->render('@PlateForme/philosophie/show.html.twig', array(
+//                'philosophies' => $philosophies,
+//            ));
+//    }
+//
+//    /**
+//     * Creates a new philosophie entity.
+//     *
+//     */
+//    public function newAction(Request $request)
+//    {
+//        $philosophie = new Philosophie();
+//        $form = $this->createForm('PlateFormeBundle\Form\PhilosophieType', $philosophie);
+//        $form->handleRequest($request);
+//
+//        if ($form->isSubmitted() && $form->isValid()) {
+//            $em = $this->getDoctrine()->getManager();
+//            $em->persist($philosophie);
+//            $em->flush($philosophie);
+//
+//            return $this->redirectToRoute('philosophie_show', array('id' => $philosophie->getId()));
+//        }
+//
+//        return $this->render('@PlateForme/philosophie/new.html.twig', array(
+//            'philosophie' => $philosophie,
+//            'form' => $form->createView(),
+//        ));
+//    }
 
     /**
      * Finds and displays a philosophie entity.
@@ -88,23 +88,23 @@ class PhilosophieController extends Controller
         ));
     }
 
-    /**
-     * Deletes a philosophie entity.
-     *
-     */
-    public function deleteAction(Request $request, Philosophie $philosophie)
-    {
-        $form = $this->createDeleteForm($philosophie);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->remove($philosophie);
-            $em->flush($philosophie);
-        }
-
-        return $this->redirectToRoute('philosophie_index');
-    }
+//    /**
+//     * Deletes a philosophie entity.
+//     *
+//     */
+//    public function deleteAction(Request $request, Philosophie $philosophie)
+//    {
+//        $form = $this->createDeleteForm($philosophie);
+//        $form->handleRequest($request);
+//
+//        if ($form->isSubmitted() && $form->isValid()) {
+//            $em = $this->getDoctrine()->getManager();
+//            $em->remove($philosophie);
+//            $em->flush($philosophie);
+//        }
+//
+//        return $this->redirectToRoute('philosophie_index');
+//    }
 
     /**
      * Creates a form to delete a philosophie entity.

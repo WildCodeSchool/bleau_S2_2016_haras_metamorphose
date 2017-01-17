@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends '@PlateForme/layout.html.twig' %}
 
 {% block body %}
     <h1>Philosophie</h1>
@@ -15,14 +15,14 @@
             </tr>
             <tr>
                 <th>Texte</th>
-                <td>{{ philosophie.texte }}</td>
+                <td>{{ philosophie.texte |raw }}</td>
             </tr>
         </tbody>
     </table>
 
     <ul>
         <li>
-            <a href="{{ path('philosophie_index') }}">Back to the list</a>
+            <a href="{{ path('plate_forme_homepage') }}">Retour accueil</a>
         </li>
         <li>
             <a href="{{ path('philosophie_edit', { 'id': philosophie.id }) }}">Edit</a>

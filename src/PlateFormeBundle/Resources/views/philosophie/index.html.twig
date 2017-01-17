@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends '@PlateForme/layout.html.twig' %}
 
 {% block body %}
     <h1>Philosophies list</h1>
@@ -17,7 +17,7 @@
             <tr>
                 <td><a href="{{ path('philosophie_show', { 'id': philosophie.id }) }}">{{ philosophie.id }}</a></td>
                 <td>{{ philosophie.name }}</td>
-                <td>{{ philosophie.texte }}</td>
+                <td>{{ philosophie.texte |raw }}</td>
                 <td>
                     <ul>
                         <li>

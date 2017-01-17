@@ -14,5 +14,5 @@ PlateFormeBundle\Entity\Philosophie:
             length: 255
             unique: true
         texte:
-          type: text
+            type: text
     lifecycleCallbacks: {  }

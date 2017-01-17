@@ -23,6 +23,13 @@ class DefaultController extends Controller
     }
     public function philosophieAction()
     {
-        return $this->render('@PlateForme/philosophie/index.html.twig');
+
+        $em = $this->getDoctrine()->getManager();
+
+        $philosophies = $em->getRepository('PlateFormeBundle:Philosophie')->findAll();
+
+        return $this->render('@PlateForme/philosophie/index.html.twig', array(
+            'philosophies' => $philosophies
+        ));
     }
 }
