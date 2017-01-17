@@ -15,6 +15,9 @@ use FOS\UserBundle\Form\Factory\FactoryInterface;
 use FOS\UserBundle\FOSUserEvents;
 use FOS\UserBundle\Model\UserInterface;
 use FOS\UserBundle\Model\UserManagerInterface;
+use HarasBundle\Entity\Media;
+use HarasBundle\Entity\Text;
+use HarasBundle\Form\TextType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -62,12 +65,18 @@ class RegistrationController extends Controller
 
                 $mediaForm = $form->get('photo');
                 $media = $mediaForm->getData();
+
+                if ($media == null){
+                    $em = $this->getDoctrine()->getManager();
+                    $media = $em->getRepository('HarasBundle:Media')->findOneByName('logo');
+                }
+                else{
+                    $media->setName(preg_replace('/\W/', '_', $user->getNom()) );
+
+                    // On appelle le service d'upload de média (HarasBundle/Services/mediaInterface)
+                    $this->get('media.interface')->mediaUpload($media);
+                }
                 $user->setPhoto($media);
-                $media->setName(preg_replace('/\W/', '_', $user->getNom()) );
-                // L'alt définit son nom selon celui de son médium et prend un '_' juste pour rester dans l'ambiance \(o°v°o)/
-                $media->getAlt()->setName($media->getName() . "_Alt");
-                // On appelle le service d'upload de média (HarasBundle/Services/mediaInterface)
-                $this->get('media.interface')->mediaUpload($media);
 
                 $userManager->updateUser($user);
                 if (null === $response = $event->getResponse()) {
