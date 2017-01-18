@@ -25,6 +25,7 @@ class mediaInterface extends Controller
 			$filename = end($tmp);    // On récupère le nom du fichier ({{media.name}}.extension
 			// On supprime ce fichier de la mémoire
 			unlink($this->container->getParameter('medias_directory') . '/' . $filename);
+			$media->setPath(null);
 		}
 		// Puis on upload le nouveau fichier
 		$extension = $file->guessExtension();

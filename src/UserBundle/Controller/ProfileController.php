@@ -19,12 +19,14 @@ use FOS\UserBundle\FOSUserEvents;
 use FOS\UserBundle\Model\UserInterface;
 use FOS\UserBundle\Model\UserManagerInterface;
 use HarasBundle\Entity\Media;
+use HarasBundle\Services\mediaInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
+use UserBundle\Entity\User;
 
 /**
  * Controller managing the user profile.
@@ -78,31 +80,28 @@ class ProfileController extends Controller
         $form = $formFactory->createForm();
         $form->setData($user);
 
+        $mediaUser = $user->getPhoto();
+        $mediaForm = $form->get('photo');
+        $mediaForm->remove('alt');
+
+        if ($mediaUser->getName() == User::getDefaultPhotoName())
+            $mediaUser = new Media();
+
+        $mediaForm->setData($mediaUser);
+
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            $em = $this->getDoctrine()->getManager();
             /** @var $userManager UserManagerInterface */
             $userManager = $this->get('fos_user.user_manager');
 
             $event = new FormEvent($form, $request);
             $dispatcher->dispatch(FOSUserEvents::PROFILE_EDIT_SUCCESS, $event);
 
+            // On appelle le service d'upload de média (HarasBundle/Services/mediaInterface)
+            $this->get('media.interface')->mediaUpload($mediaUser);
 
-            $mediaForm = $form->get('photo');
-            if (!empty($mediaForm) || $mediaForm !== null) {
-                $media = new Media();
-                $media = $mediaForm->getData();
-                $user->setPhoto($media);
-                $media->setName(preg_replace('/\W/', '_', $user->getNom()));
-                // L'alt définit son nom selon celui de son médium et prend un '_' juste pour rester dans l'ambiance \(o°v°o)/
-                $media->getAlt()->setName($media->getName() . "_Alt");
-                // On appelle le service d'upload de média (HarasBundle/Services/mediaInterface)
-                $this->get('media.interface')->mediaUpload($media);
-                $em->persist($media);
-                $em->flush();
-            }
             $userManager->updateUser($user);
 
             if (null === $response = $event->getResponse()) {
