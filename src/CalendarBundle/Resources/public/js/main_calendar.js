@@ -127,9 +127,9 @@ function colorpicker(){
         format: 'hex',
         color: '#1783cb'
     });
-    $('.colorpicker').click(function () {
-        var color = $('.tdcolor').val();
-        $('.tdcolor').css('background-color', color)
-    })
+    $('.tdcolor ul li').click(function () {
+        var back = $('#colorpicker').val();
+        $('#colorpicker').css('background', back);
+    });
 }
 
