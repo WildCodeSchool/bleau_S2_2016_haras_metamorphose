@@ -8,11 +8,71 @@
 
 namespace SearchBundle\Controller;
 
+use ForumBundle\Entity\Post;
+use ForumBundle\Entity\CategoriePlateforme;
+use SearchBundle\SearchBundle;
+use Symfony\Component\HttpFoundation\Request;
+use SearchBundle\Repository\SearchRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-
 
 class SearchEngineController extends Controller
 {
+    // METHODE DE RECHERCHE PAR MOTS
+    public function searchAction(Request $request)
+    {
+        // on vérifie d'abord l'existence du POST et aussi si la requete n'est pas vide.
+        if(isset($_POST['requete']) && $_POST['requete'] != NULL)
 
+        {
+            // on crée une variable $requete pour faciliter l'écriture de la requête SQL,
+            // mais aussi pour empêcher les éventuels malins qui utiliseraient du PHP ou du JS,
+            // avec la fonction htmlspecialchars().
+            $requete = htmlspecialchars($_POST['requete']);
+
+
+            // Appel du repository avec laquelle on demande une requete sql
+            $repository = $this->getDoctrine()->getManager()->getRepository(SearchRepository::class)->findPost(); //SearchRepository::class
+
+            // on boucle pour récuperer le résultat de repository
+            foreach ($repository as $resultat) {
+
+//                $resultat = $repository->findBy($requete);
+                $resultat->getContent($requete);
+
+            }
+
+            // si le résultat est identique au mot recherché on affiche la page de résultats
+            if($resultat == $requete)
+
+            {
+                // maintenant, on va afficher la page qui va afficher les résultats
+                return $this->render('@Search/Default/index.html.twig', array(
+                    'resultat' => $resultat,
+                ));
+            }
+            // sinon on retourne à la page d'accueil avec un message
+            else
+
+            {
+//                $this->addFlash(
+//                    'success',
+//                    'La recherche ne donne aucun résultats'
+//                );
+
+                return $this->render('@PlateForme/Default/index.html.twig');
+
+            }
+        }
+        // Si le post est vide on retourne à la page d'accueil
+        else
+        {
+//            $this->addFlash(
+//                'success',
+//                'Le champ de recherche est vide'
+//            );
+
+            return $this->render('@PlateForme/Default/index.html.twig');
+        }
+    }
 
 }

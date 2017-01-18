@@ -8,14 +8,6 @@
         <div class="row">
             <div class="col s12">
                 <h3 class="center">Résultats de votre recherche.</h3>
-                <p>Nous avons trouvé : {{ nb_resultats }}
-                     {#CONDITION EN TWIG#}
-                    {% if nb_resultats > 1 %}
-                        résultats.
-                    {% elseif nb_resultats == 1 %}
-                        résultat.
-                    {% endif %}
-                </p>
             </div>
         </div>
     </div>
@@ -33,11 +25,11 @@
                         </tr>
                     </theader>
                     <tbody>
-                    {% for query in query %}
+                    {% for resultats in resultat %}
                         <tr>
-                            <td><a href="{{ path('#') }}"> {{ requete.nom }}</a></td>
-                            <td><a href="{{ path('#') }}">{{ requete.titre }}</a></td>
-                            <td><a href="{{ path('#') }}">{{ requete.contenu }}</a></td>
+                            <td><a href="{{ path('#') }}">{{ resultats.titre }}</a></td> <!-- replacer par {#{{ resultats.nom }}#}  -->
+                            <td><a href="{{ path('#') }}">{{ resultats.titre }}</a></td>
+                            <td><a href="{{ path('#') }}">{{ resultats.titre }}</a></td> <!-- replacer par {#{{ resultats.contenu }}#}  -->
                         </tr>
                     {% endfor %}
                     </tbody>

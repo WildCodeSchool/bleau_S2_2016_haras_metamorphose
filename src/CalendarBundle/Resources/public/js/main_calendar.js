@@ -15,12 +15,14 @@ jQuery(document).ready(function($) {
     // FONCTION BOITE MODALE
     modal();
 
-    // FONCTION COLORPICKER
-    // colorpicker();
+    //TEXTAREA AUTO RESIZE
+    textArea();
 
-    // FONCTION DATEPICKER
-    datepicker();
+    //COLLAPSIBLE
+    hide_Show();
 
+    //COLORPICKER
+    colorpicker();
 });
 
 // ********************************************************************
@@ -36,8 +38,6 @@ function init_plateforme()
 
     $("#contact-body").hide().show(1000).css("display", "block");
     $("#access-body").hide().show(2000).css("display" ,"block");
-
-    $('#textarea1').trigger('autoresize');
 
     $(".dropdown-button").dropdown();
 
@@ -77,10 +77,8 @@ function retour_haut() {
 function selecteur() {
 
     $(document).ready(function () {
-        // Materialize.updateTextFields();
         $('select').material_select();
     });
-
 }
 
 // ********************************************************************
@@ -97,13 +95,43 @@ function modal() {
 }
 
 // ********************************************************************
-// *                    DATE PICKER
+// *                    TEXTE AREAR
 // ********************************************************************
 
-function datepicker() {
+function textArea(){
 
-    $('.datepicker').pickadate({
-        selectMonths: true, // Creates a dropdown to control month
-        selectYears: 15 // Creates a dropdown of 15 years to control year
-    });
+    $('#textarea').trigger('autoresize');
 }
+
+// ********************************************************************
+// *                    IMAGE DISPLAY
+// ********************************************************************
+
+function hide_Show() {
+    $('#test5').click(function () {
+        if (this.checked){
+            $('.upload_file_event').css('display', 'block')
+        }
+        else {
+            $('.upload_file_event').css('display', 'none')
+        }
+    })
+}
+
+// ********************************************************************
+// *                    COLORPICKER
+// ********************************************************************
+
+function colorpicker(){
+    $('#colorpicker').colorpicker({
+        format: 'hex',
+        color: '#1783cb'
+    });
+    $('#colorpicker').click(function () {
+        if ($('#colorpicker') != '#1783cb'){
+            $('#tdcolor').css('background-color', colorpicker(
+            ))
+        }
+    })
+}
+

@@ -21,7 +21,8 @@ function calendar() {
     $(document).ready(function() {
 
         var current_date_time = new Date();
-        // var role = "";
+
+        console.log(roles);
 
         $('#calendar').fullCalendar({
             header: {
@@ -56,7 +57,7 @@ function calendar() {
             dayClick: function(date) {
 
                 /* VERIFICATION QUE LA DATE NE SOIT PAS INFERIRIEUR A LA SELECTION / DEFINITION DES ROLES */
-                if (date._d >= current_date_time && role == 'ROLE_ADMIN'){
+                if (date._d >= current_date_time && roles.indexOf("ROLE_SUPER_ADMIN")){
                     // lors du click sur la case il renvoie la date vers la page new
                     window.location = Routing.generate('agenda') + date.format() + '/new';
                 }
@@ -86,7 +87,7 @@ function calendar() {
 
                 var ponctuation1 = "de";
                 var ponctuation2 = "à";
-                var startTime = moment(calEvent.start._i).format('HH:mm à ');
+                var startTime = moment(calEvent.start._i).format('HH:mm');
                 var endTime = moment(calEvent.end._i).format("HH:mm");
                 var Time = 'Le ' + day + '<br>' +ponctuation1 + ' ' + startTime + '<br>' + ponctuation2 + ' ' + endTime;
                 var editEvent = Routing.generate('agenda') + calEvent.id + '/edit';

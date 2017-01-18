@@ -23,7 +23,7 @@ post_showAllPost:
     methods:  GET
 
 post_showMesMessages:
-    path:     /showMesMessages
+    path:     /{id}/showMesMessages
     defaults: { _controller: "ForumBundle:Post:showMesMessages" }
     methods:  [GET, POST]
 

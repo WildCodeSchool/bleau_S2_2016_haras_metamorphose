@@ -25,4 +25,13 @@ class ArticleRepository extends EntityRepository
             ->setMaxResults( $limit );
    	    return $qb->getQuery()->getResult();
 	}
+
+    public function findLatestArticles($limit)
+    {
+        $qb = $this->createQueryBuilder('a')
+            ->select('a')
+            ->orderBy('a.createdAt', 'DESC')
+            ->setMaxResults( $limit );
+        return $qb->getQuery()->getResult();
+    }
 }
