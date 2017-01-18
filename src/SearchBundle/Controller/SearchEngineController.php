@@ -29,10 +29,11 @@ class SearchEngineController extends Controller
             // avec la fonction htmlspecialchars().
             $requete = htmlspecialchars($_POST['requete']);
 
+            $limit = 25;
 
             // Appel du repository avec laquelle on demande une requete sql
             $em = $this->getDoctrine()->getManager();
-            $repository = $em->getRepository('SearchBundle:Search')->findPost($requete); //SearchRepository::class
+            $repository = $em->getRepository('SearchBundle:Search')->findPost($requete, $limit); //SearchRepository::class
 
             // on boucle pour récuperer le résultat de repository
             foreach ($repository as $resultat) {

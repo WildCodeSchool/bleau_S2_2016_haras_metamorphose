@@ -127,10 +127,10 @@ function colorpicker(){
         format: 'hex',
         color: '#1783cb'
     });
-    $( '.color-picker ul li' ).click(function() {
-        var color = $( '#appbundle_organisme_backgroundColor' ).val();
-        $( '#appbundle_organisme_backgroundColor' ).css( 'background', color );
-    });
 
+    $( ".#tdcolor ul li" ).click(function() {
+        var color = $( '#colorpicker' ).val();
+        $( '#colorpicker' ).css( 'background', color );
+    });
 }
 
