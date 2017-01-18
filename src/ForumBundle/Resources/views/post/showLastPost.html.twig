@@ -21,7 +21,7 @@
                 {% endif %}
                 {# FIN Gestion couleur par catégories #}
                 {# Contenu de la discussion #}
-                <div class="divContenuHome">{{ lastPostCat.contenu|capitalize|striptags|truncate(50, true, "...")|raw }}</div>
+                <div class="divContenuHome">{{ lastPostCat.contenu|capitalize|striptags|truncate(25, true, "...")|raw }}</div>
                 <div class="divBoutonHome">
                     <p>Le : {{ lastPostCat.dateCreate|date("d/m/Y") }}</p>
                     <p>par : {{ lastPostCat.user|capitalize }}
@@ -30,7 +30,7 @@
                         {# Route pour post parent #}
                         {% if lastPostCat.parent.id is not defined %}
                             <a class="waves-effect waves-teal btn-flat tooltipped"
-                               data-position="left"
+                               data-position="right"
                                data-delay="50"
                                data-tooltip="Voir la discussion"
                                href="{{ path('post_showAllPost', { 'id': lastPostCat.id }) }}">
@@ -39,7 +39,7 @@
                             {# Route pour post enfant #}
                         {% elseif lastPostCat.parent.id is defined %}
                             <a class="waves-effect waves-teal btn-flat tooltipped"
-                               data-position="left"
+                               data-position="right"
                                data-delay="50"
                                data-tooltip="Voir la discussion"
                                href="{{ path('post_showAllPost', { 'id': lastPostCat.parent.id }) }}">

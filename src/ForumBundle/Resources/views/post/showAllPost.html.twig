@@ -2,89 +2,92 @@
 
 {% block body %}
     <div class="wrapperAllPost">
-    {#-------------------------------------------------------------#}
-    {# NavBar Lateral  #}
-    {{ include("@Forum/post/postNavBar.html.twig") }}
-    {# fin NavBar lateral #}
-    {#-------------------------------------------------------------#}
-    <section class="sectionAllPost ">
-        {% for postParent in postParents %}
-        {# Affichage du post parent #}
-        <div class="header">
-            <div class="circle"></div>
-            <h1> {{ postParent.titre|capitalize }} </h1>
-            <div class="contextHeader">
-                {{ postParent.contenu|raw }}
-                <p class="dateMessage">Message posté le {{ postParent.dateCreate|date("d/m/Y") }}</p>
-            </div>
-
-            <div class="valign-wrapper">
-            {% if is_granted('ROLE_MODERATEUR') %}
-                <a class="aPost" href="{{ path('post_edit', { 'id': postParent.id }) }}" style="margin: 0 auto;">
-                    <i class="fa fa-pencil-square-o fa-3x" style="color: #FFFFFF;" aria-hidden="true"></i>
-                </a>
-            {% endif %}
-                <div class="cartoucheUserShowAll valign">
-                    <div class="pCartoucheUserShowAll">Message de : {{ postParent.user|capitalize }}</div>
-                    <div class="avatarUserIndex"><img src="{{ asset('bundles/haras/images/test2.jpeg') }}"></div>
-                    {#-------------------------------------------------------------#}
-                    {# rating user #}
-                    {% set nb = postParent.user.nbPost %}
-                    <div class="pCartoucheUserShowAll">{{ include("@Forum/post/rating.html.twig") }}</div>
-                    {# fin rating user #}
-                    {#-------------------------------------------------------------#}
-                </div>
-            </div>
-        </div> {# fin header #}
-
         {#-------------------------------------------------------------#}
-        {# Mise en place pagination #}
-        <div class="row center">
-            {{ knp_pagination_render(postEnfants) }}
-        </div>
+        {# NavBar Lateral  #}
+        {{ include("@Forum/post/postNavBar.html.twig") }}
+        {# fin NavBar lateral #}
         {#-------------------------------------------------------------#}
-        {# Ajout d'un nouveau post sur ce fil de discussion #}
-        <div class="row center">
-            <a class="btn-floating btn-large waves-effect waves-light green darken-3"
-               href="{{ path('post_new', {'cat' : postParent.categorie.id,  'id' : postParent.id }) }}">
-                <i class="material-icons">add</i>
-            </a>
-            <a class="btn-floating btn-large waves-effect waves-light blue darken-1"
-               href="{{ path('post_index') }}">
-                <i class="small material-icons">home</i>
-            </a>
-        </div>
-        {#-------------------------------------------------------------#}
-        {# Mise message flash #}
-        {% for flash_message in app.session.flashBag.get('notice') %}
-            <div class="row container">
-                <div class="flash-notice center">
-                    {{ flash_message }}
-                </div>
-            </div>
-        {% endfor %}
-        {#-------------------------------------------------------------#}
-
-        {# Affichage des posts enfants #}
-        {% for postEnfant in postEnfants %}
-        <div class="line"></div>
-
-        <div id="content">
-            <div class="object">
-                <div class="date">{# {{ postEnfant.dateCreate|date("d") }} #}</div>
+        <section class="sectionAllPost ">
+            {% for postParent in postParents %}
+            {# Affichage du post parent #}
+            <div class="header">
                 <div class="circle"></div>
-                <div class="context">
-                    <div class="col s12 m7">
-                        <h2 class="titreEnfant">{{ postEnfant.titre|capitalize }}</h2>
-                        <div class="card horizontal">
-                            <div class="card-stacked">
-                                <div class="card-content">
-                                    {{ postEnfant.contenu|raw }}
-                                    <p class="dateMessage">Message posté le {{ postEnfant.dateCreate|date("d/m/Y") }}</p>
-                                </div>
-                                <div class="card-action">
+                <h1> {{ postParent.titre|capitalize }} </h1>
+                <div class="contextHeader">
+                    {{ postParent.contenu|raw }}
+                    <p class="dateMessage">Message posté le {{ postParent.dateCreate|date("d/m/Y") }}</p>
+                </div>
+
+                <div class="valign-wrapper">
+                    {% if is_granted('ROLE_MODERATEUR') %}
+                        <a class="aPost" href="{{ path('post_edit', { 'id': postParent.id }) }}" style="margin: 0 auto;">
+                            <i class="fa fa-pencil-square-o fa-3x" style="color: #FFFFFF;" aria-hidden="true"></i>
+                        </a>
+                    {% endif %}
+                    <div class="cartoucheUserShowAll" >
+                        <div class="chip" style="background-color: unset; color: #FFF">
+                            <img src="{{ asset('bundles/haras/images/test2.jpeg')}}" alt="Contact Person">
+                            {{ postParent.user|capitalize }}
+                        </div>
+                        {#-------------------------------------------------------------#}
+                        {# rating user #}
+                        {% set nb = postParent.user.nbPost %}
+                        <p style="padding-left: 20%">{{ include("@Forum/post/rating.html.twig") }}</p>
+                        {# fin rating user #}
+                        {#-------------------------------------------------------------#}
+                    </div>
+                </div>
+            </div> {# fin header #}
+
+            {#-------------------------------------------------------------#}
+            {# Mise en place pagination #}
+            <div class="row center">
+                {{ knp_pagination_render(postEnfants) }}
+            </div>
+            {#-------------------------------------------------------------#}
+            {# Ajout d'un nouveau post sur ce fil de discussion #}
+            <div class="row center">
+                <a class="btn-floating btn-large waves-effect waves-light green darken-3"
+                   href="{{ path('post_new', {'cat' : postParent.categorie.id,  'id' : postParent.id }) }}">
+                    <i class="material-icons">add</i>
+                </a>
+                <a class="btn-floating btn-large waves-effect waves-light blue darken-1"
+                   href="{{ path('post_index') }}">
+                    <i class="small material-icons">home</i>
+                </a>
+            </div>
+            {#-------------------------------------------------------------#}
+            {# Mise message flash #}
+            {% for flash_message in app.session.flashBag.get('notice') %}
+                <div class="row container">
+                    <div class="flash-notice center">
+                        {{ flash_message }}
+                    </div>
+                </div>
+            {% endfor %}
+            {#-------------------------------------------------------------#}
+
+            {# Affichage des posts enfants #}
+            {% for postEnfant in postEnfants %}
+            <div class="line"></div>
+
+            <div id="content">
+                <div class="object">
+                    <div class="date">{# {{ postEnfant.dateCreate|date("d") }} #}</div>
+                    <div class="circle"></div>
+                    <div class="context">
+                        <div class="col s12 m7">
+                            <h2 class="titreEnfant">{{ postEnfant.titre|capitalize }}</h2>
+                            <div class="card horizontal">
+                                <div class="card-stacked">
+                                    <div class="card-content">
+                                        {{ postEnfant.contenu|raw }}
+                                        <p class="dateMessage">Message posté le {{ postEnfant.dateCreate|date("d/m/Y") }}</p>
+                                    </div>
+                                    <div class="card-action">
                                         {% if is_granted('ROLE_MODERATEUR') or postEnfant.user.id == app.user.id %}
-                                            <div>
+                                            <div class="row">
+                                            <div class="col offset-s3 S3 offset-m3 m3 offset-l3 l3">
                                                 <a href="{{ path('post_edit', { 'id': postEnfant.id }) }}">
                                                     <i class="fa fa-pencil-square-o fa-3x" style="color: #444;" aria-hidden="true"></i>
                                                 </a>
@@ -92,26 +95,29 @@
                                         {% else %}
 
                                         {% endif %}
-                                    <div class="pCartoucheUserShowAll">message de : {{ postEnfant.user }}</div>
-                                    <div style="float: right;">
-                                        <img src="{{ asset('bundles/haras/images/test3.jpeg') }}" style="width: 50px;">
+                                        <div class="col S6 m6 l6" >
+                                            <div class="chip" style="background-color: unset; color: #888888">
+                                                <img src="{{ asset('bundles/haras/images/test2.jpeg')}}" alt="Contact Person">
+                                                {{ postParent.user|capitalize }}
+                                            </div>
+                                            {#-------------------------------------------------------------#}
+                                            {# rating user #}
+                                            {% set nb = postParent.user.nbPost %}
+                                            <p style="padding-left: 20%">{{ include("@Forum/post/rating.html.twig") }}</p>
+                                            {# fin rating user #}
+                                            {#-------------------------------------------------------------#}
+                                        </div>
                                     </div>
-                                    {#-------------------------------------------------------------#}
-                                    {# rating user #}
-                                    {% set nb = postEnfant.user.nbPost %}
-                                    <div  class="valign">{{ include("@Forum/post/rating.html.twig") }}</div>
-                                    {# fin rating user #}
-                                    {#-------------------------------------------------------------#}
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div> {# fin div context #}
-                {% endfor %} {# Fin For POST ENFANTS #}
-            </div> {# fin div object #}
-            {% endfor %} {# Fin For POST Parent #}
-        </div>  {# fin div id content #}
-    </section>
+                    </div> {# fin div context #}
+                    {% endfor %} {# Fin For POST ENFANTS #}
+                </div> {# fin div object #}
+                {% endfor %} {# Fin For POST Parent #}
+            </div>  {# fin div id content #}
+        </section>
     </div>
 
 {% endblock %}

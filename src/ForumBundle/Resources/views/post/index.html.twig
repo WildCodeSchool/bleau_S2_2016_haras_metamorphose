@@ -84,21 +84,22 @@
                                       {# Fin Gestion nombre de réponses sur le fil de discussion #}
                                   </div>
                                   <div class="collapsible-body divCorpsPostParent">
-                                      <div class="bigtxt">
+                                      <div class="indexContenuPost">
                                         {{ postParent.contenu|raw }}
-                                          <p>Message posté le {{ postParent.dateCreate|date("d/m/Y") }}</p>
+                                          <p class="dateIndexPost">Message posté le {{ postParent.dateCreate|date("d/m/Y") }}</p>
 
                                       </div>
-
-                                      <div class="chip">
-                                        <img src="{{ asset('bundles/haras/images/test2.jpeg')}}" alt="Contact Person">
-                                        Message de : {{ postParent.user|capitalize }}
+                                      <div class="cartoucheUserIndexPost">
+                                          <div class="chip">
+                                            <img src="{{ asset('bundles/haras/images/test2.jpeg')}}" alt="Contact Person">
+                                            Message de : {{ postParent.user|capitalize }}
+                                          </div>
+                                          {# Bouton voir la discussion #}
+                                          <a class="waves-effect waves-teal btn-flat center indexEntrerFil"
+                                               href="{{ path('post_showAllPost', { 'id': postParent.id }) }}">
+                                                <i class="material-icons">input</i>
+                                          </a>
                                       </div>
-                                      {# Bouton voir la discussion #}
-                                      <a class="waves-effect waves-teal btn-flat center indexEntrerFil"
-                                           href="{{ path('post_showAllPost', { 'id': postParent.id }) }}">
-                                            <i class="material-icons">input</i>
-                                      </a>
                                   </div> {# fin class="collapsible-body" POSTPARENT #}
                             </li>
                        {% endif %}  {# fin if POST PARENT #}

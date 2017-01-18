@@ -15,7 +15,10 @@
 {#-------------------------------------------------------------#}
 <section class="postSectionIndex">
     <div class="postContainer postAdmin">
-        <h1 class="soustitrePage center">Nouvelle réponse <br>sur<br><h3 class="center">"{{ postParentTitre|capitalize }}"</h3></h1>
+        <h1 class="soustitrePage center">Nouvelle réponse
+                                        <br>sur<br>
+                                        <h3 class="center">&laquo; {{ postParentTitre|capitalize }} &#xBB;</h3>
+        </h1>
         {{ form_start(form) }}
         <div class="row input-field">
             {{ form_label(form.titre) }}
@@ -44,7 +47,7 @@
                 <i class="small material-icons">home</i>
             </a>#}
             <a class="btn-floating btn-large waves-effect waves-light blue darken-1"
-               href="{{ path('post_showAllPost', { 'id': post.parent.id}) }}">
+               href="{{ path('post_showAllPost', { 'id': id}) }}">
                 <i class="small material-icons">home</i>
             </a>
         </div>

@@ -112,20 +112,23 @@
 //**********************************
 // cartouche infos user
 //**********************************
-.bigtxt {
-  //max-height: 150px;
-  //max-width: inherit;
-  //overflow: auto;
-  //text-overflow: ellipsis;
+.indexContenuPost {
+  text-align: justify;
+  padding-top: 2% !important;
+  padding-left: 2%;
+  padding-right: 2%;
 }
 
+.dateIndexPost {
+  padding-left: 0 !important;
+  padding-right: 2% !important;
+}
 .chip {
   margin-left: 2% !important;
   margin-bottom: 3% !important;
 }
 
 .cartoucheUserIndexPost {
-  width: 45% !important;
   margin:20px !important;
   background: #fff !important;
   color: #7c7c7c !important;
@@ -135,12 +138,6 @@
   line-height: 130% !important;
   padding: 13px !important;
   left: 100px;
-  border: 1px solid #e6e6e6 !important;
-  border-left-color: #dadada !important;
-  border-right-color: #dadada !important;
-  border-bottom-color: #b4b4b4 !important;
-  border-radius: 1px !important;
-  box-shadow: 0px 1px 1px #dadada, 0 2px 2px #d3d3d3 !important;
 }
 
 .pCartoucheUserIndexPost {
@@ -184,11 +181,18 @@
 }
 
 // Media query
-@media screen and (max-width: 1000px) {
-  aside {
-    display: none;
+@media screen and (max-width: 680px) {
+  .contextHeader > p > img {
+    width: 25%;
+    height: 25%;
   }
 
+  .card-content > p > img {
+    width: 25%;
+    height: 25%;
+  }
+}
+@media screen and (max-width: 1000px) {
   .postSectionIndex {
     margin: 10px !important;
   }
@@ -405,11 +409,16 @@ span.badge {
   flex: 1 0 auto;
 }
 
+.dateMessage {
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
 .cartoucheUserShowAll {
   width: 30% !important;
   margin:2% !important;
   float: right;
-  color: #7c7c7c !important;
+  //color: #7c7c7c !important;
   font-size: 11px !important;
   font-weight: bold !important;
   line-height: 130% !important;
@@ -673,8 +682,6 @@ aside {
   margin-left: 5%;
 }
 
-
-
 @media screen and (max-width: 600px) {
   .soustitreHome {
     font-size: 21px !important;
@@ -689,8 +696,8 @@ a
 
 a:hover
 {
-  border-bottom: 1px dashed #ED971F;
-  color: #ED971F;
+  /*border-bottom: 1px dashed #ED971F;
+  color: #ED971F;*/
 }
 
 /**** sliderPost ****/
