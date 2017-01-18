@@ -21,7 +21,7 @@ UserBundle\Entity\User:
               type: integer
               nullable: true
 
-      oneToOne:
+      manyToOne:
           photo:
               targetEntity: HarasBundle\Entity\Media
               cascade: ['all']

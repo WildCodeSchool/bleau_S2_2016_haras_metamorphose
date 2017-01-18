@@ -1,44 +1,59 @@
 {% extends '@PlateForme/layout.html.twig' %}
 
 {% block body %}
-    <h1>User</h1>
 
-    <table>
-        <tbody>
-        <tr>
-            <th>Id</th>
-            <td>{{ user.id }}</td>
-        </tr>
-        <tr>
-            <th>Nom</th>
-            <td>{{ user.nom }}</td>
-        </tr>
-        <tr>
-            <th>Prenom</th>
-            <td>{{ user.prenom }}</td>
-        </tr>
-        <tr>
-            <th>Profession</th>
-            <td>{{ user.profession }}</td>
-        </tr>
-        <tr>
-            <th>Nbpost</th>
-            <td>{{ user.nbPost }}</td>
-        </tr>
-        </tbody>
-    </table>
+<div class="container center" id="usermodel">
 
-    <ul>
-        <li>
-            <a href="{{ path('user_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('user_edit', { 'id': user.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-            <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+    <h2>Profil de l'utilisateur</h2>
+
+    <table class="responsive-table bordered striped" id="table_id">
+            <tbody>
+            <tr>
+                <th>Avatar</th>
+                <td><img class="circle responsive-img" src="{{ user.photo ? asset(user.photo.path) }}"></td>
+            </tr>
+            <tr>
+                <th>N° identifiant</th>
+                <td>{{ user.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ user.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prénom</th>
+                <td>{{ user.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Profession</th>
+                <td>{{ user.profession }}</td>
+            </tr>
+            <tr>
+                <th>Nombre de posts</th>
+                <td>{{ user.nbPost }}</td>
+            </tr>
+            <tr>
+                <th>Role</th>
+                <td></td>
+            </tr>
+            </tbody>
+        </table>
+
+    <td class="boutons_user">
+        <div class="boutons">
+            <a href="{{ path('user_index') }}" title="Retour liste des utilisateurs"><i class="fa fa-backward fa-2x"></i></a>
+            <a href="{{ path('user_edit', { 'id': user.id }) }}" title="Editer"><i class="fa fa-pencil fa-2x"></i></a>
+            <a href="" title="Bloquer"><i class="fa fa-lock fa-2x"></i>
+            {#<a href="{{ path('user_delete', { 'id': user.id }) }}" title="Bloquer"><i class="fa fa-lock fa-2x"></i>#}
+        </div>
+    </td>
+        {#<ul>#}
+            {#<li>#}
+                {#{{ form_start(delete_form) }}#}
+                {#<input type="submit" value="Delete">#}
+                {#{{ form_end(delete_form) }}#}
+            {#</li>#}
+        {#</ul>#}
+</div>
+
 {% endblock %}

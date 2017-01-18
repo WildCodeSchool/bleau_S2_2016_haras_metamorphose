@@ -4,17 +4,49 @@ namespace UserBundle\Entity;
 
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
+use HarasBundle\Entity\Text;
 use Symfony\Component\Validator\Constraints as Assert;
 
 class User extends BaseUser
 {
+    static private $defaultPhotoName = "logo";
+
+    /**
+     * Set photo
+     *
+     * @param \HarasBundle\Entity\Media $photo
+     *
+     * @return User
+     */
+    public function setPhoto(\HarasBundle\Entity\Media $photo = null)
+    {
+        if($photo != null && $photo->getName() != User::getDefaultPhotoName()) {
+            // L'alt définit son nom selon celui de son médium et prend un '_' juste pour rester dans l'ambiance \(o°v°o)/
+            $alt = new Text();
+            $alt->setName($photo->getName());
+            $alt->setTextFr($photo->getName() . "_Alt_FR");
+            $alt->setTextEn($photo->getName() . "_Alt_EN");
+            $photo->setAlt($alt);
+        }
+        $this->photo = $photo;
+
+        return $this;
+    }
+
     protected $id;
 
     public function __construct()
     {
         parent::__construct();
-        // your own logic
+
     }
+
+    public static function getDefaultPhotoName() {
+        return User::$defaultPhotoName;
+    }
+
+    // GENERATED CODE
+
     /**
      * @var string
      */
@@ -138,20 +170,6 @@ class User extends BaseUser
     }
 
     /**
-     * Set photo
-     *
-     * @param \HarasBundle\Entity\Media $photo
-     *
-     * @return User
-     */
-    public function setPhoto(\HarasBundle\Entity\Media $photo = null)
-    {
-        $this->photo = $photo;
-
-        return $this;
-    }
-
-    /**
      * Get photo
      *
      * @return \HarasBundle\Entity\Media
@@ -160,22 +178,4 @@ class User extends BaseUser
     {
         return $this->photo;
     }
-
-//    /**
-//     * Get roles
-//     *
-//     * @return string
-//     */
-//    public function getRoles() {
-//        return explode(',', $this->roles);
-//    }
-//
-//    /**
-//     * Set roles
-//     *
-//     * @param array $roles
-//     */
-//    public function setRoles(Array $roles) {
-//        $this->roles = implode(',', $roles);
-//    }
 }
