@@ -1,14 +1,13 @@
 {% extends '@PlateForme/layout.html.twig' %}
 
 {% block body %}
-  <section class="postSectionIndex">
-  {# DEBUT CODE #}
     {#-------------------------------------------------------------#}
     {# NavBar Lateral  #}
     {{ include("@Forum/post/postNavBar.html.twig") }}
     {# fin navBar lateral #}
     {#-------------------------------------------------------------#}
-
+  <section class="postSectionIndex">
+  {# DEBUT CODE #}
   {#-------------------------------------------------------------#}
     {# Mise en place message flash #}
     {% for flash_message in app.session.flashBag.get('notice') %}
@@ -85,37 +84,34 @@
                                       {# Fin Gestion nombre de réponses sur le fil de discussion #}
                                   </div>
                                   <div class="collapsible-body divCorpsPostParent">
-                                      <div class="bigtxt">
+                                      <div class="indexContenuPost">
                                         {{ postParent.contenu|raw }}
-                                          <p>Message posté le {{ postParent.dateCreate|date("d/m/Y") }}</p>
+                                          <p class="dateIndexPost">Message posté le {{ postParent.dateCreate|date("d/m/Y") }}</p>
 
                                       </div>
-
-                                      <div class="chip">
-                                        <img src="{{ asset('bundles/haras/images/test2.jpeg')}}" alt="Contact Person">
-                                        Message de : {{ postParent.user|capitalize }}
+                                      <div class="cartoucheUserIndexPost">
+                                          <div class="chip">
+                                            <img src="{{ asset('bundles/haras/images/test2.jpeg')}}" alt="Contact Person">
+                                            Message de : {{ postParent.user|capitalize }}
+                                          </div>
+                                          {# Bouton voir la discussion #}
+                                          <a class="waves-effect waves-teal btn-flat center indexEntrerFil"
+                                               href="{{ path('post_showAllPost', { 'id': postParent.id }) }}">
+                                                <i class="material-icons">input</i>
+                                          </a>
                                       </div>
-                                      <a class="waves-effect waves-teal btn-flat center indexEntrerFil"
-                                           href="{{ path('post_showAllPost', { 'id': postParent.id }) }}">
-                                            <i class="material-icons">input</i>
-                                      </a>
                                   </div> {# fin class="collapsible-body" POSTPARENT #}
                             </li>
                        {% endif %}  {# fin if POST PARENT #}
                        {% endfor %} {# for for POST PARENT #}
                        </ul>
+                   {# Bouton pour ajouter nouvelle discussion #}
                    <div class="row center">
                        {#Ajout nouveau post parent sur cat & ssCat selectionnées (CAT)#}
                        <a class="waves-effect waves-light btn"
                           href="{{ path('post_newParent' , {'cat' : sousCategorieEnLecture}) }}">
                            <i class="material-icons left">playlist_add</i>Nouveau message
                        </a>
-                       {#-------------------------------------------------------------#}
-                        {# Mise en place pagination #}
-                        {#<div class="row center">#}
-                            {#{{ knp_pagination_render(postParents) }}#}
-                        {#</div>#}
-                        {#-------------------------------------------------------------#}
                    </div>
             {% endif %} {# fin if SOUS CATEGORIE #}
             {% endfor %} {# fin for SOUS CATEGORIE #}

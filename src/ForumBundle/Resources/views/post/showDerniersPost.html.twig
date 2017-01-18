@@ -19,7 +19,9 @@
                             {% endif %}
                             {# Fin Gestion couleur card en fonction de la catégorie #}
                             <div class="card-content white-text colCustom">
+                                {# Titre de la discussion #}
                                 <span class="card-title titreDerPost">{{ lastPostCat.titre|capitalize }}</span>
+                                {# Contenu de la discussion #}
                                 <div class="lastPostContenu">{{ lastPostCat.contenu|striptags|truncate(1700, true, "...")|raw }}</div>
                             </div>
                             <div class="card-action">
