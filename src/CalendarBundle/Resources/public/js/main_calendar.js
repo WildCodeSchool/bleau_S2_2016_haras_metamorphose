@@ -131,5 +131,6 @@ function colorpicker(){
         var color = $( '#appbundle_organisme_backgroundColor' ).val();
         $( '#appbundle_organisme_backgroundColor' ).css( 'background', color );
     });
+
 }
 

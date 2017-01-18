@@ -47,6 +47,7 @@ class User extends BaseUser
 
     // GENERATED CODE
 
+
     /**
      * @var string
      */
