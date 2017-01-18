@@ -2,6 +2,10 @@
 
 namespace CalendarBundle\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
  * Agenda
@@ -9,6 +13,15 @@ namespace CalendarBundle\Entity;
 
 class Agenda
 {
+//    Set dateTime pour new event calendar
+    public function __construct ()
+    {
+        $newTime = new \DateTime();
+        $this->setStart($newTime);
+        $this->setEnd($newTime);
+    }
+
+//    GENERATED CODE
     /**
      * @var int
      */
@@ -34,6 +47,30 @@ class Agenda
      */
     private $lieu;
 
+    /**
+     * @var \DateTime
+     */
+    private $start;
+
+    /**
+     * @var \DateTime
+     */
+    private $end;
+
+    /**
+     * @var string
+     */
+    private $color;
+
+    /**
+     * @var boolean
+     */
+    private $slider;
+
+    /**
+     * @var \HarasBundle\Entity\Media
+     */
+    private $image;
 
     /**
      * Get id
@@ -140,26 +177,6 @@ class Agenda
     {
         return $this->lieu;
     }
-    /**
-     * @var \DateTime
-     */
-    private $start;
-
-    /**
-     * @var \DateTime
-     */
-    private $end;
-
-    /**
-     * @var string
-     */
-    private $color;
-
-    /**
-     * @var boolean
-     */
-    private $slider;
-
 
     /**
      * Set start
@@ -255,5 +272,29 @@ class Agenda
     public function getSlider()
     {
         return $this->slider;
+    }
+
+    /**
+     * Set image
+     *
+     * @param \HarasBundle\Entity\Media $image
+     *
+     * @return Agenda
+     */
+    public function setImage(\HarasBundle\Entity\Media $image = null)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return \HarasBundle\Entity\Media
+     */
+    public function getImage()
+    {
+        return $this->image;
     }
 }
