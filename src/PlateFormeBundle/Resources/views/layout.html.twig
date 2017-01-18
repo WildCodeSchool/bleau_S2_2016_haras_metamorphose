@@ -15,13 +15,21 @@
 
                     <li>
                         {% if is_granted('ROLE_ADMIN') %}
-                        <a href="{{ path('user_index') }}" title="Liste des utilisateurs">
+                            <a href="{{ path('user_index') }}" title="Liste des utilisateurs">
+                            <span class="fa-stack fa-2x">
+                                <i class="fa fa-circle fa-stack-2x icon-background5"></i>
+                                <i class="fa fa-users fa-stack-1x"></i>
+                            </span>
+                                    {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}
+                            </a>
+                        {% elseif is_granted('ROLE_MODERATEUR') %}
+                            <a href="{{ path('categorieplateforme_index') }}" title="Moderation du forum">
                         <span class="fa-stack fa-2x">
                             <i class="fa fa-circle fa-stack-2x icon-background5"></i>
-                            <i class="fa fa-users fa-stack-1x"></i>
+                            <i class="fa fa-pencil fa-stack-1x"></i>
                         </span>
-                            {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}
-                        </a>
+                                {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} | Moderateur
+                            </a>
                         {% endif %}
                     </li>
                 </ul>
@@ -61,7 +69,8 @@
                     </li>
                     <ul id="dropdown2" class="dropdown-content">
                         {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                            {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
+                            {#{{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |#}
+
                             <li><a href="{{ path('fos_user_profile_show') }}">Voir mon profil</a></li>
                             <li><a href="{{ path('fos_user_security_logout') }}">Se deconnecter</a></li>
                         {% else %}

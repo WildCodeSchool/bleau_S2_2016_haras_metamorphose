@@ -1,7 +1,7 @@
 {% extends '@PlateForme/layout.html.twig' %}
 {% block body %}
 
-<div class="container center" id="usermodel">
+<div class="container center" id="user_list_model">
 
     <h2>Liste des utilisateurs</h2>
     <div class="boutons-haut">
@@ -36,7 +36,8 @@
                         <div class="boutons">
                             <a href="{{ path('user_show', { 'id': user.id }) }}" title="Afficher"><i class="fa fa-eye fa-2x"></i></a>
                             <a href="{{ path('user_edit', { 'id': user.id }) }}" title="Editer"><i class="fa fa-pencil fa-2x"></i></a>
-                            <a href="{{ path('user_delete', { 'id': user.id }) }}" title="Bloquer"><i class="fa fa-lock fa-2x"></i>
+                            <a href="" title="Bloquer"><i class="fa fa-lock fa-2x"></i>
+                            {#<a href="{{ path('user_delete', { 'id': user.id }) }}" title="Bloquer"><i class="fa fa-lock fa-2x"></i>#}
                         </div>
                     </td>
                 </tr>

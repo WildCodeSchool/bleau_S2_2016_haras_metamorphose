@@ -1768,6 +1768,48 @@ label[for=username] {
 /********************  LISTE USERS   ************************/
 /* line 3, ../sass/PlateformeCSS/_user_list.scss */
 #usermodel {
+  width: 40%;
+  background-color: rgba(177, 176, 206, 0.3);
+  padding: 10px 0px 15px 0px;
+  margin-bottom: 20px;
+  border-radius: 15px;
+}
+
+/* line 12, ../sass/PlateformeCSS/_user_list.scss */
+.dataTables_length {
+  margin-left: 5%;
+}
+
+/* line 16, ../sass/PlateformeCSS/_user_list.scss */
+.dataTables_filter {
+  margin-right: 5%;
+}
+
+/* line 20, ../sass/PlateformeCSS/_user_list.scss */
+#table_id {
+  padding-top: 20px;
+  margin-bottom: 20px;
+}
+
+/* line 25, ../sass/PlateformeCSS/_user_list.scss */
+.boutons_user {
+  width: 12%;
+}
+
+/* line 29, ../sass/PlateformeCSS/_user_list.scss */
+tr .responsive-img {
+  width: 6vw;
+}
+
+/* line 33, ../sass/PlateformeCSS/_user_list.scss */
+#user_edit_model .row {
+  margin-left: 2.25rem;
+  margin-right: 2.25rem;
+  text-align: left;
+}
+
+/* line 39, ../sass/PlateformeCSS/_user_list.scss */
+#user_list_model {
   width: 60%;
   background-color: rgba(177, 176, 206, 0.3);
   padding: 10px 0px 15px 0px;
@@ -1775,30 +1817,13 @@ label[for=username] {
   border-radius: 15px;
 }
 
-/* line 11, ../sass/PlateformeCSS/_user_list.scss */
-.dataTables_length {
-  margin-left: 5%;
-}
-
-/* line 15, ../sass/PlateformeCSS/_user_list.scss */
-.dataTables_filter {
-  margin-right: 5%;
-}
-
-/* line 19, ../sass/PlateformeCSS/_user_list.scss */
-#table_id {
-  padding-top: 20px;
+/* line 47, ../sass/PlateformeCSS/_user_list.scss */
+#user_edit_model {
+  width: 40%;
+  background-color: rgba(177, 176, 206, 0.3);
+  padding: 10px 0px 15px 0px;
   margin-bottom: 20px;
-}
-
-/* line 24, ../sass/PlateformeCSS/_user_list.scss */
-.boutons_user {
-  width: 12%;
-}
-
-/* line 28, ../sass/PlateformeCSS/_user_list.scss */
-tr .responsive-img {
-  width: 6vw;
+  border-radius: 15px;
 }
 
 /* line 2, ../sass/PlateformeCSS/_philosophie.scss */

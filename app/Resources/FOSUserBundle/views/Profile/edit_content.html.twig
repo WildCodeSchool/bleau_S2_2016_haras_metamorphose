@@ -1,20 +1,25 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
 <div class="container center" id="registermodel">
-{{ form_start(form, { 'method': 'post','action': path('fos_user_profile_edit'), 'attr': { 'class': 'fos_user_profile_edit' } }) }}
-    {{ form_widget(form) }}
+    <div class="col m8 offset-m2">
+        <h2 class="Compte">Créer un compte</h2>
+        <div class="row">
+            {{ form_start(form, { 'method': 'post','action': path('fos_user_profile_edit'), 'attr': { 'class': 'fos_user_profile_edit' } }) }}
+            {{ form_widget(form) }}
 
 
-    <div class="row input-field">
-        {{ form_widget(form.photo.file, {'attr':{'class':'photo form'}}) }}
-        {{ form_errors(form.photo.file) }}
+            <div class="row input-field">
+                {{ form_widget(form.photo.file, {'attr':{'class':'photo form'}}) }}
+                {{ form_errors(form.photo.file) }}
+            </div>
+
+            <div class="button-register">
+                <button class="btn waves-effect waves-light btn-admin" type="submit" name="action"
+                        value="{{ 'profile.edit.submit'|trans }}">Editer mon profil
+                    <i class="material-icons right">send</i>
+                </button>
+            </div>
+            {{ form_end(form) }}
+        </div>
     </div>
-
-    <div class="button-register">
-        <button class="btn waves-effect waves-light btn-admin" type="submit" name="action"
-                value="{{ 'profile.edit.submit'|trans }}">S'enregistrer
-            <i class="material-icons right">send</i>
-        </button>
-    </div>
-{{ form_end(form) }}
 </div>
