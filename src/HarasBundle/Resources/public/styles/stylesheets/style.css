@@ -1906,57 +1906,62 @@ footer.page-footer {
 }
 
 /********************  PROFIL   ************************/
-/* line 3, ../sass/PlateformeCSS/_FosUser.scss */
+/* line 2, ../sass/PlateformeCSS/_FosUser.scss */
+.profile img {
+  background-color: rgba(177, 176, 206, 0.3);
+}
+
+/* line 5, ../sass/PlateformeCSS/_FosUser.scss */
 .img-circle {
   width: 10vw;
 }
 
-/* line 8, ../sass/PlateformeCSS/_FosUser.scss */
+/* line 10, ../sass/PlateformeCSS/_FosUser.scss */
 .profile_center {
   text-align: center;
 }
 
-/* line 14, ../sass/PlateformeCSS/_FosUser.scss */
+/* line 16, ../sass/PlateformeCSS/_FosUser.scss */
 .btn-primary {
   background-color: #1f7b88;
   border-color: #17505b;
 }
 
-/* line 19, ../sass/PlateformeCSS/_FosUser.scss */
+/* line 21, ../sass/PlateformeCSS/_FosUser.scss */
 .container_profile {
   padding-top: 3%;
 }
 
-/* line 24, ../sass/PlateformeCSS/_FosUser.scss */
+/* line 26, ../sass/PlateformeCSS/_FosUser.scss */
 input {
   margin: 6px;
   position: center;
 }
 
-/* line 29, ../sass/PlateformeCSS/_FosUser.scss */
+/* line 31, ../sass/PlateformeCSS/_FosUser.scss */
 .button {
   margin-left: 36%;
   padding: 24px;
 }
 
 /********************  REGISTER / LOGIN   ************************/
-/* line 37, ../sass/PlateformeCSS/_FosUser.scss */
+/* line 39, ../sass/PlateformeCSS/_FosUser.scss */
 .btn-login {
   background-color: #9ed2cd;
   margin-right: 2%;
 }
 
-/* line 42, ../sass/PlateformeCSS/_FosUser.scss */
+/* line 44, ../sass/PlateformeCSS/_FosUser.scss */
 .remember label {
   margin-bottom: 20px;
 }
 
-/* line 46, ../sass/PlateformeCSS/_FosUser.scss */
+/* line 48, ../sass/PlateformeCSS/_FosUser.scss */
 .btn-login:hover {
   background-color: rgba(71, 217, 188, 0.51);
 }
 
-/* line 50, ../sass/PlateformeCSS/_FosUser.scss */
+/* line 52, ../sass/PlateformeCSS/_FosUser.scss */
 #loginmodel {
   max-width: 50%;
   background-color: rgba(177, 176, 206, 0.3);
@@ -1965,96 +1970,96 @@ input {
   border-radius: 15px;
 }
 
-/* line 58, ../sass/PlateformeCSS/_FosUser.scss */
+/* line 60, ../sass/PlateformeCSS/_FosUser.scss */
 #loginmodel .row {
   margin-left: 2.25rem;
   margin-right: 2.25rem;
 }
 
-/* line 63, ../sass/PlateformeCSS/_FosUser.scss */
+/* line 65, ../sass/PlateformeCSS/_FosUser.scss */
 input[type="email"] {
   color: bblack;
   border: 1px solid #c3b1b1;
   background-color: #aebac399;
 }
 
-/* line 69, ../sass/PlateformeCSS/_FosUser.scss */
+/* line 71, ../sass/PlateformeCSS/_FosUser.scss */
 input[type="text"] {
   color: bblack;
   border: 1px solid #c3b1b1;
   background-color: #aebac399;
 }
 
-/* line 75, ../sass/PlateformeCSS/_FosUser.scss */
+/* line 77, ../sass/PlateformeCSS/_FosUser.scss */
 input[type="password"] {
   color: black;
   border: 1px solid #c3b1b1;
   background-color: #aebac399;
 }
 
-/* line 82, ../sass/PlateformeCSS/_FosUser.scss */
+/* line 84, ../sass/PlateformeCSS/_FosUser.scss */
 .input-field label {
   color: black;
   left: 4px;
 }
 
-/* line 87, ../sass/PlateformeCSS/_FosUser.scss */
+/* line 89, ../sass/PlateformeCSS/_FosUser.scss */
 label {
   color: black;
 }
 
-/* line 91, ../sass/PlateformeCSS/_FosUser.scss */
+/* line 93, ../sass/PlateformeCSS/_FosUser.scss */
 .select-wrapper input.select-dropdown {
   border-bottom-color: white;
 }
 
-/* line 95, ../sass/PlateformeCSS/_FosUser.scss */
+/* line 97, ../sass/PlateformeCSS/_FosUser.scss */
 .select-dropdown {
   color: #ff7bfb;
 }
 
-/* line 99, ../sass/PlateformeCSS/_FosUser.scss */
+/* line 101, ../sass/PlateformeCSS/_FosUser.scss */
 .file-path {
   color: white;
 }
 
-/* line 104, ../sass/PlateformeCSS/_FosUser.scss */
+/* line 106, ../sass/PlateformeCSS/_FosUser.scss */
 .login {
   text-align: center;
 }
 
-/* line 108, ../sass/PlateformeCSS/_FosUser.scss */
+/* line 110, ../sass/PlateformeCSS/_FosUser.scss */
 [type="checkbox"] + label {
   color: black;
 }
 
-/* line 112, ../sass/PlateformeCSS/_FosUser.scss */
+/* line 114, ../sass/PlateformeCSS/_FosUser.scss */
 [type="checkbox"]:checked + label::before {
   border-right: 2px solid black;
   border-bottom: 2px solid black;
 }
 
-/* line 117, ../sass/PlateformeCSS/_FosUser.scss */
+/* line 119, ../sass/PlateformeCSS/_FosUser.scss */
 .boutons {
   margin-top: 2%;
 }
 
-/* line 122, ../sass/PlateformeCSS/_FosUser.scss */
+/* line 124, ../sass/PlateformeCSS/_FosUser.scss */
 .inscription {
   margin-top: 3%;
 }
 
-/* line 126, ../sass/PlateformeCSS/_FosUser.scss */
+/* line 128, ../sass/PlateformeCSS/_FosUser.scss */
 label[for=password] {
   text-align: left;
 }
 
-/* line 130, ../sass/PlateformeCSS/_FosUser.scss */
+/* line 132, ../sass/PlateformeCSS/_FosUser.scss */
 label[for=username] {
   text-align: left;
 }
 
-/* line 135, ../sass/PlateformeCSS/_FosUser.scss */
+/* line 137, ../sass/PlateformeCSS/_FosUser.scss */
 #registermodel {
   max-width: 100%;
   background-color: rgba(177, 176, 206, 0.3);
@@ -2063,23 +2068,23 @@ label[for=username] {
   border-radius: 15px;
 }
 
-/* line 143, ../sass/PlateformeCSS/_FosUser.scss */
+/* line 145, ../sass/PlateformeCSS/_FosUser.scss */
 #registermodel .row {
   margin-left: 2.25rem;
   margin-right: 2.25rem;
 }
 
-/* line 148, ../sass/PlateformeCSS/_FosUser.scss */
+/* line 150, ../sass/PlateformeCSS/_FosUser.scss */
 .btn-register {
   background-color: #9ed2cd;
 }
 
-/* line 152, ../sass/PlateformeCSS/_FosUser.scss */
+/* line 154, ../sass/PlateformeCSS/_FosUser.scss */
 .btn-register:hover {
   background-color: rgba(71, 217, 188, 0.51);
 }
 
-/* line 156, ../sass/PlateformeCSS/_FosUser.scss */
+/* line 158, ../sass/PlateformeCSS/_FosUser.scss */
 .responsive-img {
   width: 10vw;
 }
