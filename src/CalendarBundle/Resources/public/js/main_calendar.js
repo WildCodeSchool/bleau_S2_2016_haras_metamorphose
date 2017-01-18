@@ -127,9 +127,9 @@ function colorpicker(){
         format: 'hex',
         color: '#1783cb'
     });
-    $('.tdcolor ul li').click(function () {
-        var back = $('#colorpicker').val();
-        $('#colorpicker').css('background', back);
+    $( '.color-picker ul li' ).click(function() {
+        var color = $( '#appbundle_organisme_backgroundColor' ).val();
+        $( '#appbundle_organisme_backgroundColor' ).css( 'background', color );
     });
 }
 
