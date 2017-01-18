@@ -71,7 +71,7 @@
                             <td class="calendar-td">
                                 <p class="calendar-p">Couleur de l'évènement</p>
                             </td>
-                            <td class="calendar-td-twig calendar-border-butomright" style="background-color: {{ agenda.color }};">
+                            <td id="tdcolor" class="calendar-td-twig calendar-border-butomright">
                                 {{ form_widget(form.color , { 'id': 'colorpicker' }) }}
                                 {{ form_errors(form.color) }}
                             </td>
@@ -89,7 +89,7 @@
                             <td class="calendar-td">
                                 <p class="calendar-p">Ajouter une image (Max : 2Mo)</p>
                             </td>
-                            <td class="calendar-td-twig calendar-border-butomright file">
+                            <td id="color" class="calendar-td-twig calendar-border-butomright">
                                 {{ form_widget(form.image) }}
                                 {{ form_errors(form.image) }}
                             </td>
@@ -112,22 +112,3 @@
         {{ form_end(form) }}
 
 {% endblock %}
-
-{#
-{% block javascripts %}
-
-    {{ parent() }}
-    <script>
-        $('#test5').click(function () {
-            if (this.checked){
-                $('.upload_file_event').css('display', 'block')
-            }
-            else {
-                $('.upload_file_event').css('display', 'none')
-            }
-
-        })
-    </script>
-{% endblock %}
-#}
-

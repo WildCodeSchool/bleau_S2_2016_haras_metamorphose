@@ -21,6 +21,8 @@ jQuery(document).ready(function($) {
     //COLLAPSIBLE
     hide_Show();
 
+    //COLORPICKER
+    colorpicker();
 });
 
 // ********************************************************************
@@ -116,6 +118,20 @@ function hide_Show() {
     })
 }
 
+// ********************************************************************
+// *                    COLORPICKER
+// ********************************************************************
 
-
+function colorpicker(){
+    $('#colorpicker').colorpicker({
+        format: 'hex',
+        color: '#1783cb'
+    });
+    $('#colorpicker').click(function () {
+        if ($('#colorpicker') != '#1783cb'){
+            $('#tdcolor').css('background-color', colorpicker(
+            ))
+        }
+    })
+}
 
