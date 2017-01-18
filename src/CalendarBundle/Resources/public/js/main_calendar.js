@@ -128,10 +128,8 @@ function colorpicker(){
         color: '#1783cb'
     });
     $('#colorpicker').click(function () {
-        if ($('#colorpicker') != '#1783cb'){
-            $('#tdcolor').css('background-color', colorpicker(
-            ))
-        }
+        var color = $('#tdcolor').val();
+        $('#tdcolor').css('background-color', color)
     })
 }
 
