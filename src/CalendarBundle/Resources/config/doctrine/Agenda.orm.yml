@@ -8,6 +8,7 @@ CalendarBundle\Entity\Agenda:
             id: true
             generator:
                 strategy: AUTO
+
     fields:
         start:
             type: datetime
@@ -28,4 +29,9 @@ CalendarBundle\Entity\Agenda:
         slider:
             type: boolean
             nullable: true
+
+    manyToOne:
+        image:
+            targetEntity: HarasBundle\Entity\Media
+            cascade: ['all']
     lifecycleCallbacks: {  }

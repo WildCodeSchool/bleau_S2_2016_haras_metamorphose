@@ -1,24 +1,22 @@
 
-        <div class="col s12">
-            <div id='calendar'></div>
-            <div class="row center">
-                {% if is_granted('ROLE_SUPER_ADMIN') %}
+<div class="col s12">
+    <div id='calendar'></div>
+    <div class="row center">
+        {% if is_granted('ROLE_SUPER_ADMIN') %}
 
-                    <a href="{{ path('agenda_new') }}">
-                        <i class="material-icons md-48 bouton-new">add_circle_outline</i>
-                    </a>
+            <a href="{{ path('agenda_new') }}">
+                <i class="material-icons md-48 bouton-new">add_circle_outline</i>
+            </a>
 
-                {% elseif is_granted('ROLE_ADMIN') %}
+        {% elseif is_granted('ROLE_ADMIN') %}
 
-                    <a href="{{ path('agenda_new') }}">
-                        <i class="material-icons md-48 bouton-new">add_circle_outline</i>
-                    </a>
+            <a href="{{ path('agenda_new') }}">
+                <i class="material-icons md-48 bouton-new">add_circle_outline</i>
+            </a>
 
-                {% else %}
-
-                {% endif %}
-            </div>
-        </div>
+        {% endif %}
+    </div>
+</div>
 
 <!------------------------------- --------------- ------------------------------------->
 <!------------------------------- --------------- ------------------------------------->
@@ -79,12 +77,17 @@
                             <i class="material-icons md-48 bouton-delete">delete_sweep</i>
                         </a>
                     </div>
-
-    {% else %}
-
     {% endif %}
 
             </div>
         </div> {#---- FIN DU MODAL FOOTER ----#}
 
 </div> {# ----- FIN DE LA MODAL ----- #}
+
+<script>
+    {% if app.user == null %}
+        var roles = null;
+    {% else %}
+        var roles = {{ app.user.roles|json_encode|raw }};
+    {% endif %}
+</script>

@@ -6,7 +6,8 @@
     {{ include("@Forum/post/postNavBar.html.twig") }}
     {# fin NavBar lateral #}
     {#-------------------------------------------------------------#}
-    <div class="postContainer postAdmin col s12 m6 offset-l3">
+<section class="postSectionIndex">
+    <div class="postContainer postAdmin">
         <h1>Edition des messages</h1>
         {{ form_start(edit_form) }}
         <div class="col l6 m6 s12">
@@ -57,4 +58,5 @@
         </div>
         {{ form_end(edit_form) }}
     </div>
+</section>
 {% endblock %}

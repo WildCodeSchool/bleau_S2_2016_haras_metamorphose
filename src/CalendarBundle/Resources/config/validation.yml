@@ -1,0 +1,7 @@
+CalendarBundle\Entity\Agenda:
+    properties:
+#        file:
+#            - File:
+#                maxSize: 3512k
+#                mimeTypesMessage: Merci de chargez une image valide
+#                mimeTypes: [image/*]

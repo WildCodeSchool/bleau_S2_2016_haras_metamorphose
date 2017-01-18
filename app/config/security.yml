@@ -53,4 +53,4 @@ security:
         - { path: ^/plateforme/post, role: ROLE_USER }
         - { path: ^/admin, role: ROLE_ADMIN }
         - { path: ^/plateforme/(admin/user|philosophie/1/edit), role: ROLE_ADMIN }
-
+        - { path: ^/plateforme/admin/user, role: ROLE_ADMIN }
