@@ -49,7 +49,8 @@ security:
         - { path: ^/plateforme/(login|register), role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/plateforme/admin/, role: ROLE_ADMIN }
         - { path: ^/plateforme/categorieplateforme, role: ROLE_ADMIN }
+        - { path: ^/plateforme/categorieplateforme, role: ROLE_MODERATEUR }
         - { path: ^/plateforme/post, role: ROLE_USER }
         - { path: ^/admin, role: ROLE_ADMIN }
-        - { path: ^/plateforme/(admin/user|philosophie/edit), role: ROLE_ADMIN }
+        - { path: ^/plateforme/(admin/user|philosophie/1/edit), role: ROLE_ADMIN }
 
