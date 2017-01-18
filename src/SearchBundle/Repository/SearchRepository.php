@@ -2,8 +2,11 @@
 
 namespace SearchBundle\Repository;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use ForumBundle\Entity\Post;
 use Doctrine\ORM\EntityRepository;
+use ForumBundle\Entity\CategoriePlateforme;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+
 
 /**
  * AgendaRepository
@@ -15,14 +18,14 @@ use Doctrine\ORM\EntityRepository;
 
 class SearchRepository extends EntityRepository
 {
-    public function findPosts($limit, $requete)
+    public function findPosts($limit, $requete, Post $post, CategoriePlateforme $categoriePlateforme)
     {
 //        Alias 's' = class searchrepository
 //        Alias 'p' = jointure parent_id
 
 
         $qb = $this->createQueryBuilder('s')
-            ->select('s.post')
+            ->select('s.titre')
             ->orderBy('s.date_create', 'DESC')
             ->setMaxResults( $limit );
         return $qb->getQuery()->getResult();

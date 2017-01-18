@@ -155,16 +155,52 @@ class CalendarController extends Controller
     public function editAction(Request $request, Agenda $agenda)
     {
         $editForm = $this->createForm('CalendarBundle\Form\AgendaType', $agenda);
+
+        $mediaform = $editForm->get('image');
+        $mediaform
+            ->remove('alt')
+        ;
+        $editForm->setData($agenda);
+
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
 
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($agenda);
-            $em->flush();
+            /* ON RECUP LE FICHIER IMAGE */
+            $imageForm = $editForm->get('image');
+            $image = $imageForm->getData();
+            $agenda->setImage($image);
+
+            /* ON DEFINI UN NOM UNIQUE AU FICHIER UPLOAD : LE PREG_REPLACE PERMET LA SUPPRESSION DES ESPACES ET AUTRES CARACTERES INDESIRABLES*/
+            $image->setName(preg_replace('/\W/', '_', "Event_" . $agenda->getTitre() . uniqid()) );
+
+            /* ON DEFINI UN ALT CORRESPONDANT A L'IMAGE (TITRE ET LIEU DE L'EVENT) */
+            $alt = new Text();
+            $altText = $agenda->getTitre() . " - " . $agenda->getLieu();
+            $alt->setTextFr($altText)->setTextEn($altText)->setName($image->getName().'_alt');
+            $image->setAlt($alt);
+            // On appelle le service d'upload de média (HarasBundle/Services/mediaInterface)
+            $this->get('media.interface')->mediaUpload($image);
+
+            if($agenda->getStart() > $agenda->getEnd()) {
+                $this->addFlash (
+                    'success',
+                    'Attention l\'heure ou la date de fin est antérieur à la l\'heure de début'
+                );
+
+                return $this->render('@Calendar/agenda/edit.html.twig', array(
+                    'agenda' => $agenda,
+                    'edit_form' => $editForm->createView(),
+                ));
+            }
+            else{
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($agenda);
+                $em->flush();
 
 
-            return $this->redirectToRoute('agenda_show', array('id' => $agenda->getId()));
+                return $this->redirectToRoute('agenda_show', array('id' => $agenda->getId()));
+            }
         }
 
         return $this->render('@Calendar/agenda/edit.html.twig', array(

@@ -8,16 +8,17 @@
 
 namespace SearchBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use ForumBundle\Entity\Post;
 use ForumBundle\Entity\CategoriePlateforme;
+use SearchBundle\SearchBundle;
 use Symfony\Component\HttpFoundation\Request;
 use SearchBundle\Repository\SearchRepository;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class SearchEngineController extends Controller
 {
     // METHODE DE RECHERCHE PAR MOTS
-    public function searchAction(Request $request, Entity\Post $post, Entity\CategoriePlateforme $categoriePlateforme)
+    public function searchAction(Request $request)
     {
         // on vérifie d'abord l'existence du POST et aussi si la requete n'est pas vide.
         if(isset($_POST['requete']) && $_POST['requete'] != NULL)
@@ -30,22 +31,21 @@ class SearchEngineController extends Controller
 
 
             // Appel du repository avec laquelle on demande une requete sql
-            $repository = $this->getDoctrine()->getManager()->getRepository(SearchRepository::class);
+            $repository = $this->getDoctrine()->getManager()->getRepository(SearchRepository::class)->findPost(); //SearchRepository::class
 
             // on boucle pour récuperer le résultat de repository
-            foreach ($repository as $resultats) {
+            foreach ($repository as $resultat) {
 
-                $resultat = $repository->findBy($requete);
+//                $resultat = $repository->findBy($requete);
+                $resultat->getContent($requete);
 
             }
 
-
-            // si le nombre de résultats est supérieur à 0, renvoie un résultat
-            if($resultat != 0)
+            // si le résultat est identique au mot recherché on affiche la page de résultats
+            if($resultat == $requete)
 
             {
-                // maintenant, on va afficher les résultats et la page qui les donne ainsi que
-                // leur nombre, avec un peu de code HTML pour faciliter la tâche.
+                // maintenant, on va afficher la page qui va afficher les résultats
                 return $this->render('@Search/Default/index.html.twig', array(
                     'resultat' => $resultat,
                 ));
