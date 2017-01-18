@@ -9,8 +9,8 @@
 namespace SearchBundle\Controller;
 
 use ForumBundle\Entity\Post;
-use ForumBundle\Entity\CategoriePlateforme;
 use SearchBundle\SearchBundle;
+use ForumBundle\Entity\CategoriePlateforme;
 use Symfony\Component\HttpFoundation\Request;
 use SearchBundle\Repository\SearchRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -29,15 +29,17 @@ class SearchEngineController extends Controller
             // avec la fonction htmlspecialchars().
             $requete = htmlspecialchars($_POST['requete']);
 
+            $limit = 25;
 
             // Appel du repository avec laquelle on demande une requete sql
-            $repository = $this->getDoctrine()->getManager()->getRepository(SearchRepository::class)->findPost(); //SearchRepository::class
+            $em = $this->getDoctrine()->getManager();
+            $repository = $this->getRepository('SearchBundle:Search')->findPost($requete, $limit); //SearchRepository::class
 
             // on boucle pour récuperer le résultat de repository
             foreach ($repository as $resultat) {
 
 //                $resultat = $repository->findBy($requete);
-                $resultat->getContent($requete);
+                $resultat->getContent();
 
             }
 
