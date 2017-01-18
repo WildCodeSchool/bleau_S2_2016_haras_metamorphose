@@ -59,6 +59,7 @@ class ProfileController extends Controller
      */
     public function editAction(Request $request)
     {
+        $em = $this->getDoctrine()->getManager();
         $user = $this->getUser();
         if (!is_object($user) || !$user instanceof UserInterface) {
             throw new AccessDeniedException('This user does not have access to this section.');
@@ -84,8 +85,9 @@ class ProfileController extends Controller
         $mediaForm = $form->get('photo');
         $mediaForm->remove('alt');
 
-        if ($mediaUser->getName() == User::getDefaultPhotoName())
+        if ($mediaUser->getName() == User::getDefaultPhotoName()){
             $mediaUser = new Media();
+        }
 
         $mediaForm->setData($mediaUser);
 
@@ -99,8 +101,10 @@ class ProfileController extends Controller
             $event = new FormEvent($form, $request);
             $dispatcher->dispatch(FOSUserEvents::PROFILE_EDIT_SUCCESS, $event);
 
+            $mediaUser->setName(preg_replace('/\W/', '_', $user->getNom()) );
             // On appelle le service d'upload de média (HarasBundle/Services/mediaInterface)
             $this->get('media.interface')->mediaUpload($mediaUser);
+            $user->setPhoto($mediaUser);
 
             $userManager->updateUser($user);
 
