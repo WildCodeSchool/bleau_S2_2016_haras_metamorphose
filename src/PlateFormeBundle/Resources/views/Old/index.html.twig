@@ -7,7 +7,6 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Name</th>
                 <th>Texte</th>
                 <th>Actions</th>
             </tr>
@@ -16,7 +15,6 @@
         {% for philosophie in philosophies %}
             <tr>
                 <td><a href="{{ path('philosophie_show', { 'id': philosophie.id }) }}">{{ philosophie.id }}</a></td>
-                <td>{{ philosophie.name }}</td>
                 <td>{{ philosophie.texte |raw }}</td>
                 <td>
                     <ul>

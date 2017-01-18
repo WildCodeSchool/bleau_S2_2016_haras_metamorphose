@@ -15,7 +15,6 @@ class PhilosophieType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name')
             ->add('texte', CKEditorType::class, array(
             'config' => array(
             'config_name' => 'my_config',

@@ -13,6 +13,7 @@ class Philosophie
     private $id;
 
     /**
+     *
      * @var string
      */
     private $texte;
@@ -52,33 +53,5 @@ class Philosophie
         return $this->texte;
     }
 
-    /**
-     * @var string
-     */
-    private $name;
 
-
-    /**
-     * Set name
-     *
-     * @param string $name
-     *
-     * @return Philosophie
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * Get name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
 }

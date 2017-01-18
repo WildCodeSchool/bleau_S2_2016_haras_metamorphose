@@ -1,36 +1,31 @@
 {% extends '@PlateForme/layout.html.twig' %}
 
 {% block body %}
-    <h1>Philosophie</h1>
-
+<div class="container center" id="philosophiemodel">
     <table>
         <tbody>
             <tr>
-                <th>Id</th>
-                <td>{{ philosophie.id }}</td>
-            </tr>
-            <tr>
-                <th>Name</th>
-                <td>{{ philosophie.name }}</td>
-            </tr>
-            <tr>
-                <th>Texte</th>
+
                 <td>{{ philosophie.texte |raw }}</td>
             </tr>
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('plate_forme_homepage') }}">Retour accueil</a>
-        </li>
-        <li>
-            <a href="{{ path('philosophie_edit', { 'id': philosophie.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+    <div class="boutons">
+                <a href="{{ path('plate_forme_homepage') }}" title="Revenir à l'accueil">
+                    <span class="fa-stack fa-2x">
+                        <i class="fa fa-circle fa-stack-2x icon-background2"></i>
+                        <i class="fa fa-backward fa-stack-1x" aria-hidden="true"></i>
+                    </span>
+                </a>
+                {% if is_granted('ROLE_ADMIN') %}
+                <a href="{{ path('philosophie_edit', { 'id': philosophie.id }) }}" title="Editer">
+                    <span class="fa-stack fa-2x">
+                      <i class="fa fa-circle fa-stack-2x icon-background2"></i>
+                      <i class="fa fa-pencil fa-stack-1x"></i>
+                    </span>
+                </a>
+                {% endif %}
+    </div>
+</div>
 {% endblock %}

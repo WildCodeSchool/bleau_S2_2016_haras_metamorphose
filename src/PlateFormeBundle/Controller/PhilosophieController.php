@@ -78,7 +78,7 @@ class PhilosophieController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('philosophie_edit', array('id' => $philosophie->getId()));
+            return $this->redirectToRoute('philosophie_show', array('id' => $philosophie->getId()));
         }
 
         return $this->render('@PlateForme/philosophie/edit.html.twig', array(
