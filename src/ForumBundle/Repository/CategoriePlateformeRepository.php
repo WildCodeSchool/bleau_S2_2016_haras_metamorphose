@@ -29,16 +29,4 @@ class CategoriePlateformeRepository extends \Doctrine\ORM\EntityRepository
         return $this->getEntityManager()->getConnection()->executeQuery($sql)->fetchAll();
     }
 
-    public function findPost($limit, $requete, Post $post) // CategoriePlateforme $categoriePlateforme
-    {
-//        Alias 's' = class searchrepository
-//        Alias 'p' = jointure parent_id
-
-
-//        $qb = $this->createQueryBuilder(from POst, from categorie, from haras)
-//            ->select('s.titre')
-//            ->orderBy('s.date_create', 'DESC')
-//            ->setMaxResults( $limit );
-//        return $qb->getQuery()->getResult();
-    }
 }
