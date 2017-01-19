@@ -21,38 +21,15 @@ class MultiArrayService extends Controller
     }
 
     // Fonction pour lire $repository en tant que tableau multi-dimensionnel
-    public function in_multi_array($requete, $repository)
-    {
-        foreach ($repository as $key => $resultat) {
+    public function multiArray($repositories, $requete){
 
-            // si $item n'est pas un tableau
-            if (!is_array ($resultat)) {
-
-                // si item est égal à ma requete
-                if ($resultat == $requete) return true;
-
-            }
-            // Item est un tableau
-            else {
-                // regarde si le tableau match avec la requete
-                //if ($key == $value) return true;
-
-                // See if this array matches our value
-                if (in_array ($requete, $resultat)){
-
-                    return true;
-                }
-                // recherche ce tableau
-                else if (in_multi_array ($requete, $resultat)){
-
-                    return true;
-                }
+        $result = array();
+        foreach ($repositories as $repository){
+            if (in_array($requete, $repository)){
+                $result[] = $requete;
             }
         }
-
-        // il ne trouve pas de valeur
-        return false;
-
+        return $result;
     }
 
 }

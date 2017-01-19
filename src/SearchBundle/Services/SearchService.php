@@ -23,8 +23,7 @@ class SearchService extends Controller
 
     }
 
-    public function getSearch($limit, $requete) // CategoriePlateforme $categoriePlateforme
-    {
+    public function getSearchPost($limit, $requete){
 //        Alias 's' = class searchrepository
 //        Alias 'p' = jointure parent_id
 
@@ -33,11 +32,31 @@ class SearchService extends Controller
 
 
         $qb = $repository->createQueryBuilder('s')
-            ->select('s.titre');
-//            ->orderBy('s.date_create', 'DESC')
+            ->select('s.titre')
+            ->orderBy('s.date_create', 'DESC');
 //            ->setMaxResults( $limit );
         return $qb->getQuery()->getResult();
     }
+
+
+    public function getSearchCategoryPlateform($limit, $requete){
+//        Alias 's' = class searchrepository
+//        Alias 'p' = jointure parent_id
+
+        $repository = $this->getDoctrine()
+            ->getRepository('ForumBundle:CategoriePlateforme');
+
+
+        $qb = $repository->createQueryBuilder('s')
+            ->select('s.categorie_plateforme')
+            ->orderBy('s.categorie_plateforme', 'DESC');
+//            ->setMaxResults( $limit );
+        return $qb->getQuery()->getResult();
+    }
+
+
+
+
 
 //    public function findCatPlat ($limit, $requete, Post $post)
 //    {
