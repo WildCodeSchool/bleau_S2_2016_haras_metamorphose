@@ -33,7 +33,7 @@ class SearchEngineController extends Controller
 
             // Appel du repository avec laquelle on demande une requete sql
             $em = $this->getDoctrine()->getManager();
-            $repository = $this->getRepository('SearchBundle:Search')->findPost($requete, $limit); //SearchRepository::class
+            $repository = $this->getRepository('SearchBundle:CategoriePlatforme')->findPost($requete, $limit); //SearchRepository::class
 
             // on boucle pour récuperer le résultat de repository
             foreach ($repository as $resultat) {

@@ -1,8 +1,7 @@
 ForumBundle\Entity\Post:
     type: entity
     table: null
-#    repositoryClass: ForumBundle\Repository\PostRepository
-    repositoryClass: SearchBundle\Repository\SearchRepository
+    repositoryClass: ForumBundle\Repository\PostRepository
     id:
         id:
             type: integer
