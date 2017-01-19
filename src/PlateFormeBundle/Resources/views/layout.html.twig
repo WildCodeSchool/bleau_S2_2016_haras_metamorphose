@@ -5,8 +5,34 @@
         <!-- Dropdown Structure -->
         <nav>
             <div class="nav-wrapper-plateforme">
-                <a class="plateforme-logo" href="{{ path('plate_forme_homepage') }}"><img id="plateforme-logo" src="{{ asset('bundles/haras/images/logo.png') }}" alt="logo"></a>
 
+                <ul class="left hide-on-med-and-down">
+                    <li>
+                    <a class="plateforme-logo" href="{{ path('plate_forme_homepage') }}">
+                        <img id="plateforme-logo" src="{{ asset('bundles/haras/images/logo.png') }}" alt="logo">
+                    </a>
+                    </li>
+
+                    <li>
+                        {% if is_granted('ROLE_ADMIN') %}
+                            <a href="{{ path('user_index') }}" title="Liste des utilisateurs">
+                            <span class="fa-stack fa-2x">
+                                <i class="fa fa-circle fa-stack-2x icon-background5"></i>
+                                <i class="fa fa-users fa-stack-1x"></i>
+                            </span>
+                                    {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}
+                            </a>
+                        {% elseif is_granted('ROLE_MODERATEUR') %}
+                            <a href="{{ path('categorieplateforme_index') }}" title="Moderation du forum">
+                        <span class="fa-stack fa-2x">
+                            <i class="fa fa-circle fa-stack-2x icon-background5"></i>
+                            <i class="fa fa-pencil fa-stack-1x"></i>
+                        </span>
+                                {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} | Moderateur
+                            </a>
+                        {% endif %}
+                    </li>
+                </ul>
 
                 <ul class="right hide-on-med-and-down">
 
@@ -43,7 +69,8 @@
                     </li>
                     <ul id="dropdown2" class="dropdown-content">
                         {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                            {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
+                            {#{{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |#}
+
                             <li><a href="{{ path('fos_user_profile_show') }}">Voir mon profil</a></li>
                             <li><a href="{{ path('fos_user_security_logout') }}">Se deconnecter</a></li>
                         {% else %}
@@ -57,8 +84,8 @@
 
         <nav class="navbar2">
 
-            <ul class="left hide-on-med-and-down">
-                <li class="active philosophie"><a href="{{ path('plate_forme_philosophie') }}">Notre philosophie</a></li>
+            <ul class="left hide-on-med-and-down-navbarleft">
+                <li class="active philosophie"><a href="{{ path('philosophie_show', {'id': 1}) }}">Notre philosophie</a></li>
                 <li class="decouverte"><a href="{{ path('post_index') }}">Découverte</a></li>
                 <li class="haras"><a href="{{ path('post_index') }}">Le haras</a></li>
                 <li class="detente"><a href="{{ path('post_index') }}">Détente</a></li>
@@ -67,14 +94,13 @@
 
             <ul class="right hide-on-med-and-dow">
                 <li>
-                    <form action="{{ path('plate_forme_searchController') }}" method="Post" class="">
+                    {#<form action="{{ path('plate_forme_searchController') }}" method="Post">#}
+                    <form action="#" method="Post">
                         <div class="input-field">
                             <input name="requete" id="search" type="search" required>
                             <label for="search">
                                 <i class="material-icons">search</i>
                             </label>
-                            {#<i class="material-icons">close</i>#}
-                            {#<input style="display: inline-block !important;" type="submit" value="Rechercher">#}
                         </div>
                     </form>
                 </li>

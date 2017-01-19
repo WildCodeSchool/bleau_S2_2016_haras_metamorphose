@@ -23,7 +23,7 @@
 
             {# Gestion des Fils de discussion #}
             <h1 class=" soustitrePage center">Fils de discussion désactivés</h1>
-            <div class="reactDivParent" style="width: 80%; background-color: #f1f1e3">
+            <div class="reactDivParent">
                 {% for post in posts %}
                     {% if  post.parent.id is not defined %}
                         {% set idParent = post.id %}
@@ -42,14 +42,6 @@
                             </a>
                         </div>
                         <hr>
-                        {# Post enfant du fil de discussion #}
-                        {#{% elseif post.parent.id == idParent and post.parent.id in tabIdParents %}#}
-                        {#<div class="divEnfant"style="width: 80%; background-color: #DEDEDE">#}
-                        {#<h4>{{ post.titre|capitalize }}</h4>#}
-                        {#<div class="divEnfantContenu">{{ post.contenu|raw }}</div>#}
-                        {#<div> Message de : {{ post.user }}</div>#}
-                        {#<div> Crée le : {{ post.dateCreate|date("d/m/Y") }}</div>#}
-                        {#</div>#}
                     {% endif %}
                 {% endfor %}
             </div>

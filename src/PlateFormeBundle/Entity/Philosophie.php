@@ -13,6 +13,7 @@ class Philosophie
     private $id;
 
     /**
+     *
      * @var string
      */
     private $texte;
@@ -51,4 +52,6 @@ class Philosophie
     {
         return $this->texte;
     }
+
+
 }

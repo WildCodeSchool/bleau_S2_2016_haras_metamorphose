@@ -59,17 +59,57 @@ $(document).ready(function() {
 
 // Taille image dans div lastPostContenu
 //****************************************************
+// Si image dans <p>
 $(document).ready( function () {
-// Nb d'image dans le contenu :
-    var nbImg = $('.lastPostContenu > p > img').length;
-
-    var heightImg = $('.lastPostContenu > p > img').css('height');
-    var widthImg = $('.lastPostContenu > p > img').css('width');
     $('.lastPostContenu > p > img').each(function(){
         $(this).css('height', '25%').css('width', '25%');
     });
 });
+// Si image pas dans <p>
+$(document).ready( function () {
+    $('.lastPostContenu > img').each(function(){
+        $(this).css('height', '25%').css('width', '25%');
+    });
+});
 
+// Si image dans <p>
+$(document).ready( function () {
+    $('.divParentContenu > p > img').each(function(){
+        $(this).css('height', '25%').css('width', '25%');
+    });
+});
+// Si image pas dans <p>
+$(document).ready( function () {
+    $('.divParentContenu > img').each(function(){
+        $(this).css('height', '25%').css('width', '25%');
+    });
+});
+
+// Si image dans <p>
+$(document).ready( function () {
+    $('.divCorpsPostParent > div > p > img').each(function(){
+        $(this).css('height', '25%').css('width', '25%');
+    });
+});
+// Si image pas dans <p>
+$(document).ready( function () {
+    $('.divCorpsPostParent > div > img').each(function(){
+        $(this).css('height', '25%').css('width', '25%');
+    });
+});
+
+// Si image dans <p>
+$(document).ready( function () {
+    $('.divEnfantContenu > p > img').each(function(){
+        $(this).css('height', '25%').css('width', '25%');
+    });
+});
+// Si image pas dans <p>
+$(document).ready( function () {
+    $('.divEnfantContenu > img').each(function(){
+        $(this).css('height', '25%').css('width', '25%');
+    });
+});
 //***************************************************//
 //    index categorie - Accodeon                     //
 //****************************************************
@@ -113,15 +153,5 @@ $(document).ready(function() {
 $(document).ready(function(){
     $('.modal').modal();
 });
-
-//****************************
-// CKEditor remove element Tab
-//****************************
-// $(document).ready(function(){
-//     CKEDITOR.on('instanceReady', function() {
-//             // this.disable('#cke_129_uiElement' );
-//             $( "#cke_129_uiElement" ).prop( "disabled", false );
-//     });
-// });
 
 

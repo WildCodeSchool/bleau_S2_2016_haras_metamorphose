@@ -2,25 +2,69 @@
 
 {% block body %}
 
-    <div class="container adminmodel">
-    <h1>User edit</h1>
+    <div class="container center" id="user_edit_model">
+    <div class="col m8 offset-m2">
+        <h2 class="Compte">Editer l'utilisateur</h2>
+        <div class="row">
 
     {{ form_start(edit_form) }}
     {{ form_widget(edit_form) }}
-    <input type="submit" value="Edit" />
+
+        <div class="row input-field">
+            {#{{ form_label(edit_form.nom) }}#}
+            {{ form_errors(edit_form.nom) }}
+            {{ form_widget(edit_form.nom) }}
+        </div>
+
+        <div class="row input-field">
+            {#{{ form_label(edit_form.prenom) }}#}
+            {{ form_errors(edit_form.prenom) }}
+            {{ form_widget(edit_form.prenom) }}
+        </div>
+
+        <div class="row input-field">
+            {#{{ form_label(edit_form.profession) }}#}
+            {{ form_errors(edit_form.profession) }}
+            {{ form_widget(edit_form.profession) }}
+        </div>
+
+        <div class="row input-field">
+            {#{{ form_label(edit_form.nbPost) }}#}
+            {{ form_errors(edit_form.nbPost) }}
+            {{ form_widget(edit_form.nbPost) }}
+        </div>
+
+        {#<div class="row input-field">#}
+            {#{{ form_label(edit_form.photo) }}#}
+            {#{{ form_errors(edit_form.photo) }}#}
+            {#{{ form_widget(edit_form.photo) }}#}
+        {#</div>#}
+
+        {#<div class="row input-field">#}
+            {#{{ form_label(edit_form.roles) }}#}
+            {#{{ form_errors(edit_form.roles) }}#}
+            {#{{ form_widget(edit_form.roles) }}#}
+        {#</div>#}
+
+
+            <td class="boutons_user">
+                <div class="boutons center">
+                    <button type="submit" value="Valider l'édition">
+                        <i class="fa fa-check fa-2x"></i>
+                    </button>
+                    <a href="{{ path('user_index') }}" title="Retour liste utilisateurs"><i class="fa fa-users fa-2x"></i></a>
+                    <a href="{{ path('plate_forme_homepage') }}" title="Retour accueil"><i class="fa fa-backward fa-2x"></i>
+                    <a href="" title="Bloquer"><i class="fa fa-lock fa-2x"></i>
+                    {#<a href="{{ path('user_delete', { 'id': user.id }) }}" title="Bloquer"><i class="fa fa-lock fa-2x"></i>#}
+                </div>
+            </td>
+
     {{ form_end(edit_form) }}
 
-    <ul>
-        <li>
-            <a href="{{ path('user_index') }}">Back to the list</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-            <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
 
+
+    </div>
+    </div>
     </div>
 {% endblock %}
 

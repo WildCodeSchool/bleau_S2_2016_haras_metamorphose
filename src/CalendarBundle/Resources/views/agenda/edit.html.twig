@@ -24,7 +24,7 @@
                                 <p class="calendar-p">Titre de l'évènement :</p>
                             </td>
                             <td class="calendar-td-twig calendar-border-topright">
-                                {{ form_widget(edit_form.titre) }}
+                                {{ form_widget(edit_form.titre, { 'attr': {'class': 'new-input'} }) }}
                                 {{ form_errors(edit_form.titre) }}
                             </td>
                         </tr>
@@ -34,7 +34,7 @@
                             </td>
                             <td class="calendar-td-twig">
                                 <div class="col s12 m4 l4">
-                                    {{ form_widget(edit_form.start, { 'id': 'datepicker' }) }}
+                                    {{ form_widget(edit_form.start) }}
                                     {{ form_errors(edit_form.start) }}
                                 </div>
                             </td>
@@ -45,7 +45,7 @@
                             </td>
                             <td class="calendar-td-twig">
                                 <div class="col s12 m4 l4">
-                                    {{ form_widget(edit_form.end, {'attr': { 'class': 'datepicker' }}) }}
+                                    {{ form_widget(edit_form.end) }}
                                     {{ form_errors(edit_form.end) }}
                                 </div>
                             </td>
@@ -55,7 +55,7 @@
                                 <p class="calendar-p">Description de l'évènement</p>
                             </td>
                             <td class="calendar-td-twig">
-                                {{ form_widget(edit_form.texte) }}
+                                {{ form_widget(edit_form.texte, { 'id': 'textarea' }) }}
                                 {{ form_errors(edit_form.texte) }}
                             </td>
                         </tr>
@@ -64,7 +64,7 @@
                                 <p class="calendar-p">Lieu de l'évènement</p>
                             </td>
                             <td class="calendar-td-twig">
-                                {{ form_widget(edit_form.lieu) }}
+                                {{ form_widget(edit_form.lieu, { 'attr': {'class': 'new-input'} }) }}
                                 {{ form_errors(edit_form.lieu) }}
                             </td>
                         </tr>
@@ -78,12 +78,21 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>
+                            <td class="calendar-td">
                                 <p class="calendar-p">Ajouter au slider</p>
                             </td>
-                            <td>
-                                {{ form_widget(edit_form.slider) }}
+                            <td class="calendar-td-twig">
+                                {{ form_widget(edit_form.slider, { 'id': 'test5' }) }}
                                 {{ form_errors(edit_form.slider) }}
+                            </td>
+                        </tr>
+                        <tr class="upload_file_event">
+                            <td class="calendar-td">
+                                <p class="calendar-p">Ajouter une image (Max : 2Mo)</p>
+                            </td>
+                            <td class="calendar-td-twig calendar-border-butomright">
+                                {{ form_widget(edit_form.image) }}
+                                {{ form_errors(edit_form.image) }}
                             </td>
                         </tr>
                     </table>

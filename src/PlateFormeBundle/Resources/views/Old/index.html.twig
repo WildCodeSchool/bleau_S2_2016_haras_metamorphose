@@ -1,0 +1,39 @@
+{% extends '@PlateForme/layout.html.twig' %}
+
+{% block body %}
+    <h1>Philosophies list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Texte</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for philosophie in philosophies %}
+            <tr>
+                <td><a href="{{ path('philosophie_show', { 'id': philosophie.id }) }}">{{ philosophie.id }}</a></td>
+                <td>{{ philosophie.texte |raw }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('philosophie_show', { 'id': philosophie.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('philosophie_edit', { 'id': philosophie.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('philosophie_new') }}">Create a new philosophie</a>
+        </li>
+    </ul>
+{% endblock %}

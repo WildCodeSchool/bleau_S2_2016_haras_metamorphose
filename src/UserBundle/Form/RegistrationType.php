@@ -15,7 +15,8 @@ class RegistrationType extends AbstractType
             ->add('profession')
             ->add('photo', MediaType::class, array(
                 'mapped' => false,		// Le médium ne peut pas être mappé car l'objet attend une array de media
-                'label' => false
+                'label' => false,
+                'required' => false
             ))
             ->remove('title')
             ->remove('content')

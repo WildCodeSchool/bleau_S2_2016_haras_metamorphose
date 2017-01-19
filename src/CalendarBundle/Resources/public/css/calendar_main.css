@@ -13,6 +13,36 @@
     border: none;
     background: none;
 }
+
+.new-input{
+    width: 300px !important;
+}
+
+#plateformebundle_agenda_start_time{
+    position: absolute;
+    left: 930px;
+    top: 425px;
+}
+
+#plateformebundle_agenda_end_time{
+    position: absolute;
+    left: 930px;
+    top: 650px;
+}
+
+#test5{
+    left: 900px !important;
+    opacity: 1 !important;
+    width: 50px;
+    height: 50px;
+    top: 1100px;
+}
+
+.upload_file_event{
+    display: none;
+    transition: 1.5s;
+}
+
 /************************************************
 *
 *   1. Color Picker
@@ -21,6 +51,13 @@ $
 
 .color-form{
 
+}
+#colorpicker{
+    width: 300px;
+}
+
+select{
+    display: none;
 }
 
 /*********************************************************/
@@ -79,7 +116,7 @@ $
 }
 
 .calendar-td-twig{
-    width: 600px;
+    width: 600px !important;
 
     border-bottom: 1px;
     border-bottom-style: groove;
@@ -91,6 +128,8 @@ $
     font-size: 36px !important;
 }
 
+.file{
+}
 /*********************************************************/
 /*********************************************************/
 /*********************** PAGE SHOW ***********************/
@@ -100,5 +139,12 @@ $
 .color-show-p{
     color: #a0a6ad;
     text-align: center;
+}
+
+.show-image{
+    width: 400px;
+    height: auto;
+    text-align: center;
 
 }
+
