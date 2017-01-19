@@ -40,6 +40,7 @@ services:
         class: UserBundle\Redirection\AfterLogoutRedirection
         arguments: [@router, @security.context]
 
+# [...] SERVICES AUTRE BUNDLES PLATEFORME
 # [...] SearchBundle/Service
-    Search.service:
+    search.service:
         class: SearchBundle\Services\SearchService
