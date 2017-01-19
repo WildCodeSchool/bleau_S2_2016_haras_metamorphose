@@ -11,7 +11,7 @@
                 {# Affichage de l'image sélectionnée #}
                 <img class="hide" id="blah" src="#" alt="your image" />
                 {# Image enregistrées en base de données#}
-                <img class="responsive-img thumbs" src="{{ app.user.photo ? asset(app.user.photo.path) }}" alt="">
+                <img id="imageBdD" class="responsive-img thumbs" src="{{ app.user.photo ? asset(app.user.photo.path) }}" alt="">
             </div>
 
         </div>

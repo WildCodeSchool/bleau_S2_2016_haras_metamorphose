@@ -1546,8 +1546,10 @@ a:hover {
   color: #ED971F;*/
 }
 
+/********************/
 /**** sliderPost ****/
-/* line 710, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/*******************/
+/* line 711, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
 #sliderPost {
   margin: auto;
   overflow: hidden;
@@ -1562,62 +1564,62 @@ a:hover {
 }
 
 @media screen and (max-width: 600px) {
-  /* line 725, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+  /* line 726, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
   .soustitreHome {
     font-size: 21px !important;
   }
 
-  /* line 729, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+  /* line 730, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
   #sliderPost {
     margin-top: 5px;
   }
 
-  /* line 733, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+  /* line 734, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
   .divContenuHome {
     width: 500px;
   }
 }
 @media screen and (max-width: 400px) {
-  /* line 739, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+  /* line 740, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
   .divContenuHome {
     width: 300px;
   }
 
-  /* line 743, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+  /* line 744, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
   #sliderPost {
     margin-top: 5px;
   }
 }
 @media screen and (max-width: 990px) {
-  /* line 749, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+  /* line 750, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
   .divContenuHome {
     width: 300px;
   }
 
-  /* line 753, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+  /* line 754, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
   #sliderPost {
     margin-top: 5px;
   }
 }
 @media only screen and (min-width: 1200px) {
-  /* line 759, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+  /* line 760, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
   #sliderPost {
     margin-top: 43px;
     width: 440px;
     height: 315px;
   }
 
-  /* line 764, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+  /* line 765, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
   .soustitrePage {
     margin-top: 85px;
   }
 
-  /* line 768, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+  /* line 769, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
   .divBoutonHome {
     margin-top: -4%;
   }
 }
-/* line 773, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 774, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
 #sliderPost li {
   float: left;
   position: relative;
@@ -1626,7 +1628,7 @@ a:hover {
   height: 200px;
 }
 
-/* line 782, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 783, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
 #sliderPost ul {
   list-style: none;
   position: absolute;
@@ -1643,7 +1645,7 @@ a:hover {
 }
 
 /*** Content ***/
-/* line 800, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 801, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .sliderPost-container {
   margin: 0 auto;
   padding: 0;
@@ -1652,13 +1654,13 @@ a:hover {
   border-bottom: 1px solid #ccc;
 }
 
-/* line 809, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 810, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .sliderPost-container h4 {
   color: #DEDEDE;
   text-shadow: -1px 0px 0px rgba(0, 0, 0, 0.5);
 }
 
-/* line 815, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 816, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .sliderPost-container p {
   margin: 10px 25px;
   font-weight: semi-bold;
@@ -1719,13 +1721,13 @@ a:hover {
     opacity: 0;
   }
 }
-/* line 842, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 843, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
 #sliderPost ul {
-  -webkit-animation: slide-animation 25s infinite;
+  -webkit-animation: slide-animation 15s infinite;
 }
 
 /* use to paused the content on mouse over */
-/* line 849, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 850, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
 #sliderPost ul:hover {
   -moz-animation-play-state: paused;
   -webkit-animation-play-state: paused;
