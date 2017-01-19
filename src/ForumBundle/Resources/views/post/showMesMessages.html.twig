@@ -3,13 +3,13 @@
 {% block body %}
     {#-------------------------------------------------------------#}
     {# NavBar Lateral  #}
-    {{ include("@Forum/post/postNavBar.html.twig") }}
+        {{ include("@Forum/post/postNavBar.html.twig") }}
     {# fin navBar lateral #}
     {#-------------------------------------------------------------#}
     <section class="postSectionIndex">
         <article class="postArticleIndex">
             {# Gestion des Fils de discussion #}
-            <h1 class=" soustitrePage center">Fils de discussion</h1>
+            <h1 id="titre1" class=" soustitrePage center">Fils de discussion</h1>
             <div class="reactDivParent">
                 {% for post in posts %}
                     {% if  post.parent.id is not defined %}
@@ -33,12 +33,12 @@
             </div>
 
             {# Gestion des Posts isolés #}
-            <h1 class=" soustitrePage center">Autres commentaires</h1>
+            <h1 id="titre2" class="soustitrePage center">Autres commentaires</h1>
             <div>
                 {% for post in posts %}
                     {% if post.parent.id is defined and post.parent.id not in tabIdParents %}
                         <div class="center">
-                            <h4>
+                            <h4 id="h4Commentaire">
                                 Posté sur la discussion : <br>
                                 &laquo; {{ post.parent.titre|capitalize }} &#xBB;
                             </h4>
@@ -69,4 +69,27 @@
             </div>
         </article>
     </section>
+{% endblock %}
+
+{% block javascripts %}
+
+    {{ parent() }}
+    <script>
+        // Suppression des titres inutiles si pas de messages,
+        // dans le cas, où il n'y a aucun message pour ce user, nouveau titre
+        $(document).ready(function() {
+            if(($('.divParentContenu').length == 0) &&  ($('.divEnfantContenu').length == 0 )) {
+                $('#titre1').addClass('hide');
+                $('#titre2').addClass('hide');
+                $('section').append('<h1 class=" soustitrePage center">Vous n\'avez pas encore écrit de message<h1>');
+                $('.reactDivParent').css('background-color', 'unset');
+            }
+            else if ($('.divParentContenu').length == 0) {
+                $('#titre1').addClass('hide');
+            }
+            else if ($('.divEnfantContenu').length == 0) {
+                $('#titre2').addClass('hide');
+            }
+        });
+    </script>
 {% endblock %}
