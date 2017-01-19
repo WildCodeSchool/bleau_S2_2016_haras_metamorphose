@@ -154,4 +154,30 @@ $(document).ready(function(){
     $('.modal').modal();
 });
 
+//****************************
+// Affichage image upload avant
+// validation du form
+//****************************
+// Actualise image après chargement sur new et edit Album
+$(document).ready(function(){
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#blah').attr('src', e.target.result);
+                // Sur NEW masque l'image vide -- Changement de la class
+                $('.hide').toggleClass('hide responsive-img');
+                // Sur EDIT masque l'image initiale -- Changement de la class
+                $('.thumbs').toggleClass('thumbs hide');
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    // Pensez à modifier le champ entre parenthèse, prendre celui généré par symfony
+    $("#fos_user_profile_form_photo_file").change(function(){
+        readURL(this);
+    });
+});
 
