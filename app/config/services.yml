@@ -44,3 +44,4 @@ services:
 # [...] SearchBundle/Service
     search.service:
         class: SearchBundle\Services\SearchService
+        arguments: ['@service_container']

@@ -8,13 +8,12 @@
 
 namespace SearchBundle\Controller;
 
-use ForumBundle\Entity\Post;
 use SearchBundle\SearchBundle;
-use ForumBundle\Entity\CategoriePlateforme;
 use SearchBundle\Services\SearchService;
 use Symfony\Component\HttpFoundation\Request;
-//use SearchBundle\Repository\SearchRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Form\DataTransformerInterface;
+use Symfony\Component\Form\Exception\TransformationFailedException;
 
 class SearchEngineController extends Controller
 {
@@ -31,51 +30,68 @@ class SearchEngineController extends Controller
             $requete = htmlspecialchars($_POST['requete']);
 
             $limit = 25;
-
+var_dump($requete);
             // Appel du repository avec laquelle on demande une requete sql
             $em = $this->getDoctrine()->getManager();
-            $repository = $this->getRepository(SearchService::class)->findPost($requete, $limit); //SearchRepository::class
+            $repository = $this->container->get('search.service')->getSearch($requete, $limit);
+var_dump($repository);
+            $resultat = in_array($requete, $repository, true); //$epository = tableau associatif
+var_dump($resultat); die;
 
-            // on boucle pour récuperer le résultat de repository
-            foreach ($repository as $resultat) {
+            if ($resultat != false) {
 
-//                $resultat = $repository->findBy($requete);
-                $resultat->getContent();
+                foreach ($resultat as $resultats){
 
-            }
+                }
 
-            // si le résultat est identique au mot recherché on affiche la page de résultats
-            if($resultat == $requete)
-
-            {
                 // maintenant, on va afficher la page qui va afficher les résultats
                 return $this->render('@Search/Default/index.html.twig', array(
-                    'resultat' => $resultat,
+                    'resultats' => $resultats,
                 ));
             }
-            // sinon on retourne à la page d'accueil avec un message
-            else
+            else {
 
-            {
+                $this->addFlash(
+                    'success',
+                    'La recherche ne donne aucun résultats'
+                );
+
+                return $this->render('@PlateForme/Default/index.html.twig');
+            }
+        }
+
+           // si le résultat est identique au mot recherché on affiche la page de résultats
+//            if($resultat == $requete)
+//
+//            {
+                // maintenant, on va afficher la page qui va afficher les résultats
+//                return $this->render('@Search/Default/index.html.twig', array(
+//                    'resultat' => $resultat,
+//                ));
+//            }
+//         sinon on retourne à la page d'accueil avec un message
+//            else
+//
+//            {
 //                $this->addFlash(
 //                    'success',
 //                    'La recherche ne donne aucun résultats'
 //                );
-
-                return $this->render('@PlateForme/Default/index.html.twig');
-
-            }
-        }
-        // Si le post est vide on retourne à la page d'accueil
-        else
-        {
+//
+//                return $this->render('@PlateForme/Default/index.html.twig');
+//
+//            }
+//        }
+//        // Si le post est vide on retourne à la page d'accueil
+//        else
+//        {
 //            $this->addFlash(
 //                'success',
 //                'Le champ de recherche est vide'
 //            );
-
-            return $this->render('@PlateForme/Default/index.html.twig');
-        }
+//
+//            return $this->render('@PlateForme/Default/index.html.twig');
+//        }
     }
 
 }
