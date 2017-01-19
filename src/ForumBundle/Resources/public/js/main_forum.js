@@ -165,19 +165,33 @@ $(document).ready(function(){
             var reader = new FileReader();
 
             reader.onload = function (e) {
-                $('#blah').attr('src', e.target.result);
-                // Sur NEW masque l'image vide -- Changement de la class
-                $('.hide').toggleClass('hide responsive-img');
-                // Sur EDIT masque l'image initiale -- Changement de la class
-                $('.thumbs').toggleClass('thumbs hide');
-            }
+                if ($('#imageBdD').hasClass('')) {
+                    $('#blah').attr('src', e.target.result);
+                    $('#imageBdD').toggleClass('hide');
+                }
+                else {
+                    $('#blah').attr('src', e.target.result);
+                    // Sur NEW masque l'image vide -- Changement de la class
+                    $('.hide').toggleClass('hide responsive-img');
+                    // Sur EDIT masque l'image initiale -- Changement de la class
+                    $('#imageBdD').toggleClass('thumbs hide');
+                }
+            };
             reader.readAsDataURL(input.files[0]);
         }
     }
 
-    // Pensez à modifier le champ entre parenthèse, prendre celui généré par symfony
+
     $("#fos_user_profile_form_photo_file").change(function(){
         readURL(this);
     });
 });
 
+//***************************************************//
+//    Actualités forum sur homepage                  //
+//****************************************************
+$(document).ready(function(){
+    if ($('.divContenuHome').is(':empty')) {
+        $('.sliderPost-container').toggleClass('hide');
+    }
+});

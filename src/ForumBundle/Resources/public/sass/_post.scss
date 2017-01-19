@@ -699,8 +699,9 @@ a:hover
   /*border-bottom: 1px dashed #ED971F;
   color: #ED971F;*/
 }
-
+/********************/
 /**** sliderPost ****/
+/*******************/
 
 #sliderPost, ul
 {
@@ -841,7 +842,7 @@ a:hover
 
 #sliderPost ul
 {
-  -webkit-animation: slide-animation 25s infinite;
+  -webkit-animation: slide-animation 15s infinite;
 }
 
 /* use to paused the content on mouse over */
