@@ -10,9 +10,10 @@ namespace SearchBundle\Services;
 
 use ForumBundle\Entity\Post;
 use ForumBundle\Entity\CategoriePlateforme;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-
-class SearchService
+class SearchService extends Controller
 {
 
     public function findPost($limit, $requete, Post $post) // CategoriePlateforme $categoriePlateforme
@@ -26,5 +27,17 @@ class SearchService
             ->orderBy('s.date_create', 'DESC')
             ->setMaxResults( $limit );
         return $qb->getQuery()->getResult();
+    }
+
+    public function findCatPlat ($message = 'Access Denied.', \Exception $previous = null)
+    {
+        // la requête, que vous devez maintenant comprendre et modifier;)
+            $query = $bdd->prepare("SELECT titre, contenu, nom
+                                    FROM post, categorie_plateforme
+                                    WHERE post.parent_id = categorie_plateforme.parent_id
+                                    AND contenu = $requete
+                                    OR titre = $requete
+                                    OR nom = $requete
+                                    ORDER BY post.id DESC") OR DIE ();
     }
 }

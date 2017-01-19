@@ -13,7 +13,7 @@ use SearchBundle\SearchBundle;
 use ForumBundle\Entity\CategoriePlateforme;
 use SearchBundle\Services\SearchService;
 use Symfony\Component\HttpFoundation\Request;
-use SearchBundle\Repository\SearchRepository;
+//use SearchBundle\Repository\SearchRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class SearchEngineController extends Controller
