@@ -30,13 +30,54 @@ class SearchEngineController extends Controller
             $requete = htmlspecialchars($_POST['requete']);
 
             $limit = 25;
-var_dump($requete);
-            // Appel du repository avec laquelle on demande une requete sql
-            $em = $this->getDoctrine()->getManager();
+
+            // Appel du service avec laquelle on demande une requete sql
+//            $em = $this->getDoctrine()->getManager();
             $repository = $this->container->get('search.service')->getSearch($requete, $limit);
-var_dump($repository);
-            $resultat = in_array($requete, $repository, true); //$epository = tableau associatif
-var_dump($resultat); die;
+
+            // Appel du service pour checker $requete dans multi array $repository
+            $resultat = $this->container->get('multiarray.service')->in_multi_array($requete, $repository);
+
+
+            // Fonction pour lire $repository en tant que tableau multi-dimensionnel
+            function in_multi_array($requete, $repository)
+            {
+                foreach ($repository as $key => $resultat) {
+
+                    // si $item n'est pas un tableau
+                    if (!is_array ($resultat)) {
+
+                        // si item est égal à ma requete
+                        if ($resultat == $requete) return true;
+
+                    }
+                    // Item est un tableau
+                    else {
+                        // regarde si le tableau match avec la requete
+                        //if ($key == $value) return true;
+
+                        // See if this array matches our value
+                        if (in_array ($requete, $resultat)){
+
+                            return true;
+                        }
+                        // recherche ce tableau
+                        else if (in_multi_array ($requete, $resultat)){
+
+                            return true;
+                        }
+                    }
+                }
+
+                // il ne trouve pas de valeur
+                return false;
+
+            }
+
+
+
+
+
 
             if ($resultat != false) {
 
