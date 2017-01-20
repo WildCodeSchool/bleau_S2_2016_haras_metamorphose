@@ -40,11 +40,8 @@ class AbonnementNewsLetterController extends Controller
             $em->persist($users_existants);
         }
 
-        $this->addFlash(
-            'notice',
-            'Votre demande a été enregistrée'
-        );
-        
+        $this->addFlash('notice', 'Votre demande a été enregistrée');
+
         $em->flush();
         return $this->redirectToRoute('plate_forme_homepage');
     }
