@@ -2,7 +2,6 @@ ForumBundle\Entity\CategoriePlateforme:
     type: entity
     table: null
     repositoryClass: ForumBundle\Repository\CategoriePlateformeRepository
-#    repositoryClass: SearchBundle\Repository\SearchRepository
     id:
         id:
             type: integer
