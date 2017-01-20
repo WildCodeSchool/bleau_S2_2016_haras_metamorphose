@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Newsletter</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ newsLetter.id }}</td>
+            </tr>
+            <tr>
+                <th>Libelle</th>
+                <td>{{ newsLetter.libelle }}</td>
+            </tr>
+            <tr>
+                <th>Objet</th>
+                <td>{{ newsLetter.objet }}</td>
+            </tr>
+            <tr>
+                <th>Datecreation</th>
+                <td>{% if newsLetter.dateCreation %}{{ newsLetter.dateCreation|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Etat</th>
+                <td>{% if newsLetter.etat %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Dateenvoie</th>
+                <td>{% if newsLetter.dateEnvoie %}{{ newsLetter.dateEnvoie|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Pj</th>
+                <td>{% if newsLetter.pj %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Filename</th>
+                <td>{{ newsLetter.filename }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('newsletter_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('newsletter_edit', { 'id': newsLetter.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

@@ -21,5 +21,11 @@ PlateFormeBundle\Entity\NewsLetter:
             type: boolean
         dateEnvoie:
             type: date
+        pj:
+            type: boolean
+        filename:
+            type: string
+            length: 255
+            nullable: true
 
     lifecycleCallbacks: {  }

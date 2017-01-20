@@ -1,0 +1,24 @@
+newsletter_index:
+    path:     /
+    defaults: { _controller: "PlateFormeBundle:NewsLetter:index" }
+    methods:  GET
+
+newsletter_show:
+    path:     /{id}/show
+    defaults: { _controller: "PlateFormeBundle:NewsLetter:show" }
+    methods:  GET
+
+newsletter_new:
+    path:     /new
+    defaults: { _controller: "PlateFormeBundle:NewsLetter:new" }
+    methods:  [GET, POST]
+
+newsletter_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "PlateFormeBundle:NewsLetter:edit" }
+    methods:  [GET, POST]
+
+newsletter_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "PlateFormeBundle:NewsLetter:delete" }
+    methods:  DELETE

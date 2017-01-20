@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Newsletters list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Libelle</th>
+                <th>Objet</th>
+                <th>Datecreation</th>
+                <th>Etat</th>
+                <th>Dateenvoie</th>
+                <th>Pj</th>
+                <th>Filename</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for newsLetter in newsLetters %}
+            <tr>
+                <td><a href="{{ path('newsletter_show', { 'id': newsLetter.id }) }}">{{ newsLetter.id }}</a></td>
+                <td>{{ newsLetter.libelle }}</td>
+                <td>{{ newsLetter.objet }}</td>
+                <td>{% if newsLetter.dateCreation %}{{ newsLetter.dateCreation|date('Y-m-d') }}{% endif %}</td>
+                <td>{% if newsLetter.etat %}Yes{% else %}No{% endif %}</td>
+                <td>{% if newsLetter.dateEnvoie %}{{ newsLetter.dateEnvoie|date('Y-m-d') }}{% endif %}</td>
+                <td>{% if newsLetter.pj %}Yes{% else %}No{% endif %}</td>
+                <td>{{ newsLetter.filename }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('newsletter_show', { 'id': newsLetter.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('newsletter_edit', { 'id': newsLetter.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('newsletter_new') }}">Create a new newsLetter</a>
+        </li>
+    </ul>
+{% endblock %}

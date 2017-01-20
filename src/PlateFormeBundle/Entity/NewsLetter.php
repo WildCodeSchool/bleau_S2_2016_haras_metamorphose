@@ -196,4 +196,62 @@ class NewsLetter
     {
         return $this->libelle;
     }
+    /**
+     * @var boolean
+     */
+    private $pj;
+
+    /**
+     * @var string
+     */
+    private $filename;
+
+
+    /**
+     * Set pj
+     *
+     * @param boolean $pj
+     *
+     * @return NewsLetter
+     */
+    public function setPj($pj)
+    {
+        $this->pj = $pj;
+
+        return $this;
+    }
+
+    /**
+     * Get pj
+     *
+     * @return boolean
+     */
+    public function getPj()
+    {
+        return $this->pj;
+    }
+
+    /**
+     * Set filename
+     *
+     * @param string $filename
+     *
+     * @return NewsLetter
+     */
+    public function setFilename($filename)
+    {
+        $this->filename = $filename;
+
+        return $this;
+    }
+
+    /**
+     * Get filename
+     *
+     * @return string
+     */
+    public function getFilename()
+    {
+        return $this->filename;
+    }
 }
