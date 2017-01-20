@@ -18,6 +18,11 @@ newsletter_edit:
     defaults: { _controller: "PlateFormeBundle:NewsLetter:edit" }
     methods:  [GET, POST]
 
+abonnement_newsletter:
+    path:     /abonnement/new
+    defaults: { _controller: "PlateFormeBundle:AbonnementNewsLetter:new" }
+    methods:  [GET, POST]
+
 newsletter_delete:
     path:     /{id}/delete
     defaults: { _controller: "PlateFormeBundle:NewsLetter:delete" }

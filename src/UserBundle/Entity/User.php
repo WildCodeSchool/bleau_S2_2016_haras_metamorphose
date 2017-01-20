@@ -179,4 +179,33 @@ class User extends BaseUser
     {
         return $this->photo;
     }
+    /**
+     * @var boolean
+     */
+    private $newsletter;
+
+
+    /**
+     * Set newsletter
+     *
+     * @param boolean $newsletter
+     *
+     * @return User
+     */
+    public function setNewsletter($newsletter)
+    {
+        $this->newsletter = $newsletter;
+
+        return $this;
+    }
+
+    /**
+     * Get newsletter
+     *
+     * @return boolean
+     */
+    public function getNewsletter()
+    {
+        return $this->newsletter;
+    }
 }

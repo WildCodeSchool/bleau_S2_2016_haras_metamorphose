@@ -20,7 +20,7 @@ plate_forme_philosophie:
 
 plate_forme_newsletter:
     resource: "@PlateFormeBundle/Resources/config/routing/newsletter.yml"
-    prefix:   /newsletter
+    prefix:   /newsletter/
 
 plate_forme_register:
     resource: "@UserBundle/Resources/config/routing/all.xml"
