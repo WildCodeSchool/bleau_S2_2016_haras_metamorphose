@@ -27,7 +27,9 @@ class SearchEngineController extends Controller
             // on crée une variable $requete pour faciliter l'écriture de la requête SQL,
             // mais aussi pour empêcher les éventuels malins qui utiliseraient du PHP ou du JS,
             // avec la fonction htmlspecialchars().
-            $requete = htmlspecialchars($_POST['requete']);
+            $requete_str = htmlspecialchars($_POST['requete']);
+            $requete_strtolower = strtolower($requete_str);
+            $requete = $requete_strtolower;
 
             $limit = 25;
 
@@ -36,9 +38,14 @@ class SearchEngineController extends Controller
 
             // Appel du service pour checker $requete dans multi array $repository
             $resultat = $this->container->get('multiarray.service')->multiArray($titres, $requete);
-//            dump($resultats); die;
 
             $resultats = $this->getDoctrine()->getRepository('ForumBundle:Post')->findBy($resultat);
+
+            /*----------------------------------------------------------------------*/
+
+//            dump($requete, $titres, $resultat, $resultats); die;
+
+            /*----------------------------------------------------------------------*/
 
             if ($resultats != false) {
 

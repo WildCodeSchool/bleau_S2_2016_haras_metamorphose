@@ -35,7 +35,10 @@ class SearchService extends Controller
             ->select('s.titre', 's.contenu')
             ->orderBy('s.dateCreate', 'DESC');
 //            ->setMaxResults( $limit );
-        return $qb->getQuery()->getResult();
+
+        $qb_str = strtolower($qb);
+
+        return $qb_str = $qb->getQuery()->getResult();
     }
 
 }

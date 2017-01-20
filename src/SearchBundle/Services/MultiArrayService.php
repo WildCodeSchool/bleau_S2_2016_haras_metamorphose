@@ -25,8 +25,23 @@ class MultiArrayService extends Controller
 
             $result = array();
             foreach ($titres as $key => $titre){
+
+                /*--- Si $titre correspond a la requete de départ il check uniquement le 1er tableau---*/
                 if (in_array($requete, $titre)){
-                    $result['titre'] = $requete;
+                    $result['titre'] = $titre['titre'];
+
+                    return $titre;
+                }
+                /*--- Sinon on boucle sur le 2nd tableau et on check la valeur de retour est egale à la requete---*/
+                else{
+                    foreach ($titres as $valeur){
+
+                        $array = in_array($requete, $valeur);
+                        $requete_str = '/' . $requete . '/'; // il faut inverser les lignes
+                        // car sinon forcément on ne peut trouver la valeur dans in_array
+                        preg_match($requete_str, $array);
+                        $result['contenu'] = $array;
+                    }
                 }
             }
             return $result;
