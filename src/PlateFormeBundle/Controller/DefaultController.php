@@ -11,7 +11,7 @@ class DefaultController extends Controller
 
         $agenda = $em->getRepository('CalendarBundle:Agenda')->findBy( array('slider' => 1) );
         $articles = $em->getRepository('HarasBundle:Article')->findLatestArticles($limit);
-//var_dump($agenda); die;
+
         return $this->render('@PlateForme/homepage_plateforme.html.twig', array(
             'agenda' => $agenda,
             'articles' => $articles
@@ -19,16 +19,34 @@ class DefaultController extends Controller
     }
     public function adminAction()
     {
+        $limit = 5;
+
+        $em = $this->getDoctrine()->getManager();
+
+        $agenda = $em->getRepository('CalendarBundle:Agenda')->findBy( array('slider' => 1) );
+        $articles = $em->getRepository('HarasBundle:Article')->findLatestArticles($limit);
+
         $user = $this->get('security.token_storage')->getToken()->getUser();
         return $this->render('@PlateForme/homepage_plateforme.html.twig', array(
-            'user' => $user
+            'user' => $user,
+            'agenda' => $agenda,
+            'articles' => $articles
         ));
     }
     public function moderateurAction()
     {
+        $limit = 5;
+
+        $em = $this->getDoctrine()->getManager();
+
+        $agenda = $em->getRepository('CalendarBundle:Agenda')->findBy( array('slider' => 1) );
+        $articles = $em->getRepository('HarasBundle:Article')->findLatestArticles($limit);
+
         $user = $this->get('security.token_storage')->getToken()->getUser();
         return $this->render('@PlateForme/homepage_plateforme.html.twig', array(
-            'user' => $user
+            'user' => $user,
+            'agenda' => $agenda,
+            'articles' => $articles
         ));
     }
     public function philosophieAction()

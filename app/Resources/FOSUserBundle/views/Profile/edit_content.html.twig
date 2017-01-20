@@ -2,16 +2,52 @@
 
 <div class="container center" id="registermodel">
     <div class="col m8 offset-m2">
-        <h2 class="Compte">Créer un compte</h2>
+        <h2 class="Compte">Editer mon profil</h2>
         <div class="row">
             {{ form_start(form, { 'method': 'post','action': path('fos_user_profile_edit'), 'attr': { 'class': 'fos_user_profile_edit' } }) }}
-            {{ form_widget(form) }}
-
+            {#{{ form_widget(form) }}#}
 
             <div class="row input-field">
-                {{ form_widget(form.photo.file, {'attr':{'class':'photo form'}}) }}
-                {{ form_errors(form.photo.file) }}
+                {{ form_label(form.username, 'Pseudo') }}
+                {{ form_widget(form.username, {'attr':{'class':'username form'}}) }}
+                {{ form_errors(form.username) }}
             </div>
+
+            <div class="row input-field">
+                {{ form_label(form.email, 'E-mail') }}
+                {{ form_widget(form.email, {'attr':{'class':'email form'}}) }}
+                {{ form_errors(form.email) }}
+            </div>
+
+            <div class="row input-field">
+                {{ form_label(form.current_password, 'Mot de passe actuel') }}
+                {{ form_widget(form.current_password) }}
+                {{ form_errors(form.current_password) }}
+            </div>
+
+            <div class="col l4 m4 s12 center">
+                {# Affichage de l'image sélectionnée #}
+                <img class="hide" id="blah" src="#" alt="your image" />
+                {# Image enregistrées en base de données#}
+                <img id="imageBdD" class="responsive-img thumbs" src="{{ app.user.photo ? asset(app.user.photo.path) }}" alt="">
+            </div>
+
+        </div>
+            <div class="row">
+                <div class="file-field input-field">
+                    <div class="btn">
+                        <span>Photo</span>
+                        {#<input type="file">#}
+                        {{ form_widget(form.photo.file) }}
+                        {#{{ form_errors(form.photo.file) }}#}
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input class="file-path validate" type="text">
+                    </div>
+                    {#{{ form_errors(form.photo.file) }}#}
+                </div>
+            </div>
+
 
             <div class="button-register">
                 <button class="btn waves-effect waves-light btn-admin" type="submit" name="action"
@@ -20,6 +56,7 @@
                 </button>
             </div>
             {{ form_end(form) }}
-        </div>
+        {#</div>#}
     </div>
 </div>
+

@@ -1,9 +1,5 @@
 <style>
     body {
-    {#background: linear-gradient(rgba(248, 247, 216, 0.7), rgba(0,0,0,0)),#}
-    {#url('{{ asset('bundles/haras/media/foret.jpeg') }}');#}
-    {#background: linear-gradient(to top, rgba(255,255,255,0), rgba(255,255,255,1)), url({{ asset('bundles/haras/media/foret.jpeg') }});#}
-    {#background-image: url("{{ asset('bundles/haras/media/foret.jpeg') }}");#}
         background-image: url("https://dl.dropboxusercontent.com/s/v9qpub7hk3jggy6/background.png")
     }
 </style>
@@ -13,7 +9,7 @@
         <br />
 
         <div style="text-align:center;" id="profilepic">
-            <img src="{{ asset('bundles/haras/media/section2Image.png') }}" alt="" class="circle responsive-img">
+            <img src="{{ app.user.photo ? asset(app.user.photo.path) }}" alt="" class="circle responsive-img">
             <br />
             <p>{{ app.user|capitalize }}</p>
             {# Accès modif fiche user #}
@@ -34,6 +30,7 @@
         <div>
             {% render(controller("ForumBundle:Post:showListUser")) %}
         </div>
+        {# Fin selection user #}
         <li>
             <a  class="grey-text text-lighten-2" href="{{ path('plate_forme_homepage') }}">
                 <i class="fa fa-user fa-2x fa-fw"></i>Accueil
@@ -62,6 +59,5 @@
             </a>
         </li>
         {% endif %}
-
     </ul>
 </aside>

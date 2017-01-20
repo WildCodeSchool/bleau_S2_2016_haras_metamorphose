@@ -127,11 +127,10 @@ function colorpicker(){
         format: 'hex',
         color: '#1783cb'
     });
-    $('#colorpicker').click(function () {
-        if ($('#colorpicker') != '#1783cb'){
-            $('#tdcolor').css('background-color', colorpicker(
-            ))
-        }
-    })
+
+    $( ".#tdcolor ul li" ).click(function() {
+        var color = $( '#colorpicker' ).val();
+        $( '#colorpicker' ).css( 'background', color );
+    });
 }
 

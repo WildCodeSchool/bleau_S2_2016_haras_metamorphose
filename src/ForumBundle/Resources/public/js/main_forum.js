@@ -154,4 +154,35 @@ $(document).ready(function(){
     $('.modal').modal();
 });
 
+//****************************
+// Affichage image upload avant
+// validation du form
+//****************************
+// Actualise image après chargement sur new et edit Album
+$(document).ready(function(){
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                if ($('#imageBdD').hasClass('')) {
+                    $('#blah').attr('src', e.target.result);
+                    $('#imageBdD').toggleClass('hide');
+                }
+                else {
+                    $('#blah').attr('src', e.target.result);
+                    // Sur NEW masque l'image vide -- Changement de la class
+                    $('.hide').toggleClass('hide responsive-img');
+                    // Sur EDIT masque l'image initiale -- Changement de la class
+                    $('#imageBdD').toggleClass('thumbs hide');
+                }
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+
+    $("#fos_user_profile_form_photo_file").change(function(){
+        readURL(this);
+    });
+});
 

@@ -4,7 +4,8 @@ namespace SearchBundle\Repository;
 
 use ForumBundle\Entity\Post;
 use Doctrine\ORM\EntityRepository;
-use ForumBundle\Entity\CategoriePlateforme;
+//use ForumBundle\Entity\CategoriePlateforme;
+use SearchBundle\Controller\SearchEngineController;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 
@@ -18,7 +19,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class SearchRepository extends EntityRepository
 {
-    public function findPosts($limit, $requete, Post $post, CategoriePlateforme $categoriePlateforme)
+    public function findPost($limit, $requete, Post $post) // CategoriePlateforme $categoriePlateforme
     {
 //        Alias 's' = class searchrepository
 //        Alias 'p' = jointure parent_id
@@ -30,6 +31,7 @@ class SearchRepository extends EntityRepository
             ->setMaxResults( $limit );
         return $qb->getQuery()->getResult();
     }
+
 
 
 
