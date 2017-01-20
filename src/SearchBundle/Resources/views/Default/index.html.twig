@@ -27,14 +27,15 @@
                     <tbody>
 
                     {% for resultat in resultats %}
-                        {#{{ dump(resultat) }}#}
 
                         <tr>
-                            <td><a href="#"></a></td> <!-- replacer par {#{{ resultats.nom }}#}  -->
+                            <td><a href="#">{{ resultat.categorie.nom}}</a></td> <!-- replacer par {#{{ resultats.nom }}#}  -->
                             <td><a href="#">{{ resultat.titre }}</a></td>
-                            <td><a href="#"></a></td> <!-- replacer par {#{{ resultats.contenu }}#}  -->
+                            <td><a href="#">{{ resultat.contenu }}</a></td> <!-- replacer par {#{{ resultats.contenu }}#}  -->
                         </tr>
+
                     {% endfor %}
+
                     </tbody>
                 </table>
 

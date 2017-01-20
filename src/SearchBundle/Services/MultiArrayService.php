@@ -21,15 +21,15 @@ class MultiArrayService extends Controller
     }
 
     // Fonction pour lire $repository en tant que tableau multi-dimensionnel
-    public function multiArray($repositories, $requete){
+    public function multiArray($titres, $requete){
 
-        $result = array();
-        foreach ($repositories as $repository){
-            if (in_array($requete, $repository)){
-                $result[] = $requete;
+            $result = array();
+            foreach ($titres as $key => $titre){
+                if (in_array($requete, $titre)){
+                    $result['titre'] = $requete;
+                }
             }
-        }
-        return $result;
+            return $result;
     }
 
 }

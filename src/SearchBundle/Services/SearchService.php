@@ -10,9 +10,11 @@ namespace SearchBundle\Services;
 
 use ForumBundle\Entity\Post;
 use ForumBundle\Entity\CategoriePlateforme;
+use ForumBundle\ForumBundle;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\DependencyInjection\ContainerInterface as Container;
+
 
 class SearchService extends Controller
 {
@@ -23,52 +25,17 @@ class SearchService extends Controller
 
     }
 
-    public function getSearchPost($limit, $requete){
+    public function getSearchPostTitre($limit){
 //        Alias 's' = class searchrepository
-//        Alias 'p' = jointure parent_id
 
         $repository = $this->getDoctrine()
             ->getRepository('ForumBundle:Post');
 
-
         $qb = $repository->createQueryBuilder('s')
-            ->select('s.titre')
-            ->orderBy('s.date_create', 'DESC');
+            ->select('s.titre', 's.contenu')
+            ->orderBy('s.dateCreate', 'DESC');
 //            ->setMaxResults( $limit );
         return $qb->getQuery()->getResult();
     }
 
-
-    public function getSearchCategoryPlateform($limit, $requete){
-//        Alias 's' = class searchrepository
-//        Alias 'p' = jointure parent_id
-
-        $repository = $this->getDoctrine()
-            ->getRepository('ForumBundle:CategoriePlateforme');
-
-
-        $qb = $repository->createQueryBuilder('s')
-            ->select('s.categorie_plateforme')
-            ->orderBy('s.categorie_plateforme', 'DESC');
-//            ->setMaxResults( $limit );
-        return $qb->getQuery()->getResult();
-    }
-
-
-
-
-
-//    public function findCatPlat ($limit, $requete, Post $post)
-//    {
-//        // la requête, que vous devez maintenant comprendre et modifier;)
-//            $query = $qb->prepare("SELECT titre, contenu, nom
-//                                    FROM post, categorie_plateforme
-//                                    WHERE post.parent_id = categorie_plateforme.parent_id
-//                                    AND contenu = $requete
-//                                    OR titre = $requete
-//                                    OR nom = $requete
-//                                    ORDER BY post.id DESC") OR DIE ();
-//
-//            return $query->getQuery()->getResult();
-//    }
 }
