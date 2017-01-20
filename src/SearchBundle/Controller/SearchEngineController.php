@@ -53,7 +53,9 @@ class SearchEngineController extends Controller
 
                     $this->addFlash(
                         'success',
-                        'HEIN HEIN HEIN !!! VOUS N\'AVEZ PAS DIT LE MOT MAGIQUE :) HEIN HEIN HEIN !!!'
+                        ?>
+                        <h6 class="center">HEIN HEIN HEIN !!! VOUS N\'AVEZ PAS DIT LE MOT MAGIQUE :) HEIN HEIN HEIN !!!</h6><br>
+                           <iframe width="560" height="315" src="https://www.youtube.com/embed/3h0gGqFo8JE" frameborder="0" allowfullscreen class="center"></iframe> <?php
                     );
 
                 return $this->render('@Search/Default/index.html.twig', array(
