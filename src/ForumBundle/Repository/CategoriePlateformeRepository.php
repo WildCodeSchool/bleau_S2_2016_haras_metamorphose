@@ -28,4 +28,5 @@ class CategoriePlateformeRepository extends \Doctrine\ORM\EntityRepository
 
         return $this->getEntityManager()->getConnection()->executeQuery($sql)->fetchAll();
     }
+
 }
