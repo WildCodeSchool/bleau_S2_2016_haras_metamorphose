@@ -43,6 +43,7 @@ class MultiArrayService extends Controller
 
                             $result['contenu'] = $resultat;
 
+                            // on renvois la valeur du titre en fonction du mot trouvé dans le contenu
                             return $valeur;
                         }
                     }
