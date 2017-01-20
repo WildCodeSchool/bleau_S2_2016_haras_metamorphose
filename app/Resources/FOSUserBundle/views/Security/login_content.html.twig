@@ -38,12 +38,6 @@
                             <i class="material-icons">done</i>
                         </button>
                     </div>
-                    <div class="inscription">
-                        <a href="{{ path('fos_user_registration_register') }}">
-                            <button class="btn waves-effect waves-light btn-login" type="submit" name="action">S'inscrire
-                                <i class="material-icons">perm_identity</i>
-                            </button>
-                        </a>
 
                         <a href="{{ path('plate_forme_homepage') }}">
                             <button class="btn waves-effect waves-light btn-login" type="submit" name="action">Retour
@@ -53,6 +47,12 @@
                     </div>
                 </div>
             </form>
-        </div>
+                <div class="inscription">
+                    <a href="{{ path('fos_user_registration_register') }}">
+                        <button class="btn waves-effect waves-light btn-login" type="submit" name="action">S'inscrire
+                            <i class="material-icons">perm_identity</i>
+                        </button>
+                    </a>
+                </div>
     </div>
 </div>
