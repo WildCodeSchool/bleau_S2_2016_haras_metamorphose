@@ -39,29 +39,33 @@ class SearchEngineController extends Controller
             // Appel du service pour checker $requete dans multi array $repository
             $resultat = $this->container->get('multiarray.service')->multiArray($titres, $requete);
 
-            $resultats = $this->getDoctrine()->getRepository('ForumBundle:Post')->findBy($resultat);
+            if ($resultat != false){
 
-            /*----------------------------------------------------------------------*/
-
-//            dump($requete, $titres, $resultat, $resultats); die;
-
-            /*----------------------------------------------------------------------*/
-
-            if ($resultats != false) {
+                $resultats = $this->getDoctrine()->getRepository('ForumBundle:Post')->findBy($resultat);
 
                 // maintenant, on va afficher la page qui va afficher les résultats
                 return $this->render('@Search/Default/index.html.twig', array(
                     'resultats' => $resultats,
                 ));
+
             }
             else {
 
-                $this->addFlash(
-                    'success',
-                    'La recherche ne donne aucun résultats'
-                );
+                    $this->addFlash(
+                        'success',
+                        'HEIN HEIN HEIN !!! VOUS N\'AVEZ PAS DIT LE MOT MAGIQUE :) HEIN HEIN HEIN !!!'
+                    );
 
-                return $this->render('@PlateForme/Default/index.html.twig');
+                return $this->render('@Search/Default/index.html.twig', array(
+                    'resultats' => '',
+                ));
+
+//                $this->addFlash(
+//                    'success',
+//                    'La recherche ne donne aucun résultats'
+//                );
+
+//                return $this->render('@PlateForme/homepage_plateforme.html.twig');
             }
         }
     }

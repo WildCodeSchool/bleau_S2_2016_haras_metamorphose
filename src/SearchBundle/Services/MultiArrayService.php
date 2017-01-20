@@ -45,14 +45,13 @@ class MultiArrayService extends Controller
 
 //                            dump($requete, $requete_str, $valeur['contenu'], $resultat, $valeur['titre']); die;
 
-                            return $valeur;
+                                return $valeur;
                         }
-
                     }
-
                 }
             }
-//            return $resultat;
+
+//            return false;
     }
 
 }
