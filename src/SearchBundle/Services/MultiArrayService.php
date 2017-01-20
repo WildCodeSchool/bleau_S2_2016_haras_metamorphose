@@ -34,17 +34,25 @@ class MultiArrayService extends Controller
                 }
                 /*--- Sinon on boucle sur le 2nd tableau et on check la valeur de retour est egale à la requete---*/
                 else{
+
+                    $requete_str = '/' . $requete . '/';
+
                     foreach ($titres as $valeur){
 
-                        $array = in_array($requete, $valeur);
-                        $requete_str = '/' . $requete . '/'; // il faut inverser les lignes
-                        // car sinon forcément on ne peut trouver la valeur dans in_array
-                        preg_match($requete_str, $array);
-                        $result['contenu'] = $array;
+                        if (preg_match($requete_str, $valeur['contenu'], $resultat)){
+
+                            $result['contenu'] = $resultat;
+
+//                            dump($requete, $requete_str, $valeur['contenu'], $resultat, $valeur['titre']); die;
+
+                            return $valeur;
+                        }
+
                     }
+
                 }
             }
-            return $result;
+//            return $resultat;
     }
 
 }
