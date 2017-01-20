@@ -1,31 +1,34 @@
 {% extends '@PlateForme/layout.html.twig' %}
 
 {% block body %}
-<div class="container center" id="philosophiemodel">
-    <table>
-        <tbody>
+    <div class="container center" id="philosophiemodel">
+        <table>
+            <tbody>
+            {# Comme on récupère une variable au singulier, avant le in -> philo #}
+            {% for philo in philosophie %}
             <tr>
-
-                <td>{{ philosophie.texte |raw }}</td>
+                <td>{{ philo.texte |raw }}</td>
             </tr>
-        </tbody>
-    </table>
+            </tbody>
+        </table>
 
-    <div class="boutons">
-                <a href="{{ path('plate_forme_homepage') }}" title="Revenir à l'accueil">
+        <div class="boutons">
+            <a href="{{ path('plate_forme_homepage') }}" title="Revenir à l'accueil">
+                <span class="fa-stack fa-2x">
+                <i class="fa fa-circle fa-stack-2x icon-background2"></i>
+                <i class="fa fa-backward fa-stack-1x" aria-hidden="true"></i>
+                </span>
+            </a>
+            {% if is_granted('ROLE_ADMIN') %}
+                <a href="{{ path('philosophie_edit', { 'id': philo.id }) }}" title="Editer">
                     <span class="fa-stack fa-2x">
-                        <i class="fa fa-circle fa-stack-2x icon-background2"></i>
-                        <i class="fa fa-backward fa-stack-1x" aria-hidden="true"></i>
+                    <i class="fa fa-circle fa-stack-2x icon-background2"></i>
+                    <i class="fa fa-pencil fa-stack-1x"></i>
                     </span>
                 </a>
-                {% if is_granted('ROLE_ADMIN') %}
-                <a href="{{ path('philosophie_edit', { 'id': philosophie.id }) }}" title="Editer">
-                    <span class="fa-stack fa-2x">
-                      <i class="fa fa-circle fa-stack-2x icon-background2"></i>
-                      <i class="fa fa-pencil fa-stack-1x"></i>
-                    </span>
-                </a>
-                {% endif %}
+            {% endif %}
+
+            {% endfor %}
+        </div>
     </div>
-</div>
 {% endblock %}

@@ -186,3 +186,11 @@ $(document).ready(function(){
     });
 });
 
+//***************************************************//
+//    Actualités forum sur homepage                  //
+//****************************************************
+$(document).ready(function(){
+    if ($('.divContenuHome').is(':empty')) {
+        $('.sliderPost-container').toggleClass('hide');
+    }
+});
