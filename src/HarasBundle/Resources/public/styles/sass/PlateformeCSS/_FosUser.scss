@@ -1,6 +1,7 @@
 /********************  PROFIL   ************************/
 .profile img{
-  background-color: rgba(177, 176, 206, 0.3);
+  background-color: #60992b99;
+
 }
 .img-circle{
   width: 10vw;
@@ -11,7 +12,9 @@
   text-align: center;
 }
 
-
+.file-field{
+  margin: 0px 37px 0px 34px;
+}
 
 .btn-primary {
   background-color: #1f7b88;
@@ -156,5 +159,5 @@ label[for=username]{
 }
 
 .responsive-img{
-    width: 10vw;
+  width: 10vw;
 }

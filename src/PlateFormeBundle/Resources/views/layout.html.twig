@@ -69,8 +69,6 @@
                     </li>
                     <ul id="dropdown2" class="dropdown-content">
                         {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                            {#{{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |#}
-
                             <li><a href="{{ path('fos_user_profile_show') }}">Voir mon profil</a></li>
                             <li><a href="{{ path('fos_user_security_logout') }}">Se deconnecter</a></li>
                         {% else %}
@@ -85,6 +83,7 @@
         <nav class="navbar2">
 
             <ul class="left hide-on-med-and-down-navbarleft">
+                {#Ici on considère que la page philosophie = id 1 car on ne passe pas par l'étape Index#}
                 <li class="active philosophie"><a href="{{ path('philosophie_show') }}">Notre philosophie</a></li>
                 <li class="decouverte"><a href="{{ path('post_index') }}">Découverte</a></li>
                 <li class="haras"><a href="{{ path('post_index') }}">Le haras</a></li>
