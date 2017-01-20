@@ -25,13 +25,17 @@
                         </tr>
                     </theader>
                     <tbody>
-                    {% for resultats in resultat %}
+
+                    {% for resultat in resultats %}
+
                         <tr>
-                            <td><a href="{{ path('#') }}">{{ resultats.titre }}</a></td> <!-- replacer par {#{{ resultats.nom }}#}  -->
-                            <td><a href="{{ path('#') }}">{{ resultats.titre }}</a></td>
-                            <td><a href="{{ path('#') }}">{{ resultats.titre }}</a></td> <!-- replacer par {#{{ resultats.contenu }}#}  -->
+                            <td><a href="#">{{ resultat.categorie.nom}}</a></td> <!-- replacer par {#{{ resultats.nom }}#}  -->
+                            <td><a href="#">{{ resultat.titre }}</a></td>
+                            <td><a href="#">{{ resultat.contenu }}</a></td> <!-- replacer par {#{{ resultats.contenu }}#}  -->
                         </tr>
+
                     {% endfor %}
+
                     </tbody>
                 </table>
 

@@ -8,12 +8,12 @@
 
 namespace SearchBundle\Controller;
 
-use ForumBundle\Entity\Post;
 use SearchBundle\SearchBundle;
-use ForumBundle\Entity\CategoriePlateforme;
+use SearchBundle\Services\SearchService;
 use Symfony\Component\HttpFoundation\Request;
-use SearchBundle\Repository\SearchRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Form\DataTransformerInterface;
+use Symfony\Component\Form\Exception\TransformationFailedException;
 
 class SearchEngineController extends Controller
 {
@@ -27,53 +27,42 @@ class SearchEngineController extends Controller
             // on crée une variable $requete pour faciliter l'écriture de la requête SQL,
             // mais aussi pour empêcher les éventuels malins qui utiliseraient du PHP ou du JS,
             // avec la fonction htmlspecialchars().
-            $requete = htmlspecialchars($_POST['requete']);
+            $requete_str = htmlspecialchars($_POST['requete']);
+            $requete_strtolower = strtolower($requete_str);
+            $requete = $requete_strtolower;
 
             $limit = 25;
 
-            // Appel du repository avec laquelle on demande une requete sql
-            $em = $this->getDoctrine()->getManager();
-            $repository = $this->getRepository('SearchBundle:Search')->findPost($requete, $limit); //SearchRepository::class
+            // Appel du service avec laquelle on demande une requete sql
+            $titres = $this->container->get('search.service')->getSearchPostTitre($requete, $limit);
 
-            // on boucle pour récuperer le résultat de repository
-            foreach ($repository as $resultat) {
+            // Appel du service pour checker $requete dans multi array $repository
+            $resultat = $this->container->get('multiarray.service')->multiArray($titres, $requete);
 
-//                $resultat = $repository->findBy($requete);
-                $resultat->getContent();
+            $resultats = $this->getDoctrine()->getRepository('ForumBundle:Post')->findBy($resultat);
 
-            }
+            /*----------------------------------------------------------------------*/
 
-            // si le résultat est identique au mot recherché on affiche la page de résultats
-            if($resultat == $requete)
+//            dump($requete, $titres, $resultat, $resultats); die;
 
-            {
+            /*----------------------------------------------------------------------*/
+
+            if ($resultats != false) {
+
                 // maintenant, on va afficher la page qui va afficher les résultats
                 return $this->render('@Search/Default/index.html.twig', array(
-                    'resultat' => $resultat,
+                    'resultats' => $resultats,
                 ));
             }
-            // sinon on retourne à la page d'accueil avec un message
-            else
+            else {
 
-            {
-//                $this->addFlash(
-//                    'success',
-//                    'La recherche ne donne aucun résultats'
-//                );
+                $this->addFlash(
+                    'success',
+                    'La recherche ne donne aucun résultats'
+                );
 
                 return $this->render('@PlateForme/Default/index.html.twig');
-
             }
-        }
-        // Si le post est vide on retourne à la page d'accueil
-        else
-        {
-//            $this->addFlash(
-//                'success',
-//                'Le champ de recherche est vide'
-//            );
-
-            return $this->render('@PlateForme/Default/index.html.twig');
         }
     }
 
