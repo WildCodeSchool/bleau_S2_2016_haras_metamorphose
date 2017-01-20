@@ -55,13 +55,25 @@ class PhilosophieController extends Controller
      * Finds and displays a philosophie entity.
      *
      */
-    public function showAction(Philosophie $philosophie)
+    public function showAction()
     {
-        $deleteForm = $this->createDeleteForm($philosophie);
+
+        // Création d'un nouvel objet Philosophie en cas de BdD vide
+        // Règle de gestion, un seul élément Philosophie dans la BdD,
+        // pas de possibilité d'ajouter un nouvel élément.
+        $em = $this->getDoctrine()->getManager();
+        // Variable sans S parce que unique
+        $philosophie = $em->getRepository('PlateFormeBundle:Philosophie')->findAll();
+
+        if (empty($philosophie)) {
+            $philosophie = new Philosophie();
+            $philosophie->setTexte('Bonjour, merci de mettre à jour votre page philosophie');
+            $em->persist($philosophie);
+            $em->flush();
+        }
 
         return $this->render('@PlateForme/philosophie/show.html.twig', array(
             'philosophie' => $philosophie,
-            'delete_form' => $deleteForm->createView(),
         ));
     }
 
@@ -78,7 +90,7 @@ class PhilosophieController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('philosophie_show', array('id' => $philosophie->getId()));
+            return $this->redirectToRoute('philosophie_show');
         }
 
         return $this->render('@PlateForme/philosophie/edit.html.twig', array(
