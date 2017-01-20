@@ -49,7 +49,6 @@ class SearchEngineController extends Controller
 
             if ($resultats != false) {
 
-
                 // maintenant, on va afficher la page qui va afficher les résultats
                 return $this->render('@Search/Default/index.html.twig', array(
                     'resultats' => $resultats,
