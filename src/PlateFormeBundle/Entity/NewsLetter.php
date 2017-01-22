@@ -2,20 +2,91 @@
 
 namespace PlateFormeBundle\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 /**
  * NewsLetter
  */
 class NewsLetter
 {
+    public $file;
+
+    protected function getUploadDir()
+    {
+        return 'uploads/newsletters_file';
+    }
+
+    protected function getUploadRootDir()
+    {
+        return __DIR__.'/../../../web/'.$this->getUploadDir();
+    }
+
+    public function getWebPath()
+    {
+        return null === $this->filename ? null : $this->getUploadDir().'/'.$this->filename;
+    }
+
+    public function getAbsolutePath()
+    {
+        return null === $this->filename ? null : $this->getUploadRootDir().'/'.$this->filename;
+    }
+
     /**
-     * @var int
+     * @ORM\PrePersist
+     */
+    public function preUpload()
+    {
+        if (null !== $this->file) {
+            // do whatever you want to generate a unique name
+            $this->filename = 'newsletter_n-' . $this->getId() . '.' . $this->file->guessExtension();
+        }
+    }
+
+    /**
+     * @ORM\PostPersist
+     */
+    public function upload()
+    {
+        if (null === $this->file) {
+            return;
+        }
+
+        // if there is an error when moving the file, an exception will
+        // be automatically thrown by move(). This will properly prevent
+        // the entity from being persisted to the database on error
+        $this->file->move($this->getUploadRootDir(), $this->filename);
+
+        unset($this->file);
+    }
+
+    /**
+     * @ORM\PostRemove
+     */
+    public function removeUpload()
+    {
+        if ($file = $this->getAbsolutePath()) {
+            $this->filename = null;
+            unlink($file);
+        }
+    }
+
+    //***************************************//
+    //                                       //
+    //           GENERATED CODE              //
+    //                                       //
+    //***************************************//
+
+
+    /**
+     * @var integer
      */
     private $id;
 
     /**
      * @var string
      */
-    private $libele;
+    private $libelle;
 
     /**
      * @var string
@@ -28,7 +99,7 @@ class NewsLetter
     private $dateCreation;
 
     /**
-     * @var bool
+     * @var boolean
      */
     private $etat;
 
@@ -37,11 +108,21 @@ class NewsLetter
      */
     private $dateEnvoie;
 
+    /**
+     * @var boolean
+     */
+    private $pj;
+
+    /**
+     * @var string
+     */
+    private $filename;
+
 
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -49,27 +130,27 @@ class NewsLetter
     }
 
     /**
-     * Set libele
+     * Set libelle
      *
-     * @param string $libele
+     * @param string $libelle
      *
      * @return NewsLetter
      */
-    public function setLibele($libele)
+    public function setLibelle($libelle)
     {
-        $this->libele = $libele;
+        $this->libelle = $libelle;
 
         return $this;
     }
 
     /**
-     * Get libele
+     * Get libelle
      *
      * @return string
      */
-    public function getLibele()
+    public function getLibelle()
     {
-        return $this->libele;
+        return $this->libelle;
     }
 
     /**
@@ -137,7 +218,7 @@ class NewsLetter
     /**
      * Get etat
      *
-     * @return bool
+     * @return boolean
      */
     public function getEtat()
     {
@@ -167,45 +248,6 @@ class NewsLetter
     {
         return $this->dateEnvoie;
     }
-    /**
-     * @var string
-     */
-    private $libelle;
-
-
-    /**
-     * Set libelle
-     *
-     * @param string $libelle
-     *
-     * @return NewsLetter
-     */
-    public function setLibelle($libelle)
-    {
-        $this->libelle = $libelle;
-
-        return $this;
-    }
-
-    /**
-     * Get libelle
-     *
-     * @return string
-     */
-    public function getLibelle()
-    {
-        return $this->libelle;
-    }
-    /**
-     * @var boolean
-     */
-    private $pj;
-
-    /**
-     * @var string
-     */
-    private $filename;
-
 
     /**
      * Set pj

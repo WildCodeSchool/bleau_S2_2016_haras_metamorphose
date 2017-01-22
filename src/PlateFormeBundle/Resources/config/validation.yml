@@ -1,0 +1,7 @@
+PlateFormeBundle\Entity\NewsLetter:
+    properties:
+        file:
+            - File:
+                maxSize: 2048k
+                mimeTypes: [application/pdf, application/x-pdf]
+                mimeTypesMessage: "Merci de proposer un fichier PDF valide"

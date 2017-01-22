@@ -1,0 +1,60 @@
+{% extends '@PlateForme/layout.html.twig' %}
+
+{% block body %}
+    {#-------------------------------------------------------------#}
+    {#                                                             #}
+    {#               Nouvelle NEWSLETTER                           #}
+    {#                                                             #}
+    {#-------------------------------------------------------------#}
+
+    {#-------------------------------------------------------------#}
+    {# NavBar Lateral  #}
+    {#{{ include("@Forum/post/postNavBar.html.twig") }}#}
+    {# fin navBar lateral #}
+    {#-------------------------------------------------------------#}
+
+
+    <style>
+        .ContainerNL {
+            flex: 1 0 auto;;
+        }
+    </style>
+
+        <div class="ContainerNL row">
+            <h1>Nouvelle newsletter</h1>
+
+            {{ form_start(form) }}
+            <div class="row input-field">
+                {{ form_label(form.libelle) }}
+                {{ form_widget(form.libelle) }}
+                {{ form_errors(form.libelle) }}
+            </div>
+
+            <div class="row input-field">
+                {{ form_widget(form.objet|raw) }}
+                {{ form_errors(form.objet) }}
+            </div>
+
+            <div class="row">
+                <div class="input-group">
+                    {{ form_widget(form.filename, {'attr': {'class': 'help-block'}}) }}
+                    {{ form_errors(form.filename) }}
+                </div>
+            </div>
+
+            {# Bouton de validation #}
+            <div class="row center">
+                <button class="btn-floating btn-large waves-effect waves-light green darken-1"
+                        type="submit"
+                        title="Valider"
+                        value="Create">
+                    <i class="material-icons">check</i>
+                </button>
+                <a class="btn-floating btn-large waves-effect waves-light blue darken-1"
+                   href="{{ path('newsletter_index') }}">
+                    <i class="small material-icons">home</i>
+                </a>
+            </div>
+            {{ form_end(form) }}
+        </div>
+{% endblock %}

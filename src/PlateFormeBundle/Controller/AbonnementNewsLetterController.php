@@ -16,7 +16,7 @@ class AbonnementNewsLetterController extends Controller
      * Creates a new AbonnementNewsLetter entity.
      *
      */
-    public function newAction(Request $request)
+    public function abonnementNewsletterAction(Request $request)
     {
         // Connexion à la BdD
         $em = $this->getDoctrine()->getManager();
@@ -44,5 +44,36 @@ class AbonnementNewsLetterController extends Controller
 
         $em->flush();
         return $this->redirectToRoute('plate_forme_homepage');
+    }
+
+    public function desabonnementNewsletterAction(Request $request){
+
+        $em = $this->getDoctrine()->getManager();
+
+        $mail = $request->request->get('email');
+
+        if ($mail != null){
+            // Inscrit dans table newsletter abonné
+            $user = $em->getRepository('PlateFormeBundle:AbonnementNews')->findOneByEmail($mail);
+            if(!empty($user)) {
+                $user->setActif(false);
+                $em->persist($user);
+            }
+
+            // Inscrit membre du forum
+            $userForum = $em->getRepository('UserBundle:user')->findOneByEmail($mail);
+            if(!empty($userForum)) {
+                $userForum->setNewsletter(false);
+                $em->persist($userForum);
+            }
+
+            $em->flush();
+
+           return $this->redirectToRoute('plate_forme_homepage');
+        }
+        else{
+            return $this->render('@PlateForme/homepage_plateforme.html.twig');
+        }
+
     }
 }
