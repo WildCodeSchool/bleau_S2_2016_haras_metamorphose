@@ -23,8 +23,8 @@ class NewsLetterType extends AbstractType
 //                ->add('dateCreation')
 //                ->add('etat')
 //                ->add('dateEnvoie')
-                ->add('pj')
-                ->add('filename', 'file', array('label' => 'Pièce jointe', 'required' => false));
+                ->add('pj');
+//                ->add('filename', 'file', array('label' => 'Pièce jointe', 'required' => false));
     }
     
     /**

@@ -1,9 +1,5 @@
 {% extends '@PlateForme/layout.html.twig' %}
 
-
-
-
-
 {% block body %}
 
     <style>
@@ -27,10 +23,10 @@
             {{ form_errors(edit_form.objet) }}
         </div>
         <div class="row">
-            <div class="input-group">
-                {{ form_widget(edit_form.filename, {'attr': {'class': 'help-block'}}) }}
-                {{ form_errors(edit_form.filename) }}
-            </div>
+            {#<div class="input-group">#}
+                {#{{ form_widget(edit_form.filename, {'attr': {'class': 'help-block'}}) }}#}
+                {#{{ form_errors(edit_form.filename) }}#}
+            {#</div>#}
         </div>
 
         <div class="row center">
@@ -41,8 +37,12 @@
                href="{{ path('newsletter_index')}}">
                 <i class="material-icons">home</i>
             </a>
+            {#<a class="btn-floating btn-small waves-effect waves-light blue darken-1"#}
+               {#href="{{ path('newsletter_delete', { 'id': newsLetter.id }) }} " onclick="return confirm('Vous êtes sure ?')">#}
+                {#<i class="small material-icons">delete</i>#}
+            {#</a>#}
             <a class="btn-floating btn-small waves-effect waves-light blue darken-1"
-               href="{{ path('newsletter_delete', { 'id': newsLetter.id }) }}">
+               href="{{ path('newsletter_delete', { 'id': newsLetter.id }) }}" onclick="return confirm('Êtes-vous sûr ?')">
                 <i class="small material-icons">delete</i>
             </a>
         </div>

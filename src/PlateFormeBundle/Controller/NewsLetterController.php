@@ -132,6 +132,10 @@ class NewsLetterController extends Controller
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('newsletter_delete', array('id' => $newsLetter->getId())))
             ->setMethod('DELETE')
+            ->add('submit', 'submit', array('label' => 'Delete',
+                'attr' => array(
+                    'onclick' => 'return confirm("Êtes-vous sûr ?")'
+                )))
             ->getForm()
         ;
     }
@@ -176,9 +180,9 @@ class NewsLetterController extends Controller
         $newsLetterAEnvoyer = $em->getRepository('PlateFormeBundle:NewsLetter')->findOneById($id);
         $destinataires = $this->getUsersMail();
 
-        dump($destinataires);
-        dump($newsLetterAEnvoyer);
-        die();
+//        dump($destinataires);
+//        dump($newsLetterAEnvoyer);
+//        die();
         $file = $newsLetterAEnvoyer->getWebPath();
 //        $desabonnement = '<p style="margin-top: 60px; text-align: center;">Pour vous desabonner, <a href="' . __DIR__ . $this->generateUrl('desabonnement_newsletter') .'">cliquez ici</a><p>';
 

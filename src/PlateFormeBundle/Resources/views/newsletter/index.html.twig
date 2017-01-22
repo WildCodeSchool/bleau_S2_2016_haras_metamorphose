@@ -25,8 +25,8 @@
         <table class="responsive-table bordered striped" id="table_NLindex">
         <thead>
             <tr>
-                <th>Libelle</th>
-                <th>Objet</th>
+                <th>Titre</th>
+                <th>Contenu</th>
                 <th>Créée le :</th>
                 <th>Envoyée le :</th>
                 <th>Pièce jointe</th>
@@ -38,7 +38,7 @@
         {% for newsLetter in newsLetters %}
             <tr>
                 <td>{{ newsLetter.libelle }}</td>
-                <td>{{ newsLetter.objet|striptags|truncate(70, true, "...")|raw }}</td>
+                <td>{{ newsLetter.objet|striptags|truncate(65, true, "...")|raw }}</td>
                 <td>{% if newsLetter.dateCreation %}{{ newsLetter.dateCreation|date('d-m-Y') }}{% endif %}</td>
                 {#<td>{% if newsLetter.etat %}Oui{% else %}Non{% endif %}</td>#}
                 <td>{% if newsLetter.dateEnvoie %}{{ newsLetter.dateEnvoie|date('d-m-Y') }}{% else %} ----- {% endif %}</td>
