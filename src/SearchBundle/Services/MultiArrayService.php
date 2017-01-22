@@ -43,15 +43,12 @@ class MultiArrayService extends Controller
 
                             $result['contenu'] = $resultat;
 
-//                            dump($requete, $requete_str, $valeur['contenu'], $resultat, $valeur['titre']); die;
-
-                                return $valeur;
+                            // on renvois la valeur du titre en fonction du mot trouvé dans le contenu
+                            return $valeur;
                         }
                     }
                 }
             }
-
-//            return false;
     }
 
 }

@@ -24,7 +24,7 @@ class SearchEngineController extends Controller
         if(isset($_POST['requete']) && $_POST['requete'] != NULL)
 
         {
-            // on crée une variable $requete pour faciliter l'écriture de la requête SQL,
+            // on crée une variable $requete pour faciliter l'écriture de la requête de SearchService,
             // mais aussi pour empêcher les éventuels malins qui utiliseraient du PHP ou du JS,
             // avec la fonction htmlspecialchars().
             $requete_str = htmlspecialchars($_POST['requete']);
@@ -33,12 +33,13 @@ class SearchEngineController extends Controller
 
             $limit = 25;
 
-            // Appel du service avec laquelle on demande une requete sql
+            // Appel du service avec laquelle on demande une requete Dql
             $titres = $this->container->get('search.service')->getSearchPostTitre($requete, $limit);
 
             // Appel du service pour checker $requete dans multi array $repository
             $resultat = $this->container->get('multiarray.service')->multiArray($titres, $requete);
 
+            // Si tout les services repondent favorablement
             if ($resultat != false){
 
                 $resultats = $this->getDoctrine()->getRepository('ForumBundle:Post')->findBy($resultat);
@@ -49,23 +50,17 @@ class SearchEngineController extends Controller
                 ));
 
             }
+            // sinon on envois un message flash
             else {
 
                     $this->addFlash(
                         'success',
-                        'HEIN HEIN HEIN !!! VOUS N\'AVEZ PAS DIT LE MOT MAGIQUE :) HEIN HEIN HEIN !!!'
+                        '!!! Le mot recherché n\'a pas été trouvé !!!'
                     );
 
                 return $this->render('@Search/Default/index.html.twig', array(
                     'resultats' => '',
                 ));
-
-//                $this->addFlash(
-//                    'success',
-//                    'La recherche ne donne aucun résultats'
-//                );
-
-//                return $this->render('@PlateForme/homepage_plateforme.html.twig');
             }
         }
     }
