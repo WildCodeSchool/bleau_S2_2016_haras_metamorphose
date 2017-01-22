@@ -165,3 +165,72 @@ footer.page-footer{
   background-color: rgba(118, 135, 146, 0.9);
   margin-top:0px;
 }
+
+
+/*-----------------------------------------------------*\
+                          MEDIA-QUERIES
+\*-----------------------------------------------------*/
+
+@media screen and (max-width:600px){
+  #plateforme-logo{
+    height: 55px;
+  }
+}
+
+@media screen and (max-width:330px){
+  .newsletter-logo{
+    margin-right: -1%;
+  }
+  .post-logo{
+    margin-left: -3%;
+  }
+  .agenda-logo{
+    margin-left: -3%;
+  }
+  .profile-logo{
+    margin-left: -3%;
+  }
+}
+
+@media screen and (max-width:398px){
+  .right{
+    margin-right:-4%;
+  }
+}
+
+@media screen and (max-width:350px){
+  .right{
+    margin-right:-15%;
+  }
+}
+
+@media screen and (max-width:398px){
+  .right{
+    margin-right:-4%;
+  }
+}
+
+@media screen and (max-width:320px){
+  .newsletter-lien{
+    padding-left: 2px;
+  }
+  .newsletter-lien{
+    margin-right: -8%;
+  }
+  .post-logo{
+    margin-right: -9%;
+  }
+  .agenda-logo{
+    margin-right: -22px;
+  }
+  .profile-logo{
+    margin-left: 0%;
+  }
+  .right {
+    margin-right: -15%;
+  }
+}
+
+@media screen and (max-width:990px){
+ 
+}
