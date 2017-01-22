@@ -23,7 +23,7 @@ PlateFormeBundle\Entity\NewsLetter:
             type: date
         pj:
             type: boolean
-        filename:
+        url:
             type: string
             length: 255
             nullable: true

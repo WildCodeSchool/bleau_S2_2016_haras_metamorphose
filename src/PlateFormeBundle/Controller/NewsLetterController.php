@@ -42,12 +42,11 @@ class NewsLetterController extends Controller
             $newsLetter->setDateCreation(new \DateTime());
             $newsLetter->setEtat(false);
 
-            if(empty($newsLetter->getFilename())) {
+            if(empty($newsLetter->getUrl())) {
                 $newsLetter->setPj(false);
             } else {
                 $newsLetter->setPj(true);
             }
-
 
             $em->persist($newsLetter);
             $em->flush($newsLetter);
@@ -105,18 +104,16 @@ class NewsLetterController extends Controller
      */
     public function deleteAction($id)
     {
-
         if ($id) {
             $em = $this->getDoctrine()->getManager();
             $newsletter = $em->getRepository('PlateFormeBundle:NewsLetter')->findOneById($id);
             $em->remove($newsletter);
-            //$em->remove($filename);
+            //$em->remove($url);
             $em->flush();
 
             return $this->redirectToRoute('newsletter_index');
         } else
             return $this->redirectToRoute('newsletter_index');
-
     }
 
 
@@ -188,7 +185,7 @@ class NewsLetterController extends Controller
 
 
 
-        if ($newsLetterAEnvoyer->getFilename() != null){
+        if ($newsLetterAEnvoyer->getUrl() != null){
             $message = \Swift_Message::newInstance()
                 ->setSubject($newsLetterAEnvoyer->getLibelle())
                 ->setFrom(array($this->getParameter('mailer_user') => 'Haras'))

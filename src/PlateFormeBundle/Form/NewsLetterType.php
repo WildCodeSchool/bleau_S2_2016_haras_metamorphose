@@ -2,6 +2,7 @@
 
 namespace PlateFormeBundle\Form;
 
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -23,8 +24,8 @@ class NewsLetterType extends AbstractType
 //                ->add('dateCreation')
 //                ->add('etat')
 //                ->add('dateEnvoie')
-                ->add('pj');
-//                ->add('filename', 'file', array('label' => 'Pièce jointe', 'required' => false));
+                ->add('pj')
+                ->add('url', 'file', array('label' => 'Pièce jointe', 'required' => false));
     }
     
     /**

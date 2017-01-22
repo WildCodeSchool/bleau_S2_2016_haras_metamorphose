@@ -10,6 +10,12 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class NewsLetter
 {
+    public function __toString()
+    {
+        return $this->url;
+    }
+
+
     public $file;
 
     protected function getUploadDir()
@@ -24,12 +30,12 @@ class NewsLetter
 
     public function getWebPath()
     {
-        return null === $this->filename ? null : $this->getUploadDir().'/'.$this->filename;
+        return null === $this->url ? null : $this->getUploadDir().'/'.$this->url;
     }
 
     public function getAbsolutePath()
     {
-        return null === $this->filename ? null : $this->getUploadRootDir().'/'.$this->filename;
+        return null === $this->url ? null : $this->getUploadRootDir().'/'.$this->url;
     }
 
     /**
@@ -39,7 +45,7 @@ class NewsLetter
     {
         if (null !== $this->file) {
             // do whatever you want to generate a unique name
-            $this->filename = 'newsletter_n-' . $this->getId() . '.' . $this->file->guessExtension();
+            $this->url = 'newsletter_n-' . $this->getId() . '.' . $this->file->guessExtension();
         }
     }
 
@@ -55,7 +61,7 @@ class NewsLetter
         // if there is an error when moving the file, an exception will
         // be automatically thrown by move(). This will properly prevent
         // the entity from being persisted to the database on error
-        $this->file->move($this->getUploadRootDir(), $this->filename);
+        $this->file->move($this->getUploadRootDir(), $this->url);
 
         unset($this->file);
     }
@@ -66,7 +72,7 @@ class NewsLetter
     public function removeUpload()
     {
         if ($file = $this->getAbsolutePath()) {
-            $this->filename = null;
+            $this->url = null;
             unlink($file);
         }
     }
@@ -116,7 +122,7 @@ class NewsLetter
     /**
      * @var string
      */
-    private $filename;
+    private $url;
 
 
     /**
@@ -274,26 +280,26 @@ class NewsLetter
     }
 
     /**
-     * Set filename
+     * Set url
      *
-     * @param string $filename
+     * @param string $url
      *
      * @return NewsLetter
      */
-    public function setFilename($filename)
+    public function setUrl($url)
     {
-        $this->filename = $filename;
+        $this->url = $url;
 
         return $this;
     }
 
     /**
-     * Get filename
+     * Get url
      *
      * @return string
      */
-    public function getFilename()
+    public function getUrl()
     {
-        return $this->filename;
+        return $this->url;
     }
 }
