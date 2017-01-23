@@ -87,12 +87,18 @@ $
     margin-right: auto;
 }
 
+.modal-footer{
+    background-color: #9F9F9F !important;
+    border-radius: 50px;
+    width: 150px;
+    height: 60px;
+}
+
 .modal-bouton {
-    background-color: #515e69 !important;
-    border-radius: 50px !important;
     width: 16% !important;
     margin: auto !important;
-    position: relative !important;
+    position: relative;
+    border-radius: 50px !important;
 }
 
 /*********************************************************/
