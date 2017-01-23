@@ -29,13 +29,11 @@ $
 .bouton-edit {
     color: #27228C;
     font-size: 36px !important;
-    float: right;
 }
 
 .bouton-delete {
     color: #902b2b;
     font-size: 36px !important;
-    float: right;
 }
 /************************************************
 *
@@ -88,16 +86,14 @@ $
 }
 
 .modal-footer{
-    background-color: #9F9F9F !important;
-    border-radius: 50px;
-    width: 150px;
-    height: 60px;
+    background-color: #9F9F9F;
 }
 
 .modal-bouton {
     width: 16% !important;
     margin: auto !important;
     position: relative;
+    left: 39%;
     border-radius: 50px !important;
 }
 
