@@ -61,12 +61,10 @@
                                 {{ resultat.categorie.nom}}
                             </td>
                             <td class="calendar-td-twig center">
-                                {#<a href="{{ path('post_showAllPost', {{ resultat.categorie}}) }} " class="collection-item">#}
-                                    {#{{ resultat.titre }}#}
-                                {#</a>#}
-                                <a href="#" class="collection-item">
+                                <a href="{{ path('post_showAllPost', { id: resultat.id }) }} " class="collection-item">
                                     {{ resultat.titre }}
                                 </a>
+
                             </td>
                             <td class="calendar-td-twig center">
                                 {{ resultat.contenu|raw }}
