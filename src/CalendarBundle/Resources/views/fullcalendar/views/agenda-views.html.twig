@@ -2,13 +2,8 @@
 <div class="col s12">
     <div id='calendar'></div>
     <div class="row center">
-        {% if is_granted('ROLE_SUPER_ADMIN') %}
 
-            <a href="{{ path('agenda_new') }}">
-                <i class="material-icons md-48 bouton-new">add_circle_outline</i>
-            </a>
-
-        {% elseif is_granted('ROLE_ADMIN') %}
+        {% if is_granted('ROLE_ADMIN') %}
 
             <a href="{{ path('agenda_new') }}">
                 <i class="material-icons md-48 bouton-new">add_circle_outline</i>

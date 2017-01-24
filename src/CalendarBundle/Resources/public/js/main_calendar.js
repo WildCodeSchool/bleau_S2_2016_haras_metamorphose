@@ -110,7 +110,7 @@ function textArea(){
 function hide_Show() {
     $('#test5').click(function () {
         if (this.checked){
-            $('.upload_file_event').css('display', 'block')
+            $('.upload_file_event').css('display', 'table-row')
         }
         else {
             $('.upload_file_event').css('display', 'none')

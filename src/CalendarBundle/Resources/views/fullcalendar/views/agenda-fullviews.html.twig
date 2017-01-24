@@ -1,16 +1,12 @@
-{% extends '@Calendar/layout.html.twig' %}
+{% extends '@PlateForme/layout.html.twig' %}
 
 {% block body %}
+
 <div class="col s12">
     <div id='calendar'></div>
     <div class="row center">
-        {% if is_granted('ROLE_SUPER_ADMIN') %}
 
-            <a href="{{ path('agenda_new') }}">
-                <i class="material-icons md-48 bouton-new">add_circle_outline</i>
-            </a>
-
-        {% elseif is_granted('ROLE_ADMIN') %}
+        {% if is_granted('ROLE_ADMIN') %}
 
             <a href="{{ path('agenda_new') }}">
                 <i class="material-icons md-48 bouton-new">add_circle_outline</i>
@@ -19,8 +15,6 @@
         {% endif %}
     </div>
 </div>
-
-
 
 <!------------------------------- --------------- ------------------------------------->
 <!------------------------------- --------------- ------------------------------------->
@@ -80,12 +74,15 @@
 
     {{ parent() }}
 
-<script>
-    {% if app.user == null %}
-        var roles = null;
-    {% else %}
-        var roles = {{ app.user.roles|json_encode|raw }};
-    {% endif %}
-</script>
+    <script src="{{ asset('bundles/calendar/js/calendar/fullcalendar.js') }}"></script>
+    <script src="{{ asset('bundles/calendar/js/calendar/calendar-events.js') }}"></script>
+
+    <script>
+        {% if app.user == null %}
+            var roles = null;
+        {% else %}
+            var roles = {{ app.user.roles|json_encode|raw }};
+        {% endif %}
+    </script>
 
 {% endblock %}
