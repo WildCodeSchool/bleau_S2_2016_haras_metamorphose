@@ -33,12 +33,9 @@ class SearchService extends Controller
 
         $qb = $repository->createQueryBuilder('s')
             ->select('s.titre', 's.contenu')
-            ->orderBy('s.dateCreate', 'ASC');
+            ->orderBy('s.dateCreate', 'DESC');
 //            ->setMaxResults( $limit );
-
-        $qb_str = strtolower($qb);
-
-        return $qb_str = $qb->getQuery()->getResult();
+        return $qb->getQuery()->getResult();
     }
 
 }
