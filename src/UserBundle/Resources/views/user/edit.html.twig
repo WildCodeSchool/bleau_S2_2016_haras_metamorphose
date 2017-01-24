@@ -40,11 +40,11 @@
             {#{{ form_widget(edit_form.photo) }}#}
         {#</div>#}
 
-        {#<div class="row input-field">#}
-            {#{{ form_label(edit_form.roles) }}#}
-            {#{{ form_errors(edit_form.roles) }}#}
-            {#{{ form_widget(edit_form.roles) }}#}
-        {#</div>#}
+        <div class="row input-field">
+            {{ form_label(edit_form.roles) }}
+            {{ form_errors(edit_form.roles) }}
+            {{ form_widget(edit_form.roles) }}
+        </div>
 
 
             <td class="boutons_user">
@@ -54,7 +54,7 @@
                     </button>
                     <a href="{{ path('user_index') }}" title="Retour liste utilisateurs"><i class="fa fa-users fa-2x"></i></a>
                     <a href="{{ path('plate_forme_homepage') }}" title="Retour accueil"><i class="fa fa-backward fa-2x"></i>
-                    <a href="" title="Bloquer"><i class="fa fa-lock fa-2x"></i>
+                    <a href="{{ path('user_desactive', {'id': user.id}) }}" title="Bloquer"><i class="fa fa-lock fa-2x"></i>
                     {#<a href="{{ path('user_delete', { 'id': user.id }) }}" title="Bloquer"><i class="fa fa-lock fa-2x"></i>#}
                 </div>
             </td>

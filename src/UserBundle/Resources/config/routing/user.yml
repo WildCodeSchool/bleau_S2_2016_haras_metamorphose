@@ -19,3 +19,18 @@ user_delete:
     path:     /{id}/delete
     defaults: { _controller: "UserBundle:User:delete" }
     methods:  DELETE
+
+user_desactive:
+    path:     /{id}/desactive
+    defaults: { _controller: "UserBundle:User:desactive" }
+    methods:  [GET, POST]
+
+user_reactive:
+    path:     /{id}/reactive
+    defaults: { _controller: "UserBundle:User:reactive" }
+    methods:  [GET, POST]
+
+user_showAllUserDesactive:
+    path:     /showAllUserDesactive
+    defaults: { _controller: "UserBundle:User:showInactiveUser:" }
+    methods:  [GET, POST]

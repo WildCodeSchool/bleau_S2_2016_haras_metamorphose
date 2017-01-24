@@ -179,4 +179,33 @@ class User extends BaseUser
     {
         return $this->photo;
     }
+    /**
+     * @var boolean
+     */
+    private $actif;
+
+
+    /**
+     * Set actif
+     *
+     * @param boolean $actif
+     *
+     * @return User
+     */
+    public function setActif($actif)
+    {
+        $this->actif = $actif;
+
+        return $this;
+    }
+
+    /**
+     * Get actif
+     *
+     * @return boolean
+     */
+    public function getActif()
+    {
+        return $this->actif;
+    }
 }
