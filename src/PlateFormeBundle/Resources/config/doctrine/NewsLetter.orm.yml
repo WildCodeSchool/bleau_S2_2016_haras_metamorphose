@@ -28,9 +28,4 @@ PlateFormeBundle\Entity\NewsLetter:
             length: 255
             nullable: true
 
-    lifecycleCallbacks: {  }
-#        prePersist: [ preUpload ]
-#        preUpdate: [ preUpload ]
-#        postPersist: [ upload ]
-#        postUpdate: [ upload ]
-#        postRemove: [ removeUpload ]
+    lifecycleCallbacks:

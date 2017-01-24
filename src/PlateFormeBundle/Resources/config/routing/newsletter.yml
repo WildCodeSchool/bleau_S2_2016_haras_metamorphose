@@ -32,7 +32,8 @@ newsletter_send:
 newsletter_delete:
     path:     /{id}/delete
     defaults: { _controller: "PlateFormeBundle:NewsLetter:delete" }
-
+    requirements:
+        id:  \d+
 
 #**********************************#
 #       Gestion                    #

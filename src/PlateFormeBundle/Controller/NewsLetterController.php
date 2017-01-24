@@ -40,15 +40,28 @@ class NewsLetterController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $newsLetter->setDateCreation(new \DateTime());
-            $newsLetter->setEtat(false);
+            $newsLetter->setEtat(true);
+            $newsLetter->setPj(false);
 
+            // Nécessaire pour récupérer Id newsletter, et incrémntation
+            // permet d'avoir dans la méthode preUpload le n° de la NL
+            // dans nom du fichier enregisté
+            $em->persist($newsLetter);
+            $em->flush($newsLetter);
+
+            $newsLetter->preUpload();
+            $newsLetter->upload();
+
+            // Changement du boolean url en fonction du choix user dans form
             if(empty($newsLetter->getUrl())) {
                 $newsLetter->setPj(false);
             } else {
                 $newsLetter->setPj(true);
             }
 
+
             $em->persist($newsLetter);
+
             $em->flush($newsLetter);
 
             return $this->redirectToRoute('newsletter_show', array('id' => $newsLetter->getId()));
@@ -179,33 +192,41 @@ class NewsLetterController extends Controller
         $file = $newsLetterAEnvoyer->getWebPath();
         $desabonnement = '<p style="margin-top: 60px; text-align: center;">Pour vous desabonner, <a href="' . __DIR__ . $this->generateUrl('desabonnement_newsletter') .'">cliquez ici</a><p>';
 
-            $message = \Swift_Message::newInstance()
-                ->setSubject($newsLetterAEnvoyer->getLibelle())
-                ->setFrom(array($this->getParameter('mailer_user') => 'Haras'))
-                ->setCc(array($this->getParameter('mailer_user') => 'Haras'))
-                ->setBcc($destinataires)
-//                ->setBody(
-//                    $newsLetterAEnvoyer->getObjet() );
-//                    $desabonnement, 'text/html')
-                ->setBody(
-                    $this->renderView(
-                        '@PlateForme/newsletter/corpsMailNewsletter.html.twig',
-                        array(
-                            'contenu' => $newsLetterAEnvoyer->getObjet(),
-                            'titre' => $newsLetterAEnvoyer->getLibelle(),
+                if ($newsLetterAEnvoyer->getUrl() != null){
+                    $message = \Swift_Message::newInstance()
+                        ->setSubject($newsLetterAEnvoyer->getObjet())
+                        ->setFrom(array($this->getParameter('mailer_user') => 'Le Haras de la métamorphose'))
+                        ->setBcc($destinataires)
+                        ->setBody(
+                            $this->renderView(
+                                '@PlateForme/newsletter/corpsMailNewsletter.html.twig',
+                                array(
+                                    'contenu' => $newsLetterAEnvoyer->getObjet(),
+                                    'titre' => $newsLetterAEnvoyer->getLibelle(),
+                                )
+                            ) .
+                            $desabonnement,
+                            'text/html'
                         )
-                    ) .
-                    $desabonnement,
-                    'text/html'
-                );
-
-                   // Test l'existance des pièces jointes
-                    if ($newsLetterAEnvoyer->getUrl() != null)
-                    {
-                        //  ->attach(\Swift_Attachment::fromPath($file));
-                    } else {
-
-                    }
+                        ->attach(\Swift_Attachment::fromPath($file));
+                }
+                else{
+                    $message = \Swift_Message::newInstance()
+                        ->setSubject($newsLetterAEnvoyer->getObjet())
+                        ->setFrom(array($this->getParameter('mailer_user') => 'Le Haras de la métamorphose'))
+                        ->setTo($destinataires)
+                        ->setBody(
+                            $this->renderView(
+                                '@PlateForme/newsletter/corpsMailNewsletter.html.twig',
+                                array(
+                                    'contenu' => $newsLetterAEnvoyer->getObjet(),
+                                    'titre' => $newsLetterAEnvoyer->getLibelle(),
+                                )
+                            ) .
+                            $desabonnement,
+                            'text/html'
+                        );
+                }
 
         $this->get('mailer')->send($message);
 

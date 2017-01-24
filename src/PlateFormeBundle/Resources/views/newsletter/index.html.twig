@@ -3,8 +3,15 @@
 {% block body %}
     <style>
         .ContainerNL {
-            flex: 1 0 auto;;
+            flex: 1 0 auto;
+            width: 80%;
+
         }
+
+        * {
+            font-size: 13px;
+        }
+
     </style>
 
     <div class="ContainerNL row">
@@ -39,8 +46,20 @@
             <tr>
                 <td>{{ newsLetter.libelle }}</td>
                 <td>{{ newsLetter.objet|striptags|truncate(65, true, "...")|raw }}</td>
-                <td class="center">{{ newsLetter.dateCreation|date('d-m-Y') }}</td>
-                <td class="center">{% if newsLetter.dateEnvoie %}{{ newsLetter.dateEnvoie|date('d-m-Y') }}{% else %} --- {% endif %}</td>
+                <td class="center">
+                    {{ newsLetter.dateCreation|date('d') }} <br>
+                    {{ newsLetter.dateCreation|date('M') }} <br>
+                    {{ newsLetter.dateCreation|date('Y') }}
+                </td>
+                <td class="center">
+                    {% if newsLetter.dateEnvoie %}
+                        {#{{ newsLetter.dateEnvoie|date('d-m-Y') }}#}
+                        {{ newsLetter.dateEnvoie|date('d') }} <br>
+                        {{ newsLetter.dateEnvoie|date('M') }} <br>
+                        {{ newsLetter.dateEnvoie|date('Y') }}
+                    {% else %}
+                        ---
+                    {% endif %}</td>
                 <td>{{ newsLetter.url }}</td>
 
                 {# ACTIONS #}
@@ -64,18 +83,19 @@
                             <i class="material-icons">edit</i>
                         </a>
                         {# Envoi newsletter #}
-                            {# Si déja envoyé pas de bouton #}
-                            {% if newsLetter.etat == true %}
-                                {##}
+                            {# Si pas envoyé => bouton #}
+                            {% if newsLetter.dateEnvoie is null %}
+                                <a class="btn-floating btn-small waves-effect waves-light lime accent-4 tooltipped"
+                                   data-position="left"
+                                   data-delay="50"
+                                   data-tooltip="Diffuser la newsletter"
+                                   href="{{ path('newsletter_send', {'id': newsLetter.id }) }}"
+                                   onclick="return confirm('Vous êtes sure ?')">
+                                    <i class="material-icons">email</i>
+                                </a>
+                            {# Si envoyé => pas bouton #}
                             {% else %}
-                            <a class="btn-floating btn-small waves-effect waves-light lime accent-4 tooltipped"
-                               data-position="left"
-                               data-delay="50"
-                               data-tooltip="Diffuser la newsletter"
-                               href="{{ path('newsletter_send', {'id': newsLetter.id }) }}"
-                               onclick="return confirm('Vous êtes sure ?')">
-                                <i class="material-icons">email</i>
-                            </a>
+                                {# do nothing #}
                             {% endif %}
                         {% endif %}
                     </div>
@@ -103,8 +123,23 @@
     <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.js"></script>
 
     <script>
-        $(document).ready( function () {
+        $(document).ready(function() {
+            var table = $('#table_NLindex').removeAttr('width').DataTable( {
+                scrollY:        "300px",
+                scrollX:        true,
+                scrollCollapse: true,
+                paging:         false,
+                columnDefs: [
+                    { width: 200, targets: 0 }
+                ],
+                fixedColumns: true
+            } );
+        } );
+
+        /*$(document).ready( function () {
             $('#table_NLindex').DataTable( {
+                "lengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]],
+                "iDisplayLength": 5,
                 "language": {
                     "sProcessing":     "Traitement en cours...",
                     "sSearch":         "Rechercher&nbsp;:",
@@ -129,6 +164,6 @@
                 }
             });
         });
-
+*/
     </script>
 {% endblock %}

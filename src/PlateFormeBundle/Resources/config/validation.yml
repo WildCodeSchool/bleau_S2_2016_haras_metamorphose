@@ -1,6 +1,6 @@
 PlateFormeBundle\Entity\NewsLetter:
     properties:
-        file:
+        fichierPDF:
             - File:
                 maxSize: 2048k
                 mimeTypes: [application/pdf, application/x-pdf]

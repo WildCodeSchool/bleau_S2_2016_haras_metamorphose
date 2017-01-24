@@ -31,23 +31,41 @@
         <div>{{ newsLetter.objet|raw }}</div>
         <div><b>Créée le : </b>{{ newsLetter.dateCreation|date('d-m-Y') }}</div>
         <div><b>Date de diffusion : </b>{% if newsLetter.dateEnvoie %}{{ newsLetter.dateEnvoie|date('d-m-Y') }}{% endif %}</div>
-        {% if newsLetter.url is not defined  %}
+        {% if newsLetter.url is null  %}
         {% else %}
         <div><b>P.J : </b>{{ newsLetter.url }}</div>
         {% endif %}
 
         <div class="row center">
-            <a class="btn-floating btn-small waves-effect waves-light pink darken-3"
+            <a class="btn-floating btn-small waves-effect waves-light pink darken-3 tooltipped"
+               data-position="top"
+               data-delay="50"
+               data-tooltip="Liste des newsletters"
                href="{{ path('newsletter_index')}}">
                 <i class="material-icons">home</i>
             </a>
             {% if is_granted('ROLE_ADMIN') %}
-                <a class="btn-floating btn-small waves-effect waves-light orange darken-3"
+                <a class="btn-floating btn-small waves-effect waves-light lime accent-4 tooltipped"
+                   data-position="top"
+                   data-delay="50"
+                   data-tooltip="Diffuser la newsletter"
+                   href="{{ path('newsletter_send', {'id': newsLetter.id }) }}"
+                   onclick="return confirm('Vous êtes sure ?')">
+                    <i class="material-icons">email</i>
+                </a>
+                <a class="btn-floating btn-small waves-effect waves-light orange darken-3 tooltipped"
+                   data-position="top"
+                   data-delay="50"
+                   data-tooltip="Modifier la newsletter"
                    href="{{ path('newsletter_edit', { 'id': newsLetter.id }) }}">
                     <i class="material-icons">edit</i>
                 </a>
-                <a class="btn-floating btn-small waves-effect waves-light blue darken-1"
-                   href="{{ path('newsletter_delete', { 'id': newsLetter.id }) }}" onclick="return confirm('Vous êtes sure ?')">
+                <a class="btn-floating btn-small waves-effect waves-light blue darken-1 tooltipped"
+                   data-position="top"
+                   data-delay="50"
+                   data-tooltip="Supprimer la newsletter"
+                   href="{{ path('newsletter_delete', { 'id': newsLetter.id }) }}"
+                   onclick="return confirm('Vous êtes sure ?')">
                     <i class="small material-icons">delete</i>
                 </a>
             {% endif %}

@@ -16,7 +16,7 @@ class NewsLetter
     }
 
 
-    public $file;
+    public $fichierPDF;
 
     protected function getUploadDir()
     {
@@ -43,9 +43,9 @@ class NewsLetter
      */
     public function preUpload()
     {
-        if (null !== $this->file) {
+        if (null !== $this->fichierPDF) {
             // do whatever you want to generate a unique name
-            $this->url = 'newsletter_n-' . $this->getId() . '.' . $this->file->guessExtension();
+            $this->url = 'newsletter_n-' . $this->getId() . '.' . $this->fichierPDF->guessExtension();
         }
     }
 
@@ -54,16 +54,16 @@ class NewsLetter
      */
     public function upload()
     {
-        if (null === $this->file) {
+        if (null === $this->fichierPDF) {
             return;
         }
 
         // if there is an error when moving the file, an exception will
         // be automatically thrown by move(). This will properly prevent
         // the entity from being persisted to the database on error
-        $this->file->move($this->getUploadRootDir(), $this->url);
+        $this->fichierPDF->move($this->getUploadRootDir(), $this->url);
 
-        unset($this->file);
+        unset($this->fichierPDF);
     }
 
     /**
@@ -71,9 +71,9 @@ class NewsLetter
      */
     public function removeUpload()
     {
-        if ($file = $this->getAbsolutePath()) {
+        if ($fichierPDF = $this->getAbsolutePath()) {
             $this->url = null;
-            unlink($file);
+            unlink($fichierPDF);
         }
     }
 

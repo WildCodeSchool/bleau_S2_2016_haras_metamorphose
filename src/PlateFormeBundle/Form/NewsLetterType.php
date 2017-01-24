@@ -21,11 +21,7 @@ class NewsLetterType extends AbstractType
                     'config_name' => 'my_config',
                     'uiColor' => '#ffffff',
                     )))
-//                ->add('dateCreation')
-//                ->add('etat')
-//                ->add('dateEnvoie')
-                ->add('pj')
-                ->add('url', 'file', array('label' => 'Pièce jointe', 'required' => false));
+                ->add('fichierPDF', 'file', array('label' => 'Pièce jointe', 'required' => false));
     }
     
     /**
