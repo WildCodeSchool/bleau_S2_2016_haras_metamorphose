@@ -32,7 +32,7 @@
         <div class="row">
             <div class="col s12">
 
-                <table class="calendar-table">
+                <table class="calendar-table responsive-table">
                     <theader>
                         <tr>
                             <td class="calendar-td calendar-border-topleft">
@@ -48,6 +48,11 @@
                             <td class="calendar-td calendar-border-topright">
                                 <p class="calendar-p center">
                                     Contenu du post
+                                </p>
+                            </td>
+                            <td class="sorting" aria-controls="data-table-simple" aria-label="Start date: activate to sort column ascending">
+                                <p class="calendar-p center">
+                                    Posté le :
                                 </p>
                             </td>
                         </tr>
@@ -66,8 +71,11 @@
                                 </a>
 
                             </td>
-                            <td class="calendar-td-twig center">
+                            <td class="calendar-td-twig center ombre">
                                 {{ resultat.contenu|raw }}
+                            </td>
+                            <td class="calendar-td-twig center">
+                                {{ resultat.dateCreate|date("d/m/Y") }}
                             </td>
                         </tr>
 

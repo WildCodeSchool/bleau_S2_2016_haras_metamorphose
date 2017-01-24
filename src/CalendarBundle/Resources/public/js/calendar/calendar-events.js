@@ -64,6 +64,7 @@ function calendar() {
             },
 
             /* ------------------------ FONCTION DU RENDU DE L'EVENEMENT ------------------------------*/
+
             eventRender: function(event, element) {
 
                 element.each(function() {
