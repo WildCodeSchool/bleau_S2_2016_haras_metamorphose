@@ -4,12 +4,16 @@
     <style>
         .ContainerNL {
             flex: 1 0 auto;
-            width: 80%;
+            width: 90%;
 
         }
 
         * {
             font-size: 13px;
+        }
+
+        .pUrl {
+            font-weight: bold;
         }
 
     </style>
@@ -34,8 +38,8 @@
             <tr>
                 <th>Titre</th>
                 <th>Contenu</th>
-                <th>Créée le :</th>
-                <th>Envoyée le :</th>
+                <th>Créée</th>
+                <th>Envoyée</th>
                 <th>Pièce jointe</th>
                 <th>Actions</th>
             </tr>
@@ -45,7 +49,7 @@
         {% for newsLetter in newsLetters %}
             <tr>
                 <td>{{ newsLetter.libelle }}</td>
-                <td>{{ newsLetter.objet|striptags|truncate(65, true, "...")|raw }}</td>
+                <td>{{ newsLetter.objet|striptags|truncate(25, true, "...")|raw }}</td>
                 <td class="center">
                     {{ newsLetter.dateCreation|date('d') }} <br>
                     {{ newsLetter.dateCreation|date('M') }} <br>
@@ -59,8 +63,18 @@
                         {{ newsLetter.dateEnvoie|date('Y') }}
                     {% else %}
                         ---
-                    {% endif %}</td>
-                <td>{{ newsLetter.url }}</td>
+                    {% endif %}
+                </td>
+                <td>
+                    {% if newsLetter.url is null %}
+                        {# nothing #}
+                    {% else %}
+                    <p class="center pUrl">{{ newsLetter.url|capitalize }}</p>
+                    <iframe id="viewer" src="{{ asset('bundles/plateforme/viewerjs-0.5.8/ViewerJS/index.html') }}#{{ asset('uploads/newsletters_file/' ~ newsLetter.url) }}" width='400' height='300' allowfullscreen webkitallowfullscreen></iframe>
+
+
+                    {% endif %}
+                </td>
 
                 {# ACTIONS #}
                 <td>
@@ -125,6 +139,7 @@
     <script>
         $(document).ready(function() {
             var table = $('#table_NLindex').removeAttr('width').DataTable( {
+         "language": { "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/French.json" },
                 scrollY:        "300px",
                 scrollX:        true,
                 scrollCollapse: true,
