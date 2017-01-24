@@ -1,0 +1,14 @@
+{% extends '@PlateForme/layout.html.twig' %}
+
+
+{% block body %}
+
+    <div class="row text-center newsletter">
+        <h2>Saississez votre adresse email ci dessous afin de vous désabonner</h2>
+        <form action="{{ path('desabonnement_newsletter') }}" method="post">
+            <input type="email" name="email" placeholder="E-mail" required="required" />
+            <input type="submit" value="Valider" />
+        </form>
+    </div>
+
+{% endblock %}

@@ -46,6 +46,10 @@ class AbonnementNewsLetterController extends Controller
         return $this->redirectToRoute('plate_forme_homepage');
     }
 
+    /**
+     * Desabonnement  AbonnementNewsLetter.
+     *
+     */
     public function desabonnementNewsletterAction(Request $request){
 
         $em = $this->getDoctrine()->getManager();
@@ -67,6 +71,7 @@ class AbonnementNewsLetterController extends Controller
                 $em->persist($userForum);
             }
 
+            $this->addFlash('notice', 'Votre demande a été enregistrée');
             $em->flush();
 
            return $this->redirectToRoute('plate_forme_homepage');

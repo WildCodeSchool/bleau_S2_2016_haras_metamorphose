@@ -1,63 +1,59 @@
-{% extends 'base.html.twig' %}
+{% extends '@PlateForme/layout.html.twig' %}
 
 {% block body %}
-    <h1>Newsletter</h1>
+    {#-------------------------------------------------------------#}
+    {#                                                             #}
+    {#               Nouvelle NEWSLETTER                           #}
+    {#                                                             #}
+    {#-------------------------------------------------------------#}
 
-    <table>
-        <tbody>
-            <tr>
-                <th>Titre</th>
-                <td>{{ newsLetter.libelle }}</td>
-            </tr>
-            <tr>
-                <th>Contenu</th>
-                <td>{{ newsLetter.objet|raw }}</td>
-            </tr>
-            <tr>
-                <th>Créée le :</th>
-                <td>{% if newsLetter.dateCreation %}{{ newsLetter.dateCreation|date('d-m-Y') }}{% endif %}</td>
-            </tr>
-            <tr>
-                <th>Etat</th>
-                <td>{% if newsLetter.etat %}Yes{% else %}No{% endif %}</td>
-            </tr>
-            <tr>
-                <th>Envoyée le :</th>
-                <td>{% if newsLetter.dateEnvoie %}{{ newsLetter.dateEnvoie|date('d-m-Y') }}{% endif %}</td>
-            </tr>
-            <tr>
-                <th>Piéce jointe ?</th>
-                <td>{% if newsLetter.pj %}Yes{% else %}No{% endif %}</td>
-            </tr>
-            <tr>
-                <th>Nom du fichier joint</th>
-                <td>{{ newsLetter.url }}</td>
-            </tr>
-        </tbody>
-    </table>
+    {#-------------------------------------------------------------#}
+    {# NavBar Lateral  #}
+    {#{{ include("@Forum/post/postNavBar.html.twig") }}#}
+    {# fin navBar lateral #}
+    {#-------------------------------------------------------------#}
 
-    <div class="row center">
-        <a class="btn-floating btn-small waves-effect waves-light pink darken-3"
-           href="{{ path('newsletter_index')}}">
-            <i class="material-icons">home</i>
-        </a>
-        {% if is_granted('ROLE_ADMIN') %}
-            <a class="btn-floating btn-small waves-effect waves-light orange darken-3"
-               href="{{ path('newsletter_edit', { 'id': newsLetter.id }) }}">
-                <i class="material-icons">edit</i>
-            </a>
-            <a class="btn-floating btn-small waves-effect waves-light blue darken-1"
-               href="{{ path('newsletter_delete', { 'id': newsLetter.id }) }}" onclick="return confirm('Vous êtes sure ?')">
-                <i class="small material-icons">delete</i>
-            </a>
 
-            {#<a href="{{ path('modele_delete', { 'id': modele.id }) }}" title="Effacer">
-                <i class="material-icons contactme">delete</i>
-            </a>#}
+    <style>
+        .ContainerNL {
+            flex: 1 0 auto;
+            width: 80%;
+        }
+    </style>
+
+    <div class="ContainerNL row">
+        <h1 class="center">Newsletter <br>
+            <i class="fa fa-quote-left" aria-hidden="true" style="color: #888888"></i>
+            {{ newsLetter.libelle }}
+            <i class="fa fa-quote-right" aria-hidden="true" style="color: #888888"></i>
+        </h1>
+
+        <div>{{ newsLetter.objet|raw }}</div>
+        <div><b>Créée le : </b>{{ newsLetter.dateCreation|date('d-m-Y') }}</div>
+        <div><b>Date de diffusion : </b>{% if newsLetter.dateEnvoie %}{{ newsLetter.dateEnvoie|date('d-m-Y') }}{% endif %}</div>
+        {% if newsLetter.url is not defined  %}
+        {% else %}
+        <div><b>P.J : </b>{{ newsLetter.url }}</div>
         {% endif %}
+
+        <div class="row center">
+            <a class="btn-floating btn-small waves-effect waves-light pink darken-3"
+               href="{{ path('newsletter_index')}}">
+                <i class="material-icons">home</i>
+            </a>
+            {% if is_granted('ROLE_ADMIN') %}
+                <a class="btn-floating btn-small waves-effect waves-light orange darken-3"
+                   href="{{ path('newsletter_edit', { 'id': newsLetter.id }) }}">
+                    <i class="material-icons">edit</i>
+                </a>
+                <a class="btn-floating btn-small waves-effect waves-light blue darken-1"
+                   href="{{ path('newsletter_delete', { 'id': newsLetter.id }) }}" onclick="return confirm('Vous êtes sure ?')">
+                    <i class="small material-icons">delete</i>
+                </a>
+            {% endif %}
+        </div>
+
     </div>
-
-
 
 {% endblock %}
 

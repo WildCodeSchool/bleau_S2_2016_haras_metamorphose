@@ -47,13 +47,19 @@
                 <td>
                     <div class="row center">
                         {# show #}
-                        <a class="btn-floating btn-small waves-effect waves-light pink darken-3"
+                        <a class="btn-floating btn-small waves-effect waves-light pink darken-3 tooltipped"
+                           data-position="left"
+                           data-delay="50"
+                           data-tooltip="Voir la newsletter"
                            href="{{ path('newsletter_show', { 'id': newsLetter.id }) }}">
                             <i class="material-icons">input</i>
                         </a>
                         {% if is_granted('ROLE_ADMIN') %}
                         {# edit #}
-                        <a class="btn-floating btn-small waves-effect waves-light orange darken-3"
+                        <a class="btn-floating btn-small waves-effect waves-light orange darken-3 tooltipped"
+                           data-position="left"
+                           data-delay="50"
+                           data-tooltip="Modifier la newsletter"
                            href="{{ path('newsletter_edit', { 'id': newsLetter.id }) }}">
                             <i class="material-icons">edit</i>
                         </a>
@@ -62,8 +68,12 @@
                             {% if newsLetter.etat == true %}
                                 {##}
                             {% else %}
-                            <a class="btn-floating btn-small waves-effect waves-light lime accent-4"
-                               href="{{ path('newsletter_send', {'id': newsLetter.id }) }}">
+                            <a class="btn-floating btn-small waves-effect waves-light lime accent-4 tooltipped"
+                               data-position="left"
+                               data-delay="50"
+                               data-tooltip="Diffuser la newsletter"
+                               href="{{ path('newsletter_send', {'id': newsLetter.id }) }}"
+                               onclick="return confirm('Vous êtes sure ?')">
                                 <i class="material-icons">email</i>
                             </a>
                             {% endif %}

@@ -46,7 +46,7 @@ abonnement_newsletter:
 
 
 desabonnement_newsletter:
-    path:     /desabonnement/{id}
+    path:     /desabonnement/
     defaults: { _controller: "PlateFormeBundle:AbonnementNewsLetter:desabonnementNewsletter" }
     methods:  [GET, POST]
 

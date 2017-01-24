@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+
+
+
+
+    <title>Newsletter du Haras de la métamorphose</title>
+    <style>
+        .logo {
+            width: 15%;
+        }
+        .contenu {
+            margin-top: 25px;
+            font-size: 15px;
+            width: 80%;
+        }
+
+        .message {
+            text-align: justify;
+            padding: 25px;
+        }
+
+
+        img {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+    </style>
+</head>
+
+
+{% block body %}
+
+
+    <img class="logo" src="data:image/png;base64,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
+" />
+
+    <div class="contenu">
+        <h1 class="center">{{ titre|capitalize }}</h1>
+
+        <div class="message">
+            {{ contenu|raw }}
+        </div>
+
+    </div>
+
+{% endblock body %}
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+
+</html>
+

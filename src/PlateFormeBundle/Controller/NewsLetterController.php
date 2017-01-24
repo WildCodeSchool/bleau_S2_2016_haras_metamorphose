@@ -176,35 +176,36 @@ class NewsLetterController extends Controller
         $em = $this->getDoctrine()->getManager();
         $newsLetterAEnvoyer = $em->getRepository('PlateFormeBundle:NewsLetter')->findOneById($id);
         $destinataires = $this->getUsersMail();
-
-//        dump($destinataires);
-//        dump($newsLetterAEnvoyer);
-//        die();
         $file = $newsLetterAEnvoyer->getWebPath();
-//        $desabonnement = '<p style="margin-top: 60px; text-align: center;">Pour vous desabonner, <a href="' . __DIR__ . $this->generateUrl('desabonnement_newsletter') .'">cliquez ici</a><p>';
+        $desabonnement = '<p style="margin-top: 60px; text-align: center;">Pour vous desabonner, <a href="' . __DIR__ . $this->generateUrl('desabonnement_newsletter') .'">cliquez ici</a><p>';
 
-
-
-        if ($newsLetterAEnvoyer->getUrl() != null){
             $message = \Swift_Message::newInstance()
                 ->setSubject($newsLetterAEnvoyer->getLibelle())
                 ->setFrom(array($this->getParameter('mailer_user') => 'Haras'))
+                ->setCc(array($this->getParameter('mailer_user') => 'Haras'))
                 ->setBcc($destinataires)
-                ->setBody(
-                    $newsLetterAEnvoyer->getObjet() );
+//                ->setBody(
+//                    $newsLetterAEnvoyer->getObjet() );
 //                    $desabonnement, 'text/html')
-//                ->attach(\Swift_Attachment::fromPath($file));
-        }
-        else{
-            $message = \Swift_Message::newInstance()
-                ->setSubject($newsLetterAEnvoyer->getLibelle())
-                ->setFrom(array($this->getParameter('mailer_user') => 'Haras'))
-                ->setBcc($destinataires)
                 ->setBody(
-                    $newsLetterAEnvoyer->getObjet());
-//                    $desabonnement, 'text/html');
-        }
+                    $this->renderView(
+                        '@PlateForme/newsletter/corpsMailNewsletter.html.twig',
+                        array(
+                            'contenu' => $newsLetterAEnvoyer->getObjet(),
+                            'titre' => $newsLetterAEnvoyer->getLibelle(),
+                        )
+                    ) .
+                    $desabonnement,
+                    'text/html'
+                );
 
+                   // Test l'existance des pièces jointes
+                    if ($newsLetterAEnvoyer->getUrl() != null)
+                    {
+                        //  ->attach(\Swift_Attachment::fromPath($file));
+                    } else {
+
+                    }
 
         $this->get('mailer')->send($message);
 
@@ -214,10 +215,7 @@ class NewsLetterController extends Controller
         $em->persist($newsLetterAEnvoyer);
         $em->flush();
 
-        $this->addFlash(
-            'notice',
-            'Newsletter ' . $newsLetterAEnvoyer->getLibelle() . 'a été expédiée'
-        );
+        $this->addFlash('notice', 'Newsletter ' . $newsLetterAEnvoyer->getLibelle() . ' a été expédiée');
 
         return $this->redirectToRoute('newsletter_index');
     }
