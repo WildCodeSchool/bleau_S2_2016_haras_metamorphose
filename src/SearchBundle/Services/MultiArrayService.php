@@ -26,30 +26,24 @@ class MultiArrayService extends Controller
         foreach ($titres as $key => $titre){
 
             /*--- Si $titre correspond a la requete de départ il check uniquement le 1er tableau---*/
-            if (in_array($requete, $titre)){
+//            if (in_array($requete, $titre)){
 
-                foreach ($titre as $value){
+                $requete_str = '/' . $requete . '/';
 
-                    dump($value); die;
+                foreach ($titres as $valeur) {
 
+                    if (preg_match ($requete_str, $valeur['contenu'], $resultat)) {
 
+//                        $resultat['contenu'] = $valeur;
 
-                    preg_match($requete, $value, $result);
+                        dump ($valeur, $resultat);
+                        die();
 
-                    $result_titre = $this->getDoctrine()->getRepository('ForumBundle:Post')->findAll($result);
+                        // on renvois la valeur du titre en fonction du mot trouvé dans le contenu
+                        return $valeur;
+                    }
                 }
-
-
-
-                    $result['titre'] = $titre['titre'];
-
-
-
-                return $titre;
-            }
-
-
+//            }
         }
     }
-
 }
