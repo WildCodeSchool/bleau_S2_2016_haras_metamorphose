@@ -17,11 +17,9 @@
 /* MODIFIE LA TAILLE DU CALENDAR */
 body .fc { /* extra precedence to overcome jqui */
 	font-size: 0.8em;
-	-moz-box-shadow: 5px 5px 5px 0px #cfcfcf;
-	-webkit-box-shadow: 5px 5px 5px 0px #cfcfcf;
-	-o-box-shadow: 5px 5px 5px 0px #cfcfcf;
-	box-shadow: 5px 5px 5px 0px #cfcfcf;
-	filter:progid:DXImageTransform.Microsoft.Shadow(color=#cfcfcf, Direction=134, Strength=5);
+	-moz-box-shadow: 8px 8px 12px #aaa;
+	-webkit-box-shadow: 8px 8px 12px #aaa;
+	box-shadow: 8px 8px 12px #555;
 }
 
 /* Colors

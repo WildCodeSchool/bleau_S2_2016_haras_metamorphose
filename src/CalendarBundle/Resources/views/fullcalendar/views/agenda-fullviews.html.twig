@@ -52,35 +52,21 @@
 
     </div>
 
-    {% if is_granted("ROLE_SUPER_ADMIN") %}
+    {% if is_granted("ROLE_ADMIN") %}
         <div class="modal-footer modal-bouton"> {#----- DEBUT MODAL FOOTER -----#}
             <div class="row right">
 
-                {#{% if is_granted("ROLE_SUPER_ADMIN") %}#}
+                <div class="col s4">
+                    <a href="#" id="edit_event">
+                        <i class="material-icons md-48 bouton-edit">create</i>
+                    </a>
+                </div>
+                <div class="col s4">
+                    <a href="#" id="delete_event">
+                        <i class="material-icons md-48 bouton-delete">delete_sweep</i>
+                    </a>
+                </div>
 
-                    <div class="col s4">
-                        <a href="#" id="edit_event">
-                            <i class="material-icons md-48 bouton-edit">create</i>
-                        </a>
-                    </div>
-                    <div class="col s4">
-                        <a href="#" id="delete_event">
-                            <i class="material-icons md-48 bouton-delete">delete_sweep</i>
-                        </a>
-                    </div>
-
-    {% elseif is_granted("ROLE_ADMIN") %}
-
-                    <div class="col s4">
-                        <a href="#" id="edit_event">
-                            <i class="material-icons md-48 bouton-edit">create</i>
-                        </a>
-                    </div>
-                    <div class="col s4">
-                        <a href="#" id="delete_event">
-                            <i class="material-icons md-48 bouton-delete">delete_sweep</i>
-                        </a>
-                    </div>
     {% endif %}
 
             </div>
@@ -90,7 +76,9 @@
 
 {% endblock %}
 
-{% block java %}
+{% block javascripts %}
+
+    {{ parent() }}
 
 <script>
     {% if app.user == null %}
@@ -99,3 +87,5 @@
         var roles = {{ app.user.roles|json_encode|raw }};
     {% endif %}
 </script>
+
+{% endblock %}
