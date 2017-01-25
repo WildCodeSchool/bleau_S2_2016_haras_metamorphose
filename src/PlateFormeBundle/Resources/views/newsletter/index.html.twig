@@ -4,7 +4,7 @@
     <style>
         .ContainerNL {
             flex: 1 0 auto;
-            width: 90%;
+            /*width: 90%;*/
 
         }
 
@@ -12,14 +12,14 @@
             font-size: 13px;
         }
 
-        .pUrl {
-            font-weight: bold;
-        }
-
     </style>
+
+
+
 
     <div class="ContainerNL row">
     <h1 class="center">Liste des newsletters</h1>
+
 
         {#-------------------------------------------------------------#}
         {# Mise en place message flash #}
@@ -47,6 +47,7 @@
         <tbody>
 
         {% for newsLetter in newsLetters %}
+
             <tr>
                 <td>{{ newsLetter.libelle }}</td>
                 <td>{{ newsLetter.objet|striptags|truncate(25, true, "...")|raw }}</td>
@@ -69,10 +70,7 @@
                     {% if newsLetter.url is null %}
                         {# nothing #}
                     {% else %}
-                    <p class="center pUrl">{{ newsLetter.url|capitalize }}</p>
-                    <iframe id="viewer" src="{{ asset('bundles/plateforme/viewerjs-0.5.8/ViewerJS/index.html') }}#{{ asset('uploads/newsletters_file/' ~ newsLetter.url) }}" width='400' height='300' allowfullscreen webkitallowfullscreen></iframe>
-
-
+                    <a href="{{ asset('uploads/newsletters_file/' ~ newsLetter.url) }}">{{ newsLetter.url }}</a>
                     {% endif %}
                 </td>
 
@@ -137,6 +135,9 @@
     <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.js"></script>
 
     <script>
+        {#***********************************************#}
+        {# Script gestion visuel tableau avec datatables #}
+        {#***********************************************#}
         $(document).ready(function() {
             var table = $('#table_NLindex').removeAttr('width').DataTable( {
          "language": { "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/French.json" },
