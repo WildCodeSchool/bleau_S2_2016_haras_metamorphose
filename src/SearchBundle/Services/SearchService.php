@@ -25,31 +25,31 @@ class SearchService extends Controller
 
     }
 
-    public function getSearchPostTitre($limit, $requete){
+    public function getSearchPostTitre($requete, $limit){
 //        Alias 's' = class searchrepository
 
         $repository = $this->getDoctrine()
             ->getRepository('ForumBundle:Post');
 
         $qb = $repository->createQueryBuilder('s')
-            ->select('s.titre, scontenu, s.id')
-            ->where('.REGEXP(s.titre, :regexp) = true ')
-            ->setParameter('regexp','^[a-zA-z]$')
+            ->select('s.titre, s.contenu, s.id, s.dateCreate')
+            ->where('REGEXP(s.titre, :regexp) != false')
+            ->setParameter('regexp', $requete)
             ->orderBy('s.dateCreate', 'DESC');
 //            ->setMaxResults( $limit );
         return $qb->getQuery()->getResult();
     }
 
-    public function getSearchPostContenu($limit, $requete){
+    public function getSearchPostContenu($requete, $limit){
 //        Alias 's' = class searchrepository
 
         $repository = $this->getDoctrine()
             ->getRepository('ForumBundle:Post');
 
         $qb = $repository->createQueryBuilder('s')
-            ->select('s.contenu, s.contenu, s.id')
-            ->where('.REGEXP(s.titre, :regexp)')
-            ->setParameter('regexp','^[a-zA-z]$')
+            ->select('s.contenu, s.contenu, s.id, s.dateCreate')
+            ->where('REGEXP(s.titre, :regexp)  != false')
+            ->setParameter('regexp', '' . $requete . '$')
             ->orderBy('s.dateCreate', 'DESC');
 //            ->setMaxResults( $limit );
         return $qb->getQuery()->getResult();

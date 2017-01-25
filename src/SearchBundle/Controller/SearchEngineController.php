@@ -34,40 +34,28 @@ class SearchEngineController extends Controller
             $limit = 25;
 
             // Appel du service avec laquelle on demande une requete Dql
-            $table = $this->container->get('search.service')->getSearchPostTitre($requete, $limit);
+            $champTitre = $this->container->get('search.service')->getSearchPostTitre($requete, $limit);
 
             // Appel du service pour checker $requete dans multi array $repository
 //            $resultat = $this->container->get('multiarray.service')->multiArray($table, $requete);
 
             // Si tout les services repondent favorablement
-            if ($table != ''){
+            if (!empty($champTitre)) {
 
-                $resultats = $this->getDoctrine()->getRepository('ForumBundle:Post')->findBy($table);
-
-                dump($table); die;
-
-                // maintenant, on va afficher la page qui va afficher les résultats
-                return $this->render('@Search/Default/index.html.twig', array(
-                    'resultats' => $resultats,
-                ));
-
-            }
-            else {
                 // Appel du service avec laquelle on demande une requete Dql
                 $table = $this->container->get('search.service')->getSearchPostContenu($requete, $limit);
+//                dump($requete, $table); die;
 
                 if($table != '') {
 
-                    $resultats = $this->getDoctrine()->getRepository('ForumBundle:Post')->findBy($table);
-
-                    dump($table); die;
+//                    $resultats = $this->getDoctrine()->getRepository('ForumBundle:Post')->findBy($table);
 
                     // maintenant, on va afficher la page qui va afficher les résultats
                     return $this->render('@Search/Default/index.html.twig', array(
-                        'resultats' => $resultats,
+                        'resultats' => $table,
                     ));
 
-                    }
+                }
                 // sinon on envois un message flash
                 else {
 
@@ -79,6 +67,22 @@ class SearchEngineController extends Controller
                     return $this->render('@Search/Default/index.html.twig', array(
                         'resultats' => '',
                     ));
+
+
+
+
+
+//                $resultats = $this->getDoctrine()->getRepository('ForumBundle:Post')->findBy($table);
+
+                dump($requete, $table, 'condition IF');
+                // maintenant, on va afficher la page qui va afficher les résultats
+                return $this->render('@Search/Default/index.html.twig', array(
+                    'resultats' => $table,
+                ));
+
+            }
+            else {
+
                 }
 
 
