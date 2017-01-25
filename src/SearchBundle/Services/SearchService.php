@@ -37,29 +37,11 @@ class SearchService extends Controller
             ->select('p.titre, p.contenu, p.id, p.dateCreate, c.nom, c.id')
             ->join('p.categorie', 'c')
             ->where('REGEXP(p.titre, :regexp) != false')
+            ->orWhere('REGEXP(p.contenu, :regexp)  != false')
             ->setParameter('regexp', $requete)
             ->orderBy('p.dateCreate', 'DESC')
             ->setFirstResult($limit*$pageIndex)
             ->setMaxResults( $limit );
         return $qb->getQuery()->getResult();
     }
-
-    public function getSearchPostContenu($requete, $limit, $pageIndex = 0){
-//        Alias 's' = class searchrepository
-//        Alias 'c' = categorie
-
-        $repository = $this->getDoctrine()
-            ->getRepository('ForumBundle:Post');
-
-        $qb = $repository->createQueryBuilder('p')
-            ->select('p.titre, p.contenu, p.id, p.dateCreate, c.nom, c.id')
-            ->join('p.categorie', 'c')
-            ->where('REGEXP(p.contenu, :regexp)  != false')
-            ->setParameter('regexp', $requete)
-            ->orderBy('p.dateCreate', 'DESC')
-            ->setFirstResult($limit*$pageIndex)
-            ->setMaxResults( $limit );
-        return $qb->getQuery()->getResult();
-    }
-
 }
