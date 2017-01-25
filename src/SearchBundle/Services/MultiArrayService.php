@@ -29,7 +29,9 @@ class MultiArrayService extends Controller
             /*--- Si $titre correspond a la requete de départ il check uniquement le 1er tableau---*/
             if (in_array($requete, $titre)){
 
-                    $result['titre'] = $titre['titre'];
+                    $result[] = $titre['titre'];
+
+                    dump($result);
 
                 return $titre;
             }

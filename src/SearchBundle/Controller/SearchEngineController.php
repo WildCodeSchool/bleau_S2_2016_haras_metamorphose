@@ -28,13 +28,12 @@ class SearchEngineController extends Controller
             // mais aussi pour empêcher les éventuels malins qui utiliseraient du PHP ou du JS,
             // avec la fonction htmlspecialchars().
             $requete_str = htmlspecialchars($_POST['requete']);
-            $requete_strtolower = strtolower($requete_str);
-            $requete = $requete_strtolower;
+            $requete = strtolower($requete_str);
 
             $limit = 25;
 
             // Appel du service avec laquelle on demande une requete Dql
-            $titres = $this->container->get('search.service')->getSearchPostTitre($requete, $limit);
+            $titres = $this->container->get('search.service')->getSearchPostTitre($limit);
 
             // Appel du service pour checker $requete dans multi array $repository
             $resultat = $this->container->get('multiarray.service')->multiArray($titres, $requete);
