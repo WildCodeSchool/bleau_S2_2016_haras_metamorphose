@@ -29,7 +29,7 @@ class SearchEngineController extends Controller
             $requete_str = htmlspecialchars($_POST['requete']);
             $requete = strtolower($requete_str);
 
-            $limit = 10; // Taille de limitation d'affichage par pages (sera possible de la limiter dans la vue)
+            $limit = 2; // Taille de limitation d'affichage par pages (sera possible de la limiter dans la vue)
 
             // Appel du service avec lequelle on demande une requete Dql du champ titre
             $champTitre = $this->container->get ('search.service')->getSearchPostTitre ($requete, $limit);
@@ -41,33 +41,15 @@ class SearchEngineController extends Controller
             // Si le champ titre ne retourne aucune valeur
             if (empty($champTitre)) {
 
-                // Appel du service avec lequelle on demande une requete Dql du champ contenu
-                $champContenu = $this->container->get ('search.service')->getSearchPostContenu ($requete, $limit);
+                $this->addFlash (
+                    'success',
+                    '!!! Le mot recherché n\'a pas été trouvé !!!'
+                );
 
-                // Délimitation de la pagination
-                $champContenu_count = count($champContenu);
-                $nbPages = ceil($champContenu_count/$limit);
+                return $this->render ('@Search/Default/index.html.twig', array (
+                    'resultats' => '',
+                ));
 
-                // si les champs titre et contenu ne retournent aucune valeur on affiche un message
-                if (empty($champContenu)) {
-
-                    $this->addFlash (
-                        'success',
-                        '!!! Le mot recherché n\'a pas été trouvé !!!'
-                    );
-
-                    return $this->render ('@Search/Default/index.html.twig', array (
-                        'resultats' => '',
-                    ));
-                }
-                // sinon si le champ contenu contient une valeur on retourne un resultat
-                else {
-
-                    // maintenant, on va afficher la page qui va afficher les résultats
-                    return $this->render ('@Search/Default/index.html.twig', array (
-                        'resultats' => $champContenu,
-                    ));
-                }
             }
             // sinon si le champ titre contient une valeur on retourne un resultat
             else {
