@@ -29,7 +29,6 @@ class SearchEngineController extends Controller
             $requete_str = htmlspecialchars($_POST['requete']);
             $requete = strtolower($requete_str);
 
-
             $limit = 25;
 
             // Appel du service avec lequelle on demande une requete Dql du champ titre
@@ -75,7 +74,7 @@ class SearchEngineController extends Controller
 
             $this->addFlash (
                 'success',
-                '!!! Pas de mot inséré !!!'
+                '!!! Attention, n\'oubliez pas d\écrire un mot !!!'
             );
 
             return $this->render ('@Search/Default/index.html.twig', array (

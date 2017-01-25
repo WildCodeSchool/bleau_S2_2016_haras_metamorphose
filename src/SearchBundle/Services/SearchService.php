@@ -37,13 +37,14 @@ class SearchService extends Controller
             ->join('p.categorie', 'c')
             ->where('REGEXP(p.titre, :regexp) != false')
             ->setParameter('regexp', $requete)
-            ->orderBy('p.dateCreate', 'DESC');
-//            ->setMaxResults( $limit );
+            ->orderBy('p.dateCreate', 'DESC')
+            ->setMaxResults( $limit );
         return $qb->getQuery()->getResult();
     }
 
     public function getSearchPostContenu($requete, $limit){
 //        Alias 's' = class searchrepository
+//        Alias 'c' = categorie
 
         $repository = $this->getDoctrine()
             ->getRepository('ForumBundle:Post');
@@ -53,8 +54,8 @@ class SearchService extends Controller
             ->join('p.categorie', 'c')
             ->where('REGEXP(p.contenu, :regexp)  != false')
             ->setParameter('regexp', $requete)
-            ->orderBy('p.dateCreate', 'DESC');
-//            ->setMaxResults( $limit );
+            ->orderBy('p.dateCreate', 'DESC')
+            ->setMaxResults( $limit );
         return $qb->getQuery()->getResult();
     }
 
