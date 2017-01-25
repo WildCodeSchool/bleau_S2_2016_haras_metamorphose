@@ -47,9 +47,9 @@ class SearchService extends Controller
             ->getRepository('ForumBundle:Post');
 
         $qb = $repository->createQueryBuilder('s')
-            ->select('s.contenu, s.contenu, s.id, s.dateCreate')
-            ->where('REGEXP(s.titre, :regexp)  != false')
-            ->setParameter('regexp', '' . $requete . '$')
+            ->select('s.titre, s.contenu, s.id, s.dateCreate')
+            ->where('REGEXP(s.contenu, :regexp)  != false')
+            ->setParameter('regexp', $requete)
             ->orderBy('s.dateCreate', 'DESC');
 //            ->setMaxResults( $limit );
         return $qb->getQuery()->getResult();
