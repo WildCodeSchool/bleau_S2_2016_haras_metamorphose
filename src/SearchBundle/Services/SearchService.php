@@ -25,7 +25,8 @@ class SearchService extends Controller
 
     }
 
-    public function getSearchPostTitre($requete, $limit){
+
+    public function getSearchPostTitre($requete, $limit, $pageIndex = 0){
 //        Alias 's' = class searchrepository
 //        Alias 'c' = categorie
 
@@ -38,11 +39,12 @@ class SearchService extends Controller
             ->where('REGEXP(p.titre, :regexp) != false')
             ->setParameter('regexp', $requete)
             ->orderBy('p.dateCreate', 'DESC')
+            ->setFirstResult($limit*$pageIndex)
             ->setMaxResults( $limit );
         return $qb->getQuery()->getResult();
     }
 
-    public function getSearchPostContenu($requete, $limit){
+    public function getSearchPostContenu($requete, $limit, $pageIndex = 0){
 //        Alias 's' = class searchrepository
 //        Alias 'c' = categorie
 
@@ -55,6 +57,7 @@ class SearchService extends Controller
             ->where('REGEXP(p.contenu, :regexp)  != false')
             ->setParameter('regexp', $requete)
             ->orderBy('p.dateCreate', 'DESC')
+            ->setFirstResult($limit*$pageIndex)
             ->setMaxResults( $limit );
         return $qb->getQuery()->getResult();
     }

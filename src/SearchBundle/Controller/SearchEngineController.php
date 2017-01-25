@@ -22,23 +22,31 @@ class SearchEngineController extends Controller
     {
         // on vérifie d'abord l'existence du POST et aussi si la requete n'est pas vide.
         if(isset($_POST['requete']) && $_POST['requete'] != NULL) {
+
             // on crée une variable $requete pour faciliter l'écriture de la requête de SearchService,
             // mais aussi pour empêcher les éventuels malins qui utiliseraient du PHP ou du JS,
             // avec la fonction htmlspecialchars().
-
             $requete_str = htmlspecialchars($_POST['requete']);
             $requete = strtolower($requete_str);
 
-            $limit = 25;
+            $limit = 2; // Taille de limitation d'affichage par pages (sera possible de la limiter dans la vue)
 
             // Appel du service avec lequelle on demande une requete Dql du champ titre
             $champTitre = $this->container->get ('search.service')->getSearchPostTitre ($requete, $limit);
+
+            // Délimitation de la pagination
+            $champTitre_count = count($champTitre);
+            $nbPages = ceil($champTitre_count/$limit);
 
             // Si le champ titre ne retourne aucune valeur
             if (empty($champTitre)) {
 
                 // Appel du service avec lequelle on demande une requete Dql du champ contenu
                 $champContenu = $this->container->get ('search.service')->getSearchPostContenu ($requete, $limit);
+
+                // Délimitation de la pagination
+                $champContenu_count = count($champContenu);
+                $nbPages = ceil($champContenu_count/$limit);
 
                 // si les champs titre et contenu ne retournent aucune valeur on affiche un message
                 if (empty($champContenu)) {
