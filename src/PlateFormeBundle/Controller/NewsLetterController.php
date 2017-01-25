@@ -179,7 +179,7 @@ class NewsLetterController extends Controller
 
 
     /**
-     * Creates a form to delete a newsLetter entity.
+     * Récupération user inscrit à la newsletter.
      *
      */
     protected function getUsersMail(){

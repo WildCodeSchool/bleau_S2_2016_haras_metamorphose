@@ -33,18 +33,41 @@ class AbonnementNewsLetterController extends Controller
             $user->setDateInscription(new \DateTime());
 
             $em->persist($user);
+
+            $message = \Swift_Message::newInstance()
+                ->setSubject('Inscription à la newsletter du Haras de la métamorphose')
+                ->setFrom(array($this->getParameter('mailer_user') => 'Le Haras de la métamorphose'))
+                ->setTo($user->getEmail())
+                ->setBody('<p> Merci pour votre inscrption à notre newsletter </p>',
+                    'text/html'
+                );
         }
         // User present dans la base => mise à jour du boolean newsletter = true
         else {
             $users_existants->setNewsletter(true);
             $em->persist($users_existants);
+
+            $message = \Swift_Message::newInstance()
+                ->setSubject('Inscription à la newsletter du Haras de la métamorphose')
+                ->setFrom(array($this->getParameter('mailer_user') => 'Le Haras de la métamorphose'))
+                ->setTo($users_existants->getEmail())
+                ->setBody('<h6> Merci pour votre inscrption à notre newsletter </h6>',
+                    'text/html'
+                );
         }
+
+
+
+        $this->get('mailer')->send($message);
+
 
         $this->addFlash('notice', 'Votre demande a été enregistrée');
 
         $em->flush();
         return $this->redirectToRoute('plate_forme_homepage');
     }
+
+
 
     /**
      * Desabonnement  AbonnementNewsLetter.

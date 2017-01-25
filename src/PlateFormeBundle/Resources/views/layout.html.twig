@@ -131,10 +131,14 @@
                     </ul>
                 </div>
                 <div class="col l2 offset-l2 s12">
+                    <h5 class="white-text">Newsletter</h5>
                     <form action="{{ path('abonnement_newsletter') }}" method="post">
                         <input name="email" placeholder="Saisir adresse email" required="required" type="email">
-                        <input class="news_input" value="valider" type="submit">
+                        <input class="waves-effect waves-light btn" value="valider" type="submit">
                     </form>
+                </div>
+                <div class="col l2 offset-l2 s12">
+                    <a class="grey-text text-lighten-3" href="{{ path('desabonnement_newsletter') }}">Désabonnement</a>
                 </div>
             </div>
         </div>
