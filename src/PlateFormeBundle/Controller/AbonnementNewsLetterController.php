@@ -91,15 +91,32 @@ class AbonnementNewsLetterController extends Controller
             if(!empty($user)) {
                 $user->setActif(false);
                 $em->persist($user);
+
+                $message = \Swift_Message::newInstance()
+                    ->setSubject('Désinscription à la newsletter du Haras de la métamorphose')
+                    ->setFrom(array($this->getParameter('mailer_user') => 'Le Haras de la métamorphose'))
+                    ->setTo($user->getEmail())
+                    ->setBody('<p>Votre demande de désinscrption à notre newsletter à bien été prise en compte</p>',
+                        'text/html'
+                    );
             }
             elseif (!empty($userForum)) {
                 $userForum->setNewsletter(false);
                 $em->persist($userForum);
+
+                $message = \Swift_Message::newInstance()
+                    ->setSubject('Désinscription à la newsletter du Haras de la métamorphose')
+                    ->setFrom(array($this->getParameter('mailer_user') => 'Le Haras de la métamorphose'))
+                    ->setTo($userForum->getEmail())
+                    ->setBody('<h6>Votre demande de désinscrption à notre newsletter à bien été prise en compte</h6>',
+                        'text/html'
+                    );
             } else {
                 $this->addFlash('notice', 'Cette adresse n\'est pas répértoriée' );
                 return $this->render('@PlateForme/newsletter/desabonnementlNewsletter.html.twig');
             }
 
+            $this->get('mailer')->send($message);
 
             $this->addFlash('notice', 'Votre demande a été enregistrée');
             $em->flush();
