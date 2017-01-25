@@ -21,29 +21,17 @@ class MultiArrayService extends Controller
     }
 
     // Fonction pour lire $repository en tant que tableau multi-dimensionnel
-    public function multiArray($titres, $requete){
+    public function multiArray($table, $requete){
 
-        foreach ($titres as $key => $titre){
+        foreach ($table as $value) {
 
-            /*--- Si $titre correspond a la requete de départ il check uniquement le 1er tableau---*/
-//            if (in_array($requete, $titre)){
+            foreach ($value as $string) {
 
-                $requete_str = '/' . $requete . '/';
+                    preg_match ('/' . $requete . '/', $string, $result);
 
-                foreach ($titres as $valeur) {
+                dump ($requete, $table, $value, $string, $result); die();
 
-                    if (preg_match ($requete_str, $valeur['contenu'], $resultat)) {
-
-//                        $resultat['contenu'] = $valeur;
-
-                        dump ($valeur, $resultat);
-                        die();
-
-                        // on renvois la valeur du titre en fonction du mot trouvé dans le contenu
-                        return $valeur;
-                    }
-                }
-//            }
+            }
         }
     }
 }

@@ -34,15 +34,17 @@ class SearchEngineController extends Controller
             $limit = 25;
 
             // Appel du service avec laquelle on demande une requete Dql
-            $titres = $this->container->get('search.service')->getSearchPostTitre($requete, $limit);
+            $table = $this->container->get('search.service')->getSearchPostTitre($requete, $limit);
 
             // Appel du service pour checker $requete dans multi array $repository
-            $resultat = $this->container->get('multiarray.service')->multiArray($titres, $requete);
+//            $resultat = $this->container->get('multiarray.service')->multiArray($table, $requete);
 
             // Si tout les services repondent favorablement
-            if ($resultat != false){
+            if ($table != ''){
 
-                $resultats = $this->getDoctrine()->getRepository('ForumBundle:Post')->findBy($resultat);
+                $resultats = $this->getDoctrine()->getRepository('ForumBundle:Post')->findBy($table);
+
+                dump($table); die;
 
                 // maintenant, on va afficher la page qui va afficher les résultats
                 return $this->render('@Search/Default/index.html.twig', array(
@@ -50,17 +52,36 @@ class SearchEngineController extends Controller
                 ));
 
             }
-            // sinon on envois un message flash
             else {
+                // Appel du service avec laquelle on demande une requete Dql
+                $table = $this->container->get('search.service')->getSearchPostContenu($requete, $limit);
+
+                if($table != '') {
+
+                    $resultats = $this->getDoctrine()->getRepository('ForumBundle:Post')->findBy($table);
+
+                    dump($table); die;
+
+                    // maintenant, on va afficher la page qui va afficher les résultats
+                    return $this->render('@Search/Default/index.html.twig', array(
+                        'resultats' => $resultats,
+                    ));
+
+                    }
+                // sinon on envois un message flash
+                else {
 
                     $this->addFlash(
                         'success',
                         '!!! Le mot recherché n\'a pas été trouvé !!!'
                     );
 
-                return $this->render('@Search/Default/index.html.twig', array(
-                    'resultats' => '',
-                ));
+                    return $this->render('@Search/Default/index.html.twig', array(
+                        'resultats' => '',
+                    ));
+                }
+
+
             }
         }
     }
