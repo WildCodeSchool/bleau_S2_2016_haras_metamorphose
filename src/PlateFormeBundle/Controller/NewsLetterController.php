@@ -98,8 +98,30 @@ class NewsLetterController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
-//            TODO FAIRE MISE A JOUR PJ SI AJOUT DANS L'EDIT
+            $em =$this->getDoctrine()->getManager();
+
+            $newsLetter->setEtat(true);
+            $newsLetter->setPj(false);
+
+            // Nécessaire pour récupérer Id newsletter, et incrémntation
+            // permet d'avoir dans la méthode preUpload le n° de la NL
+            // dans nom du fichier enregisté
+            $em->persist($newsLetter);
+            $em->flush($newsLetter);
+
+            $newsLetter->preUpload();
+            $newsLetter->upload();
+
+            // Changement du boolean url en fonction du choix user dans form
+            if(empty($newsLetter->getUrl())) {
+                $newsLetter->setPj(false);
+            } else {
+                $newsLetter->setPj(true);
+            }
+
+            $em->persist($newsLetter);
+
+            $em->flush($newsLetter);
 
             return $this->redirectToRoute('newsletter_index');
         }
