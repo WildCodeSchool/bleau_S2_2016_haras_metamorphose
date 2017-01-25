@@ -32,16 +32,16 @@ class SearchEngineController extends Controller
 
             $limit = 25;
 
-            // Appel du service avec laquelle on demande une requete Dql
+            // Appel du service avec lequelle on demande une requete Dql du champ titre
             $champTitre = $this->container->get ('search.service')->getSearchPostTitre ($requete, $limit);
 
-            // Si tout les services repondent favorablement
+            // Si le champ titre ne retourne aucune valeur
             if (empty($champTitre)) {
 
-                // Appel du service avec laquelle on demande une requete Dql
+                // Appel du service avec lequelle on demande une requete Dql du champ contenu
                 $champContenu = $this->container->get ('search.service')->getSearchPostContenu ($requete, $limit);
-//                dump($requete, $table); die;
 
+                // si les champs titre et contenu ne retournent aucune valeur on affiche un message
                 if (empty($champContenu)) {
 
                     $this->addFlash (
@@ -52,9 +52,9 @@ class SearchEngineController extends Controller
                     return $this->render ('@Search/Default/index.html.twig', array (
                         'resultats' => '',
                     ));
-                } else {
-
-//                    $resultats = $this->getDoctrine()->getRepository('ForumBundle:Post')->findBy($table);
+                }
+                // sinon si le champ contenu contient une valeur on retourne un resultat
+                else {
 
                     // maintenant, on va afficher la page qui va afficher les résultats
                     return $this->render ('@Search/Default/index.html.twig', array (
@@ -62,8 +62,8 @@ class SearchEngineController extends Controller
                     ));
                 }
             }
+            // sinon si le champ titre contient une valeur on retourne un resultat
             else {
-//                    $resultats = $this->getDoctrine()->getRepository('ForumBundle:Post')->findBy($table);
 
                 // maintenant, on va afficher la page qui va afficher les résultats
                 return $this->render ('@Search/Default/index.html.twig', array (
