@@ -35,11 +35,11 @@
                 <table class="calendar-table responsive-table">
                     <theader>
                         <tr>
-                            <td class="calendar-td calendar-border-topleft">
-                                <p class="calendar-p center">
-                                    Catégorie du post
-                                </p>
-                            </td>
+                            {#<td class="calendar-td calendar-border-topleft">#}
+                                {#<p class="calendar-p center">#}
+                                    {#Catégorie du post#}
+                                {#</p>#}
+                            {#</td>#}
                             <td class="calendar-td">
                                 <p class="calendar-p center">
                                     Titre du post
@@ -62,9 +62,9 @@
                     {% for resultat in resultats %}
 
                         <tr class="collection">
-                            <td class="calendar-td-twig center">
-                                {{ resultat.categorie.nom}}
-                            </td>
+                            {#<td class="calendar-td-twig center">#}
+                                {#{{ resultat.categorie.nom}}#}
+                            {#</td>#}
                             <td class="calendar-td-twig center">
                                 <a href="{{ path('post_showAllPost', { id: resultat.id }) }} " class="collection-item">
                                     {{ resultat.titre }}
