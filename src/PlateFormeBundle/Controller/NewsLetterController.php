@@ -229,10 +229,9 @@ class NewsLetterController extends Controller
                                 '@PlateForme/newsletter/corpsMailNewsletter.html.twig',
                                 array(
                                     'contenu' => $newsLetterAEnvoyer->getObjet(),
-                                    'titre' => $newsLetterAEnvoyer->getLibelle(),
+                                    'titre' => $newsLetterAEnvoyer->getLibelle()
                                 )
-                            ) .
-                            $desabonnement,
+                            ),
                             'text/html'
                         )
                         ->attach(\Swift_Attachment::fromPath($file));
@@ -248,10 +247,9 @@ class NewsLetterController extends Controller
                                 '@PlateForme/newsletter/corpsMailNewsletter.html.twig',
                                 array(
                                     'contenu' => $newsLetterAEnvoyer->getObjet(),
-                                    'titre' => $newsLetterAEnvoyer->getLibelle(),
+                                    'titre' => $newsLetterAEnvoyer->getLibelle()
                                 )
-                            ) .
-                            $desabonnement,
+                            ),
                             'text/html'
                         );
                 }

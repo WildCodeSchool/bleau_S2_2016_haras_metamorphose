@@ -34,6 +34,7 @@ class AbonnementNewsLetterController extends Controller
 
             $em->persist($user);
 
+            // Génération email de confirmation
             $message = \Swift_Message::newInstance()
                 ->setSubject('Inscription à la newsletter du Haras de la métamorphose')
                 ->setFrom(array($this->getParameter('mailer_user') => 'Le Haras de la métamorphose'))
@@ -47,11 +48,12 @@ class AbonnementNewsLetterController extends Controller
             $users_existants->setNewsletter(true);
             $em->persist($users_existants);
 
+            // Génération email de confirmation
             $message = \Swift_Message::newInstance()
                 ->setSubject('Inscription à la newsletter du Haras de la métamorphose')
                 ->setFrom(array($this->getParameter('mailer_user') => 'Le Haras de la métamorphose'))
                 ->setTo($users_existants->getEmail())
-                ->setBody('<h6> Merci pour votre inscrption à notre newsletter </h6>',
+                ->setBody('<p> Merci pour votre inscrption à notre newsletter </p>',
                     'text/html'
                 );
         }
@@ -92,6 +94,7 @@ class AbonnementNewsLetterController extends Controller
                 $user->setActif(false);
                 $em->persist($user);
 
+                // Génération email de confirmation
                 $message = \Swift_Message::newInstance()
                     ->setSubject('Désinscription à la newsletter du Haras de la métamorphose')
                     ->setFrom(array($this->getParameter('mailer_user') => 'Le Haras de la métamorphose'))
@@ -104,11 +107,12 @@ class AbonnementNewsLetterController extends Controller
                 $userForum->setNewsletter(false);
                 $em->persist($userForum);
 
+                // Génération email de confirmation
                 $message = \Swift_Message::newInstance()
                     ->setSubject('Désinscription à la newsletter du Haras de la métamorphose')
                     ->setFrom(array($this->getParameter('mailer_user') => 'Le Haras de la métamorphose'))
                     ->setTo($userForum->getEmail())
-                    ->setBody('<h6>Votre demande de désinscrption à notre newsletter à bien été prise en compte</h6>',
+                    ->setBody('<p>Votre demande de désinscrption à notre newsletter à bien été prise en compte</p>',
                         'text/html'
                     );
             } else {
