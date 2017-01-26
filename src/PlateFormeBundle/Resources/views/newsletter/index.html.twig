@@ -8,14 +8,16 @@
         }
 
         .wrapperNL {
-            margin-left: 23%;
+            /*margin-left: 15%;*/
+            margin: 3%;
         }
     </style>
 
 
+
     {#-------------------------------------------------------------#}
     {# NavBar Lateral  #}
-    {{ include("@Forum/post/postNavBar.html.twig") }}
+    {#{{ include("@Forum/post/postNavBar.html.twig") }}#}
     {# fin NavBar lateral #}
     {#-------------------------------------------------------------#}
 
@@ -83,6 +85,7 @@
                             {{ newsLetter.dateEnvoie|date('M') }} <br>
                             {{ newsLetter.dateEnvoie|date('Y') }}
                         {% else %}
+                        {% if is_granted('ROLE_ADMIN') %}
                             <div class="row center">
                                 {# Envoi newsletter #}
                                 {# Si pas envoyé => bouton #}
@@ -100,9 +103,11 @@
                                     {# do nothing #}
                                 {% endif %}
                             </div>
+                            {% endif %}
                         {% endif %}
                     </td>
                     <td>
+                        {# voir pièce jointe #}
                         {% if newsLetter.url is null %}
                             {# nothing #}
                         {% else %}
@@ -136,7 +141,7 @@
 {% block javascripts %}
 
     {{ parent() }}
-    <script src="{{ asset('bundles/forum/js/aside_forum.js') }}"></script>
+    {#<script src="{{ asset('bundles/forum/js/aside_forum.js') }}"></script>#}
     <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.js"></script>
 
     <script>

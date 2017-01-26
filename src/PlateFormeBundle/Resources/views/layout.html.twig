@@ -36,14 +36,22 @@
 
                 <ul class="right hide-on-med-and-down">
 
-                    <li><a href="sass.html">
+                    <li><a class="tooltipped"
+                           href="{{ path('newsletter_index') }}"
+                           data-position="bottom"
+                           data-delay="50"
+                           data-tooltip="Newsletter">
                         <span class="fa-stack fa-2x">
                             <i class="fa fa-circle fa-stack-2x icon-background1"></i>
-                            <i class="fa fa-bell-o fa-stack-1x"></i>
+                            <i class="fa fa-newspaper-o fa-stack-1x"></i>
                         </span>
                         </a>
                     </li>
-                    <li><a href="{{ path('post_index') }}">
+                    <li><a class="tooltipped"
+                           href="{{ path('post_index') }}"
+                           data-position="bottom"
+                           data-delay="50"
+                           data-tooltip="Forum">
                         <span class="fa-stack fa-2x">
                             <i class="fa fa-circle fa-stack-2x icon-background2"></i>
                             <i class="fa fa-pencil fa-stack-1x"></i>
@@ -52,7 +60,11 @@
                     </li>
 
                     </li>
-                    <li><a href="{{ path('agenda') }}">
+                    <li><a class="tooltipped"
+                           href="{{ path('agenda') }}"
+                           data-position="bottom"
+                           data-delay="50"
+                           data-tooltip="Agenda">
                         <span class="fa-stack fa-2x">
                             <i class="fa fa-circle fa-stack-2x icon-background3"></i>
                             <i class="fa fa-calendar fa-stack-1x"></i>
@@ -60,7 +72,11 @@
                         </a>
                     </li>
 
-                    <li><a class="dropdown-button" href="{{ path('fos_user_profile_show') }}" data-activates="dropdown2">
+                    <li><a class="dropdown-button tooltipped"
+                           data-position="bottom"
+                           data-delay="50"
+                           data-tooltip="Profil"
+                           href="{{ path('fos_user_profile_show') }}" data-activates="dropdown2">
                         <span class="fa-stack fa-2x">
                             <i class="fa fa-circle fa-stack-2x icon-background4"></i>
                             <i class="fa fa-user fa-stack-1x"></i>

@@ -217,7 +217,6 @@ class NewsLetterController extends Controller
         $newsLetterAEnvoyer = $em->getRepository('PlateFormeBundle:NewsLetter')->findOneById($id);
         $destinataires = $this->getUsersMail();
         $file = $newsLetterAEnvoyer->getAbsolutePath();
-        $desabonnement = '<p style="margin-top: 60px; text-align: center;">Pour vous desabonner, <a href="' . __DIR__ . $this->generateUrl('desabonnement_newsletter') .'">cliquez ici</a><p>';
 
                 if ($newsLetterAEnvoyer->getUrl() != null){
                     $message = \Swift_Message::newInstance()
