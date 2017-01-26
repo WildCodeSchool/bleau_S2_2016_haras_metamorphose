@@ -6,7 +6,7 @@
         <nav>
             <div class="nav-wrapper-plateforme">
 
-                <ul class="left hide-on-med-and-down">
+                <ul class="left">
                     <li>
                     <a class="plateforme-logo" href="{{ path('plate_forme_homepage') }}">
                         <img id="plateforme-logo" src="{{ asset('bundles/haras/images/logo.png') }}" alt="logo">
@@ -34,16 +34,16 @@
                     </li>
                 </ul>
 
-                <ul class="right hide-on-med-and-down">
+                <ul class="right">
 
-                    <li><a href="sass.html">
+                    <li class="newsletter-logo"><a class="newsletter-lien" href="sass.html">
                         <span class="fa-stack fa-2x">
                             <i class="fa fa-circle fa-stack-2x icon-background1"></i>
                             <i class="fa fa-bell-o fa-stack-1x"></i>
                         </span>
                         </a>
                     </li>
-                    <li><a href="{{ path('post_index') }}">
+                    <li class="post-logo"><a href="{{ path('post_index') }}">
                         <span class="fa-stack fa-2x">
                             <i class="fa fa-circle fa-stack-2x icon-background2"></i>
                             <i class="fa fa-pencil fa-stack-1x"></i>
@@ -51,8 +51,7 @@
                         </a>
                     </li>
 
-                    </li>
-                    <li><a href="{{ path('agenda') }}">
+                    <li class="agenda-logo"><a href="{{ path('agenda') }}">
                         <span class="fa-stack fa-2x">
                             <i class="fa fa-circle fa-stack-2x icon-background3"></i>
                             <i class="fa fa-calendar fa-stack-1x"></i>
@@ -60,7 +59,7 @@
                         </a>
                     </li>
 
-                    <li><a class="dropdown-button" href="{{ path('fos_user_profile_show') }}" data-activates="dropdown2">
+                    <li class="profile-logo"><a class="dropdown-button" href="{{ path('fos_user_profile_show') }}" data-activates="dropdown2">
                         <span class="fa-stack fa-2x">
                             <i class="fa fa-circle fa-stack-2x icon-background4"></i>
                             <i class="fa fa-user fa-stack-1x"></i>

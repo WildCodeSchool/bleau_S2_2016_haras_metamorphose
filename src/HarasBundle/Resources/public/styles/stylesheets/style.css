@@ -1899,6 +1899,85 @@ footer.page-footer {
 }
 
 /*-----------------------------------------------------*\
+                          MEDIA-QUERIES
+\*-----------------------------------------------------*/
+@media screen and (max-width: 600px) {
+  /* line 175, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  #plateforme-logo {
+    height: 55px;
+  }
+}
+@media screen and (max-width: 330px) {
+  /* line 181, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  .newsletter-logo {
+    margin-right: -1%;
+  }
+
+  /* line 184, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  .post-logo {
+    margin-left: -3%;
+  }
+
+  /* line 187, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  .agenda-logo {
+    margin-left: -3%;
+  }
+
+  /* line 190, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  .profile-logo {
+    margin-left: -3%;
+  }
+}
+@media screen and (max-width: 398px) {
+  /* line 196, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  .right {
+    margin-right: -4%;
+  }
+}
+@media screen and (max-width: 350px) {
+  /* line 202, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  .right {
+    margin-right: -15%;
+  }
+}
+@media screen and (max-width: 398px) {
+  /* line 208, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  .right {
+    margin-right: -4%;
+  }
+}
+@media screen and (max-width: 320px) {
+  /* line 214, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  .newsletter-lien {
+    padding-left: 2px;
+  }
+
+  /* line 217, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  .newsletter-lien {
+    margin-right: -8%;
+  }
+
+  /* line 220, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  .post-logo {
+    margin-right: -9%;
+  }
+
+  /* line 223, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  .agenda-logo {
+    margin-right: -22px;
+  }
+
+  /* line 226, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  .profile-logo {
+    margin-left: 0%;
+  }
+
+  /* line 229, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  .right {
+    margin-right: -15%;
+  }
+}
+/*-----------------------------------------------------*\
                           SLIDER
 \*-----------------------------------------------------*/
 /* line 5, ../sass/PlateformeCSS/_homepage_plateforme.scss */

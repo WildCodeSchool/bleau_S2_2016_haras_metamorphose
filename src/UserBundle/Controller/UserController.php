@@ -1,5 +1,6 @@
 <?php
 namespace UserBundle\Controller;
+use Doctrine\ORM\Mapping\Id;
 use UserBundle\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,7 +17,8 @@ class UserController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $users = $em->getRepository('UserBundle:User')->findAll();
+//        ici on veut afficher que les user qui sont activés 1
+        $users = $em->getRepository('UserBundle:User')->findBy(array('actif' => 1));
         return $this->render('@User/user/index.html.twig', array(
             'users' => $users,
         ));
@@ -76,6 +78,67 @@ class UserController extends Controller
         ));
     }
 
+
+    /**
+     * Desactives a user entity.
+     *
+     */
+    public function desactiveAction($id) {
+        $em = $this->getDoctrine()->getManager();
+        $user = $em->getRepository('UserBundle:User')->findOneBy(array('id' => $id));
+        $user->setActif(false);
+//        TODO verif le setnewsletter après recup bdd newsletter
+//        $user->setNewsletter(false);
+        $em->persist($user);
+        $em->flush($user);
+
+        $this->addFlash(
+            'notice',
+            'Utilisateur désactivé'
+        );
+
+        return $this->redirectToRoute('user_index');
+
+    }
+
+    /**
+     * show desactives users.
+     *
+     */
+    public function showInactiveUserAction(Request $request) {
+
+        $em = $this->getDoctrine()->getManager();
+//        ici on veut afficher que les users qui sont desactivés
+        $users = $em->getRepository('UserBundle:User')->findBy(array('actif' => 0));
+
+        return $this->render('@User/user/showInactiveUser.html.twig', array(
+            'users' => $users,
+        ));
+    }
+
+
+
+    /**
+     * Reactive a user entity.
+     *
+     */
+    public function reactiveAction($id) {
+        $em = $this->getDoctrine()->getManager();
+        $user = $em->getRepository('UserBundle:User')->findOneBy(array('id' => $id));
+        $user->setActif(true);
+        $em->persist($user);
+        $em->flush($user);
+
+        $this->addFlash(
+            'notice',
+            'Utilisateur désactivé'
+        );
+
+        return $this->redirectToRoute('user_index');
+
+    }
+
+
     /**
      * Deletes a user entity.
      *
@@ -91,6 +154,7 @@ class UserController extends Controller
         }
         return $this->redirectToRoute('user_index');
     }
+
     /**
      * Creates a form to delete a user entity.
      *
