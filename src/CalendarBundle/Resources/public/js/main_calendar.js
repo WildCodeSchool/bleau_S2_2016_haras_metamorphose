@@ -23,6 +23,9 @@ jQuery(document).ready(function($) {
 
     //COLORPICKER
     colorpicker();
+
+    //PAGINATION
+    pagination();
 });
 
 // ********************************************************************
@@ -128,9 +131,46 @@ function colorpicker(){
         color: '#1783cb'
     });
 
-    $( ".#tdcolor " ).click(function() {
+    $( "#color tr td" ).click(function() {
         var color = $( '#colorpicker' ).val();
         $( '#colorpicker' ).css( 'background', color );
     });
 }
 
+// ********************************************************************
+// *                    pagination
+// ********************************************************************
+
+function pagination(){
+
+    console.log('pagination main calendar 143');
+
+    $(document).ready( function () {
+        $('#table_id').DataTable({
+            "dom": '<lf<t>ip>',
+            "pageLength": 10,
+            "lengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]],
+            "language": {
+                "sProcessing":     "Traitement en cours...",
+                "sSearch":         "Rechercher :",
+                "sInfo":           "Affichage de l'élément _START_ à _END_ sur _TOTAL_ élément(s)",
+                "sInfoEmpty":      "Affichage de l'élément 0 à 0 sur 0 élément(s)",
+                "sInfoFiltered":   "(filtré de _MAX_ éléments au total)",
+                "sInfoPostFix":    "",
+                "sLoadingRecords": "Chargement en cours...",
+                "sZeroRecords":    "Aucun élément à afficher",
+                "sEmptyTable":     "Aucune donnée disponible dans le tableau",
+                "oPaginate": {
+                    "sFirst":      "Premier",
+                    "sPrevious":   "Précédent",
+                    "sNext":       "Suivant",
+                    "sLast":       "Dernier"
+                },
+                "oAria": {
+                    "sSortAscending":  ": activer pour trier la colonne par ordre croissant",
+                    "sSortDescending": ": activer pour trier la colonne par ordre décroissant"
+                }
+            }}
+        );
+    } );
+}
