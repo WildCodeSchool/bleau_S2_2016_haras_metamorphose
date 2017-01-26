@@ -126,9 +126,9 @@ select{
 }
 
 .ombre{
-    border-right: 1px;
-    border-right-style: groove;
-    border-color: #dff1ff;
+    border-right: 1px !important;
+    border-right-style: groove!important;
+    border-color: #dff1ff !important;
 }
 /*********************************************************/
 /*********************************************************/

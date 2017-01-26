@@ -33,7 +33,7 @@
         <div class="row">
             <div class="col s12">
 
-                <table class="calendar-table" id="table_id">
+                <table class="calendar-table bordered" id="table_id">
                     <thead>
 
                         <th class="calendar-td calendar-border-topleft">
@@ -62,11 +62,11 @@
 
                     {% for resultat in resultats %}
 
-                        <tr>
-                            <td class="calendar-td-twig">
+                        <tr class="collection">
+                            <td class="calendar-td-twig center">
                                 {{ resultat.nom}}
                             </td>
-                            <td class="calendar-td-twig">
+                            <td class="calendar-td-twig center">
                                 <a href="{{ path('post_showAllPost', { id: resultat.id }) }} " class="collection-item">
                                     {{ resultat.titre }}
                                 </a>
@@ -75,7 +75,7 @@
                             <td class="calendar-td-twig ombre">
                                 {{ resultat.contenu|raw }}
                             </td>
-                            <td class="calendar-td-twig">
+                            <td class="calendar-td-twig center">
                                 {{ resultat.dateCreate|date("d/m/Y") }}
                             </td>
                         </tr>
