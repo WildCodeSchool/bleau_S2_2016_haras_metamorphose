@@ -83,7 +83,6 @@ class PhilosophieController extends Controller
      */
     public function editAction(Request $request, Philosophie $philosophie)
     {
-        $deleteForm = $this->createDeleteForm($philosophie);
         $editForm = $this->createForm('PlateFormeBundle\Form\PhilosophieType', $philosophie);
         $editForm->handleRequest($request);
 
@@ -96,41 +95,7 @@ class PhilosophieController extends Controller
         return $this->render('@PlateForme/philosophie/edit.html.twig', array(
             'philosophie' => $philosophie,
             'edit_form' => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
         ));
     }
 
-//    /**
-//     * Deletes a philosophie entity.
-//     *
-//     */
-//    public function deleteAction(Request $request, Philosophie $philosophie)
-//    {
-//        $form = $this->createDeleteForm($philosophie);
-//        $form->handleRequest($request);
-//
-//        if ($form->isSubmitted() && $form->isValid()) {
-//            $em = $this->getDoctrine()->getManager();
-//            $em->remove($philosophie);
-//            $em->flush($philosophie);
-//        }
-//
-//        return $this->redirectToRoute('philosophie_index');
-//    }
-
-    /**
-     * Creates a form to delete a philosophie entity.
-     *
-     * @param Philosophie $philosophie The philosophie entity
-     *
-     * @return \Symfony\Component\Form\Form The form
-     */
-    private function createDeleteForm(Philosophie $philosophie)
-    {
-        return $this->createFormBuilder()
-            ->setAction($this->generateUrl('philosophie_delete', array('id' => $philosophie->getId())))
-            ->setMethod('DELETE')
-            ->getForm()
-        ;
-    }
 }

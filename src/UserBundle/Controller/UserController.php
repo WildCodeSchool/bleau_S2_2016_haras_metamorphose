@@ -23,6 +23,7 @@ class UserController extends Controller
             'users' => $users,
         ));
     }
+
     /**
      * Creates a new user entity.
      *
@@ -169,5 +170,14 @@ class UserController extends Controller
             ->setMethod('DELETE')
             ->getForm()
             ;
+    }
+
+    /**
+     * index admin.
+     *
+     */
+    public function indexAdminAction()
+    {
+        return $this->render('@User/Admin/index.html.twig');
     }
 }

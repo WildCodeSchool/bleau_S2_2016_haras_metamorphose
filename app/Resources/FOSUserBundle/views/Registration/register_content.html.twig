@@ -51,6 +51,12 @@
             </div>
 
             <div class="row input-field">
+                {{ form_widget(form.newsletter, {'attr':{'class':'newsletter form'}}) }}
+                {{ form_label(form.newsletter, 'Inscription newsletter ?') }}
+                {{ form_errors(form.newsletter) }}
+            </div>
+
+            <div class="row input-field">
                 <div class="file-field input-field">
                     <div class="btn">
                         <span>Photo</span>
