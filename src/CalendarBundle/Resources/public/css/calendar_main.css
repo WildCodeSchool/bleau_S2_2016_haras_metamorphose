@@ -102,6 +102,9 @@ select{
 .calendar-border-topright{
     border-top-right-radius: 50px;
 }
+.calendar-border-toprightdate .calendar-border-topright .calendar-td{
+    background-color: white;
+}
 
 .calendar-border-topleft{
     border-top-left-radius: 50px;
