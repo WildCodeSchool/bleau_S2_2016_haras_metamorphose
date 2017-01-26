@@ -33,7 +33,7 @@
         <div class="row">
             <div class="col s12">
 
-                <table class="calendar-table bordered" id="table_id">
+                <table class="calendar-table bordered striped" id="table_id">
                     <thead>
 
                         <th class="calendar-td calendar-border-topleft">
@@ -67,9 +67,20 @@
                                 {{ resultat.nom}}
                             </td>
                             <td class="calendar-td-twig center">
-                                <a href="{{ path('post_showAllPost', { id: resultat.id }) }} " class="collection-item">
+
+                                {% if is_granted('ROLE_ADMIN') %}
+
+                                    <a href="{{ path('post_showAllPost', { id: resultat.id }) }} " class="collection-item">
+                                        {{ resultat.titre }}
+                                    </a>
+
+                                {% else %}
+
+                                <p>
                                     {{ resultat.titre }}
-                                </a>
+                                </p>
+
+                                {% endif %}
 
                             </td>
                             <td class="calendar-td-twig ombre">
