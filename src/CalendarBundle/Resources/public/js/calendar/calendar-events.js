@@ -98,7 +98,6 @@ function calendar() {
                 $('#modalTitle').html(calEvent.titre);
                 $('#modalTexte').html(calEvent.texte);
 
-                // $('#fullCalModal').modal();
                 $('#fullCalModal').modal('open');
 
                 $('#edit_event').show();
