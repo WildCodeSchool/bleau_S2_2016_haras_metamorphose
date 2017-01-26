@@ -29,14 +29,8 @@ class SearchEngineController extends Controller
             $requete_str = htmlspecialchars($_POST['requete']);
             $requete = strtolower($requete_str);
 
-            $limit = 100; // Taille de limitation d'affichage par pages (sera possible de la limiter dans la vue)
-
             // Appel du service avec lequelle on demande une requete Dql du champ titre
-            $champTitre = $this->container->get ('search.service')->getSearchPostTitre ($requete, $limit);
-
-            // Délimitation de la pagination
-            $champTitre_count = count($champTitre);
-            $nbPages = ceil($champTitre_count/$limit);
+            $champTitre = $this->container->get('search.service')->getSearchPostTitre ($requete);
 
             // Si le champ titre ne retourne aucune valeur
             if (empty($champTitre)) {

@@ -8,7 +8,7 @@
 jQuery(document).ready(function($) {
 
     // APPEL DE FULL CALENDAR
-    calendar();
+     calendar();
 
 });
 
@@ -21,8 +21,6 @@ function calendar() {
     $(document).ready(function() {
 
         var current_date_time = new Date();
-
-        console.log(roles);
 
         $('#calendar').fullCalendar({
             header: {
@@ -93,6 +91,8 @@ function calendar() {
                 var Time = 'Le ' + day + '<br>' +ponctuation1 + ' ' + startTime + '<br>' + ponctuation2 + ' ' + endTime;
                 var editEvent = Routing.generate('agenda') + calEvent.id + '/edit';
                 var deleteEvent = Routing.generate('agenda') + calEvent.id + '/delete';
+
+                console.log('pipi');
 
                 $('#modalTime').html(Time);
                 $('#modalTitle').html(calEvent.titre);

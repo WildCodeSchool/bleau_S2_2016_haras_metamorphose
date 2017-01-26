@@ -128,7 +128,7 @@ function colorpicker(){
         color: '#1783cb'
     });
 
-    $( ".#tdcolor ul li" ).click(function() {
+    $( ".#tdcolor " ).click(function() {
         var color = $( '#colorpicker' ).val();
         $( '#colorpicker' ).css( 'background', color );
     });

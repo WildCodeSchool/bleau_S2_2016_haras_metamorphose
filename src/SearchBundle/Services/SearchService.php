@@ -26,7 +26,7 @@ class SearchService extends Controller
     }
 
 
-    public function getSearchPostTitre($requete, $limit, $pageIndex = 0){
+    public function getSearchPostTitre($requete){
 //        Alias 's' = class searchrepository
 //        Alias 'c' = categorie
 
@@ -39,9 +39,7 @@ class SearchService extends Controller
             ->where('REGEXP(p.titre, :regexp) != false')
             ->orWhere('REGEXP(p.contenu, :regexp)  != false')
             ->setParameter('regexp', $requete)
-            ->orderBy('p.dateCreate', 'DESC')
-            ->setFirstResult($limit*$pageIndex)
-            ->setMaxResults( $limit );
+            ->orderBy('p.dateCreate', 'DESC');
         return $qb->getQuery()->getResult();
     }
 }
