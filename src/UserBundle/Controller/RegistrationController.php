@@ -18,6 +18,7 @@ use FOS\UserBundle\Model\UserManagerInterface;
 use HarasBundle\Entity\Media;
 use HarasBundle\Entity\Text;
 use HarasBundle\Form\TextType;
+use PlateFormeBundle\Entity\NewsLetter;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -67,6 +68,7 @@ class RegistrationController extends Controller
                 $event = new FormEvent($form, $request);
                 $dispatcher->dispatch(FOSUserEvents::REGISTRATION_SUCCESS, $event);
 
+
                 //récuperation du service upload image
                 $mediaForm = $form->get('photo');
                 $media = $mediaForm->getData();
@@ -82,6 +84,23 @@ class RegistrationController extends Controller
                     $this->get('media.interface')->mediaUpload($media);
                 }
                 $user->setPhoto($media);
+
+                //        Si Newsletter est cochée $newsletter='true'
+                if (isset($_POST['newsletter'])) {
+                    $newsletter = true;
+                    $user->setNewsletter(true);
+                }
+                else {
+                    $newsletter = false;
+                    $user->setNewsletter(false);
+                }
+
+//                var_dump($user->getActif());
+//                die();
+
+//                mise à jour des champs masqués du user type nb de post et actif au lieu de desactivé car le champ can not be null
+                $user->setNbPost(0);
+                $user->setActif(true);
 
                 $userManager->updateUser($user);
                 if (null === $response = $event->getResponse()) {

@@ -20,6 +20,7 @@ class UserType extends AbstractType
             ->add('profession')
             ->add('nbPost')
             ->add('photo')
+
             ->add('roles','collection', array(
                 'type' => 'choice',
                 'options' => array(

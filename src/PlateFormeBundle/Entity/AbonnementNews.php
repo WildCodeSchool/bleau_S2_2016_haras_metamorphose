@@ -110,4 +110,3 @@ class AbonnementNews
         return $this->dateInscription;
     }
 }
-
