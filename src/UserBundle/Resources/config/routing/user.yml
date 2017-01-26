@@ -33,4 +33,8 @@ user_reactive:
 user_showInactiveUser:
     path:     /showInactiveUser
     defaults: { _controller: "UserBundle:User:showInactiveUser" }
+
+admin_dashboard:
+    path:     admin/dashboard
+    defaults: { _controller: "UserBundle:User:indexAdmin" }
     methods:  [GET, POST]

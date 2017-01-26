@@ -29,6 +29,17 @@
         </ul>
     </div>
 
+    {#-------------------------------------------------------------#}
+    {# Mise message flash #}
+    {% for flash_message in app.session.flashBag.get('notice') %}
+        <div class="row container">
+            <div class="flash-notice center">
+                {{ flash_message }}
+            </div>
+        </div>
+    {% endfor %}
+    {#-------------------------------------------------------------#}
+
 {#----------------------------------------------- INCLUDE DU CALENDAR ------------------------------------------------#}
 
     <div class="container">

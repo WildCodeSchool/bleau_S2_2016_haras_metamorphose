@@ -47,7 +47,6 @@ class User extends BaseUser
 
     // GENERATED CODE
 
-
     /**
      * @var string
      */
@@ -67,6 +66,16 @@ class User extends BaseUser
      * @var integer
      */
     private $nbPost;
+
+    /**
+     * @var boolean
+     */
+    private $actif;
+
+    /**
+     * @var boolean
+     */
+    private $newsletter;
 
     /**
      * @var \HarasBundle\Entity\Media
@@ -171,21 +180,6 @@ class User extends BaseUser
     }
 
     /**
-     * Get photo
-     *
-     * @return \HarasBundle\Entity\Media
-     */
-    public function getPhoto()
-    {
-        return $this->photo;
-    }
-    /**
-     * @var boolean
-     */
-    private $actif;
-
-
-    /**
      * Set actif
      *
      * @param boolean $actif
@@ -207,5 +201,39 @@ class User extends BaseUser
     public function getActif()
     {
         return $this->actif;
+    }
+
+    /**
+     * Set newsletter
+     *
+     * @param boolean $newsletter
+     *
+     * @return User
+     */
+    public function setNewsletter($newsletter)
+    {
+        $this->newsletter = $newsletter;
+
+        return $this;
+    }
+
+    /**
+     * Get newsletter
+     *
+     * @return boolean
+     */
+    public function getNewsletter()
+    {
+        return $this->newsletter;
+    }
+
+    /**
+     * Get photo
+     *
+     * @return \HarasBundle\Entity\Media
+     */
+    public function getPhoto()
+    {
+        return $this->photo;
     }
 }

@@ -22,6 +22,8 @@ UserBundle\Entity\User:
               nullable: true
           actif:
               type: boolean
+          newsletter:
+              type: boolean
 
       manyToOne:
           photo:

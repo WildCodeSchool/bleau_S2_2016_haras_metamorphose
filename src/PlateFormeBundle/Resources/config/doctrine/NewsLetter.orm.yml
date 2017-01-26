@@ -13,13 +13,19 @@ PlateFormeBundle\Entity\NewsLetter:
             type: string
             length: 255
         objet:
-            type: string
-            length: 255
+            type: text
         dateCreation:
             type: date
         etat:
             type: boolean
         dateEnvoie:
+            nullable: true
             type: date
+        pj:
+            type: boolean
+        url:
+            type: string
+            length: 255
+            nullable: true
 
-    lifecycleCallbacks: {  }
+    lifecycleCallbacks:
