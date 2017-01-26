@@ -81,10 +81,18 @@
         </nav>
 
         <nav class="navbar2">
-
+            <a href="#" data-activates="mobile-demo" class="button-collapse">
+                <i class="large material-icons grey-text text-darken-3">menu</i>
+            </a>
             <ul class="left hide-on-med-and-down-navbarleft">
+                <li class="active philosophie"><a href="{{ path('philosophie_show') }}">Notre philosophie</a></li>
+                <li class="decouverte"><a href="{{ path('post_index') }}">Découverte</a></li>
+                <li class="haras"><a href="{{ path('post_index') }}">Le haras</a></li>
+                <li class="detente"><a href="{{ path('post_index') }}">Détente</a></li>
+                <li class="coworking"><a href="{{ path('post_index') }}">Espace de co-working</a></li>
+            </ul>
 
-                {#Ici on considère que la page philosophie = id 1 car on ne passe pas par l'étape Index#}
+            <ul class="side-nav" id="mobile-demo">
                 <li class="active philosophie"><a href="{{ path('philosophie_show') }}">Notre philosophie</a></li>
                 <li class="decouverte"><a href="{{ path('post_index') }}">Découverte</a></li>
                 <li class="haras"><a href="{{ path('post_index') }}">Le haras</a></li>
@@ -95,14 +103,14 @@
             <ul class="right hide-on-med-and-dow">
                 <li>
                     <form action="{{ path('plate_forme_searchController') }}" method="Post">
-                    <form action="#" method="Post">
-                        <div class="input-field">
-                            <input name="requete" id="search" type="search" required>
-                            <label for="search">
-                                <i class="material-icons">search</i>
-                            </label>
-                        </div>
-                    </form>
+                        <form action="#" method="Post">
+                            <div class="input-field">
+                                <input name="requete" id="search" type="search" required>
+                                <label for="search">
+                                    <i class="material-icons">search</i>
+                                </label>
+                            </div>
+                        </form>
                 </li>
             </ul>
 
