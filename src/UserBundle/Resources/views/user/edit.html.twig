@@ -54,7 +54,11 @@
                     </button>
                     <a href="{{ path('user_index') }}" title="Retour liste utilisateurs"><i class="fa fa-users fa-2x"></i></a>
                     <a href="{{ path('plate_forme_homepage') }}" title="Retour accueil"><i class="fa fa-backward fa-2x"></i>
-                    <a href="{{ path('user_desactive', {'id': user.id}) }}" title="Bloquer"><i class="fa fa-lock fa-2x"></i>
+                    {%  if user.actif == true %}
+                        <a href="{{ path('user_desactive', {'id': user.id}) }}" title="Bloquer"><i class="fa fa-lock fa-2x"></i>
+                    {% else %}
+                        <a href="{{ path('user_reactive', {'id': user.id}) }}" title="Réactiver"><i class="fa fa-unlock-alt fa-2x"></i>
+                    {% endif %}
                     {#<a href="{{ path('user_delete', { 'id': user.id }) }}" title="Bloquer"><i class="fa fa-lock fa-2x"></i>#}
                 </div>
             </td>

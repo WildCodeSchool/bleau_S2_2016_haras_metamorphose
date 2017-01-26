@@ -17,7 +17,8 @@ class UserController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $users = $em->getRepository('UserBundle:User')->findAll();
+//        ici on veut afficher que les user qui sont activés 1
+        $users = $em->getRepository('UserBundle:User')->findBy(array('actif' => 1));
         return $this->render('@User/user/index.html.twig', array(
             'users' => $users,
         ));
@@ -77,64 +78,6 @@ class UserController extends Controller
         ));
     }
 
-//    /**
-//     *
-//     * Desactives a post entity.
-//     */
-//    public function desactiveAction(Request $request)
-//    {
-//        /** @var $formFactory FactoryInterface */
-//        $formFactory = $this->get('fos_user.registration.form.factory');
-//        /** @var $userManager UserManagerInterface */
-//        $userManager = $this->get('fos_user.user_manager');
-//        /** @var $dispatcher EventDispatcherInterface */
-//        $dispatcher = $this->get('event_dispatcher');
-//
-//        $user = $userManager->createUser();
-//        $user->setEnabled(true);
-//
-//        $event = new GetResponseUserEvent($user, $request);
-//        $dispatcher->dispatch(FOSUserEvents::REGISTRATION_INITIALIZE, $event);
-//
-//        if (null !== $event->getResponse()) {
-//            return $event->getResponse();
-//        }
-//
-//        $form = $formFactory->createForm();
-//        $form->setData($user);
-//
-//        $form->handleRequest($request);
-//
-//        if ($form->isSubmitted()) {
-//            if ($form->isValid()) {
-//                $event = new FormEvent($form, $request);
-//                $dispatcher->dispatch(FOSUserEvents::REGISTRATION_SUCCESS, $event);
-//
-//                $userManager->updateUser($user);
-//
-//                if (null === $response = $event->getResponse()) {
-//                    $url = $this->generateUrl('fos_user_registration_confirmed');
-//                    $response = new RedirectResponse($url);
-//                }
-//
-//                $dispatcher->dispatch(FOSUserEvents::REGISTRATION_COMPLETED, new FilterUserResponseEvent($user, $request, $response));
-//
-//                return $response;
-//            }
-//
-//            $event = new FormEvent($form, $request);
-//            $dispatcher->dispatch(FOSUserEvents::REGISTRATION_FAILURE, $event);
-//
-//            if (null !== $response = $event->getResponse()) {
-//                return $response;
-//            }
-//        }
-//
-//        return $this->render('@FOSUser/Registration/register.html.twig', array(
-//            'form' => $form->createView(),
-//        ));
-//    }
-
 
     /**
      * Desactives a user entity.
@@ -163,25 +106,17 @@ class UserController extends Controller
      *
      */
     public function showInactiveUserAction(Request $request) {
-        // Connexion à la BdD
+
         $em = $this->getDoctrine()->getManager();
+//        ici on veut afficher que les users qui sont desactivés
+        $users = $em->getRepository('UserBundle:User')->findBy(array('actif' => 0));
 
-        // Récupération des post en BdD
-        $posts = $em->getRepository('ForumBundle:Post')->findBy(array('actif'=> 0));
-
-        // Mémorisation id post parent pour affichage des post isolés
-        $tabIdParents = array();
-        foreach ($posts as $post) {
-            if ($post->getParent() == null) {
-                $tabIdParents[] = $post->getId();
-            }
-        }
-
-        return $this->render('@Forum/post/reactivePost.html.twig', array(
-            'posts' => $posts,
-            'tabIdParents' => $tabIdParents,
+        return $this->render('@User/user/showInactiveUser.html.twig', array(
+            'users' => $users,
         ));
     }
+
+
 
     /**
      * Reactive a user entity.
@@ -219,6 +154,7 @@ class UserController extends Controller
         }
         return $this->redirectToRoute('user_index');
     }
+
     /**
      * Creates a form to delete a user entity.
      *
