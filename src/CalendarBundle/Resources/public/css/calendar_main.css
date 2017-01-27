@@ -49,9 +49,6 @@
 $
 ************************************************/
 
-.color-form{
-
-}
 #colorpicker{
     width: 300px;
 }
@@ -97,18 +94,18 @@ select{
 
     background-color: rgba(118, 135, 146, 0.9);
     color: #dff1ff;
+
 }
 
 .calendar-border-topright{
     border-top-right-radius: 50px;
 }
+.calendar-border-toprightdate .calendar-border-topright .calendar-td{
+    background-color: white;
+}
 
 .calendar-border-topleft{
     border-top-left-radius: 50px;
-}
-
-.calendar-border-topright{
-    border-bottom-right-radius: 50px;
 }
 
 .calendar-p{
@@ -128,7 +125,10 @@ select{
     font-size: 36px !important;
 }
 
-.file{
+.ombre{
+    border-right: 1px !important;
+    border-right-style: groove!important;
+    border-color: #dff1ff !important;
 }
 /*********************************************************/
 /*********************************************************/
@@ -148,3 +148,17 @@ select{
 
 }
 
+/*********************************************************/
+/*********************************************************/
+/********************** PAGE SEARCH **********************/
+/*********************************************************/
+/*********************************************************/
+
+#table_id{
+    padding-top: 0px;
+}
+
+.calendar-td-color{
+    background-color: rgba(0,0,0,0);
+    color: rgba(118, 135, 146, 0.9);
+}

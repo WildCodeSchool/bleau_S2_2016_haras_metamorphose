@@ -29,25 +29,66 @@
     </div>
 
     <div class="container">
+
         <div class="row">
             <div class="col s12">
 
-                <table>
-                    <theader>
-                        <tr>
-                            <td>Catégorie du post</td>
-                            <td>Titre du post</td>
-                            <td>Contenu du post</td>
-                        </tr>
-                    </theader>
+                <table class="calendar-table bordered striped" id="table_id">
+                    <thead>
+
+                        <th class="calendar-td calendar-border-topleft">
+                            <p class="calendar-p center">
+                                Catégorie du post
+                            </p>
+                        </th>
+                        <th class="calendar-td">
+                            <p class="calendar-p center">
+                                Titre du post
+                            </p>
+                        </th>
+                        <th class="calendar-td calendar-border-topright">
+                            <p class="calendar-p center">
+                                Contenu du post
+                            </p>
+                        </th>
+                        <th>
+                            <p class="calendar-p center">
+                                Posté le :
+                            </p>
+                        </th>
+
+                    </thead>
                     <tbody>
 
                     {% for resultat in resultats %}
 
-                        <tr>
-                            <td><a href="#">{{ resultat.categorie.nom}}</a></td> <!-- replacer par {#{{ resultats.nom }}#}  -->
-                            <td><a href="#">{{ resultat.titre }}</a></td>
-                            <td><a href="#">{{ resultat.contenu }}</a></td> <!-- replacer par {#{{ resultats.contenu }}#}  -->
+                        <tr class="collection">
+                            <td class="calendar-td-twig center">
+                                {{ resultat.nom}}
+                            </td>
+                            <td class="calendar-td-twig center">
+
+                                {% if is_granted('ROLE_ADMIN') %}
+
+                                    <a href="{{ path('post_showAllPost', { id: resultat.id }) }} " class="collection-item">
+                                        {{ resultat.titre }}
+                                    </a>
+
+                                {% else %}
+
+                                <p>
+                                    {{ resultat.titre }}
+                                </p>
+
+                                {% endif %}
+
+                            </td>
+                            <td class="calendar-td-twig ombre">
+                                {{ resultat.contenu|raw }}
+                            </td>
+                            <td class="calendar-td-twig center">
+                                {{ resultat.dateCreate|date("d/m/Y") }}
+                            </td>
                         </tr>
 
                     {% endfor %}
@@ -60,4 +101,9 @@
     </div>
 
 
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript" src="{{ asset('bundles/calendar/js/jquery.dataTables.min.js') }}"></script>
 {% endblock %}

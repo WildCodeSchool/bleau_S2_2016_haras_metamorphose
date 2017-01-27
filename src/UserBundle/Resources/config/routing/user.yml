@@ -6,10 +6,12 @@ user_show:
     path:     /{id}/show
     defaults: { _controller: "UserBundle:User:show" }
     methods:  GET
+
 user_new:
     path:     /new
     defaults: { _controller: "UserBundle:User:new" }
     methods:  [GET, POST]
+
 user_edit:
     path:     /{id}/edit
     defaults: { _controller: "UserBundle:User:edit" }

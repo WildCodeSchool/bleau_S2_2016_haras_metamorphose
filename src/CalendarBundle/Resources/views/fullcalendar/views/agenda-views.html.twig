@@ -2,13 +2,8 @@
 <div class="col s12">
     <div id='calendar'></div>
     <div class="row center">
-        {% if is_granted('ROLE_SUPER_ADMIN') %}
 
-            <a href="{{ path('agenda_new') }}">
-                <i class="material-icons md-48 bouton-new">add_circle_outline</i>
-            </a>
-
-        {% elseif is_granted('ROLE_ADMIN') %}
+        {% if is_granted('ROLE_ADMIN') %}
 
             <a href="{{ path('agenda_new') }}">
                 <i class="material-icons md-48 bouton-new">add_circle_outline</i>
@@ -48,35 +43,21 @@
 
     </div>
 
-    {% if is_granted("ROLE_SUPER_ADMIN") %}
+    {% if is_granted("ROLE_ADMIN") %}
         <div class="modal-footer modal-bouton"> {#----- DEBUT MODAL FOOTER -----#}
             <div class="row right">
 
-                {#{% if is_granted("ROLE_SUPER_ADMIN") %}#}
+                <div class="col s4">
+                    <a href="#" id="edit_event">
+                        <i class="material-icons md-48 bouton-edit">create</i>
+                    </a>
+                </div>
+                <div class="col s4">
+                    <a href="#" id="delete_event">
+                        <i class="material-icons md-48 bouton-delete">delete_sweep</i>
+                    </a>
+                </div>
 
-                    <div class="col s4">
-                        <a href="#" id="edit_event">
-                            <i class="material-icons md-48 bouton-edit">create</i>
-                        </a>
-                    </div>
-                    <div class="col s4">
-                        <a href="#" id="delete_event">
-                            <i class="material-icons md-48 bouton-delete">delete_sweep</i>
-                        </a>
-                    </div>
-
-    {% elseif is_granted("ROLE_ADMIN") %}
-
-                    <div class="col s4">
-                        <a href="#" id="edit_event">
-                            <i class="material-icons md-48 bouton-edit">create</i>
-                        </a>
-                    </div>
-                    <div class="col s4">
-                        <a href="#" id="delete_event">
-                            <i class="material-icons md-48 bouton-delete">delete_sweep</i>
-                        </a>
-                    </div>
     {% endif %}
 
             </div>

@@ -128,7 +128,6 @@
             <ul class="right hide-on-med-and-dow">
                 <li>
                     <form action="{{ path('plate_forme_searchController') }}" method="Post">
-                    <form action="#" method="Post">
                         <div class="input-field">
                             <input name="requete" id="search" type="search" required>
                             <label for="search">
@@ -156,12 +155,15 @@
                     </p>
                 </div>
                 <div class="col l2 offset-l2 s12">
-                    <h5 class="white-text">Contacter la plateforme</h5>
+                    <h5 class="white-text">Contactez nous</h5>
                     <ul>
-                        <li><a class="grey-text text-lighten-3" href="#!">Mail</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#!">Téléphone</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                        <li>
+                            <a class="grey-text text-lighten-3"href="mailto:nathalie.barenghi@gmail.com?subject=Forum Haras de la métamorphose.&cc=nathalie.barenghi@gmail.com&body=Entrer votre message.">email</a>
+                        </li>
+                        <!-- Cross-platform compatible (Android + iPhone) -->
+                        <li>
+                            <a class="grey-text text-lighten-3" href="tel://+33600000000">Téléphone</a>
+                        </li>
                     </ul>
                 </div>
                 <div class="col l2 offset-l2 s12">
@@ -170,10 +172,12 @@
                         <input name="email" placeholder="Saisir adresse email" required="required" type="email">
                         <input class="waves-effect waves-light btn" value="valider" type="submit">
                     </form>
+                    <br>
+                    <div class="col l2 offset-l2 s12">
+                        <a class="grey-text text-lighten-3" href="{{ path('desabonnement_newsletter') }}">Désabonnement</a>
+                    </div>
                 </div>
-                <div class="col l2 offset-l2 s12">
-                    <a class="grey-text text-lighten-3" href="{{ path('desabonnement_newsletter') }}">Désabonnement</a>
-                </div>
+
             </div>
         </div>
         <div class="footer-copyright">
@@ -239,5 +243,5 @@
         {#});#}
     {#</script>#}
 
->
+
 {% endblock %}

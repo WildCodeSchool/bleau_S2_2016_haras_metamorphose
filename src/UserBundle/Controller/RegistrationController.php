@@ -85,6 +85,7 @@ class RegistrationController extends Controller
                 }
                 $user->setPhoto($media);
 
+
                 //        Si Newsletter est cochée $newsletter='true'
                 if (isset($_POST['newsletter'])) {
                     $newsletter = true;
@@ -101,6 +102,7 @@ class RegistrationController extends Controller
 //                mise à jour des champs masqués du user type nb de post et actif au lieu de desactivé car le champ can not be null
                 $user->setNbPost(0);
                 $user->setActif(true);
+
 
                 $userManager->updateUser($user);
                 if (null === $response = $event->getResponse()) {

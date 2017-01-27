@@ -8,9 +8,9 @@
 
 namespace SearchBundle\Services;
 
+use ForumBundle\ForumBundle;
 use ForumBundle\Entity\Post;
 use ForumBundle\Entity\CategoriePlateforme;
-use ForumBundle\ForumBundle;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\DependencyInjection\ContainerInterface as Container;
@@ -25,20 +25,21 @@ class SearchService extends Controller
 
     }
 
-    public function getSearchPostTitre($limit){
+
+    public function getSearchPostTitre($requete){
 //        Alias 's' = class searchrepository
+//        Alias 'c' = categorie
 
         $repository = $this->getDoctrine()
             ->getRepository('ForumBundle:Post');
 
-        $qb = $repository->createQueryBuilder('s')
-            ->select('s.titre', 's.contenu')
-            ->orderBy('s.dateCreate', 'DESC');
-//            ->setMaxResults( $limit );
-
-        $qb_str = strtolower($qb);
-
-        return $qb_str = $qb->getQuery()->getResult();
+        $qb = $repository->createQueryBuilder('p')
+            ->select('p.titre, p.contenu, p.id, p.dateCreate, c.nom, c.id')
+            ->join('p.categorie', 'c')
+            ->where('REGEXP(p.titre, :regexp) != false')
+            ->orWhere('REGEXP(p.contenu, :regexp)  != false')
+            ->setParameter('regexp', $requete)
+            ->orderBy('p.dateCreate', 'DESC');
+        return $qb->getQuery()->getResult();
     }
-
 }
