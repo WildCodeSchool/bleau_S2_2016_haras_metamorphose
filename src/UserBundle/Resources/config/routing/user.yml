@@ -6,10 +6,12 @@ user_show:
     path:     /{id}/show
     defaults: { _controller: "UserBundle:User:show" }
     methods:  GET
+
 user_new:
     path:     /new
     defaults: { _controller: "UserBundle:User:new" }
     methods:  [GET, POST]
+
 user_edit:
     path:     /{id}/edit
     defaults: { _controller: "UserBundle:User:edit" }
@@ -19,3 +21,22 @@ user_delete:
     path:     /{id}/delete
     defaults: { _controller: "UserBundle:User:delete" }
     methods:  DELETE
+
+user_desactive:
+    path:     /{id}/desactive
+    defaults: { _controller: "UserBundle:User:desactive" }
+    methods:  [GET, POST]
+
+user_reactive:
+    path:     /{id}/reactive
+    defaults: { _controller: "UserBundle:User:reactive" }
+    methods:  [GET, POST]
+
+user_showInactiveUser:
+    path:     /showInactiveUser
+    defaults: { _controller: "UserBundle:User:showInactiveUser" }
+
+admin_dashboard:
+    path:     admin/dashboard
+    defaults: { _controller: "UserBundle:User:indexAdmin" }
+    methods:  [GET, POST]

@@ -8,12 +8,12 @@
 
 namespace SearchBundle\Controller;
 
-use ForumBundle\Entity\Post;
 use SearchBundle\SearchBundle;
-use ForumBundle\Entity\CategoriePlateforme;
+use SearchBundle\Services\SearchService;
 use Symfony\Component\HttpFoundation\Request;
-use SearchBundle\Repository\SearchRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Form\DataTransformerInterface;
+use Symfony\Component\Form\Exception\TransformationFailedException;
 
 class SearchEngineController extends Controller
 {
@@ -21,59 +21,50 @@ class SearchEngineController extends Controller
     public function searchAction(Request $request)
     {
         // on vérifie d'abord l'existence du POST et aussi si la requete n'est pas vide.
-        if(isset($_POST['requete']) && $_POST['requete'] != NULL)
+        if(isset($_POST['requete']) && $_POST['requete'] != NULL) {
 
-        {
-            // on crée une variable $requete pour faciliter l'écriture de la requête SQL,
+            // on crée une variable $requete pour faciliter l'écriture de la requête de SearchService,
             // mais aussi pour empêcher les éventuels malins qui utiliseraient du PHP ou du JS,
             // avec la fonction htmlspecialchars().
-            $requete = htmlspecialchars($_POST['requete']);
+            $requete_str = htmlspecialchars($_POST['requete']);
+            $requete = strtolower($requete_str);
 
-            $limit = 25;
+            // Appel du service avec lequelle on demande une requete Dql du champ titre
+            $champTitre = $this->container->get('search.service')->getSearchPostTitre ($requete);
 
-            // Appel du repository avec laquelle on demande une requete sql
-            $em = $this->getDoctrine()->getManager();
-            $repository = $this->getRepository('SearchBundle:Search')->findPost($requete, $limit); //SearchRepository::class
+            // Si le champ titre ne retourne aucune valeur
+            if (empty($champTitre)) {
 
-            // on boucle pour récuperer le résultat de repository
-            foreach ($repository as $resultat) {
+                $this->addFlash (
+                    'success',
+                    '!!! Le mot recherché n\'a pas été trouvé !!!'
+                );
 
-//                $resultat = $repository->findBy($requete);
-                $resultat->getContent();
+                return $this->render ('@Search/Default/index.html.twig', array (
+                    'resultats' => '',
+                ));
 
             }
+            // sinon si le champ titre contient une valeur on retourne un resultat
+            else {
 
-            // si le résultat est identique au mot recherché on affiche la page de résultats
-            if($resultat == $requete)
-
-            {
                 // maintenant, on va afficher la page qui va afficher les résultats
-                return $this->render('@Search/Default/index.html.twig', array(
-                    'resultat' => $resultat,
+                return $this->render ('@Search/Default/index.html.twig', array (
+                    'resultats' => $champTitre,
                 ));
             }
-            // sinon on retourne à la page d'accueil avec un message
-            else
-
-            {
-//                $this->addFlash(
-//                    'success',
-//                    'La recherche ne donne aucun résultats'
-//                );
-
-                return $this->render('@PlateForme/Default/index.html.twig');
-
-            }
         }
-        // Si le post est vide on retourne à la page d'accueil
-        else
-        {
-//            $this->addFlash(
-//                'success',
-//                'Le champ de recherche est vide'
-//            );
+        else {
 
-            return $this->render('@PlateForme/Default/index.html.twig');
+            $this->addFlash (
+                'success',
+                '!!! Attention, n\'oubliez pas d\écrire un mot !!!'
+            );
+
+            return $this->render ('@Search/Default/index.html.twig', array (
+                'resultats' => '',
+            ));
+
         }
     }
 

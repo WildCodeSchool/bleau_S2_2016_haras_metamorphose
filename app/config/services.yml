@@ -39,3 +39,9 @@ services:
     redirect.after.logout:
         class: UserBundle\Redirection\AfterLogoutRedirection
         arguments: [@router, @security.context]
+
+# ---> SERVICES PLATEFORMEBUNDLE
+# [...] SearchBundle/Service
+    search.service:
+        class: SearchBundle\Services\SearchService
+        arguments: ['@service_container']
