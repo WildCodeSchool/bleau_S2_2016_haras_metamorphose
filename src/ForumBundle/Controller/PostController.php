@@ -469,6 +469,54 @@ class PostController extends Controller
     }
 
     /**
+     * Message vers Admin
+     * si contenu message incorrect
+     *
+     */
+    public function alerteMessageAction(Request $request, Post $post) {
+
+        $postConcerneId = $post->getId();
+        $postConcerneTitre = $post->getTitre();
+        $postConcerneContenu = $post->getContenu();
+        $postAuteurNom = $post->getUser()->getNom();
+        $postAuteurEmail = $post->getUser()->getEmail();
+        $postAuteurId = $post->getUser()->getId();
+        $emailExpediteur = $this->getUser()->getEmail();
+        $nomExpediteur = $this->getUser()->getNom();
+
+        $message = \Swift_Message::newInstance()
+                        ->setSubject('Message inapproprié')
+                        ->setFrom(array($this->getParameter('mailer_user') => 'Le Haras de la métamorphose'))
+                        ->setBcc($emailExpediteur)
+                        ->setCc(array($this->getParameter('mailer_user') => 'Le Haras de la métamorphose'))
+                        ->setBody(
+                            $this->renderView(
+                                '@Forum/post/alerteMail.html.twig',
+                                array(
+                                    'contenu' => $postConcerneContenu,
+                                    'titre' => $postConcerneTitre,
+                                    'id' => $postConcerneId,
+                                    'auteurNom' => $postAuteurNom,
+                                    'auteurEmail' => $postAuteurEmail,
+                                    'auteurId' => $postAuteurId,
+                                    'emailExpediteur' => $emailExpediteur,
+                                    'nomExpediteur' => $nomExpediteur
+                                )
+                            ),
+                            'text/html'
+                        );
+
+        $this->get('mailer')->send($message);
+
+        if ($post->getParent() == null) {
+            return $this->redirectToRoute('post_showAllPost', array('id' => $post->getId()));
+        } else {
+            return $this->redirectToRoute('post_showAllPost', array('id' => $post->getParent()->getId()));
+        }
+
+    }
+
+    /**
      * Deletes a post entity.
      *
      */

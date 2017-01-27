@@ -83,6 +83,8 @@ class RegistrationController extends Controller
                 }
                 $user->setPhoto($media);
 
+
+
                 $userManager->updateUser($user);
                 if (null === $response = $event->getResponse()) {
                     $url = $this->getParameter('fos_user.registration.confirmation.enabled')
