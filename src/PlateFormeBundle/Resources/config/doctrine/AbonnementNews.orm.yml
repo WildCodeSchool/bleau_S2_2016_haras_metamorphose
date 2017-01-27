@@ -1,0 +1,21 @@
+PlateFormeBundle\Entity\AbonnementNews:
+    type: entity
+    table: null
+    repositoryClass: PlateFormeBundle\Repository\AbonnementNewsRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        email:
+            type: string
+            length: 255
+            unique: true
+        actif:
+            type: boolean
+        dateInscription:
+            type: date
+            column: date_inscription
+    lifecycleCallbacks: {  }

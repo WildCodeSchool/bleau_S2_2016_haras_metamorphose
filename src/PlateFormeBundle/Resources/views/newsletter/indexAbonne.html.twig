@@ -1,0 +1,87 @@
+{% extends '@PlateForme/layout.html.twig' %}
+
+{% block body %}
+
+    <div class="container">
+        <h2 class="center">{{ titre }}</h2>
+    {% if abonnesForums is empty %}
+        <h2 class="center">Pas d'abonnés du forum inscrit à la newsletter</h2>
+    {% else %}
+        <h2 class="center">{{ titre1 }}</h2>
+        <table class="responsive-table bordered striped">
+            <thead>
+            <tr>
+                <th>Pseudo</th>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Email</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for abonnesForum in abonnesForums %}
+                <tr>
+                    <td>{{ abonnesForum.username|capitalize }}</td>
+                    <td>{{ abonnesForum.nom|capitalize }}</td>
+                    <td>{{ abonnesForum.prenom|capitalize }}</td>
+                    <td>{{ abonnesForum.email }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+
+    {% if abonnesNLs is empty %}
+        <h2 class="center">Pas d'abonnés inscrits à la newsletter</h2>
+    {% else %}
+    <h2 class="center">{{ titre2 }}</h2>
+    <table class="responsive-table bordered striped">
+        <thead>
+        <tr>
+            <th>Email</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for abonnesNL in abonnesNLs %}
+            <tr>
+                <td>{{ abonnesNL.email }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+    </div>
+
+
+{% endblock %}
+
+{% block javascripts %}
+
+    {{ parent() }}
+    {#<script src="{{ asset('bundles/forum/js/aside_forum.js') }}"></script>#}
+    <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.js"></script>
+
+    <script>
+        {#***********************************************#}
+        {# Script gestion visuel tableau avec datatables #}
+        {#***********************************************#}
+        $(document).ready(function() {
+            var table = $('#table_NLindex').removeAttr('width').DataTable( {
+                "language": { "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/French.json" },
+                scrollY:        "400px",
+                scrollX:        true,
+                scrollCollapse: true,
+                paging:         true,
+                columnDefs: [
+                    { width: 400, targets: 0 },
+                    { width: 400, targets: 1 },
+                    { width: 50, targets: 2 },
+                    { width: 50, targets: 3 },
+                    { width: 50, targets: 4 }
+                ],
+                fixedColumns: true
+            } );
+        } );
+
+
+    </script>
+{% endblock %}

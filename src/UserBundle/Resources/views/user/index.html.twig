@@ -7,6 +7,7 @@
     <div class="boutons-haut">
         <a href="{{ path('user_new') }}" title="Créer un nouveau compte utilisateur"><i class="material-icons contactme">add_circle</i></a>
         <a href="{{ path('plate_forme_homepage') }}" title="Retourner à l'accueil de l'administration"><i class="material-icons">send</i></a>
+        <a href="{{ path('user_showInactiveUser') }}" title="Voir liste des utilisateurs désactivés"><i class="material-icons">lock</i></a>
     </div>
 
     <table class="responsive-table bordered striped" id="table_id">
@@ -19,6 +20,7 @@
                 <th>Prenom</th>
                 <th>Profession</th>
                 <th>Nbpost</th>
+                {#<th>Role</th>#}
                 <th>Editer</th>
             </tr>
             </thead>
@@ -36,7 +38,7 @@
                         <div class="boutons">
                             <a href="{{ path('user_show', { 'id': user.id }) }}" title="Afficher"><i class="fa fa-eye fa-2x"></i></a>
                             <a href="{{ path('user_edit', { 'id': user.id }) }}" title="Editer"><i class="fa fa-pencil fa-2x"></i></a>
-                            <a href="" title="Bloquer"><i class="fa fa-lock fa-2x"></i>
+                            <a href="{{ path('user_desactive', {'id': user.id}) }}" title="Bloquer"><i class="fa fa-lock fa-2x"></i>
                             {#<a href="{{ path('user_delete', { 'id': user.id }) }}" title="Bloquer"><i class="fa fa-lock fa-2x"></i>#}
                         </div>
                     </td>

@@ -1,0 +1,60 @@
+{% extends '@PlateForme/layout.html.twig' %}
+
+{% block body %}
+
+    <style>
+        .ContainerNL {
+            flex: 1 0 auto;;
+        }
+    </style>
+
+    <div class="ContainerNL row">
+        <h1 class="center">Modification Newsletter
+            <br>du {{ newsLetter.dateCreation|date("d/m/Y") }}</h1>
+
+        {{ form_start(edit_form) }}
+        <div class="row input-field">
+            {{ form_label(edit_form.libelle) }}
+            {{ form_widget(edit_form.libelle) }}
+            {{ form_errors(edit_form.libelle) }}
+        </div>
+        <div class="row input-field">
+            {{ form_widget(edit_form.objet) }}
+            {{ form_errors(edit_form.objet) }}
+        </div>
+
+        <div class="row">
+            <div class="input-group">
+                {{ form_widget(edit_form.fichierPDF, {'attr': {'class': 'help-block'}}) }}
+                {{ form_errors(edit_form.fichierPDF) }}
+            </div>
+        </div>
+        <div class="row">
+            {#<div class="input-group">#}
+                {#{{ form_widget(edit_form.url, {'attr': {'class': 'help-block'}}) }}#}
+                {#{{ form_errors(edit_form.url) }}#}
+            {#</div>#}
+        </div>
+
+        <div class="row center">
+            <button type="submit" title="Valider" class="btn-floating btn-small waves-effect waves-light green darken-3">
+                <i class="material-icons" >check</i>
+            </button>
+            <a class="btn-floating btn-small waves-effect waves-light pink darken-3"
+               href="{{ path('newsletter_index')}}">
+                <i class="material-icons">home</i>
+            </a>
+            {#<a class="btn-floating btn-small waves-effect waves-light blue darken-1"#}
+               {#href="{{ path('newsletter_delete', { 'id': newsLetter.id }) }} " onclick="return confirm('Vous êtes sure ?')">#}
+                {#<i class="small material-icons">delete</i>#}
+            {#</a>#}
+            <a class="btn-floating btn-small waves-effect waves-light blue darken-1"
+               href="{{ path('newsletter_delete', { 'id': newsLetter.id }) }}" onclick="return confirm('Êtes-vous sûr ?')">
+                <i class="small material-icons">delete</i>
+            </a>
+        </div>
+
+    </div>
+
+    {{ form_end(edit_form) }}
+{% endblock %}

@@ -69,6 +69,16 @@ class User extends BaseUser
     private $nbPost;
 
     /**
+     * @var boolean
+     */
+    private $actif;
+
+    /**
+     * @var boolean
+     */
+    private $newsletter;
+
+    /**
      * @var \HarasBundle\Entity\Media
      */
     private $photo;
@@ -168,6 +178,54 @@ class User extends BaseUser
     public function getNbPost()
     {
         return $this->nbPost;
+    }
+
+    /**
+     * Set actif
+     *
+     * @param boolean $actif
+     *
+     * @return User
+     */
+    public function setActif($actif)
+    {
+        $this->actif = $actif;
+
+        return $this;
+    }
+
+    /**
+     * Get actif
+     *
+     * @return boolean
+     */
+    public function getActif()
+    {
+        return $this->actif;
+    }
+
+    /**
+     * Set newsletter
+     *
+     * @param boolean $newsletter
+     *
+     * @return User
+     */
+    public function setNewsletter($newsletter)
+    {
+        $this->newsletter = $newsletter;
+
+        return $this;
+    }
+
+    /**
+     * Get newsletter
+     *
+     * @return boolean
+     */
+    public function getNewsletter()
+    {
+        return $this->newsletter;
     }
 
     /**
