@@ -1772,11 +1772,17 @@ nav {
 /* line 45, ../sass/PlateformeCSS/_layout_plateforme.scss */
 #dropdown1 {
   top: 65px !important;
+  left: 15px !important;
 }
 
 /* line 50, ../sass/PlateformeCSS/_layout_plateforme.scss */
 .dropdown-content {
-  margin-top: 65px;
+  margin-top: 115px;
+}
+
+/* line 54, ../sass/PlateformeCSS/_layout_plateforme.scss */
+.dropdown-content {
+  background-color: #aeb5b64d;
 }
 
 /* line 58, ../sass/PlateformeCSS/_layout_plateforme.scss */
@@ -1811,65 +1817,65 @@ nav {
 /*-----------------------------------------------------*\
                           LOGO - ICON
 \*-----------------------------------------------------*/
-/* line 92, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 171, ../sass/PlateformeCSS/_layout_plateforme.scss */
 ul.right.hide-on-med-and-down {
   padding-top: 1px;
 }
 
-/* line 96, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 175, ../sass/PlateformeCSS/_layout_plateforme.scss */
 nav ul a:hover {
   background-color: rgba(0, 0, 0, 0.1);
   padding-bottom: 5px;
 }
 
-/* line 101, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 180, ../sass/PlateformeCSS/_layout_plateforme.scss */
 #plateforme-logo {
   background-color: #577a37;
   height: 64px;
 }
 
-/* line 107, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 186, ../sass/PlateformeCSS/_layout_plateforme.scss */
 #plateforme-logo:hover {
   background-color: #496b35;
 }
 
-/* line 111, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 190, ../sass/PlateformeCSS/_layout_plateforme.scss */
 a.plateforme-logo {
   padding: 0px;
 }
 
-/* line 115, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 194, ../sass/PlateformeCSS/_layout_plateforme.scss */
 a.plateforme-logo:hover {
   background-color: transparent;
   height: 100%;
 }
 
-/* line 120, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 199, ../sass/PlateformeCSS/_layout_plateforme.scss */
 nav ul.left {
   height: 56px;
 }
 
-/* line 123, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 202, ../sass/PlateformeCSS/_layout_plateforme.scss */
 .icon-background1 {
   color: rgba(7, 64, 10, 0.6);
 }
 
-/* line 127, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 206, ../sass/PlateformeCSS/_layout_plateforme.scss */
 .icon-background2 {
   color: rgba(140, 104, 34, 0.6);
 }
 
-/* line 131, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 210, ../sass/PlateformeCSS/_layout_plateforme.scss */
 .icon-background3 {
   color: rgba(39, 34, 140, 0.6);
 }
 
-/* line 135, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 214, ../sass/PlateformeCSS/_layout_plateforme.scss */
 .icon-background4 {
   color: rgba(183, 21, 134, 0.6);
 }
 
-/* line 139, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 218, ../sass/PlateformeCSS/_layout_plateforme.scss */
 .icon-background5 {
   color: rgba(24, 19, 239, 0.6);
 }
@@ -1877,14 +1883,14 @@ nav ul.left {
 /*-----------------------------------------------------*\
                           BODY
 \*-----------------------------------------------------*/
-/* line 149, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 228, ../sass/PlateformeCSS/_layout_plateforme.scss */
 body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
 }
 
-/* line 155, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 234, ../sass/PlateformeCSS/_layout_plateforme.scss */
 .main {
   flex: 1 0 auto;
 }
@@ -1892,7 +1898,7 @@ body {
 /*-----------------------------------------------------*\
                           FOOTER
 \*-----------------------------------------------------*/
-/* line 164, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 243, ../sass/PlateformeCSS/_layout_plateforme.scss */
 footer.page-footer {
   background-color: rgba(118, 135, 146, 0.9);
   margin-top: 0px;
@@ -1902,77 +1908,77 @@ footer.page-footer {
                           MEDIA-QUERIES
 \*-----------------------------------------------------*/
 @media screen and (max-width: 600px) {
-  /* line 175, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  /* line 254, ../sass/PlateformeCSS/_layout_plateforme.scss */
   #plateforme-logo {
     height: 55px;
   }
 }
 @media screen and (max-width: 330px) {
-  /* line 181, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  /* line 260, ../sass/PlateformeCSS/_layout_plateforme.scss */
   .newsletter-logo {
     margin-right: -1%;
   }
 
-  /* line 184, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  /* line 263, ../sass/PlateformeCSS/_layout_plateforme.scss */
   .post-logo {
     margin-left: -3%;
   }
 
-  /* line 187, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  /* line 266, ../sass/PlateformeCSS/_layout_plateforme.scss */
   .agenda-logo {
     margin-left: -3%;
   }
 
-  /* line 190, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  /* line 269, ../sass/PlateformeCSS/_layout_plateforme.scss */
   .profile-logo {
     margin-left: -3%;
   }
 }
 @media screen and (max-width: 398px) {
-  /* line 196, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  /* line 275, ../sass/PlateformeCSS/_layout_plateforme.scss */
   .right {
     margin-right: -4%;
   }
 }
 @media screen and (max-width: 350px) {
-  /* line 202, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  /* line 281, ../sass/PlateformeCSS/_layout_plateforme.scss */
   .right {
     margin-right: -15%;
   }
 }
 @media screen and (max-width: 398px) {
-  /* line 208, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  /* line 287, ../sass/PlateformeCSS/_layout_plateforme.scss */
   .right {
     margin-right: -4%;
   }
 }
 @media screen and (max-width: 320px) {
-  /* line 214, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  /* line 293, ../sass/PlateformeCSS/_layout_plateforme.scss */
   .newsletter-lien {
     padding-left: 2px;
   }
 
-  /* line 217, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  /* line 296, ../sass/PlateformeCSS/_layout_plateforme.scss */
   .newsletter-lien {
     margin-right: -8%;
   }
 
-  /* line 220, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  /* line 299, ../sass/PlateformeCSS/_layout_plateforme.scss */
   .post-logo {
     margin-right: -9%;
   }
 
-  /* line 223, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  /* line 302, ../sass/PlateformeCSS/_layout_plateforme.scss */
   .agenda-logo {
     margin-right: -22px;
   }
 
-  /* line 226, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  /* line 305, ../sass/PlateformeCSS/_layout_plateforme.scss */
   .profile-logo {
     margin-left: 0%;
   }
 
-  /* line 229, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  /* line 308, ../sass/PlateformeCSS/_layout_plateforme.scss */
   .right {
     margin-right: -15%;
   }
