@@ -56,15 +56,28 @@ class UserController extends Controller
             'delete_form' => $deleteForm->createView(),
         ));
     }
-    /**
-     * Displays a form to edit an existing user entity.
-     *
-     */
+
+
+
     public function editAction(Request $request, User $user)
     {
         $deleteForm = $this->createDeleteForm($user);
         $editForm = $this->createForm('UserBundle\Form\UserType', $user);
+
+//        ajout recup photo
+        $mediaUser = $user->getPhoto();
+        $mediaForm = $editForm->get('photo');
+        $mediaForm->remove('alt');
+
+//        if ($mediaUser->getName() == User::getDefaultPhotoName()){
+//            $mediaUser = new Media();
+//        }
+
+        $mediaForm->setData($mediaUser);
+//        FIN ajout recup photo
+
         $editForm->handleRequest($request);
+
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
@@ -85,11 +98,11 @@ class UserController extends Controller
      *
      */
     public function desactiveAction($id) {
+//        ici lorsque je désactive un user, je desactive aussi son abonnement newsletter s'il était abonne.
         $em = $this->getDoctrine()->getManager();
         $user = $em->getRepository('UserBundle:User')->findOneBy(array('id' => $id));
         $user->setActif(false);
-//        TODO verif le setnewsletter après recup bdd newsletter
-//        $user->setNewsletter(false);
+        $user->setNewsletter(false);
         $em->persist($user);
         $em->flush($user);
 
@@ -97,7 +110,6 @@ class UserController extends Controller
             'notice',
             'Utilisateur désactivé'
         );
-
         return $this->redirectToRoute('user_index');
 
     }
@@ -117,16 +129,16 @@ class UserController extends Controller
         ));
     }
 
-
-
     /**
      * Reactive a user entity.
      *
      */
     public function reactiveAction($id) {
+//        ici je reactive le user et son abonnement newsletter ou non
         $em = $this->getDoctrine()->getManager();
         $user = $em->getRepository('UserBundle:User')->findOneBy(array('id' => $id));
         $user->setActif(true);
+        $user->setNewsletter(true);
         $em->persist($user);
         $em->flush($user);
 
