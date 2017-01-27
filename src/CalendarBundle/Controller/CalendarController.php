@@ -27,7 +27,7 @@ class CalendarController extends Controller
      */
     public function calendar_indexAction()
     {
-        return $this->render('@Calendar/fullcalendar/views/agenda-views.html.twig');
+        return $this->render('@Calendar/fullcalendar/views/agenda-fullviews.html.twig');
     }
 
     /**
