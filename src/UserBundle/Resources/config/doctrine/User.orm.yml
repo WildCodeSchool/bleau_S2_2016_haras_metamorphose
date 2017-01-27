@@ -20,6 +20,8 @@ UserBundle\Entity\User:
           nbPost:
               type: integer
               nullable: true
+          actif:
+              type: boolean
           newsletter:
               type: boolean
 
