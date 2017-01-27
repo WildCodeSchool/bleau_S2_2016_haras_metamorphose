@@ -4,7 +4,7 @@
 
 <div class="container center" id="usermodel">
 
-    <h2>Profil de l'utilisateur</h2>
+    <h2>Profile de l'utilisateur</h2>
 
     <table class="responsive-table bordered striped" id="table_id">
             <tbody>
@@ -44,16 +44,8 @@
             <a href="{{ path('user_index') }}" title="Retour liste des utilisateurs"><i class="fa fa-backward fa-2x"></i></a>
             <a href="{{ path('user_edit', { 'id': user.id }) }}" title="Editer"><i class="fa fa-pencil fa-2x"></i></a>
             <a href="" title="Bloquer"><i class="fa fa-lock fa-2x"></i>
-            {#<a href="{{ path('user_delete', { 'id': user.id }) }}" title="Bloquer"><i class="fa fa-lock fa-2x"></i>#}
         </div>
     </td>
-        {#<ul>#}
-            {#<li>#}
-                {#{{ form_start(delete_form) }}#}
-                {#<input type="submit" value="Delete">#}
-                {#{{ form_end(delete_form) }}#}
-            {#</li>#}
-        {#</ul>#}
 </div>
 
 {% endblock %}

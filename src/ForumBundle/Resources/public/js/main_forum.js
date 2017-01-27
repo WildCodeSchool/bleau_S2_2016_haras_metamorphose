@@ -184,6 +184,10 @@ $(document).ready(function(){
     $("#fos_user_profile_form_photo_file").change(function(){
         readURL(this);
     });
+
+    $("#fos_user_registration_form_photo_file").change(function () {
+        readURL(this);
+    });
 });
 
 //***************************************************//

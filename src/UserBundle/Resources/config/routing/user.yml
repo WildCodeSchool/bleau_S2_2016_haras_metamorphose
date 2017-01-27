@@ -22,6 +22,20 @@ user_delete:
     defaults: { _controller: "UserBundle:User:delete" }
     methods:  DELETE
 
+user_desactive:
+    path:     /{id}/desactive
+    defaults: { _controller: "UserBundle:User:desactive" }
+    methods:  [GET, POST]
+
+user_reactive:
+    path:     /{id}/reactive
+    defaults: { _controller: "UserBundle:User:reactive" }
+    methods:  [GET, POST]
+
+user_showInactiveUser:
+    path:     /showInactiveUser
+    defaults: { _controller: "UserBundle:User:showInactiveUser" }
+
 admin_dashboard:
     path:     admin/dashboard
     defaults: { _controller: "UserBundle:User:indexAdmin" }

@@ -52,8 +52,25 @@
 
             <div class="row input-field">
                 {{ form_widget(form.newsletter, {'attr':{'class':'newsletter form'}}) }}
+                {#<label for="newsletter">Inscription newsletter ?</label>#}
+                <input type="checkbox" id="newsletter" name="newsletter"/>
+                <label for="newsletter">
                 {{ form_label(form.newsletter, 'Inscription newsletter ?') }}
                 {{ form_errors(form.newsletter) }}
+            </div>
+
+            {#<div class="row input-field">#}
+                {#{{ form_widget(form.add_block) }}#}
+                {#<label for="modele_add_block">Ajouter à l'accueil</label>#}
+                {#{{ form_errors(form.add_block) }}#}
+            {#</div>#}
+
+            {###########"Affichage image uploadée#######}
+            <div class="col l4 m4 s12 center">
+                {# Affichage de l'image sélectionnée #}
+                <img class="hide" id="blah" src="#" alt="your image" />
+                {# Image enregistrées en base de données#}
+                <img id="imageBdD" class="responsive-img thumbs" src="#" alt="">
             </div>
 
             <div class="row input-field">
