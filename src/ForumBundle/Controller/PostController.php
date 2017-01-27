@@ -509,8 +509,10 @@ class PostController extends Controller
         $this->get('mailer')->send($message);
 
         if ($post->getParent() == null) {
+            $this->addFlash('notice', "Votre alerte a été signalé à l'administrateur du site");
             return $this->redirectToRoute('post_showAllPost', array('id' => $post->getId()));
         } else {
+            $this->addFlash('notice', "Votre alerte a été signalé à l'administrateur du site");
             return $this->redirectToRoute('post_showAllPost', array('id' => $post->getParent()->getId()));
         }
 
