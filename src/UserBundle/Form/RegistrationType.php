@@ -13,6 +13,7 @@ class RegistrationType extends AbstractType
             ->add('nom')
             ->add('prenom')
             ->add('profession')
+            ->add('newsletter')
             ->add('photo', MediaType::class, array(
                 'mapped' => false,		// Le médium ne peut pas être mappé car l'objet attend une array de media
                 'label' => false,

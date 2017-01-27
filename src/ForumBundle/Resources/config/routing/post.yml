@@ -42,6 +42,11 @@ post_edit:
     defaults: { _controller: "ForumBundle:Post:edit" }
     methods:  [GET, POST]
 
+post_alert:
+    path:     /{id}/alerte
+    defaults: { _controller: "ForumBundle:Post:alerteMessage" }
+    methods:  [GET, POST]
+
 post_desactive:
     path:     /{id}/desactive
     defaults: { _controller: "ForumBundle:Post:desactive" }

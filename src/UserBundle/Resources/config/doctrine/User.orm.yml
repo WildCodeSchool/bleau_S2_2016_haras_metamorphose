@@ -20,6 +20,8 @@ UserBundle\Entity\User:
           nbPost:
               type: integer
               nullable: true
+          newsletter:
+              type: boolean
 
       manyToOne:
           photo:

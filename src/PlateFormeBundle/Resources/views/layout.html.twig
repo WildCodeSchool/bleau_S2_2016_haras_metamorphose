@@ -15,7 +15,7 @@
 
                     <li>
                         {% if is_granted('ROLE_ADMIN') %}
-                            <a href="{{ path('user_index') }}" title="Liste des utilisateurs">
+                            <a href="{{ path('admin_dashboard') }}" title="Tableau de bord">
                             <span class="fa-stack fa-2x">
                                 <i class="fa fa-circle fa-stack-2x icon-background5"></i>
                                 <i class="fa fa-users fa-stack-1x"></i>
@@ -36,14 +36,22 @@
 
                 <ul class="right hide-on-med-and-down">
 
-                    <li><a href="sass.html">
+                    <li><a class="tooltipped"
+                           href="{{ path('newsletter_index') }}"
+                           data-position="bottom"
+                           data-delay="50"
+                           data-tooltip="Newsletter">
                         <span class="fa-stack fa-2x">
                             <i class="fa fa-circle fa-stack-2x icon-background1"></i>
-                            <i class="fa fa-bell-o fa-stack-1x"></i>
+                            <i class="fa fa-newspaper-o fa-stack-1x"></i>
                         </span>
                         </a>
                     </li>
-                    <li><a href="{{ path('post_index') }}">
+                    <li><a class="tooltipped"
+                           href="{{ path('post_index') }}"
+                           data-position="bottom"
+                           data-delay="50"
+                           data-tooltip="Forum">
                         <span class="fa-stack fa-2x">
                             <i class="fa fa-circle fa-stack-2x icon-background2"></i>
                             <i class="fa fa-pencil fa-stack-1x"></i>
@@ -52,7 +60,11 @@
                     </li>
 
                     </li>
-                    <li><a href="{{ path('agenda') }}">
+                    <li><a class="tooltipped"
+                           href="{{ path('agenda') }}"
+                           data-position="bottom"
+                           data-delay="50"
+                           data-tooltip="Agenda">
                         <span class="fa-stack fa-2x">
                             <i class="fa fa-circle fa-stack-2x icon-background3"></i>
                             <i class="fa fa-calendar fa-stack-1x"></i>
@@ -60,7 +72,11 @@
                         </a>
                     </li>
 
-                    <li><a class="dropdown-button" href="{{ path('fos_user_profile_show') }}" data-activates="dropdown2">
+                    <li><a class="dropdown-button tooltipped"
+                           data-position="bottom"
+                           data-delay="50"
+                           data-tooltip="Profil"
+                           href="{{ path('fos_user_profile_show') }}" data-activates="dropdown2">
                         <span class="fa-stack fa-2x">
                             <i class="fa fa-circle fa-stack-2x icon-background4"></i>
                             <i class="fa fa-user fa-stack-1x"></i>
@@ -113,13 +129,13 @@
     <footer class="page-footer">
         <div class="container">
             <div class="row">
-                <div class="col l6 s12">
+                <div class="col l4 s12">
                     <h5 class="white-text">A propos</h5>
                     <p class="grey-text text-lighten-4">
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus assumenda est molestiae repellat sequi tempore, temporibus. Amet facilis laborum molestias officiis recusandae ut voluptates. Ducimus molestias, nemo? Blanditiis, excepturi unde!
                     </p>
                 </div>
-                <div class="col l4 offset-l2 s12">
+                <div class="col l2 offset-l2 s12">
                     <h5 class="white-text">Contacter la plateforme</h5>
                     <ul>
                         <li><a class="grey-text text-lighten-3" href="#!">Mail</a></li>
@@ -127,6 +143,16 @@
                         <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
                         <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
                     </ul>
+                </div>
+                <div class="col l2 offset-l2 s12">
+                    <h5 class="white-text">Newsletter</h5>
+                    <form action="{{ path('abonnement_newsletter') }}" method="post">
+                        <input name="email" placeholder="Saisir adresse email" required="required" type="email">
+                        <input class="waves-effect waves-light btn" value="valider" type="submit">
+                    </form>
+                </div>
+                <div class="col l2 offset-l2 s12">
+                    <a class="grey-text text-lighten-3" href="{{ path('desabonnement_newsletter') }}">Désabonnement</a>
                 </div>
             </div>
         </div>

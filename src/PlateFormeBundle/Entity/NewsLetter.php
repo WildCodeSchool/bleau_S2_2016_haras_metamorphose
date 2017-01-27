@@ -2,20 +2,97 @@
 
 namespace PlateFormeBundle\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 /**
  * NewsLetter
  */
 class NewsLetter
 {
+    public function __toString()
+    {
+        return $this->url;
+    }
+
+
+    public $fichierPDF;
+
+    protected function getUploadDir()
+    {
+        return 'uploads/newsletters_file';
+    }
+
+    protected function getUploadRootDir()
+    {
+        return __DIR__.'/../../../web/'.$this->getUploadDir();
+    }
+
+    public function getWebPath()
+    {
+        return null === $this->url ? null : $this->getUploadDir().'/'.$this->url;
+    }
+
+    public function getAbsolutePath()
+    {
+        return null === $this->url ? null : $this->getUploadRootDir().'/'.$this->url;
+    }
+
     /**
-     * @var int
+     * @ORM\PrePersist
+     */
+    public function preUpload()
+    {
+        if (null !== $this->fichierPDF) {
+            // do whatever you want to generate a unique name
+            $this->url = 'newsletter_n-' . $this->getId() . '.' . $this->fichierPDF->guessExtension();
+        }
+    }
+
+    /**
+     * @ORM\PostPersist
+     */
+    public function upload()
+    {
+        if (null === $this->fichierPDF) {
+            return;
+        }
+
+        // if there is an error when moving the file, an exception will
+        // be automatically thrown by move(). This will properly prevent
+        // the entity from being persisted to the database on error
+        $this->fichierPDF->move($this->getUploadRootDir(), $this->url);
+
+        unset($this->fichierPDF);
+    }
+
+    /**
+     * @ORM\PostRemove
+     */
+    public function removeUpload()
+    {
+        if ($fichierPDF = $this->getAbsolutePath()) {
+            $this->url = null;
+            unlink($fichierPDF);
+        }
+    }
+
+    //***************************************//
+    //                                       //
+    //           GENERATED CODE              //
+    //                                       //
+    //***************************************//
+
+
+    /**
+     * @var integer
      */
     private $id;
 
     /**
      * @var string
      */
-    private $libele;
+    private $libelle;
 
     /**
      * @var string
@@ -28,7 +105,7 @@ class NewsLetter
     private $dateCreation;
 
     /**
-     * @var bool
+     * @var boolean
      */
     private $etat;
 
@@ -37,11 +114,21 @@ class NewsLetter
      */
     private $dateEnvoie;
 
+    /**
+     * @var boolean
+     */
+    private $pj;
+
+    /**
+     * @var string
+     */
+    private $url;
+
 
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -49,27 +136,27 @@ class NewsLetter
     }
 
     /**
-     * Set libele
+     * Set libelle
      *
-     * @param string $libele
+     * @param string $libelle
      *
      * @return NewsLetter
      */
-    public function setLibele($libele)
+    public function setLibelle($libelle)
     {
-        $this->libele = $libele;
+        $this->libelle = $libelle;
 
         return $this;
     }
 
     /**
-     * Get libele
+     * Get libelle
      *
      * @return string
      */
-    public function getLibele()
+    public function getLibelle()
     {
-        return $this->libele;
+        return $this->libelle;
     }
 
     /**
@@ -137,7 +224,7 @@ class NewsLetter
     /**
      * Get etat
      *
-     * @return bool
+     * @return boolean
      */
     public function getEtat()
     {
@@ -167,33 +254,52 @@ class NewsLetter
     {
         return $this->dateEnvoie;
     }
-    /**
-     * @var string
-     */
-    private $libelle;
-
 
     /**
-     * Set libelle
+     * Set pj
      *
-     * @param string $libelle
+     * @param boolean $pj
      *
      * @return NewsLetter
      */
-    public function setLibelle($libelle)
+    public function setPj($pj)
     {
-        $this->libelle = $libelle;
+        $this->pj = $pj;
 
         return $this;
     }
 
     /**
-     * Get libelle
+     * Get pj
+     *
+     * @return boolean
+     */
+    public function getPj()
+    {
+        return $this->pj;
+    }
+
+    /**
+     * Set url
+     *
+     * @param string $url
+     *
+     * @return NewsLetter
+     */
+    public function setUrl($url)
+    {
+        $this->url = $url;
+
+        return $this;
+    }
+
+    /**
+     * Get url
      *
      * @return string
      */
-    public function getLibelle()
+    public function getUrl()
     {
-        return $this->libelle;
+        return $this->url;
     }
 }
