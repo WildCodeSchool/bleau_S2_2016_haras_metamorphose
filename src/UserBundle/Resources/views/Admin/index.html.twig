@@ -5,34 +5,33 @@
 
     </style>
 
-
     <main>
         <div class="row">
-            <div class="col s12 m6 l6">
+            <div class="col s12 m8 l6">
                 <div style="padding: 35px;" align="center" class="card">
                     <div class="row">
                         <div class="card-title">
                             <b>Gestion des utilisateurs</b>
                         </div>
-                    {# USER #}
+                        {# USER #}
                         <a href="{{ path('user_index') }}">
-                            <div style="padding: 30px;" class="grey lighten-3 col s5 waves-effect">
+                            <div style="padding: 30px;" class="grey lighten-3 col s12 m12 l5 waves-effect">
                                 <span class="fa-stack fa-5x">
-                                    <i class="fa fa-circle fa-stack-2x icon-background4"></i>
-                                    <i class="fa fa-address-book-o fa-stack-1x" style="color: #444;"></i>
+                                <i class="fa fa-circle fa-stack-2x icon-background4"></i>
+                                <i class="fa fa-address-book-o fa-stack-1x" style="color: #444;"></i>
                                 </span>
-                                <span class="indigo-text text-lighten-1">Utilisateurs</span>
+                                <p class="indigo-text text-lighten-1">Utilisateurs</p>
                             </div>
                         </a>
                         <div class="col s1">&nbsp;</div>
 
-                        <a href="#!">
-                            <div style="padding: 30px;" class="grey lighten-3 col s5 waves-effect">
+                        <a href="{{ path('user_showInactiveUser') }}">
+                            <div style="padding: 30px;" class="grey lighten-3 col s12 m12 l5  waves-effect">
                                 <span class="fa-stack fa-5x">
-                                    <i class="fa fa-users fa-stack-1x" style="color: #444;"></i>
-                                    <i class="fa fa-ban fa-stack-2x" style="color: #B71586"></i>
+                                <i class="fa fa-users fa-stack-1x" style="color: #444;"></i>
+                                <i class="fa fa-ban fa-stack-2x" style="color: #B71586"></i>
                                 </span>
-                                <span class="indigo-text text-lighten-1">Anciens utilisateurs</span>
+                                <p class="indigo-text text-lighten-1">Anciens utilisateurs</p>
                             </div>
                         </a>
                     </div>
@@ -40,7 +39,7 @@
             </div>
 
             {# FORUM #}
-            <div class="col s12 m6 l6">
+            <div class="col s12 m8 l6">
                 <div style="padding: 35px;" align="center" class="card">
                     <div class="row">
                         <div class="card-title">
@@ -48,24 +47,24 @@
                         </div>
 
                         <a href="{{ path('categorieplateforme_index') }}">
-                            <div style="padding: 30px;" class="grey lighten-3 col s5 waves-effect">
+                            <div style="padding: 30px;" class="grey lighten-3 col s12 m12 l5  waves-effect">
                                 <span class="fa-stack fa-5x">
-                                    <i class="fa fa-circle fa-stack-2x icon-background2"></i>
-                                    <i class="fa fa-eyedropper fa-stack-1x" style="color: #444;"></i>
+                                <i class="fa fa-circle fa-stack-2x icon-background2"></i>
+                                <i class="fa fa-eyedropper fa-stack-1x" style="color: #444;"></i>
                                 </span>
-                                <span class="indigo-text text-lighten-1">Sous-catégories</span>
+                                <p class="indigo-text text-lighten-1">Sous-catégories</p>
                             </div>
                         </a>
 
                         <div class="col s1">&nbsp;</div>
 
                         <a href="{{ path('post_showAllPostDesactive') }}">
-                            <div style="padding: 30px;" class="grey lighten-3 col s5 waves-effect">
+                            <div style="padding: 30px;" class="grey lighten-3 col s12 m12 l5  waves-effect">
                                 <span class="fa-stack fa-5x">
-                                    <i class="fa fa-file-o fa-stack-1x" style="color: #444;"></i>
-                                    <i class="fa fa-ban fa-stack-2x" style="color: #8C6822"></i>
+                                <i class="fa fa-file-o fa-stack-1x" style="color: #444;"></i>
+                                <i class="fa fa-ban fa-stack-2x" style="color: #8C6822"></i>
                                 </span>
-                                <span class="indigo-text text-lighten-1">Messages inactifs</span>
+                                <p class="indigo-text text-lighten-1">Messages inactifs</p>
                             </div>
                         </a>
                     </div>
@@ -75,85 +74,70 @@
 
         {# AGENDA #}
         <div class="row">
-            <div class="col s12 m6 l6">
+            <div class="col s12 m8 l6">
                 <div style="padding: 35px;" align="center" class="card">
                     <div class="row">
                         <div class="card-title">
                             <b>Gestion de l'agenda</b>
                         </div>
-                        <a href="{{ path('agenda_new') }}">
-                            <div style="padding: 30px;" class="grey lighten-3 col s5 waves-effect">
+                        <a href="{{ path('agenda_new') }}" >
+                            <div style="padding: 30px;" class="grey lighten-3 col s12 m12 offset-l3 l5  waves-effect">
                                 <span class="fa-stack fa-5x">
-                                    <i class="fa fa-circle fa-stack-2x icon-background3"></i>
-                                    <i class="fa fa-calendar-plus-o fa-stack-1x" style="color: #444;"></i>
+                                <i class="fa fa-circle fa-stack-2x icon-background3"></i>
+                                <i class="fa fa-calendar-plus-o fa-stack-1x" style="color: #444;"></i>
                                 </span>
-                                <span class="indigo-text text-lighten-1">Nouvel évènement</span>
+                                <p class="indigo-text text-lighten-1">Nouvel évènement</p>
                             </div>
                         </a>
-
-                        <div class="col s1">&nbsp;</div>
-
-                        {#<a href="#!">
-                            <div style="padding: 30px;" class="grey lighten-3 col s5 waves-effect">
-                                <span class="fa-stack fa-5x">
-                                    <i class="fa fa-circle fa-stack-2x icon-background3"></i>
-                                    <i class="fa fa-users fa-stack-1x" style="color: #444;"></i>
-                                </span>
-                                <span class="indigo-text text-lighten-1">Sub Brand</span>
-                            </div>
-                        </a>#}
-
-
                     </div>
                 </div>
             </div>
 
             {# NEWSLETTERS #}
-            <div class="col s12 m6 l6">
+            <div class="col s12 m8 l6">
                 <div style="padding: 35px;" align="center" class="card">
                     <div class="row">
                         <div class="card-title">
                             <b>Gestion des newsletter</b>
                         </div>
                         <a href="{{ path('newsletter_new') }}">
-                            <div style="padding: 30px;" class="grey lighten-3 col s5 waves-effect">
+                            <div style="padding: 30px;" class="grey lighten-3 col s12 m12 l5 waves-effect">
                                 <span class="fa-stack fa-5x">
-                                    <i class="fa fa-circle fa-stack-2x icon-background1"></i>
-                                    <i class="fa fa-plus fa-stack-1x" style="color: #444;"></i>
+                                <i class="fa fa-circle fa-stack-2x icon-background1"></i>
+                                <i class="fa fa-plus fa-stack-1x" style="color: #444;"></i>
                                 </span>
-                                <span class="indigo-text text-lighten-1">Nouvelle newsletter</span>
+                                <p class="indigo-text text-lighten-1">Nouvelle newsletter</p>
                             </div>
                         </a>
                         <div class="col s1">&nbsp;</div>
                         <a href="{{ path('newsletter_index') }}">
-                            <div style="padding: 30px;" class="grey lighten-3 col s5 waves-effect">
+                            <div style="padding: 30px;" class="grey lighten-3 col s12 m12 l5 waves-effect">
                                 <span class="fa-stack fa-5x">
-                                    <i class="fa fa-circle fa-stack-2x icon-background1"></i>
-                                    <i class="fa fa-newspaper-o fa-stack-1x" style="color: #444;"></i>
+                                <i class="fa fa-circle fa-stack-2x icon-background1"></i>
+                                <i class="fa fa-newspaper-o fa-stack-1x" style="color: #444;"></i>
                                 </span>
-                                <span class="truncate indigo-text text-lighten-1">Liste des newsletters</span>
+                                <p class="truncate indigo-text text-lighten-1">Liste des newsletters</p>
                             </div>
                         </a>
                         <div class="row"></div>
                         <a href="{{ path('abonnes_newsletter') }}">
-                            <div style="padding: 30px;" class="grey lighten-3 col s5 waves-effect">
+                            <div style="padding: 30px;" class="grey lighten-3 col s12 m12 l5 waves-effect">
                                 <span class="fa-stack fa-5x">
-                                    <i class="fa fa-circle fa-stack-2x icon-background1"></i>
-                                    <i class="fa fa-address-book-o fa-stack-1x" style="color: #444;"></i>
+                                <i class="fa fa-circle fa-stack-2x icon-background1"></i>
+                                <i class="fa fa-address-book-o fa-stack-1x" style="color: #444;"></i>
                                 </span>
-                                <span class="indigo-text text-lighten-1">Abonnés newsletter</span>
+                                <p class="indigo-text text-lighten-1">Abonnés newsletter</p>
                             </div>
                         </a>
 
                         <div class="col s1">&nbsp;</div>
                         <a href="{{ path('abonnesInactif_newsletter') }}">
-                            <div style="padding: 30px;" class="grey lighten-3 col s5 waves-effect">
+                            <div style="padding: 30px;" class="grey lighten-3 col s12 m12 l5 waves-effect">
                                 <span class="fa-stack fa-5x">
-                                    <i class="fa fa-users fa-stack-1x" style="color: #444;"></i>
-                                    <i class="fa fa-ban fa-stack-2x" style="color: #07400A"></i>
+                                <i class="fa fa-users fa-stack-1x" style="color: #444;"></i>
+                                <i class="fa fa-ban fa-stack-2x" style="color: #07400A"></i>
                                 </span>
-
-                                <span class="indigo-text text-lighten-1">Anciens abonnés</span>
+                                <p class="indigo-text text-lighten-1">Anciens abonnés</p>
                             </div>
                         </a>
                     </div>

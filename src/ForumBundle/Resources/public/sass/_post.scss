@@ -21,7 +21,7 @@
 
 .soustitrePage {
   color: #8e8e8e;
-  font-style: italic;
+  //font-style: italic;
   text-align: center;
 }
 
@@ -194,26 +194,26 @@
 }
 @media screen and (max-width: 1000px) {
   .postSectionIndex {
-    margin: 10px !important;
+    margin: 13px !important;
   }
 
   .liPostSousCat {
-    margin: 10px !important;
+    margin: 13px !important;
   }
 
   .postListTitleSousCat {
-    font-size: 10px;
+    font-size: 13px;
   }
 
   .postDivPrincipale {
-    font-size: 10px;
+    font-size: 13px;
   }
 
   .titreDerPost {
     font-size: 15px !important;
   }
   .badge {
-    font-size: 10px !important;
+    font-size: 12px !important;
   }
 
   .postListTitleSousCat > i {
@@ -613,10 +613,10 @@ aside {
   transform: translate(0px);
 }
 
-#dropdown1 {
+/*#dropdown1 {
   top: 317px !important;
   left: 15px !important;
-}
+}*/
 
 .userLogout {
   background: #DEDEDE;

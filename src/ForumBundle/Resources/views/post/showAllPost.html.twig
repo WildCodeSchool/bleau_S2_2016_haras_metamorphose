@@ -16,6 +16,14 @@
                 <div class="contextHeader">
                     {{ postParent.contenu|raw }}
                     <p class="dateMessage">Message posté le {{ postParent.dateCreate|date("d/m/Y") }}</p>
+                    <a class="aPost tooltipped"
+                       data-position="left"
+                       data-delay="50"
+                       data-tooltip="Signaler ce message"
+                       onclick="return confirm('Vous êtes sure ?')"
+                       href="{{ path('post_alert', { 'id': postParent.id })}}" style="margin: 0 auto;">
+                        <i class="fa fa-exclamation-triangle" style="color: red;" aria-hidden="true"></i>
+                    </a>
                 </div>
 
                 <div class="valign-wrapper">
@@ -24,13 +32,6 @@
                             <i class="fa fa-pencil-square-o fa-3x" style="color: #FFFFFF;" aria-hidden="true"></i>
                         </a>
                     {% endif %}
-                    <a class="aPost tooltipped"
-                       data-position="left"
-                       data-delay="50"
-                       data-tooltip="Signaler ce message"
-                       href="{{ path('post_alert', { 'id': postParent.id })}}" style="margin: 0 auto;">
-                        <i class="fa fa-exclamation-triangle fa-3x" style="color: red;" aria-hidden="true"></i>
-                    </a>
                     <div class="cartoucheUserShowAll" >
                         <div class="chip" style="background-color: unset; color: #FFF">
                             <img src="{{ asset('bundles/haras/images/test2.jpeg')}}" alt="Contact Person">
@@ -90,16 +91,18 @@
                                     <div class="card-content">
                                         {{ postEnfant.contenu|raw }}
                                         <p class="dateMessage">Message posté le {{ postEnfant.dateCreate|date("d/m/Y") }}</p>
-                                    </div>
-                                    <div class="card-action">
-                                        <div class="row">
                                         <a class="aPost tooltipped"
                                            data-position="left"
                                            data-delay="50"
                                            data-tooltip="Signaler ce message"
+                                           onclick="return confirm('Vous êtes sure ?')"
                                            href="{{ path('post_alert', { 'id': postEnfant.id })}}" style="margin: 0 auto;">
-                                            <i class="fa fa-exclamation-triangle fa-3x" style="color: red;" aria-hidden="true"></i>
+                                            <i class="fa fa-exclamation-triangle" style="color: red;" aria-hidden="true"></i>
                                         </a>
+                                    </div>
+                                    <div class="card-action">
+                                        <div class="row">
+
                                         {% if is_granted('ROLE_MODERATEUR') or postEnfant.user.id == app.user.id %}
 
                                             <div class="col offset-s3 S3 offset-m3 m3 offset-l3 l3">
