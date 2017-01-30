@@ -218,10 +218,19 @@ nav ul.left {
   color: rgba(183, 21, 134, 0.6);
 }
 
-.icon-background5 {
-  color: rgba(24, 19, 239, 0.6);
+.btn-floating.icon-background5 {
+  background-color: rgba(24, 19, 239, 0.6);
 }
 
+
+
+.fixed-action-btn {
+  position: absolute !important;
+}
+
+nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
+  line-height:unset;
+}
 
   /*-----------------------------------------------------*\
                             BODY

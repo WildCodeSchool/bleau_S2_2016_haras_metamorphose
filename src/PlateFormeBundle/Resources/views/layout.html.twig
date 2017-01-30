@@ -14,19 +14,21 @@
                             </a>
                         </li>
 
+
+                        {#Button /Icons  navbar1 en mode medium à large#}
                         <li>
                             {% if is_granted('ROLE_ADMIN') %}
-                                <div class="hide-on-med-and-down">
+                                <div class="hide-on-small-and-down">
                                     <a href="{{ path('admin_dashboard') }}" title="Tableau de bord">
-                            <span class="fa-stack fa-2x">
-                                <i class="fa fa-circle fa-stack-2x icon-background5"></i>
-                                <i class="fa fa-users fa-stack-1x"></i>
-                            </span>
+                                        <a class="btn-floating icon-background5 btn-medium waves-effect waves-light"
+                                           href="{{ path('admin_dashboard') }}">
+                                            <i class="material-icons">dashboard</i>
+                                        </a>
                                         {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}
                                     </a>
                                 </div>
                             {% elseif is_granted('ROLE_MODERATEUR') %}
-                                <div class="hide-on-med-and-down">
+                                <div class="hide-on-small-and-down">
                                     <a href="{{ path('categorieplateforme_index') }}" title="Moderation du forum">
                         <span class="fa-stack fa-2x">
                             <i class="fa fa-circle fa-stack-2x icon-background5"></i>
@@ -39,22 +41,9 @@
                             {% endif %}
                         </li>
                     </ul>
-
-
-                    <div class="fixed-action-btn horizontal">
-                        <a class="btn-floating btn-large red">
-                            <i class="large material-icons">mode_edit</i>
-                        </a>
-                        <ul>
-                            <li><a class="btn-floating red"><i class="material-icons">insert_chart</i></a></li>
-                            <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
-                            <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
-                            <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
-                        </ul>
-                    </div>
+                </div>
 
                 <ul class="right">
-
                     <li><a class="tooltipped"
                            href="{{ path('newsletter_index') }}"
                            data-position="bottom"
@@ -113,7 +102,93 @@
                         {% endif %}
                     </ul>
                 </ul>
+
+                {#Button Horizontal FAB pour navbar 1 en mode mobile#}
+                <div class="fixed-action-btn horizontal hide-on-med-and-up">
+                    <a class="btn-floating btn-large red ">
+                        <i class="large material-icons">mode_edit</i>
+                    </a>
+                    <ul>
+                        <li>
+                            {% if is_granted('ROLE_ADMIN') %}
+                                {#<div class="hide-on-med-and-down">#}
+                                    <a class="btn-floating tooltipped"
+                                       href="{{ path('admin_dashboard') }}"
+                                       data-position="bottom"
+                                       data-delay="50"
+                                       data-tooltip="Tableau de bord">
+                                        <i class="material-icons">description</i>
+                                        {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}
+                                    </a>
+                                {#</div>#}
+                            {% elseif is_granted('ROLE_MODERATEUR') %}
+                                {#<div class="hide-on-med-and-down">#}
+                                    <a class="btn-floating tooltipped"
+                                       href="{{ path('categorieplateforme_index') }}" title="Moderation du forum">
+                                        data-position="bottom"
+                                        data-delay="50"
+                                        data-tooltip="Moderation">
+                                        <i class="material-icons">description</i>
+                                        {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}
+                                        | Moderateur
+                                    </a>
+                                {#</div>#}
+                            {% endif %}
+                        </li>
+
+                        <li>
+                            <a class="btn-floating tooltipped"
+                               href="{{ path('newsletter_index') }}"
+                               data-position="bottom"
+                               data-delay="50"
+                               data-tooltip="Newsletter">
+                                <i class="material-icons">description</i>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="btn-floating tooltipped"
+                               href="{{ path('post_index') }}"
+                               data-position="bottom"
+                               data-delay="50"
+                               data-tooltip="Forum">
+                                <i class="material-icons">description</i>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="btn-floating tooltipped"
+                               href="{{ path('agenda') }}"
+                               data-position="bottom"
+                               data-delay="50"
+                               data-tooltip="Agenda">
+                                <i class="material-icons">description</i>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="dropdown-button btn-floating tooltipped"
+                               data-position="bottom"
+                               data-delay="50"
+                               data-tooltip="Profil"
+                               href="{{ path('fos_user_profile_show') }}" data-activates="dropdown2">
+                                <i class="material-icons">description</i>
+                            </a>
+                        </li>
+                        <ul id="dropdown2" class="dropdown-content">
+                            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                                <li><a href="{{ path('fos_user_profile_show') }}">Voir mon profil</a></li>
+                                <li><a href="{{ path('fos_user_security_logout') }}">Se deconnecter</a></li>
+                            {% else %}
+                                <li><a href="{{ path('fos_user_registration_register') }}">Créer un compte</a></li>
+                                <li><a href="{{ path('fos_user_security_login') }}">Se connecter</a></li>
+                            {% endif %}
+                        </ul>
+                    </ul>
+                </div>
+
         </div>
+
         </nav>
         </div>
 
