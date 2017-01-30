@@ -147,15 +147,15 @@
 {# --------------------------------------------------------------------- #}
 
 {% block footer %}
-
-    {{ render(philosophie) }}
-
     <footer class="page-footer">
         <div class="container">
             <div class="row">
                 <div class="col l4 s12">
                     <h5 class="white-text">A propos</h5>
-                    <p class="grey-text text-lighten-4"></p>
+
+                    <p class="grey-text text-lighten-4">
+                       {{ render(controller('PlateFormeBundle:Philosophie:index')) }}
+                    </p>
 
                 </div>
                 <div class="col l2 offset-l2 s12">
@@ -169,6 +169,10 @@
                             <a class="grey-text text-lighten-3" href="tel://+33600000000">Téléphone</a>
                         </li>
                     </ul>
+                    <div id="social">
+                        <a href="#"><img class="icone-social" src="" alt="logo"></a>
+                        <a href="#"><img class="icone-social" src="" alt="logo"></a>
+                    </div>
                 </div>
                 <div class="col l2 offset-l2 s12">
                     <h5 class="white-text">Newsletter</h5>
