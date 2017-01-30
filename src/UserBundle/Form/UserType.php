@@ -18,8 +18,7 @@ class UserType extends AbstractType
             ->add('nom')
             ->add('prenom')
             ->add('profession')
-            ->add('nbPost')
-            ->add('photo')
+//            ->add('photo')
             ->add('roles','collection', array(
                 'type' => 'choice',
                 'options' => array(
@@ -32,7 +31,7 @@ class UserType extends AbstractType
             ));
         ;
     }
-    
+
     /**
      * {@inheritdoc}
      */
