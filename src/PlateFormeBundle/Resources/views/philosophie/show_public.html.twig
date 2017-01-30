@@ -1,6 +1,8 @@
 
+
     {% for philo in philos %}
 
-        {{ philo.texte }}
+        {{ philo.texte | truncate(50, true, '...') }}
 
     {% endfor %}
+

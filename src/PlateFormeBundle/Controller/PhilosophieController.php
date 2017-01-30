@@ -21,10 +21,20 @@ class PhilosophieController extends Controller
         $em = $this->getDoctrine()->getManager();
         $philo = $em->getRepository('PlateFormeBundle:Philosophie')->findAll();
 
-        return $this->render('@PlateForme/philosophie/show_public.html.twig', array(
-            'philos' => $philo
-        ));
+        if (empty($philo)){
 
+            return $this->render('@PlateForme/philosophie/show_public.html.twig', array(
+                'philos' => 'Bonjour, merci de mettre à jour votre page philosophie.'
+            ));
+
+        }
+        else {
+
+            return $this->render('@PlateForme/philosophie/show_public.html.twig', array(
+                'philos' => $philo,
+            ));
+
+        }
     }
 
 //    /**
