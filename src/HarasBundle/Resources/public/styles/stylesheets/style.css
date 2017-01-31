@@ -1938,57 +1938,24 @@ a.btn-floating.btn-large.icon-background5.waves-effect {
   margin-top: 5px;
 }
 
-/* line 288, ../sass/PlateformeCSS/_layout_plateforme.scss */
-a.btn-floating.btn-large.icon-background1.waves-effect.action {
-  margin-top: 1px;
-  margin-left: -11px;
-  margin-right: -11px;
-}
-
-/* line 294, ../sass/PlateformeCSS/_layout_plateforme.scss */
-a.btn-floating.btn-large.icon-background2.waves-effect.action {
-  margin-top: 1px;
-  margin-left: -11px;
-  margin-right: -11px;
-}
-
-/* line 300, ../sass/PlateformeCSS/_layout_plateforme.scss */
-a.btn-floating.btn-large.icon-background3.waves-effect.action {
-  margin-top: 1px;
-  margin-left: -11px;
-  margin-right: -11px;
-}
-
-/* line 306, ../sass/PlateformeCSS/_layout_plateforme.scss */
-a.btn-floating.btn-large.icon-background4.waves-effect.action {
-  margin-top: 1px;
-  margin-left: -11px;
-  margin-right: -11px;
-}
-
 /* line 312, ../sass/PlateformeCSS/_layout_plateforme.scss */
-a.btn-floating.btn-large.icon-background5.waves-effect.action {
-  margin-top: 1px;
-  margin-left: -11px;
-  margin-right: -11px;
-}
-
-/* line 318, ../sass/PlateformeCSS/_layout_plateforme.scss */
-a.btn-floating.btn-large.icon-background6.waves-effect.action {
-  margin-top: 15px;
+.fixed-action-btn.horizontal ul li {
+  display: inline-block;
+  margin: -3px -18px 0 0px;
+  float: none;
 }
 
 /*-----------------------------------------------------*\
                           BODY
 \*-----------------------------------------------------*/
-/* line 328, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 322, ../sass/PlateformeCSS/_layout_plateforme.scss */
 body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
 }
 
-/* line 334, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 328, ../sass/PlateformeCSS/_layout_plateforme.scss */
 .main {
   flex: 1 0 auto;
 }
@@ -1996,7 +1963,7 @@ body {
 /*-----------------------------------------------------*\
                           FOOTER
 \*-----------------------------------------------------*/
-/* line 343, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 337, ../sass/PlateformeCSS/_layout_plateforme.scss */
 footer.page-footer {
   background-color: rgba(118, 135, 146, 0.9);
   margin-top: 0px;
@@ -2006,85 +1973,120 @@ footer.page-footer {
                           MEDIA-QUERIES
 \*-----------------------------------------------------*/
 @media screen and (max-width: 600px) {
-  /* line 354, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  /* line 348, ../sass/PlateformeCSS/_layout_plateforme.scss */
   #plateforme-logo {
     height: 55px;
   }
 }
 @media screen and (max-width: 330px) {
-  /* line 360, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  /* line 354, ../sass/PlateformeCSS/_layout_plateforme.scss */
   .newsletter-logo {
     margin-right: -1%;
   }
 
-  /* line 363, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  /* line 357, ../sass/PlateformeCSS/_layout_plateforme.scss */
   .post-logo {
     margin-left: -3%;
   }
 
-  /* line 366, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  /* line 360, ../sass/PlateformeCSS/_layout_plateforme.scss */
   .agenda-logo {
     margin-left: -3%;
   }
 
-  /* line 369, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  /* line 363, ../sass/PlateformeCSS/_layout_plateforme.scss */
   .profile-logo {
     margin-left: -3%;
   }
 }
 @media screen and (max-width: 398px) {
-  /* line 375, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  /* line 369, ../sass/PlateformeCSS/_layout_plateforme.scss */
   .right {
     margin-right: -4%;
   }
 }
 @media screen and (max-width: 350px) {
-  /* line 381, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  /* line 375, ../sass/PlateformeCSS/_layout_plateforme.scss */
   .right {
     margin-right: -15%;
   }
 }
 @media screen and (max-width: 398px) {
-  /* line 387, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  /* line 381, ../sass/PlateformeCSS/_layout_plateforme.scss */
   .right {
     margin-right: -4%;
   }
 }
 @media screen and (max-width: 320px) {
-  /* line 393, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  /* line 387, ../sass/PlateformeCSS/_layout_plateforme.scss */
   .newsletter-lien {
     padding-left: 2px;
   }
 
-  /* line 396, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  /* line 390, ../sass/PlateformeCSS/_layout_plateforme.scss */
   .newsletter-lien {
     margin-right: -8%;
   }
 
-  /* line 399, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  /* line 393, ../sass/PlateformeCSS/_layout_plateforme.scss */
   .post-logo {
     margin-right: -9%;
   }
 
-  /* line 402, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  /* line 396, ../sass/PlateformeCSS/_layout_plateforme.scss */
   .agenda-logo {
     margin-right: -22px;
   }
 
-  /* line 405, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  /* line 399, ../sass/PlateformeCSS/_layout_plateforme.scss */
   .profile-logo {
     margin-left: 0%;
   }
 
-  /* line 408, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  /* line 402, ../sass/PlateformeCSS/_layout_plateforme.scss */
   .right {
     margin-right: -15%;
   }
 }
 @media screen and (max-width: 600px) {
-  /* line 414, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  /* line 408, ../sass/PlateformeCSS/_layout_plateforme.scss */
   #sidenav-overlay {
     z-index: 1 !important;
+  }
+}
+@media screen and (max-width: 460px) {
+  /* line 414, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  .fixed-action-btn.horizontal ul li {
+    display: inline-block;
+    margin: -3px -18px 0 0px;
+    float: none;
+  }
+
+  /* line 419, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  .btn-floating.btn-large {
+    width: 28px;
+    height: 30px;
+  }
+
+  /* line 423, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  .btn-floating.btn-large i {
+    line-height: 31px;
+  }
+
+  /* line 426, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
+    font-size: 22px;
+  }
+
+  /* line 430, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  nav ul a.btn, nav ul a.btn-large, nav ul a.btn-large, nav ul a.btn-flat, nav ul a.btn-floating {
+    margin-left: 10px;
+  }
+
+  /* line 433, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  a.btn-floating.btn-large.icon-background6.waves-effect.action {
+    margin-left: -23px;
+    margin-right: -4px;
   }
 }
 /*-----------------------------------------------------*\
