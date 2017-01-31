@@ -19,26 +19,30 @@
                         <li>
                             {% if is_granted('ROLE_ADMIN') %}
                                 <div class="hide-on-small-and-down">
-                                    <a class="btn-floating btn-large icon-background5 waves-effect"
-                                        href="{{ path('admin_dashboard') }}"
+                                    <a class="btn-floating btn-large icon-background5 waves-effect tooltipped"
+                                       href="{{ path('admin_dashboard') }}"
                                        data-position="bottom"
                                        data-delay="50"
                                        data-tooltip="Tableau de bord">
                                         <i class="medium material-icons">dashboard</i>
                                     </a>
-                                        {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}
+                                    <span class="admin.log">
+                                    {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}
+                                    </span>
                                 </div>
 
                             {% elseif is_granted('ROLE_MODERATEUR') %}
                                 <div class="hide-on-small-and-down">
-                                    <a class="btn-floating btn-large icon-background5 waves-effect"
-                                        href="{{ path('categorieplateforme_index') }}"
+                                    <a class="btn-floating btn-large icon-background5 waves-effect tooltipped"
+                                       href="{{ path('categorieplateforme_index') }}"
                                        data-position="bottom"
                                        data-delay="50"
                                        data-tooltip="Moderation">
                                         <i class="medium material-icons">dashboard</i>
                                     </a>
-                                        {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}
+                                    <span class="moderateur.log">
+                                    {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}
+                                    </span>
                                 </div>
                             {% endif %}
                         </li>
@@ -47,57 +51,57 @@
 
                 {#Icons colorés navbar1 à droite visibles en mode medium à large#}
                 <div class="hide-on-small-and-down">
-                <ul class="right">
-                    <li>
-                        <a class="btn-floating btn-large icon-background1 waves-effect"
-                           href="{{ path('newsletter_index') }}"
-                           data-position="bottom"
-                           data-delay="50"
-                           data-tooltip="Newsletter">
-                            <i class="material-icons">description</i>
-                        </a>
-                    </li>
+                    <ul class="right">
+                        <li>
+                            <a class="btn-floating btn-large icon-background1 waves-effect tooltipped"
+                               href="{{ path('newsletter_index') }}"
+                               data-position="bottom"
+                               data-delay="50"
+                               data-tooltip="Newsletter">
+                                <i class="material-icons">description</i>
+                            </a>
+                        </li>
 
-                    <li>
-                        <a class="btn-floating btn-large icon-background2 waves-effect"
-                           href="{{ path('post_index') }}"
-                           data-position="bottom"
-                           data-delay="50"
-                           data-tooltip="Forum">
-                            <i class="material-icons">mode_edit</i>
-                        </a>
-                    </li>
+                        <li>
+                            <a class="btn-floating btn-large icon-background2 waves-effect tooltipped"
+                               href="{{ path('post_index') }}"
+                               data-position="bottom"
+                               data-delay="50"
+                               data-tooltip="Forum">
+                                <i class="material-icons">mode_edit</i>
+                            </a>
+                        </li>
 
-                    <li>
-                        <a class="btn-floating btn-large icon-background3 waves-effect"
-                           href="{{ path('agenda') }}"
-                           data-position="bottom"
-                           data-delay="50"
-                           data-tooltip="Agenda">
-                            <i class="material-icons">date_range</i>
-                        </a>
-                    </li>
+                        <li>
+                            <a class="btn-floating btn-large icon-background3 waves-effect tooltipped"
+                               href="{{ path('agenda') }}"
+                               data-position="bottom"
+                               data-delay="50"
+                               data-tooltip="Agenda">
+                                <i class="material-icons">date_range</i>
+                            </a>
+                        </li>
 
-                    <li>
-                        <a class="btn-floating btn-large icon-background4 waves-effect"
-                           href="{{ path('fos_user_profile_show') }}"
-                           data-activates="dropdown2"
-                           data-position="bottom"
-                           data-delay="50"
-                           data-tooltip="Profil">
-                            <i class="material-icons">account_box</i>
-                        </a>
-                    </li>
-                    <ul id="dropdown2" class="dropdown-content">
-                        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                            <li><a href="{{ path('fos_user_profile_show') }}">Voir mon profil</a></li>
-                            <li><a href="{{ path('fos_user_security_logout') }}">Se deconnecter</a></li>
-                        {% else %}
-                            <li><a href="{{ path('fos_user_registration_register') }}">Créer un compte</a></li>
-                            <li><a href="{{ path('fos_user_security_login') }}">Se connecter</a></li>
-                        {% endif %}
+                        <li>
+                            <a class="btn-floating btn-large icon-background4 waves-effect tooltipped"
+                               href="{{ path('fos_user_profile_show') }}"
+                               data-activates="dropdown2"
+                               data-position="bottom"
+                               data-delay="50"
+                               data-tooltip="Profil">
+                                <i class="material-icons">account_box</i>
+                            </a>
+                        </li>
+                        <ul id="dropdown2" class="dropdown-content">
+                            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                                <li><a href="{{ path('fos_user_profile_show') }}">Voir mon profil</a></li>
+                                <li><a href="{{ path('fos_user_security_logout') }}">Se deconnecter</a></li>
+                            {% else %}
+                                <li><a href="{{ path('fos_user_registration_register') }}">Créer un compte</a></li>
+                                <li><a href="{{ path('fos_user_security_login') }}">Se connecter</a></li>
+                            {% endif %}
+                        </ul>
                     </ul>
-                </ul>
                 </div>
 
                 {#Button Horizontal FAB pour navbar 1 visibles en mode mobile#}
@@ -109,30 +113,30 @@
                         <li>
                             {% if is_granted('ROLE_ADMIN') %}
                                 {#<div class="hide-on-small-and-down">#}
-                                    <a class="btn-floating btn-large icon-background5 waves-effect action"
-                                       href="{{ path('admin_dashboard') }}"
-                                       data-position="bottom"
-                                       data-delay="50"
-                                       data-tooltip="Tableau de bord">
-                                        <i class="medium material-icons">dashboard</i>
-                                    </a>
+                                <a class="btn-floating btn-large icon-background5 waves-effect action tooltipped"
+                                   href="{{ path('admin_dashboard') }}"
+                                   data-position="bottom"
+                                   data-delay="50"
+                                   data-tooltip="Tableau de bord">
+                                    <i class="medium material-icons">dashboard</i>
+                                </a>
                                 {#</div>#}
 
                             {% elseif is_granted('ROLE_MODERATEUR') %}
                                 {#<div class="hide-on-small-and-down">#}
-                                    <a class="btn-floating btn-large icon-background5 waves-effect action"
-                                       href="{{ path('categorieplateforme_index') }}"
-                                       data-position="bottom"
-                                       data-delay="50"
-                                       data-tooltip="Moderation">
-                                        <i class="medium material-icons">dashboard</i>
-                                    </a>
+                                <a class="btn-floating btn-large icon-background5 waves-effect action tooltipped"
+                                   href="{{ path('categorieplateforme_index') }}"
+                                   data-position="bottom"
+                                   data-delay="50"
+                                   data-tooltip="Moderation">
+                                    <i class="medium material-icons">dashboard</i>
+                                </a>
                                 {#</div>#}
                             {% endif %}
                         </li>
 
                         <li>
-                            <a class="btn-floating btn-large icon-background1 waves-effect action"
+                            <a class="btn-floating btn-large icon-background1 waves-effect action tooltipped"
                                href="{{ path('newsletter_index') }}"
                                data-position="bottom"
                                data-delay="50"
@@ -142,7 +146,7 @@
                         </li>
 
                         <li>
-                            <a class="btn-floating btn-large icon-background2 waves-effect action"
+                            <a class="btn-floating btn-large icon-background2 waves-effect action tooltipped"
                                href="{{ path('post_index') }}"
                                data-position="bottom"
                                data-delay="50"
@@ -152,7 +156,7 @@
                         </li>
 
                         <li>
-                            <a class="btn-floating btn-large icon-background3 waves-effect action"
+                            <a class="btn-floating btn-large icon-background3 waves-effect action tooltipped"
                                href="{{ path('agenda') }}"
                                data-position="bottom"
                                data-delay="50"
@@ -162,7 +166,7 @@
                         </li>
 
                         <li>
-                            <a class="btn-floating btn-large icon-background4 waves-effect action"
+                            <a class="btn-floating btn-large icon-background4 waves-effect action tooltipped"
                                href="{{ path('fos_user_profile_show') }}"
                                data-activates="dropdown2"
                                data-position="bottom"
