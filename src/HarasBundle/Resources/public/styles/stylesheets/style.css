@@ -1750,7 +1750,7 @@ a:hover {
 
 /* line 22, ../sass/PlateformeCSS/_layout_plateforme.scss */
 .navbar2 {
-  height: 48px;
+  height: 46px;
   border-top: solid 2px #424242;
 }
 
@@ -1860,52 +1860,135 @@ nav ul.left {
   height: 56px;
 }
 
-/* line 205, ../sass/PlateformeCSS/_layout_plateforme.scss */
-.icon-background1 {
-  color: rgba(7, 64, 10, 0.6);
-}
-
-/* line 209, ../sass/PlateformeCSS/_layout_plateforme.scss */
-.icon-background2 {
-  color: rgba(140, 104, 34, 0.6);
-}
-
-/* line 213, ../sass/PlateformeCSS/_layout_plateforme.scss */
-.icon-background3 {
-  color: rgba(39, 34, 140, 0.6);
-}
-
-/* line 217, ../sass/PlateformeCSS/_layout_plateforme.scss */
-.icon-background4 {
-  color: rgba(183, 21, 134, 0.6);
-}
-
-/* line 221, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 223, ../sass/PlateformeCSS/_layout_plateforme.scss */
 .btn-floating.icon-background5 {
   background-color: rgba(24, 19, 239, 0.6);
 }
 
 /* line 227, ../sass/PlateformeCSS/_layout_plateforme.scss */
-.fixed-action-btn {
-  position: absolute !important;
+.btn-floating.icon-background6 {
+  background-color: rgba(24, 19, 239, 0.6);
 }
 
 /* line 231, ../sass/PlateformeCSS/_layout_plateforme.scss */
+.btn-floating.icon-background4 {
+  background-color: rgba(183, 21, 134, 0.6);
+}
+
+/* line 235, ../sass/PlateformeCSS/_layout_plateforme.scss */
+.btn-floating.icon-background3 {
+  background-color: rgba(39, 34, 140, 0.6);
+}
+
+/* line 239, ../sass/PlateformeCSS/_layout_plateforme.scss */
+.btn-floating.icon-background2 {
+  background-color: rgba(140, 104, 34, 0.6);
+}
+
+/* line 243, ../sass/PlateformeCSS/_layout_plateforme.scss */
+.btn-floating.icon-background1 {
+  background-color: rgba(7, 64, 10, 0.6);
+}
+
+/* line 248, ../sass/PlateformeCSS/_layout_plateforme.scss */
+.fixed-action-btn {
+  position: absolute !important;
+  bottom: 5px;
+}
+
+/* line 253, ../sass/PlateformeCSS/_layout_plateforme.scss */
 nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
   line-height: unset;
+  font-size: 30px;
+}
+
+/* line 258, ../sass/PlateformeCSS/_layout_plateforme.scss */
+.btn-floating.btn-large i {
+  line-height: 52px;
+}
+
+/* line 262, ../sass/PlateformeCSS/_layout_plateforme.scss */
+.btn-floating.btn-large {
+  width: 50px;
+  height: 50px;
+}
+
+/* line 267, ../sass/PlateformeCSS/_layout_plateforme.scss */
+a.btn-floating.btn-large.icon-background1.waves-effect {
+  margin-top: 5px;
+}
+
+/* line 271, ../sass/PlateformeCSS/_layout_plateforme.scss */
+a.btn-floating.btn-large.icon-background2.waves-effect {
+  margin-top: 5px;
+}
+
+/* line 275, ../sass/PlateformeCSS/_layout_plateforme.scss */
+a.btn-floating.btn-large.icon-background3.waves-effect {
+  margin-top: 5px;
+}
+
+/* line 279, ../sass/PlateformeCSS/_layout_plateforme.scss */
+a.btn-floating.btn-large.icon-background4.waves-effect {
+  margin-top: 5px;
+}
+
+/* line 283, ../sass/PlateformeCSS/_layout_plateforme.scss */
+a.btn-floating.btn-large.icon-background5.waves-effect {
+  margin-top: 5px;
+}
+
+/* line 288, ../sass/PlateformeCSS/_layout_plateforme.scss */
+a.btn-floating.btn-large.icon-background1.waves-effect.action {
+  margin-top: 1px;
+  margin-left: -11px;
+  margin-right: -11px;
+}
+
+/* line 294, ../sass/PlateformeCSS/_layout_plateforme.scss */
+a.btn-floating.btn-large.icon-background2.waves-effect.action {
+  margin-top: 1px;
+  margin-left: -11px;
+  margin-right: -11px;
+}
+
+/* line 300, ../sass/PlateformeCSS/_layout_plateforme.scss */
+a.btn-floating.btn-large.icon-background3.waves-effect.action {
+  margin-top: 1px;
+  margin-left: -11px;
+  margin-right: -11px;
+}
+
+/* line 306, ../sass/PlateformeCSS/_layout_plateforme.scss */
+a.btn-floating.btn-large.icon-background4.waves-effect.action {
+  margin-top: 1px;
+  margin-left: -11px;
+  margin-right: -11px;
+}
+
+/* line 312, ../sass/PlateformeCSS/_layout_plateforme.scss */
+a.btn-floating.btn-large.icon-background5.waves-effect.action {
+  margin-top: 1px;
+  margin-left: -11px;
+  margin-right: -11px;
+}
+
+/* line 318, ../sass/PlateformeCSS/_layout_plateforme.scss */
+a.btn-floating.btn-large.icon-background6.waves-effect.action {
+  margin-top: 15px;
 }
 
 /*-----------------------------------------------------*\
                           BODY
 \*-----------------------------------------------------*/
-/* line 240, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 328, ../sass/PlateformeCSS/_layout_plateforme.scss */
 body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
 }
 
-/* line 246, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 334, ../sass/PlateformeCSS/_layout_plateforme.scss */
 .main {
   flex: 1 0 auto;
 }
@@ -1913,7 +1996,7 @@ body {
 /*-----------------------------------------------------*\
                           FOOTER
 \*-----------------------------------------------------*/
-/* line 255, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 343, ../sass/PlateformeCSS/_layout_plateforme.scss */
 footer.page-footer {
   background-color: rgba(118, 135, 146, 0.9);
   margin-top: 0px;
@@ -1923,83 +2006,83 @@ footer.page-footer {
                           MEDIA-QUERIES
 \*-----------------------------------------------------*/
 @media screen and (max-width: 600px) {
-  /* line 266, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  /* line 354, ../sass/PlateformeCSS/_layout_plateforme.scss */
   #plateforme-logo {
     height: 55px;
   }
 }
 @media screen and (max-width: 330px) {
-  /* line 272, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  /* line 360, ../sass/PlateformeCSS/_layout_plateforme.scss */
   .newsletter-logo {
     margin-right: -1%;
   }
 
-  /* line 275, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  /* line 363, ../sass/PlateformeCSS/_layout_plateforme.scss */
   .post-logo {
     margin-left: -3%;
   }
 
-  /* line 278, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  /* line 366, ../sass/PlateformeCSS/_layout_plateforme.scss */
   .agenda-logo {
     margin-left: -3%;
   }
 
-  /* line 281, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  /* line 369, ../sass/PlateformeCSS/_layout_plateforme.scss */
   .profile-logo {
     margin-left: -3%;
   }
 }
 @media screen and (max-width: 398px) {
-  /* line 287, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  /* line 375, ../sass/PlateformeCSS/_layout_plateforme.scss */
   .right {
     margin-right: -4%;
   }
 }
 @media screen and (max-width: 350px) {
-  /* line 293, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  /* line 381, ../sass/PlateformeCSS/_layout_plateforme.scss */
   .right {
     margin-right: -15%;
   }
 }
 @media screen and (max-width: 398px) {
-  /* line 299, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  /* line 387, ../sass/PlateformeCSS/_layout_plateforme.scss */
   .right {
     margin-right: -4%;
   }
 }
 @media screen and (max-width: 320px) {
-  /* line 305, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  /* line 393, ../sass/PlateformeCSS/_layout_plateforme.scss */
   .newsletter-lien {
     padding-left: 2px;
   }
 
-  /* line 308, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  /* line 396, ../sass/PlateformeCSS/_layout_plateforme.scss */
   .newsletter-lien {
     margin-right: -8%;
   }
 
-  /* line 311, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  /* line 399, ../sass/PlateformeCSS/_layout_plateforme.scss */
   .post-logo {
     margin-right: -9%;
   }
 
-  /* line 314, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  /* line 402, ../sass/PlateformeCSS/_layout_plateforme.scss */
   .agenda-logo {
     margin-right: -22px;
   }
 
-  /* line 317, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  /* line 405, ../sass/PlateformeCSS/_layout_plateforme.scss */
   .profile-logo {
     margin-left: 0%;
   }
 
-  /* line 320, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  /* line 408, ../sass/PlateformeCSS/_layout_plateforme.scss */
   .right {
     margin-right: -15%;
   }
 }
 @media screen and (max-width: 600px) {
-  /* line 326, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  /* line 414, ../sass/PlateformeCSS/_layout_plateforme.scss */
   #sidenav-overlay {
     z-index: 1 !important;
   }

@@ -20,7 +20,7 @@
 }
 
 .navbar2{
-  height: 48px;
+  height: 46px;
   border-top: solid 2px #424242;
 }
 
@@ -202,35 +202,123 @@ a.plateforme-logo:hover{
 nav ul.left {
   height: 56px;
 }
-.icon-background1 {
-  color: rgba(7,64,10, 0.6);
-}
+//.icon-background1 {
+//  color: rgba(7,64,10, 0.6);
+//}
+//
+//.icon-background2 {
+//  color: rgba(140, 104, 34, 0.6);
+//}
+//
+//.icon-background3 {
+//  color: rgba(39, 34, 140, 0.6);
+//}
+//
+//.icon-background4 {
+//  color: rgba(183, 21, 134, 0.6);
+//}
 
-.icon-background2 {
-  color: rgba(140, 104, 34, 0.6);
-}
 
-.icon-background3 {
-  color: rgba(39, 34, 140, 0.6);
-}
-
-.icon-background4 {
-  color: rgba(183, 21, 134, 0.6);
-}
 
 .btn-floating.icon-background5 {
   background-color: rgba(24, 19, 239, 0.6);
 }
 
+.btn-floating.icon-background6 {
+  background-color: rgba(24, 19, 239, 0.6);
+}
+
+.btn-floating.icon-background4 {
+  background-color: rgba(183, 21, 134, 0.6);
+}
+
+.btn-floating.icon-background3 {
+  background-color: rgba(39, 34, 140, 0.6);
+}
+
+.btn-floating.icon-background2 {
+  background-color: rgba(140, 104, 34, 0.6);
+}
+
+.btn-floating.icon-background1 {
+  background-color: rgba(7,64,10, 0.6);
+}
 
 
 .fixed-action-btn {
   position: absolute !important;
+  bottom: 5px;
 }
 
 nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
   line-height:unset;
+  font-size: 30px;
 }
+
+.btn-floating.btn-large i {
+  line-height: 52px;
+}
+
+.btn-floating.btn-large {
+  width: 50px;
+  height: 50px;
+}
+
+a.btn-floating.btn-large.icon-background1.waves-effect{
+  margin-top: 5px;
+}
+
+a.btn-floating.btn-large.icon-background2.waves-effect{
+  margin-top: 5px;
+}
+
+a.btn-floating.btn-large.icon-background3.waves-effect{
+  margin-top: 5px;
+}
+
+a.btn-floating.btn-large.icon-background4.waves-effect{
+  margin-top: 5px;
+}
+
+a.btn-floating.btn-large.icon-background5.waves-effect{
+  margin-top: 5px;
+}
+
+
+a.btn-floating.btn-large.icon-background1.waves-effect.action{
+  margin-top: 1px;
+  margin-left: -11px;
+  margin-right: -11px;
+}
+
+a.btn-floating.btn-large.icon-background2.waves-effect.action{
+  margin-top: 1px;
+  margin-left: -11px;
+  margin-right: -11px;
+}
+
+a.btn-floating.btn-large.icon-background3.waves-effect.action{
+  margin-top: 1px;
+  margin-left: -11px;
+  margin-right: -11px;
+}
+
+a.btn-floating.btn-large.icon-background4.waves-effect.action{
+  margin-top: 1px;
+  margin-left: -11px;
+  margin-right: -11px;
+}
+
+a.btn-floating.btn-large.icon-background5.waves-effect.action{
+  margin-top: 1px;
+  margin-left: -11px;
+  margin-right: -11px;
+}
+
+a.btn-floating.btn-large.icon-background6.waves-effect.action{
+  margin-top: 15px;
+}
+
 
   /*-----------------------------------------------------*\
                             BODY
