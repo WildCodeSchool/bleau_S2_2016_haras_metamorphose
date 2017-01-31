@@ -82,10 +82,6 @@ select{
     margin-left: 10px;
 }
 
-.calendar-td-twig{
-
-}
-
 .bouton-retour {
     color: darkgreen;
     font-size: 36px !important;
@@ -147,9 +143,9 @@ select{
 }
 
 .calendar-div-size{
-    width : 200px !important;
+    width : 130px !important;
     height: 50px;
-    text-align: center;
+    margin-inline-start: 50px!important;
 }
 
 
@@ -184,4 +180,18 @@ select{
 .calendar-td-color{
     background-color: rgba(0,0,0,0);
     color: rgba(118, 135, 146, 0.9);
+}
+
+.calendar-search-td{
+    -moz-box-shadow: 8px 8px 12px #aaa;
+    -webkit-box-shadow: 8px 8px 12px #aaa;
+    box-shadow: 8px 8px 12px #555;
+
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    border-bottom-left-radius: 0px;
+
+    background-color: rgba(118, 135, 146, 0.9);
+    color: #dff1ff;
 }
