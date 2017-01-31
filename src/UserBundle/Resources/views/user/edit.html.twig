@@ -8,22 +8,21 @@
         <div class="row">
 
     {{ form_start(edit_form) }}
-    {{ form_widget(edit_form) }}
 
-        <div class="row input-field">
-            {#{{ form_label(edit_form.nom) }}#}
+        {{ form_label(edit_form.nom) }}
+            <div class="row input-field">
             {{ form_errors(edit_form.nom) }}
             {{ form_widget(edit_form.nom) }}
         </div>
 
+        {{ form_label(edit_form.prenom) }}
         <div class="row input-field">
-            {#{{ form_label(edit_form.prenom) }}#}
             {{ form_errors(edit_form.prenom) }}
             {{ form_widget(edit_form.prenom) }}
         </div>
 
+        {{ form_label(edit_form.profession) }}
         <div class="row input-field">
-            {#{{ form_label(edit_form.profession) }}#}
             {{ form_errors(edit_form.profession) }}
             {{ form_widget(edit_form.profession) }}
         </div>
@@ -38,9 +37,8 @@
         {#<div class="row input-field" style="width: 300px; background-color: red; height: 10%;">#}
             {#<img id="imageBdD" class="responsive-img thumbs" src="{{ app.user.photo ? asset(app.user.photo.path) }}" alt="">#}
         {#</div>#}
-
+        {{ form_label(edit_form.roles) }}
         <div class="row input-field">
-            {#{{ form_label(edit_form.roles) }}#}
             {{ form_errors(edit_form.roles) }}
             {{ form_widget(edit_form.roles) }}
         </div>

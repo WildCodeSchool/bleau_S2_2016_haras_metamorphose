@@ -61,7 +61,7 @@ class UserController extends Controller
     public function editAction(Request $request, User $user)
     {
         $deleteForm = $this->createDeleteForm($user);
-        $editForm = $this->createForm('UserBundle\Form\UserType', $user);
+        $editForm = $this->createForm('UserBundle\Form\UserType', $user, array('roles' => $this->container->getParameter('security.role_hierarchy.roles')));
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
