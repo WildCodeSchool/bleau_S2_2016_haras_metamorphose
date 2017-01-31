@@ -48,6 +48,10 @@ $
     border-top-right-radius: 50px;
     border-bottom-right-radius: 50px;
     border-bottom-left-radius: 0px;
+
+    -moz-box-shadow: 8px 8px 12px #aaa;
+    -webkit-box-shadow: 8px 8px 12px #aaa;
+    box-shadow: 8px 8px 12px #555;
 }
 
 .modal-header{
@@ -90,11 +94,28 @@ $
 }
 
 .modal-bouton {
-    width: 16% !important;
+    width: 145px !important;
     margin: auto !important;
     position: relative;
     left: 39%;
     border-radius: 50px !important;
+}
+
+.modal-bt-edit{
+    top: -10px;
+
+    -moz-box-shadow: 8px 8px 12px #aaa;
+    -webkit-box-shadow: 8px 8px 12px #aaa;
+    box-shadow: 8px 8px 12px #555;
+}
+
+.modal-bt-delete{
+    top: -10px;
+
+    -moz-box-shadow: 8px 8px 12px #aaa;
+    -webkit-box-shadow: 8px 8px 12px #aaa;
+    box-shadow: 8px 8px 12px #555;
+
 }
 
 /*********************************************************/

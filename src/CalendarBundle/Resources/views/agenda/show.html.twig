@@ -37,7 +37,6 @@
                             <p class="calendar-p valign">Date et heure de fin :</p>
                         </div>
                         <div class="col s12 m6 l6">
-                            {#{{ agenda.end, { 'attr': {'class': 'calendar-responsive-input center'} } }}#}
                             <p>{% if agenda.end %}{{ agenda.end|date('d-m-Y à H:i:s') }}{% endif %}</p>
                         </div>
                     </div>
@@ -46,7 +45,6 @@
                             <p class="calendar-p valign">Description de l'évènement :</p>
                         </div>
                         <div class="col s12 m6 l6">
-                            {#{{ agenda.texte, { 'id': 'textarea' }, { 'attr': {'col': '100'} } }}#}
                             <p>{{ agenda.texte }}</p>
                         </div>
                     </div>
@@ -55,7 +53,6 @@
                             <p class="calendar-p valign">Lieu de l'évènemen :</p>
                         </div>
                         <div class="col s12 m6 l6">
-                            {#{{ agenda.lieu, { 'attr': {'class': 'calendar-responsive-input'} } }}#}
                             <p>{{ agenda.lieu }}</p>
                         </div>
                     </div>
@@ -104,7 +101,6 @@
                         </div>
                     </li>
                 </ul>
-
 
             </div>
         </div>
