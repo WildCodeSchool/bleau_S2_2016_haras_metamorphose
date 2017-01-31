@@ -17,6 +17,9 @@
 /* MODIFIE LA TAILLE DU CALENDAR */
 body .fc { /* extra precedence to overcome jqui */
 	font-size: 0.8em;
+	-moz-box-shadow: 8px 8px 12px #aaa;
+	-webkit-box-shadow: 8px 8px 12px #aaa;
+	box-shadow: 8px 8px 12px #555;
 }
 
 /* Colors

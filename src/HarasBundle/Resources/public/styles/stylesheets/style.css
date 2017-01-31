@@ -1754,13 +1754,13 @@ a:hover {
   border-top: solid 2px #424242;
 }
 
-/* line 31, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 28, ../sass/PlateformeCSS/_layout_plateforme.scss */
 nav {
   background-color: #5a6b77;
   line-height: 44px;
 }
 
-/* line 36, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 33, ../sass/PlateformeCSS/_layout_plateforme.scss */
 #nav-wrapper2 {
   font-size: 16px;
   background-color: rgba(91, 104, 115, 0.9);
@@ -1769,128 +1769,143 @@ nav {
   transition-duration: .3s;
 }
 
-/* line 45, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 42, ../sass/PlateformeCSS/_layout_plateforme.scss */
 #dropdown1 {
   top: 65px !important;
   left: 15px !important;
 }
 
-/* line 50, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 47, ../sass/PlateformeCSS/_layout_plateforme.scss */
 .dropdown-content {
-  margin-top: 65px;
+  margin-top: 115px;
 }
 
-/* line 54, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 51, ../sass/PlateformeCSS/_layout_plateforme.scss */
 .dropdown-content {
   background-color: #aeb5b64d;
 }
 
-/* line 58, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 55, ../sass/PlateformeCSS/_layout_plateforme.scss */
 .nav-wrapper-plateforme {
   z-index: auto;
 }
 
-/* line 62, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 59, ../sass/PlateformeCSS/_layout_plateforme.scss */
 .decouverte:hover {
   background-color: rgba(7, 64, 10, 0.6);
   height: 44px;
 }
 
-/* line 67, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 64, ../sass/PlateformeCSS/_layout_plateforme.scss */
 .haras:hover {
   background-color: rgba(140, 104, 34, 0.6);
   height: 44px;
 }
 
-/* line 72, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 69, ../sass/PlateformeCSS/_layout_plateforme.scss */
 .detente:hover {
   background-color: rgba(39, 34, 140, 0.6);
   height: 44px;
 }
 
-/* line 77, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 74, ../sass/PlateformeCSS/_layout_plateforme.scss */
 .coworking:hover {
   background-color: rgba(183, 21, 134, 0.6);
   height: 44px;
 }
 
+/* line 79, ../sass/PlateformeCSS/_layout_plateforme.scss */
+#search-burger {
+  color: black;
+}
+
 /*-----------------------------------------------------*\
                           LOGO - ICON
 \*-----------------------------------------------------*/
-/* line 171, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 174, ../sass/PlateformeCSS/_layout_plateforme.scss */
 ul.right.hide-on-med-and-down {
   padding-top: 1px;
 }
 
-/* line 175, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 178, ../sass/PlateformeCSS/_layout_plateforme.scss */
 nav ul a:hover {
   background-color: rgba(0, 0, 0, 0.1);
   padding-bottom: 5px;
 }
 
-/* line 180, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 183, ../sass/PlateformeCSS/_layout_plateforme.scss */
 #plateforme-logo {
   background-color: #577a37;
   height: 64px;
 }
 
-/* line 186, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 189, ../sass/PlateformeCSS/_layout_plateforme.scss */
 #plateforme-logo:hover {
   background-color: #496b35;
 }
 
-/* line 190, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 193, ../sass/PlateformeCSS/_layout_plateforme.scss */
 a.plateforme-logo {
   padding: 0px;
 }
 
-/* line 194, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 197, ../sass/PlateformeCSS/_layout_plateforme.scss */
 a.plateforme-logo:hover {
   background-color: transparent;
   height: 100%;
 }
 
-/* line 199, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 202, ../sass/PlateformeCSS/_layout_plateforme.scss */
 nav ul.left {
   height: 56px;
 }
 
-/* line 202, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 205, ../sass/PlateformeCSS/_layout_plateforme.scss */
 .icon-background1 {
   color: rgba(7, 64, 10, 0.6);
 }
 
-/* line 206, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 209, ../sass/PlateformeCSS/_layout_plateforme.scss */
 .icon-background2 {
   color: rgba(140, 104, 34, 0.6);
 }
 
-/* line 210, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 213, ../sass/PlateformeCSS/_layout_plateforme.scss */
 .icon-background3 {
   color: rgba(39, 34, 140, 0.6);
 }
 
-/* line 214, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 217, ../sass/PlateformeCSS/_layout_plateforme.scss */
 .icon-background4 {
   color: rgba(183, 21, 134, 0.6);
 }
 
-/* line 218, ../sass/PlateformeCSS/_layout_plateforme.scss */
-.icon-background5 {
-  color: rgba(24, 19, 239, 0.6);
+/* line 221, ../sass/PlateformeCSS/_layout_plateforme.scss */
+.btn-floating.icon-background5 {
+  background-color: rgba(24, 19, 239, 0.6);
+}
+
+/* line 227, ../sass/PlateformeCSS/_layout_plateforme.scss */
+.fixed-action-btn {
+  position: absolute !important;
+}
+
+/* line 231, ../sass/PlateformeCSS/_layout_plateforme.scss */
+nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
+  line-height: unset;
 }
 
 /*-----------------------------------------------------*\
                           BODY
 \*-----------------------------------------------------*/
-/* line 228, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 240, ../sass/PlateformeCSS/_layout_plateforme.scss */
 body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
 }
 
-/* line 234, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 246, ../sass/PlateformeCSS/_layout_plateforme.scss */
 .main {
   flex: 1 0 auto;
 }
@@ -1898,7 +1913,7 @@ body {
 /*-----------------------------------------------------*\
                           FOOTER
 \*-----------------------------------------------------*/
-/* line 243, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 255, ../sass/PlateformeCSS/_layout_plateforme.scss */
 footer.page-footer {
   background-color: rgba(118, 135, 146, 0.9);
   margin-top: 0px;
@@ -1908,42 +1923,30 @@ footer.page-footer {
                           MEDIA-QUERIES
 \*-----------------------------------------------------*/
 @media screen and (max-width: 600px) {
-  /* line 254, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  /* line 266, ../sass/PlateformeCSS/_layout_plateforme.scss */
   #plateforme-logo {
     height: 55px;
   }
 }
 @media screen and (max-width: 330px) {
-  /* line 260, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  /* line 272, ../sass/PlateformeCSS/_layout_plateforme.scss */
   .newsletter-logo {
     margin-right: -1%;
   }
 
-  /* line 263, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  /* line 275, ../sass/PlateformeCSS/_layout_plateforme.scss */
   .post-logo {
     margin-left: -3%;
   }
 
-  /* line 266, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  /* line 278, ../sass/PlateformeCSS/_layout_plateforme.scss */
   .agenda-logo {
     margin-left: -3%;
   }
 
-  /* line 269, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  /* line 281, ../sass/PlateformeCSS/_layout_plateforme.scss */
   .profile-logo {
     margin-left: -3%;
-  }
-}
-@media screen and (max-width: 398px) {
-  /* line 275, ../sass/PlateformeCSS/_layout_plateforme.scss */
-  .right {
-    margin-right: -4%;
-  }
-}
-@media screen and (max-width: 350px) {
-  /* line 281, ../sass/PlateformeCSS/_layout_plateforme.scss */
-  .right {
-    margin-right: -15%;
   }
 }
 @media screen and (max-width: 398px) {
@@ -1952,35 +1955,53 @@ footer.page-footer {
     margin-right: -4%;
   }
 }
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 350px) {
   /* line 293, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  .right {
+    margin-right: -15%;
+  }
+}
+@media screen and (max-width: 398px) {
+  /* line 299, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  .right {
+    margin-right: -4%;
+  }
+}
+@media screen and (max-width: 320px) {
+  /* line 305, ../sass/PlateformeCSS/_layout_plateforme.scss */
   .newsletter-lien {
     padding-left: 2px;
   }
 
-  /* line 296, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  /* line 308, ../sass/PlateformeCSS/_layout_plateforme.scss */
   .newsletter-lien {
     margin-right: -8%;
   }
 
-  /* line 299, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  /* line 311, ../sass/PlateformeCSS/_layout_plateforme.scss */
   .post-logo {
     margin-right: -9%;
   }
 
-  /* line 302, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  /* line 314, ../sass/PlateformeCSS/_layout_plateforme.scss */
   .agenda-logo {
     margin-right: -22px;
   }
 
-  /* line 305, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  /* line 317, ../sass/PlateformeCSS/_layout_plateforme.scss */
   .profile-logo {
     margin-left: 0%;
   }
 
-  /* line 308, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  /* line 320, ../sass/PlateformeCSS/_layout_plateforme.scss */
   .right {
     margin-right: -15%;
+  }
+}
+@media screen and (max-width: 600px) {
+  /* line 326, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  #sidenav-overlay {
+    z-index: 1 !important;
   }
 }
 /*-----------------------------------------------------*\
@@ -2131,27 +2152,32 @@ label {
   border-bottom: 2px solid black;
 }
 
-/* line 122, ../sass/PlateformeCSS/_FosUser.scss */
+/* line 123, ../sass/PlateformeCSS/_FosUser.scss */
+[type="checkbox"] + label {
+  width: 100%;
+}
+
+/* line 127, ../sass/PlateformeCSS/_FosUser.scss */
 .boutons {
   margin-top: 2%;
 }
 
-/* line 127, ../sass/PlateformeCSS/_FosUser.scss */
+/* line 132, ../sass/PlateformeCSS/_FosUser.scss */
 .inscription {
   margin-top: 3%;
 }
 
-/* line 131, ../sass/PlateformeCSS/_FosUser.scss */
+/* line 136, ../sass/PlateformeCSS/_FosUser.scss */
 label[for=password] {
   text-align: left;
 }
 
-/* line 135, ../sass/PlateformeCSS/_FosUser.scss */
+/* line 140, ../sass/PlateformeCSS/_FosUser.scss */
 label[for=username] {
   text-align: left;
 }
 
-/* line 140, ../sass/PlateformeCSS/_FosUser.scss */
+/* line 145, ../sass/PlateformeCSS/_FosUser.scss */
 #registermodel {
   max-width: 100%;
   background-color: rgba(177, 176, 206, 0.3);
@@ -2160,23 +2186,23 @@ label[for=username] {
   border-radius: 15px;
 }
 
-/* line 148, ../sass/PlateformeCSS/_FosUser.scss */
+/* line 153, ../sass/PlateformeCSS/_FosUser.scss */
 #registermodel .row {
   margin-left: 2.25rem;
   margin-right: 2.25rem;
 }
 
-/* line 153, ../sass/PlateformeCSS/_FosUser.scss */
+/* line 158, ../sass/PlateformeCSS/_FosUser.scss */
 .btn-register {
   background-color: #9ed2cd;
 }
 
-/* line 157, ../sass/PlateformeCSS/_FosUser.scss */
+/* line 162, ../sass/PlateformeCSS/_FosUser.scss */
 .btn-register:hover {
   background-color: rgba(71, 217, 188, 0.51);
 }
 
-/* line 161, ../sass/PlateformeCSS/_FosUser.scss */
+/* line 166, ../sass/PlateformeCSS/_FosUser.scss */
 .responsive-img {
   width: 10vw;
 }

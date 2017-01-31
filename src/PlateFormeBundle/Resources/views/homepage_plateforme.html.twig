@@ -72,11 +72,11 @@
         });
     </script>
 
-    {# FOS JS ROUTING SCRIPT #}
+     {#FOS JS ROUTING SCRIPT#}
     <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
     <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
 
-    {# SCRIPT DES ROLES POUR ADMINISTRATION #}
+     {#SCRIPT DES ROLES POUR ADMINISTRATION#}
     <script>
         {% if is_granted('ROLE_ADMIN') %}
         var role = 'admin';
@@ -85,7 +85,7 @@
         {% endif %}
     </script>
 
-    {# APPEL DES SCRIPTS CALENDAR #}
+     {#APPEL DES SCRIPTS CALENDAR#}
     <script src="{{ asset('bundles/calendar/js/calendar/moment.min.js') }}"></script>
     <script src="{{ asset('bundles/calendar/js/calendar/fullcalendar.js') }}"></script>
     <script src="{{ asset('bundles/calendar/js/main_calendar.js') }}"></script>

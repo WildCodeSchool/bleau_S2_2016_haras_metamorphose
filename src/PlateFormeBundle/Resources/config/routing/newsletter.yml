@@ -45,10 +45,34 @@ abonnement_newsletter:
     defaults: { _controller: "PlateFormeBundle:AbonnementNewsLetter:abonnementNewsletter" }
     methods:  [GET, POST]
 
+#**********************************#
+#       Gestion                    #
+#       Desabonnement                 #
+#       newsletters                #
+#**********************************#
 
 desabonnement_newsletter:
     path:     /desabonnement/
     defaults: { _controller: "PlateFormeBundle:AbonnementNewsLetter:desabonnementNewsletter" }
     methods:  [GET, POST]
 
+#**********************************#
+#       Gestion                    #
+#       Abonnés à la               #
+#       newsletters                #
+#**********************************#
+abonnes_newsletter:
+    path:     /abonnes/
+    defaults: { _controller: "PlateFormeBundle:AbonnementNewsLetter:indexAbonnes" }
+    methods:  [GET, POST]
+
+#**********************************#
+#       Gestion                    #
+#       Abonnés inactifs à la      #
+#       newsletters                #
+#**********************************#
+abonnesInactif_newsletter:
+    path:     /abonnesInactifs/
+    defaults: { _controller: "PlateFormeBundle:AbonnementNewsLetter:indexAbonnesInactif" }
+    methods:  [GET, POST]
 

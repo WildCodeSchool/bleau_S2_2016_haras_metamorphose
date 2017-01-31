@@ -133,4 +133,48 @@ class AbonnementNewsLetterController extends Controller
         }
 
     }
+
+    /**
+     * Lists all abonnes newsLetter .
+     *
+     */
+    public function indexAbonnesAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        // Inscrit dans table newsletter (=pas membre du forum)
+        $userNL = $em->getRepository('PlateFormeBundle:AbonnementNews')->findBy(array('actif' => true));
+        // Inscrit dans table user (=membre du forum)
+        $userForum = $em->getRepository('UserBundle:user')->findBy(array('newsletter' => true));
+
+        $titre = 'Abonnés à la newsletter';
+        $titre1 = 'Membres du forum';
+        $titre2 = 'Non membres du forum';
+        return $this->render('@PlateForme/newsletter/indexAbonne.html.twig', array(
+            'abonnesForums' => $userForum,
+            'abonnesNLs' => $userNL,
+            'titre' => $titre,
+            'titre1' =>$titre1,
+            'titre2' =>$titre2,
+        ));
+    }
+
+    public function indexAbonnesInactifAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        // Inscrit dans table newsletter (=pas membre du forum)
+        $userNL = $em->getRepository('PlateFormeBundle:AbonnementNews')->findBy(array('actif' => false));
+        // Inscrit dans table user (= membre du forum)
+        $userForum = $em->getRepository('UserBundle:user')->findBy(array('newsletter' => false));
+
+        $titre = 'Désinscrits de la newsletter';
+        $titre1 = 'Membres du forum';
+        $titre2 = 'Non membres du forum';
+        return $this->render('@PlateForme/newsletter/indexAbonne.html.twig', array(
+            'abonnesForums' => $userForum,
+            'abonnesNLs' => $userNL,
+            'titre' => $titre,
+            'titre1' =>$titre1,
+            'titre2' =>$titre2,
+        ));
+    }
 }

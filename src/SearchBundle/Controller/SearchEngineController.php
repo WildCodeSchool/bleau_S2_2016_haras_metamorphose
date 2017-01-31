@@ -21,52 +21,50 @@ class SearchEngineController extends Controller
     public function searchAction(Request $request)
     {
         // on vérifie d'abord l'existence du POST et aussi si la requete n'est pas vide.
-        if(isset($_POST['requete']) && $_POST['requete'] != NULL)
+        if(isset($_POST['requete']) && $_POST['requete'] != NULL) {
 
-        {
-            // on crée une variable $requete pour faciliter l'écriture de la requête SQL,
+            // on crée une variable $requete pour faciliter l'écriture de la requête de SearchService,
             // mais aussi pour empêcher les éventuels malins qui utiliseraient du PHP ou du JS,
             // avec la fonction htmlspecialchars().
             $requete_str = htmlspecialchars($_POST['requete']);
-            $requete_strtolower = strtolower($requete_str);
-            $requete = $requete_strtolower;
+            $requete = strtolower($requete_str);
 
-            $limit = 25;
+            // Appel du service avec lequelle on demande une requete Dql du champ titre
+            $champTitre = $this->container->get('search.service')->getSearchPostTitre ($requete);
 
-            // Appel du service avec laquelle on demande une requete sql
-            $titres = $this->container->get('search.service')->getSearchPostTitre($requete, $limit);
+            // Si le champ titre ne retourne aucune valeur
+            if (empty($champTitre)) {
 
-            // Appel du service pour checker $requete dans multi array $repository
-            $resultat = $this->container->get('multiarray.service')->multiArray($titres, $requete);
+                $this->addFlash (
+                    'success',
+                    '!!! Le mot recherché n\'a pas été trouvé !!!'
+                );
 
-            if ($resultat != false){
-
-                $resultats = $this->getDoctrine()->getRepository('ForumBundle:Post')->findBy($resultat);
-
-                // maintenant, on va afficher la page qui va afficher les résultats
-                return $this->render('@Search/Default/index.html.twig', array(
-                    'resultats' => $resultats,
-                ));
-
-            }
-            else {
-
-                    $this->addFlash(
-                        'success',
-                        'HEIN HEIN HEIN !!! VOUS N\'AVEZ PAS DIT LE MOT MAGIQUE :) HEIN HEIN HEIN !!!'
-                    );
-
-                return $this->render('@Search/Default/index.html.twig', array(
+                return $this->render ('@Search/Default/index.html.twig', array (
                     'resultats' => '',
                 ));
 
-//                $this->addFlash(
-//                    'success',
-//                    'La recherche ne donne aucun résultats'
-//                );
-
-//                return $this->render('@PlateForme/homepage_plateforme.html.twig');
             }
+            // sinon si le champ titre contient une valeur on retourne un resultat
+            else {
+
+                // maintenant, on va afficher la page qui va afficher les résultats
+                return $this->render ('@Search/Default/index.html.twig', array (
+                    'resultats' => $champTitre,
+                ));
+            }
+        }
+        else {
+
+            $this->addFlash (
+                'success',
+                '!!! Attention, n\'oubliez pas d\écrire un mot !!!'
+            );
+
+            return $this->render ('@Search/Default/index.html.twig', array (
+                'resultats' => '',
+            ));
+
         }
     }
 
