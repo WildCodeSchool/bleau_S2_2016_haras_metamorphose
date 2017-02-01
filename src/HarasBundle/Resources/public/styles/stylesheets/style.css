@@ -2232,12 +2232,12 @@ label {
   text-align: center;
 }
 
-/* line 113, ../sass/PlateformeCSS/_FosUser.scss */
+/* line 114, ../sass/PlateformeCSS/_FosUser.scss */
 [type="checkbox"] + label {
   color: black;
 }
 
-/* line 117, ../sass/PlateformeCSS/_FosUser.scss */
+/* line 118, ../sass/PlateformeCSS/_FosUser.scss */
 [type="checkbox"]:checked + label::before {
   border-right: 2px solid black;
   border-bottom: 2px solid black;
@@ -2298,6 +2298,71 @@ label[for=username] {
   width: 10vw;
 }
 
+/* line 170, ../sass/PlateformeCSS/_FosUser.scss */
+p.center.inscrire {
+  margin-top: 5%;
+}
+
+/* line 174, ../sass/PlateformeCSS/_FosUser.scss */
+.bordure {
+  border-top: 1px solid grey;
+  margin-top: 8%;
+}
+
+/* line 179, ../sass/PlateformeCSS/_FosUser.scss */
+.row.input-field.remember {
+  padding-left: 32%;
+  padding-right: 36%;
+}
+
+/* line 184, ../sass/PlateformeCSS/_FosUser.scss */
+.lien-inscription {
+  color: blue;
+}
+
+/*-----------------------------------------------------*\
+                          MEDIA-QUERIES
+\*-----------------------------------------------------*/
+@media screen and (max-width: 1700px) {
+  /* line 193, ../sass/PlateformeCSS/_FosUser.scss */
+  .row.input-field.remember {
+    padding-left: 31%;
+    padding-right: 29%;
+  }
+}
+@media screen and (max-width: 1350px) {
+  /* line 200, ../sass/PlateformeCSS/_FosUser.scss */
+  .row.input-field.remember {
+    padding-left: 31%;
+    padding-right: 23%;
+  }
+}
+@media screen and (max-width: 1250px) {
+  /* line 207, ../sass/PlateformeCSS/_FosUser.scss */
+  .row.input-field.remember {
+    padding-left: 31%;
+    padding-right: 17%;
+  }
+}
+@media screen and (max-width: 800px) {
+  /* line 214, ../sass/PlateformeCSS/_FosUser.scss */
+  #loginmodel {
+    max-width: 80% !important;
+  }
+
+  /* line 218, ../sass/PlateformeCSS/_FosUser.scss */
+  #loginmodel .row {
+    margin-left: 0.25rem !important;
+    margin-right: 1.25rem !important;
+  }
+}
+@media screen and (max-width: 900px) {
+  /* line 225, ../sass/PlateformeCSS/_FosUser.scss */
+  .row.input-field.remember {
+    padding-left: 23%;
+    padding-right: 16%;
+  }
+}
 /********************  LISTE USERS   ************************/
 /* line 3, ../sass/PlateformeCSS/_user_list.scss */
 #usermodel {
