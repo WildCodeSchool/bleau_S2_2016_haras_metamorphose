@@ -1139,7 +1139,6 @@ span.badge {
   height: 700px;
   padding-top: 20px;
   overflow-y: auto;
-  overflow-x: hidden;
 }
 
 /* line 336, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
@@ -1206,7 +1205,7 @@ span.badge {
   border-bottom: 1.5px solid #f1c40f;
 }
 
-/* line 389, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 388, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
 #content .object .context {
   float: left;
   color: #666;
@@ -1218,7 +1217,7 @@ span.badge {
   line-height: 1.5em;
 }
 
-/* line 401, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 399, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .ombreCard {
   z-index: 30;
   -webkit-box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.19), 0 6px 6px 0 rgba(0, 0, 0, 0.23);
@@ -1229,18 +1228,18 @@ span.badge {
   /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
 }
 
-/* line 408, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 406, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .container {
   flex: 1 0 auto;
 }
 
-/* line 412, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 410, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .dateMessage {
   margin-top: 2%;
   margin-bottom: 2%;
 }
 
-/* line 417, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 415, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .cartoucheUserShowAll {
   width: 30% !important;
   margin: 2% !important;
@@ -1252,39 +1251,119 @@ span.badge {
   left: 100px;
 }
 
-/* line 429, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 426, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .pCartoucheUserShowAll {
   padding: 1px !important;
   margin-left: 165px;
   color: #DEDEDE;
 }
 
+@media screen and (min-width: 1200px) {
+  /* line 436, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+  .sectionAllPost {
+    margin-left: 22% !important;
+    width: 75% !important;
+  }
+
+  /* line 440, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+  .titreEnfant {
+    padding-left: 15%;
+  }
+
+  /* line 443, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+  .card-content {
+    padding-left: 15% !important;
+  }
+
+  /* line 447, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+  .card-horizontal {
+    margin-left: 10% !important;
+  }
+}
+@media screen and (min-width: 1000px) and (max-width: 1190px) {
+  /* line 453, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+  .titreEnfant {
+    padding-left: 12%;
+  }
+
+  /* line 457, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+  .card-horizontal {
+    margin-left: 10% !important;
+  }
+
+  /* line 461, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+  .card-content {
+    padding-left: 12% !important;
+  }
+
+  /* line 465, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+  .sectionAllPost {
+    margin-left: 30% !important;
+    width: 65% !important;
+  }
+}
 @media screen and (max-width: 1000px) {
-  /* line 437, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+  /* line 472, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
   .wrapperAllPost {
     margin-left: -17%;
   }
 
-  /* line 440, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
-  .header .circle {
-    top: 20px;
-    left: 10px;
+  /* line 476, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+  p > img {
+    height: 25%;
+    width: 25%;
   }
 
-  /* line 444, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+  /* line 481, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+  .header .circle {
+    display: none;
+  }
+
+  /* line 487, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+  #content .object .date {
+    display: none;
+  }
+
+  /* line 491, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+  #content .object .circle {
+    display: none;
+  }
+
+  /* line 495, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+  .line {
+    display: none;
+  }
+
+  /* line 499, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+  .fa-3x {
+    font-size: 1.5em !important;
+  }
+
+  /* line 503, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+  #content .object .context {
+    width: auto;
+  }
+
+  /* line 507, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
   .header h1 {
     top: 10px;
     left: 42px;
   }
 
-  /* line 448, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+  /* line 512, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+  .titreEnfant {
+    font-size: 25px;
+    padding-left: 2%;
+  }
+
+  /* line 516, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
   .contextHeader {
     position: relative;
     top: 20px;
     left: 44px;
   }
 
-  /* line 454, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+  /* line 523, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
   .aPost {
     margin: 0 auto;
     position: relative;
@@ -1292,7 +1371,7 @@ span.badge {
     left: 50px;
   }
 
-  /* line 460, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+  /* line 529, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
   .cartoucheUserShowAll {
     width: unset !important;
     margin: unset !important;
@@ -1305,39 +1384,32 @@ span.badge {
     border-radius: unset !important;
     box-shadow: unset !important;
   }
-
-  /* line 472, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
-  .line {
-    position: absolute;
-    top: 50px;
-    left: 35px;
-  }
 }
-/* line 486, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 550, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .lastPost {
   width: 96% !important;
 }
 
-/* line 490, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 554, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .pDernierPost {
   bottom: 15px !important;
 }
 
-/* line 494, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 558, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .titreDerPost {
   font-size: 30px !important;
   text-align: center !important;
   margin-bottom: 3%;
 }
 
-/* line 500, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 564, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .lastPostContenu {
   max-width: inherit;
   max-height: inherit;
   overflow: scroll;
 }
 
-/* line 506, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 570, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .lastPostContenu > p {
   overflow: hidden;
   display: -webkit-box;
@@ -1345,7 +1417,7 @@ span.badge {
   -webkit-box-orient: vertical;
 }
 
-/* line 516, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 580, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .pagination {
   margin: 20px 0;
   overflow: hidden;
@@ -1354,20 +1426,20 @@ span.badge {
   vertical-align: middle;
 }
 
-/* line 523, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 587, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .pagination ul {
   float: left;
   left: 50%;
   position: relative;
 }
 
-/* line 528, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 592, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .pagination ul > li {
   left: -50%;
   position: relative;
 }
 
-/* line 532, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 596, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .pagination li a {
   transition: all 100ms ease-in-out 0s;
   background-color: #F7F7F8;
@@ -1384,42 +1456,42 @@ span.badge {
   width: 30px;
 }
 
-/* line 547, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 611, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .pagination li a:hover {
   background-color: #f1c40f;
   color: #FFFFFF;
 }
 
-/* line 552, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 616, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .pagination li.active a {
   background-color: #f1c40f;
   color: #FFFFFF;
   font-weight: bold;
 }
 
-/* line 558, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 622, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .pagination li.active a:hover {
   color: #FFFFFF;
 }
 
-/* line 562, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 626, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .pagination li.current a {
   background-color: #f1c40f;
   color: #FFFFFF;
 }
 
-/* line 568, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 632, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .pagination li i {
   font-size: 1rem !important;
 }
 
-/* line 576, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 640, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
 aside {
   opacity: 0.85;
   background-color: #515e69 !important;
 }
 
-/* line 581, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 645, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .go a:before,
 .go a:after {
   display: inline-block;
@@ -1429,7 +1501,7 @@ aside {
   transition: transform 0.3s, opacity 0.2s;
 }
 
-/* line 590, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 654, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .go a:before {
   margin-right: 10px;
   content: '[';
@@ -1438,7 +1510,7 @@ aside {
   transform: translate(20px);
 }
 
-/* line 598, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 662, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .go a:after {
   margin-left: 10px;
   content: ']';
@@ -1447,7 +1519,7 @@ aside {
   transform: translate(-20px);
 }
 
-/* line 606, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 670, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .go a:hover:before,
 .go a:hover:after,
 .go a:focus:before,
@@ -1462,17 +1534,17 @@ aside {
   top: 317px !important;
   left: 15px !important;
 }*/
-/* line 621, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 685, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .userLogout {
   background: #DEDEDE;
 }
 
-/* line 625, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 689, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .userLogout a {
   color: red !important;
 }
 
-/* line 632, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 696, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .reactDivParent {
   width: 80%;
   background-color: #f1f1e3;
@@ -1481,12 +1553,12 @@ aside {
   text-align: justify;
 }
 
-/* line 640, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 704, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .reactH4WrapIsole > a {
   float: right;
 }
 
-/* line 649, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 713, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
 #lastPost {
   margin: auto;
   overflow: hidden;
@@ -1499,7 +1571,7 @@ aside {
   width: auto;
 }
 
-/* line 661, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 725, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .soustitreHome {
   width: inherit;
   color: #8e8e8e;
@@ -1511,14 +1583,14 @@ aside {
   margin-left: 5%;
 }
 
-/* line 673, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 737, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .divContenuHome {
   width: inherit;
   padding: 2%;
   margin-left: 5%;
 }
 
-/* line 679, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 743, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .divBoutonHome {
   width: inherit;
   padding: 2%;
@@ -1526,18 +1598,18 @@ aside {
 }
 
 @media screen and (max-width: 600px) {
-  /* line 686, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+  /* line 750, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
   .soustitreHome {
     font-size: 21px !important;
   }
 }
-/* line 691, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 755, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
 a {
   text-decoration: none;
   color: #111b47;
 }
 
-/* line 697, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 761, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
 a:hover {
   /*border-bottom: 1px dashed #ED971F;
   color: #ED971F;*/
@@ -1546,7 +1618,7 @@ a:hover {
 /********************/
 /**** sliderPost ****/
 /*******************/
-/* line 711, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 775, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
 #sliderPost {
   margin: auto;
   overflow: hidden;
@@ -1561,62 +1633,62 @@ a:hover {
 }
 
 @media screen and (max-width: 600px) {
-  /* line 726, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+  /* line 790, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
   .soustitreHome {
     font-size: 21px !important;
   }
 
-  /* line 730, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+  /* line 794, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
   #sliderPost {
     margin-top: 5px;
   }
 
-  /* line 734, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+  /* line 798, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
   .divContenuHome {
     width: 500px;
   }
 }
 @media screen and (max-width: 400px) {
-  /* line 740, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+  /* line 804, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
   .divContenuHome {
     width: 300px;
   }
 
-  /* line 744, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+  /* line 808, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
   #sliderPost {
     margin-top: 5px;
   }
 }
 @media screen and (max-width: 990px) {
-  /* line 750, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+  /* line 814, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
   .divContenuHome {
     width: 300px;
   }
 
-  /* line 754, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+  /* line 818, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
   #sliderPost {
     margin-top: 5px;
   }
 }
 @media only screen and (min-width: 1200px) {
-  /* line 760, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+  /* line 824, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
   #sliderPost {
     margin-top: 43px;
     width: 440px;
     height: 315px;
   }
 
-  /* line 765, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+  /* line 829, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
   .soustitrePage {
     margin-top: 85px;
   }
 
-  /* line 769, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+  /* line 833, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
   .divBoutonHome {
     margin-top: -4%;
   }
 }
-/* line 774, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 838, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
 #sliderPost li {
   float: left;
   position: relative;
@@ -1625,7 +1697,7 @@ a:hover {
   height: 200px;
 }
 
-/* line 783, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 847, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
 #sliderPost ul {
   list-style: none;
   position: absolute;
@@ -1642,7 +1714,7 @@ a:hover {
 }
 
 /*** Content ***/
-/* line 801, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 865, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .sliderPost-container {
   margin: 0 auto;
   padding: 0;
@@ -1651,13 +1723,13 @@ a:hover {
   border-bottom: 1px solid #ccc;
 }
 
-/* line 810, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 874, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .sliderPost-container h4 {
   color: #DEDEDE;
   text-shadow: -1px 0px 0px rgba(0, 0, 0, 0.5);
 }
 
-/* line 816, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 880, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
 .sliderPost-container p {
   margin: 10px 25px;
   font-weight: semi-bold;
@@ -1718,13 +1790,13 @@ a:hover {
     opacity: 0;
   }
 }
-/* line 843, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 907, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
 #sliderPost ul {
   -webkit-animation: slide-animation 15s infinite;
 }
 
 /* use to paused the content on mouse over */
-/* line 850, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
+/* line 914, ../../../../../ForumBundle/Resources/public/sass/_post.scss */
 #sliderPost ul:hover {
   -moz-animation-play-state: paused;
   -webkit-animation-play-state: paused;

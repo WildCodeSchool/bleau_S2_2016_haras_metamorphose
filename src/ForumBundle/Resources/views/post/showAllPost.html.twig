@@ -15,15 +15,19 @@
                 <h1> {{ postParent.titre|capitalize }} </h1>
                 <div class="contextHeader">
                     {{ postParent.contenu|raw }}
+                    {# Signaler message à l'admin #}
+                    <p>
+                        <a class="tooltipped"
+                           data-position="left"
+                           data-delay="50"
+                           data-tooltip="Signaler ce message"
+                           onclick="return confirm('Vous êtes sure ?')"
+                           href="{{ path('post_alert', { 'id': postParent.id })}}" style="margin: 0 auto;">
+                            <i class="fa fa-exclamation-triangle" style="color: red;" aria-hidden="true"></i>
+                        </a>
+                    </p>
                     <p class="dateMessage">Message posté le {{ postParent.dateCreate|date("d/m/Y") }}</p>
-                    <a class="aPost tooltipped"
-                       data-position="left"
-                       data-delay="50"
-                       data-tooltip="Signaler ce message"
-                       onclick="return confirm('Vous êtes sure ?')"
-                       href="{{ path('post_alert', { 'id': postParent.id })}}" style="margin: 0 auto;">
-                        <i class="fa fa-exclamation-triangle" style="color: red;" aria-hidden="true"></i>
-                    </a>
+
                 </div>
 
                 <div class="valign-wrapper">
@@ -34,8 +38,9 @@
                     {% endif %}
                     <div class="cartoucheUserShowAll" >
                         <div class="chip" style="background-color: unset; color: #FFF">
-                            <img src="{{ asset('bundles/haras/images/test2.jpeg')}}" alt="Contact Person">
-                            {{ postParent.user|capitalize }}
+                            <img src="{{ asset(postParent.user.photo.path) }}">
+                            {#<img src="{{ asset('bundles/haras/images/test2.jpeg')}}" alt="Contact Person">#}
+                                {{ postParent.user|capitalize }}
                         </div>
                         {#-------------------------------------------------------------#}
                         {# rating user #}
@@ -79,33 +84,34 @@
             {% for postEnfant in postEnfants %}
             <div class="line"></div>
 
-            <div id="content">
+            <div id="content col s12 m7">
                 <div class="object">
                     <div class="date">{# {{ postEnfant.dateCreate|date("d") }} #}</div>
                     <div class="circle"></div>
                     <div class="context">
-                        <div class="col s12 m7">
                             <h2 class="titreEnfant">{{ postEnfant.titre|capitalize }}</h2>
                             <div class="card horizontal">
                                 <div class="card-stacked">
                                     <div class="card-content">
                                         {{ postEnfant.contenu|raw }}
+                                        {# Signaler message à l'admin #}
+                                        <p>
+                                            <a class="tooltipped"
+                                               data-position="left"
+                                               data-delay="50"
+                                               data-tooltip="Signaler ce message"
+                                               onclick="return confirm('Vous êtes sure ?')"
+                                               href="{{ path('post_alert', { 'id': postParent.id })}}" style="margin: 0 auto;">
+                                                <i class="fa fa-exclamation-triangle" style="color: red;" aria-hidden="true"></i>
+                                            </a>
+                                        </p>
                                         <p class="dateMessage">Message posté le {{ postEnfant.dateCreate|date("d/m/Y") }}</p>
-                                        <a class="aPost tooltipped"
-                                           data-position="left"
-                                           data-delay="50"
-                                           data-tooltip="Signaler ce message"
-                                           onclick="return confirm('Vous êtes sure ?')"
-                                           href="{{ path('post_alert', { 'id': postEnfant.id })}}" style="margin: 0 auto;">
-                                            <i class="fa fa-exclamation-triangle" style="color: red;" aria-hidden="true"></i>
-                                        </a>
                                     </div>
                                     <div class="card-action">
                                         <div class="row">
 
                                         {% if is_granted('ROLE_MODERATEUR') or postEnfant.user.id == app.user.id %}
-
-                                            <div class="col offset-s3 S3 offset-m3 m3 offset-l3 l3">
+                                            <div class="col S3 offset-m3 m3 offset-l3 l3">
                                                 <a href="{{ path('post_edit', { 'id': postEnfant.id }) }}">
                                                     <i class="fa fa-pencil-square-o fa-3x" style="color: #444;" aria-hidden="true"></i>
                                                 </a>
@@ -115,7 +121,7 @@
                                         {% endif %}
                                         <div class="col S6 m6 l6" >
                                             <div class="chip" style="background-color: unset; color: #888888">
-                                                <img src="{{ asset('bundles/haras/images/test2.jpeg')}}" alt="Contact Person">
+                                                <img src="{{ asset(postEnfant.user.photo.path) }}">
                                                 {{ postParent.user|capitalize }}
                                             </div>
                                             {#-------------------------------------------------------------#}
@@ -129,7 +135,6 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
                     </div> {# fin div context #}
                     {% endfor %} {# Fin For POST ENFANTS #}
                 </div> {# fin div object #}
