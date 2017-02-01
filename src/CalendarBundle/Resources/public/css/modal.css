@@ -22,18 +22,7 @@ $
 ************************************************/
 
 .bouton-new {
-    color: #4d9200;
-    font-size: 36px !important;
-}
-
-.bouton-edit {
-    color: #27228C;
-    font-size: 36px !important;
-}
-
-.bouton-delete {
-    color: #902b2b;
-    font-size: 36px !important;
+    top: 10px;
 }
 /************************************************
 *
@@ -48,6 +37,10 @@ $
     border-top-right-radius: 50px;
     border-bottom-right-radius: 50px;
     border-bottom-left-radius: 0px;
+
+    -moz-box-shadow: 8px 8px 12px #aaa;
+    -webkit-box-shadow: 8px 8px 12px #aaa;
+    box-shadow: 8px 8px 12px #555;
 }
 
 .modal-header{
@@ -90,15 +83,40 @@ $
 }
 
 .modal-bouton {
-    width: 16% !important;
+    width: 145px !important;
     margin: auto !important;
     position: relative;
-    left: 39%;
+    left: 37%;
     border-radius: 50px !important;
+}
+
+.modal-bt-edit{
+    top: -10px;
+
+    -moz-box-shadow: 8px 8px 12px #aaa;
+    -webkit-box-shadow: 8px 8px 12px #aaa;
+    box-shadow: 8px 8px 12px #555;
+}
+
+.modal-bt-delete{
+    top: -10px;
+
+    -moz-box-shadow: 8px 8px 12px #aaa;
+    -webkit-box-shadow: 8px 8px 12px #aaa;
+    box-shadow: 8px 8px 12px #555;
+
 }
 
 /*********************************************************/
 /*********************************************************/
-/********************* CALENDAR BUTTON *******************/
+/********************* ICONES FB ET TW *******************/
 /*********************************************************/
 /*********************************************************/
+
+.icone{
+    width: 48px;
+    height: auto;
+    color: #0f74a8 !important;
+    background-color: rgba(0,0,0,0);
+    padding-top: 10px;
+}

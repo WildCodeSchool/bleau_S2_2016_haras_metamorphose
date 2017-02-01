@@ -5,111 +5,123 @@
     <div class="container">
         <div class="row">
             <div class="col s12 center">
-                <h1>Agenda edit</h1>
+                <h2>Edition de l'évènement</h2>
+                <h4>{{ agenda.titre }}</h4>
             </div>
         </div>
     </div>
-
-    {{ form_start(edit_form) }}
 
     <div class="container center">
         <div class="row">
             <div class="col s12">
 
-                <div id="caledar-new-table">
+                {{ form_start(edit_form) }}
 
-                    <table class="calendar-table responsive-table">
-                        <tr>
-                            <td class="calendar-td calendar-border-topleft">
-                                <p class="calendar-p">Titre de l'évènement :<span class="asterix">*</span></p>
-                            </td>
-                            <td class="calendar-td-twig calendar-border-topright">
-                                {{ form_widget(edit_form.titre, { 'attr': {'class': 'new-input'} }) }}
-                                {{ form_errors(edit_form.titre) }}
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="calendar-td">
-                                <p class="calendar-p">Date et heure de commencement :<span class="asterix">*</span></p>
-                            </td>
-                            <td class="calendar-td-twig">
-                                <div class="col s12 m4 l4">
-                                    {{ form_widget(edit_form.start) }}
-                                    {{ form_errors(edit_form.start) }}
+                <div class="calendar-responsive-table">
+                    <div class="row calendar-row valign-wrapper">
+                        <div class="col s12 m6 l6 calendar-td valign-wrapper">
+                            <p class="calendar-p valign">Titre de l'évènement :</p>
+                        </div>
+                        <div class="col s12 m6 l6">
+                            {{ form_widget(edit_form.titre, { 'attr': {'class': 'calendar-responsive-input'} }) }}
+                            {{ form_errors(edit_form.titre) }}
+                        </div>
+                    </div>
+                    <div class="row calendar-row valign-wrapper">
+                        <div class="col s12 m6 l6 calendar-td valign-wrapper">
+                            <p class="calendar-p valign">Date et heure de début :</p>
+                        </div>
+                        <div class="col s12 m6 l6">
+                            {{ form_widget(edit_form.start, { 'attr': {'class': 'calendar-responsive-input center'} }) }}
+                            {{ form_errors(edit_form.start) }}
+                        </div>
+                    </div>
+                    <div class="row calendar-row valign-wrapper">
+                        <div class="col s12 m6 l6 calendar-td valign-wrapper">
+                            <p class="calendar-p valign">Date et heure de fin :</p>
+                        </div>
+                        <div class="col s12 m6 l6">
+                            {{ form_widget(edit_form.end, { 'attr': {'class': 'calendar-responsive-input center'} }) }}
+                            {{ form_errors(edit_form.end) }}
+                        </div>
+                    </div>
+                    <div class="row calendar-row valign-wrapper">
+                        <div class="col s12 m6 l6 calendar-td valign-wrapper">
+                            <p class="calendar-p valign">Description de l'évènement :</p>
+                        </div>
+                        <div class="col s12 m6 l6">
+                            {{ form_widget(edit_form.texte, { 'id': 'textarea' }, { 'attr': {'col': '100'} }) }}
+                            {{ form_errors(edit_form.texte) }}
+                        </div>
+                    </div>
+                    <div class="row calendar-row valign-wrapper">
+                        <div class="col s12 m6 l6 calendar-td valign-wrapper">
+                            <p class="calendar-p valign">Lieu de l'évènemen :</p>
+                        </div>
+                        <div class="col s12 m6 l6">
+                            {{ form_widget(edit_form.lieu, { 'attr': {'class': 'calendar-responsive-input'} }) }}
+                            {{ form_errors(edit_form.lieu) }}
+                        </div>
+                    </div>
+                    <div class="row calendar-row valign-wrapper">
+                        <div class="col s12 m6 l6 calendar-td valign-wrapper">
+                            <p class="calendar-p valign">Couleur de l'évènement :</p>
+                        </div>
+                        <div class="col s12 m6 l6 valign-wrapper">
+                            <div class="row valign-wrapper">
+                                <div class="col s12 m6 l6 center">
+                                        {{ form_widget(edit_form.color , { 'id': 'colorpicker' }) }}
+                                        {{ form_errors(edit_form.color) }}
+                                    <div  style="background-color: {{ agenda.color }};" class="col s12 m6 l6 center calendar-div-size"></div>
                                 </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="calendar-td">
-                                <p class="calendar-p">Date et heure de fin :<span class="asterix">*</span></p>
-                            </td>
-                            <td class="calendar-td-twig">
-                                <div class="col s12 m4 l4">
-                                    {{ form_widget(edit_form.end) }}
-                                    {{ form_errors(edit_form.end) }}
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="calendar-td">
-                                <p class="calendar-p">Description de l'évènement :<span class="asterix">*</span></p>
-                            </td>
-                            <td class="calendar-td-twig">
-                                {{ form_widget(edit_form.texte, { 'id': 'textarea' }) }}
-                                {{ form_errors(edit_form.texte) }}
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="calendar-td">
-                                <p class="calendar-p">Lieu de l'évènement :<span class="asterix">*</span></p>
-                            </td>
-                            <td class="calendar-td-twig">
-                                {{ form_widget(edit_form.lieu, { 'attr': {'class': 'new-input'} }) }}
-                                {{ form_errors(edit_form.lieu) }}
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="calendar-td">
-                                <p class="calendar-p">Couleur de l'évènement :<span class="asterix">*</span></p>
-                            </td>
-                            <td class="calendar-td-twig calendar-border-butomright" style="background-color: {{ agenda.color }};">
-                                {{ form_widget(edit_form.color, { 'id': 'colorpicker' }) }}
-                                {{ form_errors(edit_form.color) }}
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="calendar-td">
-                                <p class="calendar-p">Ajouter au slider :</p>
-                            </td>
-                            <td class="calendar-td-twig">
-                                {{ form_widget(edit_form.slider, { 'id': 'test5' }) }}
-                                {{ form_errors(edit_form.slider) }}
-                            </td>
-                        </tr>
-                        <tr class="upload_file_event">
-                            <td class="calendar-td">
-                                <p class="calendar-p">Ajouter une image (Max : 2Mo) :</p>
-                            </td>
-                            <td class="calendar-td-twig calendar-border-butomright">
-                                {{ form_widget(edit_form.image) }}
-                                {{ form_errors(edit_form.image) }}
-                            </td>
-                        </tr>
-                    </table>
-
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row calendar-row valign-wrapper">
+                        <div class="col s12 m6 l6 calendar-td valign-wrapper">
+                            <p class="calendar-p valign">Ajouter au slider :</p>
+                        </div>
+                        <div class="col s12 m6 l6">
+                            {{ form_widget(edit_form.slider, { 'id': 'test5' }, { 'attr': {'class': 'calendar-responsive-input'} }) }}
+                            {{ form_errors(edit_form.slider) }}
+                        </div>
+                    </div>
+                    <div class="row upload_file_event calendar-row valign-wrapper">
+                        <div class="col s12 m6 l6 calendar-td valign-wrapper">
+                            <p class="calendar-p valign">Ajouter une image (Max : 2Mo) :</p>
+                        </div>
+                        <div class="col s12 m6 l6">
+                            {{ form_widget(edit_form.image, { 'attr': {'class': 'calendar-responsive-input'} }) }}
+                            {{ form_errors(edit_form.image) }}
+                        </div>
+                    </div>
+                    <div class="row upload_file_event calendar-row valign-wrapper">
+                        <div class="col s12 m6 l6 calendar-td valign-wrapper">
+                            <p class="calendar-p valign">Ajouter une image (Max : 2Mo) :</p>
+                        </div>
+                        <div class="col s12 m6 l6">
+                            {{ form_widget(edit_form.lien, { 'id': 'textarea' }, { 'attr': {'col': '100'} }) }}
+                            {{ form_errors(edit_form.lien) }}
+                        </div>
+                    </div>
                 </div>
+
+                <div class="center">
+                    <button class="btn-floating btn-large waves-effect waves-light orange darken-1 modal-action modal-close"
+                            type="submit">
+                        <i class="material-icons">edit</i>
+                    </button>
+
+                    <a class="btn-floating btn-large waves-effect waves-light blue darken-1 modal-action modal-close"
+                       href="{{ path('plate_forme_homepage') }}">
+                        <i class="small material-icons">home</i>
+                    </a>
+                </div>
+
+                {{ form_end(edit_form) }}
+
             </div>
         </div>
     </div>
-
-    <div class="center">
-        <button id="bouton-background" type="submit" value=""><i class="material-icons md-48 bouton-edit">create</i></button>
-
-        <a href="{{ path('plate_forme_homepage') }}">
-            <i class="material-icons md-48 bouton-retour">fast_rewind</i>
-        </a>
-    </div>
-
-    {{ form_end(edit_form) }}
 
 {% endblock %}
