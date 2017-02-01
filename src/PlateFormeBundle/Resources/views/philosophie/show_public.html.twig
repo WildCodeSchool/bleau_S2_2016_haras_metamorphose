@@ -1,8 +1,8 @@
 
 
     {% for philo in philos %}
-
-        {{ philo.texte | truncate(50, true, '...') }}
-
+        <div class="grey-text text-lighten-4">
+        {{ philo.texte | truncate(50, true, '...')|raw }}
+        </div>
     {% endfor %}
 
