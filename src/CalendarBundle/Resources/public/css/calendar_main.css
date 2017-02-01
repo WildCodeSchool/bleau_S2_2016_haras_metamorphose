@@ -4,38 +4,18 @@
 /*********************************************************/
 /*********************************************************/
 
-.caledar-new-table{
-    /*float: inherit;*/
-    /*center;*/
-}
-
 #bouton-background {
     border: none;
     background: none;
 }
 
-.new-input{
-    width: 300px !important;
-}
-
-#plateformebundle_agenda_start_time{
-    position: absolute;
-    left: 930px;
-    top: 425px;
-}
-
-#plateformebundle_agenda_end_time{
-    position: absolute;
-    left: 930px;
-    top: 650px;
-}
-
 #test5{
-    left: 900px !important;
+    position: initial;
     opacity: 1 !important;
     width: 50px;
     height: 50px;
-    top: 1100px;
+    text-align: center !important;
+
 }
 
 .upload_file_event{
@@ -49,22 +29,9 @@
 $
 ************************************************/
 
-#colorpicker{
-    width: 300px;
-}
-
 select{
     display: none;
 }
-
-/*********************************************************/
-/*********************************************************/
-/*********************** PAGE EDIT ***********************/
-/*********************************************************/
-/*********************************************************/
-
-
-
 
 /*********************************************************/
 /*********************************************************/
@@ -74,6 +41,25 @@ select{
 /*********************************************************/
 
 .calendar-table {
+    -moz-box-shadow: 8px 8px 12px #aaa;
+    -webkit-box-shadow: 8px 8px 12px #aaa;
+    box-shadow: 8px 8px 12px #555;
+
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    border-bottom-left-radius: 0px;
+}
+
+.calendar-row{
+    border-bottom: 1px;
+    border-bottom-color: #5a5959;
+    border-bottom-style: groove;
+}
+
+.calendar-td{
+    width: 170px;
+    height: 130px;
 
     -moz-box-shadow: 8px 8px 12px #aaa;
     -webkit-box-shadow: 8px 8px 12px #aaa;
@@ -81,43 +67,19 @@ select{
 
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;
-    border-bottom-right-radius: 0px;
+    border-bottom-right-radius: 50px;
     border-bottom-left-radius: 0px;
-}
-
-.calendar-td{
-    margin : auto;
-    padding-right: -100px;
-
-    border-bottom: 1px;
-    border-bottom-style: groove;
 
     background-color: rgba(118, 135, 146, 0.9);
     color: #dff1ff;
-
 }
 
-.calendar-border-topright{
-    border-top-right-radius: 50px;
-}
 .calendar-border-toprightdate .calendar-border-topright .calendar-td{
     background-color: white;
 }
 
-.calendar-border-topleft{
-    border-top-left-radius: 50px;
-}
-
 .calendar-p{
-  margin-left: 10px;
-}
-
-.calendar-td-twig{
-    width: 600px !important;
-
-    border-bottom: 1px;
-    border-bottom-style: groove;
-    border-color: #515e69;
+    margin-left: 10px;
 }
 
 .bouton-retour {
@@ -130,6 +92,63 @@ select{
     border-right-style: groove!important;
     border-color: #dff1ff !important;
 }
+
+/*********************************************************/
+/******************* PAGE SHOW EDIT NEW ******************/
+/*******************    GLOBAL TABLE    ******************/
+/********************** RESPONSIVE ***********************/
+/*********************************************************/
+
+.calendar-responsive-table{
+    -moz-box-shadow: 8px 8px 12px #aaa;
+    -webkit-box-shadow: 8px 8px 12px #aaa;
+    box-shadow: 8px 8px 12px #555;
+
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+
+.calendar-responsive-td{
+    height: 30px!important;
+
+    border-bottom: 1px;
+    border-bottom-style: groove;
+}
+
+.calendar-responsive-p{
+    margin-left: 10px;
+
+    -moz-box-shadow: 8px 8px 12px #aaa;
+    -webkit-box-shadow: 8px 8px 12px #aaa;
+    box-shadow: 8px 8px 12px #555;
+
+    background-color: rgba(118, 135, 146, 0.9) !important;
+    color: #dff1ff!important;
+}
+
+.calendar-responsive-input{
+    width: 200px !important;
+    text-align: center !important;
+}
+
+#textrea{
+    width: 200px!important;
+}
+
+#colorpicker{
+    width: 200px;
+    text-align: center;
+}
+
+.calendar-div-size{
+    width : 130px !important;
+    height: 50px;
+    margin-inline-start: 50px!important;
+}
+
+
 /*********************************************************/
 /*********************************************************/
 /*********************** PAGE SHOW ***********************/
@@ -161,4 +180,18 @@ select{
 .calendar-td-color{
     background-color: rgba(0,0,0,0);
     color: rgba(118, 135, 146, 0.9);
+}
+
+.calendar-search-td{
+    -moz-box-shadow: 8px 8px 12px #aaa;
+    -webkit-box-shadow: 8px 8px 12px #aaa;
+    box-shadow: 8px 8px 12px #555;
+
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    border-bottom-left-radius: 0px;
+
+    background-color: rgba(118, 135, 146, 0.9);
+    color: #dff1ff;
 }

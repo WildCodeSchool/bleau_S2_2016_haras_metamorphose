@@ -144,15 +144,19 @@
     </header>
 {% endblock %}
 
+{# --------------------------------------------------------------------- #}
+
 {% block footer %}
     <footer class="page-footer">
         <div class="container">
             <div class="row">
                 <div class="col l4 s12">
                     <h5 class="white-text">A propos</h5>
+
                     <p class="grey-text text-lighten-4">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus assumenda est molestiae repellat sequi tempore, temporibus. Amet facilis laborum molestias officiis recusandae ut voluptates. Ducimus molestias, nemo? Blanditiis, excepturi unde!
+                       {{ render(controller('PlateFormeBundle:Philosophie:index')) }}
                     </p>
+
                 </div>
                 <div class="col l2 offset-l2 s12">
                     <h5 class="white-text">Contactez nous</h5>
@@ -163,6 +167,11 @@
                         <!-- Cross-platform compatible (Android + iPhone) -->
                         <li>
                             <a class="grey-text text-lighten-3" href="tel://+33600000000">Téléphone</a>
+                        </li>
+
+                        <li>
+                            <a href="#"><img class="icone" src="{{ asset('bundles/calendar/images-colorpicker/facebook.png') }}" alt="facebook"></a>
+                            <a href="#"><img class="icone" src="{{ asset('bundles/calendar/images-colorpicker/twitter.png') }}" alt="twitter"></a>
                         </li>
                     </ul>
                 </div>
