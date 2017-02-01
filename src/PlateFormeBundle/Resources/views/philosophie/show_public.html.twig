@@ -2,7 +2,8 @@
 
     {% for philo in philos %}
         <div class="grey-text text-lighten-4">
-        {{ philo.texte | truncate(50, true, '...')|raw }}
+            <a href="{{ path('philosophie_show') }}" class="grey-text text-lighten-4">
+                {{ philo.texte | truncate(200, true, '...')|raw }}
+            </a>
         </div>
     {% endfor %}
-

@@ -19,7 +19,7 @@
                 <div class="calendar-responsive-table">
                     <div class="row calendar-row valign-wrapper">
                         <div class="col s12 m6 l6 calendar-td valign-wrapper">
-                            <p class="calendar-p valign">Titre de l'évènement :</p>
+                            <p class="calendar-p valign">Titre de l'évènement :<span class="asterix">*</span></p>
                         </div>
                         <div class="col s12 m6 l6">
                             {{ form_widget(form.titre, { 'attr': {'class': 'calendar-responsive-input'} }) }}
@@ -28,7 +28,7 @@
                     </div>
                     <div class="row calendar-row valign-wrapper">
                         <div class="col s12 m6 l6 calendar-td valign-wrapper">
-                            <p class="calendar-p valign">Date et heure de début :</p>
+                            <p class="calendar-p valign">Date et heure de début :<span class="asterix">*</span></p>
                         </div>
                         <div class="col s12 m6 l6">
                             {{ form_widget(form.start, { 'attr': {'class': 'calendar-responsive-input center'} }) }}
@@ -37,7 +37,7 @@
                     </div>
                     <div class="row calendar-row valign-wrapper">
                         <div class="col s12 m6 l6 calendar-td valign-wrapper">
-                            <p class="calendar-p valign">Date et heure de fin :</p>
+                            <p class="calendar-p valign">Date et heure de fin :<span class="asterix">*</span></p>
                         </div>
                         <div class="col s12 m6 l6">
                             {{ form_widget(form.end, { 'attr': {'class': 'calendar-responsive-input center'} }) }}
@@ -46,7 +46,7 @@
                     </div>
                     <div class="row calendar-row valign-wrapper">
                         <div class="col s12 m6 l6 calendar-td valign-wrapper">
-                            <p class="calendar-p valign">Description de l'évènement :</p>
+                            <p class="calendar-p valign">Description de l'évènement :<span class="asterix">*</span></p>
                         </div>
                         <div class="col s12 m6 l6">
                             {{ form_widget(form.texte, { 'id': 'textarea' }, { 'attr': {'col': '70'} }) }}
@@ -55,7 +55,7 @@
                     </div>
                     <div class="row calendar-row valign-wrapper">
                         <div class="col s12 m6 l6 calendar-td valign-wrapper">
-                            <p class="calendar-p valign">Lieu de l'évènemen :</p>
+                            <p class="calendar-p valign">Lieu de l'évènemen :<span class="asterix">*</span></p>
                         </div>
                         <div class="col s12 m6 l6">
                             {{ form_widget(form.lieu, { 'attr': {'class': 'calendar-responsive-input'} }) }}
