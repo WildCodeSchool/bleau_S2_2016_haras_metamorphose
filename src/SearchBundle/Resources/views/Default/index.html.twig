@@ -68,7 +68,7 @@
                             </td>
                             <td class="calendar-td-twig center">
 
-                                {% if is_granted('ROLE_ADMIN') %}
+                                {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_MODERATEUR') or is_granted("IS_AUTHENTICATED_REMEMBERED") %}
 
                                     <a href="{{ path('post_showAllPost', { id: resultat.id }) }} " class="collection-item">
                                         {{ resultat.titre }}
