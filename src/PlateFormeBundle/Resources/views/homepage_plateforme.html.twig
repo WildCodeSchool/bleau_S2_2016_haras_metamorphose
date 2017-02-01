@@ -24,7 +24,7 @@
 
                         <li>
                             {% if event.image != null %}
-                                <a href="{{ event.lien }}">
+                                <a href="{{ event.lien }}" target="_blank">
                                     <img src="{{ asset(event.image.path) }}" alt="{{ event.image.alt }}"/>
                                 </a>
                             {% endif %}
