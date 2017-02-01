@@ -11,6 +11,22 @@
             /*margin-left: 15%;*/
             margin: 3%;
         }
+
+        i.marron {
+            background-color: #8C6822;
+        }
+
+        i.vert {
+            background-color: #07400a;
+        }
+
+        i.bleu {
+            background-color: #27228c;
+        }
+
+        i.rose {
+            background-color: #b71586;
+        }
     </style>
 
 
@@ -36,7 +52,7 @@
         {% endfor %}
         {#-------------------------------------------------------------#}
 
-        <table class="responsive-table bordered striped" id="table_NLindex">
+        <table class="bordered striped" id="table_NLindex">
             <thead>
             <tr>
                 <th>Titre</th>
@@ -53,22 +69,22 @@
                     <td><div class="row">{{ newsLetter.objet|striptags|truncate(150, true, "...")|raw }}</div>
                         <div class="row left">
                             {# show #}
-                            <a class="btn-floating btn-small waves-effect waves-light pink darken-3 tooltipped"
+                            <a class="btn-floating btn-small waves-effect waves-light tooltipped"
                                data-position="left"
                                data-delay="50"
                                data-tooltip="Voir la newsletter"
                                href="{{ path('newsletter_show', { 'id': newsLetter.id }) }}"
                                 style="margin-right: 130px;">
-                                <i class="material-icons">input</i>
+                                <i class="material-icons vert">input</i>
                             </a>
                             {% if is_granted('ROLE_ADMIN') %}
                                 {# edit #}
-                                <a class="btn-floating btn-small waves-effect waves-light orange darken-3 tooltipped"
+                                <a class="btn-floating btn-small waves-effect waves-light tooltipped"
                                    data-position="left"
                                    data-delay="50"
                                    data-tooltip="Modifier la newsletter"
                                    href="{{ path('newsletter_edit', { 'id': newsLetter.id }) }}">
-                                    <i class="material-icons">edit</i>
+                                    <i class="material-icons marron">edit</i>
                                 </a>
                             {% endif %}
                         </div>
@@ -90,13 +106,13 @@
                                 {# Envoi newsletter #}
                                 {# Si pas envoyé => bouton #}
                                 {% if newsLetter.dateEnvoie is null %}
-                                    <a class="btn-floating btn-small waves-effect waves-light lime accent-4 tooltipped"
+                                    <a class="btn-floating btn-small waves-effect waves-light tooltipped"
                                        data-position="left"
                                        data-delay="50"
                                        data-tooltip="Diffuser la newsletter"
                                        href="{{ path('newsletter_send', {'id': newsLetter.id }) }}"
                                        onclick="return confirm('Vous êtes sure ?')">
-                                        <i class="material-icons">email</i>
+                                        <i class="material-icons bleu">email</i>
                                     </a>
                                     {# Si envoyé => pas bouton #}
                                 {% else %}
@@ -112,12 +128,12 @@
                             {# nothing #}
                         {% else %}
                         <div class="row center">
-                            <a class="btn-floating btn-medium waves-effect waves-light pink accent-2 tooltipped"
+                            <a class="btn-floating btn-medium waves-effect waves-light tooltipped"
                                data-position="left"
                                data-delay="50"
                                data-tooltip="Voir le PDF"
                                href="{{ asset('uploads/newsletters_file/' ~ newsLetter.url) }}">
-                                <i class="fa fa-television" aria-hidden="true"></i>
+                                <i class="fa fa-television pink" aria-hidden="true"></i>
                             </a>
                         </div>
                         {% endif %}
@@ -148,7 +164,7 @@
         {#***********************************************#}
         {# Script gestion visuel tableau avec datatables #}
         {#***********************************************#}
-        $(document).ready(function() {
+        /*$(document).ready(function() {
             var table = $('#table_NLindex').removeAttr('width').DataTable( {
                 "language": { "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/French.json" },
                 scrollY:        "400px",
@@ -164,9 +180,9 @@
                 ],
                 fixedColumns: true
             } );
-        } );
+        } );*/
 
-        /*$(document).ready( function () {
+        $(document).ready( function () {
          $('#table_NLindex').DataTable( {
          "lengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]],
          "iDisplayLength": 5,
@@ -194,6 +210,5 @@
          }
          });
          });
-         */
     </script>
 {% endblock %}

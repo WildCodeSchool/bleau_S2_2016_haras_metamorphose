@@ -21,7 +21,7 @@
 
 .soustitrePage {
   color: #8e8e8e;
-  font-style: italic;
+  //font-style: italic;
   text-align: center;
 }
 
@@ -194,26 +194,26 @@
 }
 @media screen and (max-width: 1000px) {
   .postSectionIndex {
-    margin: 10px !important;
+    margin: 13px !important;
   }
 
   .liPostSousCat {
-    margin: 10px !important;
+    margin: 13px !important;
   }
 
   .postListTitleSousCat {
-    font-size: 10px;
+    font-size: 13px;
   }
 
   .postDivPrincipale {
-    font-size: 10px;
+    font-size: 13px;
   }
 
   .titreDerPost {
     font-size: 15px !important;
   }
   .badge {
-    font-size: 10px !important;
+    font-size: 12px !important;
   }
 
   .postListTitleSousCat > i {
@@ -331,7 +331,7 @@ span.badge {
   //overflow: hidden;
   padding-top: 20px;
   overflow-y: auto;
-  overflow-x: hidden;
+  //overflow-x: hidden;
 }
 #content::-webkit-scrollbar {
   width: 6px;
@@ -379,7 +379,6 @@ span.badge {
   top: 20px;
   left: 110px;
   width: 95%;
-  //padding-right: 10%;
   margin-left: -95px;
   font-size: 1.5em;
   text-align: justify;
@@ -395,7 +394,6 @@ span.badge {
   margin: 10px 0 10px 0px;
   padding: 20px;
   line-height: 1.5em;
-  //box-sizing: inherit;
 }
 
 .ombreCard {
@@ -418,7 +416,6 @@ span.badge {
   width: 30% !important;
   margin:2% !important;
   float: right;
-  //color: #7c7c7c !important;
   font-size: 11px !important;
   font-weight: bold !important;
   line-height: 130% !important;
@@ -431,25 +428,97 @@ span.badge {
   margin-left: 165px;
   color: #DEDEDE;
 }
-
+//***************************************
 // Media query
+//**************************************
+
+@media screen and (min-width: 1200px) {
+  .sectionAllPost {
+    margin-left: 22% !important;
+    width: 75% !important;
+  }
+  .titreEnfant {
+    padding-left: 15%;
+  }
+  .card-content {
+    padding-left: 15% !important;
+  }
+
+  .card-horizontal {
+    margin-left: 10% !important;
+  }
+}
+
+@media screen and (min-width: 1000px) and (max-width: 1190px) {
+  .titreEnfant {
+    padding-left: 12%;
+  }
+
+  .card-horizontal {
+    margin-left: 10% !important;
+  }
+
+  .card-content {
+    padding-left: 12% !important;
+  }
+
+  .sectionAllPost {
+    margin-left: 30% !important;
+    width: 65% !important;
+  }
+}
+
 @media screen and (max-width: 1000px) {
   .wrapperAllPost {
     margin-left: -17%;
   }
-  .header .circle {
-    top: 20px;
-    left:10px;
+
+  p > img {
+    height: 25%;
+    width: 25%;
   }
+
+  .header .circle {
+    //top: 20px;
+    //left:10px;
+    display: none;
+  }
+
+  #content .object .date {
+    display: none;
+  }
+
+  #content .object .circle {
+    display: none;
+  }
+
+  .line {
+    display: none;
+  }
+
+  .fa-3x {
+    font-size: 1.5em !important;
+  }
+
+  #content .object .context {
+    width: auto;
+  }
+
   .header h1 {
     top: 10px;
     left:42px;
+  }
+
+  .titreEnfant {
+    font-size: 25px;
+    padding-left: 2%;
   }
   .contextHeader {
     position: relative;
     top: 20px;
     left:44px;
   }
+
   // ajout class pour le a
   .aPost {
     margin:0 auto;
@@ -468,11 +537,6 @@ span.badge {
     border-bottom-color: unset !important;
     border-radius: unset !important;
     box-shadow: unset !important;
-  }
-  .line {
-    position: absolute;
-    top: 50px;
-    left: 35px;
   }
 }
 
@@ -613,10 +677,10 @@ aside {
   transform: translate(0px);
 }
 
-#dropdown1 {
+/*#dropdown1 {
   top: 317px !important;
   left: 15px !important;
-}
+}*/
 
 .userLogout {
   background: #DEDEDE;
