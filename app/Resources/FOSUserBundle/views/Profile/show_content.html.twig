@@ -1,20 +1,37 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
-
-<div class="fos_user_user_show">
-    <div class="profile_center">
+<div class="container center" id="profilmodel">
+    <div class="row">
         <div class="fos_user_user_show">
-            <p class="profile"><img class="circle responsive-img" src="{{ user.photo ? asset(user.photo.path) }}"/></p>
-            <p>{{ 'profile.show.username'|trans }}: {{ user.username }}</p>
-            <p>{{ 'profile.show.email'|trans }}: {{ user.email }}</p>
+            <div class="profile_center">
+                <div class="fos_user_user_show">
+                    <p class="profile"><img class="circle responsive-img" src="{{ user.photo ? asset(user.photo.path) }}"/></p>
+                    <p>{{ 'profile.show.username'|trans }}: {{ user.username }}</p>
+                    <p>{{ 'profile.show.email'|trans }}: {{ user.email }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="boutons-profil">
+            <div class="edit-profil">
+                <a href="{{ path('fos_user_profile_edit') }}">
+                    <button class="btn-floating btn-large waves-effect tooltipped btn-login" type="submit" name="action"
+                            data-position="bottom"
+                            data-delay="50"
+                            data-tooltip="Modifier">
+                        <i class="material-icons right">edit</i>
+                    </button>
+                </a>
+
+                <a href="{{ path('plate_forme_homepage') }}">
+                    <button class="btn-floating btn-large waves-effect tooltipped btn-login" type="submit" name="action"
+                            data-position="bottom"
+                            data-delay="50"
+                            data-tooltip="Accueil">
+                        <i class="material-icons right">home</i>
+                    </button>
+                </a>
+            </div>
         </div>
     </div>
 </div>
-
-{#<div class="fos_user_user_show">#}
-    {#<div class="profile_center">#}
-        {#<p class="profile"><img class="circle responsive-img" src="{{ asset('') }}{{ user.photo }}"/></p>#}
-        {#<p>Pseudo: {{ user.username }}</p>#}
-        {#<p>Email: {{ user.email }}</p>#}
-    {#</div>#}
-{#</div>#}

@@ -38,19 +38,17 @@ nav{
   transition-duration: .3s;
 }
 
+//
+//#dropdown1 {
+//  top: 65px !important;
+//  left: 15px !important;
+//}
 
-#dropdown1 {
-  top: 65px !important;
-  left: 15px !important;
-}
-
-.dropdown-content {
+#dropdown2 {
   margin-top: 115px;
-}
-
-.dropdown-content{
   background-color: #aeb5b64d;
 }
+
 
 .nav-wrapper-plateforme {
   z-index: auto;
@@ -312,7 +310,13 @@ footer.page-footer{
 }
 
 @media screen and (max-width:670px) {
-  span.adminlog{
+  span.adminlog {
+    display: none;
+  }
+}
+
+@media screen and (max-width:720px) {
+  span.moderateurlog{
     display: none;
   }
 }
