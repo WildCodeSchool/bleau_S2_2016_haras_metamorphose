@@ -21,7 +21,7 @@
                     <table class="calendar-table responsive-table">
                         <tr>
                             <td class="calendar-td calendar-border-topleft">
-                                <p class="calendar-p">Titre de l'évènement :</p>
+                                <p class="calendar-p">Titre de l'évènement :<span class="asterix">*</span></p>
                             </td>
                             <td class="calendar-td-twig calendar-border-topright">
                                 {{ form_widget(edit_form.titre, { 'attr': {'class': 'new-input'} }) }}
@@ -30,7 +30,7 @@
                         </tr>
                         <tr>
                             <td class="calendar-td">
-                                <p class="calendar-p">Date et heure de commencement :</p>
+                                <p class="calendar-p">Date et heure de commencement :<span class="asterix">*</span></p>
                             </td>
                             <td class="calendar-td-twig">
                                 <div class="col s12 m4 l4">
@@ -41,7 +41,7 @@
                         </tr>
                         <tr>
                             <td class="calendar-td">
-                                <p class="calendar-p">Date et heure de fin :</p>
+                                <p class="calendar-p">Date et heure de fin :<span class="asterix">*</span></p>
                             </td>
                             <td class="calendar-td-twig">
                                 <div class="col s12 m4 l4">
@@ -52,7 +52,7 @@
                         </tr>
                         <tr>
                             <td class="calendar-td">
-                                <p class="calendar-p">Description de l'évènement</p>
+                                <p class="calendar-p">Description de l'évènement :<span class="asterix">*</span></p>
                             </td>
                             <td class="calendar-td-twig">
                                 {{ form_widget(edit_form.texte, { 'id': 'textarea' }) }}
@@ -61,7 +61,7 @@
                         </tr>
                         <tr>
                             <td class="calendar-td">
-                                <p class="calendar-p">Lieu de l'évènement</p>
+                                <p class="calendar-p">Lieu de l'évènement :<span class="asterix">*</span></p>
                             </td>
                             <td class="calendar-td-twig">
                                 {{ form_widget(edit_form.lieu, { 'attr': {'class': 'new-input'} }) }}
@@ -70,7 +70,7 @@
                         </tr>
                         <tr>
                             <td class="calendar-td">
-                                <p class="calendar-p">Couleur de l'évènement</p>
+                                <p class="calendar-p">Couleur de l'évènement :<span class="asterix">*</span></p>
                             </td>
                             <td class="calendar-td-twig calendar-border-butomright" style="background-color: {{ agenda.color }};">
                                 {{ form_widget(edit_form.color, { 'id': 'colorpicker' }) }}
@@ -79,7 +79,7 @@
                         </tr>
                         <tr>
                             <td class="calendar-td">
-                                <p class="calendar-p">Ajouter au slider</p>
+                                <p class="calendar-p">Ajouter au slider :<span class="asterix">*</span></p>
                             </td>
                             <td class="calendar-td-twig">
                                 {{ form_widget(edit_form.slider, { 'id': 'test5' }) }}
@@ -88,7 +88,7 @@
                         </tr>
                         <tr class="upload_file_event">
                             <td class="calendar-td">
-                                <p class="calendar-p">Ajouter une image (Max : 2Mo)</p>
+                                <p class="calendar-p">Ajouter une image (Max : 2Mo) :<span class="asterix">*</span></p>
                             </td>
                             <td class="calendar-td-twig calendar-border-butomright">
                                 {{ form_widget(edit_form.image) }}

@@ -130,6 +130,11 @@ select{
     border-right-style: groove!important;
     border-color: #dff1ff !important;
 }
+
+.asterix{
+    top: 4px;
+    color: darkred;
+}
 /*********************************************************/
 /*********************************************************/
 /*********************** PAGE SHOW ***********************/
