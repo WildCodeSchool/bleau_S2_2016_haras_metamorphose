@@ -22,7 +22,7 @@
                                 {# Titre de la discussion #}
                                 <span class="card-title titreDerPost">{{ lastPostCat.titre|capitalize }}</span>
                                 {# Contenu de la discussion #}
-                                <div class="lastPostContenu">{{ lastPostCat.contenu|striptags|truncate(1700, true, "...")|raw }}</div>
+                                <div class="lastPostContenu">{{ lastPostCat.contenu|striptags|truncate(500, true, "...")|raw }}</div>
                             </div>
                             <div class="card-action">
                                 <a class="waves-effect waves-teal btn-flat center indexEntrerFil"

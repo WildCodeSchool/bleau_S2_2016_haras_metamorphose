@@ -12,52 +12,17 @@
             <img src="{{ app.user.photo ? asset(app.user.photo.path) }}" alt="" class="circle responsive-img">
             <br />
             <p>{{ app.user|capitalize }}</p>
-            {# Accès modif fiche user #}
-            <!-- Dropdown Trigger -->
-            <a class='dropdown-button btn' href='#' data-activates='dropdown1'>
-                <i class="fa fa-user-circle-o" aria-hidden="true"></i>
-            </a>
-            <!-- Dropdown Structure -->
-            <ul id='dropdown1' class='dropdown-content'>
-                <li><a href="#">Voir profil</a></li>
-                <li><a href="#!"> ? </a></li>
-                <li class="divider"></li>
-                <li class="userLogout"><a href="#">Déconnection</a></li>
-            </ul>
         </div>
-
+        <br>
+        <br>
+        <a id="links" class="blue-text lighten-2" href="{{ path('post_showMesMessages', {'id': app.user.id}) }}">
+            <i class="fa fa-clipboard fa-2x fa-fw"></i> Vos messages
+        </a>
+        <br>
         {# Selection user pour affichage de ses messages #}
         <div>
             {% render(controller("ForumBundle:Post:showListUser")) %}
         </div>
         {# Fin selection user #}
-        <li>
-            <a  class="grey-text text-lighten-2" href="{{ path('plate_forme_homepage') }}">
-                <i class="fa fa-user fa-2x fa-fw"></i>Accueil
-            </a>
-        </li>
-        <li>
-            <a  class="yellow-text text-lighten-2" href="{{ path('post_index') }}">
-                <i class="fa fa-user fa-2x fa-fw"></i>Forum
-            </a>
-        </li>
-
-        <li>
-            <a id="links" class="blue-text lighten-2" href="{{ path('post_showMesMessages', {'id': app.user.id}) }}">
-                <i class="fa fa-clipboard fa-2x fa-fw"></i>Vos messages
-            </a>
-        </li>
-        {% if is_granted('ROLE_MODERATEUR') %}
-        <li>
-            <a id="links" class="green-text text-lighten-2" href="{{ path('post_showAllPostDesactive') }}">
-                <i class="fa fa-bar-chart fa-2x fa-fw"></i>Réactiver Post
-            </a>
-        </li>
-        <li>
-            <a id="links" class="pink-text lighten-2" href="{{ path('categorieplateforme_index') }}">
-                <i class="fa fa-terminal fa-2x fa-fw"></i>Categories
-            </a>
-        </li>
-        {% endif %}
     </ul>
 </aside>

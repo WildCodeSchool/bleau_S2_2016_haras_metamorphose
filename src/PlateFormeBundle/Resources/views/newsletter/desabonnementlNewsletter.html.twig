@@ -15,6 +15,7 @@
         .waves-input-wrapper {
             vertical-align: middle;
         }
+        {# ***************************** #}
     </style>
 
     <div class="ContainerNL">
@@ -29,13 +30,15 @@
         {% endfor %}
         {#-------------------------------------------------------------#}
         <div class="row container"  >
-            <div class="col s12 offset-m4 m4 offset-l4 l5">
-                <p>Saississez votre adresse email ci dessous afin de vous désabonner</p>
+            <div class="col">
+                <h5>Saississez votre adresse email</h5>
+                <div class="row">
                 <form action="{{ path('desabonnement_newsletter') }}" method="post">
-                    <input class="waves-effect waves-light btn" type="submit" value="Valider" />
+                    <input class="waves-effect waves-light btn" type="submit" value="se désabonner" />
                     <input style="width: 250px; height: 40px !important;" type="email" name="email" placeholder="E-mail" required="required" class="validate" />
                     <label for="email" data-error="wrong" data-success="right"></label>
                 </form>
+                </div>
             </div>
         </div>
     </div>
