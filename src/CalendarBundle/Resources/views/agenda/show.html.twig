@@ -84,6 +84,14 @@
                             <img class="show-image responsive-img" src="{{ asset(agenda.image.path) }}"  alt="{{ agenda.image.alt.translation('fr') }}">
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col s12 m6 l6 calendar-td valign-wrapper">
+                            <p class="calendar-p valign">lien vers la page :</p>
+                        </div>
+                        <div class="col s12 m6 l6 center">
+                           <a href="{{ agenda.lien }}">{{ agenda.lien }}</a>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="center">

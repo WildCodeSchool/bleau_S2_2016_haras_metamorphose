@@ -30,7 +30,7 @@ class AgendaType extends AbstractType
                 'required' => false,
             ))
             ->add('image', MediaType::class)
-            ->add('lieu')
+            ->add('lien')
         ;
     }
     

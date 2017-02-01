@@ -22,19 +22,17 @@
 
                 {% else %}
 
-                    <a href="{{ event.lien }}">
-
                         <li>
                             {% if event.image != null %}
-                                <img src="{{ asset(event.image.path) }}" alt="{{ event.image.alt }}"/>
+                                <a href="{{ event.lien }}">
+                                    <img src="{{ asset(event.image.path) }}" alt="{{ event.image.alt }}"/>
+                                </a>
                             {% endif %}
                             <div class="caption center-align">
                                 <h3>{{ event.titre }}</h3>
                                 <h5 class="light grey-text text-lighten-3">{{ event.lieu }}</h5>
                             </div>
                         </li>
-
-                    </a>
 
                 {% endif %}
 

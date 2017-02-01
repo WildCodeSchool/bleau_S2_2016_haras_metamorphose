@@ -49,7 +49,7 @@
                             <p class="calendar-p valign">Description de l'évènement :</p>
                         </div>
                         <div class="col s12 m6 l6">
-                            {{ form_widget(form.texte, { 'id': 'textarea' }, { 'attr': {'col': '100'} }) }}
+                            {{ form_widget(form.texte, { 'id': 'textarea' }, { 'attr': {'col': '70'} }) }}
                             {{ form_errors(form.texte) }}
                         </div>
                     </div>
@@ -94,9 +94,8 @@
                             <p class="calendar-p valign">Ajouter le lien d'une page :</p>
                         </div>
                         <div class="col s12 m6 l6">
-                            {#{{ form_widget(form.lien, { 'id': 'textarea' }, { 'attr': {'col': '100'} }) }}#}
-                            {#{{ form_errors(form.lien) }}#}
-                            {{ form_widget(form.) }}
+                            {{ form_widget(form.lien, { 'id': 'textarea' }, { 'attr': {'col': '70'} }) }}
+                            {{ form_errors(form.lien) }}
                         </div>
                     </div>
                 </div>

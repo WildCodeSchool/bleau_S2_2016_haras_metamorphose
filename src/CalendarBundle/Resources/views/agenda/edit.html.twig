@@ -95,6 +95,15 @@
                             {{ form_errors(edit_form.image) }}
                         </div>
                     </div>
+                    <div class="row upload_file_event calendar-row valign-wrapper">
+                        <div class="col s12 m6 l6 calendar-td valign-wrapper">
+                            <p class="calendar-p valign">Ajouter une image (Max : 2Mo) :</p>
+                        </div>
+                        <div class="col s12 m6 l6">
+                            {{ form_widget(edit_form.lien, { 'id': 'textarea' }, { 'attr': {'col': '100'} }) }}
+                            {{ form_errors(edit_form.lien) }}
+                        </div>
+                    </div>
                 </div>
 
                 <div class="center">
