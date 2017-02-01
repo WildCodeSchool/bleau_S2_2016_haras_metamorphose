@@ -22,18 +22,7 @@ $
 ************************************************/
 
 .bouton-new {
-    color: #4d9200;
-    font-size: 36px !important;
-}
-
-.bouton-edit {
-    color: #27228C;
-    font-size: 36px !important;
-}
-
-.bouton-delete {
-    color: #902b2b;
-    font-size: 36px !important;
+    top: 10px;
 }
 /************************************************
 *

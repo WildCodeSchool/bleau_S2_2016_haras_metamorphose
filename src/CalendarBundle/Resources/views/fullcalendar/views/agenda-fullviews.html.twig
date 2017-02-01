@@ -9,8 +9,8 @@
 
                 {% if is_granted('ROLE_ADMIN') %}
 
-                    <a href="{{ path('agenda_new') }}">
-                        <i class="material-icons md-48 bouton-new">add_circle_outline</i>
+                    <a href="{{ path('agenda_new') }}" class="btn-floating btn-large waves-effect waves-light green darken-1 modal-action modal-close bouton-new">
+                        <i class=" material-icons">add</i>
                     </a>
 
                 {% endif %}
