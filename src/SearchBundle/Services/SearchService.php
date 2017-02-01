@@ -25,7 +25,6 @@ class SearchService extends Controller
 
     }
 
-
     public function getSearchPostTitre($requete){
 //        Alias 's' = class searchrepository
 //        Alias 'c' = categorie

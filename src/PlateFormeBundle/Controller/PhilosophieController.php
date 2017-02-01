@@ -12,21 +12,31 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class PhilosophieController extends Controller
 {
-//    /**
-//     * Lists all philosophie entities.
-//     *
-//     */
-//    public function indexAction()
-//    {
-//        $em = $this->getDoctrine()->getManager();
-//
-//        $philosophies = $em->getRepository('PlateFormeBundle:Philosophie')->findAll();
-//
-//            return $this->render('@PlateForme/philosophie/show.html.twig', array(
-//                'philosophies' => $philosophies,
-//            ));
-//    }
-//
+    /**
+     * Lists all philosophie entities.
+     *
+     */
+    public function indexAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $philo = $em->getRepository('PlateFormeBundle:Philosophie')->findAll();
+
+        if (empty($philo)){
+
+            return $this->render('@PlateForme/philosophie/show_public.html.twig', array(
+                'philos' => 'Bonjour, merci de mettre à jour votre page philosophie.'
+            ));
+
+        }
+        else {
+
+            return $this->render('@PlateForme/philosophie/show_public.html.twig', array(
+                'philos' => $philo,
+            ));
+
+        }
+    }
+
 //    /**
 //     * Creates a new philosophie entity.
 //     *
