@@ -45,3 +45,9 @@ services:
     search.service:
         class: SearchBundle\Services\SearchService
         arguments: ['@service_container']
+
+# ---> SERVICES PLATEFORMEBUNDLE
+# [...] PlateFormeBundle\Services
+    philo.service:
+        class: PlateFormeBundle\Services\PhilosophieService
+        arguments: ['@service_container']
