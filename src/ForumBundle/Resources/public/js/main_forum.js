@@ -110,6 +110,43 @@ $(document).ready( function () {
         $(this).css('height', '25%').css('width', '25%');
     });
 });
+
+//***************************************************//
+//    ShowAllPost Taille image                      //
+//****************************************************
+// Taille image dans div lastPostContenu
+//****************************************************
+// Si image dans <p>
+// Image fil de discussion
+$(document).ready( function () {
+    $('.contextHeader > p > img').each(function(){
+        $(this).css('height', '25%').css('width', '25%');
+    });
+});
+// Si image pas dans <p>
+// Image fil de discussion
+$(document).ready( function () {
+    $('.contextHeader > img').each(function(){
+        $(this).css('height', '25%').css('width', '25%');
+    });
+});
+
+// Si image dans <p>
+// Autres posts
+$(document).ready( function () {
+    $('.card-content > p > img').each(function(){
+        $(this).css('height', '25%').css('width', '25%');
+    });
+});
+// Si image pas dans <p>
+// Autres posts
+$(document).ready( function () {
+    $('.card-content > img').each(function(){
+        $(this).css('height', '25%').css('width', '25%');
+    });
+});
+
+
 //***************************************************//
 //    index categorie - Accodeon                     //
 //****************************************************
