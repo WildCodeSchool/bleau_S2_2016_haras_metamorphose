@@ -49,21 +49,22 @@
         </div>
 
         {% if is_granted("ROLE_ADMIN") %}
+
         <div class="modal-footer modal-bouton"> {#----- DEBUT MODAL FOOTER -----#}
             <div class="row right">
 
-                <div class="col s4">
-                    <a href="#" id="edit_event">
-                        <i class="material-icons md-48 bouton-edit">create</i>
+                <div class="col s6">
+                    <a href="#" id="edit_event" class="btn-floating btn-large waves-effect waves-light orange darken-1 modal-action modal-close modal-bt-edit">
+                        <i class=" material-icons">edit</i>
                     </a>
                 </div>
-                <div class="col s4">
-                    <a href="#" id="delete_event">
-                        <i class="material-icons md-48 bouton-delete">delete_sweep</i>
+                <div class="col s6">
+                    <a href="#" id="delete_event" class="btn-floating btn-large waves-effect waves-light red darken-1 modal-action modal-close modal-bt-delete">
+                        <i class=" material-icons">delete_sweep</i>
                     </a>
                 </div>
 
-                {% endif %}
+        {% endif %}
 
             </div>
         </div> {#---- FIN DU MODAL FOOTER ----#}
