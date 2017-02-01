@@ -5,25 +5,50 @@
 
     <div class="slider">
         <ul class="slides">
+
             {% for event in agenda %}
+
+                {% if event.lien is empty %}
+
                 <li>
                     {% if event.image != null %}
-                        <img src="{{ asset(event.image.path) }}" alt="{{ event.image.alt }}"/></a>
+                        <img src="{{ asset(event.image.path) }}" alt="{{ event.image.alt }}"/>
                     {% endif %}
                     <div class="caption center-align">
                         <h3>{{ event.titre }}</h3>
                         <h5 class="light grey-text text-lighten-3">{{ event.lieu }}</h5>
                     </div>
                 </li>
+
+                {% else %}
+
+                    <a href="{{ event.lien }}">
+
+                        <li>
+                            {% if event.image != null %}
+                                <img src="{{ asset(event.image.path) }}" alt="{{ event.image.alt }}"/>
+                            {% endif %}
+                            <div class="caption center-align">
+                                <h3>{{ event.titre }}</h3>
+                                <h5 class="light grey-text text-lighten-3">{{ event.lieu }}</h5>
+                            </div>
+                        </li>
+
+                    </a>
+
+                {% endif %}
+
             {% endfor %}
+
             {% for article in articles %}
                 <li>
-                    <img src="{{ asset(article.medias[0].path) }}" alt="{{ article.medias[0].alt }}"/></a>
+                    <img src="{{ asset(article.medias[0].path) }}" alt="{{ article.medias[0].alt }}"/>
                     <div class="caption center-align">
                         <h3>{{ article.title.translation('fr') }}</h3>
                         <h5 class="light grey-text text-lighten-3"></h5>
                     </div>
                 </li>
+
             {% endfor %}
 
         </ul>
