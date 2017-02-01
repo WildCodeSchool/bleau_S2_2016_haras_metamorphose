@@ -113,7 +113,7 @@ function textArea(){
 function hide_Show() {
     $('#test5').click(function () {
         if (this.checked){
-            $('.upload_file_event').css('display', 'table-row')
+            $('.upload_file_event').css('display', 'block')
         }
         else {
             $('.upload_file_event').css('display', 'none')
@@ -131,10 +131,10 @@ function colorpicker(){
         color: '#1783cb'
     });
 
-    $( "#color tr td" ).click(function() {
-        var color = $( '#colorpicker' ).val();
-        $( '#colorpicker' ).css( 'background', color );
-    });
+    // $( "#color tr td" ).click(function() {
+    //     var color = $( '#colorpicker' ).val();
+    //     $( '#colorpicker' ).css( 'background', color );
+    // });
 }
 
 // ********************************************************************

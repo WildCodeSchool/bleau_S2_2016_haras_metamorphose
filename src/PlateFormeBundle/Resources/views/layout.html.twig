@@ -240,38 +240,50 @@
     </header>
 {% endblock %}
 
+{# --------------------------------------------------------------------- #}
+
 {% block footer %}
     <footer class="page-footer">
         <div class="container">
             <div class="row">
                 <div class="col l4 s12">
                     <h5 class="white-text">A propos</h5>
-                    <p class="grey-text text-lighten-4">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus assumenda est molestiae repellat sequi tempore, temporibus. Amet facilis laborum molestias officiis recusandae ut voluptates. Ducimus molestias, nemo? Blanditiis, excepturi unde!
-                    </p>
+                       {{ render(controller('PlateFormeBundle:Philosophie:index')) }}
                 </div>
-                <div class="col l2 offset-l2 s12">
+                <div class="col l2 offset-l1 s12">
                     <h5 class="white-text">Contactez nous</h5>
                     <ul>
                         <li>
-                            <a class="grey-text text-lighten-3"href="mailto:nathalie.barenghi@gmail.com?subject=Forum Haras de la métamorphose.&cc=nathalie.barenghi@gmail.com&body=Entrer votre message.">email</a>
+                            <a class="grey-text text-lighten-3" href="mailto:toto@gmail.com?subject=Forum Haras de la métamorphose.&cc=toto@gmail.com&body=Entrer votre message.">Email</a>
                         </li>
                         <!-- Cross-platform compatible (Android + iPhone) -->
                         <li>
                             <a class="grey-text text-lighten-3" href="tel://+33600000000">Téléphone</a>
                         </li>
+
+                        <li>
+                            <a href="#"><img class="icone" src="{{ asset('bundles/calendar/images-colorpicker/facebook.png') }}" alt="facebook"></a>
+                            <a href="#"><img class="icone" src="{{ asset('bundles/calendar/images-colorpicker/twitter.png') }}" alt="twitter"></a>
+                        </li>
                     </ul>
                 </div>
-                <div class="col l2 offset-l2 s12">
+                <div class="col l3 offset-l1 s12">
                     <h5 class="white-text">Newsletter</h5>
-                    <form action="{{ path('abonnement_newsletter') }}" method="post">
-                        <input name="email" placeholder="Saisir adresse email" required="required" type="email">
-                        <input class="waves-effect waves-light btn" value="valider" type="submit">
-                    </form>
-                    <br>
-                    <div class="col l2 offset-l2 s12">
-                        <a class="grey-text text-lighten-3" href="{{ path('desabonnement_newsletter') }}">Désabonnement</a>
+                    <div class="row">
+                        <form action="{{ path('abonnement_newsletter') }}" method="post">
+                            <div class="col s12 m10 l10">
+                                <input name="email" placeholder="Saisir adresse email" required="required" type="email">
+                            </div>
+                            <div class="col s2 m2 l2">
+                                <input class="waves-effect waves-light btn" value="valider" type="submit">
+                            </div>
+                            <label for="email" data-error="wrong" data-success="right"></label>
+                        </form>
                     </div>
+                    <a class="grey-text text-lighten-3"
+                       href="{{ path('desabonnement_newsletter') }}">
+                        Désabonnement
+                    </a>
                 </div>
 
             </div>

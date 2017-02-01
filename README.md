@@ -23,7 +23,8 @@
 	4. `composer install`
 	5. `php app/console doctrine:database:create`
 	6. `php app/console doctrine:schema:update --force`
-	7. `php app/console assets:install`  
+	7. `cd web/ mkdir uploads => mkdir newsletters_file`
+	8. `php app/console assets:install`  
 	
 	
 ___

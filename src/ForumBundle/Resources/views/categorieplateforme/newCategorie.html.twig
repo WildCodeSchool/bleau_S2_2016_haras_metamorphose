@@ -21,11 +21,6 @@
             {{ form_widget(form.nom) }}
             {{ form_errors(form.nom) }}
         </div>
-        {#<div class="row input-field">#}
-            {#{{ form_widget(form.actif) }}#}
-            {#<label for="forumbundle_categorieplateforme_actif">actif</label>#}
-            {#{{ form_errors(form.actif) }}#}
-        {#</div>#}
         {# Bouton de validation #}
         <div class="row center">
             <button class="btn-floating btn-large waves-effect waves-light green darken-1"
@@ -38,7 +33,6 @@
         {{ form_end(form) }}
 
         <div class="row center">
-
             <a class="btn-floating btn-large waves-effect waves-light blue darken-1"
                href="{{ path('categorieplateforme_index') }}">
                 <i class="small material-icons">home</i>

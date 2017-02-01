@@ -5,112 +5,117 @@
     <div class="container">
         <div class="row">
             <div class="col s12 center">
-                <h1>Création d'un évènement</h1>
+                <h2>Création d'un évènement</h2>
             </div>
         </div>
     </div>
-    {{ form_start(form) }}
 
     <div class="container center">
         <div class="row">
             <div class="col s12">
 
-                <div id="caledar-new-table">
+                {{ form_start(form) }}
 
-                    <table class="calendar-table responsive-table">
-                        <tr>
-                            <td class="calendar-td calendar-border-topleft">
-                                <p class="calendar-p">Titre de l'évènement :</p>
-                            </td>
-                            <td class="calendar-td-twig calendar-border-topright">
-                                {{ form_widget(form.titre, { 'attr': {'class': 'new-input'} }) }}
-                                {{ form_errors(form.titre) }}
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="calendar-td">
-                                <p class="calendar-p">Date et heure de commencement :</p>
-                            </td>
-                            <td class="calendar-td-twig">
-                                <div class="col s12 m4 l4">
-                                    {{ form_widget(form.start) }}
-                                    {{ form_errors(form.start) }}
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="calendar-td">
-                                <p class="calendar-p">Date et heure de fin :</p>
-                            </td>
-                            <td class="calendar-td-twig">
-                                <div class="col s12 m4 l4">
-                                    {{ form_widget(form.end) }}
-                                    {{ form_errors(form.end) }}
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="calendar-td">
-                                <p class="calendar-p">Description de l'évènement</p>
-                            </td>
-                            <td class="calendar-td-twig">
-                                {{ form_widget(form.texte, { 'id': 'textarea' }) }}
-                                {{ form_errors(form.texte) }}
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="calendar-td">
-                                <p class="calendar-p">Lieu de l'évènement</p>
-                            </td>
-                            <td class="calendar-td-twig">
-                                {{ form_widget(form.lieu, { 'attr': {'class': 'new-input'} }) }}
-                                {{ form_errors(form.lieu) }}
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="calendar-td">
-                                <p class="calendar-p">Couleur de l'évènement</p>
-                            </td>
-                            <td id="tdcolor" class="calendar-td-twig calendar-border-butomright">
-                                {{ form_widget(form.color , { 'id': 'colorpicker' }) }}
-                                {{ form_errors(form.color) }}
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="calendar-td">
-                                <p class="calendar-p">Ajouter au slider</p>
-                            </td>
-                            <td class="calendar-td-twig">
-                                {{ form_widget(form.slider, { 'id': 'test5' }) }}
-                                {{ form_errors(form.slider) }}
-                            </td>
-                        </tr>
-                        <tr class="upload_file_event">
-                            <td class="calendar-td">
-                                <p class="calendar-p">Ajouter une image (Max : 2Mo)</p>
-                            </td>
-                            <td id="color" class="calendar-td-twig calendar-border-butomright">
-                                {{ form_widget(form.image) }}
-                                {{ form_errors(form.image) }}
-                            </td>
-                        </tr>
-                    </table>
-
+                <div class="calendar-responsive-table">
+                    <div class="row calendar-row valign-wrapper">
+                        <div class="col s12 m6 l6 calendar-td valign-wrapper">
+                            <p class="calendar-p valign">Titre de l'évènement :</p>
+                        </div>
+                        <div class="col s12 m6 l6">
+                            {{ form_widget(form.titre, { 'attr': {'class': 'calendar-responsive-input'} }) }}
+                            {{ form_errors(form.titre) }}
+                        </div>
+                    </div>
+                    <div class="row calendar-row valign-wrapper">
+                        <div class="col s12 m6 l6 calendar-td valign-wrapper">
+                            <p class="calendar-p valign">Date et heure de début :</p>
+                        </div>
+                        <div class="col s12 m6 l6">
+                            {{ form_widget(form.start, { 'attr': {'class': 'calendar-responsive-input center'} }) }}
+                            {{ form_errors(form.start) }}
+                        </div>
+                    </div>
+                    <div class="row calendar-row valign-wrapper">
+                        <div class="col s12 m6 l6 calendar-td valign-wrapper">
+                            <p class="calendar-p valign">Date et heure de fin :</p>
+                        </div>
+                        <div class="col s12 m6 l6">
+                            {{ form_widget(form.end, { 'attr': {'class': 'calendar-responsive-input center'} }) }}
+                            {{ form_errors(form.end) }}
+                        </div>
+                    </div>
+                    <div class="row calendar-row valign-wrapper">
+                        <div class="col s12 m6 l6 calendar-td valign-wrapper">
+                            <p class="calendar-p valign">Description de l'évènement :</p>
+                        </div>
+                        <div class="col s12 m6 l6">
+                            {{ form_widget(form.texte, { 'id': 'textarea' }, { 'attr': {'col': '70'} }) }}
+                            {{ form_errors(form.texte) }}
+                        </div>
+                    </div>
+                    <div class="row calendar-row valign-wrapper">
+                        <div class="col s12 m6 l6 calendar-td valign-wrapper">
+                            <p class="calendar-p valign">Lieu de l'évènemen :</p>
+                        </div>
+                        <div class="col s12 m6 l6">
+                            {{ form_widget(form.lieu, { 'attr': {'class': 'calendar-responsive-input'} }) }}
+                            {{ form_errors(form.lieu) }}
+                        </div>
+                    </div>
+                    <div class="row calendar-row valign-wrapper">
+                        <div class="col s12 m6 l6 calendar-td valign-wrapper">
+                            <p class="calendar-p valign">Couleur de l'évènement :</p>
+                        </div>
+                        <div class="col s12 m6 l6">
+                            {{ form_widget(form.color , { 'id': 'colorpicker' }) }}
+                            {{ form_errors(form.color) }}
+                        </div>
+                    </div>
+                    <div class="row calendar-row valign-wrapper">
+                        <div class="col s12 m6 l6 calendar-td valign-wrapper">
+                            <p class="calendar-p valign">Ajouter au slider :</p>
+                        </div>
+                        <div class="col s12 m6 l6">
+                            {{ form_widget(form.slider, { 'id': 'test5' }, { 'attr': {'class': 'calendar-responsive-input'} }) }}
+                            {{ form_errors(form.slider) }}
+                        </div>
+                    </div>
+                    <div class="row upload_file_event calendar-row valign-wrapper">
+                        <div class="col s12 m6 l6 calendar-td valign-wrapper">
+                            <p class="calendar-p valign">Ajouter une image (Max : 2Mo) :</p>
+                        </div>
+                        <div class="col s12 m6 l6">
+                            {{ form_widget(form.image, { 'attr': {'class': 'calendar-responsive-input'} }) }}
+                            {{ form_errors(form.image) }}
+                        </div>
+                    </div>
+                    <div class="row upload_file_event calendar-row valign-wrapper">
+                        <div class="col s12 m6 l6 calendar-td valign-wrapper">
+                            <p class="calendar-p valign">Ajouter le lien d'une page :</p>
+                        </div>
+                        <div class="col s12 m6 l6">
+                            {{ form_widget(form.lien, { 'id': 'textarea' }, { 'attr': {'col': '70'} }) }}
+                            {{ form_errors(form.lien) }}
+                        </div>
+                    </div>
                 </div>
+
+                <div class="center">
+                    <button class="btn-floating btn-large waves-effect waves-light green darken-1 modal-action modal-close"
+                            type="submit">
+                        <i class="material-icons">check</i>
+                    </button>
+
+                    <a class="btn-floating btn-large waves-effect waves-light blue darken-1 modal-action modal-close"
+                       href="{{ path('plate_forme_homepage') }}">
+                        <i class="small material-icons">home</i>
+                    </a>
+                </div>
+
+                {{ form_end(form) }}
+
             </div>
         </div>
     </div>
-
-    <div class="center">
-        <button id="bouton-background" type="submit" value=""><i class="material-icons md-48 bouton-new">add_circle_outline</i></button>
-
-        <a href="{{ path('plate_forme_homepage') }}">
-            <i class="material-icons md-48 bouton-retour">fast_rewind</i>
-        </a>
-
-        <a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
-    </div>
-
-        {{ form_end(form) }}
 
 {% endblock %}

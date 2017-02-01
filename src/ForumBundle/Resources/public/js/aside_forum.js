@@ -3,15 +3,14 @@ $(document).ready(function() {
     // Modification taille header général et footer
     modifHeaderFooter ();
 
-    $(window).resize(function() {
-
+    $(window).on("load resize", function () {
         modifHeaderFooter ();
 
         if ($(window).width() < 1000) {
             if ($('.postListTitlePost').length > 20 ) {
-            // Récupération des 17 premiers caractères
+                // Récupération des 17 premiers caractères
                 $(this).text($(this).text().substring(0,17));
-            // 17 caractères + .......
+                // 17 caractères + .......
                 $(this).append('.....');
             }
 

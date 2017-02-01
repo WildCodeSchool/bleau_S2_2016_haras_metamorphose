@@ -73,6 +73,11 @@ class Agenda
     private $image;
 
     /**
+     * @var string
+     */
+    private $lien;
+
+    /**
      * Get id
      *
      * @return int
@@ -296,5 +301,29 @@ class Agenda
     public function getImage()
     {
         return $this->image;
+    }
+
+    /**
+     * Set lien
+     *
+     * @param string $lien
+     *
+     * @return Agenda
+     */
+    public function setLien($lien)
+    {
+        $this->lien = $lien;
+
+        return $this;
+    }
+
+    /**
+     * Get lien
+     *
+     * @return string
+     */
+    public function getLien()
+    {
+        return $this->lien;
     }
 }

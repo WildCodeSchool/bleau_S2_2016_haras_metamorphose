@@ -10,6 +10,11 @@ plate_forme_moderateur:
     path:     /moderateur/
     defaults: { _controller: PlateFormeBundle:Default:moderateur }
 
+philosophie_index:
+    path:     /layout/
+    defaults: { _controller: PlateFormeBundle:Philosophie:index }
+    methods:  [GET, POST]
+
 #plate_forme_philosophie_user:
 #    path:     /philosophie/
 #    defaults: { _controller: PlateFormeBundle:Default:philosophie }
