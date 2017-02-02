@@ -2,7 +2,7 @@
     <a class='dropdown-button btn  blue darken-1' href='#' data-activates='dropdownList'>
         <i class="fa fa-address-book-o" aria-hidden="true"></i>
     </a>
-    <ul id='dropdownList' class='dropdown-content'>
+    <ul id='dropdownList' class='dropdown-content' style="padding-top: 2px">
         {% for user in users %}
             {% if app.user.id == user.id %}
             {##}

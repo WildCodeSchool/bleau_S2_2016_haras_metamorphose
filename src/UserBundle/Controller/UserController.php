@@ -3,6 +3,8 @@ namespace UserBundle\Controller;
 use UserBundle\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\StreamedResponse;
+
 /**
  * User controller.
  *
@@ -116,4 +118,5 @@ class UserController extends Controller
     {
         return $this->render('@User/Admin/index.html.twig');
     }
+
 }

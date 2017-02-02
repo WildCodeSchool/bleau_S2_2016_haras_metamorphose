@@ -19,6 +19,23 @@
         {% endfor %}
         {#-------------------------------------------------------------#}
         <article class="postArticleIndex">
+            {#-------------------------------------------------------------#}
+            {# BOUTON voir messages                                        #}
+            {#-------------------------------------------------------------#}
+            <div class="row right">
+                <span>
+                <a id="links" class="waves-effect waves-light btn white-text lighten-2 col s6" href="{{ path('post_showMesMessages', {'id': app.user.id}) }}">
+                    <i class="fa fa-clipboard fa-2x fa-fw"></i>
+                </a>
+                {# Selection user pour affichage de ses messages #}
+                <div class="col s6">
+                    {% render(controller("ForumBundle:Post:showListUser")) %}
+                </div>
+                {# Fin selection user #}
+                </span>
+            </div>
+            {#-------------------------------------------------------------#}
+
             <h1 class=" soustitrePage center">Discussions par catégorie</h1>
             <ul class="collapsible popout postDivPrincipale" data-collapsible="popout">
                 {#***********************#}

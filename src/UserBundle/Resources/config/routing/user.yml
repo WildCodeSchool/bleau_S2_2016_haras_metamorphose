@@ -40,3 +40,4 @@ admin_dashboard:
     path:     admin/dashboard
     defaults: { _controller: "UserBundle:User:indexAdmin" }
     methods:  [GET, POST]
+
