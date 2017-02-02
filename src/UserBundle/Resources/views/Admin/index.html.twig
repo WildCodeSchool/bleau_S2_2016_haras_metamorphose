@@ -1,10 +1,6 @@
 {% extends '@PlateForme/layout.html.twig' %}
 
 {% block body %}
-    <style>
-
-    </style>
-
     <main>
         <div class="row">
             <div class="col s12 m8 l6">
@@ -17,8 +13,8 @@
                         <a href="{{ path('user_index') }}">
                             <div style="padding: 30px;" class="grey lighten-3 col s12 m12 l5 waves-effect">
                                 <span class="fa-stack fa-5x">
-                                <i class="fa fa-circle fa-stack-2x icon-background4"></i>
-                                <i class="fa fa-address-book-o fa-stack-1x" style="color: #444;"></i>
+                                <i class="fa fa-circle fa-stack-2x CatDashboard4"></i>
+                                <i class="fa fa-address-book-o fa-stack-1x"></i>
                                 </span>
                                 <p class="indigo-text text-lighten-1">Utilisateurs</p>
                             </div>
@@ -28,8 +24,8 @@
                         <a href="{{ path('user_showInactiveUser') }}">
                             <div style="padding: 30px;" class="grey lighten-3 col s12 m12 l5  waves-effect">
                                 <span class="fa-stack fa-5x">
-                                <i class="fa fa-users fa-stack-1x" style="color: #444;"></i>
-                                <i class="fa fa-ban fa-stack-2x" style="color: #B71586"></i>
+                                <i class="fa fa-users fa-stack-1x " style="color:#B71586";"></i>
+                                <i class="fa fa-ban fa-stack-2x CatDashboard4"></i>
                                 </span>
                                 <p class="indigo-text text-lighten-1">Anciens utilisateurs</p>
                             </div>
@@ -49,8 +45,8 @@
                         <a href="{{ path('categorieplateforme_index') }}">
                             <div style="padding: 30px;" class="grey lighten-3 col s12 m12 l5  waves-effect">
                                 <span class="fa-stack fa-5x">
-                                <i class="fa fa-circle fa-stack-2x icon-background2"></i>
-                                <i class="fa fa-eyedropper fa-stack-1x" style="color: #444;"></i>
+                                <i class="fa fa-circle fa-stack-2x CatDashboard2"></i>
+                                <i class="fa fa-eyedropper fa-stack-1x"></i>
                                 </span>
                                 <p class="indigo-text text-lighten-1">Sous-catégories</p>
                             </div>
@@ -61,8 +57,8 @@
                         <a href="{{ path('post_showAllPostDesactive') }}">
                             <div style="padding: 30px;" class="grey lighten-3 col s12 m12 l5  waves-effect">
                                 <span class="fa-stack fa-5x">
-                                <i class="fa fa-file-o fa-stack-1x" style="color: #444;"></i>
-                                <i class="fa fa-ban fa-stack-2x" style="color: #8C6822"></i>
+                                <i class="fa fa-file-o fa-stack-1x" style="color: #8c6822"></i>
+                                <i class="fa fa-ban fa-stack-2x CatDashboard2"></i>
                                 </span>
                                 <p class="indigo-text text-lighten-1">Messages inactifs</p>
                             </div>
@@ -83,8 +79,8 @@
                         <a href="{{ path('agenda_new') }}" >
                             <div style="padding: 30px;" class="grey lighten-3 col s12 m12 offset-l3 l5  waves-effect">
                                 <span class="fa-stack fa-5x">
-                                <i class="fa fa-circle fa-stack-2x icon-background3"></i>
-                                <i class="fa fa-calendar-plus-o fa-stack-1x" style="color: #444;"></i>
+                                <i class="fa fa-circle fa-stack-2x CatDashboard3"></i>
+                                <i class="fa fa-calendar-plus-o fa-stack-1x"></i>
                                 </span>
                                 <p class="indigo-text text-lighten-1">Nouvel évènement</p>
                             </div>
@@ -103,8 +99,8 @@
                         <a href="{{ path('newsletter_new') }}">
                             <div style="padding: 30px;" class="grey lighten-3 col s12 m12 l5 waves-effect">
                                 <span class="fa-stack fa-5x">
-                                <i class="fa fa-circle fa-stack-2x icon-background1"></i>
-                                <i class="fa fa-plus fa-stack-1x" style="color: #444;"></i>
+                                <i class="fa fa-circle fa-stack-2x CatDashboard1"></i>
+                                <i class="fa fa-plus fa-stack-1x"></i>
                                 </span>
                                 <p class="indigo-text text-lighten-1">Nouvelle newsletter</p>
                             </div>
@@ -113,8 +109,8 @@
                         <a href="{{ path('newsletter_index') }}">
                             <div style="padding: 30px;" class="grey lighten-3 col s12 m12 l5 waves-effect">
                                 <span class="fa-stack fa-5x">
-                                <i class="fa fa-circle fa-stack-2x icon-background1"></i>
-                                <i class="fa fa-newspaper-o fa-stack-1x" style="color: #444;"></i>
+                                <i class="fa fa-circle fa-stack-2x CatDashboard1"></i>
+                                <i class="fa fa-newspaper-o fa-stack-1x"></i>
                                 </span>
                                 <p class="truncate indigo-text text-lighten-1">Liste des newsletters</p>
                             </div>
@@ -123,8 +119,8 @@
                         <a href="{{ path('abonnes_newsletter') }}">
                             <div style="padding: 30px;" class="grey lighten-3 col s12 m12 l5 waves-effect">
                                 <span class="fa-stack fa-5x">
-                                <i class="fa fa-circle fa-stack-2x icon-background1"></i>
-                                <i class="fa fa-address-book-o fa-stack-1x" style="color: #444;"></i>
+                                <i class="fa fa-circle fa-stack-2x CatDashboard1"></i>
+                                <i class="fa fa-address-book-o fa-stack-1x"></i>
                                 </span>
                                 <p class="indigo-text text-lighten-1">Abonnés newsletter</p>
                             </div>
@@ -134,8 +130,8 @@
                         <a href="{{ path('abonnesInactif_newsletter') }}">
                             <div style="padding: 30px;" class="grey lighten-3 col s12 m12 l5 waves-effect">
                                 <span class="fa-stack fa-5x">
-                                <i class="fa fa-users fa-stack-1x" style="color: #444;"></i>
-                                <i class="fa fa-ban fa-stack-2x" style="color: #07400A"></i>
+                                <i class="fa fa-users fa-stack-1x" style="color:#074004"></i>
+                                <i class="fa fa-ban fa-stack-2x CatDashboard1"></i>
                                 </span>
                                 <p class="indigo-text text-lighten-1">Anciens abonnés</p>
                             </div>

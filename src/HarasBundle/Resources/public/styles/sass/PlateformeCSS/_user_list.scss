@@ -52,6 +52,7 @@ tr .responsive-img{
   border-radius: 15px;
 }
 
+
 .boutons_user {
   width: 18%;
 }
@@ -59,18 +60,7 @@ tr .responsive-img{
 .user.btn-floating.btn-large{
   line-height:44px;
 }
-//.user.btn-floating.btn-large.waves-effect.tooltipped.icon-background2{
-//  line-height:44px;
-//}
-//.user.btn-floating.btn-large.waves-effect.tooltipped.icon-background3{
-//  line-height:44px;
-//}
-//.btn-large.waves-effect.tooltipped.icon-background4{
-//  line-height:44px;
-//}
-//.btn-large.waves-effect.tooltipped.icon-background5{
-//  line-height:44px;
-//}
+
 
 
 .user.btn-floating.btn-large i {
@@ -140,3 +130,22 @@ tr .responsive-img{
     padding-right: 16%;
   }
 }
+
+/*****************************/
+/* Couleurs icones dashboard */
+/*****************************/
+.CatDashboard1 {
+  color: rgba(7,64,10, 0.6);
+}
+.CatDashboard2 {
+  color: rgba(140, 104, 34, 0.6);
+}
+
+.CatDashboard3 {
+  color: rgba(39, 34, 140, 0.6);
+}
+
+.CatDashboard4 {
+  color: rgba(183, 21, 134, 0.6);
+}
+

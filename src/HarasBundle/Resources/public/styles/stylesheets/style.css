@@ -2450,22 +2450,22 @@ tr .responsive-img {
   border-radius: 15px;
 }
 
-/* line 55, ../sass/PlateformeCSS/_user_list.scss */
+/* line 56, ../sass/PlateformeCSS/_user_list.scss */
 .boutons_user {
   width: 18%;
 }
 
-/* line 59, ../sass/PlateformeCSS/_user_list.scss */
+/* line 60, ../sass/PlateformeCSS/_user_list.scss */
 .user.btn-floating.btn-large {
   line-height: 44px;
 }
 
-/* line 76, ../sass/PlateformeCSS/_user_list.scss */
+/* line 66, ../sass/PlateformeCSS/_user_list.scss */
 .user.btn-floating.btn-large i {
   line-height: 38px;
 }
 
-/* line 80, ../sass/PlateformeCSS/_user_list.scss */
+/* line 70, ../sass/PlateformeCSS/_user_list.scss */
 .user.btn-floating.btn-large {
   width: 36px;
   height: 36px;
@@ -2475,12 +2475,12 @@ tr .responsive-img {
                           MEDIA-QUERIES
 \*-----------------------------------------------------*/
 @media screen and (max-width: 1525px) {
-  /* line 91, ../sass/PlateformeCSS/_user_list.scss */
+  /* line 81, ../sass/PlateformeCSS/_user_list.scss */
   #user_edit_model {
     width: 70%;
   }
 }
-/* line 96, ../sass/PlateformeCSS/_user_list.scss */
+/* line 86, ../sass/PlateformeCSS/_user_list.scss */
 #user_list_model {
   width: 75%;
   background-color: rgba(177, 176, 206, 0.3);
@@ -2490,45 +2490,68 @@ tr .responsive-img {
 }
 
 @media screen and (max-width: 1700px) {
-  /* line 106, ../sass/PlateformeCSS/_user_list.scss */
+  /* line 96, ../sass/PlateformeCSS/_user_list.scss */
   .row.input-field.user {
     padding-left: 31%;
     padding-right: 29%;
   }
 }
 @media screen and (max-width: 1350px) {
-  /* line 113, ../sass/PlateformeCSS/_user_list.scss */
+  /* line 103, ../sass/PlateformeCSS/_user_list.scss */
   .row.input-field.user {
     padding-left: 31%;
     padding-right: 23%;
   }
 }
 @media screen and (max-width: 1250px) {
-  /* line 120, ../sass/PlateformeCSS/_user_list.scss */
+  /* line 110, ../sass/PlateformeCSS/_user_list.scss */
   .row.input-field.user {
     padding-left: 31%;
     padding-right: 17%;
   }
 }
 @media screen and (max-width: 800px) {
-  /* line 127, ../sass/PlateformeCSS/_user_list.scss */
+  /* line 117, ../sass/PlateformeCSS/_user_list.scss */
   #user_edit_model {
     max-width: 70%;
   }
 
-  /* line 131, ../sass/PlateformeCSS/_user_list.scss */
+  /* line 121, ../sass/PlateformeCSS/_user_list.scss */
   #user_edit_model .row {
     margin-left: 0.25rem !important;
     margin-right: 1.25rem !important;
   }
 }
 @media screen and (max-width: 900px) {
-  /* line 138, ../sass/PlateformeCSS/_user_list.scss */
+  /* line 128, ../sass/PlateformeCSS/_user_list.scss */
   .row.input-field.user {
     padding-left: 23%;
     padding-right: 16%;
   }
 }
+/*****************************/
+/* Couleurs icones dashboard */
+/*****************************/
+/* line 137, ../sass/PlateformeCSS/_user_list.scss */
+.CatDashboard1 {
+  color: rgba(7, 64, 10, 0.6);
+}
+
+/* line 140, ../sass/PlateformeCSS/_user_list.scss */
+.CatDashboard2 {
+  color: rgba(140, 104, 34, 0.6);
+}
+
+/* line 144, ../sass/PlateformeCSS/_user_list.scss */
+.CatDashboard3 {
+  color: rgba(39, 34, 140, 0.6);
+}
+
+/* line 148, ../sass/PlateformeCSS/_user_list.scss */
+.CatDashboard4 {
+  color: rgba(183, 21, 134, 0.6);
+}
+
 /* line 2, ../sass/PlateformeCSS/_philosophie.scss */
 #philosophiemodel {
   max-width: 100%;
