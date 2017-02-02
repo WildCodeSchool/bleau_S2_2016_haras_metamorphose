@@ -1,9 +1,9 @@
 <?php
 namespace UserBundle\Controller;
-use Doctrine\ORM\Mapping\Id;
 use UserBundle\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 /**
  * User controller.
  *
@@ -17,8 +17,7 @@ class UserController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-//        ici on veut afficher que les user qui sont activés 1
-        $users = $em->getRepository('UserBundle:User')->findBy(array('actif' => 1));
+        $users = $em->getRepository('UserBundle:User')->findAll();
         return $this->render('@User/user/index.html.twig', array(
             'users' => $users,
         ));
@@ -55,19 +54,14 @@ class UserController extends Controller
             'delete_form' => $deleteForm->createView(),
         ));
     }
+    /**
+     * Displays a form to edit an existing user entity.
+     *
+     */
     public function editAction(Request $request, User $user)
     {
         $deleteForm = $this->createDeleteForm($user);
-        $editForm = $this->createForm('UserBundle\Form\UserType', $user);
-//        ajout recup photo
-        $mediaUser = $user->getPhoto();
-        $mediaForm = $editForm->get('photo');
-        $mediaForm->remove('alt');
-//        if ($mediaUser->getName() == User::getDefaultPhotoName()){
-//            $mediaUser = new Media();
-//        }
-        $mediaForm->setData($mediaUser);
-//        FIN ajout recup photo
+        $editForm = $this->createForm('UserBundle\Form\UserType', $user, array('roles' => $this->container->getParameter('security.role_hierarchy.roles')));
         $editForm->handleRequest($request);
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
@@ -79,6 +73,45 @@ class UserController extends Controller
             'delete_form' => $deleteForm->createView(),
         ));
     }
+    /**
+     * Deletes a user entity.
+     *
+     */
+    public function deleteAction(Request $request, User $user)
+    {
+        $form = $this->createDeleteForm($user);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->remove($user);
+            $em->flush($user);
+        }
+        return $this->redirectToRoute('user_index');
+    }
+    /**
+     * Creates a form to delete a user entity.
+     *
+     * @param User $user The user entity
+     *
+     * @return \Symfony\Component\Form\Form The form
+     */
+    private function createDeleteForm(User $user)
+    {
+        return $this->createFormBuilder()
+            ->setAction($this->generateUrl('user_delete', array('id' => $user->getId())))
+            ->setMethod('DELETE')
+            ->getForm()
+            ;
+    }
+    /**
+     * index admin.
+     *
+     */
+    public function indexAdminAction()
+    {
+        return $this->render('@User/Admin/index.html.twig');
+    }
+
     /**
      * Desactives a user entity.
      *
@@ -127,42 +160,5 @@ class UserController extends Controller
         );
         return $this->redirectToRoute('user_index');
     }
-    /**
-     * Deletes a user entity.
-     *
-     */
-    public function deleteAction(Request $request, User $user)
-    {
-        $form = $this->createDeleteForm($user);
-        $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->remove($user);
-            $em->flush($user);
-        }
-        return $this->redirectToRoute('user_index');
-    }
-    /**
-     * Creates a form to delete a user entity.
-     *
-     * @param User $user The user entity
-     *
-     * @return \Symfony\Component\Form\Form The form
-     */
-    private function createDeleteForm(User $user)
-    {
-        return $this->createFormBuilder()
-            ->setAction($this->generateUrl('user_delete', array('id' => $user->getId())))
-            ->setMethod('DELETE')
-            ->getForm()
-            ;
-    }
-    /**
-     * index admin.
-     *
-     */
-    public function indexAdminAction()
-    {
-        return $this->render('@User/Admin/index.html.twig');
-    }
+
 }
