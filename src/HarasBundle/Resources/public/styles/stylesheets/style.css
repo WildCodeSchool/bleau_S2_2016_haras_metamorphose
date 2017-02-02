@@ -2169,6 +2169,16 @@ footer.page-footer {
   margin-top: -18px;
 }
 
+/* line 10, ../sass/PlateformeCSS/_homepage_plateforme.scss */
+.indicators {
+  z-index: 2;
+}
+
+/* line 14, ../sass/PlateformeCSS/_homepage_plateforme.scss */
+.slider .indicators .indicator-item.active {
+  background-color: black;
+}
+
 /********************  PROFIL   ************************/
 /* line 2, ../sass/PlateformeCSS/_FosUser.scss */
 .profile img {
