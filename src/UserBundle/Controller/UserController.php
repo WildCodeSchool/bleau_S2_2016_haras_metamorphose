@@ -1,10 +1,9 @@
 <?php
 namespace UserBundle\Controller;
+use Doctrine\ORM\Mapping\Id;
 use UserBundle\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\StreamedResponse;
-
 /**
  * User controller.
  *
@@ -18,12 +17,12 @@ class UserController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $users = $em->getRepository('UserBundle:User')->findAll();
+//        ici on veut afficher que les user qui sont activés 1
+        $users = $em->getRepository('UserBundle:User')->findBy(array('actif' => 1));
         return $this->render('@User/user/index.html.twig', array(
             'users' => $users,
         ));
     }
-
     /**
      * Creates a new user entity.
      *
@@ -56,29 +55,78 @@ class UserController extends Controller
             'delete_form' => $deleteForm->createView(),
         ));
     }
-    /**
-     * Displays a form to edit an existing user entity.
-     *
-     */
     public function editAction(Request $request, User $user)
     {
         $deleteForm = $this->createDeleteForm($user);
-        $editForm = $this->createForm('UserBundle\Form\UserType', $user, array('roles' => $this->container->getParameter('security.role_hierarchy.roles')));
+        $editForm = $this->createForm('UserBundle\Form\UserType', $user);
+//        ajout recup photo
+        $mediaUser = $user->getPhoto();
+        $mediaForm = $editForm->get('photo');
+        $mediaForm->remove('alt');
+//        if ($mediaUser->getName() == User::getDefaultPhotoName()){
+//            $mediaUser = new Media();
+//        }
+        $mediaForm->setData($mediaUser);
+//        FIN ajout recup photo
         $editForm->handleRequest($request);
-
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-
             return $this->redirectToRoute('user_show', array('id' => $user->getId()));
         }
-
         return $this->render('@User/user/edit.html.twig', array(
             'user' => $user,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
     }
-
+    /**
+     * Desactives a user entity.
+     *
+     */
+    public function desactiveAction($id) {
+//        ici lorsque je désactive un user, je desactive aussi son abonnement newsletter s'il était abonne.
+        $em = $this->getDoctrine()->getManager();
+        $user = $em->getRepository('UserBundle:User')->findOneBy(array('id' => $id));
+        $user->setActif(false);
+        $user->setNewsletter(false);
+        $em->persist($user);
+        $em->flush($user);
+        $this->addFlash(
+            'notice',
+            'Utilisateur désactivé'
+        );
+        return $this->redirectToRoute('user_index');
+    }
+    /**
+     * show desactives users.
+     *
+     */
+    public function showInactiveUserAction(Request $request) {
+        $em = $this->getDoctrine()->getManager();
+//        ici on veut afficher que les users qui sont desactivés
+        $users = $em->getRepository('UserBundle:User')->findBy(array('actif' => 0));
+        return $this->render('@User/user/showInactiveUser.html.twig', array(
+            'users' => $users,
+        ));
+    }
+    /**
+     * Reactive a user entity.
+     *
+     */
+    public function reactiveAction($id) {
+//        ici je reactive le user et son abonnement newsletter ou non
+        $em = $this->getDoctrine()->getManager();
+        $user = $em->getRepository('UserBundle:User')->findOneBy(array('id' => $id));
+        $user->setActif(true);
+        $user->setNewsletter(true);
+        $em->persist($user);
+        $em->flush($user);
+        $this->addFlash(
+            'notice',
+            'Utilisateur désactivé'
+        );
+        return $this->redirectToRoute('user_index');
+    }
     /**
      * Deletes a user entity.
      *
@@ -109,7 +157,6 @@ class UserController extends Controller
             ->getForm()
             ;
     }
-
     /**
      * index admin.
      *
@@ -118,5 +165,4 @@ class UserController extends Controller
     {
         return $this->render('@User/Admin/index.html.twig');
     }
-
 }
