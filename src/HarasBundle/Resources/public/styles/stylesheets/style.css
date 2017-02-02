@@ -2404,6 +2404,29 @@ tr .responsive-img {
   border-radius: 15px;
 }
 
+/*****************************/
+/* Couleurs icones dashboard */
+/*****************************/
+/* line 57, ../sass/PlateformeCSS/_user_list.scss */
+.CatDashboard1 {
+  color: rgba(7, 64, 10, 0.6);
+}
+
+/* line 60, ../sass/PlateformeCSS/_user_list.scss */
+.CatDashboard2 {
+  color: rgba(140, 104, 34, 0.6);
+}
+
+/* line 64, ../sass/PlateformeCSS/_user_list.scss */
+.CatDashboard3 {
+  color: rgba(39, 34, 140, 0.6);
+}
+
+/* line 68, ../sass/PlateformeCSS/_user_list.scss */
+.CatDashboard4 {
+  color: rgba(183, 21, 134, 0.6);
+}
+
 /* line 2, ../sass/PlateformeCSS/_philosophie.scss */
 #philosophiemodel {
   max-width: 100%;
