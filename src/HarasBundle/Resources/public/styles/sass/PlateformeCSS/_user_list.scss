@@ -51,3 +51,84 @@ tr .responsive-img{
   margin-bottom: 20px;
   border-radius: 15px;
 }
+
+.boutons_user {
+  width: 18%;
+}
+
+.user.btn-floating.btn-large{
+  line-height:44px;
+}
+//.user.btn-floating.btn-large.waves-effect.tooltipped.icon-background2{
+//  line-height:44px;
+//}
+//.user.btn-floating.btn-large.waves-effect.tooltipped.icon-background3{
+//  line-height:44px;
+//}
+//.btn-large.waves-effect.tooltipped.icon-background4{
+//  line-height:44px;
+//}
+//.btn-large.waves-effect.tooltipped.icon-background5{
+//  line-height:44px;
+//}
+
+
+.user.btn-floating.btn-large i {
+  line-height: 38px;
+}
+
+.user.btn-floating.btn-large {
+  width: 36px;
+  height: 36px;
+}
+
+/*-----------------------------------------------------*\
+                          MEDIA-QUERIES
+\*-----------------------------------------------------*/
+
+
+@media screen and (max-width:1525px) {
+  #user_edit_model {
+    width: 70%;
+  }
+}
+
+
+@media screen and (max-width:1700px) {
+  .row.input-field.user{
+    padding-left:31%;
+    padding-right: 29%;
+  }
+}
+
+@media screen and (max-width:1350px) {
+  .row.input-field.user{
+    padding-left:31%;
+    padding-right: 23%;
+  }
+}
+
+@media screen and (max-width:1250px) {
+  .row.input-field.user{
+    padding-left:31%;
+    padding-right: 17%;
+  }
+}
+
+@media screen and (max-width:800px) {
+  #user_edit_model {
+    max-width: 70%;
+  }
+
+  #user_edit_model .row {
+    margin-left: 0.25rem !important;
+    margin-right: 1.25rem !important;
+  }
+}
+
+@media screen and (max-width:900px) {
+  .row.input-field.user{
+    padding-left:23%;
+    padding-right: 16%;
+  }
+}

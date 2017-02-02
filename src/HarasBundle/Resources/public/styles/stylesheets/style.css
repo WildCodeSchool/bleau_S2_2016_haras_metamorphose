@@ -2455,12 +2455,6 @@ p.center.inscrire {
     padding-right: 16%;
   }
 }
-@media screen and (min-width: 520px) {
-  /* line 255, ../sass/PlateformeCSS/_FosUser.scss */
-  [type="checkbox"] + label::before, [type="checkbox"]:not(.filled-in) + label::after {
-    left: 23%;
-  }
-}
 @media screen and (max-width: 720px) {
   /* line 261, ../sass/PlateformeCSS/_FosUser.scss */
   h2 {
@@ -2534,6 +2528,76 @@ tr .responsive-img {
   border-radius: 15px;
 }
 
+/* line 55, ../sass/PlateformeCSS/_user_list.scss */
+.boutons_user {
+  width: 18%;
+}
+
+/* line 59, ../sass/PlateformeCSS/_user_list.scss */
+.user.btn-floating.btn-large {
+  line-height: 44px;
+}
+
+/* line 76, ../sass/PlateformeCSS/_user_list.scss */
+.user.btn-floating.btn-large i {
+  line-height: 38px;
+}
+
+/* line 80, ../sass/PlateformeCSS/_user_list.scss */
+.user.btn-floating.btn-large {
+  width: 36px;
+  height: 36px;
+}
+
+/*-----------------------------------------------------*\
+                          MEDIA-QUERIES
+\*-----------------------------------------------------*/
+@media screen and (max-width: 1525px) {
+  /* line 91, ../sass/PlateformeCSS/_user_list.scss */
+  #user_edit_model {
+    width: 70%;
+  }
+}
+@media screen and (max-width: 1700px) {
+  /* line 98, ../sass/PlateformeCSS/_user_list.scss */
+  .row.input-field.user {
+    padding-left: 31%;
+    padding-right: 29%;
+  }
+}
+@media screen and (max-width: 1350px) {
+  /* line 105, ../sass/PlateformeCSS/_user_list.scss */
+  .row.input-field.user {
+    padding-left: 31%;
+    padding-right: 23%;
+  }
+}
+@media screen and (max-width: 1250px) {
+  /* line 112, ../sass/PlateformeCSS/_user_list.scss */
+  .row.input-field.user {
+    padding-left: 31%;
+    padding-right: 17%;
+  }
+}
+@media screen and (max-width: 800px) {
+  /* line 119, ../sass/PlateformeCSS/_user_list.scss */
+  #user_edit_model {
+    max-width: 70%;
+  }
+
+  /* line 123, ../sass/PlateformeCSS/_user_list.scss */
+  #user_edit_model .row {
+    margin-left: 0.25rem !important;
+    margin-right: 1.25rem !important;
+  }
+}
+@media screen and (max-width: 900px) {
+  /* line 130, ../sass/PlateformeCSS/_user_list.scss */
+  .row.input-field.user {
+    padding-left: 23%;
+    padding-right: 16%;
+  }
+}
 /* line 2, ../sass/PlateformeCSS/_philosophie.scss */
 #philosophiemodel {
   max-width: 100%;

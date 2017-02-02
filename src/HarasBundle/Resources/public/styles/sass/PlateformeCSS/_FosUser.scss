@@ -251,11 +251,11 @@ p.center.inscrire{
   }
 }
 
-@media screen and (min-width:520px) {
-  [type="checkbox"] + label::before, [type="checkbox"]:not(.filled-in) + label::after {
-    left: 23%;
-  }
-}
+//@media screen and (min-width:520px) {
+//  [type="checkbox"] + label::before, [type="checkbox"]:not(.filled-in) + label::after {
+//    left: 23%;
+//  }
+//}
 
 @media screen and (max-width:720px) {
   h2 {

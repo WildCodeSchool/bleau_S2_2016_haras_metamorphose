@@ -5,9 +5,30 @@
 
     <h2>Liste des utilisateurs</h2>
     <div class="boutons-haut">
-        <a href="{{ path('user_new') }}" title="Créer un nouveau compte utilisateur"><i class="material-icons contactme">add_circle</i></a>
-        <a href="{{ path('plate_forme_homepage') }}" title="Retourner à l'accueil de l'administration"><i class="material-icons">send</i></a>
-        <a href="{{ path('user_showInactiveUser') }}" title="Voir liste des utilisateurs désactivés"><i class="material-icons">lock</i></a>
+       <a href="{{ path('user_new') }}">
+            <button class="user btn-floating btn-large waves-effect tooltipped icon-background6" type="submit" name="action"
+                    data-position="bottom"
+                    data-delay="50"
+                    data-tooltip="Créer un utilisateur">
+                <i class="material-icons">add</i>
+            </button>
+        </a>
+        <a href="{{ path('user_showInactiveUser') }}">
+            <button class="user btn-floating btn-large waves-effect tooltipped icon-background6" type="submit" name="action"
+                    data-position="bottom"
+                    data-delay="50"
+                    data-tooltip="Liste des utilisateurs inactivés">
+                <i class="material-icons">lock_outline</i>
+            </button>
+        </a>
+        <a href="{{ path('plate_forme_homepage') }}">
+            <button class="user btn-floating btn-large waves-effect tooltipped icon-background6" type="submit" name="action"
+                    data-position="bottom"
+                    data-delay="50"
+                    data-tooltip="Accueil">
+                <i class="material-icons">home</i>
+            </button>
+        </a>
     </div>
 
     <table class="responsive-table bordered striped" id="table_id">
@@ -34,11 +55,33 @@
                     <td>{{ user.prenom }}</td>
                     <td>{{ user.profession|raw }}</td>
                     <td>{{ user.nbPost|raw }}</td>
+
                     <td class="boutons_user">
                         <div class="boutons">
-                            <a href="{{ path('user_show', { 'id': user.id }) }}" title="Afficher"><i class="fa fa-eye fa-2x"></i></a>
-                            <a href="{{ path('user_edit', { 'id': user.id }) }}" title="Editer"><i class="fa fa-pencil fa-2x"></i></a>
-                            <a href="{{ path('user_desactive', {'id': user.id}) }}" title="Bloquer"><i class="fa fa-lock fa-2x"></i>
+                            <a href="{{ path('user_show', { 'id': user.id }) }}">
+                                <button class="user btn-floating btn-large waves-effect tooltipped icon-background4" type="submit" name="action"
+                                        data-position="bottom"
+                                        data-delay="50"
+                                        data-tooltip="Afficher">
+                                    <i class="material-icons">remove_red_eye</i>
+                                </button>
+                            </a>
+                            <a href="{{ path('user_edit', { 'id': user.id }) }}">
+                                <button class="user btn-floating btn-large waves-effect tooltipped icon-background4" type="submit" name="action"
+                                        data-position="bottom"
+                                        data-delay="50"
+                                        data-tooltip="Editer">
+                                    <i class="material-icons">edit</i>
+                                </button>
+                            </a>
+                            <a href="{{ path('user_desactive', {'id': user.id})}}">
+                                <button class="user btn-floating btn-large waves-effect tooltipped icon-background4" type="submit" name="action"
+                                        data-position="bottom"
+                                        data-delay="50"
+                                        data-tooltip="Désactiver">
+                                    <i class="material-icons">lock_outline</i>
+                                </button>
+                            </a>
                             {#<a href="{{ path('user_delete', { 'id': user.id }) }}" title="Bloquer"><i class="fa fa-lock fa-2x"></i>#}
                         </div>
                     </td>
