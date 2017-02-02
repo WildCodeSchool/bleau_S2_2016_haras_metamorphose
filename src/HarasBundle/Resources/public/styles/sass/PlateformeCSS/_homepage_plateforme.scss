@@ -7,4 +7,11 @@
   margin-top: -18px;
 }
 
+.indicators{
+  z-index: 2;
+}
+
+.slider .indicators .indicator-item.active {
+  background-color: black;
+}
 

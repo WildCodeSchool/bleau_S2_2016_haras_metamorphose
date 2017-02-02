@@ -40,7 +40,7 @@
                                        data-tooltip="Moderation">
                                         <i class="medium material-icons">dashboard</i>
                                     </a>
-                                    <span class="moderateur.log">
+                                    <span class="moderateurlog">
                                     {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}
                                     </span>
                                 </div>
@@ -83,12 +83,12 @@
                         </li>
 
                         <li>
-                            <a class="btn-floating btn-large icon-background4 waves-effect tooltipped"
-                               href="{{ path('fos_user_profile_show') }}"
+                            <a class="dropdown-button btn-floating btn-large icon-background4 waves-effect tooltipped"
                                data-activates="dropdown2"
                                data-position="bottom"
                                data-delay="50"
-                               data-tooltip="Profil">
+                               data-tooltip="Profil"
+                               href="{{ path('fos_user_profile_show') }}">
                                 <i class="material-icons">account_box</i>
                             </a>
                         </li>
@@ -103,6 +103,7 @@
                         </ul>
                     </ul>
                 </div>
+
 
                 {#Button Horizontal FAB pour navbar 1 visibles en mode mobile#}
                 <div class="fixed-action-btn horizontal hide-on-med-and-up">
@@ -166,31 +167,29 @@
                         </li>
 
                         <li>
-                            <a class="btn-floating btn-large icon-background4 waves-effect action tooltipped"
-                               href="{{ path('fos_user_profile_show') }}"
-                               data-activates="dropdown2"
+                            <a class="dropdown-button btn-floating btn-large icon-background4 waves-effect tooltipped"
+                               data-activates="dropdown1"
                                data-position="bottom"
                                data-delay="50"
-                               data-tooltip="Profil">
+                               data-tooltip="Profil"
+                               href="{{ path('fos_user_profile_show') }}">
                                 <i class="material-icons">account_box</i>
                             </a>
                         </li>
-                        <ul id="dropdown2" class="dropdown-content">
-                            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                                <li><a href="{{ path('fos_user_profile_show') }}">Voir mon profil</a></li>
-                                <li><a href="{{ path('fos_user_security_logout') }}">Se deconnecter</a></li>
-                            {% else %}
-                                <li><a href="{{ path('fos_user_registration_register') }}">Créer un compte</a></li>
-                                <li><a href="{{ path('fos_user_security_login') }}">Se connecter</a></li>
-                            {% endif %}
-                        </ul>
+                        {#<ul id="dropdown1" class="dropdown-content">#}
+                            {#{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}#}
+                                {#<li><a href="{{ path('fos_user_profile_show') }}">Voir mon profil</a></li>#}
+                                {#<li><a href="{{ path('fos_user_security_logout') }}">Se deconnecter</a></li>#}
+                            {#{% else %}#}
+                                {#<li><a href="{{ path('fos_user_registration_register') }}">Créer un compte</a></li>#}
+                                {#<li><a href="{{ path('fos_user_security_login') }}">Se connecter</a></li>#}
+                            {#{% endif %}#}
+                        {#</ul>#}
                     </ul>
                 </div>
-
-
             </nav>
         </div>
-        
+
         <div class="navbar-fixed">
             <nav class="navbar2">
                 <a href="#" data-activates="mobile-demo" class="button-collapse">
@@ -306,5 +305,15 @@
             $(".button-collapse").sideNav();
         });
     </script>
+    <script>
+        $(".dropdown-button").dropdown();
+    </script>
+    {#<script>#}
+        {#$('.dropdown-button').dropdown('open');#}
+
+    {#</script>#}
+
+
+
 
 {% endblock %}
