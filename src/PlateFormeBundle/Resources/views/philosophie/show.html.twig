@@ -1,30 +1,34 @@
 {% extends '@PlateForme/layout.html.twig' %}
 
 {% block body %}
-    <div class="container center" id="philosophiemodel">
-        <table>
-            <tbody>
+    <div class="container " id="philosophiemodel">
+        {#<table>#}
+            {#<tbody>#}
             {# Comme on récupère une variable au singulier, avant le in -> philo #}
             {% for philo in philosophie %}
-            <tr>
-                <td>{{ philo.texte |raw }}</td>
-            </tr>
-            </tbody>
-        </table>
+            {#<tr>#}
+                {{ philo.texte |raw }}
+            {#</tr>#}
+            {#</tbody>#}
+        {#</table>#}
 
-        <div class="boutons">
-            <a href="{{ path('plate_forme_homepage') }}" title="Revenir à l'accueil">
-                <span class="fa-stack fa-2x">
-                <i class="fa fa-circle fa-stack-2x icon-background2"></i>
-                <i class="fa fa-backward fa-stack-1x" aria-hidden="true"></i>
-                </span>
+        <div class="boutons center">
+            <a href="{{ path('plate_forme_homepage') }}">
+                <button class="user btn-floating btn-large waves-effect tooltipped icon-background6" type="submit" name="action"
+                        data-position="bottom"
+                        data-delay="50"
+                        data-tooltip="Accueil">
+                    <i class="material-icons right">home</i>
+                </button>
             </a>
             {% if is_granted('ROLE_ADMIN') %}
                 <a href="{{ path('philosophie_edit', { 'id': philo.id }) }}" title="Editer">
-                    <span class="fa-stack fa-2x">
-                    <i class="fa fa-circle fa-stack-2x icon-background2"></i>
-                    <i class="fa fa-pencil fa-stack-1x"></i>
-                    </span>
+                    <button class="user btn-floating btn-large waves-effect tooltipped icon-background4" type="submit" name="action"
+                            data-position="bottom"
+                            data-delay="50"
+                            data-tooltip="Editer">
+                        <i class="material-icons right">edit</i>
+                    </button>
                 </a>
             {% endif %}
 
