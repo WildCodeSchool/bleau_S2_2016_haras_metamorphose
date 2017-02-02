@@ -2108,7 +2108,7 @@ footer.page-footer {
     margin-right: -15%;
   }
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 992px) {
   /* line 277, ../sass/PlateformeCSS/_layout_plateforme.scss */
   #sidenav-overlay {
     z-index: 1 !important;
