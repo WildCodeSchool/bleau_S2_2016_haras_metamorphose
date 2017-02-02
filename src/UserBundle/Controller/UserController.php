@@ -119,4 +119,52 @@ class UserController extends Controller
         return $this->render('@User/Admin/index.html.twig');
     }
 
+    /**
+     * Desactives a user entity.
+     *
+     */
+    public function desactiveAction($id) {
+//        ici lorsque je désactive un user, je desactive aussi son abonnement newsletter s'il était abonne.
+        $em = $this->getDoctrine()->getManager();
+        $user = $em->getRepository('UserBundle:User')->findOneBy(array('id' => $id));
+        $user->setActif(false);
+        $user->setNewsletter(false);
+        $em->persist($user);
+        $em->flush($user);
+        $this->addFlash(
+            'notice',
+            'Utilisateur désactivé'
+        );
+        return $this->redirectToRoute('user_index');
+    }
+    /**
+     * show desactives users.
+     *
+     */
+    public function showInactiveUserAction(Request $request) {
+        $em = $this->getDoctrine()->getManager();
+//        ici on veut afficher que les users qui sont desactivés
+        $users = $em->getRepository('UserBundle:User')->findBy(array('actif' => 0));
+        return $this->render('@User/user/showInactiveUser.html.twig', array(
+            'users' => $users,
+        ));
+    }
+    /**
+     * Reactive a user entity.
+     *
+     */
+    public function reactiveAction($id) {
+//        ici je reactive le user et son abonnement newsletter ou non
+        $em = $this->getDoctrine()->getManager();
+        $user = $em->getRepository('UserBundle:User')->findOneBy(array('id' => $id));
+        $user->setActif(true);
+        $user->setNewsletter(true);
+        $em->persist($user);
+        $em->flush($user);
+        $this->addFlash(
+            'notice',
+            'Utilisateur désactivé'
+        );
+        return $this->redirectToRoute('user_index');
+    }
 }
