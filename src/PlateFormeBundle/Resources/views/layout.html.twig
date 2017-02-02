@@ -313,7 +313,21 @@
 
     {#</script>#}
 
-
-
+    <script>
+        // Masque image dans a propos
+        //****************************************************
+        // Si image dans <p>
+        $(document).ready( function () {
+            $('#philoApropos > a > p > img').each(function(){
+                $(this).addClass('hide');
+            });
+        });
+        // Si image pas dans <p>
+        $(document).ready( function () {
+            $('#philoApropos > a > img').each(function(){
+                $(this).addClass('hide');
+            });
+        });
+    </script>
 
 {% endblock %}
