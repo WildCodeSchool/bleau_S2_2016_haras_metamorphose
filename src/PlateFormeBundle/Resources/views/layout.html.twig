@@ -306,12 +306,8 @@
         });
     </script>
     <script>
-        $(".dropdown-button").dropdown();
+        $(".dropdown-button").dropdown('open');
     </script>
-    {#<script>#}
-        {#$('.dropdown-button').dropdown('open');#}
-
-    {#</script>#}
 
     <script>
         // Masque image dans a propos
@@ -328,6 +324,23 @@
                 $(this).addClass('hide');
             });
         });
+
+        //Change taille police dans a propos
+        // Dans les balises P
+        $(document).ready( function () {
+            $('#philoApropos > a > p').each(function(){
+                $(this).css('font-size', '15px' );
+                $(this).css('font-family', 'sans-serif' );
+            });
+        });
+        // Dans les balises SPAN
+        $(document).ready( function () {
+            $('#philoApropos > p > span').each(function(){
+                this.style.setProperty('font-size', '15px', 'important' );
+                this.style.setProperty('font-family', 'sans-serif', 'important' );
+            });
+        });
+
     </script>
 
 {% endblock %}

@@ -29,8 +29,8 @@
                                 </a>
                             {% endif %}
                             <div class="caption center-align">
-                                <h3 class="grey-text text-darken-4">{{ event.titre }}</h3>
-                                <h5 class="blue-grey-text text-darken-4">{{ event.lieu }}</h5>
+                                <h3>{{ event.titre }}</h3>
+                                <h5 class="light grey-text text-lighten-3">{{ event.lieu }}</h5>
                             </div>
                         </li>
 
@@ -42,8 +42,8 @@
                 <li>
                     <img src="{{ asset(article.medias[0].path) }}" alt="{{ article.medias[0].alt }}"/>
                     <div class="caption center-align">
-                        <h3 class="grey-text text-darken-4">{{ article.title.translation('fr') }}</h3>
-                        <h5 class="blue-grey-text text-darken-4"></h5>
+                        <h3 class="light grey-text text-lighten-3">{{ article.title.translation('fr') }}</h3>
+                        <h5 class="light grey-text text-lighten-3"></h5>
                     </div>
                 </li>
 
