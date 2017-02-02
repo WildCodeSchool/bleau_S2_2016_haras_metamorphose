@@ -2,24 +2,27 @@
 
 {% block body %}
 <div class="container center" id="philosophiemodel">
-    <h2>Philosophie edit</h2>
+    <h2 class="soustitrePage">Modifier</h2>
 
     {{ form_start(edit_form) }}
         {{ form_widget(edit_form) }}
 
     <div class="boutons">
-        <a href="{{ path('plate_forme_homepage') }}" title="Revenir à l'accueil">
-            <span class="fa-stack fa-2x">
-                <i class="fa fa-circle fa-stack-2x icon-background2"></i>
-                <i class="fa fa-backward fa-stack-1x" aria-hidden="true"></i>
-            </span>
+        <a href="{{ path('plate_forme_homepage') }}">
+            <button class="user btn-floating btn-large waves-effect tooltipped icon-background6" type="submit" name="action"
+                    data-position="bottom"
+                    data-delay="50"
+                    data-tooltip="Accueil">
+                <i class="material-icons right">home</i>
+            </button>
         </a>
         {% if is_granted('ROLE_ADMIN') %}
-            <button type="submit" value="Valider l'édition">
-                    <span class="fa-stack fa-2x">
-                      <i class="fa fa-circle fa-stack-2x icon-background2"></i>
-                      <i class="fa fa-check fa-stack-1x"></i>
-                    </span>
+            <button class="user btn-floating btn-large waves-effect tooltipped btn-login icon-background4" type="submit" name="action"
+                    value="Valider l'édition"
+                    data-position="bottom"
+                    data-delay="50"
+                    data-tooltip="Valider">
+                <i class="material-icons">check</i>
             </button>
         {% endif %}
     </div>
