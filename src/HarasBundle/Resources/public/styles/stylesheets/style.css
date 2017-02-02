@@ -1838,42 +1838,43 @@ nav {
   transition-duration: .3s;
 }
 
-/* line 47, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 42, ../sass/PlateformeCSS/_layout_plateforme.scss */
 #dropdown2 {
-  margin-top: 115px;
+  margin-top: 112px;
   background-color: #aeb5b64d;
+  left: 1739px !important;
 }
 
-/* line 53, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 49, ../sass/PlateformeCSS/_layout_plateforme.scss */
 .nav-wrapper-plateforme {
   z-index: auto;
 }
 
-/* line 57, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 53, ../sass/PlateformeCSS/_layout_plateforme.scss */
 .decouverte:hover {
   background-color: rgba(7, 64, 10, 0.6);
   height: 44px;
 }
 
-/* line 62, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 58, ../sass/PlateformeCSS/_layout_plateforme.scss */
 .haras:hover {
   background-color: rgba(140, 104, 34, 0.6);
   height: 44px;
 }
 
-/* line 67, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 63, ../sass/PlateformeCSS/_layout_plateforme.scss */
 .detente:hover {
   background-color: rgba(39, 34, 140, 0.6);
   height: 44px;
 }
 
-/* line 72, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 68, ../sass/PlateformeCSS/_layout_plateforme.scss */
 .coworking:hover {
   background-color: rgba(183, 21, 134, 0.6);
   height: 44px;
 }
 
-/* line 77, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 73, ../sass/PlateformeCSS/_layout_plateforme.scss */
 #search-burger {
   color: black;
 }
@@ -1881,123 +1882,123 @@ nav {
 /*-----------------------------------------------------*\
                           LOGO - ICON
 \*-----------------------------------------------------*/
-/* line 87, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 83, ../sass/PlateformeCSS/_layout_plateforme.scss */
 ul.right.hide-on-med-and-down {
   padding-top: 1px;
 }
 
-/* line 91, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 87, ../sass/PlateformeCSS/_layout_plateforme.scss */
 nav ul a:hover {
   background-color: rgba(0, 0, 0, 0.1);
   padding-bottom: 5px;
 }
 
-/* line 96, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 92, ../sass/PlateformeCSS/_layout_plateforme.scss */
 #plateforme-logo {
   background-color: #577a37;
   height: 64px;
 }
 
-/* line 102, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 98, ../sass/PlateformeCSS/_layout_plateforme.scss */
 #plateforme-logo:hover {
   background-color: #496b35;
 }
 
-/* line 106, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 102, ../sass/PlateformeCSS/_layout_plateforme.scss */
 a.plateforme-logo {
   padding: 0px;
 }
 
-/* line 110, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 106, ../sass/PlateformeCSS/_layout_plateforme.scss */
 a.plateforme-logo:hover {
   background-color: transparent;
   height: 100%;
 }
 
-/* line 115, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 111, ../sass/PlateformeCSS/_layout_plateforme.scss */
 nav ul.left {
   height: 56px;
 }
 
-/* line 120, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 116, ../sass/PlateformeCSS/_layout_plateforme.scss */
 .btn-floating.icon-background5 {
   background-color: rgba(24, 19, 239, 0.6);
 }
 
-/* line 124, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 120, ../sass/PlateformeCSS/_layout_plateforme.scss */
 .btn-floating.icon-background6 {
   background-color: rgba(24, 19, 239, 0.6);
 }
 
-/* line 128, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 124, ../sass/PlateformeCSS/_layout_plateforme.scss */
 .btn-floating.icon-background4 {
   background-color: rgba(183, 21, 134, 0.6);
 }
 
-/* line 132, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 128, ../sass/PlateformeCSS/_layout_plateforme.scss */
 .btn-floating.icon-background3 {
   background-color: rgba(39, 34, 140, 0.6);
 }
 
-/* line 136, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 132, ../sass/PlateformeCSS/_layout_plateforme.scss */
 .btn-floating.icon-background2 {
   background-color: rgba(140, 104, 34, 0.6);
 }
 
-/* line 140, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 136, ../sass/PlateformeCSS/_layout_plateforme.scss */
 .btn-floating.icon-background1 {
   background-color: rgba(7, 64, 10, 0.6);
 }
 
-/* line 145, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 141, ../sass/PlateformeCSS/_layout_plateforme.scss */
 .fixed-action-btn {
   position: absolute !important;
   bottom: 5px;
 }
 
-/* line 150, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 146, ../sass/PlateformeCSS/_layout_plateforme.scss */
 nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
   line-height: unset;
   font-size: 30px;
 }
 
-/* line 155, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 151, ../sass/PlateformeCSS/_layout_plateforme.scss */
 .btn-floating.btn-large i {
   line-height: 52px;
 }
 
-/* line 159, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 155, ../sass/PlateformeCSS/_layout_plateforme.scss */
 .btn-floating.btn-large {
   width: 50px;
   height: 50px;
 }
 
-/* line 164, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 160, ../sass/PlateformeCSS/_layout_plateforme.scss */
 a.btn-floating.btn-large.icon-background1.waves-effect {
   margin-top: 5px;
 }
 
-/* line 168, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 164, ../sass/PlateformeCSS/_layout_plateforme.scss */
 a.btn-floating.btn-large.icon-background2.waves-effect {
   margin-top: 5px;
 }
 
-/* line 172, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 168, ../sass/PlateformeCSS/_layout_plateforme.scss */
 a.btn-floating.btn-large.icon-background3.waves-effect {
   margin-top: 5px;
 }
 
-/* line 176, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 172, ../sass/PlateformeCSS/_layout_plateforme.scss */
 a.btn-floating.btn-large.icon-background4.waves-effect {
   margin-top: 5px;
 }
 
-/* line 180, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 176, ../sass/PlateformeCSS/_layout_plateforme.scss */
 a.btn-floating.btn-large.icon-background5.waves-effect {
   margin-top: 5px;
 }
 
-/* line 185, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 181, ../sass/PlateformeCSS/_layout_plateforme.scss */
 .fixed-action-btn.horizontal ul li {
   display: inline-block;
   margin: -3px -18px 0 0px;
@@ -2007,14 +2008,14 @@ a.btn-floating.btn-large.icon-background5.waves-effect {
 /*-----------------------------------------------------*\
                           BODY
 \*-----------------------------------------------------*/
-/* line 195, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 191, ../sass/PlateformeCSS/_layout_plateforme.scss */
 body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
 }
 
-/* line 201, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 197, ../sass/PlateformeCSS/_layout_plateforme.scss */
 .main {
   flex: 1 0 auto;
 }
@@ -2022,7 +2023,7 @@ body {
 /*-----------------------------------------------------*\
                           FOOTER
 \*-----------------------------------------------------*/
-/* line 210, ../sass/PlateformeCSS/_layout_plateforme.scss */
+/* line 206, ../sass/PlateformeCSS/_layout_plateforme.scss */
 footer.page-footer {
   background-color: rgba(118, 135, 146, 0.9);
   margin-top: 0px;
@@ -2032,130 +2033,130 @@ footer.page-footer {
                           MEDIA-QUERIES
 \*-----------------------------------------------------*/
 @media screen and (max-width: 600px) {
-  /* line 221, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  /* line 217, ../sass/PlateformeCSS/_layout_plateforme.scss */
   #plateforme-logo {
     height: 55px;
   }
 }
 @media screen and (max-width: 330px) {
-  /* line 227, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  /* line 223, ../sass/PlateformeCSS/_layout_plateforme.scss */
   .newsletter-logo {
     margin-right: -1%;
   }
 
-  /* line 230, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  /* line 226, ../sass/PlateformeCSS/_layout_plateforme.scss */
   .post-logo {
     margin-left: -3%;
   }
 
-  /* line 233, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  /* line 229, ../sass/PlateformeCSS/_layout_plateforme.scss */
   .agenda-logo {
     margin-left: -3%;
   }
 
-  /* line 236, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  /* line 232, ../sass/PlateformeCSS/_layout_plateforme.scss */
   .profile-logo {
     margin-left: -3%;
   }
 }
 @media screen and (max-width: 398px) {
-  /* line 242, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  /* line 238, ../sass/PlateformeCSS/_layout_plateforme.scss */
   .right {
     margin-right: -4%;
   }
 }
 @media screen and (max-width: 350px) {
-  /* line 248, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  /* line 244, ../sass/PlateformeCSS/_layout_plateforme.scss */
   .right {
     margin-right: -15%;
   }
 }
 @media screen and (max-width: 398px) {
-  /* line 254, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  /* line 250, ../sass/PlateformeCSS/_layout_plateforme.scss */
   .right {
     margin-right: -4%;
   }
 }
 @media screen and (max-width: 320px) {
-  /* line 260, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  /* line 256, ../sass/PlateformeCSS/_layout_plateforme.scss */
   .newsletter-lien {
     padding-left: 2px;
   }
 
-  /* line 263, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  /* line 259, ../sass/PlateformeCSS/_layout_plateforme.scss */
   .newsletter-lien {
     margin-right: -8%;
   }
 
-  /* line 266, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  /* line 262, ../sass/PlateformeCSS/_layout_plateforme.scss */
   .post-logo {
     margin-right: -9%;
   }
 
-  /* line 269, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  /* line 265, ../sass/PlateformeCSS/_layout_plateforme.scss */
   .agenda-logo {
     margin-right: -22px;
   }
 
-  /* line 272, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  /* line 268, ../sass/PlateformeCSS/_layout_plateforme.scss */
   .profile-logo {
     margin-left: 0%;
   }
 
-  /* line 275, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  /* line 271, ../sass/PlateformeCSS/_layout_plateforme.scss */
   .right {
     margin-right: -15%;
   }
 }
 @media screen and (max-width: 600px) {
-  /* line 281, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  /* line 277, ../sass/PlateformeCSS/_layout_plateforme.scss */
   #sidenav-overlay {
     z-index: 1 !important;
   }
 }
 @media screen and (max-width: 460px) {
-  /* line 287, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  /* line 283, ../sass/PlateformeCSS/_layout_plateforme.scss */
   .fixed-action-btn.horizontal ul li {
     display: inline-block;
     margin: -3px -18px 0 0px;
     float: none;
   }
 
-  /* line 292, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  /* line 288, ../sass/PlateformeCSS/_layout_plateforme.scss */
   .btn-floating.btn-large {
     width: 28px;
     height: 30px;
   }
 
-  /* line 296, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  /* line 292, ../sass/PlateformeCSS/_layout_plateforme.scss */
   .btn-floating.btn-large i {
     line-height: 31px;
   }
 
-  /* line 299, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  /* line 295, ../sass/PlateformeCSS/_layout_plateforme.scss */
   nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
     font-size: 22px;
   }
 
-  /* line 303, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  /* line 299, ../sass/PlateformeCSS/_layout_plateforme.scss */
   nav ul a.btn, nav ul a.btn-large, nav ul a.btn-large, nav ul a.btn-flat, nav ul a.btn-floating {
     margin-left: 10px;
   }
 
-  /* line 306, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  /* line 302, ../sass/PlateformeCSS/_layout_plateforme.scss */
   a.btn-floating.btn-large.icon-background6.waves-effect.action {
     margin-left: -23px;
     margin-right: -4px;
   }
 }
 @media screen and (max-width: 670px) {
-  /* line 313, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  /* line 309, ../sass/PlateformeCSS/_layout_plateforme.scss */
   span.adminlog {
     display: none;
   }
 }
 @media screen and (max-width: 720px) {
-  /* line 319, ../sass/PlateformeCSS/_layout_plateforme.scss */
+  /* line 315, ../sass/PlateformeCSS/_layout_plateforme.scss */
   span.moderateurlog {
     display: none;
   }
@@ -2568,41 +2569,50 @@ tr .responsive-img {
     width: 70%;
   }
 }
+/* line 96, ../sass/PlateformeCSS/_user_list.scss */
+#user_list_model {
+  width: 75%;
+  background-color: rgba(177, 176, 206, 0.3);
+  padding: 10px 0px 15px 0px;
+  margin-bottom: 20px;
+  border-radius: 15px;
+}
+
 @media screen and (max-width: 1700px) {
-  /* line 98, ../sass/PlateformeCSS/_user_list.scss */
+  /* line 106, ../sass/PlateformeCSS/_user_list.scss */
   .row.input-field.user {
     padding-left: 31%;
     padding-right: 29%;
   }
 }
 @media screen and (max-width: 1350px) {
-  /* line 105, ../sass/PlateformeCSS/_user_list.scss */
+  /* line 113, ../sass/PlateformeCSS/_user_list.scss */
   .row.input-field.user {
     padding-left: 31%;
     padding-right: 23%;
   }
 }
 @media screen and (max-width: 1250px) {
-  /* line 112, ../sass/PlateformeCSS/_user_list.scss */
+  /* line 120, ../sass/PlateformeCSS/_user_list.scss */
   .row.input-field.user {
     padding-left: 31%;
     padding-right: 17%;
   }
 }
 @media screen and (max-width: 800px) {
-  /* line 119, ../sass/PlateformeCSS/_user_list.scss */
+  /* line 127, ../sass/PlateformeCSS/_user_list.scss */
   #user_edit_model {
     max-width: 70%;
   }
 
-  /* line 123, ../sass/PlateformeCSS/_user_list.scss */
+  /* line 131, ../sass/PlateformeCSS/_user_list.scss */
   #user_edit_model .row {
     margin-left: 0.25rem !important;
     margin-right: 1.25rem !important;
   }
 }
 @media screen and (max-width: 900px) {
-  /* line 130, ../sass/PlateformeCSS/_user_list.scss */
+  /* line 138, ../sass/PlateformeCSS/_user_list.scss */
   .row.input-field.user {
     padding-left: 23%;
     padding-right: 16%;
