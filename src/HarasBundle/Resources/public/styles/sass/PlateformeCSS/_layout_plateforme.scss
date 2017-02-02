@@ -39,18 +39,12 @@ nav{
 }
 
 
-#dropdown1 {
-  top: 65px !important;
-  left: 15px !important;
-}
-
-.dropdown-content {
-  margin-top: 115px;
-}
-
-.dropdown-content{
+#dropdown2 {
+  margin-top: 112px;
   background-color: #aeb5b64d;
+  left: 1739px !important;
 }
+
 
 .nav-wrapper-plateforme {
   z-index: auto;
@@ -279,7 +273,7 @@ footer.page-footer{
   }
 }
 
-@media screen and (max-width:600px){
+@media screen and (max-width:992px){
   #sidenav-overlay{
     z-index: 1 !important;
   }
@@ -312,9 +306,14 @@ footer.page-footer{
 }
 
 @media screen and (max-width:670px) {
-  span.adminlog{
+  span.adminlog {
     display: none;
   }
 }
 
+@media screen and (max-width:720px) {
+  span.moderateurlog{
+    display: none;
+  }
+}
 

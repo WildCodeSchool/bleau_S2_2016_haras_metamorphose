@@ -2,12 +2,12 @@
 
 {% block body %}
 
-    <div class="container">
-        <h2 class="center">{{ titre }}</h2>
+    <div class="container center" id="user_list_model">
+        <h3 class="center">{{ titre }}</h3>
     {% if abonnesForums is empty %}
-        <h2 class="center">Pas d'abonnés du forum inscrit à la newsletter</h2>
+        <h4 class="center">Pas d'abonnés du forum inscrits à la newsletter</h4>
     {% else %}
-        <h2 class="center">{{ titre1 }}</h2>
+        <h3 class="center">{{ titre1 }}</h3>
         <table class="responsive-table bordered striped">
             <thead>
             <tr>
@@ -29,11 +29,13 @@
             </tbody>
         </table>
     {% endif %}
+    </div>
 
+    <div class="container center" id="user_list_model">
     {% if abonnesNLs is empty %}
-        <h2 class="center">Pas d'abonnés inscrits à la newsletter</h2>
+        <h4 class="center">Pas d'abonnés inscrits à la newsletter</h4>
     {% else %}
-    <h2 class="center">{{ titre2 }}</h2>
+    <h3 class="center">{{ titre2 }}</h3>
     <table class="responsive-table bordered striped">
         <thead>
         <tr>

@@ -88,16 +88,23 @@
             </div>
         </div>
         <div class="button-register">
-            <button class="btn waves-effect waves-light btn-login" type="submit" name="action"
-                    value="{{ 'registration.submit'|trans }}">S'enregistrer
-                <i class="material-icons right">send</i>
+            <button class="btn-floating btn-large waves-effect tooltipped btn-login" type="submit" name="action"
+                    value="{{ 'registration.submit'|trans }}"
+                    data-position="bottom"
+                    data-delay="50"
+                    data-tooltip="S'enregistrer">
+                <i class="material-icons">check</i>
             </button>
 
             <a href="{{ path('plate_forme_homepage') }}">
-                <button class="btn waves-effect waves-light btn-login" type="submit" name="action">Retour
-                    <i class="material-icons right">send</i>
+                <button class="btn-floating btn-large waves-effect tooltipped btn-login" type="submit" name="action"
+                        data-position="bottom"
+                        data-delay="50"
+                        data-tooltip="Accueil">
+                    <i class="material-icons right">home</i>
                 </button>
             </a>
+
         </div>
         {{ form_end(form) }}
 

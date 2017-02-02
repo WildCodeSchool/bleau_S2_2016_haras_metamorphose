@@ -2,15 +2,10 @@
 
 {% block body %}
 
-
-    <div class="container_profile main">
+    <div class="container-profile container ">
         {% block fos_user_content %}
             {% include "FOSUserBundle:Profile:show_content.html.twig" %}
         {% endblock fos_user_content %}
-        <div class="container_button">
-            <p class="button"><a class="btn btn-primary btn-lg" href="{{ path('fos_user_profile_edit') }}" role="button">Modifier mon profil</a> <a class="btn btn-primary btn-lg" href="{{ path('plate_forme_homepage') }}">Retour à l'accueil</a></p>
-        </div>
     </div>
-
 
 {% endblock %}
