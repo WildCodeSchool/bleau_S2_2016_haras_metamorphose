@@ -4,7 +4,7 @@
     <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
 {% endif %}
 
-<div class="container center" id="loginmodel">
+<div class="container center main" id="loginmodel">
     <div class="col m8 offset-m2">
         <h2 class="Login">Se connecter</h2>
         <div class="row">
@@ -14,13 +14,13 @@
                     <input type="hidden" name="_csrf_token" value="{{ csrf_token }}"/>
                 {% endif %}
 
-                <div class="row input-field">
+                <div class="row input-field login">
                     <i class="material-icons prefix contactme">account_circle</i>
                     <label for="username">{{ 'security.login.username'|trans }}</label>
                     <input type="text" id="username" name="_username" value="{{ last_username }}" required="required"/>
                 </div>
 
-                <div class="row input-field">
+                <div class="row input-field login">
                     <i class="material-icons prefix contactme">vpn_key</i>
                     <label for="password">{{ 'security.login.password'|trans }}</label>
                     <input type="password" id="password" name="_password" required="required"/>
@@ -33,26 +33,36 @@
 
                 <div class="boutons">
                     <div class="connecter">
-                        <button class="btn waves-effect waves-light btn-login" type="submit" name="action"
-                                value="{{ 'security.login.submit'|trans }}">Se connecter
-                            <i class="material-icons">done</i>
+                        <button class="btn-floating btn-large waves-effect tooltipped btn-login" type="submit" name="action"
+                                value="{{ 'security.login.submit'|trans }}"
+                                data-position="bottom"
+                                data-delay="50"
+                                data-tooltip="Se connecter">
+                            <i class="material-icons">check</i>
                         </button>
-                    </div>
 
                         <a href="{{ path('plate_forme_homepage') }}">
-                            <button class="btn waves-effect waves-light btn-login" type="submit" name="action">Retour
-                                <i class="material-icons right">send</i>
+                            <button class="btn-floating btn-large waves-effect tooltipped btn-login" type="submit" name="action"
+                                    data-position="bottom"
+                                    data-delay="50"
+                                    data-tooltip="Accueil">
+                                <i class="material-icons right">home</i>
                             </button>
                         </a>
                     </div>
                 </div>
             </form>
+
+                <div class="bordure">
+                </div>
                 <div class="inscription">
                     <a href="{{ path('fos_user_registration_register') }}">
-                        <button class="btn waves-effect waves-light btn-login" type="submit" name="action">S'inscrire
-                            <i class="material-icons">perm_identity</i>
-                        </button>
+                        <p class="center inscrire" type="submit" name="action">
+                            Vous n'avez pas de compte ? <span class="lien-inscription">S'inscrire »»</span>
+                        </p>
                     </a>
                 </div>
-    </div>
+
+        </div>
+</div>
 </div>

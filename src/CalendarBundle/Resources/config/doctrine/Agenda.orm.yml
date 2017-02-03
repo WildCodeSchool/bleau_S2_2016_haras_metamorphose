@@ -29,6 +29,9 @@ CalendarBundle\Entity\Agenda:
         slider:
             type: boolean
             nullable: true
+        lien:
+            type: text
+            nullable: true
 
     manyToOne:
         image:

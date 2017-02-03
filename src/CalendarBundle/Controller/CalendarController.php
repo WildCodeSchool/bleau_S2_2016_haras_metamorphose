@@ -149,6 +149,20 @@ class CalendarController extends Controller
     }
 
     /**
+     * Finds and displays a agenda entity.
+     *
+     */
+    public function showAllAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $agenda = $em->getRepository('CalendarBundle:Agenda')->findall();
+
+        return $this->render('@Calendar/agenda/show_all.html.twig', array(
+            'events' => $agenda,
+        ));
+    }
+
+    /**
      * Displays a form to edit an existing agenda entity.
      *
      */
@@ -224,7 +238,7 @@ class CalendarController extends Controller
             $em->flush();
         }
 
-        return $this->redirectToRoute('plate_forme_homepage');
+        return $this->redirectToRoute('admin_dashboard');
     }
 
 }

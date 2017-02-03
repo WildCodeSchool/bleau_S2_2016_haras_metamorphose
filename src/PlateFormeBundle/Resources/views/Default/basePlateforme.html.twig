@@ -5,7 +5,7 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{% block title %}Plateforme du Haras de la métamorphose{% endblock %}</title>
-        <link rel="icon" type="image/x-icon" href="{{ asset('bundles/plateforme/images/icone-cheval.png') }}" />
+        <link rel="icon" type="image/x-icon" href="{{ asset('bundles/haras/images/chaval.png') }}" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
         <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.css">
 
@@ -76,11 +76,11 @@
         <script src="{{ asset('bundles/haras/scripts/materialize.min.js') }}"></script>
         <script src="{{ asset('bundles/forum/js/main_forum.js') }}"></script>
 
-        {% if (app.request.get('_route') == 'post_index') or (app.request.get('_route') == 'post_edit') or (app.request.get('_route') == 'post_edit') or (app.request.get('_route') == 'post_showMesMessages') or (app.request.get('_route') == 'post_showAllPost') or (app.request.get('_route') == 'categorieplateforme_index')  or (app.request.get('_route') == 'post_new') or (app.request.get('_route') == 'post_newParent') or (app.request.get('_route') == 'categorieplateforme_edit')  %}
-            {#Si controleur envoi vers les pages post index, show all post et categorie plateforme#}
-            {#la barre de navigation est différente cf postNavBar#}
+{#        {% if (app.request.get('_route') == 'post_index') or (app.request.get('_route') == 'post_edit') or (app.request.get('_route') == 'post_showMesMessages') or (app.request.get('_route') == 'post_showAllPost') or (app.request.get('_route') == 'categorieplateforme_index')  or (app.request.get('_route') == 'post_new') or (app.request.get('_route') == 'post_newParent') or (app.request.get('_route') == 'categorieplateforme_edit')  %}
+            #}{#Si controleur envoi vers les pages post index, show all post et categorie plateforme#}{#
+            #}{#la barre de navigation est différente cf postNavBar#}{#
             <script src="{{ asset('bundles/forum/js/aside_forum.js') }}"></script>
-        {% endif %}
+        {% endif %}#}
 
 
         {# APPEL DES JS DE FULLCALENDAR ET AUTRES PAGES #}

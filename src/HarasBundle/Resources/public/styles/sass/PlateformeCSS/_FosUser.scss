@@ -36,11 +36,31 @@ input{
   padding: 24px;
 }
 
+.profile{
+  padding-bottom: 7%;
+}
+
+#profilmodel {
+  max-width: 50%;
+  background-color: rgba(177, 176, 206, 0.3);
+  padding: 10px 0px 15px 0px;
+  border-radius: 15px;
+  margin-bottom: 3%;
+  margin-top: 3%;
+}
+
+#profilmodel .row {
+  margin:12%;
+}
+
+.boutons-profil{
+  margin-top: 9%;
+}
 
 /********************  REGISTER / LOGIN   ************************/
 
 .btn-login{
-  background-color: #9ed2cd;
+  background-color: #26a69a;
   margin-right: 2%;
 }
 
@@ -56,8 +76,10 @@ input{
   max-width: 50%;
   background-color: rgba(177, 176, 206, 0.3);
   padding: 10px 0px 15px 0px;
-  margin-bottom: 20px;
+  //margin-bottom: 20px;
   border-radius: 15px;
+  margin-bottom: 3%;
+  margin-top: 3%;
 }
 
 #loginmodel .row {
@@ -110,6 +132,7 @@ label{
   text-align: center;
 }
 
+
 [type="checkbox"] + label{
   color: black;
 }
@@ -117,7 +140,6 @@ label{
 [type="checkbox"]:checked + label::before {
   border-right: 2px solid black;
   border-bottom: 2px solid black;
-  //margin-right: 2%;
 }
 
 [type="checkbox"] + label{
@@ -146,8 +168,9 @@ label[for=username]{
   max-width: 100%;
   background-color: rgba(177, 176, 206, 0.3);
   padding: 10px 0px 30px 0px;
-  margin-bottom: 20px;
   border-radius: 15px;
+  margin-bottom: 3%;
+  margin-top: 3%;
 }
 
 #registermodel .row {
@@ -165,4 +188,83 @@ label[for=username]{
 
 .responsive-img{
   width: 10vw;
+}
+
+p.center.inscrire{
+  margin-top: 5%;
+}
+
+.bordure {
+  border-top: 1px solid grey;
+  margin-top: 8%;
+}
+
+.row.input-field.remember{
+  padding-left:32%;
+  padding-right: 36%;
+}
+
+.lien-inscription{
+  color: blue;
+}
+
+/*-----------------------------------------------------*\
+                          MEDIA-QUERIES
+\*-----------------------------------------------------*/
+
+@media screen and (max-width:1700px) {
+  .row.input-field.remember{
+    padding-left:31%;
+    padding-right: 29%;
+  }
+}
+
+@media screen and (max-width:1350px) {
+  .row.input-field.remember{
+    padding-left:31%;
+    padding-right: 23%;
+  }
+}
+
+@media screen and (max-width:1250px) {
+  .row.input-field.remember{
+    padding-left:31%;
+    padding-right: 17%;
+  }
+}
+
+@media screen and (max-width:800px) {
+  #loginmodel {
+    max-width: 80% !important;
+  }
+
+  #loginmodel .row {
+    margin-left: 0.25rem !important;
+    margin-right: 1.25rem !important;
+  }
+}
+
+@media screen and (max-width:900px) {
+  .row.input-field.remember{
+  padding-left:23%;
+  padding-right: 16%;
+  }
+}
+
+//@media screen and (min-width:520px) {
+//  [type="checkbox"] + label::before, [type="checkbox"]:not(.filled-in) + label::after {
+//    left: 23%;
+//  }
+//}
+
+@media screen and (max-width:720px) {
+  h2 {
+    font-size: 2.56rem;
+  }
+}
+
+@media screen and (max-width:500px) {
+  h2 {
+    font-size: 2rem;
+  }
 }

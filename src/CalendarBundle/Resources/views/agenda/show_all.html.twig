@@ -3,18 +3,9 @@
 
     <div class="container center" id="user_list_model">
 
-        <h2>Liste des utilisateurs désactivés</h2>
-
+        <h2>Liste des évènements</h2>
         <div class="boutons-haut">
-            <a href="{{ path('user_index') }}">
-                <button class="user btn-floating btn-large waves-effect tooltipped icon-background6" type="submit" name="action"
-                        data-position="bottom"
-                        data-delay="50"
-                        data-tooltip="Liste des utilisateurs actifs">
-                    <i class="material-icons">lock_open</i>
-                </button>
-            </a>
-            <a href="{{ path('plate_forme_homepage') }}">
+            <a href="{{ path('admin_dashboard') }}">
                 <button class="user btn-floating btn-large waves-effect tooltipped icon-background6" type="submit" name="action"
                         data-position="bottom"
                         data-delay="50"
@@ -22,43 +13,34 @@
                     <i class="material-icons">home</i>
                 </button>
             </a>
-            <a href="{{ path('user_export_csv') }}">
-                <button class="user btn-floating btn-large waves-effect tooltipped icon-background6" type="submit" name="action"
-                        data-position="bottom"
-                        data-delay="50"
-                        data-tooltip="Exporter la liste">
-                    <i class="material-icons">description</i>
-                </button>
-            </a>
         </div>
 
         <table class="responsive-table bordered striped" id="table_id">
             <thead>
             <tr>
-                <th>Avatar</th>
-                <th>Id</th>
-                <th>Username</th>
-                <th>Nom</th>
-                <th>Prenom</th>
-                <th>Profession</th>
-                <th>Nbpost</th>
-                {#<th>Role</th>#}
-                <th>Editer</th>
+                <th>id</th>
+                <th>Titre</th>
+                <th>Dates</th>
+                <th>Contenu</th>
+                <th>Slider</th>
             </tr>
             </thead>
             <tbody>
-            {% for user in users %}
+            {% for event in events %}
                 <tr>
-                    <td><img class="circle responsive-img" src="{{ user.photo ? asset(user.photo.path) }}"></td>
-                    <td><a href="{{ path('user_show', { 'id': user.id }) }}">{{ user.id }}</a></td>
-                    <td>{{ user.username }}</td>
-                    <td>{{ user.nom }}</td>
-                    <td>{{ user.prenom }}</td>
-                    <td>{{ user.profession|raw }}</td>
-                    <td>{{ user.nbPost|raw }}</td>
+                    <td>{{ event.id }}</td>
+                    <td>{{ event.titre }}</td>
+                    <td><div class="row">
+                            <div class="col s12">Début : {% if event.start %}{{ event.start|date('d-m-Y à H:i:s') }}{% endif %}</div>
+                            <div class="col s12">Fin : {% if event.end %}{{ event.end|date('d-m-Y à H:i:s') }}{% endif %}</div>
+                        </div>
+                    </td>
+                    <td>{{ event.texte }}</td>
+                    <td>{% if event.slider %}Evènement ajouté{% else %}Evènement non ajouté{% endif %}</td>
+
                     <td class="boutons_user">
                         <div class="boutons">
-                            <a href="{{ path('user_show', { 'id': user.id }) }}">
+                            <a href="{{ path('agenda_show', { 'id': event.id }) }}">
                                 <button class="user btn-floating btn-large waves-effect tooltipped icon-background4" type="submit" name="action"
                                         data-position="bottom"
                                         data-delay="50"
@@ -66,7 +48,7 @@
                                     <i class="material-icons">remove_red_eye</i>
                                 </button>
                             </a>
-                            <a href="{{ path('user_edit', { 'id': user.id }) }}">
+                            <a href="{{ path('agenda_edit', { 'id': event.id }) }}">
                                 <button class="user btn-floating btn-large waves-effect tooltipped icon-background4" type="submit" name="action"
                                         data-position="bottom"
                                         data-delay="50"
@@ -74,16 +56,15 @@
                                     <i class="material-icons">edit</i>
                                 </button>
                             </a>
-                            <a href="{{ path('user_reactive', {'id': user.id}) }}">
+                            <a href="{{ path('agenda_delete', {'id': event.id})}}">
                                 <button class="user btn-floating btn-large waves-effect tooltipped icon-background4" type="submit" name="action"
                                         data-position="bottom"
                                         data-delay="50"
-                                        data-tooltip="Réactiver"
-                                        onclick="return confirm('Etes-vous sure ?')">
+                                        data-tooltip="supprimer">
                                     <i class="material-icons">lock_outline</i>
                                 </button>
                             </a>
-                         </div>
+                        </div>
                     </td>
                 </tr>
             {% endfor %}
@@ -129,12 +110,5 @@
     </script>
 
     <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.js"></script>
-
-    {#<script>#}
-    {#$(document).ready(function() {#}
-    {#$('select').material_select();#}
-    {#});#}
-    {#</script>#}
-
 
 {% endblock %}

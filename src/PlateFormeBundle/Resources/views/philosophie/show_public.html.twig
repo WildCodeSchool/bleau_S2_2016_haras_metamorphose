@@ -1,0 +1,9 @@
+
+
+    {% for philo in philos %}
+        <div id="philoApropos" class="grey-text text-lighten-4">
+            <a href="{{ path('philosophie_show') }}" class="grey-text text-lighten-4">
+                {{ philo.texte | truncate(200, true, '...')|raw }}
+            </a>
+        </div>
+    {% endfor %}

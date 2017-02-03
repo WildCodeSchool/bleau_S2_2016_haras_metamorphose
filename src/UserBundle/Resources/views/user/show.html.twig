@@ -2,11 +2,11 @@
 
 {% block body %}
 
-<div class="container center" id="usermodel">
+    <div class="container center" id="user_edit_model">
 
     <h2>Profile de l'utilisateur</h2>
 
-    <table class="responsive-table bordered striped" id="table_id">
+    <table class="bordered striped" id="table_id">
             <tbody>
             <tr>
                 <th>Avatar</th>
@@ -32,18 +32,54 @@
                 <th>Nombre de posts</th>
                 <td>{{ user.nbPost }}</td>
             </tr>
-            <tr>
-                <th>Role</th>
-                <td></td>
-            </tr>
+            {#<tr>#}
+                {#<th>Role</th>#}
+                {#<td>{{ user.roles }}</td>#}
+            {#</tr>#}
             </tbody>
         </table>
 
     <td class="boutons_user">
         <div class="boutons">
-            <a href="{{ path('user_index') }}" title="Retour liste des utilisateurs"><i class="fa fa-backward fa-2x"></i></a>
-            <a href="{{ path('user_edit', { 'id': user.id }) }}" title="Editer"><i class="fa fa-pencil fa-2x"></i></a>
-            <a href="" title="Bloquer"><i class="fa fa-lock fa-2x"></i>
+            <a href="{{ path('user_index') }}">
+                <button class="user btn-floating btn-large waves-effect tooltipped icon-background4" type="submit" name="action"
+                        data-position="bottom"
+                        data-delay="50"
+                        data-tooltip="Retour liste utilisateur">
+                    <i class="material-icons">supervisor_account</i>
+                </button>
+            </a>
+            <a href="{{ path('user_edit', { 'id': user.id }) }}">
+                <button class="user btn-floating btn-large waves-effect tooltipped icon-background4" type="submit" name="action"
+                        data-position="bottom"
+                        data-delay="50"
+                        data-tooltip="Editer">
+                    <i class="material-icons">edit</i>
+                </button>
+            </a>
+            {%  if user.actif == true %}
+                <a href="{{ path('user_desactive', {'id': user.id}) }}">
+                    <button class="user btn-floating btn-large waves-effect tooltipped icon-background4" type="submit" name="action"
+                            data-position="bottom"
+                            data-delay="50"
+                            data-tooltip="Désactiver"
+                            onclick="return confirm('Etes-vous sure ?')">
+                        <i class="material-icons">lock_outline</i>
+                    </button>
+                </a>
+            {% else %}
+                <a href="{{ path('user_reactive', {'id': user.id}) }}">
+                    <button class="user btn-floating btn-large waves-effect tooltipped icon-background4" type="submit" name="action"
+                            data-position="bottom"
+                            data-delay="50"
+                            data-tooltip="Réactiver"
+                            onclick="return confirm('Etes-vous sure ?')">
+                        <i class="material-icons">lock_open</i>
+                    </button>
+                </a>
+            {% endif %}
+            {#<a href="{{ path('user_index') }}" title="Retour liste des utilisateurs"><i class="fa fa-backward fa-2x"></i></a>#}
+            {#<a href="{{ path('user_edit', { 'id': user.id }) }}" title="Editer"><i class="fa fa-pencil fa-2x"></i></a>#}
         </div>
     </td>
 </div>

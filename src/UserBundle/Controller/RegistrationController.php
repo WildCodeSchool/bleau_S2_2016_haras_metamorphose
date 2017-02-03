@@ -171,6 +171,8 @@ class RegistrationController extends Controller
         }
         $dispatcher->dispatch(FOSUserEvents::REGISTRATION_CONFIRMED, new FilterUserResponseEvent($user, $request, $response));
         return $response;
+
+
     }
     /**
      * Tell the user his account is now confirmed.

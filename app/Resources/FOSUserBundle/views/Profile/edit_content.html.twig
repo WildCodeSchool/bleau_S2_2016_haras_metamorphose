@@ -51,10 +51,14 @@
 
 
             <div class="button-register">
-                <button class="btn waves-effect waves-light btn-admin" type="submit" name="action"
-                        value="{{ 'profile.edit.submit'|trans }}">Editer mon profil
-                    <i class="material-icons right">send</i>
+                <button class="btn-floating btn-large waves-effect tooltipped btn-login" type="submit" name="action"
+                        value="{{ 'profile.edit.submit'|trans }}"
+                        data-position="bottom"
+                        data-delay="50"
+                        data-tooltip="Valider">
+                    <i class="material-icons">check</i>
                 </button>
+
             </div>
             {{ form_end(form) }}
         {#</div>#}

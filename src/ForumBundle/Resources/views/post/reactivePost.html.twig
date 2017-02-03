@@ -1,9 +1,10 @@
-{% extends '@Forum/layout.html.twig' %}
+{% extends '@PlateForme/layout.html.twig' %}
 
 {% block body %}
+
     {#-------------------------------------------------------------#}
     {# NavBar Lateral  #}
-    {{ include("@Forum/post/postNavBar.html.twig") }}
+    {#{{ include("@Forum/post/postNavBar.html.twig") }}#}
     {# fin navBar lateral #}
     {#-------------------------------------------------------------#}
     <section class="postSectionIndex">
@@ -85,4 +86,20 @@
             </div>
         </article>
     </section>
+
+    <div class="container">
+        <div class="row">
+            <div class="col s12 center">
+                <a href="{{ path('admin_dashboard') }}">
+                    <button class="user btn-floating btn-large waves-effect tooltipped icon-background6" type="submit" name="action"
+                            data-position="bottom"
+                            data-delay="50"
+                            data-tooltip="Accueil">
+                        <i class="material-icons">home</i>
+                    </button>
+                </a>
+            </div>
+        </div>
+    </div>
+
 {% endblock %}

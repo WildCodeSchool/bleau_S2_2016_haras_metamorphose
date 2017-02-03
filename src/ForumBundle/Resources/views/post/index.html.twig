@@ -3,132 +3,143 @@
 {% block body %}
     {#-------------------------------------------------------------#}
     {# NavBar Lateral  #}
-    {{ include("@Forum/post/postNavBar.html.twig") }}
+    {#{{ include("@Forum/post/postNavBar.html.twig") }}#}
     {# fin navBar lateral #}
     {#-------------------------------------------------------------#}
-  <section class="postSectionIndex">
-      {# DEBUT CODE #}
-  {#-------------------------------------------------------------#}
-    {# Mise en place message flash #}
-    {% for flash_message in app.session.flashBag.get('notice') %}
-        <div class="row container">
-            <div class="flash-notice center">
-                {{ flash_message }}
+    <section class="postSectionIndex">
+        {# DEBUT CODE #}
+        {#-------------------------------------------------------------#}
+        {# Mise en place message flash #}
+        {% for flash_message in app.session.flashBag.get('notice') %}
+            <div class="row container">
+                <div class="flash-notice center">
+                    {{ flash_message }}
+                </div>
             </div>
-        </div>
-    {% endfor %}
-    {#-------------------------------------------------------------#}
+        {% endfor %}
+        {#-------------------------------------------------------------#}
+        <article class="postArticleIndex">
+            {#-------------------------------------------------------------#}
+            {# BOUTON voir messages                                        #}
+            {#-------------------------------------------------------------#}
+            <div class="row right">
+                <span>
+                <a id="links" class="waves-effect waves-light btn white-text lighten-2 col s6" href="{{ path('post_showMesMessages', {'id': app.user.id}) }}">
+                    <i class="fa fa-clipboard fa-2x fa-fw"></i>
+                </a>
+                {# Selection user pour affichage de ses messages #}
+                <div class="col s6">
+                    {% render(controller("ForumBundle:Post:showListUser")) %}
+                </div>
+                {# Fin selection user #}
+                </span>
+            </div>
+            {#-------------------------------------------------------------#}
 
-  <article class="postArticleIndex">
-    <h1 class=" soustitrePage center">Discussions par catégorie</h1>
-    <ul class="collapsible popout postDivPrincipale" data-collapsible="popout">
-      {#***********************#}
-      {# Niveau 1 : Catégories #}
-      {#***********************#}
-      {% set img = 1 %}
-      {% for categorie in categories %}
-      <li>
-          {# Gestion couleur par catégories #}
-          {% if categorie.id == 1 %}
-                <div class="collapsible-header postListTitleCat_{{ categorie.id }} center">
-                    {%  elseif categorie.id == 2%}
-                    <div class="collapsible-header postListTitleCat_{{ categorie.id }} center">
-                        {%  elseif categorie.id == 3 %}
+            <h1 class=" soustitrePage center">Discussions par catégorie</h1>
+            <ul class="collapsible popout postDivPrincipale" data-collapsible="popout">
+                {#***********************#}
+                {# Niveau 1 : Catégories #}
+                {#***********************#}
+                {% for categorie in categories %}
+                    <li>
+                        {# Gestion couleur par catégories #}
+                        {% if categorie.id == 1 %}
                         <div class="collapsible-header postListTitleCat_{{ categorie.id }} center">
-                            {%  elseif categorie.id == 4 %}
+                            {%  elseif categorie.id == 2%}
                             <div class="collapsible-header postListTitleCat_{{ categorie.id }} center">
-                                {% endif %}
-                                {# FIN Gestion couleur par catégories #}
-                                {{ categorie.nom|capitalize }}
+                                {%  elseif categorie.id == 3 %}
+                                <div class="collapsible-header postListTitleCat_{{ categorie.id }} center">
+                                    {%  elseif categorie.id == 4 %}
+                                    <div class="collapsible-header postListTitleCat_{{ categorie.id }} center">
+                                        {% endif %}
+                                        {# FIN Gestion couleur par catégories #}
+                                        {{ categorie.nom|capitalize }}
 
-            {# Stockage de l'ID de la CATEGORIE #}
-            {% set categorieEnLecture = categorie.id %}
-              {# Reprise image categorie du harasBundle #}
-              {#<div><img class="indexImageCat" src="{{ asset('bundles/haras/media/section' ~ img ~ 'Image.png') }}"></div>#}
-          </div>
-          <div class="collapsible-body">
-            <ul class="collapsible popout postDivPrincipale" data-collapsible="accordion">
-            {#****************************#}
-            {# Niveau 2 : SOUS CATEGORIES #}
-            {#****************************#}
-            {% for sousCategorie in sousCategories %}
-            {# Selectionne sous catégorie  parentId not null #}
-            {% if sousCategorie.parent.id == categorieEnLecture %}
-                <li class="liPostSousCat">
-                   <div class="collapsible-header postListTitleSousCat ">
-                       <i class="fa fa-bars" aria-hidden="true"></i>
-                       {{ sousCategorie.nom|capitalize }}
-                       {# Stockage de l'ID de la SOUS CATEGORIE #}
-                       {% set sousCategorieEnLecture = sousCategorie.id %}
-                   </div>
-                   <div class="collapsible-body divCorpsSousCat">
-                       <ul class="collapsible popout col offset-l2 l8 s12 m6 postDivPrincipale" data-collapsible="accordion">
-                       {#**************************}
-                       {# Niveau 3 : Post Parents #}
-                       {#*************************#}
-                       {% for postParent in postParents %}
-                       {# Selectionne sous categorieId du postParent #}
-                       {% if (postParent.categorie.id == sousCategorieEnLecture)
-                            and (postParent.categorie.parent.id == categorieEnLecture) %}
-                            <li>
-                                  <div class="collapsible-header postListTitlePost" id="table_id">
-                                      <i class="material-icons">place</i>
-                                      {{ postParent.titre|capitalize }}
-                                      {# Gestion nombre de réponses sur le fil de discussion #}
-                                      <span class="badge" data-badge-caption=
-                                      {% if nbPostEnfants[postParent.id] == 0 or  nbPostEnfants[postParent.id] == 1 %}"réponse"
-                                        {% else %} "réponses"
-                                      {% endif %}>
-                                          {{ nbPostEnfants[postParent.id] }}
-                                      </span>
-                                      {# Fin Gestion nombre de réponses sur le fil de discussion #}
-                                  </div>
-                                  <div class="collapsible-body divCorpsPostParent">
-                                      <div class="indexContenuPost">
-                                        {{ postParent.contenu|raw }}
-                                          <p class="dateIndexPost">Message posté le {{ postParent.dateCreate|date("d/m/Y") }}</p>
+                                        {# Stockage de l'ID de la CATEGORIE #}
+                                        {% set categorieEnLecture = categorie.id %}
+                                    </div>
+                                    <div class="collapsible-body">
+                                        <ul class="collapsible popout postDivPrincipale" data-collapsible="accordion">
+                                            {#****************************#}
+                                            {# Niveau 2 : SOUS CATEGORIES #}
+                                            {#****************************#}
+                                            {% for sousCategorie in sousCategories %}
+                                            {# Selectionne sous catégorie  parentId not null #}
+                                            {% if sousCategorie.parent.id == categorieEnLecture %}
+                                            <li class="liPostSousCat">
+                                                <div class="collapsible-header postListTitleSousCat ">
+                                                    <i class="fa fa-bars" aria-hidden="true"></i>
+                                                    {{ sousCategorie.nom|capitalize }}
+                                                    {# Stockage de l'ID de la SOUS CATEGORIE #}
+                                                    {% set sousCategorieEnLecture = sousCategorie.id %}
+                                                </div>
+                                                <div class="collapsible-body divCorpsSousCat">
+                                                    <ul class="collapsible popout col offset-l2 l8 s12 m6 postDivPrincipale" data-collapsible="accordion">
+                                                        {#**************************}
+                                                        {# Niveau 3 : Post Parents #}
+                                                        {#*************************#}
+                                                        {% for postParent in postParents %}
+                                                            {# Selectionne sous categorieId du postParent #}
+                                                            {% if (postParent.categorie.id == sousCategorieEnLecture)
+                                                            and (postParent.categorie.parent.id == categorieEnLecture) %}
+                                                                <li>
+                                                                    <div class="collapsible-header postListTitlePost" id="table_id">
+                                                                        <i class="material-icons">place</i>
+                                                                        {{ postParent.titre|capitalize }}
+                                                                        {# Gestion nombre de réponses sur le fil de discussion #}
+                                                                        <span class="badge" data-badge-caption=
+                                                                        {% if nbPostEnfants[postParent.id] == 0 or  nbPostEnfants[postParent.id] == 1 %}"réponse"
+                                                                    {% else %} "réponses"
+                                                                        {% endif %}>
+                                                                        {{ nbPostEnfants[postParent.id] }}
+                                                                        </span>
+                                                                        {# Fin Gestion nombre de réponses sur le fil de discussion #}
+                                                                    </div>
+                                                                    <div class="collapsible-body divCorpsPostParent">
+                                                                        <div class="indexContenuPost">
+                                                                            {{ postParent.contenu|raw }}
+                                                                            <p class="dateIndexPost">Message posté le {{ postParent.dateCreate|date("d/m/Y") }}</p>
 
-                                      </div>
-                                      <div class="cartoucheUserIndexPost">
-                                          <div class="chip">
-                                            <img src="{{ asset('bundles/haras/images/test2.jpeg')}}" alt="Contact Person">
-                                            Message de : {{ postParent.user|capitalize }}
-                                          </div>
-                                          {# Bouton voir la discussion #}
-                                          <a class="waves-effect waves-teal btn-flat center indexEntrerFil"
-                                               href="{{ path('post_showAllPost', { 'id': postParent.id }) }}">
-                                                <i class="material-icons">input</i>
-                                          </a>
-                                      </div>
-                                  </div> {# fin class="collapsible-body" POSTPARENT #}
-                            </li>
-                       {% endif %}  {# fin if POST PARENT #}
-                       {% endfor %} {# for for POST PARENT #}
-                       </ul>
-                   {# Bouton pour ajouter nouvelle discussion #}
-                   <div class="row center">
-                       {#Ajout nouveau post parent sur cat & ssCat selectionnées (CAT)#}
-                       <a class="waves-effect waves-light btn"
-                          href="{{ path('post_newParent' , {'cat' : sousCategorieEnLecture}) }}">
-                           <i class="material-icons left">playlist_add</i>Nouveau message
-                       </a>
-                   </div>
-            {% endif %} {# fin if SOUS CATEGORIE #}
-            {% endfor %} {# fin for SOUS CATEGORIE #}
-                   </div> {# Fin Div  class="collapsible-body" niveau POST PARENTS #}
-                </li>
+                                                                        </div>
+                                                                        <div class="cartoucheUserIndexPost">
+                                                                            <div class="chip">
+                                                                                <img src="{{ asset(postParent.user.photo.path) }}">
+                                                                                Message de : {{ postParent.user|capitalize }}
+                                                                            </div>
+                                                                            {# Bouton voir la discussion #}
+                                                                            <a class="waves-effect waves-teal btn-flat center indexEntrerFil"
+                                                                               href="{{ path('post_showAllPost', { 'id': postParent.id }) }}">
+                                                                                <i class="material-icons">input</i>
+                                                                            </a>
+                                                                        </div>
+                                                                    </div> {# fin class="collapsible-body" POSTPARENT #}
+                                                                </li>
+                                                            {% endif %}  {# fin if POST PARENT #}
+                                                        {% endfor %} {# for for POST PARENT #}
+                                                    </ul>
+                                                    {# Bouton pour ajouter nouvelle discussion #}
+                                                    <div class="row center">
+                                                        {#Ajout nouveau post parent sur cat & ssCat selectionnées (CAT)#}
+                                                        <a class="waves-effect waves-light btn"
+                                                           href="{{ path('post_newParent' , {'cat' : sousCategorieEnLecture}) }}">
+                                                            <i class="material-icons left">playlist_add</i>Nouveau message
+                                                        </a>
+                                                    </div>
+                                                    {% endif %} {# fin if SOUS CATEGORIE #}
+                                                    {% endfor %} {# fin for SOUS CATEGORIE #}
+                                                </div> {# Fin Div  class="collapsible-body" niveau POST PARENTS #}
+                                            </li>
+                                        </ul>
+                                    </div> {# fin class="collapsible-body" SOUS CATEGORIES #}
+                    </li>
+                {% endfor %} {# fin for CATEGORIE #}
             </ul>
-          </div> {# fin class="collapsible-body" SOUS CATEGORIES #}
-      </li>
-      {% set img = img + 1 %}
-      {% endfor %} {# fin for CATEGORIE #}
-    </ul>
-
-   </article>
-    {#-------------------------------------------------------------#}
-    {# Derniers post  #}
-    {{ include("@Forum/post/showDerniersPost.html.twig") }}
-    {# fin Derniers post #}
-    {#-------------------------------------------------------------#}
-</section>
+        </article>
+        {#-------------------------------------------------------------#}
+        {# Derniers post  #}
+        {{ include("@Forum/post/showDerniersPost.html.twig") }}
+        {# fin Derniers post #}
+        {#-------------------------------------------------------------#}
+    </section>
 {% endblock %}

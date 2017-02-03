@@ -19,6 +19,22 @@
             flex: 1 0 auto;
             width: 80%;
         }
+
+        i.marron {
+            background-color: #8C6822;
+        }
+
+        i.vert {
+            background-color: #07400a;
+        }
+
+        i.bleu {
+            background-color: #27228c;
+        }
+
+        i.rose {
+            background-color: #b71586;
+        }
     </style>
 
     <div class="ContainerNL row">
@@ -37,36 +53,36 @@
         {% endif %}
 
         <div class="row center">
-            <a class="btn-floating btn-small waves-effect waves-light pink darken-3 tooltipped"
+            <a class="btn-floating btn-small waves-effect waves-light tooltipped"
                data-position="top"
                data-delay="50"
                data-tooltip="Liste des newsletters"
                href="{{ path('newsletter_index')}}">
-                <i class="material-icons">home</i>
+                <i class="material-icons vert">home</i>
             </a>
             {% if is_granted('ROLE_ADMIN') %}
-                <a class="btn-floating btn-small waves-effect waves-light lime accent-4 tooltipped"
+                <a class="btn-floating btn-small waves-effect waves-light  tooltipped"
                    data-position="top"
                    data-delay="50"
                    data-tooltip="Diffuser la newsletter"
                    href="{{ path('newsletter_send', {'id': newsLetter.id }) }}"
-                   onclick="return confirm('Vous êtes sure ?')">
-                    <i class="material-icons">email</i>
+                   onclick="return confirm('Etes-vous sure ?')">
+                    <i class="material-icons marron">email</i>
                 </a>
-                <a class="btn-floating btn-small waves-effect waves-light orange darken-3 tooltipped"
+                <a class="btn-floating btn-small waves-effect waves-light tooltipped"
                    data-position="top"
                    data-delay="50"
                    data-tooltip="Modifier la newsletter"
                    href="{{ path('newsletter_edit', { 'id': newsLetter.id }) }}">
-                    <i class="material-icons">edit</i>
+                    <i class="material-icons bleu">edit</i>
                 </a>
-                <a class="btn-floating btn-small waves-effect waves-light blue darken-1 tooltipped"
+                <a class="btn-floating btn-small waves-effect waves-light tooltipped"
                    data-position="top"
                    data-delay="50"
                    data-tooltip="Supprimer la newsletter"
                    href="{{ path('newsletter_delete', { 'id': newsLetter.id }) }}"
                    onclick="return confirm('Vous êtes sure ?')">
-                    <i class="small material-icons">delete</i>
+                    <i class="small material-icons rose">delete</i>
                 </a>
             {% endif %}
         </div>

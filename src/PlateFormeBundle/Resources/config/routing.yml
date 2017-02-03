@@ -10,6 +10,11 @@ plate_forme_moderateur:
     path:     /moderateur/
     defaults: { _controller: PlateFormeBundle:Default:moderateur }
 
+philosophie_index:
+    path:     /layout/
+    defaults: { _controller: PlateFormeBundle:Philosophie:index }
+    methods:  [GET, POST]
+
 #plate_forme_philosophie_user:
 #    path:     /philosophie/
 #    defaults: { _controller: PlateFormeBundle:Default:philosophie }
@@ -21,6 +26,12 @@ plate_forme_philosophie:
 plate_forme_newsletter:
     resource: "@PlateFormeBundle/Resources/config/routing/newsletter.yml"
     prefix:   /newsletter/
+
+
+user_export_csv:
+  path:     /export/csv
+  defaults: { _controller: PlateFormeBundle:Default:generateCsv }
+
 
 plate_forme_register:
     resource: "@UserBundle/Resources/config/routing/all.xml"
