@@ -35,3 +35,24 @@ user_export_csv:
 
 plate_forme_register:
     resource: "@UserBundle/Resources/config/routing/all.xml"
+
+
+
+#///////////////////////////////////////////////////////////////////////////
+#///////////////////////////////////////////////////////////////////////////
+#TEST EXPORT CSV
+#///////////////////////////////////////////////////////////////////////////
+#///////////////////////////////////////////////////////////////////////////
+
+csv_show_tables:
+    path:     /showTablesCsv
+    defaults: { _controller: "PlateFormeBundle:Default:showTables" }
+
+csv_show_field:
+    path:     /showFieldCsv
+    defaults: { _controller: "PlateFormeBundle:Default:getTableField" }
+    methods:  [GET, POST]
+
+csv_export:
+  path:     /exportCsv
+  defaults: { _controller: "PlateFormeBundle:Default:generateCsv2" }

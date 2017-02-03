@@ -1,0 +1,23 @@
+{% if entities is defined %}
+
+    {% set arr = [] %}
+    <form action="{{ path('csv_show_field') }}" method="post">
+        <select name="table">
+            {% for key, name in entities %}
+                <option value="{{ key }}">{{ name }}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="Selectionner">
+    </form>
+
+{% endif %}
+
+{% if columns is defined %}
+    <form action="{{ path('csv_export') }}" method="post">
+            {% for key, name in columns %}
+                <input type="checkbox" data-name='{{ name }}' name="entity[]" value="{{ name }}">{{ name }}<br>
+            {% endfor %}
+        <input type="submit" value="Selectionner">
+    </form>
+
+{% endif %}

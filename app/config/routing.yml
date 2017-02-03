@@ -53,7 +53,7 @@ plate_forme:
     prefix:   /plateforme
 
 
-haras:
-    resource: "@HarasBundle/Resources/config/routing.yml"
-    prefix:   /
+#haras:
+#    resource: "@HarasBundle/Resources/config/routing.yml"
+#    prefix:   /
 
