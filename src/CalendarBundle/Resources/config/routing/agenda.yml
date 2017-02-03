@@ -20,6 +20,10 @@ agenda_show:
     defaults: { _controller: "CalendarBundle:Calendar:show" }
     methods:  GET
 
+agenda_show_all:
+    path:     /show
+    defaults: { _controller: "CalendarBundle:Calendar:showAll" }
+
 agenda_new:
     path:     /{start}/new
     defaults: { _controller: "CalendarBundle:Calendar:new", start: 0 }
