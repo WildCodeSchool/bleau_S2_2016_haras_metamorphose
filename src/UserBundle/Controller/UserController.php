@@ -4,7 +4,6 @@ use UserBundle\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\StreamedResponse;
-
 /**
  * User controller.
  *
@@ -18,12 +17,12 @@ class UserController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $users = $em->getRepository('UserBundle:User')->findAll();
+//        ici on veut afficher que les user qui sont activés 1
+        $users = $em->getRepository('UserBundle:User')->findBy(array('actif' => 1));
         return $this->render('@User/user/index.html.twig', array(
             'users' => $users,
         ));
     }
-
     /**
      * Creates a new user entity.
      *
@@ -65,20 +64,16 @@ class UserController extends Controller
         $deleteForm = $this->createDeleteForm($user);
         $editForm = $this->createForm('UserBundle\Form\UserType', $user, array('roles' => $this->container->getParameter('security.role_hierarchy.roles')));
         $editForm->handleRequest($request);
-
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-
             return $this->redirectToRoute('user_show', array('id' => $user->getId()));
         }
-
         return $this->render('@User/user/edit.html.twig', array(
             'user' => $user,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
     }
-
     /**
      * Deletes a user entity.
      *
@@ -109,7 +104,6 @@ class UserController extends Controller
             ->getForm()
             ;
     }
-
     /**
      * index admin.
      *
@@ -131,10 +125,6 @@ class UserController extends Controller
         $user->setNewsletter(false);
         $em->persist($user);
         $em->flush($user);
-        $this->addFlash(
-            'notice',
-            'Utilisateur désactivé'
-        );
         return $this->redirectToRoute('user_index');
     }
     /**
@@ -161,10 +151,6 @@ class UserController extends Controller
         $user->setNewsletter(true);
         $em->persist($user);
         $em->flush($user);
-        $this->addFlash(
-            'notice',
-            'Utilisateur désactivé'
-        );
         return $this->redirectToRoute('user_index');
     }
 }
