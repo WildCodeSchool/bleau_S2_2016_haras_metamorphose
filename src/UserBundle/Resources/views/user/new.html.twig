@@ -1,7 +1,10 @@
-{% extends 'base.html.twig' %}
+{% extends '@PlateForme/layout.html.twig' %}
 
 {% block body %}
-    <h1>User creation</h1>
+
+<div class="container center" id="user_list_model">
+
+<h2>Créer un nouvel utilisateur</h2>
 
     {{ form_start(form) }}
     {{ form_widget(form) }}
@@ -13,5 +16,5 @@
             <a href="{{ path('user_index') }}">Back to the list</a>
         </li>
     </ul>
+</div>
 {% endblock %}
-
