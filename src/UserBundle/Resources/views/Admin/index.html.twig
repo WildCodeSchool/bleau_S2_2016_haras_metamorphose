@@ -71,18 +71,30 @@
         {# AGENDA #}
         <div class="row">
             <div class="col s12 m8 l6">
-                <div style="padding: 35px;" align="center" class="card">
+                <div style="padding: 35px;" class="card">
                     <div class="row">
-                        <div class="card-title">
+                        <div class="card-title center">
                             <b>Gestion de l'agenda</b>
                         </div>
                         <a href="{{ path('agenda_new') }}" >
-                            <div style="padding: 30px;" class="grey lighten-3 col s12 m12 offset-l3 l5  waves-effect">
+                            <div style="padding: 30px;" align="center" class="grey lighten-3 col s12 m12 l5  waves-effect">
                                 <span class="fa-stack fa-5x">
                                 <i class="fa fa-circle fa-stack-2x CatDashboard3"></i>
                                 <i class="fa fa-calendar-plus-o fa-stack-1x"></i>
                                 </span>
                                 <p class="indigo-text text-lighten-1">Nouvel évènement</p>
+                            </div>
+                        </a>
+
+                        <div class="col s1">&nbsp;</div>
+
+                        <a href="{{ path('agenda_show_all') }}" >
+                            <div style="padding: 30px;" align="center" class="grey lighten-3 col s12 m12 l5  waves-effect">
+                                <span class="fa-stack fa-5x">
+                                <i class="fa fa-circle fa-stack-2x CatDashboard3"></i>
+                                <i class="fa fa-newspaper-o fa-stack-1x"></i>
+                                </span>
+                                <p class="indigo-text text-lighten-1">Liste des évènements</p>
                             </div>
                         </a>
                     </div>
