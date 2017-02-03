@@ -62,25 +62,6 @@
                                 <i class="material-icons">supervisor_account</i>
                             </button>
                         </a>
-                        {%  if user.actif == true %}
-                            <a href="{{ path('user_desactive', {'id': user.id}) }}">
-                                <button class="user btn-floating btn-large waves-effect tooltipped icon-background4" type="submit" name="action"
-                                        data-position="bottom"
-                                        data-delay="50"
-                                        data-tooltip="Désactiver">
-                                    <i class="material-icons">lock_outline</i>
-                                </button>
-                            </a>
-                        {% else %}
-                            <a href="{{ path('user_reactive', {'id': user.id}) }}">
-                                <button class="user btn-floating btn-large waves-effect tooltipped icon-background4" type="submit" name="action"
-                                        data-position="bottom"
-                                        data-delay="50"
-                                        data-tooltip="Réactiver">
-                                    <i class="material-icons">lock_open</i>
-                                </button>
-                            </a>
-                        {% endif %}
                         <a href="{{ path('plate_forme_homepage') }}">
                             <button class="user btn-floating btn-large waves-effect tooltipped icon-background4" type="submit" name="action"
                                     data-position="bottom"

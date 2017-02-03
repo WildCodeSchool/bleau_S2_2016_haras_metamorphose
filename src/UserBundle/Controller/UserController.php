@@ -17,7 +17,8 @@ class UserController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $users = $em->getRepository('UserBundle:User')->findAll();
+//        ici on veut afficher que les user qui sont activés 1
+        $users = $em->getRepository('UserBundle:User')->findBy(array('actif' => 1));
         return $this->render('@User/user/index.html.twig', array(
             'users' => $users,
         ));
@@ -124,10 +125,6 @@ class UserController extends Controller
         $user->setNewsletter(false);
         $em->persist($user);
         $em->flush($user);
-        $this->addFlash(
-            'notice',
-            'Utilisateur désactivé'
-        );
         return $this->redirectToRoute('user_index');
     }
     /**
@@ -154,10 +151,6 @@ class UserController extends Controller
         $user->setNewsletter(true);
         $em->persist($user);
         $em->flush($user);
-        $this->addFlash(
-            'notice',
-            'Utilisateur désactivé'
-        );
         return $this->redirectToRoute('user_index');
     }
 
