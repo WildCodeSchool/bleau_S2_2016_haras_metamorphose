@@ -51,3 +51,6 @@ services:
     philo.service:
         class: PlateFormeBundle\Services\PhilosophieService
         arguments: ['@service_container']
+    csvExport:
+        class: PlateFormeBundle\Services\CsvRepository
+        arguments: [ @doctrine.orm.entity_manager ]

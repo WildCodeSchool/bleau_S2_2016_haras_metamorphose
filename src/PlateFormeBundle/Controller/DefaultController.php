@@ -121,10 +121,14 @@ class DefaultController extends Controller
 #///////////////////////////////////////////////////////////////////////////
 #///////////////////////////////////////////////////////////////////////////
 
+    /**
+     * List all entities of application
+     *
+     */
     public function showTablesAction(){
         $em = $this->getDoctrine()->getManager();
-        $entities = array();
         $meta = $em->getMetadataFactory()->getAllMetadata();
+        $entities = array();
         foreach ($meta as $m) {
             $entities[$m->getName()] = preg_replace('/.*\\\\/', '', $m->getName());
         }
@@ -134,6 +138,10 @@ class DefaultController extends Controller
         ));
     }
 
+    /**
+     * List all fields for a selected entity
+     *
+     */
     public function getTableFieldAction(){
         $entity = $_POST['table'];
         $session = $this->get('session');
@@ -147,66 +155,34 @@ class DefaultController extends Controller
     }
 
     /**
-     * Export user en CSV.
+     * Export select to CSV.
      *
      */
     public function generateCsv2Action() {
         $session = $this->get('session');
 
-        $nameEntity = $_POST['entity'];
+        $fieldsEntity = $_POST['fields'];
         $linkEntity = $session->get('linkEntity');
 
-        $field = '';
-        $count = count($nameEntity);
-        for ($i=0; $i < $count; $i++){
-            if ($i == $count - 1){
-                $field .= $nameEntity[$i];
-            }
-            else{
-                $field .= $nameEntity[$i] . ', ';
-            }
-        }
-
         $response= new StreamedResponse();
-        $users = $this->getDoctrine()->getRepository($linkEntity)->findAll();
-        $response->setCallback(function() use ($users) {
+        $csvContent = $this->get('csvExport')->getFields($linkEntity, $fieldsEntity);
+
+        $response->setCallback(function() use ($csvContent, $fieldsEntity) {
             $handle = fopen('php://output','w+');
-            fputcsv($handle, array('id', 'Nom', 'Prenom','Nom Utilisateur', 'Email', 'Profession', 'Actif', 'Newsletter'),';');
-            //$results = $this->connection->query('SELECT email, gender, country, city, tshirt, foodPreference FROM user');
-            //$results->execute();
-            foreach ($users as $user) {
+            fputcsv($handle, $fieldsEntity,';');
 
-                if($user->getActif() == 1) {
-                    $userActif = "oui";
-                } else {
-                    $userActif = "non";
+            foreach ($csvContent as $content) {
+                $fieldCsv = array();
+                foreach ($fieldsEntity as $field){
+                    $fieldCsv[] = $content[$field];
                 }
-
-                if($user->getNewsletter() == 1) {
-                    $userNL = "oui";
-                } else {
-                    $userNL = "non";
-                }
-
-                fputcsv($handle, array(
-                    $user->getId(),
-                    $user->getNom(),
-                    $user->getPrenom(),
-                    $user->getUsername(),
-                    $user->getEmail(),
-                    $user->getProfession(),
-                    $userActif,
-                    $userNL
-                ),';');
-
-                $userActif = "";
-                $userNL = "";
+                fputcsv($handle, $fieldCsv,';');
             }
             fclose($handle);
         });
         $response->setStatusCode(200);
         $response->headers->set('Content-Type', 'text/csv; charset=utf-8');
-        $response->headers->set('Content-Disposition','attachment; filename="listeDesUtilisateurs.csv"');
+        $response->headers->set('Content-Disposition','attachment; filename="exportCsv.csv"');
         return $response;
     }
 }

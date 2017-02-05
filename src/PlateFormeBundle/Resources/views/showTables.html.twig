@@ -1,6 +1,5 @@
+{#Formulaire de selection de la table à extraire#}
 {% if entities is defined %}
-
-    {% set arr = [] %}
     <form action="{{ path('csv_show_field') }}" method="post">
         <select name="table">
             {% for key, name in entities %}
@@ -9,15 +8,42 @@
         </select>
         <input type="submit" value="Selectionner">
     </form>
-
 {% endif %}
 
+{#Formulaire de selection des champs de la table ) extraire#}
 {% if columns is defined %}
-    <form action="{{ path('csv_export') }}" method="post">
-            {% for key, name in columns %}
-                <input type="checkbox" data-name='{{ name }}' name="entity[]" value="{{ name }}">{{ name }}<br>
-            {% endfor %}
-        <input type="submit" value="Selectionner">
+    <form id="selectFieldForm" action="{{ path('csv_export') }}" method="post">
+        {% set id = 0 %}
+        {% for key, name in columns %}
+            {% set id = id + 1 %}
+            <input class="checkBoxField" id="check_{{ id }}" type="checkbox" name="fields[]" value="{{ name }}">{{ name }}<br>
+        {% endfor %}
+        <input onclick="testcheck(numFields)" type="button" value="Selectionner">
     </form>
-
 {% endif %}
+
+<script
+        src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
+        integrity="sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc="
+        crossorigin="anonymous">
+</script>
+<script>
+
+//    Vérification qu'au moin une checkbox est cochée
+    var numFields = $('.checkBoxField').length;
+    function testcheck(numFields)
+    {
+        $test = false;
+        for (var i=1; i<=numFields; i++)
+        {
+            if ($('#check_' + i).is(':checked')){
+                $test = true;
+                break;
+            }
+        }
+        if ($test == true)
+            $('#selectFieldForm').submit();
+        else
+            alert("Vous devez faire au moins un choix.");
+    }
+</script>

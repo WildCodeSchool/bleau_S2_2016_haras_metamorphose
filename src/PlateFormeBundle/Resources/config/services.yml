@@ -1,4 +1,0 @@
-services:
-#    plate_forme.example:
-#        class: PlateFormeBundle\Example
-#        arguments: ["@service_id", "plain_value", "%parameter%"]
