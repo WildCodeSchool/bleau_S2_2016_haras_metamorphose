@@ -89,9 +89,25 @@ fos_user:
             type: UserBundle\Form\RegistrationType
             # if you are using Symfony < 2.8 you should use the type name instead
             # type: app_user_registration
+    from_email:
+        address: haras@haras.com
+        sender_name: "Haras"
     profile:
         form:
             type: UserBundle\Form\ProfileType
+
+# fos_user:
+#     db_driver: orm # other valid values are 'mongodb' and 'couchdb'
+#     firewall_name: main
+#     user_class: TR\UserBundle\Entity\User
+#     registration:
+#         confirmation:
+#             enabled: true
+#         form:
+#             type: TR\UserBundle\Form\RegistrationType
+#     from_email:
+#         address: "%mailer_user%"
+#         sender_name: "%mailer_name%"
 
 twig:
     exception_controller:  HarasBundle:Exception:showException
